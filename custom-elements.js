@@ -29,3 +29,5 @@ class MyElement extends HTMLElement {
 
   // there can be other element methods and properties
 }
+
+customElements.define('my-element', MyElement);
