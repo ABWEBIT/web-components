@@ -22,8 +22,8 @@ class MyElement extends HTMLElement {
   }
 
   static get observedAttributes() {
-    // массив свойств в которых будут отслеживаться изменения
-    return ['attribute1', 'attribute2', 'attribute3'];
+    // массив атрибутов в которых будут отслеживаться изменения
+    return ['атрибут1', 'атрибут2', 'атрибут3'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
