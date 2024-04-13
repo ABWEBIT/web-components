@@ -1,9 +1,12 @@
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    // element created
   }
-
+  
+  render(){
+    
+  }
+  
   connectedCallback() {
     // browser calls this method when the element is added to the document
     // (can be called many times if an element is repeatedly added/removed)
