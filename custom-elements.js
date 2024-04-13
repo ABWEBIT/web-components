@@ -30,5 +30,5 @@ class MyElement extends HTMLElement {
   // there can be other element methods and properties
 }
 
-// элемент должен содержать знак дефиса -, пример my-element
+// имя элемента должно содержать знак дефиса -, пример my-element
 customElements.define('my-element', MyElement);
