@@ -22,7 +22,7 @@ class MyElement extends HTMLElement {
   }
 
   static get observedAttributes() {
-    // массив параметров для отслеживания изменений
+    // массив свойств в которых будут отслеживаться изменения
     return ['attribute1', 'attribute2', 'attribute3'];
   }
 
