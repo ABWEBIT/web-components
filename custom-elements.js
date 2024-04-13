@@ -28,6 +28,7 @@ class MyElement extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     // called when one of attributes listed above is modified
+    this.render();
   }
 
   adoptedCallback() {
