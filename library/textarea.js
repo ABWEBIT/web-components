@@ -1,19 +1,21 @@
 class Textarea extends HTMLElement{
   constructor(){
     super();
-    this.rendered = false;
-    this.required = false;
+    this.elementRendered = false;
+    this.elementRequired = false;
+    this.elementLabel = '';
     this.heightMin = 0;
     this.heightMax = 0;
     this.lengthMin = 0;
     this.lengthMax = 0;
-    this.label = '';
     this.addEventListener('input',()=>this.changeInput());
-    //window.addEventListener('resize',()=>this.update());
   };
 
   renderElement(){
-    this.rendered = true;
+    this.elementRendered = true;
+  };
+
+  updateElement(){
   };
 
   changeInput(){
@@ -21,16 +23,13 @@ class Textarea extends HTMLElement{
   };
 
   connectedCallback(){
-    if(!this.rendered) this.renderElement();
+    if(!this.elementRendered){
+      this.renderElement();
+    };
   };
 
   disconnectedCallback(){
-    this.rendered = false;
-  };
-
-
-  updateElement(){
-    console.log('+');
+    this.elementRendered = false;
   };
 
 }
