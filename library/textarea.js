@@ -1,7 +1,6 @@
 class TextareaDefault extends HTMLElement{
   constructor(){
     super();
-    this._rendered = false;
     this._required = false;
     this._label = '';
     this._help = '';
@@ -25,9 +24,6 @@ class TextareaDefault extends HTMLElement{
     `;
 
     //this.contentEditable = 'true';
-
-    // status
-    this.elementRendered = true;
   }
 
   updateElement(){
@@ -38,13 +34,10 @@ class TextareaDefault extends HTMLElement{
   }
 
   connectedCallback(){
-    if(!this.elementRendered){
-      this.render();
-    };
+    this.render();
   }
 
   disconnectedCallback(){
-    this.elementRendered = false;
   }
 
 }
