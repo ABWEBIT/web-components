@@ -12,15 +12,15 @@ class TextareaDefault extends HTMLElement{
     this.classList.add(this.constructor.name);
 
     // label
-    if(this.elementLabel && typeof this.elementLabel === 'string'){
-      this.elementLabelHTML = `
-        <label>${this.elementLabel}</label>`;
+    if(this._label && typeof this._label === 'string'){
+      this._labelHTML = `
+        <label>${this._label}</label>`;
     }
-    this.elementLabelHTML = this.elementLabelHTML || '';
+    this._labelHTML = this._labelHTML || '';
 
     // build
     this.innerHTML = `
-      ${this.elementLabelHTML}
+      ${this._labelHTML}
     `;
 
     //this.contentEditable = 'true';
