@@ -1,4 +1,4 @@
-textarea-{
+text-input{
   position:relative;
   display:block;
   overflow-wrap:break-word;
@@ -11,8 +11,8 @@ textarea-{
   height:auto;
   background-color:rgb(255,255,255);}
 
-textarea-::-webkit-scrollbar{width:6px;}
-textarea-::-webkit-scrollbar-track{background-color:transparent;}
-textarea-::-webkit-scrollbar-thumb{
+text-input::-webkit-scrollbar{width:6px;}
+text-input::-webkit-scrollbar-track{background-color:transparent;}
+text-input::-webkit-scrollbar-thumb{
   border-radius:6px;
   background-color:rgb(115,115,115);}

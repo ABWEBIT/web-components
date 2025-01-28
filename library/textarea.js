@@ -2,32 +2,32 @@ class TextInput extends HTMLElement{
   constructor(){
     super();
     this.attachShadow({mode:'open'});
-    this.elementRequired = false;
-    this.elementEditable = true;
-    this.elementLabel = '';
-    this.elementHelper = '';
+    this._required = true;
+    this._editable = true;
+    this._label = 'Label';
+    this._helper = '';
     this.addEventListener('input',()=>this.changeInput());
   }
 
   renderElement(){
-    // class
-    this.classList.add(this.constructor.name);
-
     // label
-    if(this.elementLabel && typeof this.elementLabel === 'string'){
-      this.elementLabelHTML = `
-        <label>${this.elementLabel}</label>`;
+    if(this._label && typeof this._label === 'string'){
+      let asterisk = this._required === true ? ' *' : '';
+      this._labelHTML = `<label>${this._label+asterisk}</label>`;
     }
-    this.elementLabelHTML = this.elementLabelHTML || '';
+    else this._labelHTML = '';
 
-    // Input
-    this.elementInputHTML = `
-        <div></div>`;
+    // input
+    this._inputHTML = `<div contenteditable="true"></div>`;
+
+    // helper
+    this._helperHTML = `<div></div>`;
 
     // build
     this.innerHTML = `
-      ${this.elementLabelHTML}
-      ${this.elementInputHTML}
+      ${this._labelHTML}
+      ${this._inputHTML}
+      ${this._helperHTML}
     `;
   }
 
