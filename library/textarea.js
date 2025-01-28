@@ -1,13 +1,14 @@
-class TextareaDefault extends HTMLElement{
+class TextareaElement extends HTMLElement{
   constructor(){
     super();
-    this._required = false;
-    this._label = '';
-    this._help = '';
+    this.attachShadow({mode:'open'});
+    this.elementRequired = false;
+    this.elementLabel = '';
+    this.elementHelp = '';
     this.addEventListener('input',()=>this.changeInput());
   }
 
-  render(){
+  renderElement(){
     // class
     this.classList.add(this.constructor.name);
 
@@ -21,6 +22,7 @@ class TextareaDefault extends HTMLElement{
     // build
     this.innerHTML = `
       ${this._labelHTML}
+      <div></div>
     `;
 
     //this.contentEditable = 'true';
@@ -34,11 +36,11 @@ class TextareaDefault extends HTMLElement{
   }
 
   connectedCallback(){
-    this.render();
+    this.renderElement();
   }
 
   disconnectedCallback(){
   }
 
 }
-customElements.define('textarea-default',TextareaDefault);
+customElements.define('textarea-element',TextareaElement);
