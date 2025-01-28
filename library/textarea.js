@@ -27,10 +27,8 @@ class TextInput extends HTMLElement{
     // build
     this.innerHTML = `
       ${this.elementLabelHTML}
-      <div></div>
+      ${this.elementInputHTML}
     `;
-
-    //
   }
 
   updateElement(){
