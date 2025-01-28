@@ -12,8 +12,8 @@ class TextInput extends HTMLElement{
   renderElement(){
     // label
     if(this._label && typeof this._label === 'string'){
-      let asterisk = this._required === true ? ' *' : '';
-      this._labelHTML = `<label>${this._label+asterisk}</label>`;
+      this._labelHTML = `
+        <label>${this._label}${this._required === true ? ' *' : ''}</label>`;
     }
     else this._labelHTML = '';
 
@@ -21,7 +21,7 @@ class TextInput extends HTMLElement{
     this._inputHTML = `<div contenteditable="true"></div>`;
 
     // helper
-    this._helperHTML = `<div></div>`;
+    this._helperHTML = `<div class="helper"></div>`;
 
     // build
     this.innerHTML = `
