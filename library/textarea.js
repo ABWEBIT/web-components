@@ -1,10 +1,11 @@
-class TextareaElement extends HTMLElement{
+class TextInput extends HTMLElement{
   constructor(){
     super();
     this.attachShadow({mode:'open'});
     this.elementRequired = false;
+    this.elementEditable = true;
     this.elementLabel = '';
-    this.elementHelp = '';
+    this.elementHelper = '';
     this.addEventListener('input',()=>this.changeInput());
   }
 
@@ -13,19 +14,23 @@ class TextareaElement extends HTMLElement{
     this.classList.add(this.constructor.name);
 
     // label
-    if(this._label && typeof this._label === 'string'){
-      this._labelHTML = `
-        <label>${this._label}</label>`;
+    if(this.elementLabel && typeof this.elementLabel === 'string'){
+      this.elementLabelHTML = `
+        <label>${this.elementLabel}</label>`;
     }
-    this._labelHTML = this._labelHTML || '';
+    this.elementLabelHTML = this.elementLabelHTML || '';
+
+    // Input
+    this.elementInputHTML = `
+        <div></div>`;
 
     // build
     this.innerHTML = `
-      ${this._labelHTML}
+      ${this.elementLabelHTML}
       <div></div>
     `;
 
-    //this.contentEditable = 'true';
+    //
   }
 
   updateElement(){
@@ -43,4 +48,4 @@ class TextareaElement extends HTMLElement{
   }
 
 }
-customElements.define('textarea-element',TextareaElement);
+customElements.define('text-input',TextInput);
