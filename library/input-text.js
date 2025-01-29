@@ -4,18 +4,19 @@ class InputText extends HTMLElement{
     this.attachShadow({mode:'open'});
     this.required = false;
     this.disabled = false;
-    this.label = '';
-    this.helper = '';
+    this.label = 'Label';
+    this.helper = 'Helper';
     this.render();
   }
 
   render(){
-    this.component
     // css
-    let cssBlock =`
+    this.component =`
     <style>
       :host,:host div{
-        position:relative;box-sizing:border-box;width:100%;}
+        position:relative;
+        box-sizing:border-box;
+        width:${this.width ? this.width : '100%'};}
 
       :host{
         display:inline-flex;
@@ -37,38 +38,27 @@ class InputText extends HTMLElement{
         display:block;
         padding:10px 0;
         overflow:hidden;
+        white-space:nowrap;
         border:none;
         outline:none;}
     </style>`;
 
     // label
-    let labelBlock ='';
-    if(this.label?.trim()){
-      labelBlock = `
-        <div class="label">${this.label.trim()}${this.required ? '*':''}</div>`;
-    };
+    this.component += this.label?.trim() ? `
+      <div class="label">${this.label.trim()}${this.required ? '*' : ''}</div>` : '';
 
     // input
-    let inputBlock = `
+    this.component += `
       <div class="field">
         <div class="input" contenteditable="true"></div>
       </div>`;
 
     // helper
-    let helperBlock ='';
-    if(this.helper?.trim()){
-      helperBlock = `<div class="helper">${this.helper.trim()}</div>`;
-    };
-
-    // build
-    let component =`
-      ${cssBlock}
-      ${labelBlock}
-      ${inputBlock}
-      ${helperBlock}`;
+    this.component += this.helper?.trim() ? `
+      <div class="helper">${this.helper.trim()}</div>` : '';
 
     // insert
-    this.shadowRoot.innerHTML = component;
+    this.shadowRoot.innerHTML = this.component;
 
     this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.changeInput());
   }
