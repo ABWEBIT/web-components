@@ -10,28 +10,24 @@ class InputText extends HTMLElement{
   }
 
   render(){
+    // fragment
+    const fragment = document.createDocumentFragment();
+
     // css
-    let
-    cssBlock = document.createElement('style');
-    cssBlock.textContent =`
+    this.cssBlock = document.createElement('style');
+    this.cssBlock.textContent =`
       :host,:host div{
         position:relative;box-sizing:border-box;width:100%;}
 
       :host{
         display:inline-flex;
         flex-direction:column;
-        row-gap:10px;
+        row-gap:6px;
         max-width:100%;}
 
       :host > .label,:host > .helper{-webkit-user-select:none;user-select:none;}
-
-      :host > .label{
-        font-size:120%;
-        color:var(--rgb-255-255-255);}
-
-      :host > .helper{
-        font-size:90%;
-        color:var(--rgb-155-155-155);}
+      :host > .label{font-size:110%;color:var(--rgb-255-255-255);}
+      :host > .helper{font-size:85%;color:var(--rgb-155-155-155);}
 
       :host > .field{
         overflow:hidden;
@@ -43,40 +39,46 @@ class InputText extends HTMLElement{
         display:block;
         overflow:hidden;
         border:none;
-        outline:none;}
-    `;
-
+        outline:none;}`;
 
     // label
-    let
-    labelBlock = document.createElement('div');
-    labelBlock.classList.add('label');
-    labelBlock.textContent = `${this.label.trim()}`;
+    if(this.label?.trim()){
+      this.labelBlock = document.createElement('div');
+      this.labelBlock.classList.add('label');
+      this.labelBlock.textContent = `${this.label.trim()}`;
+    };
 
-    //this.shadowRoot.appendChild(labelHTML);
+    // required
+    if(this.required === true){
+      this.labelBlock.textContent += '*';
+    };
+
     //this.labelHTML = (this.label?.trim()) ? 
-    //  `<div class="label">${this.label.trim()}${this.required ? '*':''}</div>`:'';
-
+    //  `<div class="label">${this.label.trim()}</div>`:'';
 
     // input
-    this.inputHTML = `
-      <div class="field">
-        <div class="input" contenteditable="true"></div>
-      </div>`;
+    this.fieldBlock = document.createElement('div');
+    this.fieldBlock.classList.add('field');
+    this.inputBlock = document.createElement('div');
+    this.inputBlock.classList.add('input');
+    this.inputBlock.contentEditable = true;
+    this.fieldBlock.appendChild(this.inputBlock);
 
     // helper
-    if(this.helper && typeof this.helper === 'string' && this.helper.trim()){
-      this.helperHTML = `
-        <div class="helper">${this.helper.trim()}</div>`;
+    if(this.helper?.trim()){
+      this.helperBlock = document.createElement('div');
+      this.helperBlock.classList.add('helper');
+      this.helperBlock.textContent = `${this.helper.trim()}`;
     }
-    else this.helperHTML = '';
 
     // build
+    fragment.appendChild(this.cssBlock);
+    fragment.appendChild(this.labelBlock);
+    fragment.appendChild(this.fieldBlock);
+    fragment.appendChild(this.helperBlock);
 
-    this.shadowRoot.innerHTML = `
-      ${cssBlock.outerHTML}
-      ${labelBlock.outerHTML}
-    `;
+    // append
+    this.shadowRoot.appendChild(fragment);
 
     //this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.changeInput());
   }
