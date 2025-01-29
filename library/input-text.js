@@ -2,7 +2,7 @@ class InputText extends HTMLElement{
   constructor(){
     super();
     this.attachShadow({mode:'open'});
-    this.required = false;
+    this.required = true;
     this.disabled = false;
     this.label = 'Label';
     this.helper = 'Helper';
@@ -10,8 +10,8 @@ class InputText extends HTMLElement{
   }
 
   render(){
-    // style
-    let style =`
+    // css
+    this.css =`
       <style>
       :host,:host div{
         position:relative;
@@ -29,12 +29,12 @@ class InputText extends HTMLElement{
         user-select:none;}
 
       :host > .label{
-        font-size:130%;
+        font-size:120%;
         color:var(--rgb-255-255-255);}
 
       :host > .helper{
         font-size:90%;
-        color:rgb(155,155,155);}
+        color:var(--rgb-155-155-155);}
 
       :host > .field{
         overflow:hidden;
@@ -50,11 +50,9 @@ class InputText extends HTMLElement{
       </style>`;
 
     // label
-    if(this.label && typeof this.label === 'string' && this.label.trim()){
-      this.labelHTML = `
-        <div class="label">${this.label.trim()}${this.required === true ? '*' : ''}</div>`;
-    }
-    else this.labelHTML = '';
+    this.labelHTML = (this.label?.trim()) ? 
+      `<div class="label">${this.label.trim()}${this.required ? '*':''}</div>`:'';
+
 
     // input
     this.inputHTML = `
@@ -71,7 +69,7 @@ class InputText extends HTMLElement{
 
     // build
     this.shadowRoot.innerHTML = `
-      ${style}
+      ${this.css}
       ${this.labelHTML}
       ${this.inputHTML}
       ${this.helperHTML}
