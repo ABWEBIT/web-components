@@ -4,6 +4,18 @@
   box-sizing:border-box!important;
   outline:none!important;}
 
+/* root */
+:root{
+  --font-arial:Arial,Helvetica,sans-serif;
+  --rgb-255-255-255:rgb(255,255,255);
+  --rgb-0-0-0:rgb(0,0,0);
+  --rgb-185-65-65:rgb(185,65,65);
+  --rgb-0-165-100:rgb(0,165,100);
+  --rgb-25-125-230:rgb(25,125,230);}
+
+/* svg */
+svg{shape-rendering:geometricPrecision;}
+
 html,
 body{
   position:relative;
@@ -13,12 +25,16 @@ body{
   height:100%;}
 
 body{
-  background-color:rgb(50,50,50);}
+  font-family:var(--font-arial);
+  font-size:16px;
+  background-color:var(--rgb-0-0-0);}
 
 #app{
+  position:relative;
   height:100%;}
 
-#appWrap{
+#content{
+  position:relative;
   padding:50px 25px;
   width:400px;
   max-width:100%;
