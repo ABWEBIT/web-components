@@ -70,13 +70,12 @@ class InputText extends HTMLElement{
     // insert
     this.shadowRoot.innerHTML = component;
 
-    //this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.changeInput());
+    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.changeInput());
   }
 
   changeInput(){
     console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
-
 
 }
 customElements.define('input-text',InputText);
