@@ -2,19 +2,17 @@ class InputText extends HTMLElement{
   constructor(){
     super();
     this.attachShadow({mode:'open'});
-    this.required = true;
+    this.required = false;
     this.disabled = false;
-    this.label = 'Label';
-    this.helper = 'Helper';
+    this.label = '';
+    this.helper = '';
     this.render();
   }
 
   render(){
-    // fragment
-    const fragment = document.createDocumentFragment();
-
+    this.component
     // css
-    this.cssBlock =`
+    let cssBlock =`
     <style>
       :host,:host div{
         position:relative;box-sizing:border-box;width:100%;}
@@ -26,7 +24,7 @@ class InputText extends HTMLElement{
         max-width:100%;}
 
       :host > .label,:host > .helper{-webkit-user-select:none;user-select:none;}
-      :host > .label{font-size:110%;color:var(--rgb-255-255-255);}
+      :host > .label{font-size:105%;color:var(--rgb-255-255-255);}
       :host > .helper{font-size:85%;color:var(--rgb-155-155-155);}
 
       :host > .field{
@@ -44,28 +42,30 @@ class InputText extends HTMLElement{
     </style>`;
 
     // label
+    let labelBlock ='';
     if(this.label?.trim()){
-      this.labelBlock = `
-        <div class="label">${this.label.trim()}</div>`;
+      labelBlock = `
+        <div class="label">${this.label.trim()}${this.required ? '*':''}</div>`;
     };
 
     // input
-    this.inputBlock = `
+    let inputBlock = `
       <div class="field">
         <div class="input" contenteditable="true"></div>
       </div>`;
 
     // helper
+    let helperBlock ='';
     if(this.helper?.trim()){
-      this.helperBlock = `<div class="helper">${this.helper.trim()}</div>`;
+      helperBlock = `<div class="helper">${this.helper.trim()}</div>`;
     };
 
     // build
     let component =`
-      ${this.cssBlock}
-      ${this.labelBlock}
-      ${this.inputBlock}
-      ${this.helperBlock}`;
+      ${cssBlock}
+      ${labelBlock}
+      ${inputBlock}
+      ${helperBlock}`;
 
     // insert
     this.shadowRoot.innerHTML = component;
