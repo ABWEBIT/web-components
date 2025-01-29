@@ -11,12 +11,11 @@ class InputText extends HTMLElement{
 
   render(){
     // css
-    this.css =`
-      <style>
+    let
+    cssBlock = document.createElement('style');
+    cssBlock.textContent =`
       :host,:host div{
-        position:relative;
-        box-sizing:border-box;
-        width:100%;}
+        position:relative;box-sizing:border-box;width:100%;}
 
       :host{
         display:inline-flex;
@@ -24,9 +23,7 @@ class InputText extends HTMLElement{
         row-gap:10px;
         max-width:100%;}
 
-      :host > .label,:host > .helper{
-        -webkit-user-select:none;
-        user-select:none;}
+      :host > .label,:host > .helper{-webkit-user-select:none;user-select:none;}
 
       :host > .label{
         font-size:120%;
@@ -47,11 +44,18 @@ class InputText extends HTMLElement{
         overflow:hidden;
         border:none;
         outline:none;}
-      </style>`;
+    `;
+
 
     // label
-    this.labelHTML = (this.label?.trim()) ? 
-      `<div class="label">${this.label.trim()}${this.required ? '*':''}</div>`:'';
+    let
+    labelBlock = document.createElement('div');
+    labelBlock.classList.add('label');
+    labelBlock.textContent = `${this.label.trim()}`;
+
+    //this.shadowRoot.appendChild(labelHTML);
+    //this.labelHTML = (this.label?.trim()) ? 
+    //  `<div class="label">${this.label.trim()}${this.required ? '*':''}</div>`:'';
 
 
     // input
@@ -68,14 +72,13 @@ class InputText extends HTMLElement{
     else this.helperHTML = '';
 
     // build
+
     this.shadowRoot.innerHTML = `
-      ${this.css}
-      ${this.labelHTML}
-      ${this.inputHTML}
-      ${this.helperHTML}
+      ${cssBlock.outerHTML}
+      ${labelBlock.outerHTML}
     `;
 
-    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.changeInput());
+    //this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.changeInput());
   }
 
   changeInput(){
