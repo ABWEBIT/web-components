@@ -1,6 +1,8 @@
 *,*:after,*:before{
-  outline:none!important;
-  box-sizing:border-box!important;}
+  -webkit-tap-highlight-color:rgba(0,0,0,0)!important;
+  -webkit-tap-highlight-color:transparent!important;
+  box-sizing:border-box!important;
+  outline:none!important;}
 
 html,
 body{
@@ -16,10 +18,10 @@ body{
 #app{
   height:100%;}
 
-#app .wrap{
-  padding-top:25px;
-  width:calc(100% - 20px);
-  max-width:300px;
+#appWrap{
+  padding:50px 25px;
+  width:400px;
+  max-width:100%;
   margin:auto;}
 
 ::-webkit-scrollbar-thumb,
