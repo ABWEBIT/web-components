@@ -77,11 +77,11 @@ class InputText extends HTMLElement{
       ${this.helperHTML}
     `;
 
-    this.addEventListener('input',()=>this.changeInput());
+    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.changeInput());
   }
 
   changeInput(){
-    console.log(this.textContent.length);
+    console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
 
