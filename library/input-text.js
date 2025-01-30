@@ -2,7 +2,7 @@ class InputText extends HTMLElement{
   constructor(){
     super();
     this.attachShadow({mode:'open'});
-    this.required = false;
+    this.required = true;
     this.disabled = false;
     this.label = 'Label';
     this.hint = 'Hint';
@@ -23,7 +23,7 @@ class InputText extends HTMLElement{
       :host{
         display:inline-flex;
         flex-direction:column;
-        row-gap:5px;}
+        row-gap:10px;}
 
       .label,.hint{
         text-overflow:ellipsis;
@@ -31,7 +31,9 @@ class InputText extends HTMLElement{
         user-select:none;
         color:var(--rgb-255-255-255);}
 
-      .label,.hint{font-size:90%;}
+      .label{font-size:100%;}
+      .hint{font-size:90%;}
+      .asterisk{color:var(--rgb-185-65-65)}
 
       .field{
         display:inline-flex;
@@ -51,31 +53,24 @@ class InputText extends HTMLElement{
     `;
   }
 
-  render(){
-    let html = '';
-
-    // label
-    html += this.label?.trim() ? `
-      <div class="label">${this.label.trim()}${this.required ? '*' : ''}</div>` : '';
-
-    // input
-    html += `
+  html(){
+    return `
+      ${this.label?.trim() ? `<div class="label">${this.label.trim()}${this.required ? '<span class="asterisk"> *<span>' : ''}</div>` : ''}
       <div class="field">
         <div class="input" contenteditable="true"></div>
-      </div>`;
+      </div>
+      ${this.hint?.trim() ? `<div class="hint">${this.hint.trim()}</div>` : ''}
+    `;
+  }
 
-    // hint
-    html += this.hint?.trim() ? `
-      <div class="hint">${this.hint.trim()}</div>` : '';
+  render(){
+    this.shadowRoot.innerHTML = this.styles()+this.html();
 
-    // insert
-    this.shadowRoot.innerHTML = this.styles()+html;
-
-    // listeners
     this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.validation());
   }
 
   validation(){
+    //
     console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
