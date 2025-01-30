@@ -10,8 +10,7 @@ class InputText extends HTMLElement{
   }
 
   render(){
-    // css
-    this.component =`
+    this.css =`
     <style>
       :host,:host div{
         position:relative;
@@ -44,22 +43,23 @@ class InputText extends HTMLElement{
     </style>`;
 
     // label
-    this.component += this.label?.trim() ? `
+    this.html = this.label?.trim() ? `
       <div class="label">${this.label.trim()}${this.required ? '*' : ''}</div>` : '';
 
     // input
-    this.component += `
+    this.html += `
       <div class="field">
         <div class="input" contenteditable="true"></div>
       </div>`;
 
     // helper
-    this.component += this.helper?.trim() ? `
+    this.html += this.helper?.trim() ? `
       <div class="helper">${this.helper.trim()}</div>` : '';
 
     // insert
-    this.shadowRoot.innerHTML = this.component;
+    this.shadowRoot.innerHTML = this.css+this.html;
 
+    // listeners
     this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.inputValidation());
   }
 
@@ -69,3 +69,19 @@ class InputText extends HTMLElement{
 
 }
 customElements.define('input-text',InputText);
+
+class InputTextExtended extends InputText{
+  constructor(){
+    super();
+  }
+
+  connectedCallback(){
+    this.css =`
+    <style>
+      
+    </style>`;
+  }
+
+}
+
+customElements.define('input-text-extended',InputTextExtended);
