@@ -28,6 +28,7 @@ body{
 body{
   font-family:var(--font-arial);
   font-size:16px;
+  color:var(--rgb-255-255-255);
   background-color:var(--rgb-0-0-0);}
 
 #app{

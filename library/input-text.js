@@ -5,28 +5,34 @@ class InputText extends HTMLElement{
     this.required = false;
     this.disabled = false;
     this.label = 'Label';
-    this.helper = 'Helper';
+    this.hint = 'Hint';
     this.render();
   }
 
   styles(){
     return `
     <style>
-      :host,:host div{
+      :host,:host *:not(style){box-sizing:border-box;}
+
+      :host,:host > div{
         position:relative;
-        box-sizing:border-box;
         width:100%;
-        height:auto;}
+        max-width:100%;
+        overflow:hidden;}
 
       :host{
         display:inline-flex;
         flex-direction:column;
-        row-gap:6px;
-        max-width:100%;}
+        row-gap:5px;}
 
-      :host > .label,:host > .helper{-webkit-user-select:none;user-select:none;}
-      :host > .label{font-size:105%;color:var(--rgb-255-255-255);}
-      :host > .helper{font-size:85%;color:var(--rgb-155-155-155);}
+      .label,.hint{
+        text-overflow:ellipsis;
+        -webkit-user-select:none;
+        user-select:none;}
+
+      .label{font-size:100%;}
+      
+      .hint{font-size:80%;}
 
       :host > .field{
         display:inline-flex;
@@ -36,7 +42,7 @@ class InputText extends HTMLElement{
 
       :host > .field > .input{
         display:block;
-        padding:10px 0;
+        padding:5px 0;
         overflow:hidden;
         white-space:nowrap;
         border:none;
@@ -56,18 +62,18 @@ class InputText extends HTMLElement{
         <div class="input" contenteditable="true"></div>
       </div>`;
 
-    // helper
-    this.html += this.helper?.trim() ? `
-      <div class="helper">${this.helper.trim()}</div>` : '';
+    // hint
+    this.html += this.hint?.trim() ? `
+      <div class="hint">${this.hint.trim()}</div>` : '';
 
     // insert
     this.shadowRoot.innerHTML = this.styles()+this.html;
 
     // listeners
-    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.validation());
+    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.inputValidation());
   }
 
-  validation(){
+  inputValidation(){
     console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
