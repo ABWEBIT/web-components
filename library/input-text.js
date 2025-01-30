@@ -28,21 +28,21 @@ class InputText extends HTMLElement{
       .label,.hint{
         text-overflow:ellipsis;
         -webkit-user-select:none;
-        user-select:none;}
+        user-select:none;
+        color:var(--rgb-255-255-255);}
 
-      .label{font-size:100%;}
-      
-      .hint{font-size:80%;}
+      .label,.hint{font-size:90%;}
 
-      :host > .field{
+      .field{
         display:inline-flex;
         border-radius:5px;
         padding:0 10px;
         background-color:var(--rgb-255-255-255);}
 
-      :host > .field > .input{
+      .field > .input{
         display:block;
-        padding:5px 0;
+        flex-grow:1;
+        line-height:30px;
         overflow:hidden;
         white-space:nowrap;
         border:none;
@@ -52,22 +52,24 @@ class InputText extends HTMLElement{
   }
 
   render(){
+    let html = '';
+
     // label
-    this.html = this.label?.trim() ? `
+    html += this.label?.trim() ? `
       <div class="label">${this.label.trim()}${this.required ? '*' : ''}</div>` : '';
 
     // input
-    this.html += `
+    html += `
       <div class="field">
         <div class="input" contenteditable="true"></div>
       </div>`;
 
     // hint
-    this.html += this.hint?.trim() ? `
+    html += this.hint?.trim() ? `
       <div class="hint">${this.hint.trim()}</div>` : '';
 
     // insert
-    this.shadowRoot.innerHTML = this.styles()+this.html;
+    this.shadowRoot.innerHTML = this.styles()+html;
 
     // listeners
     this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.inputValidation());
