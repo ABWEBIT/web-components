@@ -9,8 +9,8 @@ class InputText extends HTMLElement{
     this.render();
   }
 
-  render(){
-    this.css =`
+  styles(){
+    return `
     <style>
       :host,:host div{
         position:relative;
@@ -40,8 +40,11 @@ class InputText extends HTMLElement{
         white-space:nowrap;
         border:none;
         outline:none;}
-    </style>`;
+    </style>
+    `;
+  }
 
+  render(){
     // label
     this.html = this.label?.trim() ? `
       <div class="label">${this.label.trim()}${this.required ? '*' : ''}</div>` : '';
@@ -57,7 +60,7 @@ class InputText extends HTMLElement{
       <div class="helper">${this.helper.trim()}</div>` : '';
 
     // insert
-    this.shadowRoot.innerHTML = this.css+this.html;
+    this.shadowRoot.innerHTML = this.styles()+this.html;
 
     // listeners
     this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.inputValidation());
@@ -69,19 +72,3 @@ class InputText extends HTMLElement{
 
 }
 customElements.define('input-text',InputText);
-
-class InputTextExtended extends InputText{
-  constructor(){
-    super();
-  }
-
-  connectedCallback(){
-    this.css =`
-    <style>
-      
-    </style>`;
-  }
-
-}
-
-customElements.define('input-text-extended',InputTextExtended);
