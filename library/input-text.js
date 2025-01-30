@@ -29,7 +29,6 @@ class InputText extends HTMLElement{
       :host > .helper{font-size:85%;color:var(--rgb-155-155-155);}
 
       :host > .field{
-        overflow:hidden;
         display:inline-flex;
         border-radius:5px;
         padding:0 10px;
@@ -61,10 +60,10 @@ class InputText extends HTMLElement{
     // insert
     this.shadowRoot.innerHTML = this.component;
 
-    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.changeInput());
+    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.inputValidation());
   }
 
-  changeInput(){
+  inputValidation(){
     console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
