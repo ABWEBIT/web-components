@@ -39,7 +39,7 @@ class InputText extends HTMLElement{
         padding:0 10px;
         background-color:var(--rgb-255-255-255);}
 
-      .field > .input{
+      .input{
         display:block;
         flex-grow:1;
         line-height:30px;
@@ -72,10 +72,10 @@ class InputText extends HTMLElement{
     this.shadowRoot.innerHTML = this.styles()+html;
 
     // listeners
-    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.inputValidation());
+    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.validation());
   }
 
-  inputValidation(){
+  validation(){
     console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
