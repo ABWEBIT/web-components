@@ -15,7 +15,8 @@ class InputText extends HTMLElement{
       :host,:host div{
         position:relative;
         box-sizing:border-box;
-        width:${this.width ? this.width : '100%'};}
+        width:100%;
+        height:auto;}
 
       :host{
         display:inline-flex;
@@ -63,10 +64,10 @@ class InputText extends HTMLElement{
     this.shadowRoot.innerHTML = this.styles()+this.html;
 
     // listeners
-    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.inputValidation());
+    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.validation());
   }
 
-  inputValidation(){
+  validation(){
     console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
