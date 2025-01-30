@@ -30,6 +30,7 @@ class InputText extends HTMLElement{
 
       :host > .field{
         overflow:hidden;
+        display:inline-flex;
         border-radius:5px;
         padding:0 10px;
         background-color:var(--rgb-255-255-255);}
