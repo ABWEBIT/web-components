@@ -5,7 +5,7 @@ class InputText extends HTMLElement{
     this.required = true;
     this.disabled = false;
     this.label = 'Label';
-    this.hint = 'Hint';
+    this.hint = 'This is the hint for input field';
     this.validator = this.validation.bind(this);
   }
 
@@ -31,7 +31,9 @@ class InputText extends HTMLElement{
         user-select:none;
         color:var(--rgb-255-255-255);}
 
-      .hint{font-size:80%;}
+      .hint{font-size:75%;}
+
+      label > span{color:rgb(185,65,65);padding-left:5px;}
 
       .field{
         display:inline-flex;
@@ -53,18 +55,16 @@ class InputText extends HTMLElement{
   }
 
   html(){
+    let asterisk = this.required === true ? '<span>*</span>' : '';
+
+
     return `
-      ${this.label?.trim() ? `<label>${this.label.trim()}${this.required ? ' *' : ''}</label>` : ''}
+      ${this.label?.trim() ? `<label>${this.label.trim()}${asterisk}</label>` : ''}
       <div class="field">
         <div class="input" contenteditable="true"></div>
-        <div class="clear">X</div>
       </div>
       ${this.hint?.trim() ? `<div class="hint">${this.hint.trim()}</div>` : ''}
     `;
-  }
-
-  validation(){
-    console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
   connectedCallback(){
@@ -74,6 +74,10 @@ class InputText extends HTMLElement{
 
   disconnectedCallback(){
     this.shadowRoot.querySelector('.input').removeEventListener('input',this.validator);
+  }
+
+  validation(){
+    console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
 }
