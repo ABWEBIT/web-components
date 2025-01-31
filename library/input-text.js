@@ -41,6 +41,7 @@ class InputText extends HTMLElement{
 
       .input{
         display:block;
+        color:rgb(0,0,0);
         flex-grow:1;
         line-height:30px;
         overflow:hidden;
@@ -53,7 +54,7 @@ class InputText extends HTMLElement{
 
   html(){
     return `
-      ${this.label?.trim() ? `<label>${this.label.trim()}${this.required ? '*' : ''}</label>` : ''}
+      ${this.label?.trim() ? `<label>${this.label.trim()}${this.required ? ' *' : ''}</label>` : ''}
       <div class="field">
         <div class="input" contenteditable="true"></div>
         <div class="clear">X</div>
