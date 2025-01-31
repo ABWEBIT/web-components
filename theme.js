@@ -1,1 +1,0 @@
-document.getElementById('content').appendChild(new InputText());
