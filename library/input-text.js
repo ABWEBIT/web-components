@@ -6,11 +6,10 @@ class InputText extends HTMLElement{
     this.disabled = false;
     this.label = 'Label';
     this.hint = 'Hint';
-    this.render();
+    this.validator = this.validation.bind(this);
   }
 
   styles(){
-    this.inputHeight = String(this.getAttribute('height') || '100%').trim();
     return `
     <style>
       :host,:host *:not(style){box-sizing:border-box;}
@@ -26,15 +25,13 @@ class InputText extends HTMLElement{
         flex-direction:column;
         row-gap:10px;}
 
-      .label,.hint{
+      label,.hint{
         text-overflow:ellipsis;
         -webkit-user-select:none;
         user-select:none;
         color:var(--rgb-255-255-255);}
 
-      .text{font-size:100%;}
       .hint{font-size:80%;}
-      .asterisk{color:var(--rgb-185-65-65)}
 
       .field{
         display:inline-flex;
@@ -45,7 +42,7 @@ class InputText extends HTMLElement{
       .input{
         display:block;
         flex-grow:1;
-        line-height:${this.inputHeight};
+        line-height:30px;
         overflow:hidden;
         white-space:nowrap;
         border:none;
@@ -56,10 +53,7 @@ class InputText extends HTMLElement{
 
   html(){
     return `
-      ${this.label?.trim() || this.required ? '<div class="label">' : ''}
-      ${this.label?.trim() ? `<span class="text">${this.label.trim()}</span>` : ''}
-      ${this.required ? '<span class="asterisk"> *</span>' : ''}
-      ${this.label?.trim() || this.required ? '</div>' : ''}
+      ${this.label?.trim() ? `<label>${this.label.trim()}${this.required ? '*' : ''}</label>` : ''}
       <div class="field">
         <div class="input" contenteditable="true"></div>
       </div>
@@ -69,13 +63,19 @@ class InputText extends HTMLElement{
 
   render(){
     this.shadowRoot.innerHTML = this.styles()+this.html();
-
-    this.shadowRoot.querySelector('.input').addEventListener('input',()=>this.validation());
   }
 
   validation(){
-    //
     console.log(this.shadowRoot.querySelector('.input').textContent.length);
+  }
+
+  connectedCallback(){
+    this.render();
+    this.shadowRoot.querySelector('.input').addEventListener('input',this.validator);
+  }
+
+  disconnectedCallback(){
+    this.shadowRoot.querySelector('.input').removeEventListener('input',this.validator);
   }
 
 }
