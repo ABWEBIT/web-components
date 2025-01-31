@@ -54,9 +54,7 @@ class InputText extends HTMLElement{
   }
 
   html(){
-    this.required = this.hasAttribute('required');
-    let asterisk = this.required === true ? '<span>*</span>' : '';
-
+    let asterisk = this.hasAttribute('required') ? '<span>*</span>' : '';
 
     return `
       ${this.label?.trim() ? `<label>${this.label.trim()+asterisk}</label>` : ''}
