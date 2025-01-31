@@ -9,7 +9,7 @@ class InputText extends HTMLElement{
     this.validator = this.validation.bind(this);
   }
 
-  styles(){
+  style(){
     return `
     <style>
       :host,:host *:not(style){box-sizing:border-box;}
@@ -56,6 +56,7 @@ class InputText extends HTMLElement{
       ${this.label?.trim() ? `<label>${this.label.trim()}${this.required ? '*' : ''}</label>` : ''}
       <div class="field">
         <div class="input" contenteditable="true"></div>
+        <div class="clear">X</div>
       </div>
       ${this.hint?.trim() ? `<div class="hint">${this.hint.trim()}</div>` : ''}
     `;
@@ -66,7 +67,7 @@ class InputText extends HTMLElement{
   }
 
   connectedCallback(){
-    this.shadowRoot.innerHTML = this.styles()+this.html();
+    this.shadowRoot.innerHTML = this.style()+this.html();
     this.shadowRoot.querySelector('.input').addEventListener('input',this.validator);
   }
 

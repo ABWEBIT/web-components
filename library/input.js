@@ -1,75 +1,90 @@
-class Input extends HTMLElement{
-  constructor(){
+import { html, css, LitElement } from 'lit';
+
+class InputText extends LitElement {
+  static properties = {
+    required: { type: Boolean },
+    disabled: { type: Boolean },
+    label: { type: String },
+    hint: { type: String },
+  };
+
+  constructor() {
     super();
-    this.rendered = false;
-  };
+    this.required = true;
+    this.disabled = false;
+    this.label = 'Label';
+    this.hint = 'Hint';
+    this.validator = this.validation.bind(this);
+  }
 
-  render(){
-    this.prefixAttribute = String(this.getAttribute('prefix')).trim();
-    this.suffixAttribute = String(this.getAttribute('suffix')).trim();
-    this.typeAttribute = String(this.getAttribute('type')).trim();
-    this.placeholderAttribute = String(this.getAttribute('placeholder')).trim();
+  static styles = css`
+      :host,:host *:not(style){box-sizing:border-box;}
 
-    // prefix icon
-    if(this.prefixAttribute && this.prefixAttribute !== 'null'){
-      this.prefixHTML =`
-        <svg class="prefix"><use href="#${this.prefixAttribute}"/></svg>`;}
-    else this.prefixHTML = '';
+      :host,:host > div{
+        position:relative;
+        width:100%;
+        max-width:100%;
+        overflow:hidden;}
 
-    // suffix icon
-    if(this.suffixAttribute && this.suffixAttribute !== 'null'){
-      this.suffixHTML =`
-        <svg class="suffix"><use href="#${this.suffixAttribute}"/></svg>`;}
-    else this.suffixHTML = '';
+      :host{
+        display:inline-flex;
+        flex-direction:column;
+        row-gap:10px;}
 
-    // type
-    if(this.typeAttribute && this.typeAttribute !== 'null'){
-      this.typeHTML =` type="${this.typeAttribute}"`;}
-    else this.typeHTML = '';
+      label,.hint{
+        text-overflow:ellipsis;
+        -webkit-user-select:none;
+        user-select:none;
+        color:var(--rgb-255-255-255);}
 
-    // placeholder
-    if(this.placeholderAttribute && this.placeholderAttribute !== 'null'){
-      this.placeholderHTML =` placeholder="${this.placeholderAttribute}"`;}
-    else this.placeholderHTML = '';
+      .hint{font-size:80%;}
 
-    // input
-    this.inputHTML =`<input${this.typeHTML}${this.placeholderHTML}>`;
+      .field{
+        display:inline-flex;
+        border-radius:5px;
+        padding:0 10px;
+        background-color:var(--rgb-255-255-255);}
 
-    // build
-    this.innerHTML =`
-      ${this.prefixHTML}
-      ${this.inputHTML}
-      ${this.suffixHTML}
+      .input{
+        display:block;
+        flex-grow:1;
+        line-height:30px;
+        overflow:hidden;
+        white-space:nowrap;
+        border:none;
+        outline:none;}
+  `;
+
+  html() {
+    return html`
+      ${this.label?.trim()
+        ? html`<label>${this.label.trim()}${this.required ? '*' : ''}</label>`
+        : ''}
+      <div class="field">
+        <div class="input" contenteditable="true"></div>
+      </div>
+      ${this.hint?.trim()
+        ? html`<div class="hint">${this.hint.trim()}</div>`
+        : ''}
     `;
-   
-    this.querySelector('input').addEventListener('focus', function(){
-      this.closest('input-').classList.add('active')
-    });
+  }
 
-    this.querySelector('input').addEventListener('blur', function(){
-      this.closest('input-').classList.remove('active')
-    });
+  validation() {
+    const inputElement = this.shadowRoot.querySelector('.input');
+    console.log(inputElement.textContent.length);
+  }
 
-    this.rendered = true;
+  firstUpdated() {
+    this.shadowRoot.querySelector('.input').addEventListener('input', this.validator);
+  }
 
-  };
+  updated(changedProperties) {
+    super.updated(changedProperties);
+  }
 
-  connectedCallback(){
-    if(!this.rendered) this.render();
-  };
+  render() {
+    return this.html();
+  }
+}
 
-  disconnectedCallback(){
-    this.rendered = false;
-  };
-
-  static get observedAttributes(){
-    return ['placeholder'];
-  };
-
-  attributeChangedCallback(name, oldValue, newValue){
-    this.render();
-  };
-
-};
-
-customElements.define('input-',Input);
+customElements.define('input-text', InputText);
