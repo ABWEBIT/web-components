@@ -30,9 +30,8 @@ class InputText extends HTMLElement{
         user-select:none;
         color:var(--rgb-255-255-255);}
 
-      .hint{font-size:75%;}
-
       label > span{color:rgb(185,65,65);padding-left:5px;}
+      .hint{font-size:75%;}
 
       .field{
         display:inline-flex;
