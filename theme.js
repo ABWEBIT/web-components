@@ -1,1 +1,1 @@
-document.getElementById('content').appendChild(new InputText()).label = 'Alice';
+document.getElementById('content').appendChild(new InputText());
