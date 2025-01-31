@@ -61,16 +61,12 @@ class InputText extends HTMLElement{
     `;
   }
 
-  render(){
-    this.shadowRoot.innerHTML = this.styles()+this.html();
-  }
-
   validation(){
     console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
   connectedCallback(){
-    this.render();
+    this.shadowRoot.innerHTML = this.styles()+this.html();
     this.shadowRoot.querySelector('.input').addEventListener('input',this.validator);
   }
 
