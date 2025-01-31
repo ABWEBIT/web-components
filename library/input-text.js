@@ -10,6 +10,7 @@ class InputText extends HTMLElement{
   }
 
   styles(){
+    this.inputHeight = String(this.getAttribute('height') || '100%').trim();
     return `
     <style>
       :host,:host *:not(style){box-sizing:border-box;}
@@ -31,8 +32,8 @@ class InputText extends HTMLElement{
         user-select:none;
         color:var(--rgb-255-255-255);}
 
-      .label{font-size:100%;}
-      .hint{font-size:90%;}
+      .text{font-size:100%;}
+      .hint{font-size:80%;}
       .asterisk{color:var(--rgb-185-65-65)}
 
       .field{
@@ -44,7 +45,7 @@ class InputText extends HTMLElement{
       .input{
         display:block;
         flex-grow:1;
-        line-height:30px;
+        line-height:${this.inputHeight};
         overflow:hidden;
         white-space:nowrap;
         border:none;
@@ -55,7 +56,10 @@ class InputText extends HTMLElement{
 
   html(){
     return `
-      ${this.label?.trim() ? `<div class="label">${this.label.trim()}${this.required ? '<span class="asterisk"> *<span>' : ''}</div>` : ''}
+      ${this.label?.trim() || this.required ? '<div class="label">' : ''}
+      ${this.label?.trim() ? `<span class="text">${this.label.trim()}</span>` : ''}
+      ${this.required ? '<span class="asterisk"> *</span>' : ''}
+      ${this.label?.trim() || this.required ? '</div>' : ''}
       <div class="field">
         <div class="input" contenteditable="true"></div>
       </div>
