@@ -2,7 +2,6 @@ class InputText extends HTMLElement{
   constructor(){
     super();
     this.attachShadow({mode:'open'});
-    this.required = true;
     this.disabled = false;
     this.label = 'Label';
     this.hint = 'This is the hint for input field';
@@ -55,11 +54,12 @@ class InputText extends HTMLElement{
   }
 
   html(){
+    this.required = this.hasAttribute('required');
     let asterisk = this.required === true ? '<span>*</span>' : '';
 
 
     return `
-      ${this.label?.trim() ? `<label>${this.label.trim()}${asterisk}</label>` : ''}
+      ${this.label?.trim() ? `<label>${this.label.trim()+asterisk}</label>` : ''}
       <div class="field">
         <div class="input" contenteditable="true"></div>
       </div>
