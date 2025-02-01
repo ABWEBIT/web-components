@@ -2,4 +2,3 @@
 ```javascript
 const shadowRoot = this.attachShadow({mode:'open'});
 ```
-.
