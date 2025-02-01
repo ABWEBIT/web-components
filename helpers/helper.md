@@ -7,7 +7,7 @@ const shadowRoot = this.attachShadow({mode:'open'});
 ```javascript
 class WebComponent
 ```
-Имя веб-компонента в методе customElements.define должно содержать дефис.
+Имя веб-компонента в методе **customElements.define** должно содержать дефис.
 ```javascript
 customElements.define('web-component',WebComponent);
 ```
