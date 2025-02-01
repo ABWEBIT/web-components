@@ -53,6 +53,15 @@ class TextInput extends HTMLElement{
     `;
   }
 
+
+  set text(val){
+    if (val) this.setAttribute(`text`, val);
+  }
+
+  get text(){
+    return this.getAttribute('text');
+  }
+
   html(){
     let asterisk = this.hasAttribute('required') ? '<span>*</span>' : '';
 

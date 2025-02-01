@@ -2,6 +2,7 @@
 class ElementDefault extends HTMLElement{
   constructor(){
     super();
+    this.attachShadow({mode:'open'});
     this.elementRendered = false;
   }
   
