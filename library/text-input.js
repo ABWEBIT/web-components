@@ -1,12 +1,13 @@
-class InputText extends HTMLElement{
+class TextInput extends HTMLElement{
   constructor(){
     super();
     this.attachShadow({mode:'open'});
-    this.disabled = false;
     this.label = 'Label';
     this.hint = 'This is the hint for input field';
     this.validator = this.validation.bind(this);
   }
+
+  /* name,type,minlength,maxlength,pattern,readonly,disabled */
 
   style(){
     return `
@@ -56,7 +57,7 @@ class InputText extends HTMLElement{
     let asterisk = this.hasAttribute('required') ? '<span>*</span>' : '';
 
     return `
-      ${this.label?.trim() ? `<label>${this.label.trim()+asterisk}</label>` : ''}
+      ${this.label?.trim() ? `<label>${this.label.trim()}${asterisk}</label>` : ''}
       <div class="field">
         <div class="input" contenteditable="true"></div>
       </div>
@@ -78,4 +79,4 @@ class InputText extends HTMLElement{
   }
 
 }
-customElements.define('input-text',InputText);
+customElements.define('text-input',TextInput);
