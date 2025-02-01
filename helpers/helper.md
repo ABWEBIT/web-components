@@ -10,5 +10,8 @@ customElements.define('web-component',WebComponent);
 
 В конструкторе записывать Shadow DOM в переменную не обязательно.
 ```javascript
-this.attachShadow({mode:'open'});
+constructor(){
+  super();
+  this.attachShadow({mode:'open'});
+}
 ```
