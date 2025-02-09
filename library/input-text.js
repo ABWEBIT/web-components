@@ -12,7 +12,16 @@ class InputText extends HTMLElement{
   style(){
     return `
     <style>
-      :host,:host *:not(style){box-sizing:border-box;}
+      :host{
+        all:initial;
+        display:inline-flex;
+        flex-direction:column;
+        row-gap:10px;
+        font-family:var(--font-arial);
+        color:var(--rgb-255-255-255);}
+
+      :host,
+      :host *:not(style){box-sizing:border-box;}
 
       :host,:host > div{
         position:relative;
@@ -20,16 +29,10 @@ class InputText extends HTMLElement{
         max-width:100%;
         overflow:hidden;}
 
-      :host{
-        display:inline-flex;
-        flex-direction:column;
-        row-gap:10px;}
-
       label,.hint{
         text-overflow:ellipsis;
         -webkit-user-select:none;
-        user-select:none;
-        color:var(--rgb-255-255-255);}
+        user-select:none;}
 
       label > span{color:rgb(185,65,65);padding-left:5px;}
       .hint{font-size:75%;}
@@ -42,7 +45,7 @@ class InputText extends HTMLElement{
 
       .input{
         display:block;
-        color:rgb(0,0,0);
+        color:var(--rgb-0-0-0);
         flex-grow:1;
         line-height:30px;
         overflow:hidden;
