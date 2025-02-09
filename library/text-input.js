@@ -1,4 +1,4 @@
-class TextInput extends HTMLElement{
+class InputText extends HTMLElement{
   constructor(){
     super();
     this.attachShadow({mode:'open'});
@@ -79,4 +79,4 @@ class TextInput extends HTMLElement{
   }
 
 }
-customElements.define('text-input',TextInput);
+customElements.define('input-text',InputText);
