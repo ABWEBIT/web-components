@@ -1,4 +1,4 @@
-import * as symbols from './icons-pack.js';
+import * as icons from './icons-pack.js';
 
 class IconBlock extends HTMLElement{
   constructor(){
@@ -19,8 +19,9 @@ class IconBlock extends HTMLElement{
       height:100%;}
 
     :host svg{
-      width:20px;
+      width:inherit;
       height:inherit;
+      stroke:none;
       fill:var(--rgb-255-255-255);
       -webkit-user-select:none;
       user-select:none;
@@ -30,12 +31,17 @@ class IconBlock extends HTMLElement{
   }
 
   html(){
+    const regex = /^[A-Za-z]+$/;
+    let iconName = this.getAttribute('icon');
+    iconName = (typeof iconName === "string" && regex.test(iconName) && iconName in icons ? iconName : 'iconDefault');
+    if(icons[iconName] === undefined) console.log('Not found icon: '+iconName);
     return `
       <svg viewBox="0 0 20 20">
-        ${symbols.iconSearch}
+        ${icons[iconName]}
       </svg>
     `;
   }
+
 
   connectedCallback(){
     this.shadowRoot.innerHTML = this.style()+this.html();
