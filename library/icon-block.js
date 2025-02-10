@@ -14,9 +14,10 @@ class IconBlock extends HTMLElement{
     :host,:host svg{position:relative;display:inline-flex;}
 
     :host{
-      justify-content:center;
       width:20px;
-      height:100%;}
+      height:100%;
+      justify-content:center;
+      overflow:hidden;}
 
     :host svg{
       width:inherit;
@@ -31,10 +32,8 @@ class IconBlock extends HTMLElement{
   }
 
   html(){
-    const regex = /^[A-Za-z]+$/;
     let iconName = this.getAttribute('icon');
-    iconName = (typeof iconName === "string" && regex.test(iconName) && iconName in icons ? iconName : 'iconDefault');
-    if(icons[iconName] === undefined) console.log('Not found icon: '+iconName);
+    iconName = (typeof iconName === "string" && /^[A-Za-z]+$/.test(iconName) && iconName in icons ? iconName : 'iconDefault');
     return `
       <svg viewBox="0 0 20 20">
         ${icons[iconName]}

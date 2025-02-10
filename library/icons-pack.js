@@ -1,3 +1,5 @@
+export const iconDefault =``;
+
 export const iconHome =`
   <polygon points="10 .8 1.5 9.35 3.39 9.35 3.39 19.2 7.57 19.2 7.57 12.5 12.43 12.5 12.43 19.2 16.61 19.2 16.61 9.35 18.5 9.35 10 .8"/>
 `;
