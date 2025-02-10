@@ -32,15 +32,15 @@ class IconBlock extends HTMLElement{
   }
 
   html(){
-    let iconName = this.getAttribute('icon');
+    let iconName = this.getAttribute('name');
     iconName = (typeof iconName === "string" && /^[A-Za-z]+$/.test(iconName) && iconName in icons ? iconName : 'iconDefault');
+
     return `
       <svg viewBox="0 0 20 20">
         ${icons[iconName]}
       </svg>
     `;
   }
-
 
   connectedCallback(){
     this.shadowRoot.innerHTML = this.style()+this.html();
