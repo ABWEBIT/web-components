@@ -23,6 +23,7 @@ class InputText extends HTMLElement{
       :host,
       :host *:not(style){box-sizing:border-box;}
 
+
       :host,:host > div{
         position:relative;
         width:100%;
