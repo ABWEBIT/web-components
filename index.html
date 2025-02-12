@@ -12,15 +12,18 @@
 <div id="app">
   <div id="content">
     <section>
-      <icon-block name="iconSearch" width="30px"></icon-block>
-      <input-text required></input-text>
+      <icon-block name="iconHome" width="24px"></icon-block>
+      <icon-block name="iconSearch" width="24px"></icon-block>
+      <icon-block name="iconGear" width="24px"></icon-block> 
+      <icon-block name="iconSend" width="24px"></icon-block>
+     <input-text required></input-text>
       <button onclick="changeIconName()">Клик</button>
 
       <script>
         function changeIconName(){
           const iconBlock = document.querySelector('icon-block');
           const currentIcon = iconBlock.getAttribute('name');
-          const icons = ['iconSearch', 'iconHome', 'iconSettings'];
+          const icons = ['iconSearch', 'iconHome', 'iconGear'];
           const currentIndex = icons.indexOf(currentIcon);
           const nextIndex = (currentIndex + 1) % icons.length;
           const nextIcon = icons[nextIndex];

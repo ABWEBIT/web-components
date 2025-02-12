@@ -86,7 +86,7 @@ class IconBlock extends HTMLElement{
 
     if(name === 'width'){
 
-      if(newValue && /^\d+(\.?\.?\d+)?(pt|px|%)$/.test(newValue)){
+      if(newValue && /^\d+(\.?\.?\d+)?(px|%)$/.test(newValue)){
         this.iconWidthFunc = newValue;
       }
       else console.warn(`Invalid Icon Width: ${newValue}`);
