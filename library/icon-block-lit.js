@@ -19,8 +19,8 @@ class IconBlock extends LitElement{
       overflow:hidden;}
 
     :host svg{
-      width:var(--width,24px);
-      height:var(--height,24px);
+      width:var(--width);
+      height:var(--height);
       shape-rendering:geometricPrecision;
       stroke:none;
       fill:var(--rgb-255-255-255);
@@ -30,13 +30,15 @@ class IconBlock extends LitElement{
   
   constructor(){
     super();
-    this.exists = false;
+    this.iconName = '';
+    this.iconWidth = '20px';
+    this.iconHeight = '20px';
   }
 
   updated(changedProperties){
     if(changedProperties.has('iconName')){
       if(this.iconName && /^[A-Za-z]+$/.test(this.iconName) && this.iconName in icons){
-        this.exists = true;
+        //
       }
       else console.warn(`Invalid Icon Name: ${this.iconName}`);
     }
@@ -56,7 +58,7 @@ class IconBlock extends LitElement{
 
   render(){
     return html`
-      <svg viewBox="0 0 24 24">
+      <svg viewBox="0 0 20 20">
         ${unsafeSVG(icons[this.iconName])}
       </svg>
     `;
