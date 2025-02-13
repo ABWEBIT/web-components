@@ -1,5 +1,5 @@
 import {LitElement,html,css,unsafeSVG} from '../helpers/lit-all.min-v3.2.1.js';
-import * as icons from './icons-pack.js';
+import * as icons from '../helpers/icons-pack.js';
 
 class IconBlock extends LitElement{
   static properties = {
