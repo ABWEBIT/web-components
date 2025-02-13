@@ -14,16 +14,14 @@ class IconBlock extends LitElement{
     :host,:host svg{position:relative;display:inline-flex;}
 
     :host{
-      height:100%;
+      width:var(--width);
+      height:var(--height);
       justify-content:center;
       overflow:hidden;}
 
     :host svg{
-      width:var(--width);
-      height:var(--height);
-      shape-rendering:geometricPrecision;
-      stroke:none;
       fill:var(--rgb-255-255-255);
+      shape-rendering:geometricPrecision;
       -webkit-user-select:none;
       user-select:none;}
   `;
