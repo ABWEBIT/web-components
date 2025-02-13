@@ -1,4 +1,4 @@
-import * as icons from './icons-pack.js';
+import * as icons from '../helpers/icons-pack.js';
 
 class IconBlock extends HTMLElement{
   constructor(){
@@ -9,14 +9,16 @@ class IconBlock extends HTMLElement{
     this.rendered = false;
   }
 
-  // name
+  static get observedAttributes(){
+    return ['name','width','height'];
+  }
+
   get iconNameFunc(){return this.iconName;}
   set iconNameFunc(value){
     this.iconName = value;
     if(this.rendered) this.iconNameUpdate();
   }
 
-  // width
   get iconWidthFunc(){return this.iconWidth;}
   set iconWidthFunc(value){
     this.iconWidth = value;
@@ -27,22 +29,22 @@ class IconBlock extends HTMLElement{
     <style>
     :host{all:initial;}
     :host,:host *:not(style){box-sizing:border-box;}
-    :host,:host svg{position:relative;display:inline-flex;}
 
     :host{
-      width:${this.iconWidth || '100%'};
-      height:100%;
+      position:relative;
+      display:inline-flex;
       justify-content:center;
+      width:var(--width);
+      height:var(--height);
       overflow:hidden;}
 
     :host svg{
-      width:inherit;
-      height:inherit;
-      stroke:none;
+      width:100%;
+      height:100%;
       fill:var(--rgb-255-255-255);
+      shape-rendering:geometricPrecision;
       -webkit-user-select:none;
-      user-select:none;
-      shape-rendering:geometricPrecision;}
+      user-select:none;}
     </style>
     `;
   }
@@ -70,9 +72,7 @@ class IconBlock extends HTMLElement{
   disconnectedCallback(){
   }
 
-  static get observedAttributes(){
-    return ['name','width'];
-  }
+
 
   attributeChangedCallback(name,oldValue,newValue){
     if(name === 'name'){
@@ -86,7 +86,7 @@ class IconBlock extends HTMLElement{
 
     if(name === 'width'){
 
-      if(newValue && /^\d+(\.?\.?\d+)?(px|%)$/.test(newValue)){
+      if(newValue && /^\d+(\.\d+)?(px|%)$/.test(newValue)){
         this.iconWidthFunc = newValue;
       }
       else console.warn(`Invalid Icon Width: ${newValue}`);
