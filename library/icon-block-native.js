@@ -5,29 +5,20 @@ class IconBlock extends HTMLElement{
     super();
     this.attachShadow({mode:'open'});
     this.iconName = '';
-    this.iconWidth = '20px';
-    this.iconHeight = '20px';
+    this.iconWidth = '';
+    this.iconHeight = '';
     this.rendered = false;
   }
   static get observedAttributes(){return ['name','width','height'];}
 
   get iconNameFunc(){return this.iconName;}
-  set iconNameFunc(value){
-    this.iconName = value;
-    if(this.rendered){
-      this.shadowRoot.querySelector('svg').innerHTML = icons[this.iconName];
-    };
-  }
+  set iconNameFunc(value){this.iconName = value;}
 
   get iconWidthFunc(){return this.iconWidth;}
-  set iconWidthFunc(value){
-    this.iconWidth = value;
-  }
+  set iconWidthFunc(value){this.iconWidth = value;}
 
   get iconHeightFunc(){return this.iconHeight;}
-  set iconHeightFunc(value){
-    this.iconHeight = value;
-  }
+  set iconHeightFunc(value){this.iconHeight = value;}
 
   css(){
     return `
@@ -36,13 +27,11 @@ class IconBlock extends HTMLElement{
     :host,:host *:not(style){box-sizing:border-box;}
 
     :host{
-      --width:20px;
-      --height:20px;
       position:relative;
       display:inline-flex;
       justify-content:center;
-      width:var(--width);
-      height:var(--height);
+      width:var(--width,20px);
+      height:var(--height,20px);
       overflow:hidden;}
 
     :host svg{
@@ -59,7 +48,7 @@ class IconBlock extends HTMLElement{
   html(){
     return `
       <svg viewBox="0 0 20 20">
-        ${icons[this.iconName]}
+        ${this.iconName ? icons[this.iconName] : ''}
       </svg>
     `;
   }
@@ -69,23 +58,27 @@ class IconBlock extends HTMLElement{
     this.shadowRoot.innerHTML = this.css()+this.html();
   }
 
+  disconnectedCallback(){
+    this.rendered = false;
+  }
+
   attributeChangedCallback(name,oldValue,newValue){
     if(name === 'name'){
-      if(newValue && oldValue !== newValue && /^[A-Za-z]+$/.test(newValue) && newValue in icons){
+      if(newValue && /^[A-Za-z]+$/.test(newValue) && newValue in icons && oldValue !== newValue){
         this.iconNameFunc = newValue;
-        
+        if(this.rendered === true) this.shadowRoot.querySelector('svg').innerHTML = icons[newValue]
       }
       else console.warn(`Invalid Icon Name: ${newValue}`);
     };
     if(name === 'width'){
-      if(newValue && /^\d+(\.\d+)?(px|%)$/.test(newValue)){
+      if(newValue && /^\d+(\.\d+)?(px|%)$/.test(newValue) && oldValue !== newValue){
         this.iconWidthFunc = newValue;
         this.shadowRoot.host.style.setProperty('--width',newValue);
       }
       else console.warn(`Invalid Icon Width: ${newValue}`);
     };
     if(name === 'height'){
-      if(newValue && /^\d+(\.\d+)?(px|%)$/.test(newValue)){
+      if(newValue && /^\d+(\.\d+)?(px|%)$/.test(newValue) && oldValue !== newValue){
         this.iconHeightFunc = newValue;
         this.shadowRoot.host.style.setProperty('--height',newValue);
       }
