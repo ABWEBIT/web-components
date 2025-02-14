@@ -5,10 +5,11 @@ class IconBlock extends HTMLElement{
     super();
     this.attachShadow({mode:'open'});
     this.iconName = '';
-    this.iconWidth = '';
-    this.iconHeight = '';
+    this.iconWidth = '20px';
+    this.iconHeight = '20px';
     this.rendered = false;
   }
+
   static get observedAttributes(){return ['name','width','height'];}
 
   get iconNameFunc(){return this.iconName;}
@@ -23,10 +24,8 @@ class IconBlock extends HTMLElement{
   css(){
     return `
     <style>
-    :host{all:initial;}
-    :host,:host *:not(style){box-sizing:border-box;}
-
     :host{
+      all:initial;
       position:relative;
       display:inline-flex;
       justify-content:center;
@@ -34,7 +33,9 @@ class IconBlock extends HTMLElement{
       height:var(--height,20px);
       overflow:hidden;}
 
-    :host svg{
+    :host,:host *:not(style){box-sizing:border-box;}
+
+    svg{
       width:100%;
       height:100%;
       fill:var(--rgb-255-255-255);
@@ -64,7 +65,7 @@ class IconBlock extends HTMLElement{
 
   attributeChangedCallback(name,oldValue,newValue){
     if(name === 'name'){
-      if(newValue && /^[A-Za-z]+$/.test(newValue) && newValue in icons && oldValue !== newValue){
+      if(icons[newValue] && /^[A-Za-z]+$/.test(newValue) && oldValue !== newValue){
         this.iconNameFunc = newValue;
         if(this.rendered === true) this.shadowRoot.querySelector('svg').innerHTML = icons[newValue]
       }

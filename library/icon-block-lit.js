@@ -1,38 +1,37 @@
-import {LitElement,html,css,unsafeSVG} from '../helpers/lit-all.min-v3.2.1.js';
+import {LitElement,html,css,unsafeSVG,nothing} from '../helpers/lit-all.min-v3.2.1.js';
 import * as icons from '../helpers/icons-pack.js';
 
 class IconBlock extends LitElement{
   constructor(){
     super();
     this.iconName = '';
-    this.iconValid = false;
     this.iconWidth = '20px';
     this.iconHeight = '20px';
+    this.iconValid = false;
   }
 
   static properties = {
     iconName:{type:String,attribute:'name',reflect: true},
-    iconValid:{type:Boolean},
     iconWidth:{type:String,attribute:'width'},
     iconHeight:{type:String,attribute:'height'},
-  };
+    iconValid:{type:Boolean,state:true},
+  }
 
   static styles = css`
-    :host{all:initial;}
-    :host,:host *:not(style){box-sizing:border-box;}
-
     :host{
-      color:#ffffff;
+      all:initial;
       position:relative;
       display:inline-flex;
       justify-content:center;
-      width:var(--width);
-      height:var(--height);
+      width:var(--width,20px);
+      height:var(--height,20px);
       overflow:hidden;}
 
-    :host svg{
-      width:20px;
-      height:20px;
+    :host,:host *:not(style){box-sizing:border-box;}
+
+    svg{
+      width:100%;
+      height:100%;
       fill:var(--rgb-255-255-255);
       shape-rendering:geometricPrecision;
       -webkit-user-select:none;
@@ -41,7 +40,7 @@ class IconBlock extends LitElement{
   
   updated(changedProperties){
     if(changedProperties.has('iconName')){
-      if(this.iconName && /^[A-Za-z]+$/.test(this.iconName) && this.iconName in icons){
+      if(icons[this.iconName] && /^[A-Za-z]+$/.test(this.iconName)){
         this.iconValid = true;
       }
       else console.warn(`Invalid Icon Name: ${this.iconName}`);
@@ -61,14 +60,9 @@ class IconBlock extends LitElement{
   }
 
   render(){
-    let svgCode;
-    if(this.iconValid === true){
-      svgCode = html`${unsafeSVG(icons[this.iconName])}`;
-    };
-
     return html`
       <svg viewBox="0 0 20 20">
-        ${svgCode}
+        ${this.iconValid === true ? unsafeSVG(icons[this.iconName]) : nothing}
       </svg>
     `;
   }

@@ -19,18 +19,23 @@
       <icon-block name="iconGear"></icon-block>
       <icon-block name="iconCross"></icon-block>
       <icon-block name="iconInputClear"></icon-block> 
-     <input-text required></input-text>
+      <input-text required></input-text>
       <button onclick="changeIconName()">Клик</button>
 
       <script>
         function changeIconName(){
           const iconBlock = document.querySelector('icon-block');
           const currentIcon = iconBlock.getAttribute('name');
-          const icons = ['iconSearch', 'iconHome', 'iconGear'];
+          //const currentIcon = iconBlock.getAttribute('width');
+          //const currentIcon = iconBlock.getAttribute('height');
+          const icons = ['iconSearch', 'iconSend', 'iconGear'];
+          //const icons = ['30px', '40px', '50px'];
           const currentIndex = icons.indexOf(currentIcon);
           const nextIndex = (currentIndex + 1) % icons.length;
           const nextIcon = icons[nextIndex];
           iconBlock.setAttribute('name', nextIcon);
+          //iconBlock.setAttribute('width', nextIcon);
+          //iconBlock.setAttribute('height', nextIcon);
         }
       </script>
 
@@ -39,6 +44,6 @@
 </div>
 
 <script src="library/input-text.js"></script>
-<script type="module" src="library/icon-block-native.js"></script>
+<script type="module" src="library/icon-block-lit.js"></script>
 </body>
 </html>
