@@ -11,7 +11,7 @@ class IconBlock extends LitElement{
   }
 
   static properties = {
-    iconName:{type:String,attribute:'name',reflect: true},
+    iconName:{type:String,attribute:'name',reflect:true},
     iconWidth:{type:String,attribute:'width'},
     iconHeight:{type:String,attribute:'height'},
     iconValid:{type:Boolean,state:true},
@@ -62,7 +62,7 @@ class IconBlock extends LitElement{
   render(){
     return html`
       <svg viewBox="0 0 20 20">
-        ${this.iconValid === true ? unsafeSVG(icons[this.iconName]) : nothing}
+        ${this.iconValid ? unsafeSVG(icons[this.iconName]) : nothing}
       </svg>
     `;
   }

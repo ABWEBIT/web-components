@@ -49,7 +49,7 @@ class IconBlock extends HTMLElement{
   html(){
     return `
       <svg viewBox="0 0 20 20">
-        ${this.iconName ? icons[this.iconName] : ''}
+        ${icons?.[this.iconName] || ''}
       </svg>
     `;
   }

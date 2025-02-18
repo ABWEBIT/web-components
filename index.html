@@ -26,16 +26,11 @@
         function changeIconName(){
           const iconBlock = document.querySelector('icon-block');
           const currentIcon = iconBlock.getAttribute('name');
-          //const currentIcon = iconBlock.getAttribute('width');
-          //const currentIcon = iconBlock.getAttribute('height');
           const icons = ['iconSearch', 'iconSend', 'iconGear'];
-          //const icons = ['30px', '40px', '50px'];
           const currentIndex = icons.indexOf(currentIcon);
           const nextIndex = (currentIndex + 1) % icons.length;
           const nextIcon = icons[nextIndex];
           iconBlock.setAttribute('name', nextIcon);
-          //iconBlock.setAttribute('width', nextIcon);
-          //iconBlock.setAttribute('height', nextIcon);
         }
       </script>
 
