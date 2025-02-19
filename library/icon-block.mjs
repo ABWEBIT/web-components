@@ -50,7 +50,7 @@ class IconBlock extends HTMLElement{
     ['width','height'].forEach((property)=>{
       const value = this.getAttribute(property);
       if(value && /^\d+(\.\d+)?(px|%)$/.test(value)){
-        this.removeAttribute(property)
+        this.removeAttribute(property);
         this.shadow.host.style.setProperty(`--${property}`,value);
       }
       else if(value) console.warn(`Invalid Icon ${property}: ${value}`);
@@ -63,6 +63,7 @@ class IconBlock extends HTMLElement{
   }
 
   attributeChangedCallback(name,oldValue,newValue){
+    console.log('+++');
     if(name === 'name'){
       if(icons[newValue] && /^[A-Za-z]+$/.test(newValue) && oldValue !== newValue){
         this.iconNameFunc = newValue;
