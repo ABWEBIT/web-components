@@ -7,8 +7,8 @@ class IconBlock extends HTMLElement{
 
   static get observedAttributes(){return ['name'];}
 
-  get iconNameFunc(){return this.#name;}
-  set iconNameFunc(value){this.#name = value;}
+  get #nameFunc(){return this.#name;}
+  set #nameFunc(value){this.#name = value;}
 
   css(){
     return `
@@ -50,7 +50,6 @@ class IconBlock extends HTMLElement{
     ['width','height'].forEach((property)=>{
       const value = this.getAttribute(property);
       if(value && /^\d+(\.\d+)?(px|%)$/.test(value)){
-        this.removeAttribute(property);
         this.shadow.host.style.setProperty(`--${property}`,value);
       }
       else if(value) console.warn(`Invalid Icon ${property}: ${value}`);
@@ -66,7 +65,7 @@ class IconBlock extends HTMLElement{
     console.log('+++');
     if(name === 'name'){
       if(icons[newValue] && /^[A-Za-z]+$/.test(newValue) && oldValue !== newValue){
-        this.iconNameFunc = newValue;
+        this.#nameFunc = newValue;
         if(this.#rendered === true) this.shadow.querySelector('svg').innerHTML = icons[newValue]
       }
       else console.warn(`Invalid Icon Name: ${newValue}`);
