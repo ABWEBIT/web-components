@@ -1,14 +1,21 @@
 import * as icons from '../helpers/icons-pack.js';
 
 class IconBlock extends HTMLElement{
-  shadow = this.attachShadow({mode:'open'});
+  shadow = this.attachShadow({mode:'closed'});
   #name = '';
-  #rendered = false;
 
-  static get observedAttributes(){return ['name'];}
+  static get observedAttributes(){
+    return ['name'];
+  }
 
-  get #nameFunc(){return this.#name;}
-  set #nameFunc(value){this.#name = value;}
+  get _name(){return this.#name;}
+  set _name(value){
+    if(icons[value] && /^[A-Za-z]+$/.test(value)){
+      this.#name = value;
+      this.update();
+    }
+    else console.warn(`Invalid Icon Name: ${value}`);
+  }
 
   css(){
     return `
@@ -43,8 +50,7 @@ class IconBlock extends HTMLElement{
     `;
   }
 
-  connectedCallback(){
-    this.#rendered = true;
+  render(){
     this.shadow.innerHTML = this.css()+this.html();
 
     ['width','height'].forEach((property)=>{
@@ -54,21 +60,25 @@ class IconBlock extends HTMLElement{
       }
       else if(value) console.warn(`Invalid Icon ${property}: ${value}`);
     });
+  }
 
+  update(){
+    const svgElement = this.shadow.querySelector('svg');
+    if(svgElement){
+      svgElement.innerHTML = icons[this.#name] || '';
+    }
+  }
+
+  connectedCallback(){
+    this.render();
   }
 
   disconnectedCallback(){
-    this.#rendered = false;
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    console.log('+++');
-    if(name === 'name'){
-      if(icons[newValue] && /^[A-Za-z]+$/.test(newValue) && oldValue !== newValue){
-        this.#nameFunc = newValue;
-        if(this.#rendered === true) this.shadow.querySelector('svg').innerHTML = icons[newValue]
-      }
-      else console.warn(`Invalid Icon Name: ${newValue}`);
+    if(name === 'name' && oldValue !== newValue){
+      this._name = newValue;
     };
   }
 
