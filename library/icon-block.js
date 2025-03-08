@@ -1,24 +1,26 @@
 import * as icons from '../helpers/icons-pack.js';
 
 class IconBlock extends HTMLElement{
-  shadow = this.attachShadow({mode:'closed'});
+  shadow = this.attachShadow({mode:'open'});
   #name = '';
 
-  static get observedAttributes(){
-    return ['name'];
-  }
+  static get observedAttributes(){return ['name'];}
 
   get _name(){return this.#name;}
   set _name(value){
     if(icons[value] && /^[A-Za-z]+$/.test(value)){
       this.#name = value;
-      this.update();
+      this.updateName();
     }
-    else console.warn(`Invalid Icon Name: ${value}`);
   }
 
-  css(){
-    return `
+  updateName(){
+    const svg = this.shadow.querySelector('svg');
+    if(svg) svg.innerHTML = icons[this.#name] || '';
+  }
+
+  connectedCallback(){
+    this.shadow.innerHTML = `
     <style>
     :host{
       all:initial;
@@ -39,19 +41,10 @@ class IconBlock extends HTMLElement{
       -webkit-user-select:none;
       user-select:none;}
     </style>
+    <svg viewBox="0 0 20 20">
+      ${icons?.[this.#name] || ''}
+    </svg>
     `;
-  }
-
-  html(){
-    return `
-      <svg viewBox="0 0 20 20">
-        ${icons?.[this.#name] || ''}
-      </svg>
-    `;
-  }
-
-  render(){
-    this.shadow.innerHTML = this.css()+this.html();
 
     ['width','height'].forEach((property)=>{
       const value = this.getAttribute(property);
@@ -60,17 +53,6 @@ class IconBlock extends HTMLElement{
       }
       else if(value) console.warn(`Invalid Icon ${property}: ${value}`);
     });
-  }
-
-  update(){
-    const svgElement = this.shadow.querySelector('svg');
-    if(svgElement){
-      svgElement.innerHTML = icons[this.#name] || '';
-    }
-  }
-
-  connectedCallback(){
-    this.render();
   }
 
   disconnectedCallback(){
