@@ -12,7 +12,7 @@
 <div id="app">
   <div id="content">
     <section>
-      <icon-block name="iconHome" width="33px" height="43px"></icon-block>
+      <icon-block name="iconHome"></icon-block>
       <icon-block name="iconSearch"></icon-block>
       <icon-block name="iconSend"></icon-block>
       <icon-block name="iconBell"></icon-block>
@@ -21,26 +21,23 @@
       <icon-block name="iconInputClear"></icon-block> 
     </section>
 
-      <input-text required></input-text>
-      <button onclick="changeIconName()">Клик</button>
+    <button onclick="changeIconName()">Клик</button>
 
-      <script>
-        function changeIconName(){
-          const iconBlock = document.querySelector('icon-block');
-          const currentIcon = iconBlock.getAttribute('name');
-          const icons = ['iconSearch', 'iconSend', 'iconGear'];
-          const currentIndex = icons.indexOf(currentIcon);
-          const nextIndex = (currentIndex + 1) % icons.length;
-          const nextIcon = icons[nextIndex];
-          iconBlock.setAttribute('name', nextIcon);
-        }
-      </script>
+    <script>
+      function changeIconName(){
+        const iconBlock = document.querySelector('icon-block');
+        const currentIcon = iconBlock.getAttribute('name');
+        const icons = ['iconSearch', 'iconSend', 'iconGear'];
+        const currentIndex = icons.indexOf(currentIcon);
+        const nextIndex = (currentIndex + 1) % icons.length;
+        const nextIcon = icons[nextIndex];
+        iconBlock.setAttribute('name', nextIcon);
+      }
+    </script>
 
-    </section>
   </div>
 </div>
-
-<script src="library/input-text.js"></script>
-<script type="module" src="library/icon-block.mjs"></script>
+<script type="module" src="helpers/lit-all.min-v3.2.1.js"></script>
+<script type="module" src="library/icon-block-lit.js"></script>
 </body>
 </html>
