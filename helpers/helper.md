@@ -9,7 +9,7 @@ customElements.define('web-component',WebComponent);
 ```
 
 В конструкторе записывать Shadow DOM в переменную не обязательно.\
-Обращаться к Shadow DOM нужно будет через shadowRoot
+Обращаться к Shadow DOM нужно будет через shadowRoot.
 ```javascript
 constructor(){
   super();
