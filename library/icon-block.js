@@ -10,7 +10,7 @@ class IconBlock extends HTMLElement{
 
   get nameProp(){return this.#nameData;}
   set nameProp(value){
-    if(/^[A-Za-z0-9]+$/.test(value) && icons[value]){
+    if(/^[A-Za-z][A-Za-z0-9]*$/.test(value) && icons[value]){
       this.#nameData = value;
       const svg = this.#shadow.querySelector('svg');
       if(svg) svg.innerHTML = icons[this.#nameData];

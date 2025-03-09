@@ -62,7 +62,7 @@ article section{
   flex-direction:column;
   row-gap:15px;
   border-radius:var(--border-radius);
-  background-color:rgb(15,15,15);
+  background-color:rgb(10,10,10);
   padding:20px 20px;}
 
 article section .title{
@@ -90,15 +90,28 @@ table{
   width:100%;}
 
 table thead{
-  color:rgb(225,225,225);
-  font-size:120%;}
+  font-size:105%;
+  color:rgb(225,225,225);}
 
 table tbody{
-  color:rgb(175,175,175);
-  font-size:95%;}
+  font-size:95%;
+  color:rgb(175,175,175);}
 
 table td{
-  padding:10px;}
+  padding:10px 15px;}
+
+table tr > :nth-child(1){
+  width:125px;
+  min-width:125px;}
+
+table tr > :nth-child(2){
+  width:150px;
+  min-width:150px;}
+
+.example{
+  display:flex;
+  flex-direction:column;
+  row-gap:10px;}
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{
