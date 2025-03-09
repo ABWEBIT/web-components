@@ -15,3 +15,12 @@ constructor(){
   this.attachShadow({mode:'open'});
 }
 ```
+
+Если Shadow DOM не записан в переменную, то обращаться к нему нужно будет через shadowRoot
+```javascript
+constructor(){
+  super();
+  this.attachShadow({mode:'open'});
+  this.shadowRoot.innerHTML = `<p>Привет из Shadow DOM!</p>`;
+}
+```

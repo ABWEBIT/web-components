@@ -8,10 +8,12 @@ class IconBlock extends HTMLElement{
 
   get _name(){return this.#name;}
   set _name(value){
-    if(icons[value] && /^[A-Za-z]+$/.test(value)){
+    if(/^[A-Za-z]+$/.test(value) && icons[value]){
       this.#name = value;
       this.updateName();
+      console.log('+');
     }
+    else console.warn(`invalid name: ${value}`);
   }
 
   updateName(){
@@ -48,10 +50,10 @@ class IconBlock extends HTMLElement{
 
     ['width','height'].forEach((property)=>{
       const value = this.getAttribute(property);
-      if(value && /^\d+(\.\d+)?(px|%)$/.test(value)){
+      if(/^\d+(\.\d+)?(px|%)$/.test(value)){
         this.shadow.host.style.setProperty(`--${property}`,value);
       }
-      else if(value) console.warn(`Invalid Icon ${property}: ${value}`);
+      else if(value) console.warn(`invalid ${property}: ${value}`);
     });
   }
 
