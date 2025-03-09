@@ -42,7 +42,7 @@ class IconBlock extends HTMLElement{
     :host{
       all:initial;
       position:relative;
-      display:inline-flex;
+      display:flex;
       justify-content:center;
       width:var(--width,20px);
       height:var(--height,20px);

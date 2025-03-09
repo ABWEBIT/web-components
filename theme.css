@@ -1,5 +1,6 @@
 /* root */
 :root{
+  --border-radius:6px;
   --font-arial:Arial,Helvetica,sans-serif;
   --rgb-255-255-255:rgb(255,255,255);
   --rgb-0-0-0:rgb(0,0,0);
@@ -17,6 +18,10 @@
 /* svg */
 svg{shape-rendering:geometricPrecision;}
 
+a{
+  text-decoration:none;
+  color:rgb(255,255,255);}
+
 html,
 body{
   position:relative;
@@ -26,6 +31,7 @@ body{
   height:100%;}
 
 body{
+
   font-family:var(--font-arial);
   font-size:16px;
   color:var(--rgb-255-255-255);
@@ -33,17 +39,66 @@ body{
 
 #app{
   position:relative;
+  display:flex;
   height:100%;}
 
-#content{
+nav{
   position:relative;
-  padding:50px 25px;
-  width:400px;
-  max-width:100%;
-  margin:auto;}
+  width:240px;
+  min-width:240px;
+  padding:50px 25px;}
 
-.helper{
-  padding-top:20px;}
+article{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  row-gap:20px;
+  padding:50px 25px;
+  width:100%;
+  max-width:100%;}
+
+article section{
+  display:flex;
+  flex-direction:column;
+  row-gap:15px;
+  border-radius:var(--border-radius);
+  background-color:rgb(15,15,15);
+  padding:20px 20px;}
+
+article section .title{
+  font-size:150%;}
+
+article section .help{
+  color:rgb(175,175,175);
+  font-size:90%;}
+
+#icons > .content{
+  display:flex;
+  gap:10px;}
+
+#icons > .content > div{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:var(--border-radius);
+  background-color:rgb(40,40,40);
+  width:35px;
+  height:35px;}
+
+table{
+  text-align:left;
+  width:100%;}
+
+table thead{
+  color:rgb(225,225,225);
+  font-size:120%;}
+
+table tbody{
+  color:rgb(175,175,175);
+  font-size:95%;}
+
+table td{
+  padding:10px;}
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{

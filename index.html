@@ -10,32 +10,118 @@
 <body>
 
 <div id="app">
-  <div id="content">
+  <nav>
+    <a href="#icons">Иконки</a>
+  </nav>
+  <article>
+    <section id="icons">
+      <div class="title">Набор иконок</div>
+      <div class="help">20 x 20</div>
+      <div class="content">
+        <div>
+          <icon-block name="iconHome"></icon-block>
+        </div>
+        <div>
+          <icon-block name="iconSearch"></icon-block>
+        </div>
+        <div>
+          <icon-block name="iconSend"></icon-block>
+        </div>
+        <div>
+          <icon-block name="iconBell"></icon-block>
+        </div>
+        <div>
+          <icon-block name="iconGear"></icon-block>
+        </div>
+        <div>
+          <icon-block name="iconCross"></icon-block>
+        </div>
+        <div>
+          <icon-block name="iconInputClear"></icon-block>
+        </div>
+      </div>
+    </section>
     <section>
-      <icon-block name="iconHome"></icon-block>
-      <icon-block name="iconSearch"></icon-block>
-      <icon-block name="iconSend"></icon-block>
-      <icon-block name="iconBell"></icon-block>
-      <icon-block name="iconGear"></icon-block>
-      <icon-block name="iconCross"></icon-block>
-      <icon-block name="iconInputClear"></icon-block> 
+      <div class="title">Параметры иконки</div>
+      <div class="content">
+        <table>
+          <thead>
+            <tr>
+              <td>Атрибут</td>
+              <td>Состояние</td>
+              <td>Доп. инфа</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Реактивный</td>
+              <td>Латиница и цифры, a-z A-Z 0-9</td>
+            </tr>
+            <tr>
+              <td>width</td>
+              <td>Реактивный</td>
+              <td>Целое или дробное и px | %</td>
+            </tr>
+            <tr>
+              <td>height</td>
+              <td>Реактивный</td>
+              <td>Целое или дробное и px | %</td>
+            </tr>
+            <tr>
+              <td>color</td>
+              <td>Реактивный</td>
+              <td>CSS переменная --theme-dark</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
-    <button onclick="changeIconName()">Клик</button>
+    <section>
+      <button onclick="changeAll()">Всё</button>
+      <button onclick="changeIconName()">Имя</button>
+      <button onclick="changeIconWidth()">Ширина</button>
+      <button onclick="changeIconHeight()">Высота</button>
 
-    <script>
-      function changeIconName(){
-        const iconBlock = document.querySelector('icon-block');
-        const currentIcon = iconBlock.getAttribute('name');
-        const icons = ['iconSearch', 'iconSend', 'iconGear'];
-        const currentIndex = icons.indexOf(currentIcon);
-        const nextIndex = (currentIndex + 1) % icons.length;
-        const nextIcon = icons[nextIndex];
-        iconBlock.setAttribute('name', nextIcon);
-      }
-    </script>
+      <script>
+        function changeAll(){
+          changeIconName();
+          changeIconWidth();
+          changeIconHeight();
+        }
 
-  </div>
+        function changeIconName(){
+          const iconBlock = document.querySelector('icon-block');
+          const currentIcon = iconBlock.getAttribute('name');
+          const icons = ['iconSearch', 'iconSend', 'iconGear'];
+          const currentIndex = icons.indexOf(currentIcon);
+          const nextIndex = (currentIndex + 1) % icons.length;
+          const nextIcon = icons[nextIndex];
+          iconBlock.setAttribute('name',nextIcon);
+        }
+        function changeIconWidth(){
+          const iconBlock = document.querySelector('icon-block');
+          const iconWidth = iconBlock.getAttribute('width');
+          const array = ['30px', '40px', '20px'];
+          const currentIndex = array.indexOf(iconWidth);
+          const nextIndex = (currentIndex + 1) % array.length;
+          const nextIcon = array[nextIndex];
+          iconBlock.setAttribute('width',nextIcon);
+        }
+        function changeIconHeight(){
+          const iconBlock = document.querySelector('icon-block');
+          const iconHeight = iconBlock.getAttribute('height');
+          const array = ['30px', '40px', '20px'];
+          const currentIndex = array.indexOf(iconHeight);
+          const nextIndex = (currentIndex + 1) % array.length;
+          const nextIcon = array[nextIndex];
+          iconBlock.setAttribute('height',nextIcon);
+        }
+      </script>
+    </section>
+
+  </article>
 </div>
 <script type="module" src="library/icon-block.js"></script>
 </body>
