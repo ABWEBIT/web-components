@@ -1,27 +1,41 @@
 import * as icons from '../helpers/icons-pack.js';
 
 class IconBlock extends HTMLElement{
-  shadow = this.attachShadow({mode:'open'});
+  #shadow = this.attachShadow({mode:'open'});
   #name = '';
+  #width = '';
+  #height = '';
 
-  static get observedAttributes(){return ['name'];}
+  static get observedAttributes(){return ['name','width','height'];}
 
   get _name(){return this.#name;}
   set _name(value){
     if(/^[A-Za-z]+$/.test(value) && icons[value]){
       this.#name = value;
-      this.updateName();
+      const svg = this.#shadow.querySelector('svg');
+      if(svg) svg.innerHTML = icons[this.#name];
     }
     else console.warn(`invalid name: ${value}`);
   }
 
-  updateName(){
-    const svg = this.shadow.querySelector('svg');
-    if(svg) svg.innerHTML = icons[this.#name] || '';
+  get _width(){return this.#width;}
+  set _width(value){
+    if(/^\d+(\.\d+)?(px|%)$/.test(value)){
+      this.#width = value;
+      this.#shadow.host.style.setProperty(`--width`,this.#width);
+    }
+  }
+
+  get _height(){return this.#height;}
+  set _height(value){
+    if(/^\d+(\.\d+)?(px|%)$/.test(value)){
+      this.#height = value;
+      this.#shadow.host.style.setProperty(`--height`,this.#height);
+    }
   }
 
   connectedCallback(){
-    this.shadow.innerHTML = `
+    this.#shadow.innerHTML = `
     <style>
     :host{
       all:initial;
@@ -46,23 +60,12 @@ class IconBlock extends HTMLElement{
       ${icons?.[this.#name] || ''}
     </svg>
     `;
-
-    ['width','height'].forEach((property)=>{
-      const value = this.getAttribute(property);
-      if(/^\d+(\.\d+)?(px|%)$/.test(value)){
-        this.shadow.host.style.setProperty(`--${property}`,value);
-      }
-      else if(value) console.warn(`invalid ${property}: ${value}`);
-    });
-  }
-
-  disconnectedCallback(){
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    if(name === 'name' && oldValue !== newValue){
-      this._name = newValue;
-    };
+    if(name === 'name' && oldValue !== newValue){this._name = newValue;};
+    if(name === 'width' && oldValue !== newValue){this._width = newValue;};
+    if(name === 'height' && oldValue !== newValue){this._height = newValue;};
   }
 
 }
