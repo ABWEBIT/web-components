@@ -11,7 +11,6 @@ class IconBlock extends HTMLElement{
     if(/^[A-Za-z]+$/.test(value) && icons[value]){
       this.#name = value;
       this.updateName();
-      console.log('+');
     }
     else console.warn(`invalid name: ${value}`);
   }
