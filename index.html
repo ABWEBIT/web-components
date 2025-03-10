@@ -10,125 +10,34 @@
 <body>
 
 <div id="app">
-  <nav>
-    <a href="#icons">Иконки</a>
-  </nav>
-  <article>
-    <section id="icons">
-      <div class="title">Набор иконок</div>
-      <div class="help">20 x 20</div>
-      <div class="content">
-        <div>
-          <icon-block name="iconHome"></icon-block>
-        </div>
-        <div>
-          <icon-block name="iconSearch"></icon-block>
-        </div>
-        <div>
-          <icon-block name="iconSend"></icon-block>
-        </div>
-        <div>
-          <icon-block name="iconBell"></icon-block>
-        </div>
-        <div>
-          <icon-block name="iconGear"></icon-block>
-        </div>
-        <div>
-          <icon-block name="iconCross"></icon-block>
-        </div>
-        <div>
-          <icon-block name="iconInputClear"></icon-block>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="title">Параметры иконки</div>
-      <div class="content">
-        <table>
-          <thead>
-            <tr>
-              <td>Атрибут</td>
-              <td>Тип</td>
-              <td>Информация</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>name</td>
-              <td>Реактивный</td>
-              <td>Латиница и цифры, начало с буквы. a-z A-Z 0-9</td>
-            </tr>
-            <tr>
-              <td>width</td>
-              <td>Реактивный</td>
-              <td>Целое или дробное число и px | %</td>
-            </tr>
-            <tr>
-              <td>height</td>
-              <td>Реактивный</td>
-              <td>Целое или дробное число и px | %</td>
-            </tr>
-            <tr>
-              <td>color</td>
-              <td>Реактивный</td>
-              <td>CSS переменная --theme-dark</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="example">
-        <div class="text">Пример</div>
-        <div class="code">
-          <code>&lt;icon-block name="iconName24" width="24px" height="50%" color="--theme-dark"&gt;&lt;/icon-block&gt;</code>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <button onclick="changeAll()">Всё</button>
-      <button onclick="changeIconName()">Имя</button>
-      <button onclick="changeIconWidth()">Ширина</button>
-      <button onclick="changeIconHeight()">Высота</button>
-
-      <script>
-        function changeAll(){
-          changeIconName();
-          changeIconWidth();
-          changeIconHeight();
-        }
-
-        function changeIconName(){
-          const iconBlock = document.querySelector('icon-block');
-          const currentIcon = iconBlock.getAttribute('name');
-          const icons = ['iconSearch', 'iconSend', 'iconGear'];
-          const currentIndex = icons.indexOf(currentIcon);
-          const nextIndex = (currentIndex + 1) % icons.length;
-          const nextIcon = icons[nextIndex];
-          iconBlock.setAttribute('name',nextIcon);
-        }
-        function changeIconWidth(){
-          const iconBlock = document.querySelector('icon-block');
-          const iconWidth = iconBlock.getAttribute('width');
-          const array = ['30px', '40px', '20px'];
-          const currentIndex = array.indexOf(iconWidth);
-          const nextIndex = (currentIndex + 1) % array.length;
-          const nextIcon = array[nextIndex];
-          iconBlock.setAttribute('width',nextIcon);
-        }
-        function changeIconHeight(){
-          const iconBlock = document.querySelector('icon-block');
-          const iconHeight = iconBlock.getAttribute('height');
-          const array = ['30px', '40px', '20px'];
-          const currentIndex = array.indexOf(iconHeight);
-          const nextIndex = (currentIndex + 1) % array.length;
-          const nextIcon = array[nextIndex];
-          iconBlock.setAttribute('height',nextIcon);
-        }
-      </script>
-    </section>
-
-  </article>
+  <div id="menu">
+    <a onclick="loadContent('pages/icons-pack.html')">Набор иконок</a>
+    <a onclick="loadContent('pages/icon-props.html')">Параметры иконки</a>
+  </div>
+  <div id="body"></div>
 </div>
+
+<script id="script"></script>
+
+<script>
+loadContent('pages/icon-props.html');
+function loadContent(page){
+  fetch(page)
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('body').innerHTML = data;
+    let scriptGet = document.querySelector('#body script');
+    let scriptSet = document.getElementById('script');
+    scriptSet.textContent = '';
+    if(scriptGet){
+      scriptSet.textContent = scriptGet.textContent;
+      document.body.appendChild(scriptSet);
+    };
+  })
+  .catch(error => console.error('Ошибка загрузки:', error));
+}
+</script>
+
 <script type="module" src="library/icon-block.js"></script>
 </body>
 </html>

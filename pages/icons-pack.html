@@ -1,0 +1,68 @@
+<section class="section" id="iconsPack">
+  <div class="title">Набор иконок</div>
+  <div class="help">20 x 20</div>
+  <div class="content">
+    <div>
+      <icon-block name="iconHome"></icon-block>
+    </div>
+    <div>
+      <icon-block name="iconSearch"></icon-block>
+    </div>
+    <div>
+      <icon-block name="iconSend"></icon-block>
+    </div>
+    <div>
+      <icon-block name="iconBell"></icon-block>
+    </div>
+    <div>
+      <icon-block name="iconGear"></icon-block>
+    </div>
+    <div>
+      <icon-block name="iconCross"></icon-block>
+    </div>
+    <div>
+      <icon-block name="iconInputClear"></icon-block>
+    </div>
+  </div>
+  <section>
+    <button onclick="changeAll()">Всё</button>
+    <button onclick="changeIconName()">Имя</button>
+    <button onclick="changeIconWidth()">Ширина</button>
+    <button onclick="changeIconHeight()">Высота</button>
+
+    <script>
+      function changeAll(){
+        changeIconName();
+        changeIconWidth();
+        changeIconHeight();
+      }
+
+      function changeIconName(){
+        const iconBlock = document.querySelector('icon-block');
+        const currentIcon = iconBlock.getAttribute('name');
+        const icons = ['iconSearch', 'iconSend', 'iconGear'];
+        const currentIndex = icons.indexOf(currentIcon);
+        const nextIndex = (currentIndex + 1) % icons.length;
+        const nextIcon = icons[nextIndex];
+        iconBlock.setAttribute('name',nextIcon);
+      }
+      function changeIconWidth(){
+        const iconBlock = document.querySelector('icon-block');
+        const iconWidth = iconBlock.getAttribute('width');
+        const array = ['30px', '40px', '20px'];
+        const currentIndex = array.indexOf(iconWidth);
+        const nextIndex = (currentIndex + 1) % array.length;
+        const nextIcon = array[nextIndex];
+        iconBlock.setAttribute('width',nextIcon);
+      }
+      function changeIconHeight(){
+        const iconBlock = document.querySelector('icon-block');
+        const iconHeight = iconBlock.getAttribute('height');
+        const array = ['30px', '40px', '20px'];
+        const currentIndex = array.indexOf(iconHeight);
+        const nextIndex = (currentIndex + 1) % array.length;
+        const nextIcon = array[nextIndex];
+        iconBlock.setAttribute('height',nextIcon);
+      }
+    </script>
+</section>

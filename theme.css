@@ -22,6 +22,8 @@ a{
   text-decoration:none;
   color:rgb(255,255,255);}
 
+iframe{border:none;}
+
 html,
 body{
   position:relative;
@@ -40,24 +42,39 @@ body{
 #app{
   position:relative;
   display:flex;
+
   height:100%;}
 
-nav{
+#menu{
   position:relative;
+  display:flex;
+  flex-direction:column;
+  row-gap:10px;
   width:240px;
   min-width:240px;
-  padding:50px 25px;}
+  padding:50px 0;}
 
-article{
+#menu a{
+  display:block;
+  cursor:pointer;
+  padding:10px 15px;
+  border-radius:var(--border-radius);
+  background-color:rgb(10,10,10);}
+
+#menu a:hover{
+  background-color:rgb(20,20,20);}
+
+#body{
   position:relative;
   display:flex;
   flex-direction:column;
   row-gap:20px;
-  padding:50px 25px;
   width:100%;
-  max-width:100%;}
+  max-width:100%;
+  padding:50px 25px;}
 
-article section{
+.section{
+  position:relative;
   display:flex;
   flex-direction:column;
   row-gap:15px;
@@ -65,23 +82,23 @@ article section{
   background-color:rgb(10,10,10);
   padding:20px 20px;}
 
-article section .title{
+.section .title{
   font-size:150%;}
 
-article section .help{
+.section .help{
   color:rgb(175,175,175);
   font-size:90%;}
 
-#icons > .content{
+.section > .content{
   display:flex;
   gap:10px;}
 
-#icons > .content > div{
+#iconsPack > .content > div{
   display:flex;
   align-items:center;
   justify-content:center;
   border-radius:var(--border-radius);
-  background-color:rgb(40,40,40);
+  background-color:rgb(30,30,30);
   width:35px;
   height:35px;}
 
@@ -108,7 +125,16 @@ table tr > :nth-child(2){
   width:150px;
   min-width:150px;}
 
+table tr > :nth-child(3){
+  width:175px;
+  min-width:175px;}
+
 .example{
+  display:flex;
+  flex-direction:column;
+  row-gap:15px;}
+
+.code{
   display:flex;
   flex-direction:column;
   row-gap:10px;}
