@@ -49,16 +49,15 @@ body{
   position:relative;
   display:flex;
   flex-direction:column;
-  row-gap:10px;
   width:240px;
   min-width:240px;
+  row-gap:1px;
   padding:50px 0;}
 
 #menu a{
   display:block;
   cursor:pointer;
   padding:10px 15px;
-  border-radius:var(--border-radius);
   background-color:rgb(10,10,10);}
 
 #menu a:hover{

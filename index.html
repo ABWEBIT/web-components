@@ -11,8 +11,8 @@
 
 <div id="app">
   <div id="menu">
-    <a onclick="loadContent('pages/icons-pack.html')">Набор иконок</a>
-    <a onclick="loadContent('pages/icon-props.html')">Параметры иконки</a>
+    <a onclick="loadContent('pages/icons-pack.html')">Icons Pack</a>
+    <a onclick="loadContent('pages/icon-props.html')">Icon Props</a>
   </div>
   <div id="body"></div>
 </div>
@@ -34,7 +34,7 @@ function loadContent(page){
       document.body.appendChild(scriptSet);
     };
   })
-  .catch(error => console.error('Ошибка загрузки:', error));
+  .catch(error => console.error('Error:', error));
 }
 </script>
 

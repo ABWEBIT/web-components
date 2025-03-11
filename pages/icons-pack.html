@@ -49,7 +49,7 @@
       function changeIconWidth(){
         const iconBlock = document.querySelector('icon-block');
         const iconWidth = iconBlock.getAttribute('width');
-        const array = ['30px', '40px', '20px'];
+        const array = ['25px', '30px', '20px'];
         const currentIndex = array.indexOf(iconWidth);
         const nextIndex = (currentIndex + 1) % array.length;
         const nextIcon = array[nextIndex];
@@ -58,7 +58,7 @@
       function changeIconHeight(){
         const iconBlock = document.querySelector('icon-block');
         const iconHeight = iconBlock.getAttribute('height');
-        const array = ['30px', '40px', '20px'];
+        const array = ['25px', '30px', '20px'];
         const currentIndex = array.indexOf(iconHeight);
         const nextIndex = (currentIndex + 1) % array.length;
         const nextIcon = array[nextIndex];
