@@ -42,25 +42,24 @@ body{
 #app{
   position:relative;
   display:flex;
-
   height:100%;}
 
-#menu{
+.menu{
   position:relative;
   display:flex;
   flex-direction:column;
-  width:240px;
-  min-width:240px;
+  min-width:220px;
   row-gap:1px;
   padding:50px 0;}
 
-#menu a{
+.menu a{
   display:block;
-  cursor:pointer;
   padding:10px 15px;
-  background-color:rgb(10,10,10);}
+  background-color:rgb(10,10,10);
+  cursor:pointer;
+  font-size:90%;}
 
-#menu a:hover{
+.menu a:hover{
   background-color:rgb(20,20,20);}
 
 #body{
@@ -115,18 +114,6 @@ table tbody{
 
 table td{
   padding:10px 15px;}
-
-table tr > :nth-child(1){
-  width:125px;
-  min-width:125px;}
-
-table tr > :nth-child(2){
-  width:150px;
-  min-width:150px;}
-
-table tr > :nth-child(3){
-  width:175px;
-  min-width:175px;}
 
 .example{
   display:flex;
