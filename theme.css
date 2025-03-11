@@ -33,7 +33,6 @@ body{
   height:100%;}
 
 body{
-
   font-family:var(--font-arial);
   font-size:16px;
   color:var(--rgb-255-255-255);
@@ -44,22 +43,29 @@ body{
   display:flex;
   height:100%;}
 
-.menu{
+.nav{
   position:relative;
   display:flex;
   flex-direction:column;
   min-width:220px;
   row-gap:1px;
-  padding:50px 0;}
+  padding:0 10px}
 
-.menu a{
+.nav .static{
+  height:50px;
+  min-height:50px;}
+
+.nav .menuItem{
+  display:block;
+  cursor:pointer;}
+
+.nav span{
   display:block;
   padding:10px 15px;
-  background-color:rgb(10,10,10);
-  cursor:pointer;
-  font-size:90%;}
+  font-size:90%;
+  border-radius:var(--border-radius);}
 
-.menu a:hover{
+.nav span:hover{
   background-color:rgb(20,20,20);}
 
 #body{
@@ -67,9 +73,8 @@ body{
   display:flex;
   flex-direction:column;
   row-gap:20px;
-  width:100%;
   max-width:100%;
-  padding:50px 25px;}
+  padding:50px 0;}
 
 .section{
   position:relative;

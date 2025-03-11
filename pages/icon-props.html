@@ -1,53 +1,56 @@
 <section class="section" id="iconProps">
-  <div class="title">Параметры иконки</div>
+  <div class="title">Свойства</div>
   <div class="content">
     <table>
       <thead>
         <tr>
-          <td style="width:100px;min-width:100px;">Атрибут</td>
-          <td style="width:120px;min-width:120px;">Тип</td>
-          <td style="width:120px;min-width:120px;">Статус</td>
-          <td style="width:120px;min-width:120px;">По умолчанию</td>
-          <td>Информация</td>
+          <td style="width:120px;min-width:120px;">Атрибут</td>
+          <td style="width:160px;min-width:160px;">Значение</td>
+          <td>Описание</td>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>name</td>
-          <td>Реактивный</td>
-          <td>Обяз.</td>
           <td>-</td>
-          <td>Латиница и цифры, начало с буквы. a-z A-Z 0-9</td>
+          <td>
+            Тип: реактивный, обязательный<br/>
+            Латиница и цифры, начало с буквы. a-z A-Z 0-9
+          </td>
         </tr>
         <tr>
           <td>width</td>
-          <td>Реактивный</td>
-          <td>Не обяз.</td>
           <td>20px</td>
-          <td>Целое или дробное число и px | %</td>
+          <td>
+            Тип: реактивный, не обязательный<br/>
+            Целое или дробное число, заканчивается на px или %
+          </td>
         </tr>
         <tr>
           <td>height</td>
-          <td>Реактивный</td>
-          <td>Не обяз.</td>
           <td>20px</td>
-          <td>Целое или дробное число и px | %</td>
+          <td>
+            Тип: реактивный, не обязательный<br/>
+            Целое или дробное число, заканчивается на px или %
+          </td>
         </tr>
         <tr>
           <td>color</td>
-          <td>Реактивный</td>
-          <td>Не обяз.</td>
           <td>rgb(255,255,255)</td>
-          <td>CSS переменная --theme-dark</td>
+          <td>
+            Тип: реактивный, не обязательный<br/>
+            CSS переменная --theme-dark
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="example">
-    <div class="title">Примеры</div>
-    <div class="code">
-      <code>&lt;icon-block name="icon"&gt;&lt;/icon-block&gt;</code>
-      <code>&lt;icon-block name="iconName24" width="24px" height="50%" color="--theme-dark"&gt;&lt;/icon-block&gt;</code>
-    </div>
-  </div>
+</section>
+<section class="section example">
+  <div class="help">Минимальный вид</div>
+  <code>&lt;icon-block name="iconName"&gt;&lt;/icon-block&gt;</code>
+</section>
+<section class="section example">
+  <div class="help">Все атрибуты</div>
+  <code>&lt;icon-block name="iconName" width="24px" height="50%" color="--theme-dark"&gt;&lt;/icon-block&gt;</code>
 </section>
