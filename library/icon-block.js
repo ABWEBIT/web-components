@@ -1,12 +1,13 @@
 import * as icons from '../helpers/icons-pack.js';
 
 class IconBlock extends HTMLElement{
-  #shadow = this.attachShadow({mode:'open'});
+  #shadow = this.attachShadow({mode:'closed'});
   #nameData = '';
   #widthData = '';
   #heightData = '';
+  #colorData = '';
 
-  static get observedAttributes(){return ['name','width','height'];}
+  static get observedAttributes(){return ['name','width','height','color'];}
 
   get nameProp(){return this.#nameData;}
   set nameProp(value){
@@ -36,6 +37,15 @@ class IconBlock extends HTMLElement{
     else console.warn(`invalid height: ${value}`);
   }
 
+  get colorProp(){return this.#colorData;}
+  set colorProp(value){
+    if(/^--[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$/.test(value)){
+      this.#colorData = value;
+      this.#shadow.host.style.setProperty(`--color`,`var(${this.#colorData})`);
+    }
+    else console.warn(`invalid color: ${value}`);
+  }
+
   connectedCallback(){
     this.#shadow.innerHTML = `
     <style>
@@ -50,10 +60,10 @@ class IconBlock extends HTMLElement{
 
     :host,:host *:not(style){box-sizing:border-box;}
 
-    svg{
+    :host svg{
       width:100%;
       height:100%;
-      fill:var(--rgb-255-255-255);
+      fill:var(--color,rgb(255,255,255));
       shape-rendering:geometricPrecision;
       -webkit-user-select:none;
       user-select:none;}
@@ -70,6 +80,7 @@ class IconBlock extends HTMLElement{
         case 'name':this.nameProp = newValue; break;
         case 'width':this.widthProp = newValue; break;
         case 'height':this.heightProp = newValue; break;
+        case 'color':this.colorProp = newValue; break;
       }
     }
   }
