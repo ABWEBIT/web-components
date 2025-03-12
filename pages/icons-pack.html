@@ -1,13 +1,58 @@
+<div class="title">Каталог иконок</div>
+<div class="description">Толщина линии до конвертации 1.6px, закругление углов 3px.</div>
 <section class="section" id="iconsPack">
-  <div class="title">Каталог</div>
+
   <div class="help">20 x 20</div>
   <div class="content">
-    <icon-block name="iconHome"></icon-block>
-    <icon-block name="iconSearch"></icon-block>
-    <icon-block name="iconSend"></icon-block>
-    <icon-block name="iconBell"></icon-block>
-    <icon-block name="iconGear"></icon-block>
-    <icon-block name="iconCross"></icon-block>
-    <icon-block name="iconClear"></icon-block>
+    <icon-block id="test" name="home20"></icon-block>
+    <icon-block name="article20"></icon-block>
+    <icon-block name="search20"></icon-block>
+    <icon-block name="send20"></icon-block>
+    <icon-block name="bell20"></icon-block>
+    <icon-block name="gear20"></icon-block>
+    <icon-block name="cross20"></icon-block>
+    <icon-block name="cancel20"></icon-block>
+
   </div>
+</section>
+
+ <section>
+    <button onclick="changeAll()">Всё</button>
+    <button onclick="changeIconName()">Имя</button>
+    <button onclick="changeIconWidth()">Ширина</button>
+    <button onclick="changeIconHeight()">Высота</button>
+
+    <script>
+      function changeAll(){
+        changeIconName();
+        changeIconWidth();
+        changeIconHeight();
+        changeIconColor();
+      }
+
+      function changeIconAttribute(attribute, values) {
+        const iconBlock = document.getElementById('test');
+        if (!iconBlock) return;
+
+        const currentValue = iconBlock.getAttribute(attribute);
+        const currentIndex = values.indexOf(currentValue);
+        const nextIndex = (currentIndex + 1) % values.length;
+        const nextValue = values[nextIndex];
+
+        iconBlock.setAttribute(attribute, nextValue);
+      }
+
+      function changeIconName(){
+        changeIconAttribute('name',['search20','send20','gear20']);}
+
+      function changeIconWidth(){
+        changeIconAttribute('width',['25px','30px','20px']);}
+
+      function changeIconHeight(){
+        changeIconAttribute('height',['25px','30px','20px']);}
+
+      function changeIconColor(){
+        changeIconAttribute('color', ['--rgb-25-125-230','--rgb-185-65-65','--rgb-0-165-100']);}
+
+    </script>
 </section>

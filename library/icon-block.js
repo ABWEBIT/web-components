@@ -2,46 +2,48 @@ import * as icons from '../helpers/icons-pack.js';
 
 class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'closed'});
-  #nameData = '';
-  #widthData = '';
-  #heightData = '';
-  #colorData = '';
+  #name = '';
+  #width = '';
+  #height = '';
+  #color = '';
 
-  static get observedAttributes(){return ['name','width','height','color'];}
+  static get observedAttributes(){
+    return ['name','width','height','color'];
+  }
 
-  get nameProp(){return this.#nameData;}
-  set nameProp(value){
-    if(/^[A-Za-z][A-Za-z0-9]*$/.test(value) && icons[value]){
-      this.#nameData = value;
+  get _name(){return this.#name;}
+  set _name(value){
+    if(/^[A-Za-z][A-Za-z0-9]*$/.test(value) && icons?.[value]){
+      this.#name = value;
       const svg = this.#shadow.querySelector('svg');
-      if(svg) svg.innerHTML = icons[this.#nameData];
+      if(svg) svg.innerHTML = icons[this.#name];
     }
     else console.warn(`invalid name: ${value}`);
   }
 
-  get widthProp(){return this.#widthData;}
-  set widthProp(value){
+  get _width(){return this.#width;}
+  set _width(value){
     if(/^\d+(\.\d+)?(px|%)$/.test(value)){
-      this.#widthData = value;
-      this.#shadow.host.style.setProperty(`--width`,this.#widthData);
+      this.#width = value;
+      this.style.setProperty(`--width`,this.#width);
     }
     else console.warn(`invalid width: ${value}`);
   }
 
-  get heightProp(){return this.#heightData;}
-  set heightProp(value){
+  get _height(){return this.#height;}
+  set _height(value){
     if(/^\d+(\.\d+)?(px|%)$/.test(value)){
-      this.#heightData = value;
-      this.#shadow.host.style.setProperty(`--height`,this.#heightData);
+      this.#height = value;
+      this.style.setProperty(`--height`,this.#height);
     }
     else console.warn(`invalid height: ${value}`);
   }
 
-  get colorProp(){return this.#colorData;}
-  set colorProp(value){
+  get _color(){return this.#color;}
+  set _color(value){
     if(/^--[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$/.test(value)){
-      this.#colorData = value;
-      this.#shadow.host.style.setProperty(`--color`,`var(${this.#colorData})`);
+      this.#color = value;
+      this.#shadow.host.style.setProperty(`--color`,`var(${this.#color})`);
     }
     else console.warn(`invalid color: ${value}`);
   }
@@ -50,37 +52,36 @@ class IconBlock extends HTMLElement{
     this.#shadow.innerHTML = `
     <style>
     :host{all:initial;}
+    :host,:host *:not(style){box-sizing:border-box;}
+
     :host{
       position:relative;
       display:flex;
       justify-content:center;
       width:var(--width,20px);
       height:var(--height,20px);
-      overflow:hidden;}
-
-    :host,:host *:not(style){box-sizing:border-box;}
+      overflow:hidden;
+      pointer-events:none;}
 
     :host svg{
-      width:100%;
-      height:100%;
+      width:var(--width,20px);
+      height:var(--height,20px);
       fill:var(--color,rgb(255,255,255));
       shape-rendering:geometricPrecision;
       -webkit-user-select:none;
       user-select:none;}
     </style>
-    <svg viewBox="0 0 20 20">
-      ${icons?.[this.#nameData] || ''}
-    </svg>
+    ${icons?.[this.#name] || ''}
     `;
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    if(oldValue !== newValue){
+    if(!!newValue && oldValue !== newValue){
       switch(name){
-        case 'name':this.nameProp = newValue; break;
-        case 'width':this.widthProp = newValue; break;
-        case 'height':this.heightProp = newValue; break;
-        case 'color':this.colorProp = newValue; break;
+        case 'name':this._name = newValue; break;
+        case 'width':this._width = newValue; break;
+        case 'height':this._height = newValue; break;
+        case 'color':this._color = newValue; break;
       }
     }
   }

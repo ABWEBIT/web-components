@@ -1,7 +1,7 @@
 /* root */
 :root{
   --border-radius:6px;
-  --font-arial:Arial,Helvetica,sans-serif;
+  --font-default:Arial,Helvetica,sans-serif;
   --rgb-255-255-255:rgb(255,255,255);
   --rgb-0-0-0:rgb(0,0,0);
   --rgb-155-155-155:rgb(155,155,155);
@@ -33,7 +33,7 @@ body{
   height:100%;}
 
 body{
-  font-family:var(--font-arial);
+  font-family:var(--font-default);
   font-size:16px;
   color:var(--rgb-255-255-255);
   background-color:var(--rgb-0-0-0);}
@@ -60,9 +60,11 @@ body{
   cursor:pointer;}
 
 .nav span{
-  display:block;
-  padding:10px 15px;
-  font-size:90%;
+  display:flex;
+  align-items:center;
+  column-gap:10px;
+  padding:10px;
+  font-size:100%;
   border-radius:var(--border-radius);}
 
 .nav span:hover{
@@ -74,7 +76,7 @@ body{
   flex-direction:column;
   row-gap:20px;
   max-width:100%;
-  padding:50px 0;}
+  padding:50px 10px;}
 
 .section{
   position:relative;
@@ -85,8 +87,8 @@ body{
   background-color:rgb(10,10,10);
   padding:20px 20px;}
 
-.section .title{
-  font-size:150%;}
+.title{
+  font-size:200%;}
 
 .section .help{
   color:rgb(175,175,175);
