@@ -4,8 +4,6 @@ class ButtonBlock extends HTMLElement{
   #widthData = '';
   #heightData = '';
   #colorData = '';
-  #beforeData = '';
-  #afterData = '';
 
   static get observedAttributes(){return ['text','width','height','color'];}
 
@@ -82,17 +80,17 @@ class ButtonBlock extends HTMLElement{
       position:relative;
       display:flex;
       column-gap:10px;
-      justify-content:center;
-      width:var(--width,auto);
+
+      width:var(--width,fit-content);
       height:var(--height,30px);
       border:0;
       border-radius:var(--border-radius);
-      font-family:var(--font-default);
+
       cursor:pointer;
       -webkit-user-select:none;
       user-select:none;
       transition:background-color 0.2s;
-      color:rgb(255,255,255);
+      background-color:rgb(25,25,25);
       overflow:hidden;}
     </style>
     <slot></slot>

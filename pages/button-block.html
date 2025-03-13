@@ -1,0 +1,64 @@
+<text-block style="font-size:200%;">Кнопка</text-block>
+<div class="description">Толщина линии до конвертации 1.6px, закругление углов 3px.</div>
+<section class="section props">
+  <div class="content">
+    <table>
+      <thead>
+        <tr>
+          <td style="width:120px;min-width:120px;">Атрибут</td>
+          <td style="width:160px;min-width:160px;">Значение</td>
+          <td>Описание</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>-</td>
+          <td>
+            Тип: реактивный, обязательный<br/>
+            Латиница и цифры, начало с буквы. a-z A-Z 0-9
+          </td>
+        </tr>
+        <tr>
+          <td>width</td>
+          <td>20</td>
+          <td>
+            Тип: реактивный, не обязательный<br/>
+            Целое или дробное число, значение в px
+          </td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>20</td>
+          <td>
+            Тип: реактивный, не обязательный<br/>
+            Целое или дробное число, значение в px
+          </td>
+        </tr>
+        <tr>
+          <td>color</td>
+          <td>rgb(255,255,255)</td>
+          <td>
+            Тип: реактивный, не обязательный<br/>
+            CSS переменная --svg-color
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="section example">
+  <div class="help">Минимальный вариант</div>
+
+  <button-block>
+    <icon-block name="home20"></icon-block>
+    <text-block>Текст</text-block>
+    <icon-block name="send20"></icon-block>
+  </button-block>
+
+
+  <button- _prefix="home20" _text="Текст" _suffix="send20" ></button->
+
+
+  <code>&lt;button-block&gt;Текст&lt;/button-block&gt;</code>
+</section>

@@ -1,0 +1,54 @@
+<text-block style="font-size:200%;">Иконка</text-block>
+<section class="section props">
+  <table>
+    <thead>
+      <tr>
+        <td style="width:120px;min-width:120px;">Атрибут</td>
+        <td style="width:160px;min-width:160px;">Значение</td>
+        <td>Описание</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>name</td>
+        <td>-</td>
+        <td>
+          Тип: реактивный, обязательный<br/>
+          Латиница и цифры, начало с буквы. a-z A-Z 0-9
+        </td>
+      </tr>
+      <tr>
+        <td>width</td>
+        <td>20</td>
+        <td>
+          Тип: реактивный, не обязательный<br/>
+          Целое или дробное число, значение в px
+        </td>
+      </tr>
+      <tr>
+        <td>height</td>
+        <td>20</td>
+        <td>
+          Тип: реактивный, не обязательный<br/>
+          Целое или дробное число, значение в px
+        </td>
+      </tr>
+      <tr>
+        <td>color</td>
+        <td>rgb(255,255,255)</td>
+        <td>
+          Тип: реактивный, не обязательный<br/>
+          CSS переменная --svg-color
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="section example">
+  <div class="help">Минимальный вариант</div>
+  <code>&lt;icon-block name="iconName"&gt;&lt;/icon-block&gt;</code>
+</section>
+<section class="section example">
+  <div class="help">Все атрибуты</div>
+  <code>&lt;icon-block name="iconName" width="24" height="24" color="--svg-color"&gt;&lt;/icon-block&gt;</code>
+</section>

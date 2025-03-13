@@ -1,47 +1,49 @@
 class TextBlock extends HTMLElement{
-  #shadow = this.attachShadow({mode:'open'});
-  #nameData = '';
-  #widthData = '';
-  #heightData = '';
-  #colorData = '';
+  #shadow = this.attachShadow({mode:'closed'});
+  #name = '';
+  #width = '';
+  #height = '';
+  #color = '';
 
-  static get observedAttributes(){return ['name','width','height','color'];}
+  static get observedAttributes(){
+    return ['name','width','height','color'];
+  }
 
-  get nameProp(){return this.#nameData;}
-  set nameProp(value){
-    if(/^[A-Za-z][A-Za-z0-9]*$/.test(value) && icons[value]){
-      this.#nameData = value;
+  get _name(){return this.#name;}
+  set _name(value){
+    if(/^[A-Za-z][A-Za-z0-9]*$/.test(value) && icons?.[value]){
+      this.#name = value;
       const svg = this.#shadow.querySelector('svg');
-      if(svg) svg.innerHTML = icons[this.#nameData];
+      if(svg) svg.innerHTML = icons[this.#name];
     }
-    else console.warn(`invalid name: ${value}`);
+    else console.warn(`error in name: ${value}`);
   }
 
-  get widthProp(){return this.#widthData;}
-  set widthProp(value){
+  get _width(){return this.#width;}
+  set _width(value){
     if(/^\d+(\.\d+)?(px|%)$/.test(value)){
-      this.#widthData = value;
-      this.#shadow.host.style.setProperty(`--width`,this.#widthData);
+      this.#width = value;
+      this.style.setProperty(`--width`,this.#width);
     }
-    else console.warn(`invalid width: ${value}`);
+    else console.warn(`error in width: ${value}`);
   }
 
-  get heightProp(){return this.#heightData;}
-  set heightProp(value){
+  get _height(){return this.#height;}
+  set _height(value){
     if(/^\d+(\.\d+)?(px|%)$/.test(value)){
-      this.#heightData = value;
-      this.#shadow.host.style.setProperty(`--height`,this.#heightData);
+      this.#height = value;
+      this.style.setProperty(`--height`,this.#height);
     }
-    else console.warn(`invalid height: ${value}`);
+    else console.warn(`error in height: ${value}`);
   }
 
-  get colorProp(){return this.#colorData;}
-  set colorProp(value){
+  get _color(){return this.#color;}
+  set _color(value){
     if(/^--[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$/.test(value)){
-      this.#colorData = value;
-      this.#shadow.host.style.setProperty(`--color`,`var(${this.#colorData})`);
+      this.#color = value;
+      this.#shadow.host.style.setProperty(`--color`,`var(${this.#color})`);
     }
-    else console.warn(`invalid color: ${value}`);
+    else console.warn(`error in color: ${value}`);
   }
 
   connectedCallback(){
@@ -52,20 +54,22 @@ class TextBlock extends HTMLElement{
 
     :host{
       position:relative;
-      display:block;
-      flex-grow:1;}
+      display:flex;
+      align-items:center;
+      font-family:var(--font-default);
+      color:var(--color,rgb(255,255,255));}
     </style>
     <slot></slot>
     `;
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    if(oldValue !== newValue){
+    if(!!newValue && oldValue !== newValue){
       switch(name){
-        case 'name':this.nameProp = newValue; break;
-        case 'width':this.widthProp = newValue; break;
-        case 'height':this.heightProp = newValue; break;
-        case 'color':this.colorProp = newValue; break;
+        case 'name':this._name = newValue; break;
+        case 'width':this._width = newValue; break;
+        case 'height':this._height = newValue; break;
+        case 'color':this._color = newValue; break;
       }
     }
   }

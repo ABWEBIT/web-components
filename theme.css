@@ -87,8 +87,7 @@ body{
   background-color:rgb(10,10,10);
   padding:20px 20px;}
 
-.title{
-  font-size:200%;}
+icon-block svg{height:100px;}
 
 .section .help{
   color:rgb(175,175,175);
