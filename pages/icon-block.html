@@ -1,54 +1,15 @@
 <text-block style="font-size:200%;">Иконка</text-block>
-<section class="section props">
-  <table>
-    <thead>
-      <tr>
-        <td style="width:120px;min-width:120px;">Атрибут</td>
-        <td style="width:160px;min-width:160px;">Значение</td>
-        <td>Описание</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>name</td>
-        <td>-</td>
-        <td>
-          Тип: реактивный, обязательный<br/>
-          Латиница и цифры, начало с буквы. a-z A-Z 0-9
-        </td>
-      </tr>
-      <tr>
-        <td>width</td>
-        <td>20</td>
-        <td>
-          Тип: реактивный, не обязательный<br/>
-          Целое или дробное число, значение в px
-        </td>
-      </tr>
-      <tr>
-        <td>height</td>
-        <td>20</td>
-        <td>
-          Тип: реактивный, не обязательный<br/>
-          Целое или дробное число, значение в px
-        </td>
-      </tr>
-      <tr>
-        <td>color</td>
-        <td>rgb(255,255,255)</td>
-        <td>
-          Тип: реактивный, не обязательный<br/>
-          CSS переменная --svg-color
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<section class="section">
+  <text-block>name (HTML атрибут) - реактивный, обязательный. Латиница и цифры, начало с буквы. a-z A-Z 0-9</text-block>
+  <text-block>--width (CSS свойство) - 20px по умолчанию</text-block>
+  <text-block>--height (CSS свойство) - 20px по умолчанию</text-block>
+  <text-block>--fill (CSS свойство) - rgb(255,255,255) по умолчанию</text-block>
 </section>
-<section class="section example">
-  <div class="help">Минимальный вариант</div>
-  <code>&lt;icon-block name="iconName"&gt;&lt;/icon-block&gt;</code>
+<section class="section">
+  <text-block class="help">Минимальный вариант</text-block>
+  <code>&lt;icon-block name="Icon"&gt;&lt;/icon-block&gt;</code>
 </section>
-<section class="section example">
-  <div class="help">Все атрибуты</div>
-  <code>&lt;icon-block name="iconName" width="24" height="24" color="--svg-color"&gt;&lt;/icon-block&gt;</code>
+<section class="section">
+  <text-block class="help">Полный вариант</text-block>
+  <code>&lt;icon-block name="Icon" style="--width:24;--height:24;--fill:red;"&gt;&lt;/icon-block&gt;</code>
 </section>

@@ -16,26 +16,26 @@
     <div class="dynamic">
       <div class="menuItem">
         <span onclick="loadContent('pages/icons-pack.html')">
-          <icon-block name="article20"></icon-block>
-          Каталог иконок
+          <icon-block name="Article"></icon-block>
+          <text-block>Каталог иконок</text-block>
         </span>
       </div>
       <div class="menuItem">
         <span onclick="loadContent('pages/icon-block.html')">
-          <icon-block name="article20"></icon-block>
-          Иконка
+          <icon-block name="Article"></icon-block>
+          <text-block>Иконка</text-block>
         </span>
       </div>
       <div class="menuItem">
         <span onclick="loadContent('pages/text-block.html')">
-          <icon-block name="article20"></icon-block>
-          Текст
+          <icon-block name="Article"></icon-block>
+          <text-block>Текст</text-block>
         </span>
       </div>
       <div class="menuItem">
         <span onclick="loadContent('pages/button-block.html')">
-          <icon-block name="article20"></icon-block>
-          Кнопка
+          <icon-block name="Article"></icon-block>
+          <text-block>Кнопка</text-block>
         </span>
       </div>
     </div>
@@ -48,7 +48,7 @@
 <script id="script"></script>
 
 <script>
-loadContent('pages/icons-pack.html');
+loadContent('pages/button-block.html');
 function loadContent(page){
   fetch(page)
   .then(response => response.text())

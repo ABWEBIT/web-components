@@ -1,9 +1,13 @@
 /* root */
 :root{
+  --line-height:150%;
   --border-radius:6px;
-  --font-default:Arial,Helvetica,sans-serif;
+  --font-family-default:Arial,Helvetica,sans-serif;
+  --font-size-default:16px;
+
   --rgb-255-255-255:rgb(255,255,255);
   --rgb-0-0-0:rgb(0,0,0);
+
   --rgb-155-155-155:rgb(155,155,155);
   --rgb-185-65-65:rgb(185,65,65);
   --rgb-0-165-100:rgb(0,165,100);
@@ -15,12 +19,9 @@
   box-sizing:border-box!important;
   outline:none!important;}
 
-/* svg */
-svg{shape-rendering:geometricPrecision;}
-
 a{
   text-decoration:none;
-  color:rgb(255,255,255);}
+  color:var(--rgb-255-255-255);}
 
 iframe{border:none;}
 
@@ -33,10 +34,11 @@ body{
   height:100%;}
 
 body{
-  font-family:var(--font-default);
-  font-size:16px;
+  font-family:var(--font-family-default);
+  font-size:var(--font-size-default);
   color:var(--rgb-255-255-255);
-  background-color:var(--rgb-0-0-0);}
+  background-color:var(--rgb-0-0-0);
+  line-height:var(--line-height);}
 
 #app{
   position:relative;
@@ -87,8 +89,6 @@ body{
   background-color:rgb(10,10,10);
   padding:20px 20px;}
 
-icon-block svg{height:100px;}
-
 .section .help{
   color:rgb(175,175,175);
   font-size:90%;}
@@ -96,40 +96,6 @@ icon-block svg{height:100px;}
 .section > .content{
   display:flex;
   gap:10px;}
-
-#iconsPack > .content > div{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:var(--border-radius);
-  background-color:rgb(30,30,30);
-  width:35px;
-  height:35px;}
-
-table{
-  text-align:left;
-  width:100%;}
-
-table thead{
-  font-size:105%;
-  color:rgb(225,225,225);}
-
-table tbody{
-  font-size:95%;
-  color:rgb(175,175,175);}
-
-table td{
-  padding:10px 15px;}
-
-.example{
-  display:flex;
-  flex-direction:column;
-  row-gap:15px;}
-
-.code{
-  display:flex;
-  flex-direction:column;
-  row-gap:10px;}
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{

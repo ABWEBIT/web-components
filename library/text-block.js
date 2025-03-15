@@ -1,42 +1,10 @@
 class TextBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'closed'});
-  #name = '';
-  #width = '';
-  #height = '';
   #color = '';
 
   static get observedAttributes(){
-    return ['name','width','height','color'];
+    return ['color'];
   }
-
-  get _name(){return this.#name;}
-  set _name(value){
-    if(/^[A-Za-z][A-Za-z0-9]*$/.test(value) && icons?.[value]){
-      this.#name = value;
-      const svg = this.#shadow.querySelector('svg');
-      if(svg) svg.innerHTML = icons[this.#name];
-    }
-    else console.warn(`error in name: ${value}`);
-  }
-
-  get _width(){return this.#width;}
-  set _width(value){
-    if(/^\d+(\.\d+)?(px|%)$/.test(value)){
-      this.#width = value;
-      this.style.setProperty(`--width`,this.#width);
-    }
-    else console.warn(`error in width: ${value}`);
-  }
-
-  get _height(){return this.#height;}
-  set _height(value){
-    if(/^\d+(\.\d+)?(px|%)$/.test(value)){
-      this.#height = value;
-      this.style.setProperty(`--height`,this.#height);
-    }
-    else console.warn(`error in height: ${value}`);
-  }
-
   get _color(){return this.#color;}
   set _color(value){
     if(/^--[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$/.test(value)){
@@ -51,13 +19,16 @@ class TextBlock extends HTMLElement{
     <style>
     :host{all:initial;}
     :host,:host *:not(style){box-sizing:border-box;}
-
     :host{
+      --font-family:var(--font-family-default);
+      --font-size:100%;
+      --color:var(--rgb-255-255-255);}
+    slot{
       position:relative;
-      display:flex;
-      align-items:center;
-      font-family:var(--font-default);
-      color:var(--color,rgb(255,255,255));}
+      line-height:var(--line-height);
+      font-family:var(--font-family);
+      font-size:var(--font-size);
+      color:var(--color);}
     </style>
     <slot></slot>
     `;
@@ -66,9 +37,6 @@ class TextBlock extends HTMLElement{
   attributeChangedCallback(name,oldValue,newValue){
     if(!!newValue && oldValue !== newValue){
       switch(name){
-        case 'name':this._name = newValue; break;
-        case 'width':this._width = newValue; break;
-        case 'height':this._height = newValue; break;
         case 'color':this._color = newValue; break;
       }
     }
