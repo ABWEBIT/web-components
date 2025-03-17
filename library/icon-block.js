@@ -11,7 +11,7 @@ class IconBlock extends HTMLElement{
   set _name(value){
     if(/^[A-Za-z][A-Za-z0-9]*$/.test(value) && icons?.[value]){
       this.#name = value;
-      const svg = this.#shadow.querySelector('span');
+      const svg = this.#shadow.querySelector('svg');
       if(svg) svg.innerHTML = icons[this.#name];
     }
     else console.warn(`error in name: ${value}`);
@@ -39,11 +39,11 @@ class IconBlock extends HTMLElement{
       pointer-events:none;
       transition:stroke 0.2s,fill 0.2s;}
     </style>
-    <span>
+    <svg viewBox="0 0 20 20">
       ${icons?.[this.#name] || ''}
-    </span>
+    </svg>
     `;
-    this.setAttribute('data-uuid',uuid());
+    //this.setAttribute('data-uuid',uuid());
   }
 
   attributeChangedCallback(name,oldValue,newValue){

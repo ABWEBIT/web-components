@@ -25,6 +25,9 @@ a{
 
 iframe{border:none;}
 
+h1,h2,h3,h4,h5,h6{
+  margin:0;}
+
 html,
 body{
   position:relative;
@@ -84,14 +87,18 @@ body{
   position:relative;
   display:flex;
   flex-direction:column;
-  row-gap:15px;
+  gap:10px;
   border-radius:var(--border-radius);
   background-color:rgb(10,10,10);
   padding:20px 20px;}
 
-.section .help{
+div.title{
+  color:rgb(255,255,255);
+  font-size:200%;}
+
+div.description{
   color:rgb(175,175,175);
-  font-size:90%;}
+  font-size:100%;}
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{

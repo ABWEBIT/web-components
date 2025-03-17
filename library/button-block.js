@@ -48,13 +48,18 @@ class ButtonBlock extends HTMLElement{
       overflow:hidden;
       column-gap:10px;
       width:fit-content;
-
       height:50px;
       border:0;
       cursor:pointer;
       -webkit-user-select:none;
       user-select:none;
-      background-color:rgb(25,25,25);}
+      background-color:rgb(25,25,25);
+      white-space:nowrap;
+      text-overflow:ellipsis;}
+
+    :host > slot{
+      overflow:hidden;
+    }
 
     :host > slot::after{
       border-radius:var(--border-radius);

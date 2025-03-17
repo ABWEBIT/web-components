@@ -2,19 +2,6 @@ import uuid from '../helpers/uuid.js';
 
 class TextBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'closed'});
-  #color = '';
-
-  static get observedAttributes(){
-    return ['color'];
-  }
-  get _color(){return this.#color;}
-  set _color(value){
-    if(/^--[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$/.test(value)){
-      this.#color = value;
-      this.#shadow.host.style.setProperty(`--color`,`var(${this.#color})`);
-    }
-    else console.warn(`error in color: ${value}`);
-  }
 
   connectedCallback(){
     this.#shadow.innerHTML = `
@@ -27,8 +14,7 @@ class TextBlock extends HTMLElement{
       --color:var(--rgb-255-255-255);}
     slot{
       position:relative;
-      display:flex;
-      overflow:hidden auto;
+      display:block;
       line-height:var(--line-height);
       font-family:var(--font-family);
       font-size:var(--font-size);
@@ -36,15 +22,7 @@ class TextBlock extends HTMLElement{
     </style>
     <slot></slot>
     `;
-    this.setAttribute('data-uuid',uuid());
-  }
-
-  attributeChangedCallback(name,oldValue,newValue){
-    if(!!newValue && oldValue !== newValue){
-      switch(name){
-        case 'color':this._color = newValue; break;
-      }
-    }
+    //this.setAttribute('data-uuid',uuid());
   }
 
 }
