@@ -1,4 +1,4 @@
-import * as icons from '../helpers/icons-pack.js';
+import * as icons from '../helpers/icons.js';
 import uuid from '../helpers/uuid.js';
 
 class IconBlock extends HTMLElement{
@@ -25,17 +25,19 @@ class IconBlock extends HTMLElement{
     :host{
       --width:20px;
       --height:20px;
-      --fill:rgb(255,255,255);}
+      --fill:rgb(255,255,255);
+      --stroke:none;}
     svg{
       display:flex;
       width:var(--width);
       height:var(--height);
       fill:var(--fill);
+      stroke:var(--stroke);
       shape-rendering:geometricPrecision;
       -webkit-user-select:none;
       user-select:none;
       pointer-events:none;
-      transition:fill 0.2s;}
+      transition:stroke 0.2s,fill 0.2s;}
     </style>
     <span>
       ${icons?.[this.#name] || ''}
