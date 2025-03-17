@@ -1,9 +1,9 @@
 import * as icons from '../helpers/icons-pack.js';
+import uuid from '../helpers/uuid.js';
 
 class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'closed'});
   #name = '';
-  #id = '';
 
   static get observedAttributes(){return ['name'];}
 
@@ -25,11 +25,9 @@ class IconBlock extends HTMLElement{
     :host{
       --width:20px;
       --height:20px;
-      --fill:var(--rgb-255-255-255);
-      width:var(--width);
-      height:var(--height);}
+      --fill:rgb(255,255,255);}
     svg{
-      display:block;
+      display:flex;
       width:var(--width);
       height:var(--height);
       fill:var(--fill);
@@ -43,15 +41,7 @@ class IconBlock extends HTMLElement{
       ${icons?.[this.#name] || ''}
     </span>
     `;
-
-    const arr = new Uint32Array(2);
-    crypto.getRandomValues(arr);
-    this.#id = `id-${arr[0].toString(36)}-${arr[1].toString(36)}`;
-
-
-    if(!this.hasAttribute('id')){
-      this.setAttribute('id',this.#id);
-    }
+    this.setAttribute('data-uuid',uuid());
   }
 
   attributeChangedCallback(name,oldValue,newValue){

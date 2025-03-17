@@ -1,3 +1,5 @@
+import uuid from '../helpers/uuid.js';
+
 class TextBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'closed'});
   #color = '';
@@ -25,6 +27,8 @@ class TextBlock extends HTMLElement{
       --color:var(--rgb-255-255-255);}
     slot{
       position:relative;
+      display:flex;
+      overflow:hidden auto;
       line-height:var(--line-height);
       font-family:var(--font-family);
       font-size:var(--font-size);
@@ -32,6 +36,7 @@ class TextBlock extends HTMLElement{
     </style>
     <slot></slot>
     `;
+    this.setAttribute('data-uuid',uuid());
   }
 
   attributeChangedCallback(name,oldValue,newValue){
@@ -43,4 +48,4 @@ class TextBlock extends HTMLElement{
   }
 
 }
-customElements.define('text-block',TextBlock);
+customElements.define('text-block',TextBlock); 

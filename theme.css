@@ -1,6 +1,6 @@
 /* root */
 :root{
-  --line-height:150%;
+  --line-height:160%;
   --border-radius:6px;
   --font-family-default:Arial,Helvetica,sans-serif;
   --font-size-default:16px;
@@ -92,10 +92,6 @@ body{
 .section .help{
   color:rgb(175,175,175);
   font-size:90%;}
-
-.section > .content{
-  display:flex;
-  gap:10px;}
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{
