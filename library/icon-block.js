@@ -2,7 +2,7 @@ import * as icons from '../helpers/icons.js';
 import uuid from '../helpers/uuid.js';
 
 class IconBlock extends HTMLElement{
-  #shadow = this.attachShadow({mode:'closed'});
+  #shadow = this.attachShadow({mode:'open'});
   #name = '';
 
   static get observedAttributes(){return ['name'];}
@@ -20,24 +20,20 @@ class IconBlock extends HTMLElement{
   connectedCallback(){
     this.#shadow.innerHTML = `
     <style>
-    :host{all:initial;}
-    :host,:host *:not(style){box-sizing:border-box;}
     :host{
       --width:20px;
       --height:20px;
-      --fill:rgb(255,255,255);
-      --stroke:none;}
-    svg{
-      display:flex;
-      width:var(--width);
-      height:var(--height);
-      fill:var(--fill);
-      stroke:var(--stroke);
-      shape-rendering:geometricPrecision;
+      display:inline-flex;
+      vertical-align:middle;
+      fill:currentColor;
       -webkit-user-select:none;
       user-select:none;
-      pointer-events:none;
-      transition:stroke 0.2s,fill 0.2s;}
+      pointer-events:none;}
+    svg{
+      width:var(--width);
+      height:var(--height);
+      shape-rendering:geometricPrecision;
+      transition:fill 0.2s;}
     </style>
     <svg viewBox="0 0 20 20">
       ${icons?.[this.#name] || ''}

@@ -1,16 +1,24 @@
 <div class="title">Иконка</div>
 <div class="section">
-  name (HTML атрибут) - реактивный, обязательный. Буквы (латиница) и цифры, начало с буквы. a-z A-Z 0-9<br /><br />
-  --width (CSS свойство) - 20px<br />
-  --height (CSS свойство) - 20px<br />
-  --fill (CSS свойство) - rgb(255,255,255)<br />
-  --stroke (CSS свойство) - none
+  name (HTML атрибут) - реактивный, обязательный.<br>Буквы (латиница) и цифры, начало с буквы. a-z A-Z 0-9<br><br>
+
+  --width (CSS свойство) - 20px<br>
+  --height (CSS свойство) - 20px<br><br>
+
+  fill - currentColor<br>
+  Цвет svg зависит от цвета шрифта указанного в родительском элементе. 
 </div>
 <div class="section">
   <div class="description">Минимальный вариант</div>
+  <br>
   <code>&lt;icon-block name="Icon"&gt;&lt;/icon-block&gt;</code>
+  <br>
+  <icon-block name="Home"></icon-block>
 </div>
 <div class="section">
-  <div class="description">Полный вариант</div>
-  <code>&lt;icon-block name="Icon" style="--width:24;--height:24;--fill:red;--stroke:red;"&gt;&lt;/icon-block&gt;</code>
+  <div class="description">Вариант с свойствами</div>
+  <br>
+  <code>&lt;icon-block name="Icon" style="--width:16px;--height:16px;"&gt;&lt;/icon-block&gt;</code>
+  <br>
+  <icon-block name="Home" style="--width:16px;--height:16px;"></icon-block>
 </div>
