@@ -41,7 +41,7 @@
       <div class="menuItem">
         <span onclick="loadContent('pages/input-text.html')">
           <icon-block name="Article"></icon-block>
-          <text-block>Ввод</text-block>
+          <text-block>Поле ввода</text-block>
         </span>
       </div>
     </div>
@@ -54,7 +54,7 @@
 <script id="script"></script>
 
 <script>
-loadContent('pages/button-block.html');
+loadContent('pages/input-text.html');
 function loadContent(page){
   fetch(page)
   .then(response => response.text())
@@ -75,5 +75,6 @@ function loadContent(page){
 <script type="module" src="library/icon-block.js"></script>
 <script type="module" src="library/text-block.js"></script>
 <script type="module" src="library/button-block.js"></script>
+<script type="module" src="library/input-text.js"></script>
 </body>
 </html>

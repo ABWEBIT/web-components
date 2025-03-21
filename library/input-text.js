@@ -1,85 +1,78 @@
+import uuid from '../helpers/uuid.js';
+
 class InputText extends HTMLElement{
-  constructor(){
-    super();
-    this.attachShadow({mode:'open'});
-    this.label = 'Label';
-    this.hint = 'This is the hint for input field';
-    this.validator = this.validation.bind(this);
-  }
-
-  /* name,type,minlength,maxlength,pattern,readonly,disabled */
-
-  style(){
-    return `
-    <style>
-      :host{
-        all:initial;
-        display:inline-flex;
-        flex-direction:column;
-        row-gap:10px;
-        font-family:var(--font-arial);
-        color:var(--rgb-255-255-255);}
-
-      :host,
-      :host *:not(style){box-sizing:border-box;}
-
-
-      :host,:host > div{
-        position:relative;
-        width:100%;
-        max-width:100%;
-        overflow:hidden;}
-
-      label,.hint{
-        text-overflow:ellipsis;
-        -webkit-user-select:none;
-        user-select:none;}
-
-      label > span{color:rgb(185,65,65);padding-left:5px;}
-      .hint{font-size:75%;}
-
-      .field{
-        display:inline-flex;
-        border-radius:5px;
-        padding:0 10px;
-        background-color:var(--rgb-255-255-255);}
-
-      .input{
-        display:block;
-        color:var(--rgb-0-0-0);
-        flex-grow:1;
-        line-height:30px;
-        overflow:hidden;
-        white-space:nowrap;
-        border:none;
-        outline:none;}
-    </style>
-    `;
-  }
-
-  html(){
-    let asterisk = this.hasAttribute('required') ? '<span>*</span>' : '';
-
-    return `
-      ${this.label?.trim() ? `<label>${this.label.trim()}${asterisk}</label>` : ''}
-      <div class="field">
-        <div class="input" contenteditable="true"></div>
-      </div>
-      ${this.hint?.trim() ? `<div class="hint">${this.hint.trim()}</div>` : ''}
-    `;
-  }
+  #shadow = this.attachShadow({mode:'open'});
+  //#label = 'Label';
+  //#hint = 'This is the hint for input field';
+  //#validator = this.validation.bind(this);
 
   connectedCallback(){
-    this.shadowRoot.innerHTML = this.style()+this.html();
-    this.shadowRoot.querySelector('.input').addEventListener('input',this.validator);
+    this.#shadow.innerHTML = `
+    <style>
+    :host{
+      position:relative;
+      display:inline-flex;
+      border:none;
+      border-radius:var(--border-radius);
+      width:100%;
+      max-width:100%;
+      height:40px;
+      align-items:center;
+      vertical-align:middle;
+      column-gap:15px;
+      background-color:rgb(30,30,30);
+      color:rgb(175,175,175);
+      cursor:pointer;
+      white-space:pre-wrap;
+      transition:background-color 0.2s,color 0.2s;}
+
+    input{
+      display:block;
+      width:100%;
+      height:40px;
+    }
+
+    @media (hover:hover){
+      :host(:hover){
+        color:rgb(255,255,255);
+        background-color:rgb(50,50,50);}
+    }
+    :host(:active){
+      background-color:rgb(65,65,65);}
+
+    text-block{height:40px;}
+
+    label,.hint{
+      text-overflow:ellipsis;
+      -webkit-user-select:none;
+      user-select:none;}
+
+    label > span{color:rgb(185,65,65);padding-left:5px;}
+    .hint{font-size:75%;}
+
+    .input{
+      display:block;
+      color:var(--rgb-0-0-0);
+      line-height:30px;
+      overflow:hidden;
+      white-space:nowrap;
+      border:none;
+      outline:none;}
+
+    </style>
+    <slot></slot>
+    `;
+    //this.setAttribute('data-uuid',uuid());
+
+    //this.shadowRoot.querySelector('.input').addEventListener('input',this.validator);
   }
 
   disconnectedCallback(){
-    this.shadowRoot.querySelector('.input').removeEventListener('input',this.validator);
+    //this.shadowRoot.querySelector('.input').removeEventListener('input',this.validator);
   }
 
   validation(){
-    console.log(this.shadowRoot.querySelector('.input').textContent.length);
+    //console.log(this.shadowRoot.querySelector('.input').textContent.length);
   }
 
 }
