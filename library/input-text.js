@@ -26,12 +26,6 @@ class InputText extends HTMLElement{
       white-space:pre-wrap;
       transition:background-color 0.2s,color 0.2s;}
 
-    input{
-      display:block;
-      width:100%;
-      height:40px;
-    }
-
     @media (hover:hover){
       :host(:hover){
         color:rgb(255,255,255);
@@ -53,6 +47,7 @@ class InputText extends HTMLElement{
     .input{
       display:block;
       color:var(--rgb-0-0-0);
+      background-color:transparent;
       line-height:30px;
       overflow:hidden;
       white-space:nowrap;
