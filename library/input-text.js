@@ -22,7 +22,6 @@ class InputText extends HTMLElement{
       column-gap:15px;
       background-color:rgb(30,30,30);
       color:rgb(175,175,175);
-      cursor:pointer;
       white-space:pre-wrap;
       transition:background-color 0.2s,color 0.2s;}
 
@@ -34,23 +33,13 @@ class InputText extends HTMLElement{
     :host(:active){
       background-color:rgb(65,65,65);}
 
-    text-block{height:40px;}
-
-    label,.hint{
-      text-overflow:ellipsis;
-      -webkit-user-select:none;
-      user-select:none;}
-
-    label > span{color:rgb(185,65,65);padding-left:5px;}
-    .hint{font-size:75%;}
-
-    .input{
+    input{
       display:block;
+      height:100%;
       color:var(--rgb-0-0-0);
       background-color:transparent;
       line-height:30px;
       overflow:hidden;
-      white-space:nowrap;
       border:none;
       outline:none;}
 
