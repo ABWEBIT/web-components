@@ -4,9 +4,10 @@
   --font-size:16px;
   --line-height:150%;
   --border-radius:6px;
+
   --rgb-255-255-255:rgb(255,255,255);
+  
   --rgb-0-0-0:rgb(0,0,0);
-  --rgb-155-155-155:rgb(155,155,155);
   --rgb-185-65-65:rgb(185,65,65);
   --rgb-0-165-100:rgb(0,165,100);
   --rgb-25-125-230:rgb(25,125,230);}
@@ -19,7 +20,7 @@
 
 a{
   text-decoration:none;
-  color:var(--rgb-255-255-255);}
+  color:rgb(255,255,255);}
 
 iframe{border:none;}
 code{display:block;}
@@ -40,8 +41,8 @@ body{
   line-height:var(--line-height);
   font-family:var(--font-family);
   font-size:var(--font-size);
-  color:var(--rgb-255-255-255);
-  background-color:var(--rgb-0-0-0);}
+  color:rgb(255,255,255);
+  background-color:rgb(0,0,0);}
 
 #app{
   position:relative;
@@ -101,66 +102,3 @@ div.description{
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{
   cursor:default!important;}
-
-input-text{
-  position:relative;
-  display:inline-flex;
-  border:none;
-  border-radius:var(--border-radius);
-  width:100%;
-  min-width:100%;
-  max-width:100%;
-  height:40px;
-  background-color:rgb(30,30,30);
-  color:rgb(175,175,175);}
-
-/*
-input{
-  display:block;
-  height:40px;
-  color:var(--rgb-255-255-255);
-  background-color:transparent;
-  line-height:30px;
-  overflow:hidden;
-  border:1px solid #ff0000;
-  outline:none;}
-*/
-
-input-block{
-  position:relative;
-  display:inline-flex;
-  max-width:100%;
-  height:40px;
-  align-items:center;
-  vertical-align:middle;
-  border:none;
-  border-radius:var(--border-radius);
-  background-color:rgb(30,30,30);
-  color:rgb(175,175,175);
-  overflow:hidden;
-  transition:color 0.2s;}
-
-input-block > icon-block{
-  color:rgb(175,175,175);
-  justify-content:center;
-  width:40px;}
-
-input-block > input{
-  display:block;
-  height:inherit;
-  flex-grow:1;
-  padding:0 12px;
-  border:none;
-  color:rgb(255,255,255);
-  background-color:rgb(40,40,40);
-  transition:background-color 0.2s,color 0.2s;}
-
-@media (hover:hover){
-  input-block > icon-block:hover{
-    color:rgb(255,255,255);}
-
-  input-block > input:hover,
-  input-block > input:focus{
-    color:rgb(255,255,255);
-    background-color:rgb(50,50,50);}
-}

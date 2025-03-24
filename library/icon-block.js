@@ -2,7 +2,6 @@ import * as icons from '../helpers/icons.js';
 import uuid from '../helpers/uuid.js';
 
 class IconBlock extends HTMLElement{
-  #shadow = this.attachShadow({mode:'open'});
   #name = '';
 
   static get observedAttributes(){return ['name'];}
@@ -11,30 +10,14 @@ class IconBlock extends HTMLElement{
   set _name(value){
     if(/^[A-Za-z][A-Za-z0-9]*$/.test(value) && icons?.[value]){
       this.#name = value;
-      const svg = this.#shadow.querySelector('svg');
+      const svg = this.querySelector('svg');
       if(svg) svg.innerHTML = icons[this.#name];
     }
     else console.warn(`error in name: ${value}`);
   }
 
   connectedCallback(){
-    this.#shadow.innerHTML = `
-    <style>
-    :host{
-      --width:20px;
-      --height:20px;
-      display:inline-flex;
-      vertical-align:middle;
-      fill:currentColor;
-      -webkit-user-select:none;
-      user-select:none;
-      pointer-events:none;}
-    svg{
-      width:var(--width);
-      height:var(--height);
-      shape-rendering:geometricPrecision;
-      transition:fill 0.2s;}
-    </style>
+    this.innerHTML = `
     <svg viewBox="0 0 20 20">
       ${icons?.[this.#name] || ''}
     </svg>
