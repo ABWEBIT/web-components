@@ -93,7 +93,7 @@ input-block{
   transition:background-color 0.2s,color 0.2s;
   overflow:hidden;}
 
-input-block > *{height:inherit;}
+input-block > *{height:100%;}
 
 input-block > input{
   flex-grow:1;
@@ -103,7 +103,9 @@ input-block > input{
   border:none;
   color:rgb(255,255,255);
   background-color:transparent;
-  transition:inherit;}
+  transition:color 0.2s;}
+
+input-block > input::-ms-reveal{display:none;}
 
 input-block > icon-block{
   width:40px;
@@ -111,11 +113,8 @@ input-block > icon-block{
   color:rgb(175,175,175);
   background-color:rgb(40,40,40);}
 
-input-block > icon-block[name="InputClear"]{
-  background-color:transparent;}
-
 @media (hover:hover){
-  input-block:has(input:hover),
-  input-block:has(input:focus){
+  input-block:has(> input:hover),
+  input-block:has(> input:focus){
     background-color:rgb(30,30,30);}
 }
