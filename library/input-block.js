@@ -50,8 +50,6 @@ class InputBlock extends HTMLElement{
     const input = this.querySelector('input');
     if(input) input.addEventListener('input', this.#validator);
 
-    //if(!this.#before) input.style.setProperty('padding-left','15px');
-    //if(!this.#after) input.style.setProperty('padding-right','15px');
     //this.setAttribute('data-uuid',uuid());
   }
 

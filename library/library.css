@@ -27,9 +27,7 @@ icon-block > svg{
 /* Text Block */
 text-block{
   position:relative;
-  display:block;
-  max-width:100%;}
-
+  display:block;}
 
 
 
@@ -82,8 +80,10 @@ button-block > text-block{
 /* Input Block */
 input-block{
   position:relative;
-  display:inline-block;
-  max-width:100%;
+  display:inline-flex;
+  flex-direction:column;
+  row-gap:3px;
+
   vertical-align:middle;
   overflow:hidden;}
 
@@ -130,12 +130,10 @@ input-block > text-block[type="hint"]{
   overflow:hidden;}
 
 input-block > text-block[type="label"]{
-  padding-bottom:3px;
   font-size:90%;
   color:rgb(255,255,255);}
 
 input-block > text-block[type="hint"]{
-  padding-top:3px;
   font-size:80%;
   color:rgb(150,150,150);}
 
