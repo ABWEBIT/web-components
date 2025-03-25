@@ -27,7 +27,9 @@ icon-block > svg{
 /* Text Block */
 text-block{
   position:relative;
-  display:block;}
+  display:block;
+  max-width:100%;}
+
 
 
 
@@ -37,7 +39,7 @@ button-block{
   display:inline-flex;
   border:none;
   border-radius:var(--border-radius);
-  width:fit-content;
+  width:300px;
   height:40px;
   align-items:center;
   vertical-align:middle;
@@ -80,41 +82,65 @@ button-block > text-block{
 /* Input Block */
 input-block{
   position:relative;
-  display:inline-flex;
-  width:fit-content;
+  display:inline-block;
   max-width:100%;
-  height:40px;
-  align-items:center;
   vertical-align:middle;
-  border:none;
-  border-radius:var(--border-radius);
-  color:rgb(195,195,195);
-  background-color:rgb(25,25,25);
-  transition:background-color 0.2s,color 0.2s;
   overflow:hidden;}
 
-input-block > *{height:100%;}
+input-block > wrapper-block{
+  position:relative;
+  display:inline-flex;
+  height:40px;
+  overflow:hidden;
+  border:none;
+  border-radius:var(--border-radius);
+  background-color:rgb(25,25,25);
+  transition:background-color 0.2s,color 0.2s;}
 
-input-block > input{
+input-block > wrapper-block > *{height:100%;}
+
+input-block > wrapper-block > input{
   flex-grow:1;
-  width:40px;
+  width:100%;
   min-width:70px;
   padding:0 15px;
   border:none;
   color:rgb(255,255,255);
+  font-size:90%;
   background-color:transparent;
   transition:color 0.2s;}
 
-input-block > input::-ms-reveal{display:none;}
+input-block > wrapper-block > input::-ms-reveal{display:none;}
 
-input-block > icon-block{
-  width:40px;
-  min-width:40px;
-  color:rgb(175,175,175);
-  background-color:rgb(40,40,40);}
+input-block > wrapper-block > icon-block{
+  width:35px;
+  min-width:35px;
+  color:rgb(175,175,175);}
 
 @media (hover:hover){
-  input-block:has(> input:hover),
-  input-block:has(> input:focus){
+  input-block > wrapper-block:hover,
+  input-block > wrapper-block:has(> input:focus){
     background-color:rgb(30,30,30);}
 }
+
+input-block > text-block[type="label"],
+input-block > text-block[type="hint"]{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;}
+
+input-block > text-block[type="label"]{
+  padding-bottom:3px;
+  font-size:90%;
+  color:rgb(255,255,255);}
+
+input-block > text-block[type="hint"]{
+  padding-top:3px;
+  font-size:80%;
+  color:rgb(150,150,150);}
+
+input-block > wrapper-block > icon-block:first-child{
+  justify-content:end;}
+
+input-block > wrapper-block > icon-block:last-child{
+  justify-content:start;}
