@@ -1,0 +1,37 @@
+<div class="title">Поле формы</div>
+
+<div class="section">
+  <code>
+  &lt;form-field label="Заголовок" hint="Подсказка"&gt;
+  </code>
+  <form-field label="Заголовок" hint="Подсказка"></form-field>
+</div>
+
+<div class="section">
+  <code>
+  &lt;form-field label="Заголовок" hint="Подсказка"&gt;<br>
+  &lt;input-block placeholder="Пароль" before="Article" after="Bell" type="password"&gt;&lt;/input-block&gt;<br>
+  &lt;/form-field&gt;
+  </code>
+  <form-field label="Заголовок" hint="Подсказка">
+    <input-block placeholder="Пароль" before="Article" after="Bell" type="password"></input-block>
+  </form-field>
+</div>
+
+<script>
+
+
+    document.querySelectorAll(".section").forEach(section => {
+      const codeBlock = section.querySelector("code");
+      const codeContentElement = section.querySelector(".code");
+
+      if (codeBlock && codeContentElement) {
+        const codeContent = codeContentElement.innerHTML
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+        codeBlock.innerHTML = codeContent;
+      }
+    });
+
+
+</script>

@@ -16,7 +16,7 @@
     <div class="static"></div>
     <div class="dynamic">
       <div class="menuItem">
-        <span onclick="loadContent('pages/icons.html')">
+        <span onclick="loadContent('pages/icons-pack.html')">
           <icon-block name="Article"></icon-block>
           <text-block>Каталог</text-block>
         </span>
@@ -40,6 +40,12 @@
         </span>
       </div>
       <div class="menuItem">
+        <span onclick="loadContent('pages/form-field.html')">
+          <icon-block name="Article"></icon-block>
+          <text-block>Поле формы</text-block>
+        </span>
+      </div>
+      <div class="menuItem">
         <span onclick="loadContent('pages/input-block.html')">
           <icon-block name="Article"></icon-block>
           <text-block>Поле ввода</text-block>
@@ -55,7 +61,7 @@
 <script id="script"></script>
 
 <script>
-loadContent('pages/input-block.html');
+loadContent('pages/button-block.html');
 function loadContent(page){
   fetch(page)
   .then(response => response.text())
@@ -77,5 +83,6 @@ function loadContent(page){
 <script type="module" src="library/text-block.js"></script>
 <script type="module" src="library/button-block.js"></script>
 <script type="module" src="library/input-block.js"></script>
+<script type="module" src="library/form-field.js"></script>
 </body>
 </html>

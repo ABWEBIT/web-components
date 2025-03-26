@@ -1,22 +1,15 @@
-import uuid from '../helpers/uuid.js';
+//import uuid from '../helpers/uuid.js';
 
 class InputBlock extends HTMLElement{
+  #shadow = this.attachShadow({mode:'open'});
   #before = '';
   #after = '';
   #type = 'text';
   #types = ['text','password','email','url','search','tel'];
-  #validator;
-  #label = '';
-  #hint = '';
+  #validator = this.validation.bind(this);
   #placeholder = '';
 
-  constructor(){
-    super();
-    this.#validator = this.validation.bind(this);
-  }
-
-  static get observedAttributes(){
-    return ['before','after'];}
+  static get observedAttributes(){return ['before','after'];}
 
   get _before(){return this.#before;}
   set _before(value){
@@ -33,33 +26,70 @@ class InputBlock extends HTMLElement{
   connectedCallback(){
     const type = this.getAttribute('type');
     this.#type = this.#types.includes(type) ? type : 'text';
-
-    this.#label = this.getAttribute('label');
-    this.#hint = this.getAttribute('hint');
     this.#placeholder = this.getAttribute('placeholder');
 
-    this.innerHTML = `
-      ${this.#label ? `<text-block type="label">${this.#label}</text-block>` : ''}
-      <wrapper-block>
+    this.#shadow.innerHTML = `
+      <style>
+      :host *{box-sizing:border-box;outline:none;}
+      :host{
+        position:relative;
+        display:inline-flex;
+        vertical-align:middle;
+        width:fit-content;
+        height:40px;
+        border:none;
+        border-radius:var(--border-radius);
+        overflow:hidden;
+        background-color:rgb(25,25,25);
+        transition:background-color 0.2s,color 0.2s;}
+
+      :host > *{height:100%;}
+
+      :host > input{
+        flex-grow:1;
+        width:100%;
+        min-width:70px;
+        padding:0 15px;
+        border:none;
+        color:rgb(255,255,255);
+        font-size:90%;
+        background-color:transparent;
+        transition:color 0.2s;}
+
+      :host > input::-ms-reveal{display:none;}
+
+      :host > icon-block{
+        width:35px;
+        min-width:35px;}
+
+      @media (hover:hover){
+        :host(:hover),
+        :host:has(> input:focus){
+          background-color:rgb(35,35,35);}
+        :host(:hover) > icon-block,
+        :host:has(> input:focus) > icon-block{color:rgb(225,225,225);}
+      }
+
+      :host > icon-block:first-of-type{justify-content:end;}
+      :host > icon-block:last-of-type{justify-content:start;}
+      </style>
       ${this.#before ? `<icon-block name="${this.#before}"></icon-block>` : ''}
       <input type="${this.#type}" placeholder="${this.#placeholder ? this.#placeholder : ''}">
-      ${this.#after ? `<icon-block name="${this.#after}"></icon-block>` : ''}
-      </wrapper-block>
-      ${this.#hint ? `<text-block type="hint">${this.#hint}</text-block>` : ''}`;
+      ${this.#after ? `<icon-block name="${this.#after}"></icon-block>` : ''}`;
 
-    const input = this.querySelector('input');
+    const input = this.#shadow.querySelector('input');
     if(input) input.addEventListener('input', this.#validator);
 
     //this.setAttribute('data-uuid',uuid());
   }
 
   disconnectedCallback(){
-    const input = this.querySelector('input');
+    const input = this.#shadow.querySelector('input');
     if(input) input.removeEventListener('input',this.#validator);
   }
 
   validation(){
-    //console.log(this.querySelector('input').value.length);
+    console.log(this.#shadow.querySelector('input').value.length);
   }
 
   attributeChangedCallback(name,oldValue,newValue){

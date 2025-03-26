@@ -86,7 +86,9 @@ body{
 
 .section{
   position:relative;
-  display:block;
+  display:flex;
+  flex-direction:column;
+  row-gap:15px;
   border-radius:var(--border-radius);
   background-color:rgb(10,10,10);
   padding:20px 20px;}
