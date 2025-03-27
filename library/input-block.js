@@ -43,13 +43,13 @@ class InputBlock extends HTMLElement{
         background-color:rgb(25,25,25);
         transition:background-color 0.2s,color 0.2s;}
 
-      :host > *{height:100%;}
-
       :host > input{
+        height:100%;
         flex-grow:1;
         width:100%;
         min-width:70px;
-        padding:0 15px;
+        padding-left:15px;
+        padding-right:15px;
         border:none;
         color:rgb(255,255,255);
         font-size:90%;
@@ -59,8 +59,9 @@ class InputBlock extends HTMLElement{
       :host > input::-ms-reveal{display:none;}
 
       :host > icon-block{
-        width:35px;
-        min-width:35px;}
+        height:100%;
+        width:40px;
+        min-width:40px;}
 
       @media (hover:hover){
         :host(:hover),
@@ -70,8 +71,8 @@ class InputBlock extends HTMLElement{
         :host:has(> input:focus) > icon-block{color:rgb(225,225,225);}
       }
 
-      :host > icon-block:first-of-type{justify-content:end;}
-      :host > icon-block:last-of-type{justify-content:start;}
+      :host:has(> icon-block:nth-child(2)) input{padding-left:0;}
+      :host:has(> icon-block:nth-child(4)) input{padding-right:0;}
       </style>
       ${this.#before ? `<icon-block name="${this.#before}"></icon-block>` : ''}
       <input type="${this.#type}" placeholder="${this.#placeholder ? this.#placeholder : ''}">
@@ -89,7 +90,7 @@ class InputBlock extends HTMLElement{
   }
 
   validation(){
-    console.log(this.#shadow.querySelector('input').value.length);
+    //console.log(this.#shadow.querySelector('input').value.length);
   }
 
   attributeChangedCallback(name,oldValue,newValue){
