@@ -1,5 +1,6 @@
-import * as icons from '../helpers/icons.js';
 //import uuid from '../helpers/uuid.js';
+import * as icons from '../helpers/icons.js';
+import Validator from '../helpers/validation.js';
 
 class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -9,7 +10,7 @@ class IconBlock extends HTMLElement{
 
   get _name(){return this.#name;}
   set _name(value){
-    if(/^[A-Za-z][A-Za-z0-9]*$/.test(value) && icons[value]){
+    if(Validator.iconName(value) && icons[value]){
       this.#name = value;
       const svg = this.#shadow.querySelector('svg');
       if(svg) svg.innerHTML = icons[this.#name];
@@ -28,7 +29,6 @@ class IconBlock extends HTMLElement{
       justify-content:center;
       align-items:center;
       vertical-align:middle;
-      color:rgb(150,150,150);
       transition:color 0.2s;
       -webkit-user-select:none;
       user-select:none;}

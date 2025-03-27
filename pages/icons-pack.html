@@ -1,7 +1,7 @@
 <div class="title">Каталог</div>
 <div class="description">Толщина линии до конвертации: 1.6px. Закругление угла: 3px. Размер: 20 x 20</div>
 
-<div class="section" style="flex-direction:row;">
+<div class="section" style="flex-direction:row;gap:10px;">
   <icon-block id="test" name="Home"></icon-block>
   <icon-block name="Article"></icon-block>
   <icon-block name="Search"></icon-block>
@@ -12,22 +12,20 @@
   <icon-block name="InputClear"></icon-block>
 </div>
 
-<section>
-  <button onclick="changeIconName()">Тест замены</button>
-  <script>
-    function changeIconAttribute(attribute, values) {
-      const iconBlock = document.getElementById('test');
-      if (!iconBlock) return;
+<button-block onclick="changeIconName()" text="Тест реактивности"></button-block>
+<script>
+  function changeIconAttribute(attribute, values) {
+    const iconBlock = document.getElementById('test');
+    if (!iconBlock) return;
 
-      const currentValue = iconBlock.getAttribute(attribute);
-      const currentIndex = values.indexOf(currentValue);
-      const nextIndex = (currentIndex + 1) % values.length;
-      const nextValue = values[nextIndex];
+    const currentValue = iconBlock.getAttribute(attribute);
+    const currentIndex = values.indexOf(currentValue);
+    const nextIndex = (currentIndex + 1) % values.length;
+    const nextValue = values[nextIndex];
 
-      iconBlock.setAttribute(attribute, nextValue);
-    }
+    iconBlock.setAttribute(attribute, nextValue);
+  }
 
-    function changeIconName(){
-      changeIconAttribute('name',['Search','Send','Gear']);}
-  </script>
-</section>
+  function changeIconName(){
+    changeIconAttribute('name',['Search','Send','Gear']);}
+</script>
