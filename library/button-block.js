@@ -89,8 +89,8 @@ class ButtonBlock extends HTMLElement{
     :host(:active){
       background-color:rgb(45,45,45);}
 
-    :host:has(> icon-block:nth-child(2)) text-block{padding-left:0;}
-    :host:has(> icon-block:nth-child(4)) text-block{padding-right:0;}
+    :host:has(> icon-block[position="before"]) text-block{padding-left:0;}
+    :host:has(> icon-block[position="after"]) text-block{padding-right:0;}
     </style>
     ${this.#before ? `<icon-block position="before" name="${this.#before}"></icon-block>` : ''}
     ${this.#text ? `<text-block></text-block>` : ''}

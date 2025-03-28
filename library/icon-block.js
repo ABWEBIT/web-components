@@ -12,7 +12,7 @@ class IconBlock extends HTMLElement{
   set _name(value){
     if(Validator.iconName(value) && icons[value]){
       this.#name = value;
-      const svg = this.#shadow.querySelector('svg');
+      let svg = this.#shadow.querySelector('svg');
       if(svg) svg.innerHTML = icons[this.#name];
     }
     else console.warn(`error in name: ${value}`);

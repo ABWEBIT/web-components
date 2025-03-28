@@ -77,8 +77,8 @@ class InputBlock extends HTMLElement{
       :host:has(> input:focus) > icon-block{color:rgb(225,225,225);}
     }
 
-    :host:has(> icon-block:nth-child(2)) input{padding-left:0;}
-    :host:has(> icon-block:nth-child(4)) input{padding-right:0;}
+    :host:has(> icon-block[position="before"]) input{padding-left:0;}
+    :host:has(> icon-block[position="after"]) input{padding-right:0;}
     </style>
     ${this.#before ? `<icon-block position="before" name="${this.#before}"></icon-block>` : ''}
     <input type="${this.#type}" placeholder="${this.#placeholder ? this.#placeholder : ''}">
