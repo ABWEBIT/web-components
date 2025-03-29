@@ -1,14 +1,35 @@
 //import uuid from '../helpers/uuid.js';
+import Validator from '../helpers/validation.js';
 
 class FormField extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   #label = '';
   #hint = '';
 
-  connectedCallback(){
-    this.#label = this.getAttribute('label') || '';
-    this.#hint = this.getAttribute('hint') || '';
+  static get observedAttributes(){return ['label','hint'];}
 
+  get _label(){return this.#label;}
+  set _label(value){
+    value = String(value || '').trim();
+    this.#label = Validator.text(value) ? value : '';
+    this.#updateText('label',this.#label);
+  }
+
+  get _hint(){return this.#hint;}
+  set _hint(value){
+    value = String(value || '').trim();
+    this.#hint = Validator.text(value) ? value : '';
+    this.#updateText('hint',this.#hint);
+  }
+
+  #updateText(type,text){
+    setTimeout(()=>{
+      let block = this.#shadow.querySelector(`text-block[type="${type}"]`);
+      if(block) block.textContent = text;
+    },0);
+  }
+
+  connectedCallback(){
     this.#shadow.innerHTML = `
     <style>
     :host{
@@ -32,11 +53,20 @@ class FormField extends HTMLElement{
       font-size:80%;
       color:rgb(150,150,150);}
     </style>
-    ${this.#label ? `<text-block type="label">${this.#label}</text-block>` : ''}
+    ${this.#label ? `<text-block type="label"></text-block>` : ''}
     <slot></slot>
-    ${this.#hint ? `<text-block type="hint">${this.#hint}</text-block>` : ''}`;
+    ${this.#hint ? `<text-block type="hint"></text-block>` : ''}`;
 
     //this.setAttribute('data-uuid',uuid());
+  }
+
+  attributeChangedCallback(name,oldValue,newValue){
+    if(!!newValue && oldValue !== newValue){
+      switch(name){
+        case 'label':this._label = newValue; break;
+        case 'hint':this._hint = newValue; break;
+      }
+    }
   }
 
 }

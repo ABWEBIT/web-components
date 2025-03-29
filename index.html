@@ -39,15 +39,15 @@
         </span>
       </div>
       <div class="menuItem">
-        <span onclick="loadContent('pages/form-field.html')">
-          <icon-block name="Article"></icon-block>
-          <text-block>Поле формы</text-block>
-        </span>
-      </div>
-      <div class="menuItem">
         <span onclick="loadContent('pages/input-block.html')">
           <icon-block name="Article"></icon-block>
           <text-block>Поле ввода</text-block>
+        </span>
+      </div>
+      <div class="menuItem">
+        <span onclick="loadContent('pages/form-field.html')">
+          <icon-block name="Article"></icon-block>
+          <text-block>Поле формы</text-block>
         </span>
       </div>
     </div>
@@ -60,7 +60,7 @@
 <script id="script"></script>
 
 <script>
-loadContent('pages/input-block.html');
+loadContent('pages/button-block.html');
 function loadContent(page){
   fetch(page)
   .then(response => response.text())

@@ -97,6 +97,7 @@ class InputBlock extends HTMLElement{
 
   operation(){
     //console.log(this.#shadow.querySelector('input').value.length);
+    //this.dispatchEvent(new CustomEvent('input-change',{detail:value}));
   }
 
   attributeChangedCallback(name,oldValue,newValue){

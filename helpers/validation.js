@@ -7,6 +7,9 @@ class Validator{
     return /^(?![ _+#.-])[\p{L}\p{N} _+#.-]+(?<![ _.])$/u.test(value);
   }
 
+  static text(value){
+    return /^(?![ _+#.-])[\p{L}\p{N} _+#.-]+(?<![ _.])$/u.test(value);
+  }
 }
 
 export default Validator;

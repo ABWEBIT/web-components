@@ -25,11 +25,25 @@ class ButtonBlock extends HTMLElement{
     if(block && this.#after) block.setAttribute('name',this.#after);
   }
 
+  #updateIcon(type,text){
+    setTimeout(()=>{
+      let block = this.#shadow.querySelector(`text-block[type="${type}"]`);
+      if(block) block.textContent = text;
+    },0);
+  }
+
   get _text(){return this.#text;}
   set _text(value){
     value = value.trim();
     this.#text = Validator.buttonText(value) ? value : '';
-    if(this.#text) this.updateText();
+    this.#updateText('text',this.#text);
+  }
+
+  #updateText(type,text){
+    setTimeout(()=>{
+      let block = this.#shadow.querySelector(`text-block[type="${type}"]`);
+      if(block) block.textContent = text;
+    },0);
   }
 
   connectedCallback(){
@@ -93,17 +107,10 @@ class ButtonBlock extends HTMLElement{
     :host:has(> icon-block[position="after"]) text-block{padding-right:0;}
     </style>
     ${this.#before ? `<icon-block position="before" name="${this.#before}"></icon-block>` : ''}
-    ${this.#text ? `<text-block></text-block>` : ''}
+    ${this.#text ? `<text-block type="text"></text-block>` : ''}
     ${this.#after ? `<icon-block position="after" name="${this.#after}"></icon-block>` : ''}`;
 
-    this.updateText();
-
     //this.setAttribute('data-uuid',uuid());
-  }
-
-  updateText(){
-    let block = this.#shadow.querySelector('text-block');
-    if(block && this.#text) block.textContent = this.#text;
   }
 
   attributeChangedCallback(name,oldValue,newValue){
