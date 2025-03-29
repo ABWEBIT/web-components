@@ -23,10 +23,10 @@ class FormField extends HTMLElement{
   }
 
   #updateText(type,text){
-    setTimeout(()=>{
+    queueMicrotask(()=>{
       let block = this.#shadow.querySelector(`text-block[type="${type}"]`);
       if(block) block.textContent = text;
-    },0);
+    });
   }
 
   connectedCallback(){

@@ -13,23 +13,21 @@ class ButtonBlock extends HTMLElement{
   set _before(value){
     value = String(value || '').trim();
     this.#before = Validator.iconName(value) ? value : '';
-    let block = this.#shadow.querySelector('icon-block[position="before"]');
-    if(block && this.#before) block.setAttribute('name', this.#before);
+    this.#updateIcon('before',this.#before);
   }
 
   get _after(){return this.#after;}
   set _after(value){
     value = String(value || '').trim();
     this.#after = Validator.iconName(value) ? value : '';
-    let block = this.#shadow.querySelector('icon-block[position="after"]');
-    if(block && this.#after) block.setAttribute('name',this.#after);
+    this.#updateIcon('after',this.#after);
   }
 
-  #updateIcon(type,text){
-    setTimeout(()=>{
-      let block = this.#shadow.querySelector(`text-block[type="${type}"]`);
-      if(block) block.textContent = text;
-    },0);
+  #updateIcon(position,name){
+    queueMicrotask(()=>{
+      let block = this.#shadow.querySelector(`icon-block[position="${position}"]`);
+      if(block) block.setAttribute('name',name);
+    });
   }
 
   get _text(){return this.#text;}
@@ -40,10 +38,10 @@ class ButtonBlock extends HTMLElement{
   }
 
   #updateText(type,text){
-    setTimeout(()=>{
+    queueMicrotask(()=>{
       let block = this.#shadow.querySelector(`text-block[type="${type}"]`);
       if(block) block.textContent = text;
-    },0);
+    });
   }
 
   connectedCallback(){
@@ -106,9 +104,9 @@ class ButtonBlock extends HTMLElement{
     :host:has(> icon-block[position="before"]) text-block{padding-left:0;}
     :host:has(> icon-block[position="after"]) text-block{padding-right:0;}
     </style>
-    ${this.#before ? `<icon-block position="before" name="${this.#before}"></icon-block>` : ''}
+    ${this.#before ? `<icon-block position="before" name=""></icon-block>` : ''}
     ${this.#text ? `<text-block type="text"></text-block>` : ''}
-    ${this.#after ? `<icon-block position="after" name="${this.#after}"></icon-block>` : ''}`;
+    ${this.#after ? `<icon-block position="after" name=""></icon-block>` : ''}`;
 
     //this.setAttribute('data-uuid',uuid());
   }
