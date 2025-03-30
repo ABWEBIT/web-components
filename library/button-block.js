@@ -1,5 +1,5 @@
 //import uuid from '../helpers/uuid.js';
-import Validator from '../helpers/validation.js';
+import {iconName} from '../helpers/utils.js';
 
 class ButtonBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -12,15 +12,15 @@ class ButtonBlock extends HTMLElement{
   get _before(){return this.#before;}
   set _before(value){
     value = String(value || '').trim();
-    this.#before = Validator.iconName(value) ? value : '';
+    this.#before = iconName(value) ? value : '';
     this.#updateIcon('before',this.#before);
   }
 
   get _after(){return this.#after;}
   set _after(value){
     value = String(value || '').trim();
-    this.#after = Validator.iconName(value) ? value : '';
-    this.#updateIcon('after',this.#after);
+    this.#after = iconName(value) ? value : '';
+    this.#updateIcon('after',value);
   }
 
   #updateIcon(position,name){
@@ -32,9 +32,8 @@ class ButtonBlock extends HTMLElement{
 
   get _text(){return this.#text;}
   set _text(value){
-    value = String(value || '').trim();
-    this.#text = Validator.textButton(value) ? value : '';
-    this.#updateText('text',this.#text);
+    this.#text = String(value || '').trim();
+    if(this.#text) this.#updateText('text',this.#text);
   }
 
   #updateText(type,text){
@@ -104,9 +103,9 @@ class ButtonBlock extends HTMLElement{
     :host:has(> icon-block[position="before"]) text-block{padding-left:0;}
     :host:has(> icon-block[position="after"]) text-block{padding-right:0;}
     </style>
-    ${this.#before ? `<icon-block position="before" name=""></icon-block>` : ''}
-    ${this.#text ? `<text-block type="text"></text-block>` : ''}
-    ${this.#after ? `<icon-block position="after" name=""></icon-block>` : ''}`;
+    ${this.#before && `<icon-block position="before" name=""></icon-block>`}
+    ${this.#text && `<text-block type="text"></text-block>`}
+    ${this.#after && `<icon-block position="after" name=""></icon-block>`}`;
 
     //this.setAttribute('data-uuid',uuid());
   }

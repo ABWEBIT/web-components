@@ -1,5 +1,5 @@
 //import uuid from '../helpers/uuid.js';
-import Validator from '../helpers/validation.js';
+import {escapeHTML} from '../helpers/utils.js';
 
 class FormField extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -11,14 +11,14 @@ class FormField extends HTMLElement{
   get _label(){return this.#label;}
   set _label(value){
     value = String(value || '').trim();
-    this.#label = Validator.text(value) ? value : '';
+    this.#label = escapeHTML(value) ? value : '';
     this.#updateText('label',this.#label);
   }
 
   get _hint(){return this.#hint;}
   set _hint(value){
-    value = String(value || '').trim();
-    this.#hint = Validator.text(value) ? value : '';
+    value = escapeHTML(value) ? value : '';
+    this.#hint = String(value || '').trim();
     this.#updateText('hint',this.#hint);
   }
 
@@ -53,9 +53,9 @@ class FormField extends HTMLElement{
       font-size:80%;
       color:rgb(150,150,150);}
     </style>
-    ${this.#label ? `<text-block type="label"></text-block>` : ''}
+    ${this.#label && `<text-block type="label"></text-block>`}
     <slot></slot>
-    ${this.#hint ? `<text-block type="hint"></text-block>` : ''}`;
+    ${this.#hint && `<text-block type="hint"></text-block>`}`;
 
     //this.setAttribute('data-uuid',uuid());
   }

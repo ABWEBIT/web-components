@@ -1,5 +1,5 @@
 //import uuid from '../helpers/uuid.js';
-import Validator from '../helpers/validation.js';
+import {iconName,text,inputType1} from '../helpers/utils.js';
 
 class InputBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -14,14 +14,14 @@ class InputBlock extends HTMLElement{
   get _before(){return this.#before;}
   set _before(value){
     value = String(value || '').trim();
-    this.#before = Validator.iconName(value) ? value : '';
+    this.#before = iconName(value) ? value : '';
     if(this.#before) this.#updateIcon('before',this.#before);
   }
 
   get _after(){return this.#after;}
   set _after(value){
     value = String(value || '').trim();
-    this.#after = Validator.iconName(value) ? value : '';
+    this.#after = iconName(value) ? value : '';
     if(this.#after) this.#updateIcon('after',this.#after);
   }
 
@@ -79,9 +79,9 @@ class InputBlock extends HTMLElement{
     :host:has(> icon-block[position="before"]) input{padding-left:0;}
     :host:has(> icon-block[position="after"]) input{padding-right:0;}
     </style>
-    ${this.#before ? `<icon-block position="before" name=""></icon-block>` : ''}
+    ${this.#before && `<icon-block position="before" name=""></icon-block>`}
     <input type="" placeholder="">
-    ${this.#after ? `<icon-block position="after" name=""></icon-block>` : ''}`;
+    ${this.#after && `<icon-block position="after" name=""></icon-block>`}`;
 
     let inputObject = this.#shadow.querySelector('input');
     if(inputObject){
@@ -89,11 +89,11 @@ class InputBlock extends HTMLElement{
       let inputType = this.getAttribute('type');
       let inputPlaceholder = this.getAttribute('placeholder');
       if(inputType){
-        this.#type = Validator.inputType(inputType) ? inputType : 'text';
+        this.#type = inputType1(inputType) ? inputType : 'text';
         inputObject.type = this.#type;
       }
       if(inputPlaceholder){
-        this.#placeholder = Validator.text(inputPlaceholder) ? inputPlaceholder : '';
+        this.#placeholder = text(inputPlaceholder) ? inputPlaceholder : '';
         inputObject.setAttribute('placeholder',this.#placeholder);
       }
     }

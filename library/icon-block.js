@@ -1,6 +1,6 @@
 //import uuid from '../helpers/uuid.js';
 import * as icons from '../helpers/icons.js';
-import Validator from '../helpers/validation.js';
+import {iconName} from '../helpers/utils.js';
 
 class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -10,7 +10,7 @@ class IconBlock extends HTMLElement{
 
   get _name(){return this.#name;}
   set _name(value){
-    if(Validator.iconName(value) && icons[value]){
+    if(iconName(value) && icons[value]){
       this.#name = value;
       queueMicrotask(()=>{
         let svg = this.#shadow.querySelector('svg');
