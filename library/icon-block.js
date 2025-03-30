@@ -12,10 +12,13 @@ class IconBlock extends HTMLElement{
   set _name(value){
     if(Validator.iconName(value) && icons[value]){
       this.#name = value;
-      let svg = this.#shadow.querySelector('svg');
-      if(svg) svg.innerHTML = icons[this.#name];
+      queueMicrotask(()=>{
+        let svg = this.#shadow.querySelector('svg');
+        if(svg){
+          svg.innerHTML = icons[this.#name];
+        }
+      });
     }
-    else console.warn(`error in name: ${value}`);
   }
 
   connectedCallback(){
@@ -40,15 +43,13 @@ class IconBlock extends HTMLElement{
       shape-rendering:geometricPrecision;
       pointer-events:none;}
     </style>
-    <svg viewBox="0 0 20 20">
-      ${icons[this.#name] || ''}
-    </svg>`;
+    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"></svg>`;
 
     //this.setAttribute('data-uuid',uuid());
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    if(!!newValue && oldValue !== newValue){
+    if(newValue && oldValue !== newValue){
       switch(name){
         case 'name':this._name = newValue; break;
       }

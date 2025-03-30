@@ -61,7 +61,7 @@ class FormField extends HTMLElement{
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    if(!!newValue && oldValue !== newValue){
+    if(newValue && oldValue !== newValue){
       switch(name){
         case 'label':this._label = newValue; break;
         case 'hint':this._hint = newValue; break;

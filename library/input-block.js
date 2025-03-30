@@ -16,21 +16,27 @@ class InputBlock extends HTMLElement{
   set _before(value){
     value = String(value || '').trim();
     this.#before = Validator.iconName(value) ? value : '';
-    let block = this.#shadow.querySelector('icon-block[position="before"]');
-    if(block && this.#before) block.setAttribute('name', this.#before);
+    this.#updateIcon('before',this.#before);
   }
 
   get _after(){return this.#after;}
   set _after(value){
     value = String(value || '').trim();
     this.#after = Validator.iconName(value) ? value : '';
-    let block = this.#shadow.querySelector('icon-block[position="after"]');
-    if(block && this.#after) block.setAttribute('name',this.#after);
+    this.#updateIcon('after',this.#after);
+  }
+
+  #updateIcon(position,name){
+    queueMicrotask(()=>{
+      this.#shadow.querySelector(`icon-block[position="${position}"]`)?.setAttribute('name',name);
+    });
   }
 
   connectedCallback(){
     let type = this.getAttribute('type');
-    this.#type = this.#types.includes(type) ? type : 'text';
+    if(type){
+      this.#type = this.#types.includes(type) ? type : 'text';
+    }
     this.#placeholder = this.getAttribute('placeholder');
 
     this.#shadow.innerHTML = `
@@ -80,19 +86,17 @@ class InputBlock extends HTMLElement{
     :host:has(> icon-block[position="before"]) input{padding-left:0;}
     :host:has(> icon-block[position="after"]) input{padding-right:0;}
     </style>
-    ${this.#before ? `<icon-block position="before" name="${this.#before}"></icon-block>` : ''}
+    ${this.#before ? `<icon-block position="before" name=""></icon-block>` : ''}
     <input type="${this.#type}" placeholder="${this.#placeholder ? this.#placeholder : ''}">
-    ${this.#after ? `<icon-block position="after" name="${this.#after}"></icon-block>` : ''}`;
+    ${this.#after ? `<icon-block position="after" name=""></icon-block>` : ''}`;
 
-    let input = this.#shadow.querySelector('input');
-    if(input) input.addEventListener('input',this.#handler);
+    this.#shadow.querySelector('input')?.addEventListener('input',this.#handler);
 
     //this.setAttribute('data-uuid',uuid());
   }
 
   disconnectedCallback(){
-    let input = this.#shadow.querySelector('input');
-    if(input) input.removeEventListener('input',this.#handler);
+    this.#shadow.querySelector('input')?.removeEventListener('input',this.#handler);
   }
 
   operation(){
@@ -101,7 +105,7 @@ class InputBlock extends HTMLElement{
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    if(!!newValue && oldValue !== newValue){
+    if(newValue && oldValue !== newValue){
       switch(name){
         case 'before':this._before = newValue; break;
         case 'after':this._after = newValue; break;

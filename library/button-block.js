@@ -32,7 +32,7 @@ class ButtonBlock extends HTMLElement{
 
   get _text(){return this.#text;}
   set _text(value){
-    value = value.trim();
+    value = String(value || '').trim();
     this.#text = Validator.buttonText(value) ? value : '';
     this.#updateText('text',this.#text);
   }
@@ -112,7 +112,7 @@ class ButtonBlock extends HTMLElement{
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    if(!!newValue && oldValue !== newValue){
+    if(newValue && oldValue !== newValue){
       switch(name){
         case 'before':this._before = newValue; break;
         case 'after':this._after = newValue; break;
