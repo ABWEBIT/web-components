@@ -33,12 +33,6 @@ class InputBlock extends HTMLElement{
   }
 
   connectedCallback(){
-    let type = this.getAttribute('type');
-    if(type){
-      this.#type = this.#types.includes(type) ? type : 'text';
-    }
-    this.#placeholder = this.getAttribute('placeholder');
-
     this.#shadow.innerHTML = `
     <style>
     :host *{box-sizing:border-box;outline:none;}
@@ -87,10 +81,23 @@ class InputBlock extends HTMLElement{
     :host:has(> icon-block[position="after"]) input{padding-right:0;}
     </style>
     ${this.#before ? `<icon-block position="before" name=""></icon-block>` : ''}
-    <input type="${this.#type}" placeholder="${this.#placeholder ? this.#placeholder : ''}">
+    <input type="" placeholder="">
     ${this.#after ? `<icon-block position="after" name=""></icon-block>` : ''}`;
 
-    this.#shadow.querySelector('input')?.addEventListener('input',this.#handler);
+    let inputObject = this.#shadow.querySelector('input');
+    if(inputObject){
+      inputObject.addEventListener('input',this.#handler);
+      let inputType = this.getAttribute('type');
+      let inputPlaceholder = this.getAttribute('placeholder');
+      if(inputType){
+        this.#type = this.#types.includes(inputType) ? inputType : 'text';
+        inputObject.type = this.#type;
+      }
+      if(inputPlaceholder){
+        this.#placeholder = Validator.text(inputPlaceholder) ? inputPlaceholder : '';
+        inputObject.setAttribute('placeholder',this.#placeholder);
+      }
+    }
 
     //this.setAttribute('data-uuid',uuid());
   }
