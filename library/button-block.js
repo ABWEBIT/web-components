@@ -33,7 +33,7 @@ class ButtonBlock extends HTMLElement{
   get _text(){return this.#text;}
   set _text(value){
     value = String(value || '').trim();
-    this.#text = Validator.buttonText(value) ? value : '';
+    this.#text = Validator.textButton(value) ? value : '';
     this.#updateText('text',this.#text);
   }
 

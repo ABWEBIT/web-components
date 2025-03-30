@@ -7,7 +7,6 @@ class InputBlock extends HTMLElement{
   #before = '';
   #after = '';
   #type = 'text';
-  #types = ['text','password','email','url','search','tel'];
   #handler = this.operation.bind(this);
 
   static get observedAttributes(){return ['before','after'];}
@@ -16,14 +15,14 @@ class InputBlock extends HTMLElement{
   set _before(value){
     value = String(value || '').trim();
     this.#before = Validator.iconName(value) ? value : '';
-    this.#updateIcon('before',this.#before);
+    if(this.#before) this.#updateIcon('before',this.#before);
   }
 
   get _after(){return this.#after;}
   set _after(value){
     value = String(value || '').trim();
     this.#after = Validator.iconName(value) ? value : '';
-    this.#updateIcon('after',this.#after);
+    if(this.#after) this.#updateIcon('after',this.#after);
   }
 
   #updateIcon(position,name){
@@ -90,7 +89,7 @@ class InputBlock extends HTMLElement{
       let inputType = this.getAttribute('type');
       let inputPlaceholder = this.getAttribute('placeholder');
       if(inputType){
-        this.#type = this.#types.includes(inputType) ? inputType : 'text';
+        this.#type = Validator.inputType(inputType) ? inputType : 'text';
         inputObject.type = this.#type;
       }
       if(inputPlaceholder){
