@@ -1,5 +1,4 @@
-//import uuid from '../helpers/uuid.js';
-import {iconName} from '../helpers/utils.js';
+import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
 
 class ButtonBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -11,19 +10,24 @@ class ButtonBlock extends HTMLElement{
 
   get _before(){return this.#before;}
   set _before(value){
-    value = String(value || '').trim();
-    this.#before = iconName(value) ? value : '';
-    this.#updateIcon('before',this.#before);
+    value = textNormalize(value);
+    if(value && variableName(value)){
+      this.#before = value;
+      this.#updateIcon('before',this.#before);
+    }
   }
 
   get _after(){return this.#after;}
   set _after(value){
-    value = String(value || '').trim();
-    this.#after = iconName(value) ? value : '';
-    this.#updateIcon('after',value);
+    value = textNormalize(value);
+    if(value && variableName(value)){
+      this.#after = value;
+      this.#updateIcon('after',this.#after);
+    }
   }
 
   #updateIcon(position,name){
+    name = htmlEscape(name);
     queueMicrotask(()=>{
       let block = this.#shadow.querySelector(`icon-block[position="${position}"]`);
       if(block) block.setAttribute('name',name);
@@ -32,8 +36,11 @@ class ButtonBlock extends HTMLElement{
 
   get _text(){return this.#text;}
   set _text(value){
-    this.#text = String(value || '').trim();
-    if(this.#text) this.#updateText('text',this.#text);
+    value = textNormalize(value);
+    if(value){
+      this.#text = value;
+      this.#updateText('text',this.#text);
+    }
   }
 
   #updateText(type,text){
@@ -106,8 +113,6 @@ class ButtonBlock extends HTMLElement{
     ${this.#before && `<icon-block position="before" name=""></icon-block>`}
     ${this.#text && `<text-block type="text"></text-block>`}
     ${this.#after && `<icon-block position="after" name=""></icon-block>`}`;
-
-    //this.setAttribute('data-uuid',uuid());
   }
 
   attributeChangedCallback(name,oldValue,newValue){

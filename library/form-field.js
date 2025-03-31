@@ -1,5 +1,4 @@
-//import uuid from '../helpers/uuid.js';
-import {escapeHTML} from '../helpers/utils.js';
+import {textNormalize} from '../helpers/utils.js';
 
 class FormField extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -10,16 +9,20 @@ class FormField extends HTMLElement{
 
   get _label(){return this.#label;}
   set _label(value){
-    value = String(value || '').trim();
-    this.#label = escapeHTML(value) ? value : '';
-    this.#updateText('label',this.#label);
+    value = textNormalize(value);
+    if(value){
+      this.#label = value;
+      this.#updateText('label',this.#label);
+    }
   }
 
   get _hint(){return this.#hint;}
   set _hint(value){
-    value = escapeHTML(value) ? value : '';
-    this.#hint = String(value || '').trim();
-    this.#updateText('hint',this.#hint);
+    value = textNormalize(value);
+    if(value){
+      this.#hint = value;
+      this.#updateText('hint',this.#hint);
+    }
   }
 
   #updateText(type,text){
@@ -37,10 +40,11 @@ class FormField extends HTMLElement{
       display:inline-flex;
       flex-direction:column;
       width:fit-content;
-      row-gap:3px;}
+      row-gap:10px;}
 
     :host > text-block[type="label"],
     :host > text-block[type="hint"]{
+      line-height:100%;
       white-space:nowrap;
       text-overflow:ellipsis;
       overflow:hidden;}
@@ -56,8 +60,6 @@ class FormField extends HTMLElement{
     ${this.#label && `<text-block type="label"></text-block>`}
     <slot></slot>
     ${this.#hint && `<text-block type="hint"></text-block>`}`;
-
-    //this.setAttribute('data-uuid',uuid());
   }
 
   attributeChangedCallback(name,oldValue,newValue){

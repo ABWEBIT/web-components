@@ -1,5 +1,3 @@
-//import uuid from '../helpers/uuid.js';
-
 class TextBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
 
@@ -12,8 +10,6 @@ class TextBlock extends HTMLElement{
       display:block;}
     </style>
     <slot></slot>`;
-
-    //this.setAttribute('data-uuid',uuid());
   }
 
 }

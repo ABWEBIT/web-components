@@ -1,6 +1,5 @@
-//import uuid from '../helpers/uuid.js';
 import * as icons from '../helpers/icons.js';
-import {iconName} from '../helpers/utils.js';
+import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
 
 class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -10,8 +9,9 @@ class IconBlock extends HTMLElement{
 
   get _name(){return this.#name;}
   set _name(value){
-    if(iconName(value) && icons[value]){
-      this.#name = value;
+    value = textNormalize(value);
+    if(value && variableName(value) && icons[value]){
+      this.#name = htmlEscape(value);
       queueMicrotask(()=>{
         let svg = this.#shadow.querySelector('svg');
         if(svg) svg.innerHTML = icons[this.#name];
@@ -42,8 +42,6 @@ class IconBlock extends HTMLElement{
       pointer-events:none;}
     </style>
     <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"></svg>`;
-
-    //this.setAttribute('data-uuid',uuid());
   }
 
   attributeChangedCallback(name,oldValue,newValue){

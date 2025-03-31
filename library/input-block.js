@@ -1,33 +1,37 @@
-//import uuid from '../helpers/uuid.js';
-import {iconName,text,inputType1} from '../helpers/utils.js';
+import {textNormalize,variableName,inputTypes,htmlEscape} from '../helpers/utils.js';
 
 class InputBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
-  #placeholder = '';
+  #required = false;
   #before = '';
   #after = '';
-  #type = 'text';
   #handler = this.operation.bind(this);
 
   static get observedAttributes(){return ['before','after'];}
 
   get _before(){return this.#before;}
   set _before(value){
-    value = String(value || '').trim();
-    this.#before = iconName(value) ? value : '';
-    if(this.#before) this.#updateIcon('before',this.#before);
+    value = textNormalize(value);
+    if(value && variableName(value)){
+      this.#before = value;
+      this.#updateIcon('before',this.#before);
+    }
   }
 
   get _after(){return this.#after;}
   set _after(value){
-    value = String(value || '').trim();
-    this.#after = iconName(value) ? value : '';
-    if(this.#after) this.#updateIcon('after',this.#after);
+    value = textNormalize(value);
+    if(value && variableName(value)){
+      this.#after = value;
+      this.#updateIcon('after',this.#after);
+    }
   }
 
   #updateIcon(position,name){
+    name = htmlEscape(name);
     queueMicrotask(()=>{
-      this.#shadow.querySelector(`icon-block[position="${position}"]`)?.setAttribute('name',name);
+      let block = this.#shadow.querySelector(`icon-block[position="${position}"]`);
+      if(block) block.setAttribute('name',name);
     });
   }
 
@@ -80,29 +84,30 @@ class InputBlock extends HTMLElement{
     :host:has(> icon-block[position="after"]) input{padding-right:0;}
     </style>
     ${this.#before && `<icon-block position="before" name=""></icon-block>`}
-    <input type="" placeholder="">
+    <input type="">
     ${this.#after && `<icon-block position="after" name=""></icon-block>`}`;
 
     let inputObject = this.#shadow.querySelector('input');
     if(inputObject){
       inputObject.addEventListener('input',this.#handler);
-      let inputType = this.getAttribute('type');
-      let inputPlaceholder = this.getAttribute('placeholder');
-      if(inputType){
-        this.#type = inputType1(inputType) ? inputType : 'text';
-        inputObject.type = this.#type;
-      }
-      if(inputPlaceholder){
-        this.#placeholder = text(inputPlaceholder) ? inputPlaceholder : '';
-        inputObject.setAttribute('placeholder',this.#placeholder);
-      }
-    }
 
-    //this.setAttribute('data-uuid',uuid());
+      let inputType = textNormalize(this.getAttribute('type'));
+      inputType = inputTypes(inputType) ? inputType : 'text';
+      inputObject.type = htmlEscape(inputType);
+      
+      let inputPlaceholder = textNormalize(this.getAttribute('placeholder'));
+      if(inputPlaceholder){
+        inputObject.setAttribute('placeholder',htmlEscape(inputPlaceholder));
+      }
+
+      let inputRequired = this.hasAttribute('required');
+      if(inputRequired === true) inputObject.required = true;
+    }
   }
 
   disconnectedCallback(){
-    this.#shadow.querySelector('input')?.removeEventListener('input',this.#handler);
+    let inputObject = this.#shadow.querySelector('input');
+    if(inputObject) inputObject.removeEventListener('input',this.#handler);
   }
 
   operation(){
