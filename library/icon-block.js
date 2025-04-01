@@ -3,18 +3,18 @@ import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
 
 class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
-  #name = '';
+  #icon = '';
 
-  static get observedAttributes(){return ['name'];}
+  static get observedAttributes(){return ['icon'];}
 
-  get _name(){return this.#name;}
-  set _name(value){
+  get _icon(){return this.#icon;}
+  set _icon(value){
     value = textNormalize(value);
     if(value && variableName(value) && icons[value]){
-      this.#name = htmlEscape(value);
+      this.#icon = htmlEscape(value);
       queueMicrotask(()=>{
         let svg = this.#shadow.querySelector('svg');
-        if(svg) svg.innerHTML = icons[this.#name];
+        if(svg) svg.innerHTML = icons[this.#icon];
       });
     }
   }
@@ -47,7 +47,7 @@ class IconBlock extends HTMLElement{
   attributeChangedCallback(name,oldValue,newValue){
     if(newValue && oldValue !== newValue){
       switch(name){
-        case 'name':this._name = newValue; break;
+        case 'icon':this._icon = newValue; break;
       }
     }
   }

@@ -3,34 +3,34 @@ import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
 class ButtonBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   #text = '';
-  #before = '';
-  #after = '';
+  #iconBefore = '';
+  #iconAfter = '';
 
-  static get observedAttributes(){return ['before','after','text'];}
+  static get observedAttributes(){return ['icon-before','icon-after','text'];}
 
-  get _before(){return this.#before;}
-  set _before(value){
+  get _iconBefore(){return this.#iconBefore;}
+  set _iconBefore(value){
     value = textNormalize(value);
     if(value && variableName(value)){
-      this.#before = value;
-      this.#updateIcon('before',this.#before);
+      this.#iconBefore = value;
+      this.#updateIcon('before',this.#iconBefore);
     }
   }
 
-  get _after(){return this.#after;}
-  set _after(value){
+  get _iconAfter(){return this.#iconAfter;}
+  set _iconAfter(value){
     value = textNormalize(value);
     if(value && variableName(value)){
-      this.#after = value;
-      this.#updateIcon('after',this.#after);
+      this.#iconAfter = value;
+      this.#updateIcon('after',this.#iconAfter);
     }
   }
 
-  #updateIcon(position,name){
-    name = htmlEscape(name);
+  #updateIcon(position,iconName){
+    iconName = htmlEscape(iconName);
     queueMicrotask(()=>{
       let block = this.#shadow.querySelector(`icon-block[position="${position}"]`);
-      if(block) block.setAttribute('name',name);
+      if(block) block.setAttribute('icon',iconName);
     });
   }
 
@@ -45,7 +45,7 @@ class ButtonBlock extends HTMLElement{
 
   #updateText(type,text){
     queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`text-block[type="${type}"]`);
+      let block = this.#shadow.querySelector(`.${type}`);
       if(block) block.textContent = text;
     });
   }
@@ -72,7 +72,7 @@ class ButtonBlock extends HTMLElement{
       user-select:none;
       transition:background-color 0.2s,color 0.2s;}
 
-    :host > text-block{
+    :host > .text{
       text-align:center;
       font-size:95%;
       padding-left:15px;
@@ -107,19 +107,19 @@ class ButtonBlock extends HTMLElement{
     :host(:active){
       background-color:rgb(45,45,45);}
 
-    :host:has(> icon-block[position="before"]) text-block{padding-left:0;}
-    :host:has(> icon-block[position="after"]) text-block{padding-right:0;}
+    :host:has(> icon-block[position="before"]) .text{padding-left:0;}
+    :host:has(> icon-block[position="after"]) .text{padding-right:0;}
     </style>
-    ${this.#before && `<icon-block position="before" name=""></icon-block>`}
-    ${this.#text && `<text-block type="text"></text-block>`}
-    ${this.#after && `<icon-block position="after" name=""></icon-block>`}`;
+    ${this.#iconBefore && `<icon-block position="before" icon=""></icon-block>`}
+    ${this.#text && `<div class="text"></div>`}
+    ${this.#iconAfter && `<icon-block position="after" icon=""></icon-block>`}`;
   }
 
   attributeChangedCallback(name,oldValue,newValue){
     if(newValue && oldValue !== newValue){
       switch(name){
-        case 'before':this._before = newValue; break;
-        case 'after':this._after = newValue; break;
+        case 'icon-before':this._iconBefore = newValue; break;
+        case 'icon-after':this._iconAfter = newValue; break;
         case 'text':this._text = newValue; break;
       }
     }
