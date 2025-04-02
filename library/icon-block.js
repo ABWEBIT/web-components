@@ -14,7 +14,9 @@ class IconBlock extends HTMLElement{
       this.#icon = htmlEscape(value);
       queueMicrotask(()=>{
         let svg = this.#shadow.querySelector('svg');
-        if(svg) svg.innerHTML = icons[this.#icon];
+        let temp = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        temp.innerHTML = icons[this.#icon];
+        svg.replaceChildren(...temp.children);
       });
     }
   }
