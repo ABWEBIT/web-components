@@ -1,5 +1,75 @@
 import {textNormalize,variableName,inputTypes,htmlEscape,uuid} from '../helpers/utils.js';
 
+const inputBlockCSS = new CSSStyleSheet();
+inputBlockCSS.replaceSync(`
+:host *{box-sizing:border-box;outline:none;}
+:host{
+  position:relative;
+  display:inline-flex;
+  flex-direction:column;
+  width:fit-content;
+  row-gap:10px;}
+
+:host > .block{
+  position:relative;
+  display:inline-flex;
+  vertical-align:middle;
+  width:fit-content;
+  height:40px;
+  border:none;
+  border-radius:var(--border-radius);
+  overflow:hidden;
+  color:rgb(175,175,175);
+  background-color:rgb(25,25,25);
+  transition:background-color 0.2s,color 0.2s;}
+
+:host > .label,
+:host > .hint{
+  line-height:100%;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;}
+
+:host > .label{
+  font-size:90%;
+  color:rgb(255,255,255);}
+
+:host > .hint{
+  font-size:80%;
+  color:rgb(150,150,150);}
+
+:host > .block > input{
+  height:100%;
+  flex-grow:1;
+  width:100%;
+  min-width:70px;
+  padding-left:15px;
+  padding-right:15px;
+  border:none;
+  color:rgb(255,255,255);
+  font-size:90%;
+  background-color:transparent;
+  transition:color 0.2s;}
+
+:host > .block > input::-ms-reveal{display:none;}
+
+:host > .block > icon-block{
+  height:100%;
+  width:40px;
+  min-width:40px;}
+
+:host > .block > icon-block[icon="Clear"]{
+  cursor:pointer;}
+
+@media (hover:hover){
+  :host > .block:has(> input:focus){background-color:rgb(35,35,35);}
+  :host > .block > icon-block:hover{color:rgb(225,225,225);}
+}
+
+:host > .block:has(> icon-block[position="before"]) input{padding-left:0;}
+:host > .block:has(> icon-block[position="after"]) input{padding-right:0;}
+`);
+
 class InputBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   #label = '';
@@ -66,79 +136,13 @@ class InputBlock extends HTMLElement{
   }
 
   connectedCallback(){
+    this.#shadow.adoptedStyleSheets = [inputBlockCSS];
     this.#shadow.innerHTML = `
-    <style>
-    :host *{box-sizing:border-box;outline:none;}
-    :host{
-      position:relative;
-      display:inline-flex;
-      flex-direction:column;
-      width:fit-content;
-      row-gap:10px;}
-
-    :host > .block{
-      position:relative;
-      display:inline-flex;
-      vertical-align:middle;
-      width:fit-content;
-      height:40px;
-      border:none;
-      border-radius:var(--border-radius);
-      overflow:hidden;
-      color:rgb(175,175,175);
-      background-color:rgb(25,25,25);
-      transition:background-color 0.2s,color 0.2s;}
-
-    :host > .label,
-    :host > .hint{
-      line-height:100%;
-      white-space:nowrap;
-      text-overflow:ellipsis;
-      overflow:hidden;}
-
-    :host > .label{
-      font-size:90%;
-      color:rgb(255,255,255);}
-
-    :host > .hint{
-      font-size:80%;
-      color:rgb(150,150,150);}
-
-    :host > .block > input{
-      height:100%;
-      flex-grow:1;
-      width:100%;
-      min-width:70px;
-      padding-left:15px;
-      padding-right:15px;
-      border:none;
-      color:rgb(255,255,255);
-      font-size:90%;
-      background-color:transparent;
-      transition:color 0.2s;}
-
-    :host > .block > input::-ms-reveal{display:none;}
-
-    :host > .block > icon-block{
-      height:100%;
-      width:40px;
-      min-width:40px;}
-
-    @media (hover:hover){
-      :host > .block:hover,
-      :host > .block:has(> input:focus){
-        background-color:rgb(35,35,35);}
-      :host > .block:hover > icon-block,
-      :host > .block:has(> input:focus) icon-block{color:rgb(225,225,225);}
-    }
-
-    :host > .block:has(> icon-block[position="before"]) input{padding-left:0;}
-    :host > .block:has(> icon-block[position="after"]) input{padding-right:0;}
-    </style>
     ${this.#label && `<span class="label"></span>`}
     <div class="block">
     ${this.#iconBefore && `<icon-block position="before" icon=""></icon-block>`}
     <input type="">
+    <icon-block icon="Clear"></icon-block>
     ${this.#iconAfter && `<icon-block position="after" icon=""></icon-block>`}
     </div>
     ${this.#hint && `<span class="hint"></span>`}`;

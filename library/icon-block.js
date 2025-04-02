@@ -1,6 +1,28 @@
 import * as icons from '../helpers/icons.js';
 import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
 
+const iconBlockCSS = new CSSStyleSheet();
+iconBlockCSS.replaceSync(`
+:host *{box-sizing:border-box;outline:none;}
+:host{
+  position:relative;
+  display:inline-flex;
+  width:fit-content;
+  justify-content:center;
+  align-items:center;
+  vertical-align:middle;
+  transition:color 0.2s;
+  -webkit-user-select:none;
+  user-select:none;}
+
+:host > svg{
+  width:20px;
+  height:20px;
+  fill:currentColor;
+  shape-rendering:geometricPrecision;
+  pointer-events:none;}
+`);
+
 class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   #icon = '';
@@ -13,37 +35,19 @@ class IconBlock extends HTMLElement{
     if(value && variableName(value) && icons[value]){
       this.#icon = htmlEscape(value);
       queueMicrotask(()=>{
-        let svg = this.#shadow.querySelector('svg');
         let temp = document.createElementNS("http://www.w3.org/2000/svg", "g");
         temp.innerHTML = icons[this.#icon];
-        svg.replaceChildren(...temp.children);
+        let svg = this.#shadow.querySelector('svg');
+        if(svg) svg.replaceChildren(...temp.children);
       });
     }
   }
 
   connectedCallback(){
+    this.#shadow.adoptedStyleSheets = [iconBlockCSS];
     this.#shadow.innerHTML = `
-    <style>
-    :host *{box-sizing:border-box;outline:none;}
-    :host{
-      position:relative;
-      display:inline-flex;
-      width:fit-content;
-      justify-content:center;
-      align-items:center;
-      vertical-align:middle;
-      transition:color 0.2s;
-      -webkit-user-select:none;
-      user-select:none;}
-
-    :host > svg{
-      width:20px;
-      height:20px;
-      fill:currentColor;
-      shape-rendering:geometricPrecision;
-      pointer-events:none;}
-    </style>
-    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"></svg>`;
+      <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"></svg>
+    `;
   }
 
   attributeChangedCallback(name,oldValue,newValue){
