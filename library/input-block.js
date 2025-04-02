@@ -1,4 +1,4 @@
-import {textNormalize,variableName,inputTypes,htmlEscape} from '../helpers/utils.js';
+import {textNormalize,variableName,inputTypes,htmlEscape,uuid} from '../helpers/utils.js';
 
 class InputBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});

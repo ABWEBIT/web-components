@@ -1,3 +1,5 @@
+export const uuid = () => crypto.randomUUID();
+
 export const textNormalize = (value) => {
   return String(value || '').trim();
 }
@@ -15,7 +17,7 @@ export const inputTypes = (value) => {
   return types.includes(value);
 }
 
-export const htmlEscape = (value)=>{
+export const htmlEscape = (value) => {
   if(!value) return value;
   return value.replace(/[&<>"']/g,(m) => {
     const map = {
@@ -29,6 +31,3 @@ export const htmlEscape = (value)=>{
   });
 }
 
-export const uuid = ()=>{
-  return crypto.randomUUID().replace(/-/g, '');
-}
