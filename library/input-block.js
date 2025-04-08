@@ -78,10 +78,12 @@ class InputBlock extends HTMLElement{
   #iconAfter = '';
   #inputHandler = this.operation.bind(this);
 
-  static get observedAttributes(){return ['label','hint','icon-before','icon-after'];}
+  static get observedAttributes(){
+    return ['label','hint','icon-before','icon-after'];
+  }
 
-  get _label(){return this.#label;}
-  set _label(value){
+  get label(){return this.#label;}
+  set label(value){
     value = textNormalize(value);
     if(value){
       this.#label = value;
@@ -89,8 +91,8 @@ class InputBlock extends HTMLElement{
     }
   }
 
-  get _hint(){return this.#hint;}
-  set _hint(value){
+  get hint(){return this.#hint;}
+  set hint(value){
     value = textNormalize(value);
     if(value){
       this.#hint = value;
@@ -109,8 +111,8 @@ class InputBlock extends HTMLElement{
     });
   }
 
-  get _iconBefore(){return this.#iconBefore;}
-  set _iconBefore(value){
+  get iconBefore(){return this.#iconBefore;}
+  set iconBefore(value){
     value = textNormalize(value);
     if(value && variableName(value)){
       this.#iconBefore = value;
@@ -118,8 +120,8 @@ class InputBlock extends HTMLElement{
     }
   }
 
-  get _iconAfter(){return this.#iconAfter;}
-  set _iconAfter(value){
+  get iconAfter(){return this.#iconAfter;}
+  set iconAfter(value){
     value = textNormalize(value);
     if(value && variableName(value)){
       this.#iconAfter = value;
@@ -178,10 +180,10 @@ class InputBlock extends HTMLElement{
   attributeChangedCallback(name,oldValue,newValue){
     if(newValue && oldValue !== newValue){
       switch(name){
-        case 'label':this._label = newValue; break;
-        case 'hint':this._hint = newValue; break;
-        case 'icon-before':this._iconBefore = newValue; break;
-        case 'icon-after':this._iconAfter = newValue; break;
+        case 'label':this.label = newValue; break;
+        case 'hint':this.hint = newValue; break;
+        case 'icon-before':this.iconBefore = newValue; break;
+        case 'icon-after':this.iconAfter = newValue; break;
       }
     }
   }

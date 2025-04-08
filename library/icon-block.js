@@ -3,7 +3,10 @@ import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
 
 const iconBlockCSS = new CSSStyleSheet();
 iconBlockCSS.replaceSync(`
-:host *{box-sizing:border-box;outline:none;}
+:host,:host *{
+  box-sizing:border-box;
+  outline:none;}
+
 :host{
   position:relative;
   display:inline-flex;
@@ -27,7 +30,9 @@ class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   #icon = '';
 
-  static get observedAttributes(){return ['icon'];}
+  static get observedAttributes(){
+    return ['icon'];
+  }
 
   get _icon(){return this.#icon;}
   set _icon(value){
