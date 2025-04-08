@@ -1,8 +1,8 @@
+import {globalStyles} from '../helpers/styles.js';
 import {textNormalize,variableName,inputTypes,htmlEscape,uuid} from '../helpers/utils.js';
 
-const inputBlockCSS = new CSSStyleSheet();
-inputBlockCSS.replaceSync(`
-:host *{box-sizing:border-box;outline:none;}
+const inputStyle = new CSSStyleSheet();
+inputStyle.replaceSync(`
 :host{
   position:relative;
   display:inline-flex;
@@ -76,7 +76,12 @@ class InputBlock extends HTMLElement{
   #hint = '';
   #iconBefore = '';
   #iconAfter = '';
-  #inputHandler = this.operation.bind(this);
+  #inputHandler = this.onInput.bind(this);
+
+  constructor(){
+    super();
+    this.#shadow.adoptedStyleSheets = [globalStyles,inputStyle];
+  }
 
   static get observedAttributes(){
     return ['label','hint','icon-before','icon-after'];
@@ -138,7 +143,6 @@ class InputBlock extends HTMLElement{
   }
 
   connectedCallback(){
-    this.#shadow.adoptedStyleSheets = [inputBlockCSS];
     this.#shadow.innerHTML = `
     ${this.#label && `<span class="label"></span>`}
     <div class="block">
@@ -161,6 +165,8 @@ class InputBlock extends HTMLElement{
       if(inputPlaceholder) inputObject.setAttribute('placeholder',inputPlaceholder);
       if(this.hasAttribute('required')) inputObject.required = true;
     }
+
+    setTimeout(()=>this.setAttribute('transition','active'),0);
   }
 
   disconnectedCallback(){
@@ -168,7 +174,7 @@ class InputBlock extends HTMLElement{
     if(inputObject) inputObject.removeEventListener('input',this.#inputHandler);
   }
 
-  operation(){
+  onInput(){
     let hintBlock = this.#shadow.querySelector('.hint');
     if(hintBlock){
       let inputLength = this.#shadow.querySelector('input').value.length;

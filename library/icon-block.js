@@ -1,12 +1,9 @@
 import * as icons from '../helpers/icons.js';
+import {globalStyles} from '../helpers/styles.js';
 import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
 
-const iconBlockCSS = new CSSStyleSheet();
-iconBlockCSS.replaceSync(`
-:host,:host *{
-  box-sizing:border-box;
-  outline:none;}
-
+const iconStyle = new CSSStyleSheet();
+iconStyle.replaceSync(`
 :host{
   position:relative;
   display:inline-flex;
@@ -14,9 +11,11 @@ iconBlockCSS.replaceSync(`
   justify-content:center;
   align-items:center;
   vertical-align:middle;
-  transition:color 0.2s;
   -webkit-user-select:none;
   user-select:none;}
+
+:host([transition="active"]){
+  transition:color 0.2s;}
 
 :host > svg{
   width:20px;
@@ -30,35 +29,40 @@ class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   #icon = '';
 
+  constructor(){
+    super();
+    this.#shadow.adoptedStyleSheets = [globalStyles,iconStyle];
+  }
+
   static get observedAttributes(){
     return ['icon'];
   }
 
-  get _icon(){return this.#icon;}
-  set _icon(value){
+  get icon(){return this.#icon;}
+  set icon(value){
     value = textNormalize(value);
     if(value && variableName(value) && icons[value]){
       this.#icon = htmlEscape(value);
       queueMicrotask(()=>{
-        let temp = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        temp.innerHTML = icons[this.#icon];
+        let group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        group.innerHTML = icons[this.#icon];
         let svg = this.#shadow.querySelector('svg');
-        if(svg) svg.replaceChildren(...temp.children);
+        if(svg) svg.replaceChildren(...group.children);
       });
     }
   }
 
   connectedCallback(){
-    this.#shadow.adoptedStyleSheets = [iconBlockCSS];
     this.#shadow.innerHTML = `
       <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"></svg>
     `;
+    setTimeout(()=>this.setAttribute('transition','active'),0);
   }
 
   attributeChangedCallback(name,oldValue,newValue){
     if(newValue && oldValue !== newValue){
       switch(name){
-        case 'icon':this._icon = newValue; break;
+        case 'icon':this.icon = newValue; break;
       }
     }
   }
