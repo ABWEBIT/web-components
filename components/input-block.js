@@ -1,74 +1,5 @@
-import {globalStyles} from '../helpers/styles.js';
+import {globalStyles,inputStyle} from '../helpers/styles.js';
 import {textNormalize,variableName,inputTypes,htmlEscape,uuid} from '../helpers/utils.js';
-
-const inputStyle = new CSSStyleSheet();
-inputStyle.replaceSync(`
-:host{
-  position:relative;
-  display:inline-flex;
-  flex-direction:column;
-  width:fit-content;
-  row-gap:10px;}
-
-:host > .block{
-  position:relative;
-  display:inline-flex;
-  vertical-align:middle;
-  width:fit-content;
-  height:40px;
-  border:none;
-  border-radius:var(--border-radius);
-  overflow:hidden;
-  color:rgb(175,175,175);
-  background-color:rgb(25,25,25);
-  transition:background-color 0.2s,color 0.2s;}
-
-:host > .label,
-:host > .hint{
-  line-height:100%;
-  white-space:nowrap;
-  text-overflow:ellipsis;
-  overflow:hidden;}
-
-:host > .label{
-  font-size:90%;
-  color:rgb(255,255,255);}
-
-:host > .hint{
-  font-size:80%;
-  color:rgb(150,150,150);}
-
-:host > .block > input{
-  height:100%;
-  flex-grow:1;
-  width:100%;
-  min-width:70px;
-  padding-left:15px;
-  padding-right:15px;
-  border:none;
-  color:rgb(255,255,255);
-  font-size:90%;
-  background-color:transparent;
-  transition:color 0.2s;}
-
-:host > .block > input::-ms-reveal{display:none;}
-
-:host > .block > icon-block{
-  height:100%;
-  width:40px;
-  min-width:40px;}
-
-:host > .block > icon-block[icon="Clear"]{
-  cursor:pointer;}
-
-@media (hover:hover){
-  :host > .block:has(> input:focus){background-color:rgb(35,35,35);}
-  :host > .block > icon-block:hover{color:rgb(225,225,225);}
-}
-
-:host > .block:has(> icon-block[position="before"]) input{padding-left:0;}
-:host > .block:has(> icon-block[position="after"]) input{padding-right:0;}
-`);
 
 class InputBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -77,6 +8,7 @@ class InputBlock extends HTMLElement{
   #iconBefore = '';
   #iconAfter = '';
   #inputHandler = this.onInput.bind(this);
+  #inputClear = this.onClear.bind(this);
 
   constructor(){
     super();
@@ -134,11 +66,11 @@ class InputBlock extends HTMLElement{
     }
   }
 
-  #updateIcon(position,iconName){
-    iconName = htmlEscape(iconName);
+  #updateIcon(position,name){
+    name = htmlEscape(name);
     queueMicrotask(()=>{
       let block = this.#shadow.querySelector(`icon-block[position="${position}"]`);
-      if(block) block.setAttribute('icon',iconName);
+      if(block) block.setAttribute('icon',name);
     });
   }
 
@@ -148,7 +80,7 @@ class InputBlock extends HTMLElement{
     <div class="block">
     ${this.#iconBefore && `<icon-block position="before" icon=""></icon-block>`}
     <input type="">
-    <icon-block icon="Clear"></icon-block>
+    <button-block icon-before="Clear"></button-block>
     ${this.#iconAfter && `<icon-block position="after" icon=""></icon-block>`}
     </div>
     ${this.#hint && `<span class="hint"></span>`}`;
@@ -166,12 +98,20 @@ class InputBlock extends HTMLElement{
       if(this.hasAttribute('required')) inputObject.required = true;
     }
 
+    const inputClear = this.#shadow.querySelector('button-block[icon-before="Clear"]');
+    if(inputClear){
+      inputClear.addEventListener('click',this.#inputClear)
+    }
+
     setTimeout(()=>this.setAttribute('transition','active'),0);
   }
 
   disconnectedCallback(){
     let inputObject = this.#shadow.querySelector('input');
     if(inputObject) inputObject.removeEventListener('input',this.#inputHandler);
+
+    let inputClear = this.#shadow.querySelector('button-block[icon-before="Clear"]');
+    if(inputClear) inputClear.addEventListener('click',this.#inputClear);
   }
 
   onInput(){
@@ -181,6 +121,13 @@ class InputBlock extends HTMLElement{
       if(inputLength < 1) hintBlock.textContent = this.#hint;
       else hintBlock.textContent = inputLength;
     }
+  }
+
+  onClear(){
+    const inputObject = this.#shadow.querySelector('input');
+    if(inputObject) inputObject.value = '';
+    let hintBlock = this.#shadow.querySelector('.hint');
+    if(hintBlock) hintBlock.textContent = this.#hint;
   }
 
   attributeChangedCallback(name,oldValue,newValue){

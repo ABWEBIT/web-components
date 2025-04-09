@@ -1,29 +1,6 @@
+import {globalStyles,iconStyle} from '../helpers/styles.js';
 import * as icons from '../helpers/icons.js';
-import {globalStyles} from '../helpers/styles.js';
 import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
-
-const iconStyle = new CSSStyleSheet();
-iconStyle.replaceSync(`
-:host{
-  position:relative;
-  display:inline-flex;
-  width:fit-content;
-  justify-content:center;
-  align-items:center;
-  vertical-align:middle;
-  -webkit-user-select:none;
-  user-select:none;}
-
-:host([transition="active"]){
-  transition:color 0.2s;}
-
-:host > svg{
-  width:20px;
-  height:20px;
-  fill:currentColor;
-  shape-rendering:geometricPrecision;
-  pointer-events:none;}
-`);
 
 class IconBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -56,6 +33,7 @@ class IconBlock extends HTMLElement{
     this.#shadow.innerHTML = `
       <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"></svg>
     `;
+
     setTimeout(()=>this.setAttribute('transition','active'),0);
   }
 
