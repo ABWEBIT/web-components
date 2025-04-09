@@ -21,7 +21,7 @@ class IconBlock extends HTMLElement{
     if(value && variableName(value) && icons[value]){
       this.#icon = htmlEscape(value);
       queueMicrotask(()=>{
-        let group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        let group = document.createElementNS('http://www.w3.org/2000/svg','g');
         group.innerHTML = icons[this.#icon];
         let svg = this.#shadow.querySelector('svg');
         if(svg) svg.replaceChildren(...group.children);

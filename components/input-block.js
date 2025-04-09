@@ -106,20 +106,12 @@ class InputBlock extends HTMLElement{
     setTimeout(()=>this.setAttribute('transition','active'),0);
   }
 
-  disconnectedCallback(){
-    let inputObject = this.#shadow.querySelector('input');
-    if(inputObject) inputObject.removeEventListener('input',this.#inputHandler);
-
-    let inputClear = this.#shadow.querySelector('button-block[icon-before="Clear"]');
-    if(inputClear) inputClear.addEventListener('click',this.#inputClear);
-  }
-
   onInput(){
-    let hintBlock = this.#shadow.querySelector('.hint');
+    const hintBlock = this.#shadow.querySelector('.hint');
     if(hintBlock){
       let inputLength = this.#shadow.querySelector('input').value.length;
-      if(inputLength < 1) hintBlock.textContent = this.#hint;
-      else hintBlock.textContent = inputLength;
+      if(inputLength > 0) hintBlock.textContent = inputLength;
+      else hintBlock.textContent = this.#hint;
     }
   }
 
@@ -128,6 +120,14 @@ class InputBlock extends HTMLElement{
     if(inputObject) inputObject.value = '';
     let hintBlock = this.#shadow.querySelector('.hint');
     if(hintBlock) hintBlock.textContent = this.#hint;
+  }
+
+  disconnectedCallback(){
+    const inputObject = this.#shadow.querySelector('input');
+    if(inputObject) inputObject.removeEventListener('input',this.#inputHandler);
+
+    const inputClear = this.#shadow.querySelector('button-block[icon-before="Clear"]');
+    if(inputClear) inputClear.addEventListener('click',this.#inputClear);
   }
 
   attributeChangedCallback(name,oldValue,newValue){
