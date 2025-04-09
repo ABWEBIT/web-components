@@ -7,6 +7,9 @@ globalStyles.replaceSync(`
 :host *{
   box-sizing:border-box;
   outline:none;}
+
+:host([disabled]){
+  cursor:not-allowed;}
 `);
 
 export const iconStyle = new CSSStyleSheet();
@@ -41,23 +44,27 @@ buttonStyle.replaceSync(`
   width:fit-content;
   height:40px;
   min-height:40px;
+  padding-left:12px;
+  padding-right:12px;
+  column-gap:12px;
   border:none;
   border-radius:var(--border-radius);
-  overflow:hidden;
   color:rgb(175,175,175);
   background-color:rgb(25,25,25);
   cursor:pointer;
   -webkit-user-select:none;
-  user-select:none;}
+  user-select:none;
+  overflow:hidden;}
+
+:host([disabled]){
+  opacity:0.5;}
 
 :host([transition="active"]){
   transition:background-color 0.2s,color 0.2s;}
 
-:host > .text{
+:host > .label{
   text-align:center;
   font-size:95%;
-  padding-left:15px;
-  padding-right:15px;
   flex-grow:1;
   white-space:nowrap;
   text-overflow:ellipsis;
@@ -65,8 +72,8 @@ buttonStyle.replaceSync(`
 
 :host > icon-block{
   height:100%;
-  width:40px;
-  min-width:40px;}
+  width:20px;
+  min-width:20px;}
 
 :host::after{
   position:absolute;
@@ -77,16 +84,13 @@ buttonStyle.replaceSync(`
   border-radius:var(--border-radius);}
 
 @media (hover:hover){
-  :host(:hover){
+  :host(:hover:not([disabled])){
     background-color:rgb(35,35,35);
     color:rgb(225,225,225);}  
 }
 
-:host(:active){
+:host(:active:not([disabled])){
   background-color:rgb(45,45,45);}
-
-:host:has(> icon-block[position="before"]) .text{padding-left:0;}
-:host:has(> icon-block[position="after"]) .text{padding-right:0;}
 `);
 
 export const inputStyle = new CSSStyleSheet();

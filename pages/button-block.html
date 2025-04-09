@@ -1,22 +1,37 @@
 <div class="title">Кнопка</div>
 
 <div class="section">
-  <code>
-  &lt;button-block before="Article"&gt;&lt;/button-block&gt;
-  </code>
   <button-block icon-before="Article"></button-block>
+  <code>
+  <span>&lt;button-block icon-before="Article"&gt;</span>
+  <span>&lt;/button-block&gt;</span>
+  </code>
 </div>
 
 <div class="section">
+  <button-block icon-before="Article" disabled></button-block>
   <code>
-  &lt;button-block text="Кнопка"&gt;&lt;/button-block&gt;
+  &lt;button-block before="Article" disabled&gt;&lt;/button-block&gt;
   </code>
-  <button-block text="Кнопка"></button-block>
 </div>
 
 <div class="section">
+  <button-block label="Кнопка"></button-block>
   <code>
-  &lt;button-block before="Article" after="Bell" text="Кнопка"&gt;&lt;/button-block&gt;
+  &lt;button-block label="Кнопка"&gt;&lt;/button-block&gt;
   </code>
-  <button-block id="test" icon-before="Article" icon-after="Bell" text="Кнопка"></button-block>
+</div>
+
+<div class="section">
+  <button-block icon-before="Article" icon-after="Bell" label="Кнопка"></button-block>
+  <code>
+  &lt;button-block before="Article" after="Bell" label="Кнопка"&gt;&lt;/button-block&gt;
+  </code>
+</div>
+
+<div class="section">
+  <button-block style="width:300px;text-align:left;" icon-after="Bell" label="Кнопка"></button-block>
+  <code>
+  &lt;button-block before="Article" after="Bell" label="Кнопка"&gt;&lt;/button-block&gt;
+  </code>
 </div>

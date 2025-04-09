@@ -3,7 +3,7 @@ import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
 
 class ButtonBlock extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
-  #text = '';
+  #buttonLabel = '';
   #iconBefore = '';
   #iconAfter = '';
 
@@ -13,7 +13,7 @@ class ButtonBlock extends HTMLElement{
   }
 
   static get observedAttributes(){
-    return ['icon-before','icon-after','text'];
+    return ['icon-before','icon-after','label'];
   }
 
   get iconBefore(){return this.#iconBefore;}
@@ -38,16 +38,16 @@ class ButtonBlock extends HTMLElement{
     name = htmlEscape(name);
     queueMicrotask(()=>{
       let block = this.#shadow.querySelector(`icon-block[position="${position}"]`);
-      if(block) block.setAttribute('icon',name);
+      if(block) block.setAttribute('name',name);
     });
   }
 
-  get text(){return this.#text;}
-  set text(value){
+  get buttonLabel(){return this.#buttonLabel;}
+  set buttonLabel(value){
     value = textNormalize(value);
     if(value){
-      this.#text = value;
-      this.#updateText('text',this.#text);
+      this.#buttonLabel = value;
+      this.#updateText('label',this.#buttonLabel);
     }
   }
 
@@ -60,11 +60,11 @@ class ButtonBlock extends HTMLElement{
 
   connectedCallback(){
     this.#shadow.innerHTML = `
-    ${this.#iconBefore && `<icon-block position="before" icon=""></icon-block>`}
-    ${this.#text && `<div class="text"></div>`}
-    ${this.#iconAfter && `<icon-block position="after" icon=""></icon-block>`}`;
+    ${this.#iconBefore && `<icon-block position="before" name=""></icon-block>`}
+    ${this.#buttonLabel && `<div class="label"></div>`}
+    ${this.#iconAfter && `<icon-block position="after" name=""></icon-block>`}`;
 
-    setTimeout(()=>this.setAttribute('transition','active'),0);
+    requestAnimationFrame(()=>this.setAttribute('transition','active'));
   }
 
   attributeChangedCallback(name,oldValue,newValue){
@@ -72,7 +72,7 @@ class ButtonBlock extends HTMLElement{
       switch(name){
         case 'icon-before':this.iconBefore = newValue; break;
         case 'icon-after':this.iconAfter = newValue; break;
-        case 'text':this.text = newValue; break;
+        case 'label':this.buttonLabel = newValue; break;
       }
     }
   }

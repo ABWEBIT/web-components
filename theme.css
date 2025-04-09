@@ -104,3 +104,7 @@ div.description{
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{
   cursor:default!important;}
+
+code span{
+  display:block;
+  width:100%;}

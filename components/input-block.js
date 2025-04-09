@@ -70,7 +70,7 @@ class InputBlock extends HTMLElement{
     name = htmlEscape(name);
     queueMicrotask(()=>{
       let block = this.#shadow.querySelector(`icon-block[position="${position}"]`);
-      if(block) block.setAttribute('icon',name);
+      if(block) block.setAttribute('name',name);
     });
   }
 
@@ -78,10 +78,10 @@ class InputBlock extends HTMLElement{
     this.#shadow.innerHTML = `
     ${this.#label && `<span class="label"></span>`}
     <div class="block">
-    ${this.#iconBefore && `<icon-block position="before" icon=""></icon-block>`}
+    ${this.#iconBefore && `<icon-block position="before" name=""></icon-block>`}
     <input type="">
     <button-block icon-before="Clear"></button-block>
-    ${this.#iconAfter && `<icon-block position="after" icon=""></icon-block>`}
+    ${this.#iconAfter && `<icon-block position="after" name=""></icon-block>`}
     </div>
     ${this.#hint && `<span class="hint"></span>`}`;
 
@@ -103,7 +103,7 @@ class InputBlock extends HTMLElement{
       inputClear.addEventListener('click',this.#inputClear)
     }
 
-    setTimeout(()=>this.setAttribute('transition','active'),0);
+    requestAnimationFrame(()=>this.setAttribute('transition','active'));
   }
 
   onInput(){
