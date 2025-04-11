@@ -1,0 +1,33 @@
+<div class="title">Каталог</div>
+<ui-spacing height="20"></ui-spacing>
+<div class="description">Толщина линии до конвертации: 1.6px. Закругление угла: 3px. Размер: 20 x 20</div>
+<ui-spacing height="20"></ui-spacing>
+<section class="iconsPack">
+  <ui-icon icon="home" id="test"></ui-icon>
+  <ui-icon icon="article"></ui-icon>
+  <ui-icon icon="search"></ui-icon>
+  <ui-icon icon="send"></ui-icon>
+  <ui-icon icon="bell"></ui-icon>
+  <ui-icon icon="gear"></ui-icon>
+  <ui-icon icon="cross"></ui-icon>
+  <ui-icon icon="clear"></ui-icon>
+</section>
+<ui-spacing height="20"></ui-spacing>
+<ui-button onclick="changeIconName()" label="Тест реактивности"></ui-button>
+
+<script>
+  function changeIconAttribute(attribute, values){
+    const iconBlock = document.getElementById('test');
+    if (!iconBlock) return;
+
+    const currentValue = iconBlock.getAttribute(attribute);
+    const currentIndex = values.indexOf(currentValue);
+    const nextIndex = (currentIndex + 1) % values.length;
+    const nextValue = values[nextIndex];
+
+    iconBlock.setAttribute(attribute, nextValue);
+  }
+
+  function changeIconName(){
+    changeIconAttribute('icon',['search','send','gear']);}
+</script>

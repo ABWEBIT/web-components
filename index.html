@@ -11,50 +11,73 @@
 
 <div id="app">
 
-  <div class="nav">
+  <nav>
     <div class="static"></div>
     <div class="dynamic">
-      <div class="menuItem">
-        <span onclick="loadContent('pages/icons-pack.html')">
-          <icon-block name="Article"></icon-block>
-          <text-block>Каталог</text-block>
-        </span>
+
+      <div class="menuCategory">
+        <div class="menuTitle">Тема</div>
+
+        <div class="menuItem">
+          <span onclick="loadContent('pages/icons.html')">
+            Каталог
+          </span>
+        </div>
+
+        <div class="menuItem">
+          <span onclick="loadContent('pages/ui-spacer.html')">
+            Отступ
+          </span>
+        </div>
+
+        <div class="menuItem">
+          <span onclick="loadContent('pages/ui-divider.html')">
+            Разделитель
+          </span>
+        </div>
+
       </div>
-      <div class="menuItem">
-        <span onclick="loadContent('pages/icon-block.html')">
-          <icon-block name="Article"></icon-block>
-          <text-block>Иконка</text-block>
-        </span>
+
+      <div class="menuCategory">
+        <div class="menuTitle">Компоненты</div>
+
+        <div class="menuItem">
+          <span onclick="loadContent('pages/ui-icon.html')">
+            Иконка
+          </span>
+        </div>
+
+        <div class="menuItem">
+          <span onclick="loadContent('pages/ui-button.html')">
+            Кнопка
+          </span>
+        </div>
+
+        <div class="menuItem">
+          <span onclick="loadContent('pages/ui-input.html')">
+            Поле ввода
+          </span>
+        </div>
+
       </div>
-      <div class="menuItem">
-        <span onclick="loadContent('pages/button-block.html')">
-          <icon-block name="Article"></icon-block>
-          <text-block>Кнопка</text-block>
-        </span>
-      </div>
-      <div class="menuItem">
-        <span onclick="loadContent('pages/input-block.html')">
-          <icon-block name="Article"></icon-block>
-          <text-block>Поле ввода</text-block>
-        </span>
-      </div>
+
     </div>
     <div class="static"></div>
-  </div>
+  </nav>
 
-  <div id="body"></div>
+  <article></article>
 </div>
 
 <script id="script"></script>
 
 <script>
-loadContent('pages/button-block.html');
+loadContent('pages/icons.html');
 function loadContent(page){
   fetch(page)
   .then(response => response.text())
   .then(data => {
-    document.getElementById('body').innerHTML = data;
-    let scriptGet = document.querySelector('#body script');
+    document.querySelector('article').innerHTML = data;
+    let scriptGet = document.querySelector('article script');
     let scriptSet = document.getElementById('script');
     scriptSet.textContent = '';
     if(scriptGet){
@@ -66,9 +89,11 @@ function loadContent(page){
 }
 </script>
 
-<script type="module" src="components/icon-block.js"></script>
-<script type="module" src="components/text-block.js"></script>
-<script type="module" src="components/button-block.js"></script>
-<script type="module" src="components/input-block.js"></script>
+<script type="module" src="components/ui-spacing.js"></script>
+<script type="module" src="components/ui-divider.js"></script>
+<script type="module" src="components/ui-icon.js"></script>
+<script type="module" src="components/ui-text.js"></script>
+<script type="module" src="components/ui-button.js"></script>
+<script type="module" src="components/ui-input.js"></script>
 </body>
 </html>

@@ -7,26 +7,66 @@ globalStyles.replaceSync(`
 :host *{
   box-sizing:border-box;
   outline:none;}
+`);
 
-:host([disabled]){
-  cursor:not-allowed;}
+export const UISpacingStyles = new CSSStyleSheet();
+UISpacingStyles.replaceSync(`
+:host{
+  display:block;
+  width:100%;
+  max-width:100%;}
+`);
+
+export const UIDividerStyles = new CSSStyleSheet();
+UIDividerStyles.replaceSync(`
+:host{
+  display:flex;
+  width:100%;
+  max-width:100%;
+  align-items:center;
+  vertical-align:middle;
+  font-size:var(--font-small)}
+
+span{padding:0 10px;}
+
+:host:before{
+  content:'';
+  display:block;
+  height:1px;
+  width:100%;
+  background:green;}
+
+:host:after{
+  content:'';
+  display:block;
+  height:1px;
+  width:100%;
+  background:red;}
+
+`);
+
+export const textStyles = new CSSStyleSheet();
+textStyles.replaceSync(`
+:host{
+  position:relative;
+  transition:none;}
 `);
 
 export const iconStyle = new CSSStyleSheet();
 iconStyle.replaceSync(`
 :host{
   display:inline-flex;
-  width:fit-content;
   justify-content:center;
   align-items:center;
   vertical-align:middle;
+  width:fit-content;
   -webkit-user-select:none;
   user-select:none;}
 
 :host([transition="active"]){
   transition:color 0.2s;}
 
-:host > svg{
+svg{
   width:20px;
   height:20px;
   fill:currentColor;
@@ -42,11 +82,6 @@ buttonStyle.replaceSync(`
   align-items:center;
   vertical-align:middle;
   width:fit-content;
-  height:40px;
-  min-height:40px;
-  padding-left:12px;
-  padding-right:12px;
-  column-gap:12px;
   border:none;
   border-radius:var(--border-radius);
   color:rgb(175,175,175);
@@ -57,23 +92,18 @@ buttonStyle.replaceSync(`
   overflow:hidden;}
 
 :host([disabled]){
-  opacity:0.5;}
+  opacity:0.5;
+  cursor:not-allowed;}
 
 :host([transition="active"]){
   transition:background-color 0.2s,color 0.2s;}
 
-:host > .label{
-  text-align:center;
-  font-size:95%;
+:host > text-block{
+  text-align:inherit;
   flex-grow:1;
   white-space:nowrap;
   text-overflow:ellipsis;
   overflow:hidden;}
-
-:host > icon-block{
-  height:100%;
-  width:20px;
-  min-width:20px;}
 
 :host::after{
   position:absolute;
@@ -91,6 +121,33 @@ buttonStyle.replaceSync(`
 
 :host(:active:not([disabled])){
   background-color:rgb(45,45,45);}
+
+/* small */
+:host([size="small"]){
+  font-size:var(--font-small);
+  height:24px;}
+
+:host([size="small"]) icon-block{width:24px;}
+:host([size="small"]) text-block{padding:0 8px;}
+
+/* medium */
+:host([size="medium"]){
+  font-size:var(--font-medium);
+  height:32px;}
+
+:host([size="medium"]) icon-block{width:32px;}
+:host([size="medium"]) text-block{padding:0 12px;}
+
+/* large */
+:host([size="large"]){
+  font-size:var(--font-large);
+  height:36px;}
+
+:host([size="large"]) icon-block{width:36px;}
+:host([size="large"]) text-block{padding:0 16px;}
+
+:host:has(> icon-block[position="before"]) text-block{padding-left:0;}
+:host:has(> icon-block[position="after"]) text-block{padding-right:0;}
 `);
 
 export const inputStyle = new CSSStyleSheet();
@@ -165,18 +222,13 @@ inputStyle.replaceSync(`
   :host > .block > button-block[icon-before="Clear"]:hover{
     background-color:rgb(55,55,55);
   }
-
-
   :host([transition="active"]) > .block:hover,
   :host > .block:has(> input:focus){
     background-color:rgb(35,35,35);}
 
   :host > .block > icon-block:hover{color:rgb(225,225,225);}
 }
+
 :host > .block:has(> icon-block[position="before"]) input{padding-left:0;}
 :host > .block:has(> icon-block[position="after"]) button-block[icon-before="Clear"]{margin-right:0px;}
-
-/*
-
-*/
 `);

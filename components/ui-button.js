@@ -1,7 +1,7 @@
 import {globalStyles,buttonStyle} from '../helpers/styles.js';
-import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
+import {textNormalize,variableName,htmlEscape,elementSize} from '../helpers/utils.js';
 
-class ButtonBlock extends HTMLElement{
+class UIButton extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   #buttonLabel = '';
   #iconBefore = '';
@@ -37,8 +37,8 @@ class ButtonBlock extends HTMLElement{
   #updateIcon(position,name){
     name = htmlEscape(name);
     queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`icon-block[position="${position}"]`);
-      if(block) block.setAttribute('name',name);
+      let block = this.#shadow.querySelector(`ui-icon[position="${position}"]`);
+      if(block) block.setAttribute('icon',name);
     });
   }
 
@@ -53,16 +53,19 @@ class ButtonBlock extends HTMLElement{
 
   #updateText(type,text){
     queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`.${type}`);
+      let block = this.#shadow.querySelector(`ui-text[type="${type}"]`);
       if(block) block.textContent = text;
     });
   }
 
   connectedCallback(){
+    let size = textNormalize(this.getAttribute('size'));
+    if(!elementSize(size)) this.setAttribute('size','large');
+
     this.#shadow.innerHTML = `
-    ${this.#iconBefore && `<icon-block position="before" name=""></icon-block>`}
-    ${this.#buttonLabel && `<div class="label"></div>`}
-    ${this.#iconAfter && `<icon-block position="after" name=""></icon-block>`}`;
+    ${this.#iconBefore && `<ui-icon position="before" icon=""></ui-icon>`}
+    ${this.#buttonLabel && `<ui-text type="label"></ui-text>`}
+    ${this.#iconAfter && `<ui-icon position="after" icon=""></ui-icon>`}`;
 
     requestAnimationFrame(()=>this.setAttribute('transition','active'));
   }
@@ -78,4 +81,4 @@ class ButtonBlock extends HTMLElement{
   }
 
 }
-customElements.define('button-block',ButtonBlock);
+customElements.define('ui-button',UIButton);

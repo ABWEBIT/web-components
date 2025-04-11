@@ -1,7 +1,6 @@
 import {globalStyles} from '../helpers/styles.js';
-import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
 
-class TextBlock extends HTMLElement{
+class UIText extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
 
   constructor(){
@@ -16,4 +15,4 @@ class TextBlock extends HTMLElement{
   }
 
 }
-customElements.define('text-block',TextBlock);
+customElements.define('ui-text',UIText);

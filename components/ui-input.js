@@ -1,7 +1,7 @@
 import {globalStyles,inputStyle} from '../helpers/styles.js';
 import {textNormalize,variableName,inputTypes,htmlEscape,uuid} from '../helpers/utils.js';
 
-class InputBlock extends HTMLElement{
+class UIInput extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   #label = '';
   #hint = '';
@@ -69,8 +69,8 @@ class InputBlock extends HTMLElement{
   #updateIcon(position,name){
     name = htmlEscape(name);
     queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`icon-block[position="${position}"]`);
-      if(block) block.setAttribute('name',name);
+      let block = this.#shadow.querySelector(`ui-icon[position="${position}"]`);
+      if(block) block.setAttribute('icon',name);
     });
   }
 
@@ -78,10 +78,10 @@ class InputBlock extends HTMLElement{
     this.#shadow.innerHTML = `
     ${this.#label && `<span class="label"></span>`}
     <div class="block">
-    ${this.#iconBefore && `<icon-block position="before" name=""></icon-block>`}
+    ${this.#iconBefore && `<ui-icon position="before" icon=""></ui-icon>`}
     <input type="">
-    <button-block icon-before="Clear"></button-block>
-    ${this.#iconAfter && `<icon-block position="after" name=""></icon-block>`}
+    <ui-button icon-before="clear"></ui-button>
+    ${this.#iconAfter && `<ui-icon position="after" icon=""></ui-icon>`}
     </div>
     ${this.#hint && `<span class="hint"></span>`}`;
 
@@ -98,7 +98,7 @@ class InputBlock extends HTMLElement{
       if(this.hasAttribute('required')) inputObject.required = true;
     }
 
-    const inputClear = this.#shadow.querySelector('button-block[icon-before="Clear"]');
+    const inputClear = this.#shadow.querySelector('ui-button[icon-before="clear"]');
     if(inputClear){
       inputClear.addEventListener('click',this.#inputClear)
     }
@@ -126,7 +126,7 @@ class InputBlock extends HTMLElement{
     const inputObject = this.#shadow.querySelector('input');
     if(inputObject) inputObject.removeEventListener('input',this.#inputHandler);
 
-    const inputClear = this.#shadow.querySelector('button-block[icon-before="Clear"]');
+    const inputClear = this.#shadow.querySelector('ui-button[icon-before="Clear"]');
     if(inputClear) inputClear.addEventListener('click',this.#inputClear);
   }
 
@@ -142,4 +142,4 @@ class InputBlock extends HTMLElement{
   }
 
 }
-customElements.define('input-block',InputBlock);
+customElements.define('ui-input',UIInput);

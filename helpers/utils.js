@@ -17,6 +17,12 @@ export const inputTypes = (value) => {
   return types.includes(value);
 }
 
+export const elementSize = (value) => {
+/* ['xs', 'sm', 'md', 'lg', 'xl'] */
+  const sizes = ['x-small','small','medium','large','x-large'];
+  return sizes.includes(value);
+}
+
 export const htmlEscape = (value) => {
   if(!value) return value;
   return value.replace(/[&<>"']/g,(m) => {
