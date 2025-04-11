@@ -98,7 +98,7 @@ buttonStyle.replaceSync(`
 :host([transition="active"]){
   transition:background-color 0.2s,color 0.2s;}
 
-:host > text-block{
+:host > ui-text{
   text-align:inherit;
   flex-grow:1;
   white-space:nowrap;
@@ -124,30 +124,30 @@ buttonStyle.replaceSync(`
 
 /* small */
 :host([size="small"]){
-  font-size:var(--font-small);
+  font-size:var(--font-size-small);
   height:24px;}
 
-:host([size="small"]) icon-block{width:24px;}
-:host([size="small"]) text-block{padding:0 8px;}
+:host([size="small"]) ui-icon{width:24px;}
+:host([size="small"]) ui-text{padding:0 8px;}
 
 /* medium */
 :host([size="medium"]){
-  font-size:var(--font-medium);
+  font-size:var(--font-size-medium);
   height:32px;}
 
-:host([size="medium"]) icon-block{width:32px;}
-:host([size="medium"]) text-block{padding:0 12px;}
+:host([size="medium"]) ui-icon{width:32px;}
+:host([size="medium"]) ui-text{padding:0 12px;}
 
 /* large */
 :host([size="large"]){
-  font-size:var(--font-large);
+  font-size:var(--font-size-large);
   height:36px;}
 
-:host([size="large"]) icon-block{width:36px;}
-:host([size="large"]) text-block{padding:0 16px;}
+:host([size="large"]) ui-icon{width:36px;}
+:host([size="large"]) ui-text{padding:0 16px;}
 
-:host:has(> icon-block[position="before"]) text-block{padding-left:0;}
-:host:has(> icon-block[position="after"]) text-block{padding-right:0;}
+:host:has(> ui-icon[position="before"]) ui-text{padding-left:0;}
+:host:has(> ui-icon[position="after"]) ui-text{padding-right:0;}
 `);
 
 export const inputStyle = new CSSStyleSheet();
@@ -202,12 +202,12 @@ inputStyle.replaceSync(`
 
 :host > .block > input::-ms-reveal{display:none;}
 
-:host > .block > icon-block{
+:host > .block > ui-icon{
   height:100%;
   width:40px;
   min-width:40px;}
 
-:host > .block > button-block[icon-before="Clear"]{
+:host > .block > ui-button[icon-before="Clear"]{
   max-width:30px;
   max-height:30px;
   min-width:30px;
@@ -219,16 +219,16 @@ inputStyle.replaceSync(`
   cursor:pointer;}
 
 @media (hover:hover){
-  :host > .block > button-block[icon-before="Clear"]:hover{
+  :host > .block > ui-button[icon-before="Clear"]:hover{
     background-color:rgb(55,55,55);
   }
   :host([transition="active"]) > .block:hover,
   :host > .block:has(> input:focus){
     background-color:rgb(35,35,35);}
 
-  :host > .block > icon-block:hover{color:rgb(225,225,225);}
+  :host > .block > ui-icon:hover{color:rgb(225,225,225);}
 }
 
-:host > .block:has(> icon-block[position="before"]) input{padding-left:0;}
-:host > .block:has(> icon-block[position="after"]) button-block[icon-before="Clear"]{margin-right:0px;}
+:host > .block:has(> ui-icon[position="before"]) input{padding-left:0;}
+:host > .block:has(> ui-icon[position="after"]) ui-button[icon-before="Clear"]{margin-right:0px;}
 `);

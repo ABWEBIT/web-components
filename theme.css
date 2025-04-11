@@ -132,5 +132,11 @@ article .icons > :nth-child(n){
   flex-direction:column;
   row-gap:10px;}
 
+.example code{
+  margin:10px 0 20px;
+  padding:10px;
+  border-radius:var(--border-radius);
+  background-color:rgb(15,15,15);}
+
 code span{
   display:block;}
