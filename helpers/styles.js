@@ -25,7 +25,7 @@ UIDividerStyles.replaceSync(`
   max-width:100%;
   align-items:center;
   vertical-align:middle;
-  font-size:var(--font-small)}
+  font-size:var(--font-size-small)}
 
 span{padding:0 10px;}
 
