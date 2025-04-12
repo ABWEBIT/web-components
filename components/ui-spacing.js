@@ -9,7 +9,7 @@ class UISpacing extends HTMLElement{
   }
 
   connectedCallback(){
-    this.setAttribute('orientation','vertical');
+    this.setAttribute('vertical','');
     const height = parseInt(this.getAttribute('height'),10);
     if(height) this.style.height = `${height}px`;
   }

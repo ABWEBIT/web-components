@@ -21,27 +21,26 @@ export const UIDividerStyles = new CSSStyleSheet();
 UIDividerStyles.replaceSync(`
 :host{
   display:flex;
+  align-items:center;}
+
+:host([type="blank"]){
+  display:block;
+}
+
+:host([horizontal]){
   width:100%;
   max-width:100%;
-  align-items:center;
-  vertical-align:middle;
-  font-size:var(--font-size-small)}
+  vertical-align:middle;}
 
-span{padding:0 10px;}
+span.label{
+  padding:0 15px;
+  font-size:var(--font-size-small);
+  color:var(--color-gray-175);}
 
-:host:before{
-  content:'';
-  display:block;
+span.line{
   height:1px;
   width:100%;
-  background:green;}
-
-:host:after{
-  content:'';
-  display:block;
-  height:1px;
-  width:100%;
-  background:red;}
+  background:var(--divider-color);}
 
 `);
 

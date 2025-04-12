@@ -6,10 +6,18 @@
   --font-size-medium:14px;
   --font-size-large:16px;
 
+  --divider-color:rgb(50,50,50);
+
+
   --border-radius:6px;
 
   --color-white:rgb(255,255,255);
   --color-black:rgb(0,0,0);
+
+  --color-gray-225:rgb(225,225,225);
+  --color-gray-175:rgb(175,175,175);
+  --color-gray-150:rgb(150,150,150);
+  --color-gray-125:rgb(125,125,125);
 
   --rgb-255-255-255:rgb(255,255,255);
   --rgb-185-65-65:rgb(185,65,65);
@@ -114,7 +122,7 @@ article .content{
   display:flex;
   flex-direction:column;
   row-gap:20px;
-  padding:25px 0 30px;}
+  padding:0 0 30px;}
 
 article .icons{
   display:flex;
