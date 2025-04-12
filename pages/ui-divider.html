@@ -1,16 +1,22 @@
 <div class="title">Разделитель</div>
-<ui-divider height="20"></ui-divider>
-<div class="description">Визуальное отделение блоков контента.</div>
-<ui-divider height="60" type="wrong"></ui-divider>
+<ui-divider height="30"></ui-divider>
+<div class="description">Разделение блоков контента.</div>
+<ui-divider height="30"></ui-divider>
 
 <section class="content">
-  <span>Простая линия</span>
+  <span>Пустое пространство, цвет фона установлен для наглядности.</span>
   <div class="example">
-    <ui-divider></ui-divider>
+    <ui-divider height="30" style="background-color:rgb(10,10,10);"></ui-divider>
+    <code>
+      <span>&lt;ui-divider height="30"&gt;&lt;/ui-divider&gt;</span>
+    </code>
   </div>
 
-  <span>Линия с текстом</span>
+  <span>Линия с текстом.</span>
   <div class="example">
-    <ui-divider label="Текст"></ui-divider>
+    <ui-divider type="line" label="Текст"></ui-divider>
+    <code>
+      <span>&lt;ui-divider type="line" label="Текст"&gt;&lt;/ui-divider&gt;</span>
+    </code>
   </div>
 </section>

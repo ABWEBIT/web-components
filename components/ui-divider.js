@@ -1,4 +1,5 @@
 import {UIDividerStyles} from '../helpers/styles.js';
+import {textNormalize} from '../helpers/utils.js';
 
 class UIDivider extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -9,28 +10,30 @@ class UIDivider extends HTMLElement{
   }
 
   connectedCallback(){
+    const axes = ['x','y'];
+    let axis = textNormalize(this.getAttribute('axis'));
+    axis = axes.includes(axis) ? axis : 'x';
+    this.setAttribute('axis',axis);
+
     const types = ['blank','line'];
-    let type = (this.getAttribute('type') || '').trim();
+    let type = textNormalize(this.getAttribute('type'));
     type = types.includes(type) ? type : 'blank';
     this.setAttribute('type',type);
-
-    const orientation = this.hasAttribute('horizontal');
-    if(!orientation) this.setAttribute('horizontal','');
 
     const height = parseInt(this.getAttribute('height'),10);
     if(height) this.style.height = `${height}px`;
 
-    const label = this.getAttribute('label');
+    const label = textNormalize(this.getAttribute('label'));
 
 
     if(type === 'line' && !label){
-      this.#shadow.innerHTML = '<span class="line"></span>';
+      this.#shadow.innerHTML = '<div class="line"></div>';
     }
     else if(type === 'line' && label){
       this.#shadow.innerHTML = `
-        ${type && `<span class="line"></span>`}
-        <span class="label"></span>
-        ${type && `<span class="line"></span>`}`;
+        <div class="line"></div>
+        <div class="label"></div>
+        <div class="line"></div>`;
 
         const obj = this.#shadow.querySelector('.label');
         obj.textContent = label;

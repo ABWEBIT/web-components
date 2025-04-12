@@ -19,29 +19,32 @@ UISpacingStyles.replaceSync(`
 
 export const UIDividerStyles = new CSSStyleSheet();
 UIDividerStyles.replaceSync(`
-:host{
-  display:flex;
+:host([type="blank"]){
+  display:block;}
+
+:host([type="line"]){
+  display:flex;}
+
+:host([axis="x"]){
+  width:100%;
+  max-width:100%;}
+
+:host([type="line"][axis="x"]){
   align-items:center;}
 
-:host([type="blank"]){
-  display:block;
-}
 
-:host([horizontal]){
-  width:100%;
-  max-width:100%;
-  vertical-align:middle;}
 
-span.label{
-  padding:0 15px;
+.label{
   font-size:var(--font-size-small);
   color:var(--color-gray-175);}
 
-span.line{
-  height:1px;
-  width:100%;
-  background:var(--divider-color);}
+:host([axis="x"]) .label{
+  padding:0 15px;}
 
+:host([axis="x"]) .line{
+  flex-grow:1;
+  height:1px;
+  background:var(--divider-color);}
 `);
 
 export const textStyles = new CSSStyleSheet();
