@@ -74,6 +74,7 @@ UIButtonStyle.replaceSync(`
   align-items:center;
   vertical-align:middle;
   width:fit-content;
+  column-gap:14px;
   border:none;
   border-radius:var(--border-radius);
   color:var(--rgb-175-175-175);
@@ -113,33 +114,6 @@ UIButtonStyle.replaceSync(`
 
 :host(:active:not([disabled])){
   background-color:var(--rgb-50-50-50);}
-
-/* small */
-:host([size="small"]){
-  font-size:var(--font-size-small);
-  height:20px;}
-
-:host([size="small"]) ui-icon{width:20px;}
-:host([size="small"]) .label{padding:0 8px;}
-
-/* medium */
-:host([size="medium"]){
-  font-size:var(--font-size-medium);
-  height:30px;}
-
-:host([size="medium"]) ui-icon{width:30px;}
-:host([size="medium"]) .label{padding:0 12px;}
-
-/* large */
-:host([size="large"]){
-  font-size:var(--font-size-large);
-  height:40px;}
-
-:host([size="large"]) ui-icon{width:40px;}
-:host([size="large"]) .label{padding:0 16px;}
-
-:host:has(> ui-icon[position="before"]) .label{padding-left:0;}
-:host:has(> ui-icon[position="after"]) .label{padding-right:0;}
 `);
 
 export const UIInputStyle = new CSSStyleSheet();

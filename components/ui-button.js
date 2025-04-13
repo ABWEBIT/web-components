@@ -19,7 +19,7 @@ class UIButton extends HTMLElement{
   get iconBefore(){return this.#iconBefore;}
   set iconBefore(value){
     value = String(value || '');
-    if(value && variableName(value)){
+    if(value){
       this.#iconBefore = value;
       this.#updateIcon('before',this.#iconBefore);
     }
@@ -28,14 +28,13 @@ class UIButton extends HTMLElement{
   get iconAfter(){return this.#iconAfter;}
   set iconAfter(value){
     value = String(value || '');
-    if(value && variableName(value)){
+    if(value){
       this.#iconAfter = value;
       this.#updateIcon('after',this.#iconAfter);
     }
   }
 
   #updateIcon(position,name){
-    name = htmlEscape(name);
     queueMicrotask(()=>{
       let block = this.#shadow.querySelector(`ui-icon[position="${position}"]`);
       if(block) block.setAttribute('icon',name);
@@ -59,9 +58,11 @@ class UIButton extends HTMLElement{
   }
 
   connectedCallback(){
-    let size = this.getAttribute('size');
-    size = elementSize(size) ? size : 'large';
-    if(this.getAttribute('size') !== size) this.setAttribute('size',size);
+    let height = parseInt(this.getAttribute('height'),10) || 40;
+    if(this.getAttribute('height') !== height){
+      this.style.height = `${height}px`;
+      this.style.padding = `0 ${Math.ceil(height / 3) & ~1}px`;
+    };
 
     this.#shadow.innerHTML = `
     ${this.#iconBefore && `<ui-icon position="before" icon=""></ui-icon>`}
