@@ -19,7 +19,7 @@ export const inputTypes = (value) => {
 
 export const elementSize = (value) => {
 /* ['xs', 'sm', 'md', 'lg', 'xl'] */
-  const sizes = ['x-small','small','medium','large','x-large'];
+  const sizes = ['small','medium','large'];
   return sizes.includes(value);
 }
 

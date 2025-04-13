@@ -16,6 +16,9 @@
   --rgb-100-100-100:rgb(100,100,100);
   --rgb-75-75-75:rgb(75,75,75);
   --rgb-50-50-50:rgb(50,50,50);
+  --rgb-40-40-40:rgb(40,40,40);
+  --rgb-35-35-35:rgb(35,35,35);
+  --rgb-30-30-30:rgb(30,30,30);
   --rgb-25-25-25:rgb(25,25,25);
   --rgb-20-20-20:rgb(20,20,20);
   --rgb-15-15-15:rgb(15,15,15);
@@ -142,21 +145,20 @@ article .icons > :nth-child(n){
   height:40px;
   width:40px;}
 
-article .info{
+article .info,
+article .example{
+  position:relative;
   display:flex;
   flex-direction:column;
-  row-gap:10px;
   padding:20px;
   border-radius:var(--border-radius);
-  background-color:var(--rgb-25-25-25);}
+  background-color:var(--rgb-10-10-10);}
+
+article .info{
+  row-gap:10px;}
 
 article .example{
-  display:flex;
-  flex-direction:column;
-  row-gap:20px;
-  padding:20px;
-  border-radius:var(--border-radius);
-  background-color:var(--rgb-25-25-25);}
+  row-gap:20px;}
 
 article .example:not(:last-child){
   margin-bottom:40px;}

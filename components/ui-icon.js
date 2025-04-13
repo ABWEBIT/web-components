@@ -1,6 +1,6 @@
-import {globalStyles,iconStyle} from '../helpers/styles.js';
+import {UIComponentsStyles,UIIconStyle} from '../helpers/styles.js';
 import * as icons from '../helpers/icons.js';
-import {textNormalize,variableName,htmlEscape} from '../helpers/utils.js';
+import {htmlEscape} from '../helpers/utils.js';
 
 class UIIcon extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -8,7 +8,7 @@ class UIIcon extends HTMLElement{
 
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [globalStyles,iconStyle];
+    this.#shadow.adoptedStyleSheets = [UIComponentsStyles,UIIconStyle];
   }
 
   static get observedAttributes(){
@@ -17,11 +17,11 @@ class UIIcon extends HTMLElement{
 
   get icon(){return this.#icon;}
   set icon(value){
-    value = textNormalize(value);
-    if(value && variableName(value) && icons[value]){
+    value = String(value || '');
+    if(icons[value]){
       this.#icon = htmlEscape(value);
       queueMicrotask(()=>{
-        const svg = this.#shadow.querySelector('svg');
+        let svg = this.#shadow.querySelector('svg');
         if(svg){
           const parser = new DOMParser();
           const doc = parser.parseFromString(`<svg xmlns="http://www.w3.org/2000/svg">${icons[this.#icon]}</svg>`,'image/svg+xml');

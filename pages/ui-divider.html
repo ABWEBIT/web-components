@@ -1,49 +1,77 @@
 <section class="intro">
   <span class="title">Разделитель</span>
-  <span class="description">Разделение контента с помощью линии.</span>
+  <span class="description">Разделение контента с помощью линии или линии с текстом.</span>
   <div class="info">
     <span>Все атрибуты статичные.</span>
+    <span>Горизонтальный разделитель имеет ширину 100%.</span>
+    <span>Вертикальный разделитель имеет высоту 100%.</span>
+    <span>label - не обазательный атрибут (тип строка), никаких ограничений.</span>
+    <span>axis - x или y (строчные), отвечает за направление. По умолчанию x.</span>
+    <span>align - расположение текста. По умолчанию по центру.</span>
+    <span>align - left или right работают только с axis="x".</span>
+    <span>align - top или bottom работают только с axis="y".</span>
   </div>
 </section>
 
 <section class="content">
-  <span>Разделитель с заданной высотой. Для наглядности добавлен фон.</span>
+  <span>Горизонтальный разделитель.</span>
   <div class="example">
-    <ui-divider height="30" style="background-color:rgb(0,0,0);"></ui-divider>
+    <ui-divider></ui-divider>
     <code>
-      <span>&lt;ui-divider height="30"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
-  <span>Линия с текстом, выровненным по центру.</span>
+  <span>Горизонтальный разделитель с текстом, выровненным: по центру, слева, справа.</span>
   <div class="example">
     <ui-divider label="Текст"></ui-divider>
     <code>
       <span>&lt;ui-divider label="Текст"&gt;&lt;/ui-divider&gt;</span>
     </code>
-  </div>
 
-  <span>Линия с текстом, выровненным по левому краю.</span>
-  <div class="example">
     <ui-divider label="Текст" align="left"></ui-divider>
     <code>
       <span>&lt;ui-divider label="Текст" align="left"&gt;&lt;/ui-divider&gt;</span>
     </code>
-  </div>
 
-  <span>Линия с текстом, выровненным по правому краю.</span>
-  <div class="example">
     <ui-divider label="Текст" align="right"></ui-divider>
     <code>
       <span>&lt;ui-divider label="Текст" align="right"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
-  <span>Линия с текстом, выровненным по правому краю.</span>
+  <span>Вертикальный разделитель. Высота 100%.</span>
   <div class="example">
-    <ui-divider axis="y"></ui-divider>
+    <div style="height:100px;">
+      <ui-divider axis="y"></ui-divider>
+    </div>
     <code>
-      <span>&lt;ui-divider align="right"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider axis="y"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
+
+  <span>Вертикальный разделитель с текстом, выровненным: по центру, сверху, снизу.</span>
+  <div class="example">
+    <div style="height:150px;">
+      <ui-divider label="Текст" axis="y"></ui-divider>
+    </div>
+    <code>
+      <span>&lt;ui-divider label="Текст" axis="y"&gt;&lt;/ui-divider&gt;</span>
+    </code>
+
+    <div style="height:150px;">
+      <ui-divider label="Текст" axis="y" align="top"></ui-divider>
+    </div>
+    <code>
+      <span>&lt;ui-divider label="Текст" axis="y" align="top"&gt;&lt;/ui-divider&gt;</span>
+    </code>
+
+    <div style="height:150px;">
+      <ui-divider label="Текст" axis="y" align="bottom"></ui-divider>
+    </div>
+    <code>
+      <span>&lt;ui-divider label="Текст" axis="y" align="bottom"&gt;&lt;/ui-divider&gt;</span>
+    </code>
+  </div>
+
 </section>

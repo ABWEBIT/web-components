@@ -1,15 +1,15 @@
-import {globalStyles,buttonStyle} from '../helpers/styles.js';
-import {textNormalize,variableName,htmlEscape,elementSize} from '../helpers/utils.js';
+import {UIComponentsStyles,UIButtonStyle} from '../helpers/styles.js';
+import {variableName,htmlEscape,elementSize} from '../helpers/utils.js';
 
 class UIButton extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
-  #buttonLabel = '';
+  #label = '';
   #iconBefore = '';
   #iconAfter = '';
 
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [globalStyles,buttonStyle];
+    this.#shadow.adoptedStyleSheets = [UIComponentsStyles,UIButtonStyle];
   }
 
   static get observedAttributes(){
@@ -18,7 +18,7 @@ class UIButton extends HTMLElement{
 
   get iconBefore(){return this.#iconBefore;}
   set iconBefore(value){
-    value = textNormalize(value);
+    value = String(value || '');
     if(value && variableName(value)){
       this.#iconBefore = value;
       this.#updateIcon('before',this.#iconBefore);
@@ -27,7 +27,7 @@ class UIButton extends HTMLElement{
 
   get iconAfter(){return this.#iconAfter;}
   set iconAfter(value){
-    value = textNormalize(value);
+    value = String(value || '');
     if(value && variableName(value)){
       this.#iconAfter = value;
       this.#updateIcon('after',this.#iconAfter);
@@ -42,29 +42,30 @@ class UIButton extends HTMLElement{
     });
   }
 
-  get buttonLabel(){return this.#buttonLabel;}
-  set buttonLabel(value){
-    value = textNormalize(value);
+  get label(){return this.#label;}
+  set label(value){
+    value = String(value || '');
     if(value){
-      this.#buttonLabel = value;
-      this.#updateText('label',this.#buttonLabel);
+      this.#label = value;
+      this.#updateText('label',this.#label);
     }
   }
 
   #updateText(type,text){
     queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`ui-text[type="${type}"]`);
+      let block = this.#shadow.querySelector(`.${type}`);
       if(block) block.textContent = text;
     });
   }
 
   connectedCallback(){
-    let size = textNormalize(this.getAttribute('size'));
-    if(!elementSize(size)) this.setAttribute('size','large');
+    let size = this.getAttribute('size');
+    size = elementSize(size) ? size : 'large';
+    if(this.getAttribute('size') !== size) this.setAttribute('size',size);
 
     this.#shadow.innerHTML = `
     ${this.#iconBefore && `<ui-icon position="before" icon=""></ui-icon>`}
-    ${this.#buttonLabel && `<ui-text type="label"></ui-text>`}
+    ${this.#label && `<div class="label"></div>`}
     ${this.#iconAfter && `<ui-icon position="after" icon=""></ui-icon>`}`;
 
     requestAnimationFrame(()=>this.setAttribute('transition','active'));
@@ -75,7 +76,7 @@ class UIButton extends HTMLElement{
       switch(name){
         case 'icon-before':this.iconBefore = newValue; break;
         case 'icon-after':this.iconAfter = newValue; break;
-        case 'label':this.buttonLabel = newValue; break;
+        case 'label':this.label = newValue; break;
       }
     }
   }

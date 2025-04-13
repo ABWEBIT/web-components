@@ -1,24 +1,19 @@
-import {UIDividerStyles} from '../helpers/styles.js';
-import {textNormalize} from '../helpers/utils.js';
+import {UIComponentsStyles,UIDividerStyles} from '../helpers/styles.js';
 
 class UIDivider extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [UIDividerStyles];
+    this.#shadow.adoptedStyleSheets = [UIComponentsStyles,UIDividerStyles];
   }
 
   connectedCallback(){
-    let label = textNormalize(this.getAttribute('label'));
-
-    const axes = ['x','y'];
-    let axis = textNormalize(this.getAttribute('axis'));
-    axis = axes.includes(axis) ? axis : 'x';
+    let axis = this.getAttribute('axis');
+    axis = ['x','y'].includes(axis) ? axis : 'x';
     if(this.getAttribute('axis') !== axis) this.setAttribute('axis',axis);
 
-    const height = parseInt(this.getAttribute('height'),10);
-    if(height) this.style.height = `${height}px`;
+    let label = String(this.getAttribute('label') || '');
 
     this.#shadow.innerHTML = label ? `
       <div class="line"></div>
@@ -34,10 +29,3 @@ class UIDivider extends HTMLElement{
   }
 }
 customElements.define('ui-divider',UIDivider);
-
-/*
-const alignments = ['left','right'];
-let align = textNormalize(this.getAttribute('align'));
-align = alignments.includes(align) ? align : '';
-if(this.getAttribute('align') !== align && align) this.setAttribute('align',align);
-*/

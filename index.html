@@ -30,14 +30,14 @@
         <div class="menuTitle">Компоненты</div>
 
         <div class="menuItem">
-          <span onclick="loadContent('pages/ui-divider.html')">
-            Разделитель
+          <span onclick="loadContent('pages/ui-icon.html')">
+            Иконка
           </span>
         </div>
 
         <div class="menuItem">
-          <span onclick="loadContent('pages/ui-icon.html')">
-            Иконка
+          <span onclick="loadContent('pages/ui-divider.html')">
+            Разделитель
           </span>
         </div>
 
@@ -65,7 +65,7 @@
 <script id="script"></script>
 
 <script>
-loadContent('pages/ui-divider.html');
+loadContent('pages/ui-button.html');
 function loadContent(page){
   fetch(page)
   .then(response => response.text())
@@ -83,9 +83,8 @@ function loadContent(page){
 }
 </script>
 
-<script type="module" src="components/ui-spacing.js"></script>
-<script type="module" src="components/ui-divider.js"></script>
 <script type="module" src="components/ui-icon.js"></script>
+<script type="module" src="components/ui-divider.js"></script>
 <script type="module" src="components/ui-text.js"></script>
 <script type="module" src="components/ui-button.js"></script>
 <script type="module" src="components/ui-input.js"></script>

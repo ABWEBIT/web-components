@@ -1,5 +1,5 @@
-export const globalStyles = new CSSStyleSheet();
-globalStyles.replaceSync(`
+export const UIComponentsStyles = new CSSStyleSheet();
+UIComponentsStyles.replaceSync(`
 :host{
   position:relative;
   transition:none;}
@@ -9,42 +9,8 @@ globalStyles.replaceSync(`
   outline:none;}
 `);
 
-export const UIDividerStyles = new CSSStyleSheet();
-UIDividerStyles.replaceSync(`
-:host{
-  display:flex;}
-
-:host([label]) .label{
-  font-size:var(--font-size-small);
-  color:var(--rgb-175-175-175);}
-
-:host([axis="x"]){
-  align-items:center;}
-
-:host([axis="x"]) .label{
-  padding:0 15px;}
-
-:host([axis="x"]) .line{
-  flex-grow:1;
-  height:1px;
-  background-color:var(--rgb-50-50-50);}
-
-
-:host([axis="x"][label][align="left"]) .line:first-child,
-:host([axis="x"][label][align="right"]) .line:last-child{
-  flex-grow:0;
-  width:30px;}
-`);
-
-export const textStyles = new CSSStyleSheet();
-textStyles.replaceSync(`
-:host{
-  position:relative;
-  transition:none;}
-`);
-
-export const iconStyle = new CSSStyleSheet();
-iconStyle.replaceSync(`
+export const UIIconStyle = new CSSStyleSheet();
+UIIconStyle.replaceSync(`
 :host{
   display:inline-flex;
   justify-content:center;
@@ -65,8 +31,43 @@ svg{
   pointer-events:none;}
 `);
 
-export const buttonStyle = new CSSStyleSheet();
-buttonStyle.replaceSync(`
+export const UIDividerStyles = new CSSStyleSheet();
+UIDividerStyles.replaceSync(`
+:host{
+  display:flex;
+  align-items:center;}
+
+:host .line{
+  flex-grow:1;
+  background-color:var(--rgb-50-50-50,black);}
+
+:host([label]) .label{
+  font-size:var(--font-size-small);
+  color:var(--rgb-175-175-175);}
+
+:host([axis="x"]) .label{padding:0 15px;}
+:host([axis="x"]) .line{height:1px;}
+
+:host([axis="x"][label][align="left"]) .line:first-child,
+:host([axis="x"][label][align="right"]) .line:last-child{
+  flex-grow:0;
+  width:20px;}
+
+:host([axis="y"]){
+  height:100%;
+  flex-direction:column;}
+
+:host([axis="y"]) .label{padding:10px 0;}
+:host([axis="y"]) .line{width:1px;}
+
+:host([axis="y"][label][align="top"]) .line:first-child,
+:host([axis="y"][label][align="bottom"]) .line:last-child{
+  flex-grow:0;
+  height:20px;}
+`);
+
+export const UIButtonStyle = new CSSStyleSheet();
+UIButtonStyle.replaceSync(`
 :host{
   display:inline-flex;
   justify-content:center;
@@ -76,7 +77,7 @@ buttonStyle.replaceSync(`
   border:none;
   border-radius:var(--border-radius);
   color:var(--rgb-175-175-175);
-  background-color:var(--rgb-25-25-25);
+  background-color:var(--rgb-30-30-30);
   cursor:pointer;
   -webkit-user-select:none;
   user-select:none;
@@ -89,7 +90,7 @@ buttonStyle.replaceSync(`
 :host([transition="active"]){
   transition:background-color 0.2s,color 0.2s;}
 
-:host > ui-text{
+:host > .label{
   text-align:inherit;
   flex-grow:1;
   white-space:nowrap;
@@ -106,7 +107,7 @@ buttonStyle.replaceSync(`
 
 @media (hover:hover){
   :host(:hover:not([disabled])){
-    background-color:var(--rgb-25-25-25);
+    background-color:var(--rgb-40-40-40);
     color:var(--rgb-225-225-225);}  
 }
 
@@ -116,33 +117,33 @@ buttonStyle.replaceSync(`
 /* small */
 :host([size="small"]){
   font-size:var(--font-size-small);
-  height:24px;}
+  height:20px;}
 
-:host([size="small"]) ui-icon{width:24px;}
-:host([size="small"]) ui-text{padding:0 8px;}
+:host([size="small"]) ui-icon{width:20px;}
+:host([size="small"]) .label{padding:0 8px;}
 
 /* medium */
 :host([size="medium"]){
   font-size:var(--font-size-medium);
-  height:32px;}
+  height:30px;}
 
-:host([size="medium"]) ui-icon{width:32px;}
-:host([size="medium"]) ui-text{padding:0 12px;}
+:host([size="medium"]) ui-icon{width:30px;}
+:host([size="medium"]) .label{padding:0 12px;}
 
 /* large */
 :host([size="large"]){
   font-size:var(--font-size-large);
-  height:36px;}
+  height:40px;}
 
-:host([size="large"]) ui-icon{width:36px;}
-:host([size="large"]) ui-text{padding:0 16px;}
+:host([size="large"]) ui-icon{width:40px;}
+:host([size="large"]) .label{padding:0 16px;}
 
-:host:has(> ui-icon[position="before"]) ui-text{padding-left:0;}
-:host:has(> ui-icon[position="after"]) ui-text{padding-right:0;}
+:host:has(> ui-icon[position="before"]) .label{padding-left:0;}
+:host:has(> ui-icon[position="after"]) .label{padding-right:0;}
 `);
 
-export const inputStyle = new CSSStyleSheet();
-inputStyle.replaceSync(`
+export const UIInputStyle = new CSSStyleSheet();
+UIInputStyle.replaceSync(`
 :host{
   display:inline-flex;
   flex-direction:column;
@@ -222,4 +223,11 @@ inputStyle.replaceSync(`
 
 :host > .block:has(> ui-icon[position="before"]) input{padding-left:0;}
 :host > .block:has(> ui-icon[position="after"]) ui-button[icon-before="Clear"]{margin-right:0px;}
+`);
+
+export const UITextStyles = new CSSStyleSheet();
+UITextStyles.replaceSync(`
+:host{
+  position:relative;
+  transition:none;}
 `);
