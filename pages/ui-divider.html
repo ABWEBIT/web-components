@@ -1,22 +1,49 @@
-<div class="title">Разделитель</div>
-<ui-divider height="30"></ui-divider>
-<div class="description">Разделение блоков контента.</div>
-<ui-divider height="30"></ui-divider>
+<section class="intro">
+  <span class="title">Разделитель</span>
+  <span class="description">Разделение контента с помощью линии.</span>
+  <div class="info">
+    <span>Все атрибуты статичные.</span>
+  </div>
+</section>
 
 <section class="content">
-  <span>Пустое пространство, цвет фона установлен для наглядности.</span>
+  <span>Разделитель с заданной высотой. Для наглядности добавлен фон.</span>
   <div class="example">
-    <ui-divider height="30" style="background-color:rgb(10,10,10);"></ui-divider>
+    <ui-divider height="30" style="background-color:rgb(0,0,0);"></ui-divider>
     <code>
       <span>&lt;ui-divider height="30"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
-  <span>Линия с текстом.</span>
+  <span>Линия с текстом, выровненным по центру.</span>
   <div class="example">
-    <ui-divider type="line" label="Текст"></ui-divider>
+    <ui-divider label="Текст"></ui-divider>
     <code>
-      <span>&lt;ui-divider type="line" label="Текст"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider label="Текст"&gt;&lt;/ui-divider&gt;</span>
+    </code>
+  </div>
+
+  <span>Линия с текстом, выровненным по левому краю.</span>
+  <div class="example">
+    <ui-divider label="Текст" align="left"></ui-divider>
+    <code>
+      <span>&lt;ui-divider label="Текст" align="left"&gt;&lt;/ui-divider&gt;</span>
+    </code>
+  </div>
+
+  <span>Линия с текстом, выровненным по правому краю.</span>
+  <div class="example">
+    <ui-divider label="Текст" align="right"></ui-divider>
+    <code>
+      <span>&lt;ui-divider label="Текст" align="right"&gt;&lt;/ui-divider&gt;</span>
+    </code>
+  </div>
+
+  <span>Линия с текстом, выровненным по правому краю.</span>
+  <div class="example">
+    <ui-divider axis="y"></ui-divider>
+    <code>
+      <span>&lt;ui-divider align="right"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 </section>

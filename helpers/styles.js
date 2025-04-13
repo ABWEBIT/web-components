@@ -9,34 +9,17 @@ globalStyles.replaceSync(`
   outline:none;}
 `);
 
-export const UISpacingStyles = new CSSStyleSheet();
-UISpacingStyles.replaceSync(`
-:host{
-  display:block;
-  width:100%;
-  max-width:100%;}
-`);
-
 export const UIDividerStyles = new CSSStyleSheet();
 UIDividerStyles.replaceSync(`
-:host([type="blank"]){
-  display:block;}
-
-:host([type="line"]){
+:host{
   display:flex;}
 
-:host([axis="x"]){
-  width:100%;
-  max-width:100%;}
-
-:host([type="line"][axis="x"]){
-  align-items:center;}
-
-
-
-.label{
+:host([label]) .label{
   font-size:var(--font-size-small);
-  color:var(--color-gray-175);}
+  color:var(--rgb-175-175-175);}
+
+:host([axis="x"]){
+  align-items:center;}
 
 :host([axis="x"]) .label{
   padding:0 15px;}
@@ -44,7 +27,13 @@ UIDividerStyles.replaceSync(`
 :host([axis="x"]) .line{
   flex-grow:1;
   height:1px;
-  background:var(--divider-color);}
+  background-color:var(--rgb-50-50-50);}
+
+
+:host([axis="x"][label][align="left"]) .line:first-child,
+:host([axis="x"][label][align="right"]) .line:last-child{
+  flex-grow:0;
+  width:30px;}
 `);
 
 export const textStyles = new CSSStyleSheet();
@@ -86,8 +75,8 @@ buttonStyle.replaceSync(`
   width:fit-content;
   border:none;
   border-radius:var(--border-radius);
-  color:rgb(175,175,175);
-  background-color:rgb(25,25,25);
+  color:var(--rgb-175-175-175);
+  background-color:var(--rgb-25-25-25);
   cursor:pointer;
   -webkit-user-select:none;
   user-select:none;
@@ -117,12 +106,12 @@ buttonStyle.replaceSync(`
 
 @media (hover:hover){
   :host(:hover:not([disabled])){
-    background-color:rgb(35,35,35);
-    color:rgb(225,225,225);}  
+    background-color:var(--rgb-25-25-25);
+    color:var(--rgb-225-225-225);}  
 }
 
 :host(:active:not([disabled])){
-  background-color:rgb(45,45,45);}
+  background-color:var(--rgb-50-50-50);}
 
 /* small */
 :host([size="small"]){
@@ -169,8 +158,8 @@ inputStyle.replaceSync(`
   border:none;
   border-radius:var(--border-radius);
   overflow:hidden;
-  color:rgb(175,175,175);
-  background-color:rgb(25,25,25);}
+  color:var(--rgb-175-175-175);
+  background-color:var(--rgb-25-25-25);}
 
 :host([transition="active"]) > .block{
   transition:background-color 0.2s,color 0.2s;}
@@ -184,11 +173,11 @@ inputStyle.replaceSync(`
 
 :host > .label{
   font-size:90%;
-  color:rgb(255,255,255);}
+  color:var(--rgb-255-255-255);}
 
 :host > .hint{
   font-size:80%;
-  color:rgb(150,150,150);}
+  color:var(--rgb-150-150-150);}
 
 :host > .block > input{
   height:100%;
@@ -197,7 +186,7 @@ inputStyle.replaceSync(`
   padding-left:15px;
   padding-right:5px;
   border:none;
-  color:rgb(255,255,255);
+  color:var(--rgb-255-255-255);
   font-size:90%;
   background-color:transparent;
   transition:color 0.2s;}
@@ -222,13 +211,13 @@ inputStyle.replaceSync(`
 
 @media (hover:hover){
   :host > .block > ui-button[icon-before="Clear"]:hover{
-    background-color:rgb(55,55,55);
+    background-color:var(--rgb-50-50-50);
   }
   :host([transition="active"]) > .block:hover,
   :host > .block:has(> input:focus){
-    background-color:rgb(35,35,35);}
+    background-color:var(--rgb-25-25-25);}
 
-  :host > .block > ui-icon:hover{color:rgb(225,225,225);}
+  :host > .block > ui-icon:hover{color:var(--rgb-225-225-225);}
 }
 
 :host > .block:has(> ui-icon[position="before"]) input{padding-left:0;}

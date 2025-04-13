@@ -1,17 +1,16 @@
-<div class="title">Иконки</div>
-<ui-divider height="30"></ui-divider>
-<div class="description">Коллекция иконок.</div>
-<ui-divider height="60" type="line"></ui-divider>
+<section class="intro">
+  <span class="title">Иконки</span>
+  <span class="description">Коллекция иконок.</span>
+  <div class="info">
+    <span>Толщина линии до конвертации: 1.6px.</span>
+    <span>Закругление угла: 3px.</span>
+  </div>
+</section>
 
 <section class="content">
-  <div class="info">
-    Толщина линии до конвертации: 1.6px. Закругление угла: 3px.
-  </div>
-
   <span>Размер: 20 x 20</span>
-
   <div class="icons">
-    <ui-icon icon="home" id="test"></ui-icon>
+    <ui-icon icon="home"></ui-icon>
     <ui-icon icon="article"></ui-icon>
     <ui-icon icon="search"></ui-icon>
     <ui-icon icon="send"></ui-icon>
@@ -26,7 +25,7 @@
 
 <script>
   function changeIconAttribute(attribute, values){
-    const iconBlock = document.getElementById('test');
+    const iconBlock = document.querySelector('ui-icon:first-child');
     if (!iconBlock) return;
 
     const currentValue = iconBlock.getAttribute(attribute);
