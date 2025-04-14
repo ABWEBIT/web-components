@@ -1,4 +1,4 @@
-import {UIComponentsStyles,UIInputStyle} from '../helpers/styles.js';
+import {UIComponentsStyle,UIInputStyle} from '../helpers/styles.js';
 import {textNormalize,variableName,inputTypes,htmlEscape,uuid} from '../helpers/utils.js';
 
 class UIInput extends HTMLElement{
@@ -12,7 +12,7 @@ class UIInput extends HTMLElement{
 
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [UIComponentsStyles,UIInputStyle];
+    this.#shadow.adoptedStyleSheets = [UIComponentsStyle,UIInputStyle];
   }
 
   static get observedAttributes(){

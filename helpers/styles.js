@@ -1,5 +1,5 @@
-export const UIComponentsStyles = new CSSStyleSheet();
-UIComponentsStyles.replaceSync(`
+export const UIComponentsStyle = new CSSStyleSheet();
+UIComponentsStyle.replaceSync(`
 :host{
   position:relative;
   transition:none;}
@@ -31,8 +31,8 @@ svg{
   pointer-events:none;}
 `);
 
-export const UIDividerStyles = new CSSStyleSheet();
-UIDividerStyles.replaceSync(`
+export const UIDividerStyle = new CSSStyleSheet();
+UIDividerStyle.replaceSync(`
 :host{
   display:flex;
   align-items:center;}
@@ -42,7 +42,7 @@ UIDividerStyles.replaceSync(`
   background-color:var(--rgb-50-50-50,black);}
 
 :host([label]) .label{
-  font-size:var(--font-size-small);
+  font-size:var(--font-size-x-small);
   color:var(--rgb-175-175-175);}
 
 :host([axis="x"]) .label{padding:0 15px;}
@@ -74,7 +74,6 @@ UIButtonStyle.replaceSync(`
   align-items:center;
   vertical-align:middle;
   width:fit-content;
-  column-gap:14px;
   border:none;
   border-radius:var(--border-radius);
   color:var(--rgb-175-175-175);
@@ -114,6 +113,13 @@ UIButtonStyle.replaceSync(`
 
 :host(:active:not([disabled])){
   background-color:var(--rgb-50-50-50);}
+
+:host([label]){
+  font-size:clamp(12px, calc(var(--height) / 2), 18px);}
+
+:host([label]:not([icon-left]):not([icon-right])){
+  padding-inline:clamp(8px, calc(var(--height) / 3), 20px);}
+
 `);
 
 export const UIInputStyle = new CSSStyleSheet();
@@ -199,8 +205,8 @@ UIInputStyle.replaceSync(`
 :host > .block:has(> ui-icon[position="after"]) ui-button[icon-before="Clear"]{margin-right:0px;}
 `);
 
-export const UITextStyles = new CSSStyleSheet();
-UITextStyles.replaceSync(`
+export const UITextStyle = new CSSStyleSheet();
+UITextStyle.replaceSync(`
 :host{
   position:relative;
   transition:none;}

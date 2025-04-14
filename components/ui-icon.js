@@ -1,4 +1,4 @@
-import {UIComponentsStyles,UIIconStyle} from '../helpers/styles.js';
+import {UIComponentsStyle,UIIconStyle} from '../helpers/styles.js';
 import * as icons from '../helpers/icons.js';
 import {htmlEscape} from '../helpers/utils.js';
 
@@ -8,7 +8,7 @@ class UIIcon extends HTMLElement{
 
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [UIComponentsStyles,UIIconStyle];
+    this.#shadow.adoptedStyleSheets = [UIComponentsStyle,UIIconStyle];
   }
 
   static get observedAttributes(){

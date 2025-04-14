@@ -2,74 +2,78 @@
   <span class="title">Кнопка</span>
   <span class="description">Кнопка запускает действие или событие при активации.</span>
   <div class="info">
-    <span>label - реактивный и не обязательный атрибут.</span>
-
+    <span>Один из атрибутов должен быть.</span>
+    <span>label - реактивный и не обязательный атрибут. Текст кнопки.</span>
+    <span>icon-left - реактивный и не обязательный атрибут. Имя иконки расположенной по левому краю.</span>
+    <span>icon-right - реактивный и не обязательный атрибут. Имя иконки расположенной по правому краю.</span>
   </div>
 </section>
 
 <section class="content">
-  <span>Кнопки разного размера.</span>
+  <span>Высота 24px.</span>
   <div class="example">
-    <ui-button label="Кнопка" height="20"></ui-button>
+    <div class="preview">
+      <ui-button label="Кнопка" height="24"></ui-button>&nbsp;
+      <ui-button icon-left="article" height="24"></ui-button>
+    </div>
     <code>
-      <span>&lt;ui-button label="Кнопка"&gt;&lt;/ui-button&gt;</span>
-    </code>
-
-    <ui-button label="Кнопка" height="30"></ui-button>
-    <code>
-      <span>&lt;ui-button label="Кнопка"&gt;&lt;/ui-button&gt;</span>
-    </code>
-
-    <ui-button label="Кнопка"></ui-button>
-    <code>
-      <span>&lt;ui-button label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Кнопка" height="24"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-left="article" height="24"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
-  <span>Кнопки разного размера.</span>
+  <span>По умолчанию высота 32px.</span>
   <div class="example">
-    <ui-button icon-before="article" height="20"></ui-button>
+    <div class="preview">
+      <ui-button label="Кнопка"></ui-button>&nbsp;
+      <ui-button icon-left="article"></ui-button>
+    </div>
     <code>
-      <span>&lt;ui-button icon-before="article"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-left="article"&gt;&lt;/ui-button&gt;</span>
     </code>
+  </div>
 
-    <ui-button icon-before="article" height="30"></ui-button>
+  <span>Высота 40px.</span>
+  <div class="example">
+    <div class="preview">
+      <ui-button label="Кнопка" height="40"></ui-button>&nbsp;
+      <ui-button icon-left="article" height="40"></ui-button>
+    </div>
     <code>
-      <span>&lt;ui-button icon-before="article"&gt;&lt;/ui-button&gt;</span>
-    </code>
-
-    <ui-button icon-before="article"></ui-button>
-    <code>
-      <span>&lt;ui-button icon-before="article"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Кнопка" height="40"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-left="article" height="40"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
   <span>Неактивная кнопка.</span>
   <div class="example">
-    <ui-button label="Кнопка" disabled></ui-button>
+    <div class="preview">
+      <ui-button label="Кнопка" disabled></ui-button>
+    </div>
     <code>
       <span>&lt;ui-button label="Кнопка" disabled&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
+  <span>Иконка с одной стороны + текст</span>
   <div class="example">
-    <ui-button icon-before="article" label="Кнопка"></ui-button>
+    <div class="preview">
+      <ui-button icon-left="article" label="Кнопка"></ui-button>&nbsp;
+      <ui-button icon-right="article" label="Кнопка"></ui-button>
+    </div>
     <code>
-      <span>&lt;ui-button icon-before="article" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-left="article" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
   <div class="example">
-    <ui-button icon-after="send" label="Кнопка"></ui-button>
+    <div class="preview">
+      <ui-button icon-left="article" icon-right="send" label="Кнопка"></ui-button>&nbsp;
+      <ui-button style="width:150px;" icon-left="article" icon-right="send" label="Кнопка"></ui-button>
+    </div>
     <code>
-      <span>&lt;ui-button icon-after="Send" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
-    </code>
-  </div>
-
-  <div class="example">
-    <ui-button icon-before="article" icon-after="send" label="Кнопка"></ui-button>
-    <code>
-      <span>&lt;ui-button icon-before="article" icon-after="Send" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-left="article" icon-right="send" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 </section>

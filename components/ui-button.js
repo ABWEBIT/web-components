@@ -1,42 +1,41 @@
-import {UIComponentsStyles,UIButtonStyle} from '../helpers/styles.js';
-import {variableName,htmlEscape,elementSize} from '../helpers/utils.js';
+import {UIComponentsStyle,UIButtonStyle} from '../helpers/styles.js';
 
 class UIButton extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
   #label = '';
-  #iconBefore = '';
-  #iconAfter = '';
+  #iconLeft = '';
+  #iconRight = '';
 
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [UIComponentsStyles,UIButtonStyle];
+    this.#shadow.adoptedStyleSheets = [UIComponentsStyle,UIButtonStyle];
   }
 
   static get observedAttributes(){
-    return ['icon-before','icon-after','label'];
+    return ['icon-left','icon-right','label'];
   }
 
-  get iconBefore(){return this.#iconBefore;}
-  set iconBefore(value){
+  get iconLeft(){return this.#iconLeft;}
+  set iconLeft(value){
     value = String(value || '');
     if(value){
-      this.#iconBefore = value;
-      this.#updateIcon('before',this.#iconBefore);
+      this.#iconLeft = value;
+      this.#updateIcon(':first-child',this.#iconLeft);
     }
   }
 
-  get iconAfter(){return this.#iconAfter;}
-  set iconAfter(value){
+  get iconRight(){return this.#iconRight;}
+  set iconRight(value){
     value = String(value || '');
     if(value){
-      this.#iconAfter = value;
-      this.#updateIcon('after',this.#iconAfter);
+      this.#iconRight = value;
+      this.#updateIcon(':last-child',this.#iconRight);
     }
   }
 
   #updateIcon(position,name){
     queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`ui-icon[position="${position}"]`);
+      let block = this.#shadow.querySelector(`ui-icon${position}`);
       if(block) block.setAttribute('icon',name);
     });
   }
@@ -58,16 +57,18 @@ class UIButton extends HTMLElement{
   }
 
   connectedCallback(){
-    let height = parseInt(this.getAttribute('height'),10) || 40;
-    if(this.getAttribute('height') !== height){
+    let heightData = this.getAttribute('height');
+    let height = parseInt(heightData,10) || 32;
+    if(height !== heightData){
       this.style.height = `${height}px`;
-      this.style.padding = `0 ${Math.ceil(height / 3) & ~1}px`;
+      this.style.setProperty('--height',`${height}px`)
     };
 
     this.#shadow.innerHTML = `
-    ${this.#iconBefore && `<ui-icon position="before" icon=""></ui-icon>`}
-    ${this.#label && `<div class="label"></div>`}
-    ${this.#iconAfter && `<ui-icon position="after" icon=""></ui-icon>`}`;
+      ${this.#iconLeft && '<ui-icon></ui-icon>'}
+      ${this.#label && '<div class="label"></div>'}
+      ${this.#iconRight && '<ui-icon></ui-icon>'}
+    `;
 
     requestAnimationFrame(()=>this.setAttribute('transition','active'));
   }
@@ -75,8 +76,8 @@ class UIButton extends HTMLElement{
   attributeChangedCallback(name,oldValue,newValue){
     if(newValue && oldValue !== newValue){
       switch(name){
-        case 'icon-before':this.iconBefore = newValue; break;
-        case 'icon-after':this.iconAfter = newValue; break;
+        case 'icon-left':this.iconLeft = newValue; break;
+        case 'icon-right':this.iconRight = newValue; break;
         case 'label':this.label = newValue; break;
       }
     }
