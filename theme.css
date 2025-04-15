@@ -118,8 +118,8 @@ nav span:hover{
 
 article{
   position:relative;
-  width:800px;
-  max-width:800px;
+  width:900px;
+  max-width:900px;
   padding:60px 10px;
   flex-grow:1;}
 
@@ -151,20 +151,20 @@ article .icons{
 article .icons > :nth-child(n){
   border-radius:var(--border-radius);
   background-color:var(--rgb-25-25-25);
-  height:40px;
-  width:40px;}
+  height:20px;
+  width:20px;}
 
-article .info,
+article .intro > ul{
+  display:flex;
+  flex-direction:column;
+  row-gap:15px;
+  margin:0;}
+
 article .example{
   position:relative;
   display:flex;
   flex-direction:column;
   border-radius:var(--border-radius);}
-
-article .info{
-  padding:20px;
-  row-gap:10px;
-  background-color:var(--rgb-10-10-10);}
 
 article .example{
   border:1px solid var(--rgb-25-25-25);}

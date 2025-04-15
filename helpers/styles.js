@@ -91,10 +91,8 @@ UIButtonStyle.replaceSync(`
   transition:background-color 0.2s,color 0.2s;}
 
 :host > .label{
-  text-align:inherit;
   flex-grow:1;
   white-space:nowrap;
-  text-overflow:ellipsis;
   overflow:hidden;}
 
 :host::after{
@@ -114,12 +112,15 @@ UIButtonStyle.replaceSync(`
 :host(:active:not([disabled])){
   background-color:var(--rgb-50-50-50);}
 
+:host ui-icon{
+  width:var(--height);}
+
 :host([label]){
+  line-height:1;
   font-size:clamp(12px, calc(var(--height) / 2), 18px);}
 
 :host([label]:not([icon-left]):not([icon-right])){
   padding-inline:clamp(8px, calc(var(--height) / 3), 20px);}
-
 `);
 
 export const UIInputStyle = new CSSStyleSheet();
@@ -207,7 +208,5 @@ UIInputStyle.replaceSync(`
 
 export const UITextStyle = new CSSStyleSheet();
 UITextStyle.replaceSync(`
-:host{
-  position:relative;
-  transition:none;}
+:host{}
 `);

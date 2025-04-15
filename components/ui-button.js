@@ -5,6 +5,7 @@ class UIButton extends HTMLElement{
   #label = '';
   #iconLeft = '';
   #iconRight = '';
+  #onClick = this.onClick.bind(this);
 
   constructor(){
     super();
@@ -57,12 +58,9 @@ class UIButton extends HTMLElement{
   }
 
   connectedCallback(){
-    let heightData = this.getAttribute('height');
-    let height = parseInt(heightData,10) || 32;
-    if(height !== heightData){
-      this.style.height = `${height}px`;
-      this.style.setProperty('--height',`${height}px`)
-    };
+    let height = parseInt(this.getAttribute('height'),10) || 32;
+    this.style.height = `${height}px`;
+    this.style.setProperty('--height',`${height}px`);
 
     this.#shadow.innerHTML = `
       ${this.#iconLeft && '<ui-icon></ui-icon>'}
@@ -70,7 +68,17 @@ class UIButton extends HTMLElement{
       ${this.#iconRight && '<ui-icon></ui-icon>'}
     `;
 
+    this.addEventListener('click',this.#onClick);
     requestAnimationFrame(()=>this.setAttribute('transition','active'));
+  }
+
+  disconnectedCallback(){
+    this.removeEventListener('click',this.#onClick);
+  }
+
+  onClick(){
+    if(this.hasAttribute('disabled')) return;
+    console.log('click');
   }
 
   attributeChangedCallback(name,oldValue,newValue){
