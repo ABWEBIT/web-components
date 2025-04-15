@@ -17,14 +17,16 @@ class UIIcon extends HTMLElement{
   get icon(){return this.#icon;}
   set icon(value){
     value = String(value || '');
-    let array = icons[value];
+    const array = icons?.[value];
 
-    if(array && array.length){
-      let paths = array.map(d=>{
-        let path = document.createElementNS('http://www.w3.org/2000/svg','path');
-        path.setAttribute('d',d);
-        return path;
-      });      
+    if(Array.isArray(array) && array.every(d => typeof d === 'string')){
+      const paths = array
+        .filter(d=>/^[MmLlHhVvCcSsQqTtAaZz0-9\s.,-]+$/.test(d))
+        .map(d=>{
+          const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+          path.setAttribute('d',d);
+          return path;
+        });      
 
       queueMicrotask(()=>{
         let svg = this.#shadow.querySelector('svg');
