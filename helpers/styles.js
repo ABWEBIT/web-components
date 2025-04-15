@@ -45,6 +45,10 @@ UIDividerStyle.replaceSync(`
   font-size:var(--font-size-x-small);
   color:var(--rgb-175-175-175);}
 
+:host([axis="x"]){
+  width:100%;
+  flex-direction:row;}
+
 :host([axis="x"]) .label{padding:0 15px;}
 :host([axis="x"]) .line{height:1px;}
 
@@ -123,7 +127,6 @@ UIButtonStyle.replaceSync(`
 
 :host([label][text-align="right"]){
   text-align:right;}
-
 
 :host([label]:not([icon-left]):not([icon-right])){
   padding-inline:clamp(10px, calc(var(--height) / 3), 20px);}

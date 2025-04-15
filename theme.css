@@ -180,12 +180,13 @@ article .example code{
 article .example .preview{
   display:flex;
   flex-wrap:wrap;
+  justify-content:center;
   gap:10px;
   background-color:var(--rgb-10-10-10);}
 
 article .example code{
   border-top:1px solid var(--rgb-25-25-25);}
 
-code span{
+article .example code span{
   letter-spacing:1px;
   display:block;}

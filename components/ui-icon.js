@@ -1,6 +1,5 @@
 import {UIComponentsStyle,UIIconStyle} from '../helpers/styles.js';
-import * as icons from '../helpers/icons.js';
-import {htmlEscape} from '../helpers/utils.js';
+import {icons} from '../helpers/icons.js';
 
 class UIIcon extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
@@ -18,16 +17,18 @@ class UIIcon extends HTMLElement{
   get icon(){return this.#icon;}
   set icon(value){
     value = String(value || '');
-    if(icons[value]){
-      this.#icon = htmlEscape(value);
+    let array = icons[value];
+
+    if(array && array.length){
+      let paths = array.map(d=>{
+        let path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        path.setAttribute('d',d);
+        return path;
+      });      
+
       queueMicrotask(()=>{
         let svg = this.#shadow.querySelector('svg');
-        if(svg){
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(`<svg xmlns="http://www.w3.org/2000/svg">${icons[this.#icon]}</svg>`,'image/svg+xml');
-          const parsed = doc.querySelector('svg');
-          if(parsed) svg.replaceChildren(...parsed.children);
-        }
+        if(svg) svg.replaceChildren(...paths);
       });
     }
   }
