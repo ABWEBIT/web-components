@@ -2,14 +2,13 @@
   <span class="title">Разделитель</span>
   <span class="description">Компонент для разделения контента с помощью линии или линии с текстом.</span>
   <ul>
-    <li>Все атрибуты статичные.</li>
-    <li>Горизонтальный разделитель имеет ширину 100%.</li>
-    <li>Вертикальный разделитель имеет высоту 100%.</li>
-    <li>label - не обазательный атрибут (тип строка), никаких ограничений.</li>
-    <li>axis - x или y (строчные), отвечает за направление. По умолчанию x.</li>
-    <li>align - расположение текста. По умолчанию по центру.</li>
-    <li>align - left или right работают только с axis="x".</li>
-    <li>align - top или bottom работают только с axis="y".</li>
+    <li>label - не обязательный атрибут (тип строка).</li>
+    <li>axis - "x" или "y" (строчные), отвечает за направление. По умолчанию x.</li>
+    <li>axis="x" - горизонтальный разделитель, ширина 100%.</li>
+    <li>axis="y" - вертикальный разделитель, высота 100%.</li>
+    <li>text-align - расположение текста. По умолчанию по центру.</li>
+    <li>text-align - "left" или "right" работают только с axis="x".</li>
+    <li>text-align - "top" или "bottom" работают только с axis="y".</li>
   </ul>
 </section>
 
@@ -36,25 +35,25 @@
 
   <div class="example">
     <div class="preview">
-      <ui-divider label="Текст" align="left"></ui-divider>
+      <ui-divider label="Текст" text-align="left"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Текст" align="left"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider label="Текст" text-align="left"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
   <div class="example">
     <div class="preview">
-      <ui-divider label="Текст" align="right"></ui-divider>
+      <ui-divider label="Текст" text-align="right"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Текст" align="right"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider label="Текст" text-align="right"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
   <span>Вертикальный разделитель. Высота 100%.</span>
   <div class="example">
-    <div class="preview" style="height:100px;">
+    <div class="preview" style="height:150px;">
       <ui-divider axis="y"></ui-divider>
     </div>
     <code>
@@ -74,19 +73,19 @@
 
   <div class="example">
     <div class="preview" style="height:150px;">
-      <ui-divider label="Текст" axis="y" align="top"></ui-divider>
+      <ui-divider label="Текст" axis="y" text-align="top"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Текст" axis="y" align="top"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider label="Текст" axis="y" text-align="top"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
   <div class="example">
     <div class="preview" style="height:150px;">
-      <ui-divider label="Текст" axis="y" align="bottom"></ui-divider>
+      <ui-divider label="Текст" axis="y" text-align="bottom"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Текст" axis="y" align="bottom"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider label="Текст" axis="y" text-align="bottom"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 </section>

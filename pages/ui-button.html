@@ -7,16 +7,17 @@
     <li>label - реактивный, не обязательный. Текст кнопки.</li>
     <li>icon-left - реактивный, не обязательный. Имя иконки расположенной по левому краю.</li>
     <li>icon-right - реактивный, не обязательный. Имя иконки расположенной по правому краю.</li>
-    <li>height - статичный, не обязательный. Высота иконки, по умолчанию 32px.</li>
-    <li>disabled - реактивный, не обязательный. Состояние кнопки - неактивная.</li>
+    <li>height - статичный, не обязательный. Высота кнопки (число), по умолчанию - 32, измеряется в пикселях. (рекомендуется от 24 до 40). Лучше использовать чётные числа.</li>
+    <li>Размер шрифта изменяется автоматически, рассчитывается по формуле "выcота кнопки / 2"</li>
+    <li>disabled - реактивный, не обязательный, состояние.</li>
   </ul>
 </section>
 
 <section class="content">
-  <span>Высота 24px.</span>
+  <span>Высота 24.</span>
   <div class="example">
     <div class="preview">
-      <ui-button label="Кнопка" height="24"></ui-button>&nbsp;
+      <ui-button label="Кнопка" height="24"></ui-button>
       <ui-button icon-left="article" height="24"></ui-button>
     </div>
     <code>
@@ -25,10 +26,10 @@
     </code>
   </div>
 
-  <span>Высота 32px. (высота по умолчанию)</span>
+  <span>Высота 32. (высота по умолчанию)</span>
   <div class="example">
     <div class="preview">
-      <ui-button label="Кнопка"></ui-button>&nbsp;
+      <ui-button label="Кнопка"></ui-button>
       <ui-button icon-left="article"></ui-button>
     </div>
     <code>
@@ -37,10 +38,10 @@
     </code>
   </div>
 
-  <span>Высота 40px.</span>
+  <span>Высота 40.</span>
   <div class="example">
     <div class="preview">
-      <ui-button label="Кнопка" height="40"></ui-button>&nbsp;
+      <ui-button label="Кнопка" height="40"></ui-button>
       <ui-button icon-left="article" height="40"></ui-button>
     </div>
     <code>
@@ -62,8 +63,10 @@
   <span>Текст и иконка с одной стороны.</span>
   <div class="example">
     <div class="preview">
-      <ui-button icon-left="article" label="Кнопка"></ui-button>&nbsp;
+      <ui-button icon-left="article" label="Кнопка"></ui-button>
       <ui-button icon-right="article" label="Кнопка"></ui-button>
+      <ui-button icon-right="article" label="Кнопка" text-align="left" style="width:150px;"></ui-button>
+      <ui-button icon-left="article" label="Кнопка" text-align="right" style="width:150px;"></ui-button>
     </div>
     <code>
       <span>&lt;ui-button icon-left="article" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
@@ -73,7 +76,7 @@
 
   <div class="example">
     <div class="preview">
-      <ui-button icon-left="article" icon-right="send" label="Кнопка"></ui-button>&nbsp; 
+      <ui-button icon-left="article" icon-right="send" label="Кнопка"></ui-button> 
       <ui-button style="width:150px;" icon-left="article" icon-right="send" label="Кнопка"></ui-button>
     </div>
     <code>

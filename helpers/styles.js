@@ -48,8 +48,8 @@ UIDividerStyle.replaceSync(`
 :host([axis="x"]) .label{padding:0 15px;}
 :host([axis="x"]) .line{height:1px;}
 
-:host([axis="x"][label][align="left"]) .line:first-child,
-:host([axis="x"][label][align="right"]) .line:last-child{
+:host([axis="x"][label][text-align="left"]) .line:first-child,
+:host([axis="x"][label][text-align="right"]) .line:last-child{
   flex-grow:0;
   width:20px;}
 
@@ -60,8 +60,8 @@ UIDividerStyle.replaceSync(`
 :host([axis="y"]) .label{padding:10px 0;}
 :host([axis="y"]) .line{width:1px;}
 
-:host([axis="y"][label][align="top"]) .line:first-child,
-:host([axis="y"][label][align="bottom"]) .line:last-child{
+:host([axis="y"][label][text-align="top"]) .line:first-child,
+:host([axis="y"][label][text-align="bottom"]) .line:last-child{
   flex-grow:0;
   height:20px;}
 `);
@@ -70,7 +70,6 @@ export const UIButtonStyle = new CSSStyleSheet();
 UIButtonStyle.replaceSync(`
 :host{
   display:inline-flex;
-  justify-content:center;
   align-items:center;
   vertical-align:middle;
   width:fit-content;
@@ -78,6 +77,7 @@ UIButtonStyle.replaceSync(`
   border-radius:var(--border-radius);
   color:var(--rgb-175-175-175);
   background-color:var(--rgb-30-30-30);
+  line-height:1;
   cursor:pointer;
   -webkit-user-select:none;
   user-select:none;
@@ -92,8 +92,7 @@ UIButtonStyle.replaceSync(`
 
 :host > .label{
   flex-grow:1;
-  white-space:nowrap;
-  overflow:hidden;}
+  white-space:nowrap;}
 
 :host::after{
   position:absolute;
@@ -116,11 +115,27 @@ UIButtonStyle.replaceSync(`
   width:var(--height);}
 
 :host([label]){
-  line-height:1;
-  font-size:clamp(12px, calc(var(--height) / 2), 18px);}
+  text-align:center;
+  font-size:clamp(14px, calc(var(--height) / 2), 18px);}
+
+:host([label][text-align="left"]){
+  text-align:left;}
+
+:host([label][text-align="right"]){
+  text-align:right;}
+
 
 :host([label]:not([icon-left]):not([icon-right])){
-  padding-inline:clamp(8px, calc(var(--height) / 3), 20px);}
+  padding-inline:clamp(10px, calc(var(--height) / 3), 20px);}
+
+:host([label][icon-left]:not([icon-right])){
+  padding-inline-start:0;
+  padding-inline-end:clamp(10px, calc(var(--height) / 3.5), 20px);}
+
+:host([label][icon-right]:not([icon-left])){
+  padding-inline-start:clamp(10px, calc(var(--height) / 3.5), 20px);
+  padding-inline-end:0;}
+
 `);
 
 export const UIInputStyle = new CSSStyleSheet();

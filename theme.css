@@ -178,6 +178,9 @@ article .example code{
   padding:15px;}
 
 article .example .preview{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
   background-color:var(--rgb-10-10-10);}
 
 article .example code{
