@@ -16,8 +16,8 @@ class UIIcon extends HTMLElement{
 
   get icon(){return this.#icon;}
   set icon(value){
-    value = String(value || '');
-    const array = icons?.[value];
+    this.#icon = String(value || '');
+    const array = icons?.[this.#icon];
 
     if(Array.isArray(array) && array.every(d => typeof d === 'string')){
       const paths = array
@@ -32,7 +32,7 @@ class UIIcon extends HTMLElement{
         let svg = this.#shadow.querySelector('svg');
         if(svg) svg.replaceChildren(...paths);
       });
-    }
+    };
   }
 
   connectedCallback(){

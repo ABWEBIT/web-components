@@ -78,7 +78,7 @@ class UIButton extends HTMLElement{
 
   onClick(){
     if(this.hasAttribute('disabled')) return;
-    console.log('click');
+    //console.log('click');
   }
 
   attributeChangedCallback(name,oldValue,newValue){
