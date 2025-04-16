@@ -44,10 +44,11 @@ class UIIcon extends HTMLElement{
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    if(newValue && oldValue !== newValue){
-      switch(name){
-        case 'icon':this.icon = newValue; break;
-      }
+    if(oldValue === newValue) return;
+    if(['icon'].includes(name) && !newValue) return;
+
+    switch(name){
+      case 'icon':this.icon = newValue; break;
     }
   }
 

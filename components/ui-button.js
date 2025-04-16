@@ -1,19 +1,24 @@
+import {UIBase} from '../components/ui-base.js';
 import {UIComponentsStyle,UIButtonStyle} from '../helpers/styles.js';
 
-class UIButton extends HTMLElement{
+class UIButton extends UIBase{
   #shadow = this.attachShadow({mode:'open'});
   #label = '';
   #iconLeft = '';
   #iconRight = '';
+  #disabled = false;
   #onClick = this.onClick.bind(this);
+
+  static properties = {
+    'icon-left':{name:'iconLeft',type: String,reflect:true},
+    'icon-right':{name:'iconRight',type: String,reflect:true},
+    'label':{name:'label',type: String,reflect:true},
+    'disabled':{name:'disabled',type: Boolean,reflect:true}
+  };
 
   constructor(){
     super();
     this.#shadow.adoptedStyleSheets = [UIComponentsStyle,UIButtonStyle];
-  }
-
-  static get observedAttributes(){
-    return ['icon-left','icon-right','label'];
   }
 
   get iconLeft(){return this.#iconLeft;}
@@ -22,6 +27,7 @@ class UIButton extends HTMLElement{
     if(value){
       this.#iconLeft = value;
       this.#updateIcon(':first-child',this.#iconLeft);
+      this.reflect('icon-left',this.#iconLeft);
     }
   }
 
@@ -31,6 +37,7 @@ class UIButton extends HTMLElement{
     if(value){
       this.#iconRight = value;
       this.#updateIcon(':last-child',this.#iconRight);
+      this.reflect('icon-right',this.#iconRight);
     }
   }
 
@@ -47,6 +54,7 @@ class UIButton extends HTMLElement{
     if(value){
       this.#label = value;
       this.#updateText('label',this.#label);
+      this.reflect('label',this.#label);
     }
   }
 
@@ -55,6 +63,12 @@ class UIButton extends HTMLElement{
       let block = this.#shadow.querySelector(`.${type}`);
       if(block) block.textContent = text;
     });
+  }
+
+  get disabled(){return this.#disabled;}
+  set disabled(value){
+    this.#disabled = Boolean(value);
+    this.reflect('disabled',this.#disabled);
   }
 
   connectedCallback(){
@@ -77,18 +91,8 @@ class UIButton extends HTMLElement{
   }
 
   onClick(){
-    if(this.hasAttribute('disabled')) return;
+    if(this.#disabled) return;
     //console.log('click');
-  }
-
-  attributeChangedCallback(name,oldValue,newValue){
-    if(newValue && oldValue !== newValue){
-      switch(name){
-        case 'icon-left':this.iconLeft = newValue; break;
-        case 'icon-right':this.iconRight = newValue; break;
-        case 'label':this.label = newValue; break;
-      }
-    }
   }
 
 }

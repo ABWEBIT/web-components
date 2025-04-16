@@ -5,7 +5,7 @@
 
   --font-size-x-small:12px;
   --font-size-small:14px;
-  --font-size-medium:16px;
+  --font-size-medium:16px; /* base */
   --font-size-large:18px;
   --font-size-x-large:20px;
 
@@ -97,12 +97,12 @@ nav .static{
   min-height:50px;}
 
 nav .menuTitle{
-  font-size:var(--font-size-large);}
+  font-size:var(--font-size-medium);}
 
 nav .menuItem{
   display:block;
   cursor:pointer;
-  font-size:var(--font-size-medium);
+  font-size:var(--font-size-small);
   color:var(--rgb-175-175-175);}
 
 nav span{

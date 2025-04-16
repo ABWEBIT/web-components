@@ -131,13 +131,19 @@ class UIInput extends HTMLElement{
   }
 
   attributeChangedCallback(name,oldValue,newValue){
-    if(newValue && oldValue !== newValue){
-      switch(name){
-        case 'label':this.label = newValue; break;
-        case 'hint':this.hint = newValue; break;
-        case 'icon-before':this.iconBefore = newValue; break;
-        case 'icon-after':this.iconAfter = newValue; break;
-      }
+    if(oldValue === newValue) return;
+    if([
+      'icon-left',
+      'icon-right',
+      'label',
+      'hint'
+    ].includes(name) && !newValue) return;
+
+    switch(name){
+      case 'label':this.label = newValue; break;
+      case 'hint':this.hint = newValue; break;
+      case 'icon-left':this.iconLeft = newValue; break;
+      case 'icon-right':this.iconRight = newValue; break;
     }
   }
 
