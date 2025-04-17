@@ -1,6 +1,6 @@
 Имя класса всегда пишется с заглавной буквы.
 ```javascript
-class WebComponent
+class WebComponent{}
 ```
 
 Имя веб-компонента должно содержать дефис.
@@ -8,22 +8,26 @@ class WebComponent
 customElements.define('web-component',WebComponent);
 ```
 
-Сохранять Shadow DOM в переменную не обязательно, но рекомендуется.\
+Сохранять ссылку на Shadow DOM в переменную не обязательно, но рекомендуется.\
 Обращаться к Shadow DOM нужно будет через shadowRoot.
 ```javascript
-constructor(){
-  super();
-  this.attachShadow({mode:'open'});
-  this.shadowRoot.innerHTML = `<p>Привет из Shadow DOM!</p>`;
+class WebComponent{
+  constructor(){
+    super();
+    this.attachShadow({mode:'open'});
+    this.shadowRoot.innerHTML = `<p>Привет из Shadow DOM!</p>`;
+  }
 }
 ```
 
-Более предпочтительный способ.
+Предпочтительный способ - сохранить ссылку на Shadow DOM в отдельную переменную.
 ```javascript
-shadow = this.attachShadow({mode:'open'});
+class WebComponent{
+  shadow = this.attachShadow({mode:'open'});
 
-constructor(){
-  super();
-  this.shadowRoot.innerHTML = `<p>Привет из Shadow DOM!</p>`;
+  constructor(){
+    super();
+    this.shadowRoot.innerHTML = `<p>Привет из Shadow DOM!</p>`;
+  }
 }
 ```
