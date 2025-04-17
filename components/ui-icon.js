@@ -8,7 +8,7 @@ class UIIcon extends UIBase{
 
   static #dRegex = /^[MmLlHhVvCcSsQqTtAaZz0-9\s.,-]+$/;
   static properties = Object.freeze({
-    'icon':{name:'icon',type: String,reflect:true}
+    'icon':{name:'icon',type:String,reflect:true}
   });
 
   constructor(){
