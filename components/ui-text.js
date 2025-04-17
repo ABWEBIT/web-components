@@ -11,7 +11,7 @@ class UIText extends HTMLElement{
 
   connectedCallback(){
     this.#shadow.innerHTML = `
-    <slot></slot>
+      <slot></slot>
     `;
   }
 

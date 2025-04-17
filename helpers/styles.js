@@ -123,7 +123,7 @@ UIButtonStyle.replaceSync(`
   font-size:clamp(
     var(--font-size-x-small),
     calc(var(--height) / 2),
-    var(--font-size-medium)
+    var(--font-size-x-large)
   );}
 
 :host([label][text-align="left"]){
@@ -142,7 +142,6 @@ UIButtonStyle.replaceSync(`
 :host([label][icon-right]:not([icon-left])){
   padding-inline-start:clamp(10px, calc(var(--height) / 3.5), 20px);
   padding-inline-end:0;}
-
 `);
 
 export const UIInputStyle = new CSSStyleSheet();

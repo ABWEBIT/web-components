@@ -23,14 +23,6 @@ export class UIBase extends HTMLElement{
     }
   }
 
-  updateText(selector,text){
-    queueMicrotask(()=>{
-      const obj = this.shadowRoot?.querySelector(selector);
-      if(!obj) return;
-      obj.textContent = text;
-    });
-  }
-
   attributeChangedCallback(name,oldValue,newValue){
     if(oldValue === newValue) return;
 
@@ -48,5 +40,13 @@ export class UIBase extends HTMLElement{
         this[object.name] = String(newValue);
         break;
     }
+  }
+
+  updateText(selector,text){
+    queueMicrotask(()=>{
+      const obj = this.shadowRoot?.querySelector(selector);
+      if(!obj) return;
+      obj.textContent = text;
+    });
   }
 }

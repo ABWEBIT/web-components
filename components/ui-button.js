@@ -24,38 +24,30 @@ class UIButton extends UIBase{
 
   get label(){return this.#label;}
   set label(value){
-    value = String(value || '');
-    if(value){
-      this.#label = value;
-      this.updateText('.label',this.#label);
-      this.reflect('label',this.#label);
-    }
+    if(!(this.#label = String(value || ''))) return;
+    this.updateText('.label',this.#label);
+    this.reflect('label',this.#label);
   }
 
   get iconLeft(){return this.#iconLeft;}
   set iconLeft(value){
-    value = String(value || '');
-    if(value){
-      this.#iconLeft = value;
-      this.#updateIcon(':first-child',this.#iconLeft);
-      this.reflect('icon-left',this.#iconLeft);
-    }
+    if(!(this.#iconLeft = String(value || ''))) return;
+    this.#updateIcon(':first-child',this.#iconLeft);
+    this.reflect('icon-left',this.#iconLeft);
   }
 
   get iconRight(){return this.#iconRight;}
   set iconRight(value){
-    value = String(value || '');
-    if(value){
-      this.#iconRight = value;
-      this.#updateIcon(':last-child',this.#iconRight);
-      this.reflect('icon-right',this.#iconRight);
-    }
+    if(!(this.#iconRight = String(value || ''))) return;
+    this.#updateIcon(':last-child',this.#iconRight);
+    this.reflect('icon-right',this.#iconRight);
   }
 
   #updateIcon(position,name){
     queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`ui-icon${position}`);
-      if(block) block.setAttribute('icon',name);
+      let obj = this.#shadow.querySelector(`ui-icon${position}`);
+      if(!obj) return;
+      obj.setAttribute('icon',name);
     });
   }
 

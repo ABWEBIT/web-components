@@ -6,9 +6,9 @@ class UIDivider extends UIBase{
   #label = '';
 
   static properties = Object.freeze({
-    'label':{name:'label',type: String,reflect:true}
+    'label':{name:'label',type:String,reflect:true}
   });
-  
+
   constructor(){
     super();
     this.#shadow = this.attachShadow({mode:'open'});
@@ -17,12 +17,9 @@ class UIDivider extends UIBase{
 
   get label(){return this.#label;}
   set label(value){
-    value = String(value || '');
-    if(value){
-      this.#label = value;
-      this.updateText('.label',this.#label);
-      this.reflect('label',this.#label);
-    }
+    if(!(this.#label = String(value || ''))) return;
+    this.updateText('.label',this.#label);
+    this.reflect('label',this.#label);
   }
 
   connectedCallback(){
