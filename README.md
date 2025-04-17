@@ -1,7 +1,7 @@
 # web-components
 
-Имя класса (WebComponent) всегда пишется с заглавной буквы.\
-Класс WebComponent должен расширять HTMLElement, поэтому использование extends HTMLElement является обязательным.
+Класс WebComponent должен расширять HTMLElement, поэтому использование extends HTMLElement является обязательным.\
+Имя класса WebComponent всегда пишется с заглавной буквы.
 ```javascript
 class WebComponent extends HTMLElement{}
 ```
