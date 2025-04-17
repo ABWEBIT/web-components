@@ -25,7 +25,8 @@ class UIDivider extends UIBase{
 
     if(label){
       let obj = this.#shadow.querySelector('.label');
-      if(obj) obj.textContent = label;
+      if(!obj) return;
+      obj.textContent = label;
     }
   }
 }

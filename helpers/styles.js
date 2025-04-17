@@ -122,7 +122,7 @@ UIButtonStyle.replaceSync(`
   text-align:center;
   font-size:clamp(
     var(--font-size-x-small),
-    calc(var(--height) / 2.2),
+    calc(var(--height) / 2.5),
     var(--font-size-x-large)
   );}
 

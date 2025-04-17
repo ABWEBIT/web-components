@@ -7,7 +7,6 @@ class UIIcon extends UIBase{
   #icon = '';
 
   static #dRegex = /^[MmLlHhVvCcSsQqTtAaZz0-9\s.,-]+$/;
-
   static properties = Object.freeze({
     'icon':{name:'icon',type: String,reflect:true}
   });
@@ -35,10 +34,9 @@ class UIIcon extends UIBase{
 
     queueMicrotask(()=>{
       const svg = this.#shadow.querySelector('svg');
-      if (!svg) return;
+      if(!svg) return;
       svg.replaceChildren(...paths);
     });
-
   }
 
   connectedCallback(){
@@ -48,6 +46,5 @@ class UIIcon extends UIBase{
 
     requestAnimationFrame(()=>this.setAttribute('transition','active'));
   }
-
 }
 customElements.define('ui-icon',UIIcon);
