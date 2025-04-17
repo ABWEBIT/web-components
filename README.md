@@ -29,7 +29,7 @@ class WebComponent{
 
   constructor(){
     super();
-    this.shadowRoot.innerHTML = `<p>Привет из Shadow DOM!</p>`;
+    this.shadow.innerHTML = `<p>Привет из Shadow DOM!</p>`;
   }
 }
 ```
