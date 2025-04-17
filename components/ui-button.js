@@ -1,5 +1,5 @@
 import {UIBase} from '../components/ui-base.js';
-import {UIComponentsStyle,UIButtonStyle} from '../helpers/styles.js';
+import {UIBaseStyle,UIButtonStyle} from '../helpers/styles.js';
 
 class UIButton extends UIBase{
   #shadow = this.attachShadow({mode:'open'});
@@ -9,16 +9,33 @@ class UIButton extends UIBase{
   #disabled = false;
   #onClick = this.onClick.bind(this);
 
-  static properties = {
+  static properties = Object.freeze({
     'icon-left':{name:'iconLeft',type: String,reflect:true},
     'icon-right':{name:'iconRight',type: String,reflect:true},
     'label':{name:'label',type: String,reflect:true},
     'disabled':{name:'disabled',type: Boolean,reflect:true}
-  };
+  });
 
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [UIComponentsStyle,UIButtonStyle];
+    this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIButtonStyle];
+  }
+
+  get label(){return this.#label;}
+  set label(value){
+    value = String(value || '');
+    if(value){
+      this.#label = value;
+      this.#updateText('label',this.#label);
+      this.reflect('label',this.#label);
+    }
+  }
+
+  #updateText(type,text){
+    queueMicrotask(()=>{
+      let block = this.#shadow.querySelector(`.${type}`);
+      if(block) block.textContent = text;
+    });
   }
 
   get iconLeft(){return this.#iconLeft;}
@@ -45,23 +62,6 @@ class UIButton extends UIBase{
     queueMicrotask(()=>{
       let block = this.#shadow.querySelector(`ui-icon${position}`);
       if(block) block.setAttribute('icon',name);
-    });
-  }
-
-  get label(){return this.#label;}
-  set label(value){
-    value = String(value || '');
-    if(value){
-      this.#label = value;
-      this.#updateText('label',this.#label);
-      this.reflect('label',this.#label);
-    }
-  }
-
-  #updateText(type,text){
-    queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`.${type}`);
-      if(block) block.textContent = text;
     });
   }
 

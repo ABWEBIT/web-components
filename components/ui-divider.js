@@ -1,11 +1,12 @@
-import {UIComponentsStyle,UIDividerStyle} from '../helpers/styles.js';
+import {UIBase} from '../components/ui-base.js';
+import {UIBaseStyle,UIDividerStyle} from '../helpers/styles.js';
 
-class UIDivider extends HTMLElement{
+class UIDivider extends UIBase{
   #shadow = this.attachShadow({mode:'open'});
   
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [UIComponentsStyle,UIDividerStyle];
+    this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIDividerStyle];
   }
 
   connectedCallback(){

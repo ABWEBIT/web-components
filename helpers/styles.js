@@ -1,5 +1,5 @@
-export const UIComponentsStyle = new CSSStyleSheet();
-UIComponentsStyle.replaceSync(`
+export const UIBaseStyle = new CSSStyleSheet();
+UIBaseStyle.replaceSync(`
 :host{
   position:relative;
   transition:none;}

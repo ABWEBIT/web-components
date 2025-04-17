@@ -1,11 +1,11 @@
-import {UIComponentsStyle} from '../helpers/styles.js';
+import {UIBaseStyle} from '../helpers/styles.js';
 
 class UIText extends HTMLElement{
   #shadow = this.attachShadow({mode:'open'});
 
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [UIComponentsStyle];
+    this.#shadow.adoptedStyleSheets = [UIBaseStyle];
   }
 
   connectedCallback(){

@@ -1,4 +1,3 @@
-import './ui-base.js';
 import './ui-button.js';
 import './ui-icon.js';
 import './ui-divider.js';

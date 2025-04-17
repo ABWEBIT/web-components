@@ -4,24 +4,29 @@
 
 <section class="content">
   <div class="example">
-    <ui-input></ui-input>
+    <div class="preview">
+      <ui-input></ui-input>
+    </div>
     <code>
       &lt;ui-input&gt;&lt;/ui-input&gt;
     </code>
   </div>
 
   <div class="example">
-    <ui-input icon-before="article" type="tel" placeholder="Э-почта"></ui-input>
+    <div class="preview">
+      <ui-input icon-left="article" type="tel" placeholder="Э-почта"></ui-input>
+    </div>
     <code>
-      &lt;ui-input icon-before="Article" type="email" placeholder="Э-почта"&gt;&lt;/ui-input&gt;
+      &lt;ui-input icon-left="Article" type="email" placeholder="Э-почта"&gt;&lt;/ui-input&gt;
     </code>
   </div>
 
   <div class="example">
-    <ui-input id="test" label="Заголовок" hint="Подсказка" placeholder="Пароль" icon-before="article" icon-after="bell" type="password" required>
-    </ui-input>
+    <div class="preview">
+      <ui-input id="test" label="Заголовок" hint="Подсказка" placeholder="Пароль" icon-left="article" icon-right="bell" type="password" required></ui-input>
+    </div>
     <code>
-    &lt;ui-input label="Заголовок" hint="Подсказка" placeholder="Пароль" before="Article" after="Bell" type="password"&gt;&lt;/ui-input&gt;
+    &lt;ui-input label="Заголовок" hint="Подсказка" placeholder="Пароль" icon-left="article" icon-right="bell" type="password"&gt;&lt;/ui-input&gt;
     </code>
   </div>
 </section>

@@ -1,39 +1,34 @@
-import {UIComponentsStyle,UIInputStyle} from '../helpers/styles.js';
+import {UIBase} from '../components/ui-base.js';
+import {UIBaseStyle,UIInputStyle} from '../helpers/styles.js';
 import {textNormalize,variableName,inputTypes,htmlEscape,uuid} from '../helpers/utils.js';
 
-class UIInput extends HTMLElement{
+class UIInput extends UIBase{
   #shadow = this.attachShadow({mode:'open'});
-  #label = '';
-  #hint = '';
-  #iconBefore = '';
-  #iconAfter = '';
+  #placeholder = '';
+  #iconLeft = '';
+  #iconRight = '';
+  #disabled = false;
   #inputHandler = this.onInput.bind(this);
   #inputClear = this.onClear.bind(this);
 
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [UIComponentsStyle,UIInputStyle];
+    this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIInputStyle];
   }
 
-  static get observedAttributes(){
-    return ['label','hint','icon-before','icon-after'];
-  }
+  static properties = Object.freeze({
+    'icon-left':{name:'iconLeft',type: String,reflect:true},
+    'icon-right':{name:'iconRight',type: String,reflect:true},
+    'disabled':{name:'disabled',type: Boolean,reflect:true}
+  });
 
-  get label(){return this.#label;}
-  set label(value){
-    value = textNormalize(value);
+  get placeholder(){return this.#placeholder;}
+  set placeholder(value){
+    value = String(value || '');
     if(value){
-      this.#label = value;
-      this.#updateText('label',this.#label);
-    }
-  }
-
-  get hint(){return this.#hint;}
-  set hint(value){
-    value = textNormalize(value);
-    if(value){
-      this.#hint = value;
-      this.#updateText('hint',this.#hint);
+      this.#placeholder = value;
+      this.#updateText('placeholder',this.#placeholder);
+      this.reflect('placeholder',this.#placeholder);
     }
   }
 
@@ -48,21 +43,21 @@ class UIInput extends HTMLElement{
     });
   }
 
-  get iconBefore(){return this.#iconBefore;}
-  set iconBefore(value){
+  get iconLeft(){return this.#iconLeft;}
+  set iconLeft(value){
     value = textNormalize(value);
     if(value && variableName(value)){
-      this.#iconBefore = value;
-      this.#updateIcon('before',this.#iconBefore);
+      this.#iconLeft = value;
+      this.#updateIcon('before',this.#iconLeft);
     }
   }
 
-  get iconAfter(){return this.#iconAfter;}
-  set iconAfter(value){
+  get iconRight(){return this.#iconRight;}
+  set iconRight(value){
     value = textNormalize(value);
     if(value && variableName(value)){
-      this.#iconAfter = value;
-      this.#updateIcon('after',this.#iconAfter);
+      this.#iconRight = value;
+      this.#updateIcon('after',this.#iconRight);
     }
   }
 
@@ -76,14 +71,11 @@ class UIInput extends HTMLElement{
 
   connectedCallback(){
     this.#shadow.innerHTML = `
-    ${this.#label && `<span class="label"></span>`}
-    <div class="block">
-    ${this.#iconBefore && `<ui-icon position="before" icon=""></ui-icon>`}
-    <input type="">
-    <ui-button icon-before="clear"></ui-button>
-    ${this.#iconAfter && `<ui-icon position="after" icon=""></ui-icon>`}
-    </div>
-    ${this.#hint && `<span class="hint"></span>`}`;
+    ${this.#iconLeft && `<ui-icon></ui-icon>`}
+    <input>
+    <ui-button icon-left="clear"></ui-button>
+    ${this.#iconRight && `<ui-icon></ui-icon>`}
+    `;
 
     const inputObject = this.#shadow.querySelector('input');
     if(inputObject){
@@ -111,15 +103,12 @@ class UIInput extends HTMLElement{
     if(hintBlock){
       let inputLength = this.#shadow.querySelector('input').value.length;
       if(inputLength > 0) hintBlock.textContent = inputLength;
-      else hintBlock.textContent = this.#hint;
     }
   }
 
   onClear(){
     const inputObject = this.#shadow.querySelector('input');
     if(inputObject) inputObject.value = '';
-    let hintBlock = this.#shadow.querySelector('.hint');
-    if(hintBlock) hintBlock.textContent = this.#hint;
   }
 
   disconnectedCallback(){
@@ -128,23 +117,6 @@ class UIInput extends HTMLElement{
 
     const inputClear = this.#shadow.querySelector('ui-button[icon-before="Clear"]');
     if(inputClear) inputClear.addEventListener('click',this.#inputClear);
-  }
-
-  attributeChangedCallback(name,oldValue,newValue){
-    if(oldValue === newValue) return;
-    if([
-      'icon-left',
-      'icon-right',
-      'label',
-      'hint'
-    ].includes(name) && !newValue) return;
-
-    switch(name){
-      case 'label':this.label = newValue; break;
-      case 'hint':this.hint = newValue; break;
-      case 'icon-left':this.iconLeft = newValue; break;
-      case 'icon-right':this.iconRight = newValue; break;
-    }
   }
 
 }

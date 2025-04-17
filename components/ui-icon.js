@@ -1,17 +1,20 @@
-import {UIComponentsStyle,UIIconStyle} from '../helpers/styles.js';
+import {UIBase} from '../components/ui-base.js';
+import {UIBaseStyle,UIIconStyle} from '../helpers/styles.js';
 import {icons} from '../helpers/icons.js';
 
-class UIIcon extends HTMLElement{
+class UIIcon extends UIBase{
   #shadow = this.attachShadow({mode:'open'});
   #icon = '';
 
+  static #dRegex = /^[MmLlHhVvCcSsQqTtAaZz0-9\s.,-]+$/;
+
+  static properties = Object.freeze({
+    'icon':{name:'icon',type: String,reflect:true}
+  });
+
   constructor(){
     super();
-    this.#shadow.adoptedStyleSheets = [UIComponentsStyle,UIIconStyle];
-  }
-
-  static get observedAttributes(){
-    return ['icon'];
+    this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIIconStyle];
   }
 
   get icon(){return this.#icon;}
@@ -19,20 +22,23 @@ class UIIcon extends HTMLElement{
     this.#icon = String(value || '');
     const array = icons?.[this.#icon];
 
-    if(Array.isArray(array) && array.every(d => typeof d === 'string')){
-      const paths = array
-        .filter(d=>/^[MmLlHhVvCcSsQqTtAaZz0-9\s.,-]+$/.test(d))
-        .map(d=>{
-          const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-          path.setAttribute('d',d);
-          return path;
-        });      
+    if(!Array.isArray(array)) return;
+    if(!array.every(d => typeof d === 'string')) return;
 
-      queueMicrotask(()=>{
-        let svg = this.#shadow.querySelector('svg');
-        if(svg) svg.replaceChildren(...paths);
-      });
-    };
+    const paths = array
+      .filter(d=>UIIcon.#dRegex.test(d))
+      .map(d=>{
+        const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        path.setAttribute('d',d);
+        return path;
+      });      
+
+    queueMicrotask(()=>{
+      const svg = this.#shadow.querySelector('svg');
+      if (!svg) return;
+      svg.replaceChildren(...paths);
+    });
+
   }
 
   connectedCallback(){
@@ -41,15 +47,6 @@ class UIIcon extends HTMLElement{
     `;
 
     requestAnimationFrame(()=>this.setAttribute('transition','active'));
-  }
-
-  attributeChangedCallback(name,oldValue,newValue){
-    if(oldValue === newValue) return;
-    if(['icon'].includes(name) && !newValue) return;
-
-    switch(name){
-      case 'icon':this.icon = newValue; break;
-    }
   }
 
 }

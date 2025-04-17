@@ -1,5 +1,5 @@
 export class UIBase extends HTMLElement{
-  static get observedAttributes() {
+  static get observedAttributes(){
     return Object.keys(this.properties || {});
   }
 
@@ -13,7 +13,7 @@ export class UIBase extends HTMLElement{
         : this.removeAttribute(name);
         break;
       case Number:
-        value != null ? this.setAttribute(name, Number(value))
+        value != null ? this.setAttribute(name,Number(value))
         : this.removeAttribute(name);
         break;
       case String:
