@@ -3,31 +3,39 @@ export class UIBase extends HTMLElement{
     return Object.keys(this.properties || {});
   }
 
+  setBoolean(name,value){
+    value ? this.setAttribute(name,'') : this.removeAttribute(name);
+  }
+
+  setNumber(name,value){
+    value != null ? this.setAttribute(name,Number(value)) : this.removeAttribute(name);
+  }
+
+  setString(name,value){
+    value != null ? this.setAttribute(name,String(value)) : this.removeAttribute(name);
+  }
+
   reflect(name,value){
     const object = this.constructor.properties?.[name];
     if(!object?.reflect) return;
 
     switch(object.type){
       case Boolean:
-        value ? this.setAttribute(name,'')
-        : this.removeAttribute(name);
+        this.setBoolean(name,value);
         break;
       case Number:
-        value != null ? this.setAttribute(name,Number(value))
-        : this.removeAttribute(name);
+        this.setNumber(name,value);
         break;
       case String:
-        value != null ? this.setAttribute(name,String(value))
-        : this.removeAttribute(name);
+        this.setString(name,value);
         break;
     }
   }
 
   attributeChangedCallback(name,oldValue,newValue){
     if(oldValue === newValue) return;
-
     const object = this.constructor.properties?.[name];
-    if(!object || typeof object.type !== 'function') return;
+    if(!(object?.type instanceof Function)) return;
 
     switch(object.type){
       case Boolean:

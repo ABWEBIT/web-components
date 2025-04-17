@@ -10,10 +10,10 @@ class UIButton extends UIBase{
   #onClick = this.onClick.bind(this);
 
   static properties = Object.freeze({
-    'icon-left':{name:'iconLeft',type: String,reflect:true},
-    'icon-right':{name:'iconRight',type: String,reflect:true},
-    'label':{name:'label',type: String,reflect:true},
-    'disabled':{name:'disabled',type: Boolean,reflect:true}
+    'icon-left':{name:'iconLeft',type:String,reflect:true},
+    'icon-right':{name:'iconRight',type:String,reflect:true},
+    'label':{name:'label',type:String,reflect:true},
+    'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
   constructor(){

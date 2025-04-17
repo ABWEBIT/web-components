@@ -34,7 +34,7 @@ svg{
 export const UIDividerStyle = new CSSStyleSheet();
 UIDividerStyle.replaceSync(`
 :host{
-  display:flex;
+  display:inline-flex;
   align-items:center;}
 
 :host .line{
@@ -149,11 +149,6 @@ UIInputStyle.replaceSync(`
 :host{
   display:inline-flex;
   flex-direction:column;
-  row-gap:10px;}
-
-:host > .block{
-  position:relative;
-  display:inline-flex;
   vertical-align:middle;
   align-items:center;
   width:fit-content;
@@ -164,25 +159,10 @@ UIInputStyle.replaceSync(`
   color:var(--rgb-175-175-175);
   background-color:var(--rgb-25-25-25);}
 
-:host([transition="active"]) > .block{
+:host([transition="active"]){
   transition:background-color 0.2s,color 0.2s;}
 
-:host > .label,
-:host > .hint{
-  line-height:100%;
-  white-space:nowrap;
-  text-overflow:ellipsis;
-  overflow:hidden;}
-
-:host > .label{
-  font-size:90%;
-  color:var(--rgb-255-255-255);}
-
-:host > .hint{
-  font-size:80%;
-  color:var(--rgb-150-150-150);}
-
-:host > .block > input{
+:host input{
   height:100%;
   flex-grow:1;
   min-width:70px;
@@ -194,14 +174,14 @@ UIInputStyle.replaceSync(`
   background-color:transparent;
   transition:color 0.2s;}
 
-:host > .block > input::-ms-reveal{display:none;}
+:host input::-ms-reveal{display:none;}
 
-:host > .block > ui-icon{
+:host ui-icon{
   height:100%;
   width:40px;
   min-width:40px;}
 
-:host > .block > ui-button[icon-before="Clear"]{
+:host ui-button[icon-before="Clear"]{
   max-width:30px;
   max-height:30px;
   min-width:30px;
@@ -213,18 +193,18 @@ UIInputStyle.replaceSync(`
   cursor:pointer;}
 
 @media (hover:hover){
-  :host > .block > ui-button[icon-before="Clear"]:hover{
+  :host ui-button[icon-before="Clear"]:hover{
     background-color:var(--rgb-50-50-50);
   }
-  :host([transition="active"]) > .block:hover,
-  :host > .block:has(> input:focus){
+  :host([transition="active"]):hover,
+  :host:has(input:focus){
     background-color:var(--rgb-25-25-25);}
 
-  :host > .block > ui-icon:hover{color:var(--rgb-225-225-225);}
+  :host ui-icon:hover{color:var(--rgb-225-225-225);}
 }
 
-:host > .block:has(> ui-icon[position="before"]) input{padding-left:0;}
-:host > .block:has(> ui-icon[position="after"]) ui-button[icon-before="Clear"]{margin-right:0px;}
+:host:has(> ui-icon[position="before"]) input{padding-left:0;}
+:host:has(> ui-icon[position="after"]) ui-button[icon-before="Clear"]{margin-right:0px;}
 `);
 
 export const UITextStyle = new CSSStyleSheet();

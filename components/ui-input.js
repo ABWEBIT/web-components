@@ -25,48 +25,30 @@ class UIInput extends UIBase{
 
   get placeholder(){return this.#placeholder;}
   set placeholder(value){
-    value = String(value || '');
-    if(value){
-      this.#placeholder = value;
-      this.#updateText('placeholder',this.#placeholder);
-      this.reflect('placeholder',this.#placeholder);
-    }
-  }
-
-  #updateText(type,text){
-    queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`.${type}`);
-      if(block){
-        let asterisk = '';
-        if(this.hasAttribute('required') && type === 'label') asterisk = ' *';
-        block.textContent = text+asterisk;
-      }
-    });
+    if(!(this.#placeholder = String(value || ''))) return;
+    this.updateText('.label',this.#placeholder);
+    this.reflect('label',this.#placeholder);
   }
 
   get iconLeft(){return this.#iconLeft;}
   set iconLeft(value){
-    value = textNormalize(value);
-    if(value && variableName(value)){
-      this.#iconLeft = value;
-      this.#updateIcon('before',this.#iconLeft);
-    }
+    if(!(this.#iconLeft = String(value || ''))) return;
+    this.#updateIcon(':first-child',this.#iconLeft);
+    this.reflect('icon-left',this.#iconLeft);
   }
 
   get iconRight(){return this.#iconRight;}
   set iconRight(value){
-    value = textNormalize(value);
-    if(value && variableName(value)){
-      this.#iconRight = value;
-      this.#updateIcon('after',this.#iconRight);
-    }
+    if(!(this.#iconRight = String(value || ''))) return;
+    this.#updateIcon(':last-child',this.#iconRight);
+    this.reflect('icon-right',this.#iconRight);
   }
 
   #updateIcon(position,name){
-    name = htmlEscape(name);
     queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`ui-icon[position="${position}"]`);
-      if(block) block.setAttribute('icon',name);
+      let obj = this.#shadow.querySelector(`ui-icon${position}`);
+      if(!obj) return;
+      obj.setAttribute('icon',name);
     });
   }
 
@@ -100,11 +82,6 @@ class UIInput extends UIBase{
   }
 
   onInput(){
-    const hintBlock = this.#shadow.querySelector('.hint');
-    if(hintBlock){
-      let inputLength = this.#shadow.querySelector('input').value.length;
-      if(inputLength > 0) hintBlock.textContent = inputLength;
-    }
   }
 
   onClear(){
