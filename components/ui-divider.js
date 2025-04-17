@@ -2,7 +2,7 @@ import {UIBase} from '../components/ui-base.js';
 import {UIBaseStyle,UIDividerStyle} from '../helpers/styles.js';
 
 class UIDivider extends UIBase{
-  #shadow = this.attachShadow({mode:'open'});
+  #shadow;
   #label = '';
 
   static properties = Object.freeze({
@@ -11,6 +11,7 @@ class UIDivider extends UIBase{
   
   constructor(){
     super();
+    this.#shadow = this.attachShadow({mode:'open'});
     this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIDividerStyle];
   }
 

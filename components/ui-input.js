@@ -3,7 +3,7 @@ import {UIBaseStyle,UIInputStyle} from '../helpers/styles.js';
 import {textNormalize,variableName,inputTypes,htmlEscape,uuid} from '../helpers/utils.js';
 
 class UIInput extends UIBase{
-  #shadow = this.attachShadow({mode:'open'});
+  #shadow;
   #placeholder = '';
   #iconLeft = '';
   #iconRight = '';
@@ -13,6 +13,7 @@ class UIInput extends UIBase{
 
   constructor(){
     super();
+    this.#shadow = this.attachShadow({mode:'open'});
     this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIInputStyle];
   }
 

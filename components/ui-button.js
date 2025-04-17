@@ -2,7 +2,7 @@ import {UIBase} from '../components/ui-base.js';
 import {UIBaseStyle,UIButtonStyle} from '../helpers/styles.js';
 
 class UIButton extends UIBase{
-  #shadow = this.attachShadow({mode:'open'});
+  #shadow;
   #label = '';
   #iconLeft = '';
   #iconRight = '';
@@ -18,6 +18,7 @@ class UIButton extends UIBase{
 
   constructor(){
     super();
+    this.#shadow = this.attachShadow({mode:'open'});
     this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIButtonStyle];
   }
 
