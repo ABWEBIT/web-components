@@ -25,10 +25,9 @@ class WebComponent{
 Предпочтительный способ - сохранить ссылку на Shadow DOM в отдельную переменную.
 ```javascript
 class WebComponent{
-  shadow = this.attachShadow({mode:'open'});
-
   constructor(){
     super();
+    this.shadow = this.attachShadow({mode:'open'});
     this.shadow.innerHTML = `<p>Привет из Shadow DOM!</p>`;
   }
 }

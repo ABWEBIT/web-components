@@ -3,7 +3,7 @@ import {UIBaseStyle,UIIconStyle} from '../helpers/styles.js';
 import {icons} from '../helpers/icons.js';
 
 class UIIcon extends UIBase{
-  #shadow = this.attachShadow({mode:'open'});
+  #shadow;
   #icon = '';
 
   static #dRegex = /^[MmLlHhVvCcSsQqTtAaZz0-9\s.,-]+$/;
@@ -13,6 +13,7 @@ class UIIcon extends UIBase{
 
   constructor(){
     super();
+    this.#shadow = this.attachShadow({mode:'open'});
     this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIIconStyle];
   }
 
@@ -40,9 +41,7 @@ class UIIcon extends UIBase{
   }
 
   connectedCallback(){
-    this.#shadow.innerHTML = `
-      <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"></svg>
-    `;
+    this.#shadow.innerHTML = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"></svg>';
 
     requestAnimationFrame(()=>this.setAttribute('transition','active'));
   }
