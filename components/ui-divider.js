@@ -3,10 +3,25 @@ import {UIBaseStyle,UIDividerStyle} from '../helpers/styles.js';
 
 class UIDivider extends UIBase{
   #shadow = this.attachShadow({mode:'open'});
+  #label = '';
+
+  static properties = Object.freeze({
+    'label':{name:'label',type: String,reflect:true}
+  });
   
   constructor(){
     super();
     this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIDividerStyle];
+  }
+
+  get label(){return this.#label;}
+  set label(value){
+    value = String(value || '');
+    if(value){
+      this.#label = value;
+      this.updateText('.label',this.#label);
+      this.reflect('label',this.#label);
+    }
   }
 
   connectedCallback(){
@@ -14,20 +29,12 @@ class UIDivider extends UIBase{
     axis = ['x','y'].includes(axis) ? axis : 'x';
     if(this.getAttribute('axis') !== axis) this.setAttribute('axis',axis);
 
-    let label = String(this.getAttribute('label') || '');
-
-    this.#shadow.innerHTML = label ? `
+    this.#shadow.innerHTML = this.#label ? `
       <div class="line"></div>
       <div class="label"></div>
       <div class="line"></div>
     `
     : `<div class="line"></div>`;
-
-    if(label){
-      let obj = this.#shadow.querySelector('.label');
-      if(!obj) return;
-      obj.textContent = label;
-    }
   }
 }
 customElements.define('ui-divider',UIDivider);

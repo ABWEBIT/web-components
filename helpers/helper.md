@@ -8,12 +8,22 @@ class WebComponent
 customElements.define('web-component',WebComponent);
 ```
 
-В конструкторе записывать Shadow DOM в переменную не обязательно.\
+Сохранять Shadow DOM в переменную не обязательно, но рекомендуется.\
 Обращаться к Shadow DOM нужно будет через shadowRoot.
 ```javascript
 constructor(){
   super();
   this.attachShadow({mode:'open'});
+  this.shadowRoot.innerHTML = `<p>Привет из Shadow DOM!</p>`;
+}
+```
+
+Более предпочтительный способ.
+```javascript
+shadow = this.attachShadow({mode:'open'});
+
+constructor(){
+  super();
   this.shadowRoot.innerHTML = `<p>Привет из Shadow DOM!</p>`;
 }
 ```

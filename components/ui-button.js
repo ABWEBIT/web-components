@@ -26,16 +26,9 @@ class UIButton extends UIBase{
     value = String(value || '');
     if(value){
       this.#label = value;
-      this.#updateText('label',this.#label);
+      this.updateText('.label',this.#label);
       this.reflect('label',this.#label);
     }
-  }
-
-  #updateText(type,text){
-    queueMicrotask(()=>{
-      let block = this.#shadow.querySelector(`.${type}`);
-      if(block) block.textContent = text;
-    });
   }
 
   get iconLeft(){return this.#iconLeft;}

@@ -23,6 +23,14 @@ export class UIBase extends HTMLElement{
     }
   }
 
+  updateText(selector,text){
+    queueMicrotask(()=>{
+      const obj = this.shadowRoot?.querySelector(selector);
+      if(!obj) return;
+      obj.textContent = text;
+    });
+  }
+
   attributeChangedCallback(name,oldValue,newValue){
     if(oldValue === newValue) return;
 
