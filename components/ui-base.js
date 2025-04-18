@@ -34,18 +34,22 @@ export class UIBase extends HTMLElement{
 
   attributeChangedCallback(name,oldValue,newValue){
     if(oldValue === newValue) return;
+
     const object = this.constructor.properties?.[name];
-    if(!(object?.type instanceof Function)) return;
+    if(!object) return;
+
+    const allowedTypes = new Set([Boolean,Number,String]);
+    if(!allowedTypes.has(object?.type)) return;
 
     switch(object.type){
       case Boolean:
-        this[object.name] = newValue !== null;
+        this[object.name] = newValue != null;
         break;
       case Number:
         this[object.name] = Number(newValue);
         break;
       case String:
-        this[object.name] = String(newValue);
+        this[object.name] = newValue || '';
         break;
     }
   }

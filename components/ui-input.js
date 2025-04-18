@@ -73,7 +73,7 @@ class UIInput extends UIBase{
       if(this.hasAttribute('required')) inputObject.required = true;
     }
 
-    const inputClear = this.#shadow.querySelector('ui-button[icon-before="clear"]');
+    const inputClear = this.#shadow.querySelector('ui-button[icon-left="clear"]');
     if(inputClear){
       inputClear.addEventListener('click',this.#inputClear)
     }
@@ -85,8 +85,9 @@ class UIInput extends UIBase{
   }
 
   onClear(){
-    const inputObject = this.#shadow.querySelector('input');
-    if(inputObject) inputObject.value = '';
+    const obj = this.#shadow.querySelector('input');
+    if(!obj) return;
+    obj.value = '';
   }
 
   disconnectedCallback(){

@@ -34,12 +34,13 @@ class UIIcon extends UIBase{
       const path = document.createElementNS(`${UIIcon.#xmlns}`,'path');
       path.setAttribute('d',d);
       return path;
-    });      
+    });
 
     queueMicrotask(()=>{
       const svg = this.#shadow.querySelector('svg');
       if(!svg) return;
       svg.replaceChildren(...paths);
+      this.reflect('icon',this.#icon);
     });
   }
 
