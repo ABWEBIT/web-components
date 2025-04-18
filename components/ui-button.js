@@ -53,7 +53,7 @@ class UIButton extends UIBase{
 
   get disabled(){return this.#disabled;}
   set disabled(value){
-    this.#disabled = Boolean(value);
+    this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
   }
 

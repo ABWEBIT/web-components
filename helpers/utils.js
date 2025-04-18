@@ -23,17 +23,32 @@ export const elementSize = (value) => {
   return sizes.includes(value);
 }
 
-export const htmlEscape = (value) => {
-  if(!value) return value;
-  return value.replace(/[&<>"']/g,(m) => {
-    const map = {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#39;',
-    };
-    return map[m];
-  });
-}
+/* html escape */
+const htmlEscapeMap = {
+  34: '&quot;',
+  38: '&amp;',
+  39: '&#39;',
+  60: '&lt;',
+  62: '&gt;',
+};
 
+const htmlEscapeRegex = /^[^"'&<>]+$/;
+
+export function htmlEscape(string){
+  const str = String(string);
+
+  if(htmlEscapeRegex.test(str)) return str;
+
+  const parts = [];
+  let lastIndex = 0;
+
+  for(let i = 0; i < str.length; i++){
+    const charCode = str.charCodeAt(i);
+
+    if(charCode in htmlEscapeMap){
+      parts.push(str.slice(lastIndex,i),htmlEscapeMap[charCode]);
+      lastIndex = i + 1;
+    }
+  }
+  return parts.join('') + str.slice(lastIndex);
+}

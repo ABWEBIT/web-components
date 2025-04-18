@@ -3,47 +3,34 @@ export class UIBase extends HTMLElement{
     return Object.keys(this.properties || {});
   }
 
-  setBoolean(name,value){
-    value ? this.setAttribute(name,'') : this.removeAttribute(name);
-  }
-
-  setNumber(name,value){
-    value != null ? this.setAttribute(name,Number(value)) : this.removeAttribute(name);
-  }
-
-  setString(name,value){
-    value != null ? this.setAttribute(name,String(value)) : this.removeAttribute(name);
-  }
-
   reflect(name,value){
     const object = this.constructor.properties?.[name];
     if(!object?.reflect) return;
 
+    const remove = () => this.removeAttribute(name);
+    const set = data => this.setAttribute(name,data);
+
     switch(object.type){
       case Boolean:
-        this.setBoolean(name,value);
+        value ? set('') : remove();
         break;
       case Number:
-        this.setNumber(name,value);
+        Number.isFinite(value) ? set(value) : remove();
         break;
       case String:
-        this.setString(name,value);
+        typeof value === 'string' ? set(value) : remove();
         break;
     }
   }
 
   attributeChangedCallback(name,oldValue,newValue){
     if(oldValue === newValue) return;
-
     const object = this.constructor.properties?.[name];
     if(!object) return;
 
-    const allowedTypes = new Set([Boolean,Number,String]);
-    if(!allowedTypes.has(object?.type)) return;
-
     switch(object.type){
       case Boolean:
-        this[object.name] = newValue != null;
+        this[object.name] = this.hasAttribute(name);
         break;
       case Number:
         this[object.name] = Number(newValue);
