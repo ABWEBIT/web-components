@@ -2,7 +2,6 @@
 
 Имя класса всегда пишется с заглавной буквы. (пример: WebComponent)\
 Класс (WebComponent) должен расширять HTMLElement.
-
 ```javascript
 class WebComponent extends HTMLElement{}
 ```
