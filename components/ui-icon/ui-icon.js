@@ -1,6 +1,6 @@
 import {UIBase} from '../components/ui-base.js';
 import {UIBaseStyle,UIIconStyle} from '../helpers/styles.js';
-import {icons} from '../helpers/icons.js';
+import {LIBIcons} from '../helpers/lib-icons.js';
 
 class UIIcon extends UIBase{
   #shadow;
@@ -23,7 +23,7 @@ class UIIcon extends UIBase{
   get icon(){return this.#icon;}
   set icon(value){
     this.#icon = String(value || '');
-    const array = icons?.[this.#icon];
+    const array = LIBIcons?.[this.#icon];
 
     if(!Array.isArray(array)) return;
     if(!array.every(d => typeof d === 'string')) return;

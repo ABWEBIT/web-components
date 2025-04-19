@@ -1,6 +1,6 @@
 import {UIBase} from '../components/ui-base.js';
 import {UIBaseStyle,UIInputStyle} from '../helpers/styles.js';
-import {textNormalize,variableName,inputTypes,htmlEscape,uuid} from '../helpers/utils.js';
+import {textNormalize,inputTypes,htmlEscape} from '../helpers/utils.js';
 
 class UIInput extends UIBase{
   #shadow;
