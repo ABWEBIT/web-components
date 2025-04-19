@@ -1,6 +1,6 @@
-import {UIBase} from '../components/ui-base.js';
-import {UIBaseStyle,UIInputStyle} from '../helpers/styles.js';
-import {textNormalize,inputTypes,htmlEscape} from '../helpers/utils.js';
+import {UIBase,UIBaseStyle} from '../ui-base/index.js';
+import {UIInputStyle} from './ui-input-style.js';
+import {inputTypes,htmlEscape} from '../../utils/index.js';
 
 class UIInput extends UIBase{
   #shadow;
@@ -64,11 +64,11 @@ class UIInput extends UIBase{
     if(inputObject){
       inputObject.addEventListener('input',this.#inputHandler);
 
-      let inputType = textNormalize(this.getAttribute('type'));
+      let inputType =this.getAttribute('type');
       inputType = inputTypes(inputType) ? inputType : 'text';
       inputObject.type = htmlEscape(inputType);
       
-      let inputPlaceholder = htmlEscape(textNormalize(this.getAttribute('placeholder')));
+      let inputPlaceholder = htmlEscape(this.getAttribute('placeholder'));
       if(inputPlaceholder) inputObject.setAttribute('placeholder',inputPlaceholder);
       if(this.hasAttribute('required')) inputObject.required = true;
     }

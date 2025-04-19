@@ -1,5 +1,5 @@
-import {UIBase} from '../components/ui-base.js';
-import {UIBaseStyle,UIDividerStyle} from '../helpers/styles.js';
+import {UIBase,UIBaseStyle} from '../ui-base/index.js';
+import {UIDividerStyle} from './ui-divider-style.js';
 
 class UIDivider extends UIBase{
   #shadow;
