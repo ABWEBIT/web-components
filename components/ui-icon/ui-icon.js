@@ -1,6 +1,6 @@
-import {UIBase} from '../components/ui-base.js';
-import {UIBaseStyle,UIIconStyle} from '../helpers/styles.js';
-import {LIBIcons} from '../helpers/lib-icons.js';
+import {UIBase,UIBaseStyle} from '../ui-base/index.js';
+import {UIIconStyle} from './ui-icon-style.js';
+import {LIBIcons} from '../../lib/lib-icons.js';
 
 class UIIcon extends UIBase{
   #shadow;

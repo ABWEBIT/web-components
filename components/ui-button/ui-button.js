@@ -1,5 +1,5 @@
-import {UIBase} from '../components/ui-base.js';
-import {UIBaseStyle,UIButtonStyle} from '../helpers/styles.js';
+import {UIBase,UIBaseStyle} from '../ui-base/index.js';
+import {UIButtonStyle} from './ui-button-style.js';
 
 class UIButton extends UIBase{
   #shadow;
