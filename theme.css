@@ -111,10 +111,15 @@ nav span{
   column-gap:10px;
   padding:5px 10px;
   font-size:100%;
-  border-radius:var(--border-radius);}
+  border-radius:var(--border-radius);
+  transition:background-color 0.2s,color 0.2s;}
 
-nav span.active,
+@media (hover:hover){
 nav span:hover{
+  background-color:var(--rgb-10-10-10);}
+}
+
+nav span.active{
   background-color:var(--rgb-25-25-25);}
 
 article{
@@ -151,7 +156,7 @@ article .icons{
 
 article .icons > :nth-child(n){
   border-radius:var(--border-radius);
-  background-color:var(--rgb-25-25-25);
+  /*background-color:var(--rgb-25-25-25);*/
   height:20px;
   width:20px;}
 

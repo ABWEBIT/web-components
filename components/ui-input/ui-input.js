@@ -78,7 +78,7 @@ class UIInput extends UIBase{
       inputClear.addEventListener('click',this.#inputClear)
     }
 
-    requestAnimationFrame(()=>this.setAttribute('transition','active'));
+    requestAnimationFrame(()=>this.setAttribute('transition',''));
   }
 
   onInput(){

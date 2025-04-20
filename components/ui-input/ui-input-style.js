@@ -12,7 +12,7 @@ UIInputStyle.replaceSync(`
   color:var(--rgb-175-175-175);
   background-color:var(--rgb-25-25-25);}
 
-:host([transition="active"]){
+:host([transition]){
   transition:background-color 0.2s,color 0.2s;}
 
 :host input{

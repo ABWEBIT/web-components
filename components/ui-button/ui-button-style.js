@@ -19,7 +19,7 @@ UIButtonStyle.replaceSync(`
   opacity:0.5;
   cursor:not-allowed;}
 
-:host([transition="active"]){
+:host([transition]){
   transition:background-color 0.2s,color 0.2s;}
 
 :host > .label{
@@ -45,6 +45,9 @@ UIButtonStyle.replaceSync(`
 
 :host ui-icon{
   width:var(--height);}
+
+:host ui-icon{
+  height:clamp(16px, calc(var(--height) / 2), 20px);}
 
 :host([label]){
   text-align:center;

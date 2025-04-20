@@ -69,7 +69,7 @@ class UIButton extends UIBase{
     `;
 
     this.addEventListener('click',this.#onClick);
-    requestAnimationFrame(()=>this.setAttribute('transition','active'));
+    requestAnimationFrame(()=>this.setAttribute('transition',''));
   }
 
   disconnectedCallback(){
