@@ -22,6 +22,7 @@ class WebComponent extends HTMLElement{
     this.shadowRoot.innerHTML = `<p>Привет из Shadow DOM!</p>`;
   }
 }
+customElements.define('web-component',WebComponent);
 ```
 
 Предпочтительный способ - сохранить ссылку на Shadow DOM в отдельную переменную.
@@ -33,6 +34,7 @@ class WebComponent extends HTMLElement{
     this.shadow.innerHTML = `<p>Привет из Shadow DOM!</p>`;
   }
 }
+customElements.define('web-component',WebComponent);
 ```
 
 Переменную shadow можно объявить как приватную, чтобы изолировать её от внешнего кода.
@@ -46,6 +48,7 @@ class WebComponent extends HTMLElement{
     this.#shadow.innerHTML = `<p>Привет из Shadow DOM!</p>`;
   }
 }
+customElements.define('web-component',WebComponent);
 ```
 
 Chrome 105+\
