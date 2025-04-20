@@ -113,6 +113,7 @@ nav span{
   font-size:100%;
   border-radius:var(--border-radius);}
 
+nav span.active,
 nav span:hover{
   background-color:var(--rgb-25-25-25);}
 

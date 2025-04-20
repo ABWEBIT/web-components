@@ -19,7 +19,7 @@
         <div class="menuTitle">Тема</div>
 
         <div class="menuItem">
-          <span onclick="loadContent('pages/icons.html')">
+          <span onclick="navigate('icons')" data-page="icons">
            Иконки
           </span>
         </div>
@@ -30,25 +30,25 @@
         <div class="menuTitle">Компоненты</div>
 
         <div class="menuItem">
-          <span onclick="loadContent('pages/ui-icon.html')">
+          <span onclick="navigate('ui-icon')" data-page="ui-icon">
             Иконка
           </span>
         </div>
 
         <div class="menuItem">
-          <span onclick="loadContent('pages/ui-divider.html')">
+          <span onclick="navigate('ui-divider')" data-page="ui-divider">
             Разделитель
           </span>
         </div>
 
         <div class="menuItem">
-          <span onclick="loadContent('pages/ui-button.html')">
+          <span onclick="navigate('ui-button')" data-page="ui-button">
             Кнопка
           </span>
         </div>
 
         <div class="menuItem">
-          <span onclick="loadContent('pages/ui-input.html')">
+          <span onclick="navigate('ui-input')" data-page="ui-input">
             Поле ввода
           </span>
         </div>
@@ -59,30 +59,10 @@
     <div class="static"></div>
   </nav>
 
-  <article></article>
+<article id="article"></article>
 </div>
 
-<script id="script"></script>
-
-<script>
-loadContent('pages/ui-input.html');
-function loadContent(page){
-  fetch(page)
-  .then(response => response.text())
-  .then(data => {
-    document.querySelector('article').innerHTML = data;
-    let scriptGet = document.querySelector('article script');
-    let scriptSet = document.getElementById('script');
-    scriptSet.textContent = '';
-    if(scriptGet){
-      scriptSet.textContent = scriptGet.textContent;
-      document.body.appendChild(scriptSet);
-    };
-  })
-  .catch(error => console.error('Error:', error));
-}
-</script>
-
+<script type="module" src="./router.js"></script>
 <script type="module" src="components/index.js"></script>
 </body>
 </html>
