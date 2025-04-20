@@ -6,7 +6,8 @@
 class WebComponent extends HTMLElement{}
 ```
 
-Имя веб-компонента должно содержать дефис.
+Тег веб-компонента должен содержать дефис. (пример: web-component)\
+Регистрация веб-компонента осуществляется с помощью метода customElements.define(), который связывает тег с его классом.
 ```javascript
 customElements.define('web-component',WebComponent);
 ```
