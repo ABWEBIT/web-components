@@ -5,7 +5,8 @@ UIIconStyle.replaceSync(`
   justify-content:center;
   align-items:center;
   vertical-align:middle;
-  width:fit-content;
+  width:20px;
+  height:20px;
   -webkit-user-select:none;
   user-select:none;}
 
@@ -13,8 +14,8 @@ UIIconStyle.replaceSync(`
   transition:color 0.2s;}
 
 svg{
-  width:clamp(16px,100%,24px);
-  height:clamp(16px,100%,24px);
+  width:100%;
+  height:100%;
   aspect-ratio:1 / 1;
   fill:currentColor;
   shape-rendering:geometricPrecision;

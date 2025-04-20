@@ -2,8 +2,8 @@ export const UIInputStyle = new CSSStyleSheet();
 UIInputStyle.replaceSync(`
 :host{
   display:inline-flex;
-  vertical-align:middle;
   align-items:center;
+  vertical-align:middle;
   width:fit-content;
   height:40px;
   border:none;
@@ -30,25 +30,10 @@ UIInputStyle.replaceSync(`
 input::-ms-reveal{display:none;}
 
 :host ui-icon{
-  height:100%;
-  width:40px;
-  min-width:40px;}
-
-:host ui-button[icon-before="Clear"]{
-  max-width:30px;
-  max-height:30px;
-  min-width:30px;
-  min-height:30px;
-  margin-right:5px;
-
-  border-radius:50%;
-  background-color:transparent;
-  cursor:pointer;}
+  width:var(--height,20px);
+  height:clamp(14px,calc(var(--height) / 2),20px);}
 
 @media (hover:hover){
-  :host ui-button[icon-before="Clear"]:hover{
-    background-color:var(--rgb-50-50-50);
-  }
   :host([transition="active"]:hover),
   :host:has(input:focus){
     background-color:var(--rgb-35-35-35);}

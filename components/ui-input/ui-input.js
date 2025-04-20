@@ -56,7 +56,7 @@ class UIInput extends UIBase{
     this.#shadow.innerHTML = `
     ${this.#iconLeft && `<ui-icon></ui-icon>`}
     <input>
-    <ui-button icon-left="clear"></ui-button>
+    <ui-icon icon="cancel"></ui-icon>
     ${this.#iconRight && `<ui-icon></ui-icon>`}
     `;
 
