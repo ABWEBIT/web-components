@@ -5,11 +5,11 @@ import {inputTypes,htmlEscape} from '../../utils/index.js';
 class UIInput extends UIBase{
   #shadow;
   #placeholder = '';
-  #iconLeft = '';
-  #iconRight = '';
+  #iconStart = '';
+  #iconEnd = '';
   #disabled = false;
-  #inputHandler = this.onInput.bind(this);
-  #inputClear = this.onClear.bind(this);
+  #onInput = this.onInput.bind(this);
+  #onClear = this.onClear.bind(this);
 
   constructor(){
     super();
@@ -18,8 +18,8 @@ class UIInput extends UIBase{
   }
 
   static properties = Object.freeze({
-    'icon-left':{name:'iconLeft',type: String,reflect:true},
-    'icon-right':{name:'iconRight',type: String,reflect:true},
+    'icon-start':{name:'iconStart',type: String,reflect:true},
+    'icon-end':{name:'iconEnd',type: String,reflect:true},
     'disabled':{name:'disabled',type: Boolean,reflect:true}
   });
 
@@ -30,18 +30,18 @@ class UIInput extends UIBase{
     this.reflect('label',this.#placeholder);
   }
 
-  get iconLeft(){return this.#iconLeft;}
-  set iconLeft(value){
-    if(!(this.#iconLeft = String(value || ''))) return;
-    this.#updateIcon(':first-child',this.#iconLeft);
-    this.reflect('icon-left',this.#iconLeft);
+  get iconStart(){return this.#iconStart;}
+  set iconStart(value){
+    if(!(this.#iconStart = String(value || ''))) return;
+    this.#updateIcon('[icon-start]',this.#iconStart);
+    this.reflect('icon-start',this.#iconStart);
   }
 
-  get iconRight(){return this.#iconRight;}
-  set iconRight(value){
-    if(!(this.#iconRight = String(value || ''))) return;
-    this.#updateIcon(':last-child',this.#iconRight);
-    this.reflect('icon-right',this.#iconRight);
+  get iconEnd(){return this.#iconEnd;}
+  set iconEnd(value){
+    if(!(this.#iconEnd = String(value || ''))) return;
+    this.#updateIcon('[icon-end]',this.#iconEnd);
+    this.reflect('icon-end',this.#iconEnd);
   }
 
   #updateIcon(position,name){
@@ -53,32 +53,34 @@ class UIInput extends UIBase{
   }
 
   connectedCallback(){
+    let height = parseInt(this.getAttribute('height'),10) || 32;
+    this.style.height = `${height}px`;
+    this.style.setProperty('--height',`${height}px`);
+
     this.#shadow.innerHTML = `
-    ${this.#iconLeft && `<ui-icon></ui-icon>`}
+    ${this.#iconStart && `<ui-icon icon-start></ui-icon>`}
     <input>
     <ui-icon icon="cancel"></ui-icon>
-    ${this.#iconRight && `<ui-icon></ui-icon>`}
+    ${this.#iconEnd && `<ui-icon icon-end></ui-icon>`}
     `;
 
-    const inputObject = this.#shadow.querySelector('input');
-    if(inputObject){
-      inputObject.addEventListener('input',this.#inputHandler);
+    const obj = this.#shadow.querySelector('input');
+    if(obj){
+      obj.addEventListener('input',this.#onInput);
 
       let inputType =this.getAttribute('type');
       inputType = inputTypes(inputType) ? inputType : 'text';
-      inputObject.type = htmlEscape(inputType);
+      obj.type = htmlEscape(inputType);
       
-      let inputPlaceholder = htmlEscape(this.getAttribute('placeholder'));
-      if(inputPlaceholder) inputObject.setAttribute('placeholder',inputPlaceholder);
-      if(this.hasAttribute('required')) inputObject.required = true;
+      let placeholder = htmlEscape(this.getAttribute('placeholder'));
+      if(placeholder) obj.setAttribute('placeholder',placeholder);
+      if(this.hasAttribute('required')) obj.required = true;
     }
 
-    const inputClear = this.#shadow.querySelector('ui-button[icon-left="clear"]');
-    if(inputClear){
-      inputClear.addEventListener('click',this.#inputClear)
-    }
+    const inputClear = this.#shadow.querySelector('ui-icon[icon="cancel"]');
+    if(inputClear) inputClear.addEventListener('click',this.#onClear)
 
-    requestAnimationFrame(()=>this.setAttribute('transition',''));
+    requestAnimationFrame(()=>this.setAttribute('animated',''));
   }
 
   onInput(){
@@ -91,11 +93,11 @@ class UIInput extends UIBase{
   }
 
   disconnectedCallback(){
-    const inputObject = this.#shadow.querySelector('input');
-    if(inputObject) inputObject.removeEventListener('input',this.#inputHandler);
+    const obj = this.#shadow.querySelector('input');
+    if(obj) obj.removeEventListener('input',this.#onInput);
 
     const inputClear = this.#shadow.querySelector('ui-button[icon-before="Clear"]');
-    if(inputClear) inputClear.addEventListener('click',this.#inputClear);
+    if(inputClear) inputClear.addEventListener('click',this.#onClear);
   }
 
 }

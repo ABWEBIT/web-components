@@ -10,7 +10,7 @@ UIIconStyle.replaceSync(`
   -webkit-user-select:none;
   user-select:none;}
 
-:host([transition]){
+:host([animated]){
   transition:color 0.2s;}
 
 svg{

@@ -19,7 +19,7 @@ UIButtonStyle.replaceSync(`
   opacity:0.5;
   cursor:not-allowed;}
 
-:host([transition]){
+:host([animated]){
   transition:background-color 0.2s,color 0.2s;}
 
 :host ui-text{

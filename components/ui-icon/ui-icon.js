@@ -49,7 +49,7 @@ class UIIcon extends UIBase{
       <svg viewBox="${UIIcon.#viewBox}" xmlns="${UIIcon.#xmlns}"></svg>
     `;
 
-    requestAnimationFrame(()=>this.setAttribute('transition',''));
+    requestAnimationFrame(()=>this.setAttribute('animated',''));
   }
 }
 customElements.define('ui-icon',UIIcon);

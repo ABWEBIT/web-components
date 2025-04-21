@@ -1,8 +1,23 @@
-<div class="title">Поле ввода</div>
-<ui-spacing height="20"></ui-spacing>
-<div class="description">Поле ввода позволяет пользователю вводить и редактировать текст.</div>
+<section class="intro">
+  <div class="title">Поле ввода</div>
+  <div class="description">Поле ввода позволяет пользователю вводить и редактировать текст.</div>
+  <ul>
+    <li>Поддерживает LTR и RTL.</li>
+  </ul>
+</section>
 
 <section class="content">
+  <span>Высота 24.</span>
+  <div class="example">
+    <div class="preview">
+      <ui-input height="24"></ui-input>
+    </div>
+    <code>
+      &lt;ui-input height="24"&gt;&lt;/ui-input&gt;
+    </code>
+  </div>
+
+  <span>Высота 32. (высота по умолчанию)</span>
   <div class="example">
     <div class="preview">
       <ui-input></ui-input>
@@ -12,21 +27,41 @@
     </code>
   </div>
 
+  <span>Высота 40.</span>
   <div class="example">
     <div class="preview">
-      <ui-input icon-left="article" type="tel" placeholder="Э-почта"></ui-input>
+      <ui-input height="40"></ui-input>
     </div>
     <code>
-      &lt;ui-input icon-left="Article" type="email" placeholder="Э-почта"&gt;&lt;/ui-input&gt;
+      &lt;ui-input height="40"&gt;&lt;/ui-input&gt;
+    </code>
+  </div>
+
+  <span>Неактивное поле.</span>
+  <div class="example">
+    <div class="preview">
+      <ui-input disabled></ui-input>
+    </div>
+    <code>
+      &lt;ui-input disabled&gt;&lt;/ui-input&gt;
     </code>
   </div>
 
   <div class="example">
     <div class="preview">
-      <ui-input placeholder="Пароль" icon-left="article" icon-right="send" type="password" required></ui-input>
+      <ui-input icon-start="article" type="tel" placeholder="Э-почта"></ui-input>
     </div>
     <code>
-    &lt;ui-input placeholder="Пароль" icon-left="article" icon-right="send" type="password"&gt;&lt;/ui-input&gt;
+      &lt;ui-input icon-start="Article" type="email" placeholder="Э-почта"&gt;&lt;/ui-input&gt;
+    </code>
+  </div>
+
+  <div class="example">
+    <div class="preview">
+      <ui-input placeholder="Пароль" icon-start="article" icon-end="send" type="password" required></ui-input>
+    </div>
+    <code>
+    &lt;ui-input placeholder="Пароль" icon-start="article" icon-end="send" type="password"&gt;&lt;/ui-input&gt;
     </code>
   </div>
 </section>
