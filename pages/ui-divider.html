@@ -2,13 +2,12 @@
   <span class="title">Разделитель</span>
   <span class="description">Компонент для разделения контента с помощью линии или линии с текстом.</span>
   <ul>
+    <li>Поддерживает LTR и RTL.</li>
     <li>label - необязательный атрибут (тип строка).</li>
     <li>axis - "x" или "y" (строчные), отвечает за направление. По умолчанию x.</li>
     <li>axis="x" - горизонтальный разделитель, ширина 100%.</li>
     <li>axis="y" - вертикальный разделитель, высота 100%.</li>
-    <li>text-align - расположение текста. По умолчанию по центру.</li>
-    <li>text-align - "left" или "right" работают только с axis="x".</li>
-    <li>text-align - "top" или "bottom" работают только с axis="y".</li>
+    <li>text-align - выравнивание текста. "start" и "end" зависят от направления текста. По умолчанию центр.</li>
   </ul>
 </section>
 
@@ -35,19 +34,19 @@
 
   <div class="example">
     <div class="preview">
-      <ui-divider label="Текст" text-align="left"></ui-divider>
+      <ui-divider label="Текст" text-align="start"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Текст" text-align="left"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider label="Текст" text-align="start"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
   <div class="example">
     <div class="preview">
-      <ui-divider label="Текст" text-align="right"></ui-divider>
+      <ui-divider label="Текст" text-align="end"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Текст" text-align="right"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider label="Текст" text-align="end"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
@@ -73,19 +72,19 @@
 
   <div class="example">
     <div class="preview" style="height:150px;">
-      <ui-divider label="Текст" axis="y" text-align="top"></ui-divider>
+      <ui-divider label="Текст" axis="y" text-align="start"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Текст" axis="y" text-align="top"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider label="Текст" axis="y" text-align="start"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
   <div class="example">
     <div class="preview" style="height:150px;">
-      <ui-divider label="Текст" axis="y" text-align="bottom"></ui-divider>
+      <ui-divider label="Текст" axis="y" text-align="end"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Текст" axis="y" text-align="bottom"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider label="Текст" axis="y" text-align="end"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 </section>

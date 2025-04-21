@@ -11,6 +11,12 @@
 
   --border-radius:6px;
 
+  --text-align-left:left;
+  --text-align-right:right;
+  --text-align-center:center;
+  --text-align-start:start;
+  --text-align-end:end;
+
   --rgb-255-255-255:rgb(255,255,255);
   --rgb-225-225-225:rgb(225,225,225);
   --rgb-175-175-175:rgb(175,175,175);
@@ -38,6 +44,12 @@
 .font-size-medium{font-size:var(--font-size-medium);}
 .font-size-large{font-size:var(--font-size-large);}
 .font-size-x-large{font-size:var(--font-size-x-large);}
+
+.text-align-left{text-align:var(--text-align-left);}
+.text-align-right{text-align:var(--text-align-right);}
+.text-align-center{text-align:var(--text-align-center);}
+.text-align-start{text-align:var(--text-align-start);}
+.text-align-end{text-align:var(--text-align-end);}
 
 *,*::after,*::before{
   -webkit-tap-highlight-color:rgba(0,0,0,0)!important;

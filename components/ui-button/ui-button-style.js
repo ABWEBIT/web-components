@@ -2,9 +2,9 @@ export const UIButtonStyle = new CSSStyleSheet();
 UIButtonStyle.replaceSync(`
 :host{
   display:inline-flex;
+  justify-content:center;
   align-items:center;
   vertical-align:middle;
-  width:fit-content;
   border:none;
   border-radius:var(--border-radius);
   color:var(--rgb-175-175-175);
@@ -22,8 +22,7 @@ UIButtonStyle.replaceSync(`
 :host([transition]){
   transition:background-color 0.2s,color 0.2s;}
 
-:host > .label{
-  flex-grow:1;
+:host ui-text{
   white-space:nowrap;}
 
 :host::after{
@@ -44,8 +43,9 @@ UIButtonStyle.replaceSync(`
   background-color:var(--rgb-50-50-50);}
 
 :host ui-icon{
+  height:100%;
   width:var(--height);
-  height:clamp(12px,calc(var(--height) / 2),20px);}
+  padding-block:calc(var(--height) / 4);}
 
 :host([label]){
   text-align:center;
@@ -55,20 +55,14 @@ UIButtonStyle.replaceSync(`
     var(--font-size-x-large)
   );}
 
-:host([label][text-align="left"]){
-  text-align:left;}
+:host([label]:not([icon-start]):not([icon-end])){
+  padding-inline:clamp(10px,calc(var(--height) / 3),20px);}
 
-:host([label][text-align="right"]){
-  text-align:right;}
-
-:host([label]:not([icon-left]):not([icon-right])){
-  padding-inline:clamp(10px, calc(var(--height) / 3), 20px);}
-
-:host([label][icon-left]:not([icon-right])){
+:host([label][icon-start]:not([icon-end])){
   padding-inline-start:0;
-  padding-inline-end:clamp(10px, calc(var(--height) / 3.5), 20px);}
+  padding-inline-end:clamp(10px,calc(var(--height) / 3.5),20px);}
 
-:host([label][icon-right]:not([icon-left])){
-  padding-inline-start:clamp(10px, calc(var(--height) / 3.5), 20px);
+:host([label][icon-end]:not([icon-start])){
+  padding-inline-start:clamp(10px,calc(var(--height) / 3.5),20px);
   padding-inline-end:0;}
 `);

@@ -18,7 +18,7 @@ class UIDivider extends UIBase{
   get label(){return this.#label;}
   set label(value){
     if(!(this.#label = String(value || ''))) return;
-    this.updateText('.label',this.#label);
+    this.updateText('ui-text',this.#label);
     this.reflect('label',this.#label);
   }
 
@@ -29,7 +29,7 @@ class UIDivider extends UIBase{
 
     this.#shadow.innerHTML = this.#label ? `
       <div class="line"></div>
-      <div class="label"></div>
+      <ui-text></ui-text>
       <div class="line"></div>
     `
     : `<div class="line"></div>`;

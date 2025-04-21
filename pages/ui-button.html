@@ -2,13 +2,13 @@
   <span class="title">Кнопка</span>
   <span class="description">Компонент, который может выступать в роли ссылки или запускать действие.</span>
   <ul>
-    <li>Требуется хотя бы один из атрибутов: label, icon-left, icon-right.</li>
-    <li>Для создания кнопки с одной иконкой, можно использовать icon-left или icon-right.</li>
+    <li>Поддерживает LTR и RTL.</li>
+    <li>Требуется хотя бы один из атрибутов: label, icon-start, icon-end.</li>
     <li>label - реактивный, необязательный атрибут. Текст кнопки, непрерывная строка.</li>
-    <li>icon-left и icon-right — реактивные, необязательные атрибуты. Определяют имена иконок, отображаемых соответственно слева и справа.</li>
+    <li>icon-start и icon-end — реактивные, необязательные атрибуты. Определяют имена иконок, отображаемых соответственно до и после текста.</li>
+    <li>Для создания кнопки с одной иконкой, можно использовать icon-start или icon-end.</li>
     <li>height - статичный, необязательный атрибут. Высота кнопки (число), по умолчанию - 32, измеряется в пикселях. (рекомендуется от 24 до 40). Лучше использовать чётные числа.</li>
     <li>Размер шрифта изменяется автоматически, рассчитывается по формуле "выcота кнопки / 2"</li>
-    <li>text-align - "left" или "right" расположение текста. По умолчанию по центру.</li>
     <li>disabled - реактивный, необязательный атрибут, управляющий состоянием компонента (отключён/включён).</li>
   </ul>
 </section>
@@ -17,30 +17,36 @@
   <span>Высота 24.</span>
   <div class="example">
     <div class="preview">
-      <ui-button label="Кнопка" icon-left="gear" height="24"></ui-button>
+      <ui-button icon-start="gear" height="24"></ui-button>
+      <ui-button label="Кнопка" height="24"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button label="Кнопка" icon-left="gear" height="24"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-start="gear" height="24"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Кнопка" height="24"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
   <span>Высота 32. (высота по умолчанию)</span>
   <div class="example">
     <div class="preview">
-      <ui-button label="Кнопка" icon-left="gear"></ui-button>
+      <ui-button icon-start="gear"></ui-button>
+      <ui-button label="Кнопка"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button label="Кнопка" icon-left="gear"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-start="gear"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Кнопка"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
   <span>Высота 40.</span>
   <div class="example">
     <div class="preview">
-      <ui-button label="Кнопка" icon-left="gear" height="40"></ui-button>
+      <ui-button icon-start="gear" height="40"></ui-button>
+      <ui-button label="Кнопка" height="40"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button label="Кнопка" icon-left="gear" height="40"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-start="gear" height="40"&gt;&lt;/ui-button&gt;
+      <span>&lt;ui-button label="Кнопка" height="40"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
@@ -57,22 +63,22 @@
   <span>Текст и иконка с одной стороны.</span>
   <div class="example">
     <div class="preview">
-      <ui-button icon-left="gear" label="Кнопка"></ui-button>
-      <ui-button icon-right="gear" label="Кнопка"></ui-button>
+      <ui-button icon-start="gear" label="Кнопка"></ui-button>
+      <ui-button icon-end="gear" label="Кнопка"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button icon-left="gear" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button icon-right="gear" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-start="gear" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-end="gear" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
+  <span>Текст с иконками по обе стороны.</span>
   <div class="example">
     <div class="preview">
-      <ui-button icon-left="gear" icon-right="send" label="Кнопка"></ui-button> 
-      <ui-button style="width:150px;" icon-left="gear" icon-right="send" label="Кнопка"></ui-button>
+      <ui-button icon-start="gear" icon-end="send" label="Кнопка"></ui-button> 
     </div>
     <code>
-      <span>&lt;ui-button icon-left="gear" icon-right="send" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-start="gear" icon-end="send" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 </section>

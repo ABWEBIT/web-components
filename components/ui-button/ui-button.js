@@ -4,14 +4,14 @@ import {UIButtonStyle} from './ui-button-style.js';
 class UIButton extends UIBase{
   #shadow;
   #label = '';
-  #iconLeft = '';
-  #iconRight = '';
+  #iconStart = '';
+  #iconEnd = '';
   #disabled = false;
   #onClick = this.onClick.bind(this);
 
   static properties = Object.freeze({
-    'icon-left':{name:'iconLeft',type:String,reflect:true},
-    'icon-right':{name:'iconRight',type:String,reflect:true},
+    'icon-start':{name:'iconStart',type:String,reflect:true},
+    'icon-end':{name:'iconEnd',type:String,reflect:true},
     'label':{name:'label',type:String,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
@@ -25,22 +25,22 @@ class UIButton extends UIBase{
   get label(){return this.#label;}
   set label(value){
     if(!(this.#label = String(value || ''))) return;
-    this.updateText('.label',this.#label);
+    this.updateText('ui-text',this.#label);
     this.reflect('label',this.#label);
   }
 
-  get iconLeft(){return this.#iconLeft;}
-  set iconLeft(value){
-    if(!(this.#iconLeft = String(value || ''))) return;
-    this.#updateIcon(':first-child',this.#iconLeft);
-    this.reflect('icon-left',this.#iconLeft);
+  get iconStart(){return this.#iconStart;}
+  set iconStart(value){
+    if(!(this.#iconStart = String(value || ''))) return;
+    this.#updateIcon(':first-child',this.#iconStart);
+    this.reflect('icon-start',this.#iconStart);
   }
 
-  get iconRight(){return this.#iconRight;}
-  set iconRight(value){
-    if(!(this.#iconRight = String(value || ''))) return;
-    this.#updateIcon(':last-child',this.#iconRight);
-    this.reflect('icon-right',this.#iconRight);
+  get iconEnd(){return this.#iconEnd;}
+  set iconEnd(value){
+    if(!(this.#iconEnd = String(value || ''))) return;
+    this.#updateIcon(':last-child',this.#iconEnd);
+    this.reflect('icon-end',this.#iconEnd);
   }
 
   #updateIcon(position,name){
@@ -63,9 +63,9 @@ class UIButton extends UIBase{
     this.style.setProperty('--height',`${height}px`);
 
     this.#shadow.innerHTML = `
-      ${this.#iconLeft && '<ui-icon></ui-icon>'}
-      ${this.#label && '<div class="label"></div>'}
-      ${this.#iconRight && '<ui-icon></ui-icon>'}
+      ${this.#iconStart && '<ui-icon></ui-icon>'}
+      ${this.#label && '<ui-text></ui-text>'}
+      ${this.#iconEnd && '<ui-icon></ui-icon>'}
     `;
 
     this.addEventListener('click',this.#onClick);
