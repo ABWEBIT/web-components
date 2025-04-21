@@ -45,7 +45,7 @@ UIButtonStyle.replaceSync(`
 
 :host ui-icon{
   width:var(--height);
-  height:clamp(14px,calc(var(--height) / 2),20px);}
+  height:clamp(12px,calc(var(--height) / 2),20px);}
 
 :host([label]){
   text-align:center;
