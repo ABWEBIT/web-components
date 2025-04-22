@@ -21,14 +21,6 @@ UIButtonStyle.replaceSync(`
 :host ui-text{
   white-space:nowrap;}
 
-:host::after{
-  position:absolute;
-  display:block;
-  inset:0;
-  content:'';
-  border:none;
-  border-radius:var(--border-radius);}
-
 @media (hover:hover){
   :host(:hover:not([disabled])){
     background-color:var(--rgb-40-40-40);

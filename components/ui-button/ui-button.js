@@ -32,14 +32,14 @@ class UIButton extends UIBase{
   get iconStart(){return this.#iconStart;}
   set iconStart(value){
     if(!(this.#iconStart = String(value || ''))) return;
-    this.#updateIcon('[icon-start]',this.#iconStart);
+    this.#updateIcon('[data-leading]',this.#iconStart);
     this.reflect('icon-start',this.#iconStart);
   }
 
   get iconEnd(){return this.#iconEnd;}
   set iconEnd(value){
     if(!(this.#iconEnd = String(value || ''))) return;
-    this.#updateIcon('[icon-end]',this.#iconEnd);
+    this.#updateIcon('[data-trailing]',this.#iconEnd);
     this.reflect('icon-end',this.#iconEnd);
   }
 
@@ -63,9 +63,9 @@ class UIButton extends UIBase{
     this.style.setProperty('--height',`${height}px`);
 
     this.#shadow.innerHTML = `
-      ${this.#iconStart && '<ui-icon icon-start></ui-icon>'}
+      ${this.#iconStart && '<ui-icon data-leading></ui-icon>'}
       ${this.#label && '<ui-text></ui-text>'}
-      ${this.#iconEnd && '<ui-icon icon-end></ui-icon>'}
+      ${this.#iconEnd && '<ui-icon data-trailing></ui-icon>'}
     `;
 
     this.addEventListener('click',this.#onClick);
