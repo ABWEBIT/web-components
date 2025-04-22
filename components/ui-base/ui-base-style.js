@@ -7,4 +7,15 @@ UIBaseStyle.replaceSync(`
 :host *{
   box-sizing:border-box;
   outline:none;}
+
+:host([disabled]){
+  cursor:not-allowed;
+  opacity:0.5;}
+
+:host([disabled]) *{
+  pointer-events:none;}
+
+:host([animated]){
+  transition-duration:0.2s;
+}
 `);

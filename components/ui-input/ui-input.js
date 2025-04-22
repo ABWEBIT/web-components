@@ -4,12 +4,15 @@ import {inputTypes,htmlEscape} from '../../utils/index.js';
 
 class UIInput extends UIBase{
   #shadow;
-  #placeholder = '';
+  #input;
   #iconStart = '';
   #iconEnd = '';
   #disabled = false;
+
   #onInput = this.onInput.bind(this);
   #onClear = this.onClear.bind(this);
+  #onFocus = this.onFocus.bind(this);
+  #onBlur = this.onBlur.bind(this);
 
   constructor(){
     super();
@@ -18,17 +21,10 @@ class UIInput extends UIBase{
   }
 
   static properties = Object.freeze({
-    'icon-start':{name:'iconStart',type: String,reflect:true},
-    'icon-end':{name:'iconEnd',type: String,reflect:true},
-    'disabled':{name:'disabled',type: Boolean,reflect:true}
+    'icon-start':{name:'iconStart',type:String,reflect:true},
+    'icon-end':{name:'iconEnd',type:String,reflect:true},
+    'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
-
-  get placeholder(){return this.#placeholder;}
-  set placeholder(value){
-    if(!(this.#placeholder = String(value || ''))) return;
-    this.updateText('.label',this.#placeholder);
-    this.reflect('label',this.#placeholder);
-  }
 
   get iconStart(){return this.#iconStart;}
   set iconStart(value){
@@ -52,6 +48,16 @@ class UIInput extends UIBase{
     });
   }
 
+  get disabled(){return this.#disabled;}
+  set disabled(value){
+    this.#disabled = value === true;
+    this.reflect('disabled',this.#disabled);
+    const input = this.#shadow.querySelector('input');
+    if(!input) return;
+    if(this.#disabled) input.setAttribute('tabindex','-1');
+    else input.removeAttribute('tabindex');
+  }
+
   connectedCallback(){
     let height = parseInt(this.getAttribute('height'),10) || 32;
     this.style.height = `${height}px`;
@@ -64,40 +70,54 @@ class UIInput extends UIBase{
     ${this.#iconEnd && `<ui-icon icon-end></ui-icon>`}
     `;
 
-    const obj = this.#shadow.querySelector('input');
-    if(obj){
-      obj.addEventListener('input',this.#onInput);
+    requestAnimationFrame(()=>{
+      this.setAttribute('animated','');
+      this.#input = this.#shadow.querySelector('input');
+      if(!this.#input) return;
 
-      let inputType =this.getAttribute('type');
-      inputType = inputTypes(inputType) ? inputType : 'text';
-      obj.type = htmlEscape(inputType);
-      
-      let placeholder = htmlEscape(this.getAttribute('placeholder'));
-      if(placeholder) obj.setAttribute('placeholder',placeholder);
-      if(this.hasAttribute('required')) obj.required = true;
-    }
+      this.#input.addEventListener('input',this.#onInput);
+      this.#input.addEventListener('focus',this.#onFocus);
+      this.#input.addEventListener('blur',this.#onBlur);
 
-    const inputClear = this.#shadow.querySelector('ui-icon[icon="cancel"]');
-    if(inputClear) inputClear.addEventListener('click',this.#onClear)
+      const type = this.getAttribute('type') || 'text';
+      this.#input.type = inputTypes(type) ? htmlEscape(type) : 'text';
 
-    requestAnimationFrame(()=>this.setAttribute('animated',''));
+      const placeholder = this.getAttribute('placeholder') || '';
+      if(placeholder) this.#input.setAttribute('placeholder',placeholder);
+
+      if(this.hasAttribute('required')) this.#input.required = true;
+
+      const clear = this.#shadow.querySelector('ui-icon[icon="cancel"]');
+      if(clear) clear.addEventListener('click',this.#onClear);
+    });
   }
 
   onInput(){
+    if(this.#disabled) return;
+  }
+
+  onFocus(){
+    this.setAttribute('focused','');
+  }
+
+  onBlur(){
+    this.removeAttribute('focused');
   }
 
   onClear(){
-    const obj = this.#shadow.querySelector('input');
-    if(!obj) return;
-    obj.value = '';
+    if(!this.#input) return;
+    this.#input.value = '';
   }
 
   disconnectedCallback(){
-    const obj = this.#shadow.querySelector('input');
-    if(obj) obj.removeEventListener('input',this.#onInput);
+    if(this.#input){
+      this.#input.removeEventListener('input',this.#onInput);
+      this.#input.removeEventListener('focus',this.#onFocus);
+      this.#input.removeEventListener('blur',this.#onBlur);
+    }
 
-    const inputClear = this.#shadow.querySelector('ui-button[icon-before="Clear"]');
-    if(inputClear) inputClear.addEventListener('click',this.#onClear);
+    const clear = this.#shadow.querySelector('ui-icon[icon="cancel"]');
+    if(clear) clear.removeEventListener('click',this.#onClear);
   }
 
 }

@@ -4,33 +4,48 @@ UIInputStyle.replaceSync(`
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  width:fit-content;
-  border:none;
+  outline-style:solid;
+  outline-width:1px;
+  outline-offset:0;
+  outline-color:var(--rgb-35-35-35);
   border-radius:var(--border-radius);
-  overflow:hidden;
   color:var(--rgb-175-175-175);
-  background-color:var(--rgb-25-25-25);}
+  background-color:var(--rgb-25-25-25);
+  overflow:hidden;}
 
-:host([disabled]){
-  opacity:0.5;
-  cursor:not-allowed;}
+/*
+:host{
+  border-style:solid;
+  border-width:1px;
+  border-color:var(--rgb-35-35-35);
+
+  outline-style:solid;
+  outline-width:1px;
+  outline-offset:0;
+  outline-color:var(--rgb-35-35-35);
+}
+*/
 
 :host([animated]){
-  transition:background-color 0.2s,color 0.2s;}
+  transition-property:background-color,color,outline-color,border-color;}
 
-:host input{
+:host([error]){
+  outline-color:var(--rgb-255-0-0);}
+
+input{
   height:100%;
   flex-grow:1;
-  min-width:70px;
+  width:fit-content;
   border:none;
   color:var(--rgb-255-255-255);
-  font-size:90%;
   background-color:transparent;
-  transition:color 0.2s;}
+  direction:inherit;}
 
-input::-ms-reveal{display:none;}
+input::-ms-reveal{
+  display:none;}
 
-:host ui-icon{
+ui-icon{
+  color:var(--rgb-100-100-100);
   height:100%;
   width:var(--height);
   padding-block:calc(var(--height) / 4);}
@@ -39,10 +54,28 @@ ui-icon[icon="cancel"]{
   cursor:pointer;}
 
 @media (hover:hover){
-  :host([transition="active"]:hover),
-  :host:has(input:focus){
+  :host([animated]:hover:not([disabled])),
+  :host([focused]){
     background-color:var(--rgb-35-35-35);}
 
-  :host ui-icon:hover{color:var(--rgb-225-225-225);}
+:host([animated]:hover:not([error]):not([disabled])){
+  outline-color:var(--rgb-75-75-75);}
+
+  ui-icon:hover{
+    color:var(--rgb-225-225-225);}
 }
+
+:host([focused]:not([error]):not([disabled])){
+  outline-color:var(--rgb-75-75-75);
+}
+
+input{
+  font-size:clamp(
+    var(--font-size-x-small),
+    calc(var(--height) / 2 - 2px),
+    var(--font-size-medium)
+  );}
+
+:host(:not([icon-start])) input{
+  padding-inline-start:calc(var(--height) / 3);}
 `);

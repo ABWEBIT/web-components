@@ -11,7 +11,7 @@ UIIconStyle.replaceSync(`
   user-select:none;}
 
 :host([animated]){
-  transition:color 0.2s;}
+  transition-property:color;}
 
 svg{
   width:100%;

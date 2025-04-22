@@ -3,6 +3,13 @@
   <div class="description">Поле ввода позволяет пользователю вводить и редактировать текст.</div>
   <ul>
     <li>Поддерживает LTR и RTL.</li>
+    <li>type - тип поля, по умолчанию text</li>
+    <li>placeholder - статичный, необязательный атрибут. Текст заглушки.</li>
+    <li>icon-start и icon-end — реактивные, необязательные атрибуты. Определяют имена иконок, отображаемых соответственно до и после поля.</li>
+    <li>height - статичный, необязательный атрибут. Высота поля (число), по умолчанию - 32, измеряется в пикселях. (рекомендуется от 24 до 40). Лучше использовать чётные числа.</li>
+    <li>Размер шрифта изменяется автоматически, рассчитывается по формуле "выcота кнопки / 2"</li>
+    <li>disabled - реактивный, необязательный атрибут, управляющий состоянием компонента (отключён/включён).</li>
+    <li>required — статичный, необязательный атрибут, управляющий состоянием компонента (обязательное или необязательное заполнение).</li>
   </ul>
 </section>
 
@@ -61,7 +68,17 @@
       <ui-input placeholder="Пароль" icon-start="article" icon-end="send" type="password" required></ui-input>
     </div>
     <code>
-    &lt;ui-input placeholder="Пароль" icon-start="article" icon-end="send" type="password"&gt;&lt;/ui-input&gt;
+    &lt;ui-input placeholder="Пароль" icon-start="article" icon-end="send" type="password" required&gt;&lt;/ui-input&gt;
+    </code>
+  </div>
+
+  <span>Ошибка</span>
+  <div class="example">
+    <div class="preview">
+      <ui-input error></ui-input>
+    </div>
+    <code>
+      &lt;ui-input error&gt;&lt;/ui-input&gt;
     </code>
   </div>
 </section>

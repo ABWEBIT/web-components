@@ -15,12 +15,8 @@ UIButtonStyle.replaceSync(`
   user-select:none;
   overflow:hidden;}
 
-:host([disabled]){
-  opacity:0.5;
-  cursor:not-allowed;}
-
 :host([animated]){
-  transition:background-color 0.2s,color 0.2s;}
+  transition-property:background-color,color;}
 
 :host ui-text{
   white-space:nowrap;}
@@ -42,7 +38,7 @@ UIButtonStyle.replaceSync(`
 :host(:active:not([disabled])){
   background-color:var(--rgb-50-50-50);}
 
-:host ui-icon{
+ui-icon{
   height:100%;
   width:var(--height);
   padding-block:calc(var(--height) / 4);}
@@ -51,7 +47,7 @@ UIButtonStyle.replaceSync(`
   text-align:center;
   font-size:clamp(
     var(--font-size-x-small),
-    calc(var(--height) / 2),
+    calc(var(--height) / 2 - 2px),
     var(--font-size-x-large)
   );}
 
