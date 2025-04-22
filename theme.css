@@ -10,7 +10,7 @@
   --font-size-large:18px;
   --font-size-x-large:20px;
 
-  --border-radius:16px;
+  --border-radius:6px;
 
   --text-align-left:left;
   --text-align-right:right;
@@ -37,13 +37,10 @@
   --rgb-5-5-5:rgb(5,5,5);
   --rgb-0-0-0:rgb(0,0,0);
 
-  --rgb-185-65-65:rgb(185,65,65);
-  --rgb-230-75-60:rgb(230,75,60);
-  --rgb-255-0-0:rgb(255,0,0);
+  --rgb-210-55-55:rgb(210,55,55);
+  --rgb-85-175-85:rgb(85,175,85);
+  --rgb-210-175-20:rgb(210,175,20);
 
-  --rgb-0-165-100:rgb(0,165,100);
-  --rgb-0-255-0:rgb(0,255,0);
-  --rgb-76-175-80:rgb(76,175,80);
 
   --rgb-25-125-230:rgb(25,125,230);
   --rgb-0-125-255:rgb(0,125,255);

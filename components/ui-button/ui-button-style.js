@@ -15,24 +15,35 @@ UIButtonStyle.replaceSync(`
   user-select:none;
   overflow:hidden;}
 
-:host([animated]){
-  transition-property:background-color,color;}
+:host([disabled]){
+  cursor:not-allowed;
+  opacity:0.5;}
 
-:host ui-text{
-  white-space:nowrap;}
+:host([disabled]) *{
+  pointer-events:none;}
+
+:host([animated]){
+  transition-duration:0.2s;
+  transition-property:background-color,color;}
 
 @media (hover:hover){
   :host(:hover:not([disabled])){
     background-color:var(--rgb-40-40-40);
-    color:var(--rgb-225-225-225);}  
+    color:var(--rgb-225-225-225);}
 }
 
 :host(:active:not([disabled])){
   background-color:var(--rgb-50-50-50);}
 
+ui-text{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;}
+
 ui-icon{
   height:100%;
   width:var(--height);
+  min-width:var(--height);
   padding-block:calc(var(--height) / 4);}
 
 :host([label]){

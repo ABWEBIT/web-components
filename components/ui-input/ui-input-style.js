@@ -4,33 +4,35 @@ UIInputStyle.replaceSync(`
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  outline-style:solid;
-  outline-width:1px;
-  outline-offset:0;
-  outline-color:var(--rgb-35-35-35);
   border-radius:var(--border-radius);
   color:var(--rgb-175-175-175);
   background-color:var(--rgb-25-25-25);
   overflow:hidden;}
 
-/*
-:host{
-  border-style:solid;
-  border-width:1px;
-  border-color:var(--rgb-35-35-35);
+:host([disabled]){
+  cursor:not-allowed;
+  opacity:0.5;}
 
-  outline-style:solid;
-  outline-width:1px;
-  outline-offset:0;
-  outline-color:var(--rgb-35-35-35);
-}
-*/
+:host([disabled]) *{
+  pointer-events:none;}
 
 :host([animated]){
+  transition-duration:0.2s;
   transition-property:background-color,color,outline-color,border-color;}
 
-:host([error]){
-  outline-color:var(--rgb-255-0-0);}
+:host([status]){
+  outline-style:solid;
+  outline-width:1px;
+  outline-offset:0;}
+
+:host([status="error"]){
+  outline-color:var(--rgb-210-55-55);}
+
+:host([status="valid"]){
+  outline-color:var(--rgb-85-175-85);}
+
+:host([status="warning"]){
+  outline-color:var(--rgb-210-175-20);}
 
 input{
   height:100%;
@@ -58,14 +60,14 @@ ui-icon[icon="cancel"]{
   :host([focused]){
     background-color:var(--rgb-35-35-35);}
 
-:host([animated]:hover:not([error]):not([disabled])){
-  outline-color:var(--rgb-75-75-75);}
-
   ui-icon:hover{
     color:var(--rgb-225-225-225);}
+
+  :host([animated]:hover):not([status]):not([disabled]){
+    outline-color:var(--rgb-75-75-75);}
 }
 
-:host([focused]:not([error]):not([disabled])){
+:host([focused]:not([status]):not([disabled])){
   outline-color:var(--rgb-75-75-75);
 }
 
@@ -79,3 +81,20 @@ input{
 :host(:not([icon-start])) input{
   padding-inline-start:calc(var(--height) / 3);}
 `);
+
+
+
+
+
+/*
+:host{
+  border-style:solid;
+  border-width:1px;
+  border-color:var(--rgb-35-35-35);
+
+  outline-style:solid;
+  outline-width:1px;
+  outline-offset:0;
+  outline-color:var(--rgb-35-35-35);
+}
+*/

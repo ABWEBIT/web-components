@@ -29,14 +29,14 @@ class UIInput extends UIBase{
   get iconStart(){return this.#iconStart;}
   set iconStart(value){
     if(!(this.#iconStart = String(value || ''))) return;
-    this.#updateIcon('[icon-start]',this.#iconStart);
+    this.#updateIcon('[leading]',this.#iconStart);
     this.reflect('icon-start',this.#iconStart);
   }
 
   get iconEnd(){return this.#iconEnd;}
   set iconEnd(value){
     if(!(this.#iconEnd = String(value || ''))) return;
-    this.#updateIcon('[icon-end]',this.#iconEnd);
+    this.#updateIcon('[trailing]',this.#iconEnd);
     this.reflect('icon-end',this.#iconEnd);
   }
 
@@ -64,10 +64,10 @@ class UIInput extends UIBase{
     this.style.setProperty('--height',`${height}px`);
 
     this.#shadow.innerHTML = `
-    ${this.#iconStart && `<ui-icon icon-start></ui-icon>`}
+    ${this.#iconStart && `<ui-icon leading></ui-icon>`}
     <input>
     <ui-icon icon="cancel"></ui-icon>
-    ${this.#iconEnd && `<ui-icon icon-end></ui-icon>`}
+    ${this.#iconEnd && `<ui-icon trailing></ui-icon>`}
     `;
 
     requestAnimationFrame(()=>{
