@@ -20,18 +20,20 @@ UIInputStyle.replaceSync(`
   transition-duration:0.2s;
   transition-property:background-color,color,outline-color,border-color;}
 
-:host([status]){
+:host([error]),
+:host([valid]),
+:host([warning]){
   outline-style:solid;
   outline-width:1px;
   outline-offset:0;}
 
-:host([status="error"]){
+:host([error]){
   outline-color:var(--rgb-210-55-55);}
 
-:host([status="valid"]){
+:host([valid]){
   outline-color:var(--rgb-85-175-85);}
 
-:host([status="warning"]){
+:host([warning]){
   outline-color:var(--rgb-210-175-20);}
 
 input{
@@ -63,11 +65,11 @@ ui-icon[icon="cancel"]{
   ui-icon:hover{
     color:var(--rgb-225-225-225);}
 
-  :host([animated]:hover):not([status]):not([disabled]){
+  :host([animated]:hover):not([disabled]){
     outline-color:var(--rgb-75-75-75);}
 }
 
-:host([focused]:not([status]):not([disabled])){
+:host([focused]:not([disabled])){
   outline-color:var(--rgb-75-75-75);
 }
 
