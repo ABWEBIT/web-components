@@ -1,24 +1,22 @@
-export const UIIconStyle = new CSSStyleSheet();
-UIIconStyle.replaceSync(`
-:host{
+ui-icon{
   display:inline-flex;
   justify-content:center;
   align-items:center;
   vertical-align:middle;
   width:20px;
   height:20px;
+  user-select:none;
   -webkit-user-select:none;
-  user-select:none;}
+  transition:none;}
 
-:host([animated]){
-  transition-duration:0.2s;
+ui-icon[animated]{
+  transition-duration:var(--ui-transition-duration);
   transition-property:color;}
 
-svg{
+ui-icon > svg{
   width:100%;
   height:100%;
-  aspect-ratio:1 / 1;
+  aspect-ratio:1;
   fill:currentColor;
   shape-rendering:geometricPrecision;
   pointer-events:none;}
-`);

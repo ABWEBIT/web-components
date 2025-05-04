@@ -1,0 +1,37 @@
+ui-divider{
+  display:inline-flex;
+  align-items:center;}
+
+ui-divider > ui-shape{
+  flex-grow:1;
+  background-color:rgb(50,50,50);}
+
+ui-divider[label] > ui-text{
+  font-size:var(--ui-font-size-x-small);
+  color:rgb(175,175,175);}
+
+ui-divider[label][text-align="start"] > ui-shape:first-child,
+ui-divider[label][text-align="end"] > ui-shape:last-child{
+  flex-grow:0;}
+
+ui-divider[axis="x"]{
+  width:100%;
+  flex-direction:row;}
+
+ui-divider[axis="x"] > ui-text{padding:0 15px;}
+ui-divider[axis="x"] > ui-shape{height:1px;}
+
+ui-divider[axis="x"][label][text-align="start"] > ui-shape:first-child,
+ui-divider[axis="x"][label][text-align="end"] > ui-shape:last-child{
+  width:20px;}
+
+ui-divider[axis="y"]{
+  height:100%;
+  flex-direction:column;}
+
+ui-divider[axis="y"] > ui-text{padding:10px 0;}
+ui-divider[axis="y"] > ui-shape{width:1px;}
+
+ui-divider[axis="y"][label][text-align="start"] > ui-shape:first-child,
+ui-divider[axis="y"][label][text-align="end"] > ui-shape:last-child{
+  height:20px;}

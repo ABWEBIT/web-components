@@ -1,42 +1,40 @@
-export const UIInputStyle = new CSSStyleSheet();
-UIInputStyle.replaceSync(`
-:host{
+ui-input{
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  border-radius:var(--border-radius);
+  border-radius:var(--ui-border-radius);
   color:var(--rgb-175-175-175);
   background-color:var(--rgb-25-25-25);
   overflow:hidden;}
 
-:host([disabled]){
+ui-input[disabled]{
   cursor:not-allowed;
   opacity:0.5;}
 
-:host([disabled]) *{
+ui-input[disabled] *{
   pointer-events:none;}
 
-:host([animated]){
-  transition-duration:0.2s;
+ui-input[animated]{
+  transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color,outline-color,border-color;}
 
-:host([error]),
-:host([valid]),
-:host([warning]){
+ui-input[error],
+ui-input[valid],
+ui-input[warning]{
   outline-style:solid;
   outline-width:1px;
   outline-offset:0;}
 
-:host([error]){
+ui-input[error]{
   outline-color:var(--rgb-210-55-55);}
 
-:host([valid]){
+ui-input[valid]{
   outline-color:var(--rgb-85-175-85);}
 
-:host([warning]){
+ui-input[warning]{
   outline-color:var(--rgb-210-175-20);}
 
-input{
+ui-input > input{
   height:100%;
   flex-grow:1;
   width:fit-content;
@@ -45,55 +43,46 @@ input{
   background-color:transparent;
   direction:inherit;}
 
-input::-ms-reveal{
+ui-input > input::-ms-reveal{
   display:none;}
 
-ui-icon{
+ui-input > ui-icon{
   color:var(--rgb-100-100-100);
   height:100%;
   width:var(--height);
   padding-block:calc(var(--height) / 4);}
 
-ui-icon[icon="cancel"]{
+ui-input > ui-icon[icon="cancel"]{
   cursor:pointer;}
 
 @media (hover:hover){
-  :host([animated]:hover:not([disabled])),
-  :host([focused]){
+  ui-input[animated]:hover:not([disabled]),
+  ui-input[focused]{
     background-color:var(--rgb-35-35-35);}
 
-  ui-icon:hover{
+  ui-input > ui-icon:hover{
     color:var(--rgb-225-225-225);}
 
-  :host([animated]:hover):not([disabled]){
+  ui-input[animated]:hover:not([disabled]){
     outline-color:var(--rgb-75-75-75);}
 }
 
-:host([focused]:not([disabled])){
+ui-input[focused]:not([disabled]){
   outline-color:var(--rgb-75-75-75);
 }
 
-input{
+ui-input > input{
   font-size:clamp(
     var(--font-size-x-small),
     calc(var(--height) / 2 - 2px),
     var(--font-size-medium)
   );}
 
-:host(:not([icon-start])) input{
+ui-input:not([icon-start]) input{
   padding-inline-start:calc(var(--height) / 3);}
-`);
-
-
-
-
 
 /*
 :host{
-  border-style:solid;
-  border-width:1px;
-  border-color:var(--rgb-35-35-35);
-
   outline-style:solid;
   outline-width:1px;
   outline-offset:0;

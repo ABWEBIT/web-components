@@ -1,0 +1,17 @@
+@import './ui-button/ui-button.css';
+@import './ui-icon/ui-icon.css';
+@import './ui-divider/ui-divider.css';
+@import './ui-shape/ui-shape.css';
+@import './ui-text/ui-text.css';
+@import './ui-input/ui-input.css';
+
+:root{
+  --ui-font-size-x-small:12px;
+  --ui-font-size-small:14px;
+  --ui-font-size-medium:16px;
+  --ui-font-size-large:18px;
+  --ui-font-size-x-large:20px;
+
+  --ui-border-radius:8px;
+  --ui-transition-duration:0.2s;
+}

@@ -43,9 +43,17 @@ export class UIBase extends HTMLElement{
 
   updateText(selector,text){
     queueMicrotask(()=>{
-      const obj = this.shadowRoot?.querySelector(selector);
+      const obj = this.querySelector(selector);
       if(!obj) return;
       obj.textContent = text;
+    });
+  }
+
+  updateIcon(selector,icon){
+    queueMicrotask(()=>{
+      let obj = this.querySelector(`ui-icon${selector}`);
+      if(!obj) return;
+      obj.setAttribute('icon',icon);
     });
   }
 }

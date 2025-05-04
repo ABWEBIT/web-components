@@ -1,5 +1,4 @@
-import {UIBase,UIBaseStyle} from '../ui-base/index.js';
-import {UIInputStyle} from './ui-input-style.js';
+import {UIBase} from '../ui-base/ui-base.js';
 import {inputTypes,htmlEscape} from '../../utils/index.js';
 
 class UIInput extends UIBase{
@@ -17,7 +16,6 @@ class UIInput extends UIBase{
   constructor(){
     super();
     this.#shadow = this.attachShadow({mode:'open'});
-    this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIInputStyle];
   }
 
   static properties = Object.freeze({

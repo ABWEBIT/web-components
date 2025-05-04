@@ -1,9 +1,7 @@
-import {UIBase,UIBaseStyle} from '../ui-base/index.js';
-import {UIIconStyle} from './ui-icon-style.js';
-import {LIBIcons} from '../../lib/lib-icons.js';
+import {UIBase} from '../ui-base/ui-base.js';
+import {icons} from '../../lib/icons.js';
 
 class UIIcon extends UIBase{
-  #shadow;
   #icon = '';
 
   static #viewBox = '0 0 20 20';
@@ -14,16 +12,10 @@ class UIIcon extends UIBase{
     'icon':{name:'icon',type:String,reflect:true}
   });
 
-  constructor(){
-    super();
-    this.#shadow = this.attachShadow({mode:'open'});
-    this.#shadow.adoptedStyleSheets = [UIBaseStyle,UIIconStyle];
-  }
-
   get icon(){return this.#icon;}
   set icon(value){
     this.#icon = String(value || '');
-    const array = LIBIcons?.[this.#icon];
+    const array = icons?.[this.#icon];
 
     if(!Array.isArray(array)) return;
     if(!array.every(d => typeof d === 'string')) return;
@@ -37,7 +29,7 @@ class UIIcon extends UIBase{
     });
 
     queueMicrotask(()=>{
-      const svg = this.#shadow.querySelector('svg');
+      const svg = this.querySelector('svg');
       if(!svg) return;
       svg.replaceChildren(...paths);
       this.reflect('icon',this.#icon);
@@ -45,7 +37,7 @@ class UIIcon extends UIBase{
   }
 
   connectedCallback(){
-    this.#shadow.innerHTML = `
+    this.innerHTML = `
       <svg viewBox="${UIIcon.#viewBox}" xmlns="${UIIcon.#xmlns}"></svg>
     `;
 

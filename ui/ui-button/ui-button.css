@@ -1,0 +1,50 @@
+ui-button{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  vertical-align:middle;
+  border:none;
+  border-radius:var(--ui-border-radius);
+  color:var(--rgb-175-175-175);
+  background-color:var(--rgb-30-30-30);
+  line-height:1;
+  cursor:pointer;
+  -webkit-user-select:none;
+  user-select:none;
+  overflow:hidden;}
+
+ui-button[disabled]{
+  cursor:not-allowed;
+  opacity:0.5;}
+
+ui-button[disabled] *{
+  pointer-events:none;}
+
+ui-button[animated]{
+  transition-duration:var(--ui-transition-duration);
+  transition-property:background-color,color;}
+
+@media (hover:hover){
+  ui-button:hover:not([disabled]){
+    background-color:var(--rgb-40-40-40);
+    color:var(--rgb-225-225-225);}
+}
+
+ui-button:active:not([disabled]){
+  background-color:var(--rgb-50-50-50);}
+
+ui-button > ui-text{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;}
+
+ui-button > ui-icon{
+  height:clamp(14px, 50%, 24px);}
+
+ui-button[label]{
+  text-align:center;
+  font-size:clamp(
+    var(--ui-font-size-x-small),
+    calc(var(--height) / 2),
+    var(--ui-font-size-medium)
+  );}
