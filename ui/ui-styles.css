@@ -28,6 +28,9 @@
 [ui][animated]{
   transition-duration:var(--ui-transition-duration);}
 
+[ui] input::-ms-reveal{
+  display:none;}
+
 ui-icon,
 ui-divider,
 ui-button,

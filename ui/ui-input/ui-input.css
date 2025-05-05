@@ -1,4 +1,5 @@
 ui-input{
+  position:relative;
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
@@ -10,13 +11,11 @@ ui-input{
   overflow:hidden;}
 
 ui-input[animated]{
-  transition-property:background-color,color,outline-color;}
+  transition-property:background-color,color;}
 
 ui-input input{
   height:100%;
-  padding-inline:calc(var(--ui-object-height) / 4);
   flex-grow:1;
-  width:fit-content;
   border:none;
   outline:none;
   color:var(--rgb-255-255-255);
@@ -24,18 +23,21 @@ ui-input input{
   direction:inherit;
   font-size:clamp(
     var(--ui-font-size-x-small),
-    calc(var(--ui-object-height) / 2),
-    var(--ui-font-size-large)
+    calc(var(--ui-object-height) / 2 - 2px),
+    var(--ui-font-size-medium)
   );}
 
-ui-input input::-ms-reveal{
-  display:none;}
+ui-input:not([icon-leading]) input{
+  padding-inline:calc(var(--ui-object-height) / 4 + 2px) 0;
+}
 
 ui-input ui-icon{
-  width:fit-content;
-  height:clamp(12px,calc(var(--ui-object-height) / 2),20px);}
+  height:var(--ui-object-height);
+  width:var(--ui-object-height);
+  padding:calc(var(--ui-object-height) / 4);
+  color:var(--rgb-125-125-125)}
 
-ui-input > ui-icon[icon="cancel"]{
+ui-input ui-icon[icon="cancel"]{
   cursor:pointer;}
 
 @media (hover:hover){
@@ -43,29 +45,30 @@ ui-input > ui-icon[icon="cancel"]{
   ui-input[focused]{
     background-color:var(--rgb-35-35-35);}
 
-  ui-input > ui-icon:hover{
+  ui-input ui-icon[icon="cancel"]:hover{
     color:var(--rgb-225-225-225);}
-
-  ui-input[animated]:hover:not([disabled]){
-    outline-color:var(--rgb-75-75-75);}
 }
 
-ui-input[focused]:not([disabled]){
-  outline-color:var(--rgb-75-75-75);
-}
+ui-input::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-style:solid;
+  border-width:2px;
+  border-color:transparent;
+  border-radius:var(--ui-border-radius);
+  pointer-events:none;
+  transition-duration:var(--ui-transition-duration);
+  transition-property:border-color;}
 
-ui-input[error],
-ui-input[valid],
-ui-input[warning]{
-  outline-style:solid;
-  outline-width:1px;
-  outline-offset:0;}
+ui-input[focused]::after{
+  border-color:var(--rgb-100-100-100);}
 
-ui-input[error]{
-  outline-color:var(--rgb-210-55-55);}
+ui-input[error]::after{
+  border-color:var(--rgb-210-55-55);}
 
-ui-input[valid]{
-  outline-color:var(--rgb-85-175-85);}
+ui-input[valid]::after{
+  border-color:var(--rgb-85-175-85);}
 
-ui-input[warning]{
-  outline-color:var(--rgb-210-175-20);}
+ui-input[warning]::after{
+  border-color:var(--rgb-210-175-20);}
