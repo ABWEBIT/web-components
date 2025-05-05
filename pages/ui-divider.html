@@ -3,16 +3,16 @@
   <span class="description">Компонент для разделения контента с помощью линии или линии с текстом.</span>
   <ul>
     <li>Поддерживает LTR и RTL.</li>
-    <li>label - необязательный атрибут (тип строка).</li>
-    <li>axis - "x" или "y" (строчные), отвечает за направление. По умолчанию x.</li>
+    <li>label - необязательный атрибут, непрерывная строка.</li>
+    <li>axis - "x" или "y" (строчные), определяет ось. По умолчанию - x.</li>
     <li>axis="x" - горизонтальный разделитель, ширина 100%.</li>
     <li>axis="y" - вертикальный разделитель, высота 100%.</li>
-    <li>text-align - выравнивание текста. "start" и "end" зависят от направления текста. По умолчанию центр.</li>
+    <li>text-align - выравнивание текста: "start" и "end". По умолчанию - по центру.</li>
   </ul>
 </section>
 
 <section class="content">
-  <span>Горизонтальный разделитель.</span>
+  <span>Горизонтальный разделитель. Ширина 100%.</span>
   <div class="example">
     <div class="preview">
       <ui-divider></ui-divider>
@@ -22,7 +22,7 @@
     </code>
   </div>
 
-  <span>Горизонтальный разделитель с текстом, выровненным: по центру, слева, справа.</span>
+  <span>Горизонтальный разделитель с текстом по центру.</span>
   <div class="example">
     <div class="preview">
       <ui-divider label="Текст"></ui-divider>
@@ -32,6 +32,7 @@
     </code>
   </div>
 
+  <span>Горизонтальный разделитель с текстом слева.</span>
   <div class="example">
     <div class="preview">
       <ui-divider label="Текст" text-align="start"></ui-divider>
@@ -41,6 +42,7 @@
     </code>
   </div>
 
+  <span>Горизонтальный разделитель с текстом справа.</span>
   <div class="example">
     <div class="preview">
       <ui-divider label="Текст" text-align="end"></ui-divider>
@@ -60,7 +62,7 @@
     </code>
   </div>
 
-  <span>Вертикальный разделитель с текстом, выровненным: по центру, сверху, снизу.</span>
+  <span>Вертикальный разделитель с текстом по центру.</span>
   <div class="example">
     <div class="preview" style="height:150px;">
       <ui-divider label="Текст" axis="y"></ui-divider>
@@ -70,6 +72,7 @@
     </code>
   </div>
 
+  <span>Вертикальный разделитель с текстом сверху.</span>
   <div class="example">
     <div class="preview" style="height:150px;">
       <ui-divider label="Текст" axis="y" text-align="start"></ui-divider>
@@ -79,6 +82,7 @@
     </code>
   </div>
 
+  <span>Вертикальный разделитель с текстом снизу.</span>
   <div class="example">
     <div class="preview" style="height:150px;">
       <ui-divider label="Текст" axis="y" text-align="end"></ui-divider>
