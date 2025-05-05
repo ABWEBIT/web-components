@@ -6,8 +6,7 @@ ui-icon{
   width:20px;
   height:20px;
   user-select:none;
-  -webkit-user-select:none;
-  transition:none;}
+  -webkit-user-select:none;}
 
 ui-icon[animated]{
   transition-duration:var(--ui-transition-duration);

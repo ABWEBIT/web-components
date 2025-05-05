@@ -1,9 +1,8 @@
 @import './ui-button/ui-button.css';
-@import './ui-icon/ui-icon.css';
 @import './ui-divider/ui-divider.css';
-@import './ui-shape/ui-shape.css';
-@import './ui-text/ui-text.css';
+@import './ui-icon/ui-icon.css';
 @import './ui-input/ui-input.css';
+@import './ui-text/ui-text.css';
 
 :root{
   --ui-font-size-x-small:12px;
@@ -15,3 +14,13 @@
   --ui-border-radius:8px;
   --ui-transition-duration:0.2s;
 }
+
+[ui],
+[ui] *{box-sizing:border-box!important;}
+
+[ui][disabled]{
+  cursor:not-allowed;
+  opacity:0.5;}
+
+[ui][disabled] *{
+  pointer-events:none;}

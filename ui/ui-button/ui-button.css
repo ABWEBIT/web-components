@@ -3,6 +3,9 @@ ui-button{
   justify-content:center;
   align-items:center;
   vertical-align:middle;
+  height:var(--ui-object-height);
+  padding-inline:calc(var(--ui-object-height) / 4);
+  column-gap:calc(var(--ui-object-height) / 4 - 2px);
   border:none;
   border-radius:var(--ui-border-radius);
   color:var(--rgb-175-175-175);
@@ -12,13 +15,6 @@ ui-button{
   -webkit-user-select:none;
   user-select:none;
   overflow:hidden;}
-
-ui-button[disabled]{
-  cursor:not-allowed;
-  opacity:0.5;}
-
-ui-button[disabled] *{
-  pointer-events:none;}
 
 ui-button[animated]{
   transition-duration:var(--ui-transition-duration);
@@ -33,18 +29,17 @@ ui-button[animated]{
 ui-button:active:not([disabled]){
   background-color:var(--rgb-50-50-50);}
 
-ui-button > ui-text{
+ui-button[label] > ui-text{
+  text-align:center;
+  font-size:clamp(
+    var(--ui-font-size-x-small),
+    calc(var(--ui-object-height) / 2),
+    var(--ui-font-size-large)
+  );
   white-space:nowrap;
   text-overflow:ellipsis;
   overflow:hidden;}
 
 ui-button > ui-icon{
-  height:clamp(14px, 50%, 24px);}
-
-ui-button[label]{
-  text-align:center;
-  font-size:clamp(
-    var(--ui-font-size-x-small),
-    calc(var(--height) / 2),
-    var(--ui-font-size-medium)
-  );}
+  width:fit-content;
+  height:clamp(12px,calc(var(--ui-object-height) / 2),20px);}

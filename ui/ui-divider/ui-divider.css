@@ -2,36 +2,45 @@ ui-divider{
   display:inline-flex;
   align-items:center;}
 
-ui-divider > ui-shape{
+ui-divider::before,
+ui-divider::after{
+  content:'';
+  display:block;
   flex-grow:1;
   background-color:rgb(50,50,50);}
 
-ui-divider[label] > ui-text{
-  font-size:var(--ui-font-size-x-small);
-  color:rgb(175,175,175);}
 
-ui-divider[label][text-align="start"] > ui-shape:first-child,
-ui-divider[label][text-align="end"] > ui-shape:last-child{
+ui-divider[label] > span{
+  font-size:var(--ui-font-size-x-small);
+  color:rgb(175,175,175);
+  white-space:nowrap;}
+
+ui-divider[label][text-align="start"]::before,
+ui-divider[label][text-align="end"]::after{
   flex-grow:0;}
 
 ui-divider[axis="x"]{
   width:100%;
   flex-direction:row;}
 
-ui-divider[axis="x"] > ui-text{padding:0 15px;}
-ui-divider[axis="x"] > ui-shape{height:1px;}
+ui-divider[axis="x"] > span{padding-inline:15px;}
 
-ui-divider[axis="x"][label][text-align="start"] > ui-shape:first-child,
-ui-divider[axis="x"][label][text-align="end"] > ui-shape:last-child{
+ui-divider[axis="x"]::before,
+ui-divider[axis="x"]::after{height:1px;}
+
+ui-divider[axis="x"][label][text-align="start"]::before,
+ui-divider[axis="x"][label][text-align="end"]::after{
   width:20px;}
 
 ui-divider[axis="y"]{
   height:100%;
   flex-direction:column;}
 
-ui-divider[axis="y"] > ui-text{padding:10px 0;}
-ui-divider[axis="y"] > ui-shape{width:1px;}
+ui-divider[axis="y"] > span{padding-block:10px;}
 
-ui-divider[axis="y"][label][text-align="start"] > ui-shape:first-child,
-ui-divider[axis="y"][label][text-align="end"] > ui-shape:last-child{
+ui-divider[axis="y"]::before,
+ui-divider[axis="y"]::after{width:1px;}
+
+ui-divider[axis="y"][label][text-align="start"]::before,
+ui-divider[axis="y"][label][text-align="end"]::after{
   height:20px;}

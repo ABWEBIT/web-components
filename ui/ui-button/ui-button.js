@@ -5,6 +5,7 @@ class UIButton extends UIBase{
   #iconLeading = '';
   #iconTrailing = '';
   #disabled = false;
+
   #onClick = this.onClick.bind(this);
 
   static properties = Object.freeze({
@@ -42,12 +43,9 @@ class UIButton extends UIBase{
   }
 
   connectedCallback(){
+    super.connectedCallback();
     let height = parseInt(this.getAttribute('height'),10) || 32;
-    this.style.height = `${height}px`;
-
-    let padding = Math.round(height / 3);
-    this.style.paddingInline = `${padding}px`;
-
+    this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.innerHTML = `
       ${this.#iconLeading && '<ui-icon leading></ui-icon>'}

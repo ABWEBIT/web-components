@@ -2,10 +2,9 @@ import {UIBase} from '../ui-base/ui-base.js';
 import {inputTypes,htmlEscape} from '../../utils/index.js';
 
 class UIInput extends UIBase{
-  #shadow;
   #input;
-  #iconStart = '';
-  #iconEnd = '';
+  #iconLeading = '';
+  #iconTrailing = '';
   #disabled = false;
 
   #onInput = this.onInput.bind(this);
@@ -13,64 +12,51 @@ class UIInput extends UIBase{
   #onFocus = this.onFocus.bind(this);
   #onBlur = this.onBlur.bind(this);
 
-  constructor(){
-    super();
-    this.#shadow = this.attachShadow({mode:'open'});
-  }
-
   static properties = Object.freeze({
-    'icon-start':{name:'iconStart',type:String,reflect:true},
-    'icon-end':{name:'iconEnd',type:String,reflect:true},
+    'icon-leading':{name:'iconLeading',type:String,reflect:true},
+    'icon-trailing':{name:'iconTrailing',type:String,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
-  get iconStart(){return this.#iconStart;}
-  set iconStart(value){
-    if(!(this.#iconStart = String(value || ''))) return;
-    this.#updateIcon('[leading]',this.#iconStart);
-    this.reflect('icon-start',this.#iconStart);
+  get iconLeading(){return this.#iconLeading;}
+  set iconLeading(value){
+    if(!(this.#iconLeading = String(value || ''))) return;
+    this.updateIcon('[leading]',this.#iconLeading);
+    this.reflect('icon-leading',this.#iconLeading);
   }
 
-  get iconEnd(){return this.#iconEnd;}
-  set iconEnd(value){
-    if(!(this.#iconEnd = String(value || ''))) return;
-    this.#updateIcon('[trailing]',this.#iconEnd);
-    this.reflect('icon-end',this.#iconEnd);
-  }
-
-  #updateIcon(position,name){
-    queueMicrotask(()=>{
-      let obj = this.#shadow.querySelector(`ui-icon${position}`);
-      if(!obj) return;
-      obj.setAttribute('icon',name);
-    });
+  get iconTrailing(){return this.#iconTrailing;}
+  set iconTrailing(value){
+    if(!(this.#iconTrailing = String(value || ''))) return;
+    this.updateIcon('[trailing]',this.#iconTrailing);
+    this.reflect('icon-trailing',this.#iconTrailing);
   }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
-    const input = this.#shadow.querySelector('input');
+    const input = this.querySelector('input');
     if(!input) return;
     if(this.#disabled) input.setAttribute('tabindex','-1');
     else input.removeAttribute('tabindex');
   }
 
   connectedCallback(){
+    super.connectedCallback();
     let height = parseInt(this.getAttribute('height'),10) || 32;
-    this.style.height = `${height}px`;
-    this.style.setProperty('--height',`${height}px`);
+    this.style.setProperty('--ui-object-height',`${height}px`);
 
-    this.#shadow.innerHTML = `
-    ${this.#iconStart && `<ui-icon leading></ui-icon>`}
-    <input>
-    <ui-icon icon="cancel"></ui-icon>
-    ${this.#iconEnd && `<ui-icon trailing></ui-icon>`}
+    this.innerHTML = `
+      ${this.#iconLeading && '<ui-icon leading></ui-icon>'}
+      <input>
+      <ui-icon icon="cancel"></ui-icon>
+      ${this.#iconTrailing && '<ui-icon trailing></ui-icon>'}
     `;
 
     requestAnimationFrame(()=>{
       this.setAttribute('animated','');
-      this.#input = this.#shadow.querySelector('input');
+      this.#input = this.querySelector('input');
       if(!this.#input) return;
 
       this.#input.addEventListener('input',this.#onInput);
@@ -85,7 +71,7 @@ class UIInput extends UIBase{
 
       if(this.hasAttribute('required')) this.#input.required = true;
 
-      const clear = this.#shadow.querySelector('ui-icon[icon="cancel"]');
+      const clear = this.querySelector('ui-icon[icon="cancel"]');
       if(clear) clear.addEventListener('click',this.#onClear);
     });
   }
@@ -114,7 +100,7 @@ class UIInput extends UIBase{
       this.#input.removeEventListener('blur',this.#onBlur);
     }
 
-    const clear = this.#shadow.querySelector('ui-icon[icon="cancel"]');
+    const clear = this.querySelector('ui-icon[icon="cancel"]');
     if(clear) clear.removeEventListener('click',this.#onClear);
   }
 

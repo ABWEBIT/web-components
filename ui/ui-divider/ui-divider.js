@@ -15,21 +15,19 @@ class UIDivider extends UIBase{
   }
 
   connectedCallback(){
+    super.connectedCallback();
     let axis = this.getAttribute('axis');
     if(!['x', 'y'].includes(axis)){
       axis = 'x';
       this.setAttribute('axis',axis);
     }
 
-    const fragment = document.createDocumentFragment();
-    fragment.appendChild(document.createElement('ui-shape'));
-
     if(this.#label){
-      fragment.appendChild(document.createElement('ui-text'));
-      fragment.appendChild(document.createElement('ui-shape'));
+      const label = document.createElement('span');
+      label.textContent = this.#label;
+      this.appendChild(label);
     }
-    
-    this.appendChild(fragment);
+
   }
 }
 customElements.define('ui-divider',UIDivider);

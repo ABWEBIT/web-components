@@ -5,7 +5,7 @@
     <li>Поддерживает LTR и RTL.</li>
     <li>type - тип поля, по умолчанию text</li>
     <li>placeholder - статичный, необязательный атрибут. Текст заглушки.</li>
-    <li>icon-start и icon-end — реактивные, необязательные атрибуты. Определяют имена иконок, отображаемых соответственно до и после поля.</li>
+    <li>icon-leading и icon-trailing — реактивные, необязательные атрибуты. Определяют имена иконок, отображаемых соответственно до и после поля.</li>
     <li>height - статичный, необязательный атрибут. Высота поля (число), по умолчанию - 32, измеряется в пикселях. (рекомендуется от 24 до 40). Лучше использовать чётные числа.</li>
     <li>Размер шрифта изменяется автоматически, рассчитывается по формуле "выcота кнопки / 2"</li>
     <li>disabled - реактивный, необязательный атрибут, управляющий состоянием компонента (отключён/включён).</li>
@@ -56,19 +56,19 @@
 
   <div class="example">
     <div class="preview">
-      <ui-input icon-start="article" type="tel" placeholder="Э-почта"></ui-input>
+      <ui-input icon-leading="article" type="tel" placeholder="Э-почта"></ui-input>
     </div>
     <code>
-      &lt;ui-input icon-start="Article" type="email" placeholder="Э-почта"&gt;&lt;/ui-input&gt;
+      &lt;ui-input icon-leading="Article" type="email" placeholder="Э-почта"&gt;&lt;/ui-input&gt;
     </code>
   </div>
 
   <div class="example">
     <div class="preview">
-      <ui-input placeholder="Пароль" icon-start="article" icon-end="send" type="password" required></ui-input>
+      <ui-input placeholder="Пароль" icon-leading="article" icon-trailing="send" type="password" required></ui-input>
     </div>
     <code>
-    &lt;ui-input placeholder="Пароль" icon-start="article" icon-end="send" type="password" required&gt;&lt;/ui-input&gt;
+    &lt;ui-input placeholder="Пароль" icon-leading="article" icon-trailing="send" type="password" required&gt;&lt;/ui-input&gt;
     </code>
   </div>
 

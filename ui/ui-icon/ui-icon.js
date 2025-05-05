@@ -37,6 +37,7 @@ class UIIcon extends UIBase{
   }
 
   connectedCallback(){
+    super.connectedCallback();
     this.innerHTML = `
       <svg viewBox="${UIIcon.#viewBox}" xmlns="${UIIcon.#xmlns}"></svg>
     `;
