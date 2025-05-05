@@ -18,7 +18,7 @@ class UIButton extends UIBase{
   get label(){return this.#label;}
   set label(value){
     if(!(this.#label = String(value || ''))) return;
-    this.updateText('ui-text',this.#label);
+    this.updateText('span',this.#label);
     this.reflect('label',this.#label);
   }
 
@@ -49,7 +49,7 @@ class UIButton extends UIBase{
 
     this.innerHTML = `
       ${this.#iconLeading && '<ui-icon leading></ui-icon>'}
-      ${this.#label && '<ui-text></ui-text>'}
+      ${this.#label && '<span></span>'}
       ${this.#iconTrailing && '<ui-icon trailing></ui-icon>'}
     `;
 

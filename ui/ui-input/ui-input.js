@@ -49,8 +49,10 @@ class UIInput extends UIBase{
 
     this.innerHTML = `
       ${this.#iconLeading && '<ui-icon leading></ui-icon>'}
-      <input>
-      <ui-icon icon="cancel"></ui-icon>
+      <div>
+        <input>
+        <ui-icon icon-leading="cancel"></ui-icon>
+      </div>
       ${this.#iconTrailing && '<ui-icon trailing></ui-icon>'}
     `;
 

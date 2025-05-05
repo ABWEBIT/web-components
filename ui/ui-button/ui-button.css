@@ -12,8 +12,6 @@ ui-button{
   background-color:var(--rgb-30-30-30);
   line-height:1;
   cursor:pointer;
-  -webkit-user-select:none;
-  user-select:none;
   overflow:hidden;}
 
 ui-button[animated]{
@@ -29,7 +27,7 @@ ui-button[animated]{
 ui-button:active:not([disabled]){
   background-color:var(--rgb-50-50-50);}
 
-ui-button[label] > ui-text{
+ui-button[label] > span{
   text-align:center;
   font-size:clamp(
     var(--ui-font-size-x-small),

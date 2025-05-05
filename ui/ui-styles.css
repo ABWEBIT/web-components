@@ -24,3 +24,9 @@
 
 [ui][disabled] *{
   pointer-events:none;}
+
+ui-divider,
+ui-button,
+ui-input{
+  -webkit-user-select:none;
+  user-select:none;}

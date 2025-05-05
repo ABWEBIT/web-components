@@ -3,7 +3,7 @@ ui-input{
   align-items:center;
   vertical-align:middle;
   height:var(--ui-object-height);
-  padding-inline:calc(var(--ui-object-height) / 4);
+  column-gap:calc(var(--ui-object-height) / 4 - 2px);
   border:none;
   border-radius:var(--ui-border-radius);
   color:var(--rgb-175-175-175);
@@ -30,8 +30,9 @@ ui-input[valid]{
 ui-input[warning]{
   outline-color:var(--rgb-210-175-20);}
 
-ui-input > input{
+ui-input input{
   height:100%;
+  padding-inline:calc(var(--ui-object-height) / 4);
   flex-grow:1;
   width:fit-content;
   border:none;
@@ -45,22 +46,20 @@ ui-input > input{
     var(--ui-font-size-large)
   );}
 
-ui-input > input::-ms-reveal{
+ui-input input::-ms-reveal{
   display:none;}
 
-ui-input > ui-icon{
+ui-input ui-icon{
   width:fit-content;
   height:clamp(12px,calc(var(--ui-object-height) / 2),20px);}
 
-ui-input > ui-icon[icon="cancel"]{
-  cursor:pointer;}
-
 @media (hover:hover){
+
   ui-input[animated]:hover:not([disabled]),
   ui-input[focused]{
     background-color:var(--rgb-35-35-35);}
 
-  ui-input > ui-icon:hover{
+  ui-input ui-icon:hover{
     color:var(--rgb-225-225-225);}
 
   ui-input[animated]:hover:not([disabled]){
