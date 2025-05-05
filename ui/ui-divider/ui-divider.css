@@ -1,6 +1,7 @@
 ui-divider{
   display:inline-flex;
-  align-items:center;}
+  align-items:center;
+  vertical-align:middle;}
 
 ui-divider::before,
 ui-divider::after{
@@ -8,7 +9,6 @@ ui-divider::after{
   display:block;
   flex-grow:1;
   background-color:rgb(50,50,50);}
-
 
 ui-divider[label] > span{
   font-size:var(--ui-font-size-x-small);

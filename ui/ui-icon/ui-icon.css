@@ -1,15 +1,12 @@
 ui-icon{
   display:inline-flex;
-  justify-content:center;
   align-items:center;
   vertical-align:middle;
+  justify-content:center;
   width:20px;
-  height:20px;
-  user-select:none;
-  -webkit-user-select:none;}
+  height:20px;}
 
 ui-icon[animated]{
-  transition-duration:var(--ui-transition-duration);
   transition-property:color;}
 
 ui-icon > svg{

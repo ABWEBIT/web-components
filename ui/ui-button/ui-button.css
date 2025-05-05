@@ -1,8 +1,8 @@
 ui-button{
   display:inline-flex;
-  justify-content:center;
   align-items:center;
   vertical-align:middle;
+  justify-content:center;
   height:var(--ui-object-height);
   padding-inline:calc(var(--ui-object-height) / 4);
   column-gap:calc(var(--ui-object-height) / 4 - 2px);
@@ -15,7 +15,6 @@ ui-button{
   overflow:hidden;}
 
 ui-button[animated]{
-  transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color;}
 
 @media (hover:hover){

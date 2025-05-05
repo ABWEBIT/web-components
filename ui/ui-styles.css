@@ -25,8 +25,12 @@
 [ui][disabled] *{
   pointer-events:none;}
 
+[ui][animated]{
+  transition-duration:var(--ui-transition-duration);}
+
+ui-icon,
 ui-divider,
 ui-button,
 ui-input{
-  -webkit-user-select:none;
-  user-select:none;}
+  user-select:none;
+  -webkit-user-select:none;}
