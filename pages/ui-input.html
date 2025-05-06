@@ -1,23 +1,23 @@
 <section class="intro">
-  <div class="title">Поле ввода</div>
-  <div class="description">Поле ввода позволяет пользователю вводить и редактировать текст.</div>
+  <div class="title">Input Field</div>
+  <div class="description">The input field allows the user to enter and edit text.</div>
   <ul>
-    <li>Поддерживает LTR и RTL.</li>
-    <li>type - тип поля, по умолчанию text.</li>
-    <li>placeholder - статичный, необязательный атрибут. Текст заглушки.</li>
-    <li>icon-leading и icon-trailing — реактивные, необязательные атрибуты. Определяют имена иконок, отображаемых соответственно до и после поля.</li>
-    <li>height - статичный, необязательный атрибут. Высота поля (число), по умолчанию - 32, измеряется в пикселях. (рекомендуется от 24 до 40). Лучше использовать чётные числа.</li>
-    <li>Размер шрифта изменяется автоматически, рассчитывается по формуле "выcота кнопки / 2".</li>
-    <li>clearable - статичный, необязательный атрибут, добавляет кнопку очистки поля.</li>
-    <li>disabled - реактивный, необязательный атрибут, управляющий состоянием компонента (отключён/включён).</li>
-    <li>required - статичный, необязательный атрибут, управляющий состоянием компонента (обязательное или необязательное заполнение).</li>
-    <li>Размер шрифта рассчитывается по формуле "высота кнопки / 2 - 2", но не менее 12px и не более 16px.</li>
-    <li>Закругление углов рассчитывается по формуле "высота кнопки / 4".</li>
+    <li>Supports LTR and RTL.</li>
+    <li>type - the type of input, default is text.</li>
+    <li>placeholder - static, optional attribute. Placeholder text.</li>
+    <li>icon-leading and icon-trailing - reactive, optional attributes. Define the icon names displayed before and after the field, respectively.</li>
+    <li>height - static, optional attribute. Field height (number), default is 32, measured in pixels. (Recommended: 24 to 40). Even numbers are preferred.</li>
+    <li>Font size adjusts automatically, calculated by the formula "button height / 2".</li>
+    <li>clearable - static, optional attribute that adds a clear button to the field.</li>
+    <li>disabled - reactive, optional attribute that controls the component’s state (enabled/disabled).</li>
+    <li>required - static, optional attribute that defines whether the field is required or not.</li>
+    <li>Font size is calculated as "button height / 2 - 2", but no less than 12px and no more than 16px.</li>
+    <li>Corner rounding is calculated as "button height / 4".</li>
   </ul>
 </section>
 
 <section class="content">
-  <span>Высота 24.</span>
+  <span>Height 24.</span>
   <div class="example">
     <div class="preview">
       <ui-input height="24"></ui-input>
@@ -27,7 +27,7 @@
     </code>
   </div>
 
-  <span>Высота 32. (высота по умолчанию)</span>
+  <span>Height 32. (default height)</span>
   <div class="example">
     <div class="preview">
       <ui-input></ui-input>
@@ -37,7 +37,7 @@
     </code>
   </div>
 
-  <span>Высота 40.</span>
+  <span>Height 40.</span>
   <div class="example">
     <div class="preview">
       <ui-input height="40"></ui-input>
@@ -47,7 +47,7 @@
     </code>
   </div>
 
-  <span>Неактивное поле.</span>
+  <span>Disabled field.</span>
   <div class="example">
     <div class="preview">
       <ui-input disabled></ui-input>
@@ -57,7 +57,7 @@
     </code>
   </div>
 
-  <span>Поле с кнопкой очистки.</span>
+  <span>Input with clear button.</span>
   <div class="example">
     <div class="preview">
       <ui-input clearable></ui-input>
@@ -69,23 +69,23 @@
 
   <div class="example">
     <div class="preview">
-      <ui-input icon-leading="article" type="tel" placeholder="Э-почта"></ui-input>
+      <ui-input icon-leading="article" type="email" placeholder="Email"></ui-input>
     </div>
     <code>
-      &lt;ui-input icon-leading="Article" type="email" placeholder="Э-почта"&gt;&lt;/ui-input&gt;
+      &lt;ui-input icon-leading="article" type="email" placeholder="Email"&gt;&lt;/ui-input&gt;
     </code>
   </div>
 
   <div class="example">
     <div class="preview">
-      <ui-input placeholder="Пароль" icon-leading="article" icon-trailing="send" type="password" required></ui-input>
+      <ui-input placeholder="Password" icon-leading="article" icon-trailing="send" type="password" required></ui-input>
     </div>
     <code>
-    &lt;ui-input placeholder="Пароль" icon-leading="article" icon-trailing="send" type="password" required&gt;&lt;/ui-input&gt;
+      &lt;ui-input placeholder="Password" icon-leading="article" icon-trailing="send" type="password" required&gt;&lt;/ui-input&gt;
     </code>
   </div>
 
-  <span>Ошибка.</span>
+  <span>Error.</span>
   <div class="example">
     <div class="preview">
       <ui-input error></ui-input>
@@ -95,7 +95,7 @@
     </code>
   </div>
 
-  <span>Успех.</span>
+  <span>Success.</span>
   <div class="example">
     <div class="preview">
       <ui-input valid></ui-input>
@@ -105,7 +105,7 @@
     </code>
   </div>
 
-  <span>Предупреждение.</span>
+  <span>Warning.</span>
   <div class="example">
     <div class="preview">
       <ui-input warning></ui-input>

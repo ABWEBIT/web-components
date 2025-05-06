@@ -1,91 +1,91 @@
 <section class="intro">
-  <span class="title">Кнопка</span>
-  <span class="description">Компонент, который запускает действие.</span>
+  <span class="title">Button</span>
+  <span class="description">A component that triggers an action.</span>
   <ul>
-    <li>Поддерживает LTR и RTL.</li>
-    <li>Для создания кнопки требуется хотя бы один из атрибутов: label, icon-leading, icon-trailing.</li>
-    <li>Для создания кнопки с одной иконкой, можно использовать icon-leading или icon-trailing.</li>
-    <li>label - реактивный, необязательный атрибут. Текст кнопки, непрерывная строка.</li>
-    <li>icon-leading и icon-trailing - реактивные, необязательные атрибуты. Определяют имена иконок, отображаемых соответственно до и после текста.</li>
-    <li>height - статичный, необязательный атрибут. Высота кнопки (число), по умолчанию - 32, измеряется в пикселях. (рекомендуется от 24 до 40). Лучше использовать чётные числа.</li>
-    <li>disabled - реактивный, необязательный атрибут, управляющий состоянием компонента (отключён/включён).</li>
-    <li>Размер шрифта рассчитывается по формуле "высота кнопки / 2", но не менее 12px и не более 18px.</li>
-    <li>Закругление углов рассчитывается по формуле "высота кнопки / 4".</li>
+    <li>Supports LTR and RTL.</li>
+    <li>To create a button, at least one of the attributes is required: label, icon-leading, icon-trailing.</li>
+    <li>To create a button with a single icon, you can use icon-leading or icon-trailing.</li>
+    <li>label - reactive, optional attribute. Button text, a continuous string.</li>
+    <li>icon-leading and icon-trailing - reactive, optional attributes. Define the icon names displayed before and after the text.</li>
+    <li>height - static, optional attribute. Button height (number), default is 32, measured in pixels. (Recommended: 24 to 40). Even numbers are preferable.</li>
+    <li>disabled - reactive, optional attribute that controls the component's state (enabled/disabled).</li>
+    <li>Font size is calculated as "button height / 2", but no less than 12px and no more than 18px.</li>
+    <li>Corner rounding is calculated as "button height / 4".</li>
   </ul>
 </section>
 
 <section class="content">
-  <span>Высота 24.</span>
+  <span>Height 24.</span>
   <div class="example">
     <div class="preview">
       <ui-button icon-leading="gear" height="24"></ui-button>
-      <ui-button label="Кнопка" height="24"></ui-button>
-      <ui-button icon-leading="gear" label="Кнопка" height="24"></ui-button>
+      <ui-button label="Button" height="24"></ui-button>
+      <ui-button icon-leading="gear" label="Button" height="24"></ui-button>
     </div>
     <code>
       <span>&lt;ui-button icon-leading="gear" height="24"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button label="Кнопка" height="24"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button icon-leading="gear" label="Кнопка" height="24"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Button" height="24"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-leading="gear" label="Button" height="24"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
-  <span>Высота 32. (высота по умолчанию)</span>
+  <span>Height 32. (default height)</span>
   <div class="example">
     <div class="preview">
       <ui-button icon-leading="gear"></ui-button>
-      <ui-button label="Кнопка"></ui-button>
-      <ui-button icon-leading="gear" label="Кнопка"></ui-button>
+      <ui-button label="Button"></ui-button>
+      <ui-button icon-leading="gear" label="Button"></ui-button>
     </div>
     <code>
       <span>&lt;ui-button icon-leading="gear"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button label="Кнопка"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button icon-leading="gear" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Button"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-leading="gear" label="Button"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
-  <span>Высота 40.</span>
+  <span>Height 40.</span>
   <div class="example">
     <div class="preview">
       <ui-button icon-leading="gear" height="40"></ui-button>
-      <ui-button label="Кнопка" height="40"></ui-button>
-      <ui-button icon-leading="gear" label="Кнопка" height="40"></ui-button>
+      <ui-button label="Button" height="40"></ui-button>
+      <ui-button icon-leading="gear" label="Button" height="40"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button icon-leading="gear" height="40"&gt;&lt;/ui-button&gt;
-      <span>&lt;ui-button label="Кнопка" height="40"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button icon-leading="gear" label="Кнопка" height="40"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-leading="gear" height="40"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Button" height="40"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-leading="gear" label="Button" height="40"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
-  <span>Неактивная кнопка.</span>
+  <span>Disabled button.</span>
   <div class="example">
     <div class="preview">
-      <ui-button id="test" label="Кнопка" disabled></ui-button>
+      <ui-button id="test" label="Button" disabled></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button label="Кнопка" disabled&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Button" disabled&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
-  <span>Текст и иконка с одной стороны.</span>
+  <span>Text and icon on one side.</span>
   <div class="example">
     <div class="preview">
-      <ui-button icon-leading="gear" label="Кнопка"></ui-button>
-      <ui-button icon-trailing="gear" label="Кнопка"></ui-button>
+      <ui-button icon-leading="gear" label="Button"></ui-button>
+      <ui-button icon-trailing="gear" label="Button"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button icon-leading="gear" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button icon-trailing="gear" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-leading="gear" label="Button"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-trailing="gear" label="Button"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
-  <span>Текст с иконками по обе стороны.</span>
+  <span>Text with icons on both sides.</span>
   <div class="example">
     <div class="preview">
-      <ui-button icon-leading="gear" icon-trailing="gear" label="Кнопка"></ui-button> 
+      <ui-button icon-leading="gear" icon-trailing="gear" label="Button"></ui-button> 
     </div>
     <code>
-      <span>&lt;ui-button icon-leading="gear" icon-trailing="gear" label="Кнопка"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button icon-leading="gear" icon-trailing="gear" label="Button"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 </section>
