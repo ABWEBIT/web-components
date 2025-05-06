@@ -14,7 +14,7 @@ const loadPage = async (hash) => {
     updateActiveMenuItem(page);
   }
   catch(e){
-    article.innerHTML = '<p>Страница не найдена</p>';
+    article.innerHTML = '<p>Not Found</p>';
   }
 };
 
