@@ -5,7 +5,7 @@ ui-input{
   vertical-align:middle;
   height:var(--ui-object-height);
   border:none;
-  border-radius:var(--ui-border-radius);
+  border-radius:calc(var(--ui-object-height) / 4);
   color:var(--rgb-175-175-175);
   background-color:var(--rgb-25-25-25);
   overflow:hidden;}

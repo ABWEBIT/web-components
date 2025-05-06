@@ -17,7 +17,7 @@ class UIDivider extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     let axis = this.getAttribute('axis');
-    if(!['x', 'y'].includes(axis)){
+    if(!['x','y'].includes(axis)){
       axis = 'x';
       this.setAttribute('axis',axis);
     }

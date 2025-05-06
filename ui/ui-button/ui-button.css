@@ -7,10 +7,11 @@ ui-button{
   padding-inline:calc(var(--ui-object-height) / 4);
   column-gap:calc(var(--ui-object-height) / 4 - 2px);
   border:none;
-  border-radius:var(--ui-border-radius);
+  border-radius:calc(var(--ui-object-height) / 4);
   color:var(--rgb-175-175-175);
-  background-color:var(--rgb-30-30-30);
+  background-color:var(--rgb-25-25-25);
   line-height:1;
+  text-align:center;
   cursor:pointer;
   overflow:hidden;}
 
@@ -27,7 +28,6 @@ ui-button:active:not([disabled]){
   background-color:var(--rgb-50-50-50);}
 
 ui-button[label] > span{
-  text-align:center;
   font-size:clamp(
     var(--ui-font-size-x-small),
     calc(var(--ui-object-height) / 2),
