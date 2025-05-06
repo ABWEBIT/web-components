@@ -48,9 +48,9 @@ class UIButton extends UIBase{
     this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.innerHTML = `
-      ${this.#iconLeading && '<ui-icon leading></ui-icon>'}
-      ${this.#label && '<span></span>'}
-      ${this.#iconTrailing && '<ui-icon trailing></ui-icon>'}
+      ${this.#iconLeading ? '<ui-icon leading></ui-icon>' : ''}
+      ${this.#label ? '<span></span>' : ''}
+      ${this.#iconTrailing ? '<ui-icon trailing></ui-icon>' : ''}
     `;
 
     this.addEventListener('click',this.#onClick);

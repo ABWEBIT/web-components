@@ -6,6 +6,7 @@ class UIInput extends UIBase{
   #iconLeading = '';
   #iconTrailing = '';
   #disabled = false;
+  #clearable = false;
 
   #onInput = this.onInput.bind(this);
   #onClear = this.onClear.bind(this);
@@ -47,11 +48,13 @@ class UIInput extends UIBase{
     let height = parseInt(this.getAttribute('height'),10) || 32;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
+    this.#clearable = this.hasAttribute('clearable');
+
     this.innerHTML = `
-      ${this.#iconLeading && '<ui-icon leading></ui-icon>'}
+      ${this.#iconLeading ? '<ui-icon leading></ui-icon>' : ''}
       <input>
-      <ui-icon icon="cancel"></ui-icon>
-      ${this.#iconTrailing && '<ui-icon trailing></ui-icon>'}
+      ${this.#clearable ? '<ui-icon icon="cancel"></ui-icon>' : ''}
+      ${this.#iconTrailing ? '<ui-icon trailing></ui-icon>' : ''}
     `;
 
     requestAnimationFrame(()=>{
