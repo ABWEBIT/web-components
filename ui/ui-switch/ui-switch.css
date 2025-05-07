@@ -1,73 +1,53 @@
 ui-switch{
   position:relative;
   display:inline-flex;
-  align-items:center;
   vertical-align:middle;
-  justify-content:center;
   height:var(--ui-object-height);
-  width: 60px;
-  padding-inline:calc(var(--ui-object-height) / 4);
-  column-gap:calc(var(--ui-object-height) / 4 - 2px);
+  width:calc(var(--ui-object-height) * 2);
   border:none;
-  border-radius:calc(var(--ui-object-height) / 4);
+  border-radius:1000px;
   color:var(--rgb-175-175-175);
-  background-color:var(--rgb-25-25-25);
+  background-color:var(--rgb-75-75-75);
   line-height:1;
-  text-align:center;
   cursor:pointer;
   overflow:hidden;}
 
 ui-switch[animated]{
-  transition-property:background-color,color;}
+  transition-property:background-color,color,left,right;}
 
-ui-switch input{ 
-  opacity: 0;
-  width: 0;
-  height: 0;}
+ui-switch > label{
+  position:relative;
+  display:inline-flex;
+  height:100%;
+  width:100%;}
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+ui-switch > label > input[type="checkbox"]{
+  position:absolute;
+  opacity:0;
+  width:0;
+  height:0;}
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+ui-switch > label::after{
+  content:'';
+  position:absolute;
+  height:calc(var(--ui-object-height) - var(--ui-object-height) / 6);
+  width:calc(var(--ui-object-height) - var(--ui-object-height) / 6);
+  border-radius:1000px;
+  background-color:var(--rgb-255-255-255);
+  transform:translateX(0);
+  transition-property:transform;
+  transition-duration:var(--ui-transition-duration);}
 
-input:checked + .slider {
+ui-switch > label:has(input:checked){
   background-color: #2196F3;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
+ui-switch > label:has(input:focus)::before{
+  outline-width:2px;
+  outline-offset:2px;
+  outline-style:solid;
+  outline-color:var(--rgb-100-100-100);}
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+ui-switch > label:has(input:checked)::after{
+  transform:translateX(100%);
 }

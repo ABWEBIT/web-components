@@ -1,11 +1,12 @@
 import {UIBase} from '../ui-base/ui-base.js';
 
 class UISwitch extends UIBase{
+  #input;
+  #button;
   #label = '';
-  #labelPosition = '';
   #disabled = false;
 
-  #onClick = this.onClick.bind(this);
+  #onChange = this.onChange.bind(this);
 
   static properties = Object.freeze({
     'label':{name:'label',type:String,reflect:true},
@@ -23,30 +24,40 @@ class UISwitch extends UIBase{
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
+    const input = this.querySelector('input');
+    if(!input) return;
+    if(this.#disabled) input.setAttribute('tabindex','-1');
+    else input.removeAttribute('tabindex');
   }
 
   connectedCallback(){
     super.connectedCallback();
-    let height = parseInt(this.getAttribute('height'),10) || 32;
+    let height = parseInt(this.getAttribute('height'),10) || 24;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.innerHTML = `
-      <input type="checkbox" checked>
-      <span class="slider round"></span>
-      ${this.#label ? '<span></span>' : ''}
+      <label>
+        <input type="checkbox">
+      </label>
     `;
 
-    this.addEventListener('click',this.#onClick);
-    requestAnimationFrame(()=>this.setAttribute('animated',''));
+    this.#button = this.querySelector('label');
+
+    this.#button.addEventListener('click',this.#onChange);
+    requestAnimationFrame(()=>{
+      this.setAttribute('animated','')
+    });
   }
 
   disconnectedCallback(){
-    this.removeEventListener('click',this.#onClick);
+    this.#button.removeEventListener('click',this.#onChange);
   }
 
-  onClick(){
+  onChange(){
     if(this.#disabled) return;
-    //console.log('click');
+    this.#input = this.querySelector('input');
+    if(this.#input.checked) this.#input.setAttribute('checked','');
+    else this.#input.removeAttribute('checked');
   }
 
 }

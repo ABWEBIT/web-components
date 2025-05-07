@@ -8,6 +8,10 @@ ui-button{
   column-gap:calc(var(--ui-object-height) / 4 - 2px);
   border:none;
   border-radius:calc(var(--ui-object-height) / 4);
+  outline-offset:2px;
+  outline-width:2px;
+  outline-style:solid;
+  outline-color:transparent;
   color:var(--rgb-175-175-175);
   background-color:var(--rgb-25-25-25);
   line-height:1;
@@ -16,13 +20,16 @@ ui-button{
   overflow:hidden;}
 
 ui-button[animated]{
-  transition-property:background-color,color;}
+  transition-property:background-color,color,outline-color;}
 
 @media (hover:hover){
   ui-button:hover:not([disabled]){
     background-color:var(--rgb-40-40-40);
     color:var(--rgb-225-225-225);}
 }
+
+ui-button:focus-visible:not([disabled]){
+  outline-color:var(--rgb-100-100-100);}
 
 ui-button:active:not([disabled]){
   background-color:var(--rgb-50-50-50);}
@@ -38,5 +45,6 @@ ui-button[label] > span{
   overflow:hidden;}
 
 ui-button > ui-icon{
+  flex-grow:0!important;
   width:fit-content;
   height:clamp(12px,calc(var(--ui-object-height) / 2),20px);}

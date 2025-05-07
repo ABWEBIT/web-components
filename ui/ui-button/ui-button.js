@@ -54,7 +54,15 @@ class UIButton extends UIBase{
     `;
 
     this.addEventListener('click',this.#onClick);
-    requestAnimationFrame(()=>this.setAttribute('animated',''));
+
+
+    requestAnimationFrame(()=>{
+      this.setAttribute('animated','');
+      this.setAttribute('role','button');
+      if(this.#disabled) this.setAttribute('tabindex','-1')
+      else this.setAttribute('tabindex','0')
+    });
+
   }
 
   disconnectedCallback(){
