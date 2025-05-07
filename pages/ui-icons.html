@@ -1,0 +1,37 @@
+<section class="intro">
+  <h1>Icons</h1>
+  <span class="description">A collection of icons.</span>
+  <ui-divider></ui-divider>
+  <div class="info">
+    <h3>Design Details</h3>
+    <ul>
+      <li>Line thickness: 2px.</li>
+      <li>Corner radius: 2px.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="content icons-pack">
+  <span>Size: 20 x 20</span>
+  <div class="example">
+    <div class="preview"></div>
+  </div>
+</section>
+
+<script>
+  requestAnimationFrame(()=>{
+    const icons = ['home','article','search','send','bell','gear','cancel'];
+
+    const container = document.querySelector('.content .preview');
+
+    const html = icons.map(name => `
+      <span class="icon-card">
+        <ui-icon icon="${name}"></ui-icon>
+        <span class="icon-name">${name}</span>
+      </span>
+    `).join('');
+
+    container.insertAdjacentHTML('beforeend',html);
+  });
+
+</script>

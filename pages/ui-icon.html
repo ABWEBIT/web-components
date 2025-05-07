@@ -1,15 +1,27 @@
 <section class="intro">
-  <span class="title">Icon</span>
+  <h1>Icon</h1>
   <span class="description">A component for displaying an icon.</span>
-  <ul>
-    <li>icon - required and reactive attribute.</li>
-    <li>The SVG color inherits the font color from the parent element (currentColor).</li>
-  </ul>
+  <ui-divider></ui-divider>
+  <div class="info">
+    <h3>Features</h3>
+    <ul>
+      <li>The SVG color inherits the font color from the parent (ui-icon) element (currentColor).</li>
+    </ul>
+  </div>
+  <div class="info">
+    <h3>Attributes</h3>
+    <ul>
+      <li>icon - required and reactive attribute.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="content">
   <span>Icon.</span>
   <div class="example">
+    <div class="toolbar">
+      <ui-button height="28" onclick="changeIconName()" label="Reactivity Test"></ui-button>
+    </div>
     <div class="preview">
       <ui-icon icon="home"></ui-icon>
     </div>
@@ -18,3 +30,20 @@
     </code>
   </div>
 </section>
+
+<script>
+  function changeIconAttribute(attribute,values){
+    const iconBlock = document.querySelector('ui-icon:first-child');
+    if(!iconBlock) return;
+
+    const currentValue = iconBlock.getAttribute(attribute);
+    const currentIndex = values.indexOf(currentValue);
+    const nextIndex = (currentIndex + 1) % values.length;
+    const nextValue = values[nextIndex];
+
+    iconBlock.setAttribute(attribute, nextValue);
+  }
+
+  function changeIconName(){
+    changeIconAttribute('icon',['search','send','gear']);}
+</script>

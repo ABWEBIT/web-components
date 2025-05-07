@@ -1,19 +1,27 @@
 <section class="intro">
-  <div class="title">Input Field</div>
-  <div class="description">The input field allows the user to enter and edit text.</div>
-  <ul>
-    <li>Supports LTR and RTL.</li>
-    <li>type - the type of input, default is text.</li>
-    <li>placeholder - static, optional attribute. Placeholder text.</li>
-    <li>icon-leading and icon-trailing - reactive, optional attributes. Define the icon names displayed before and after the field, respectively.</li>
-    <li>height - static, optional attribute. Field height (number), default is 32, measured in pixels. (Recommended: 24 to 40). Even numbers are preferred.</li>
-    <li>Font size adjusts automatically, calculated by the formula "button height / 2".</li>
-    <li>clearable - static, optional attribute that adds a clear button to the field.</li>
-    <li>disabled - reactive, optional attribute that controls the component’s state (enabled/disabled).</li>
-    <li>required - static, optional attribute that defines whether the field is required or not.</li>
-    <li>Font size is calculated as "button height / 2 - 2", but no less than 12px and no more than 16px.</li>
-    <li>Corner rounding is calculated as "button height / 4".</li>
-  </ul>
+  <h1>Input</h1>
+  <span class="description">The input allows the user to enter and edit text.</span>
+  <ui-divider></ui-divider>
+  <div class="info">
+    <h3>Features</h3>
+    <ul>
+      <li>Supports LTR and RTL.</li>
+      <li>Font size is calculated as "button height / 2 - 2px", but no less than 12px and no more than 16px.</li>
+      <li>Corner rounding is calculated as "button height / 4".</li>
+    </ul>
+  </div>
+  <div class="info">
+    <h3>Attributes</h3>
+    <ul>
+      <li>type - static, optional. Default: "text".</li>
+      <li>placeholder - static, optional.</li>
+      <li>icon-leading and icon-trailing - reactive, optional. Define the icon names.</li>
+      <li>height - static, optional. Default: 32, measured in pixels. Recommended: 24 to 40 pixels. Even numbers are preferred.</li>
+      <li>clearable - static, optional. Adds a clear button to the field.</li>
+      <li>disabled - reactive, optional. Controls the component's state (enabled/disabled).</li>
+      <li>required - static, optional. Defines whether the field is required or not.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="content">

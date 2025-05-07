@@ -20,6 +20,7 @@ class UIButton extends UIBase{
     if(!(this.#label = String(value || ''))) return;
     this.updateText('span',this.#label);
     this.reflect('label',this.#label);
+    this.setAttribute('aria-label',this.#label);
   }
 
   get iconLeading(){return this.#iconLeading;}
