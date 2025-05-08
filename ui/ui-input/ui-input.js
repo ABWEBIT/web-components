@@ -37,10 +37,7 @@ class UIInput extends UIBase{
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
-    const input = this.querySelector('input');
-    if(!input) return;
-    if(this.#disabled) input.setAttribute('tabindex','-1');
-    else input.removeAttribute('tabindex');
+    this.tabindex();
   }
 
   connectedCallback(){
@@ -61,7 +58,7 @@ class UIInput extends UIBase{
       this.setAttribute('animated','');
       this.#input = this.querySelector('input');
       if(!this.#input) return;
-
+      this.tabindex();
       this.#input.addEventListener('input',this.#onInput);
       this.#input.addEventListener('focus',this.#onFocus);
       this.#input.addEventListener('blur',this.#onBlur);
@@ -77,6 +74,12 @@ class UIInput extends UIBase{
       const clear = this.querySelector('ui-icon[icon="cancel"]');
       if(clear) clear.addEventListener('click',this.#onClear);
     });
+  }
+
+  tabindex(){
+    if(!this.#input) return;
+    if(this.#disabled) this.#input.setAttribute('tabindex','-1');
+    else this.#input.removeAttribute('tabindex');
   }
 
   onInput(){

@@ -1,13 +1,14 @@
 <section class="intro">
   <h1>Input</h1>
-  <span class="description">The input allows the user to enter and edit text.</span>
+  <span class="description">Allows users to enter and edit text.</span>
   <ui-divider></ui-divider>
   <div class="info">
     <h3>Features</h3>
     <ul>
       <li>Supports LTR and RTL.</li>
-      <li>Font size is calculated as "button height / 2 - 2px", but no less than 12px and no more than 16px.</li>
+      <li>Font size is "button height / 2", capped between 12px and 16px.</li>
       <li>Corner rounding is calculated as "button height / 4".</li>
+      <li>A visible outline appears on focused input.</li>
     </ul>
   </div>
   <div class="info">
@@ -17,9 +18,9 @@
       <li>placeholder - static, optional.</li>
       <li>icon-leading and icon-trailing - reactive, optional. Define the icon names.</li>
       <li>height - static, optional. Default: 32, measured in pixels. Recommended: 24 to 40 pixels. Even numbers are preferred.</li>
-      <li>clearable - static, optional. Adds a clear button to the field.</li>
+      <li>clearable - static, optional. Adds a clear button.</li>
       <li>disabled - reactive, optional. Controls the component's state (enabled/disabled).</li>
-      <li>required - static, optional. Defines whether the field is required or not.</li>
+      <li>required - static, optional. Defines whether the input is required or not.</li>
     </ul>
   </div>
 </section>

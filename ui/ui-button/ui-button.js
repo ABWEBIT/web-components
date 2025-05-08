@@ -42,6 +42,7 @@ class UIButton extends UIBase{
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
+    this.tabindex();
   }
 
   connectedCallback(){
@@ -59,17 +60,20 @@ class UIButton extends UIBase{
     this.addEventListener('keydown',this.#onKeyDown);
 
     requestAnimationFrame(()=>{
+      this.tabindex();
       this.setAttribute('animated','');
       this.setAttribute('role','button');
-      if(this.#disabled) this.setAttribute('tabindex','-1')
-      else this.setAttribute('tabindex','0')
     });
-
   }
 
   disconnectedCallback(){
     this.removeEventListener('click',this.#onClick);
     this.removeEventListener('keydown',this.#onKeyDown);
+  }
+
+  tabindex(){
+    if(this.#disabled) this.setAttribute('tabindex','-1');
+    else this.setAttribute('tabindex','0');
   }
 
   onClick(e){
@@ -87,7 +91,7 @@ class UIButton extends UIBase{
   }
 
   doAction(e){
-    console.log(e.type);
+    //console.log(e.type);
   }
 
 }

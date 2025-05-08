@@ -24,10 +24,7 @@ class UISwitch extends UIBase{
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
-    const input = this.querySelector('input');
-    if(!input) return;
-    if(this.#disabled) input.setAttribute('tabindex','-1');
-    else input.removeAttribute('tabindex');
+    this.tabindex();
   }
 
   connectedCallback(){
@@ -45,7 +42,14 @@ class UISwitch extends UIBase{
 
     this.#button.addEventListener('click',this.#onChange);
     requestAnimationFrame(()=>{
-      this.setAttribute('animated','')
+      this.setAttribute('animated','');
+      this.setAttribute('role','button');
+      if(this.#disabled) this.setAttribute('tabindex','-1');
+      else this.setAttribute('tabindex','0');
+
+      this.#input = this.querySelector('input');
+      if(!this.#input) return;
+      this.#input.setAttribute('tabindex','-1');
     });
   }
 
@@ -53,9 +57,13 @@ class UISwitch extends UIBase{
     this.#button.removeEventListener('click',this.#onChange);
   }
 
+  tabindex(){
+    if(this.#disabled) this.setAttribute('tabindex','-1');
+    else this.setAttribute('tabindex','0');
+  }
+
   onChange(){
     if(this.#disabled) return;
-    this.#input = this.querySelector('input');
     if(this.#input.checked) this.#input.setAttribute('checked','');
     else this.#input.removeAttribute('checked');
   }
