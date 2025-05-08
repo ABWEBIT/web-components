@@ -31,7 +31,8 @@ ui-button[animated]{
 ui-button:focus-visible:not([disabled]){
   outline-color:var(--rgb-100-100-100);}
 
-ui-button:active:not([disabled]){
+ui-button:active:not([disabled]),
+ui-button[active]:not([disabled]){
   background-color:var(--rgb-50-50-50);}
 
 ui-button[label] > span{

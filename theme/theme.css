@@ -107,12 +107,12 @@ nav .static{
   min-height:50px;}
 
 nav .menuTitle{
-  font-size:var(--font-size-medium);}
+  font-size:var(--ui-font-size-medium);}
 
 nav .menuItem{
   display:block;
   cursor:pointer;
-  font-size:var(--font-size-small);
+  font-size:var(--ui-font-size-small);
   color:rgb(175,175,175);}
 
 nav span{

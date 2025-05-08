@@ -11,17 +11,15 @@
   <div class="info">
     <h3>Attributes</h3>
     <ul>
-      <li>label - optional attribute, a continuous string.</li>
-      <li>axis - defines the axis. Default is "x" (lowercase).</li>
-      <li>axis="x" - horizontal divider, 100% width.</li>
-      <li>axis="y" - vertical divider, 100% height.</li>
-      <li>text-align - text alignment: "start" or "end". Center by default.</li>
+      <li>label - reactive, optional. Continuous string. (nowrap)</li>
+      <li>axis - static. Divider direction (x | y). Default: x (width: 100%); y (height: 100%).</li>
+      <li>text-align - text alignment: "start"; "end". Default: center.</li>
     </ul>
   </div>
 </section>
 
 <section class="content">
-  <span>Horizontal divider. 100% width.</span>
+  <span>Horizontal divider. axis="x" | 100% width.</span>
   <div class="example">
     <div class="preview">
       <ui-divider></ui-divider>
@@ -61,7 +59,7 @@
     </code>
   </div>
 
-  <span>Vertical divider. 100% height.</span>
+  <span>Vertical divider. axis="y" | 100% height.</span>
   <div class="example">
     <div class="preview" style="height:150px;">
       <ui-divider axis="y"></ui-divider>

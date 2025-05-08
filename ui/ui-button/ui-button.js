@@ -7,6 +7,7 @@ class UIButton extends UIBase{
   #disabled = false;
 
   #onClick = this.onClick.bind(this);
+  #onKeyDown = this.onKeyDown.bind(this);
 
   static properties = Object.freeze({
     'icon-leading':{name:'iconLeading',type:String,reflect:true},
@@ -20,7 +21,7 @@ class UIButton extends UIBase{
     if(!(this.#label = String(value || ''))) return;
     this.updateText('span',this.#label);
     this.reflect('label',this.#label);
-    this.setAttribute('aria-label',this.#label);
+    if(!this.hasAttribute('aria-label')) this.setAttribute('aria-label',this.#label);
   }
 
   get iconLeading(){return this.#iconLeading;}
@@ -55,7 +56,7 @@ class UIButton extends UIBase{
     `;
 
     this.addEventListener('click',this.#onClick);
-
+    this.addEventListener('keydown',this.#onKeyDown);
 
     requestAnimationFrame(()=>{
       this.setAttribute('animated','');
@@ -68,11 +69,25 @@ class UIButton extends UIBase{
 
   disconnectedCallback(){
     this.removeEventListener('click',this.#onClick);
+    this.removeEventListener('keydown',this.#onKeyDown);
   }
 
-  onClick(){
+  onClick(e){
     if(this.#disabled) return;
-    //console.log('click');
+    this.doAction(e);
+  }
+
+  onKeyDown(e){
+    if(e.code !== 'Tab') e.preventDefault();
+    if(this.#disabled) return;
+    if(e.repeat) return;
+    if(e.code === 'Enter' || e.code === 'Space'){
+      this.doAction(e);
+    }
+  }
+
+  doAction(e){
+    console.log(e.type);
   }
 
 }
