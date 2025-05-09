@@ -42,6 +42,8 @@ class UIInput extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.setAttribute('animated','');
+
     let height = parseInt(this.getAttribute('height'),10) || 32;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
@@ -55,7 +57,7 @@ class UIInput extends UIBase{
     `;
 
     requestAnimationFrame(()=>{
-      this.setAttribute('animated','');
+
       this.#input = this.querySelector('input');
       if(!this.#input) return;
       this.tabindex();
