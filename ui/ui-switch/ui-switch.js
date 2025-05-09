@@ -6,7 +6,8 @@ class UISwitch extends UIBase{
   #label = '';
   #disabled = false;
 
-  #onChange = this.onChange.bind(this);
+  #onClick = this.onClick.bind(this);
+  #onKeyDown = this.onKeyDown.bind(this);
 
   static properties = Object.freeze({
     'label':{name:'label',type:String,reflect:true},
@@ -33,19 +34,17 @@ class UISwitch extends UIBase{
     this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.innerHTML = `
-      <label>
-        <input type="checkbox">
-      </label>
+      <div></div>
+      ${this.#label ? '<span></span>' : ''}
     `;
 
-    this.#button = this.querySelector('label');
+    this.addEventListener('click',this.#onClick);
+    this.addEventListener('keydown',this.#onKeyDown);
 
-    this.#button.addEventListener('click',this.#onChange);
     requestAnimationFrame(()=>{
+      this.tabindex();
       this.setAttribute('animated','');
-      this.setAttribute('role','button');
-      if(this.#disabled) this.setAttribute('tabindex','-1');
-      else this.setAttribute('tabindex','0');
+      this.setAttribute('role','switch');
 
       this.#input = this.querySelector('input');
       if(!this.#input) return;
@@ -54,7 +53,7 @@ class UISwitch extends UIBase{
   }
 
   disconnectedCallback(){
-    this.#button.removeEventListener('click',this.#onChange);
+    this.#button.removeEventListener('click',this.#onClick);
   }
 
   tabindex(){
@@ -62,10 +61,22 @@ class UISwitch extends UIBase{
     else this.setAttribute('tabindex','0');
   }
 
-  onChange(){
+  onClick(e){
     if(this.#disabled) return;
-    if(this.#input.checked) this.#input.setAttribute('checked','');
-    else this.#input.removeAttribute('checked');
+    this.doAction(e);
+  }
+
+  onKeyDown(e){
+    if(e.code !== 'Tab') e.preventDefault();
+    if(this.#disabled) return;
+    if(e.repeat) return;
+    if(e.code === 'Enter' || e.code === 'Space'){
+      this.doAction(e);
+    }
+  }
+
+  doAction(e){
+    console.log(e.type);
   }
 
 }

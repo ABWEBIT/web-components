@@ -15,19 +15,14 @@ ui-switch{
 ui-switch[animated]{
   transition-property:background-color,color,left,right;}
 
-ui-switch > label{
-  position:relative;
-  display:inline-flex;
-  height:100%;
-  width:100%;}
+ui-switch > span{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;}
 
-ui-switch > label > input[type="checkbox"]{
-  position:absolute;
-  opacity:0;
-  width:0;
-  height:0;}
 
-ui-switch > label::after{
+
+ui-switch::after{
   content:'';
   position:absolute;
   height:calc(var(--ui-object-height) - var(--ui-object-height) / 6);
