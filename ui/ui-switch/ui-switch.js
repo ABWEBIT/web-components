@@ -30,6 +30,10 @@ class UISwitch extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.tabindex();
+    this.setAttribute('role','switch');
+    this.setAttribute('animated','');
+
     let height = parseInt(this.getAttribute('height'),10) || 24;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
@@ -40,20 +44,11 @@ class UISwitch extends UIBase{
 
     this.addEventListener('click',this.#onClick);
     this.addEventListener('keydown',this.#onKeyDown);
-
-    requestAnimationFrame(()=>{
-      this.tabindex();
-      this.setAttribute('animated','');
-      this.setAttribute('role','switch');
-
-      this.#input = this.querySelector('input');
-      if(!this.#input) return;
-      this.#input.setAttribute('tabindex','-1');
-    });
   }
 
   disconnectedCallback(){
-    this.#button.removeEventListener('click',this.#onClick);
+    this.removeEventListener('click',this.#onClick);
+    this.removeEventListener('keydown',this.#onKeyDown);
   }
 
   tabindex(){

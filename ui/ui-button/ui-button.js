@@ -47,6 +47,10 @@ class UIButton extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.tabindex();
+    this.setAttribute('role','button');
+    this.setAttribute('animated','');
+
     let height = parseInt(this.getAttribute('height'),10) || 32;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
@@ -58,12 +62,6 @@ class UIButton extends UIBase{
 
     this.addEventListener('click',this.#onClick);
     this.addEventListener('keydown',this.#onKeyDown);
-
-    requestAnimationFrame(()=>{
-      this.tabindex();
-      this.setAttribute('animated','');
-      this.setAttribute('role','button');
-    });
   }
 
   disconnectedCallback(){
@@ -91,7 +89,7 @@ class UIButton extends UIBase{
   }
 
   doAction(e){
-    //console.log(e.type);
+    console.log(e.type);
   }
 
 }
