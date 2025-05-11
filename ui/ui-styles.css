@@ -26,9 +26,6 @@
 [ui][disabled] *{
   pointer-events:none;}
 
-[ui][animated]{
-  transition-duration:var(--ui-transition-duration);}
-
 [ui] input::-ms-reveal{
   display:none;}
 

@@ -8,15 +8,14 @@ class UISwitch extends UIBase{
   #onKeyDown = this.onKeyDown.bind(this);
 
   static properties = Object.freeze({
-    'checked':{name:'checked',type:Boolean,reflect:true},
+    'aria-checked':{name:'aria-checked',type:String,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
   get checked(){return this.#checked;}
   set checked(value){
     this.#checked = value === true;
-    this.reflect('checked',this.#checked);
-    this.aria();
+    this.reflect('aria-checked',this.#checked ? 'true' : 'false');
   }
 
   get disabled(){return this.#disabled;}
@@ -28,10 +27,10 @@ class UISwitch extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.tabindex();
-    this.aria();
-    this.setAttribute('role','switch');
     this.setAttribute('animated','');
+    this.tabindex();
+    this.setAttribute('role','switch');
+    this.checked = this.getAttribute('aria-checked') === 'true';
 
     let height = parseInt(this.getAttribute('height'),10) || 24;
     this.style.setProperty('--ui-object-height',`${height}px`);
@@ -66,13 +65,11 @@ class UISwitch extends UIBase{
     if(e.code !== 'Tab') e.preventDefault();
     if(this.#disabled) return;
     if(e.repeat) return;
-    if(e.code === 'Enter' || e.code === 'Space'){
-      this.doAction(e);
-    }
+    if(e.code === 'Enter' || e.code === 'Space') this.doAction(e);
   }
 
   doAction(e){
-    this.toggleAttribute('checked');
+    this.checked = !this.#checked;
     console.log(e.type);
   }
 

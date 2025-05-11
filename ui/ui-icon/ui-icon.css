@@ -7,6 +7,7 @@ ui-icon{
   height:20px;}
 
 ui-icon[animated]{
+  transition-duration:var(--ui-transition-duration);
   transition-property:color;}
 
 ui-icon > svg{

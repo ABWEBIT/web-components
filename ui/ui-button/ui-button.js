@@ -83,9 +83,7 @@ class UIButton extends UIBase{
     if(e.code !== 'Tab') e.preventDefault();
     if(this.#disabled) return;
     if(e.repeat) return;
-    if(e.code === 'Enter' || e.code === 'Space'){
-      this.doAction(e);
-    }
+    if(e.code === 'Enter' || e.code === 'Space') this.doAction(e);
   }
 
   doAction(e){

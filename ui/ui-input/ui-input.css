@@ -15,6 +15,7 @@ ui-input{
   overflow:hidden;}
 
 ui-input[animated]{
+  transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color,outline-color;}
 
 ui-input input{

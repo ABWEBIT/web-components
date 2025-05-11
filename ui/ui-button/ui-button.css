@@ -12,12 +12,13 @@ ui-button{
   outline-style:solid;
   outline-color:transparent;
   color:var(--rgb-175-175-175);
-  background-color:var(--rgb-25-25-25);
+  background-color:rgb(25,25,25);
   text-align:center;
   cursor:pointer;
   overflow:hidden;}
 
 ui-button[animated]{
+  transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}
 
 @media (hover:hover){
