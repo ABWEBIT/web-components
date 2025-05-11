@@ -11,8 +11,14 @@
   <div class="info">
     <h3>Attributes</h3>
     <ul>
-      <li>label - reactive, optional.</li>
-      <li>aria-label - static, required.</li>
+      <li>label - reactive, optional.
+        <br>Continuous string. (nowrap)</li>
+      <li>aria-label - static, required.
+        <br>This attribute is added automatically for buttons with a label attribute and you can override it manually. If there is no label, the aria-label must be set manually.</li>
+      <li>height - static, optional. Default: 32.
+        <br>Switch height (number). Measured in pixels. Recommended: 16 to 24. Even numbers are preferable.</li>
+      <li>disabled - reactive, optional.
+        <br>Controls whether the component is enabled or disabled.</li>
     </ul>
   </div>
 </section>

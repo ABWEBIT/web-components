@@ -21,7 +21,6 @@ class UIButton extends UIBase{
     if(!(this.#label = String(value || ''))) return;
     this.updateText('span',this.#label);
     this.reflect('label',this.#label);
-    if(!this.hasAttribute('aria-label')) this.setAttribute('aria-label',this.#label);
   }
 
   get iconLeading(){return this.#iconLeading;}
@@ -50,6 +49,7 @@ class UIButton extends UIBase{
     this.tabindex();
     this.setAttribute('role','button');
     this.setAttribute('animated','');
+    if(!this.hasAttribute('aria-label') && this.#label) this.setAttribute('aria-label',this.#label);
 
     let height = parseInt(this.getAttribute('height'),10) || 32;
     this.style.setProperty('--ui-object-height',`${height}px`);

@@ -4,9 +4,7 @@ ui-button{
   vertical-align:middle;
   justify-content:center;
   height:var(--ui-object-height);
-  column-gap:calc(
-    var(--ui-object-height) / 4
-  );
+  column-gap:calc(var(--ui-object-height) / 4);
   border:none;
   border-radius:calc(var(--ui-object-height) / 4);
   outline-offset:2px;
