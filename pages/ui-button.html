@@ -8,7 +8,7 @@
       <li>Supports LTR and RTL.</li>
       <li>At least one of these attributes is required to create a button: label, icon-leading, or icon-trailing.</li>
       <li>For a button with a single icon, use either icon-leading or icon-trailing.</li>
-      <li>Font size is "button height / 2", capped between 12px and 18px.</li>
+      <li>Font size is "button height / 2 - 2px", capped between 12px and 16px.</li>
       <li>Corner rounding is calculated as "button height / 4".</li>
       <li>A visible outline appears on focused buttons.</li>
       <li>The Tab key navigates between buttons. Action is triggered by click or pressing Enter/Space when focused.</li>
@@ -28,20 +28,6 @@
 </section>
 
 <section class="content">
-  <span>Height 24.</span>
-  <div class="example">
-    <div class="preview">
-      <ui-button icon-leading="gear" height="24" aria-label="Settings"></ui-button>
-      <ui-button label="Settings" height="24"></ui-button>
-      <ui-button icon-leading="gear" label="Settings" height="24"></ui-button>
-    </div>
-    <code>
-      <span>&lt;ui-button icon-leading="gear" height="24" aria-label="Settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button label="Settings" height="24"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button icon-leading="gear" label="Settings" height="24"&gt;&lt;/ui-button&gt;</span>
-    </code>
-  </div>
-
   <span>Height 32. (default height)</span>
   <div class="example">
     <div class="preview">
@@ -59,14 +45,14 @@
   <span>Height 40.</span>
   <div class="example">
     <div class="preview">
-      <ui-button icon-leading="gear" height="40" aria-label="Settings"></ui-button>
-      <ui-button label="Settings" height="40"></ui-button>
-      <ui-button icon-leading="gear" label="Settings" height="40"></ui-button>
+      <ui-button height="40" icon-leading="gear" aria-label="Settings"></ui-button>
+      <ui-button height="40" label="Settings"></ui-button>
+      <ui-button height="40" icon-leading="gear" label="Settings"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button icon-leading="gear" height="40" aria-label="Settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button label="Settings" height="40"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button icon-leading="gear" label="Settings" height="40"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button height="40" icon-leading="gear" aria-label="Settings"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button height="40" label="Settings" height="40"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button height="40" icon-leading="gear" label="Settings" height="40"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 

@@ -1,24 +1,22 @@
 import {UIBase} from '../ui-base/ui-base.js';
 
 class UISwitch extends UIBase{
-  #input;
-  #button;
-  #label = '';
+  #checked = false;
   #disabled = false;
 
   #onClick = this.onClick.bind(this);
   #onKeyDown = this.onKeyDown.bind(this);
 
   static properties = Object.freeze({
-    'label':{name:'label',type:String,reflect:true},
+    'checked':{name:'checked',type:Boolean,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
-  get label(){return this.#label;}
-  set label(value){
-    if(!(this.#label = String(value || ''))) return;
-    this.updateText('span',this.#label);
-    this.reflect('label',this.#label);
+  get checked(){return this.#checked;}
+  set checked(value){
+    this.#checked = value === true;
+    this.reflect('checked',this.#checked);
+    this.aria();
   }
 
   get disabled(){return this.#disabled;}
@@ -31,16 +29,14 @@ class UISwitch extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.tabindex();
+    this.aria();
     this.setAttribute('role','switch');
     this.setAttribute('animated','');
 
     let height = parseInt(this.getAttribute('height'),10) || 24;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
-    this.innerHTML = `
-      <div></div>
-      ${this.#label ? '<span></span>' : ''}
-    `;
+    this.innerHTML = ``;
 
     this.addEventListener('click',this.#onClick);
     this.addEventListener('keydown',this.#onKeyDown);
@@ -49,6 +45,11 @@ class UISwitch extends UIBase{
   disconnectedCallback(){
     this.removeEventListener('click',this.#onClick);
     this.removeEventListener('keydown',this.#onKeyDown);
+  }
+
+  aria(){
+    if(this.hasAttribute('checked')) this.setAttribute('aria-checked','true');
+    else this.setAttribute('aria-checked','false');
   }
 
   tabindex(){
@@ -71,6 +72,7 @@ class UISwitch extends UIBase{
   }
 
   doAction(e){
+    this.toggleAttribute('checked');
     console.log(e.type);
   }
 

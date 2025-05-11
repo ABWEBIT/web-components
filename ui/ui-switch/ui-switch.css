@@ -1,47 +1,43 @@
 ui-switch{
-  position:relative;
   display:inline-flex;
+  align-items:center;
   vertical-align:middle;
   height:var(--ui-object-height);
   width:calc(var(--ui-object-height) * 2);
   border:none;
-  border-radius:1000px;
-  color:var(--rgb-175-175-175);
-  background-color:var(--rgb-75-75-75);
+  border-radius:9999px;
+  outline-width:2px;
+  outline-offset:2px;
+  outline-style:solid;
+  outline-color:transparent;
+  background-color:var(--rgb-25-25-25);
   line-height:1;
   cursor:pointer;
   overflow:hidden;}
 
 ui-switch[animated]{
-  transition-property:background-color,color,left,right;}
+  transition-property:background-color,transform;}
 
-ui-switch > span{
-  white-space:nowrap;
-  text-overflow:ellipsis;
-  overflow:hidden;}
-
-
-ui-switch::after{
-  content:'';
-  position:absolute;
-  height:calc(var(--ui-object-height) - var(--ui-object-height) / 6);
-  width:calc(var(--ui-object-height) - var(--ui-object-height) / 6);
-  border-radius:1000px;
-  background-color:var(--rgb-255-255-255);
-  transform:translateX(0);
-  transition-property:transform;
-  transition-duration:var(--ui-transition-duration);}
-
-ui-switch[checked]{
-  background-color: #2196F3;
-}
-
-ui-switch > label:has(input:focus)::before{
-  outline-width:2px;
-  outline-offset:2px;
-  outline-style:solid;
+ui-switch:focus-visible:not([disabled]){
   outline-color:var(--rgb-100-100-100);}
 
-ui-switch > label:has(input:checked)::after{
-  transform:translateX(100%);
-}
+ui-switch::before{
+  content:'';
+  height:calc(var(--ui-object-height) - (var(--ui-object-height) / 4));
+  aspect-ratio:1;
+  border-radius:50%;
+  background-color:var(--color-white);
+  transition-property:transform;
+  transition-duration:var(--ui-transition-duration);
+  will-change:transform;
+  transform:translateX(
+    calc(var(--ui-object-height) / 8)
+  );}
+
+ui-switch[checked]::before{
+  transform:translateX(
+    calc(var(--ui-object-height) + (var(--ui-object-height) / 8))
+  );}
+
+ui-switch[checked]{
+  background-color:rgb(35,150,245);}

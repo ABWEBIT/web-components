@@ -4,8 +4,9 @@ ui-button{
   vertical-align:middle;
   justify-content:center;
   height:var(--ui-object-height);
-  padding-inline:calc(var(--ui-object-height) / 4);
-  column-gap:calc(var(--ui-object-height) / 4 - 2px);
+  column-gap:calc(
+    var(--ui-object-height) / 4
+  );
   border:none;
   border-radius:calc(var(--ui-object-height) / 4);
   outline-offset:2px;
@@ -14,13 +15,12 @@ ui-button{
   outline-color:transparent;
   color:var(--rgb-175-175-175);
   background-color:var(--rgb-25-25-25);
-  line-height:1;
   text-align:center;
   cursor:pointer;
   overflow:hidden;}
 
 ui-button[animated]{
-  transition-property:background-color,color,outline-color;}
+  transition-property:background-color,outline-color,color;}
 
 @media (hover:hover){
   ui-button:hover:not([disabled]){
@@ -38,12 +38,18 @@ ui-button[active]:not([disabled]){
 ui-button[label] > span{
   font-size:clamp(
     var(--ui-font-size-x-small),
-    calc(var(--ui-object-height) / 2),
-    var(--ui-font-size-large)
+    calc(var(--ui-object-height) / 2 - 2px),
+    var(--ui-font-size-medium)
   );
   white-space:nowrap;
   text-overflow:ellipsis;
   overflow:hidden;}
+
+ui-button[label]{
+  padding-inline:calc(var(--ui-object-height) / 2);}
+
+ui-button:not([label]){
+  padding-inline:calc(var(--ui-object-height) / 4);}
 
 ui-button > ui-icon{
   flex-grow:0!important;
