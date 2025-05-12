@@ -1,0 +1,42 @@
+ui-checkbox{
+  display:inline-flex;
+  align-items:center;
+  vertical-align:middle;
+  height:var(--ui-object-height);
+  width:calc(var(--ui-object-height) * 2);
+  padding:calc(var(--ui-object-height) / 6);
+  border:none;
+  border-radius:var(--ui-border-radius-pill);
+  outline-width:2px;
+  outline-offset:2px;
+  outline-style:solid;
+  outline-color:transparent;
+  background-color:rgb(100,100,100);
+  line-height:1;
+  cursor:pointer;
+  overflow:hidden;}
+
+ui-checkbox[animated]{
+  transition-duration:var(--ui-transition-duration);
+  transition-property:background-color;}
+
+ui-checkbox:focus-visible:not([disabled]){
+  outline-color:var(--rgb-100-100-100);}
+
+ui-checkbox::before{
+  content:'';
+  height:100%;
+  aspect-ratio:1;
+  border-radius:var(--ui-border-radius-circle);
+  background-color:var(--ui-color-white);
+  transition-duration:var(--ui-transition-duration);
+  transition-property:transform;
+  transform:translateX(0);}
+
+ui-checkbox[aria-checked="true"]::before{
+  transform:translateX(
+    calc(var(--ui-object-height))
+  );}
+
+ui-checkbox[aria-checked="true"]{
+  background-color:rgb(35,150,245);}
