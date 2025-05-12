@@ -41,6 +41,7 @@ class UIButton extends UIBase{
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
+    this.setAttribute('aria-disabled',this.#disabled ? 'true' : 'false');
     this.tabindex();
   }
 
@@ -49,6 +50,7 @@ class UIButton extends UIBase{
     this.tabindex();
     this.setAttribute('role','button');
     this.setAttribute('animated','');
+    this.disabled = this.getAttribute('disabled') !== null;
     if(!this.hasAttribute('aria-label') && this.#label) this.setAttribute('aria-label',this.#label);
 
     let height = parseInt(this.getAttribute('height'),10) || 32;
