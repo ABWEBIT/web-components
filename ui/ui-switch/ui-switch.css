@@ -4,8 +4,9 @@ ui-switch{
   vertical-align:middle;
   height:var(--ui-object-height);
   width:calc(var(--ui-object-height) * 2);
+  padding:calc(var(--ui-object-height) / 6);
   border:none;
-  border-radius:9999px;
+  border-radius:var(--ui-border-radius-pill);
   outline-width:2px;
   outline-offset:2px;
   outline-style:solid;
@@ -24,19 +25,17 @@ ui-switch:focus-visible:not([disabled]){
 
 ui-switch::before{
   content:'';
-  height:calc(var(--ui-object-height) - (var(--ui-object-height) / 4));
+  height:100%;
   aspect-ratio:1;
-  border-radius:50%;
-  background-color:var(--color-white);
+  border-radius:var(--ui-border-radius-circle);
+  background-color:var(--ui-color-white);
   transition-duration:var(--ui-transition-duration);
   transition-property:transform;
-  transform:translateX(
-    calc(var(--ui-object-height) / 8)
-  );}
+  transform:translateX(0);}
 
 ui-switch[aria-checked="true"]::before{
   transform:translateX(
-    calc(var(--ui-object-height) + (var(--ui-object-height) / 8))
+    calc(var(--ui-object-height))
   );}
 
 ui-switch[aria-checked="true"]{

@@ -8,20 +8,22 @@ class UISwitch extends UIBase{
   #onKeyDown = this.onKeyDown.bind(this);
 
   static properties = Object.freeze({
-    'aria-checked':{name:'aria-checked',type:String,reflect:true},
+    'checked':{name:'checked',type:Boolean,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
   get checked(){return this.#checked;}
   set checked(value){
     this.#checked = value === true;
-    this.reflect('aria-checked',this.#checked ? 'true' : 'false');
+    this.reflect('checked',this.#checked);
+    this.setAttribute('aria-checked',this.#checked ? 'true' : 'false');
   }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
+    this.setAttribute('aria-disabled',this.#disabled ? 'true' : 'false');
     this.tabindex();
   }
 
@@ -30,7 +32,8 @@ class UISwitch extends UIBase{
     this.setAttribute('animated','');
     this.tabindex();
     this.setAttribute('role','switch');
-    this.checked = this.getAttribute('aria-checked') === 'true';
+    this.checked = this.getAttribute('checked') !== null;
+    this.disabled = this.getAttribute('disabled') !== null;
 
     let height = parseInt(this.getAttribute('height'),10) || 24;
     this.style.setProperty('--ui-object-height',`${height}px`);
@@ -44,11 +47,6 @@ class UISwitch extends UIBase{
   disconnectedCallback(){
     this.removeEventListener('click',this.#onClick);
     this.removeEventListener('keydown',this.#onKeyDown);
-  }
-
-  aria(){
-    if(this.hasAttribute('checked')) this.setAttribute('aria-checked','true');
-    else this.setAttribute('aria-checked','false');
   }
 
   tabindex(){

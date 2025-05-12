@@ -10,9 +10,6 @@
   --text-align-start:start;
   --text-align-end:end;
 
-  --color-black:rgb(0,0,0);
-  --color-white:rgb(255,255,255);
-
   --rgb-255-255-255:rgb(255,255,255);
   --rgb-225-225-225:rgb(225,225,225);
   --rgb-175-175-175:rgb(175,175,175);
@@ -35,7 +32,7 @@
   --rgb-85-175-85:rgb(85,175,85);
   --rgb-210-175-20:rgb(210,175,20);
 
-
+  --color:rgb(35,150,245);
   --rgb-25-125-230:rgb(25,125,230);
   --rgb-0-125-255:rgb(0,125,255);
   --rgb-0-0-255:rgb(0,0,255);}
@@ -44,12 +41,6 @@
 
 }
 
-.text-align-left{text-align:var(--text-align-left);}
-.text-align-right{text-align:var(--text-align-right);}
-.text-align-center{text-align:var(--text-align-center);}
-.text-align-start{text-align:var(--text-align-start);}
-.text-align-end{text-align:var(--text-align-end);}
-
 *,*::after,*::before{
   -webkit-tap-highlight-color:rgba(0,0,0,0)!important;
   -webkit-tap-highlight-color:transparent!important;
@@ -57,7 +48,7 @@
 
 a{
   text-decoration:none;
-  color:var(--rgb-255-255-255);}
+  color:var(--ui-color-white);}
 
 iframe{border:none;}
 code{display:block;}
@@ -78,8 +69,8 @@ body{
   line-height:var(--line-height);
   font-family:var(--font-family);
   font-size:var(--ui-font-size-medium);
-  color:var(--rgb-255-255-255);
-  background-color:rgb(0,0,0);}
+  color:var(--ui-color-white);
+  background-color:var(--ui-color-black);}
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{
@@ -121,8 +112,8 @@ nav span{
   column-gap:10px;
   padding:5px 10px;
   font-size:100%;
-  border-radius:var(--ui-border-radius);
-  transition-duration:0.2s;
+  border-radius:var(--ui-border-radius-default);
+  transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color;}
 
 @media (hover:hover){
@@ -183,7 +174,8 @@ article{
 .content > .example{
   display:flex;
   flex-direction:column;
-  border-radius:var(--ui-border-radius);}
+  border-radius:var(--ui-border-radius-default);
+  overflow:hidden;}
 
 .content > .example{
   border:1px solid rgb(25,25,25);}
@@ -236,9 +228,9 @@ article .example code span{
   border-width:1px;
   border-style:solid;
   border-color:rgb(50,50,50);
-  border-radius:var(--ui-border-radius);
+  border-radius:var(--ui-border-radius-default);
   line-height:1;}
 
 .content.icons-pack > .example > .preview > .icon-card > .icon-name{
   color:rgb(175,175,175);
-  font-size:80%;}
+  font-size:var(--ui-font-size-x-small);}

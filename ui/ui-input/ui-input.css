@@ -23,7 +23,7 @@ ui-input input{
   flex-grow:1;
   border:none;
   outline:none;
-  color:var(--rgb-255-255-255);
+  color:var(--ui-color-white);
   background-color:transparent;
   direction:inherit;
   font-size:clamp(
@@ -54,7 +54,7 @@ ui-input ui-icon[icon="cancel"]{
     background-color:var(--rgb-35-35-35);}
 
   ui-input ui-icon[icon="cancel"]:hover{
-    color:var(--rgb-225-225-225);}
+    color:var(--ui-color-white);}
 }
 
 

@@ -6,13 +6,22 @@
 @import './ui-text/ui-text.css';
 
 :root{
+  /* font*/
   --ui-font-size-x-small:12px;
   --ui-font-size-small:14px;
   --ui-font-size-medium:16px;
   --ui-font-size-large:18px;
   --ui-font-size-x-large:20px;
 
-  --ui-border-radius:8px;
+  /* border */
+  --ui-border-radius-default:8px;
+  --ui-border-radius-pill:9999px;
+  --ui-border-radius-circle:50%;
+
+  /* color */
+  --ui-color-white:oklch(100% 0 0);
+  --ui-color-black:oklch(0% 0 0);
+
   --ui-transition-duration:0.2s;
 }
 

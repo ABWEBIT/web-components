@@ -24,7 +24,7 @@ ui-button[animated]{
 @media (hover:hover){
   ui-button:hover:not([disabled]){
     background-color:var(--rgb-40-40-40);
-    color:var(--rgb-225-225-225);}
+    color:var(--ui-color-white);}
 }
 
 ui-button:focus-visible:not([disabled]){
@@ -53,4 +53,8 @@ ui-button:not([label]){
 ui-button > ui-icon{
   flex-grow:0!important;
   width:fit-content;
-  height:clamp(12px,calc(var(--ui-object-height) / 2),20px);}
+  height:clamp(
+    12px,
+    calc(var(--ui-object-height) / 2),
+    20px
+  );}

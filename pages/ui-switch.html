@@ -3,75 +3,65 @@
   <span class="description">Switches provide a simple and user-friendly way to toggle between two states.</span>
   <ui-divider></ui-divider>
   <div class="info">
-    <h3>Features</h3>
+    <h2>Features</h2>
     <ul>
       <li>Supports LTR and RTL.</li>
+      <li>Accessible elements like aria-checked and aria-disabled are added automatically.</li>
     </ul>
   </div>
   <div class="info">
-    <h3>Attributes</h3>
+    <h2>Attributes</h2>
     <ul>
-      <li>label - reactive, optional.
-        <br>Continuous string. (nowrap)</li>
       <li>aria-label - static, required.
-        <br>This attribute is added automatically for buttons with a label attribute and you can override it manually. If there is no label, the aria-label must be set manually.</li>
-      <li>height - static, optional. Default: 32.
-        <br>Switch height (number). Measured in pixels. Recommended: 16 to 24. Even numbers are preferable.</li>
+        <br>The aria-label must be set manually.</li>
+      <li>height - static, optional. Default: 24.
+        <br>Switch height (number). Measured in pixels. Recommended: 16 to 32. Even numbers are preferable.</li>
+      <li>checked - reactive, required. Default: false.
+        <br>Controls the checked state of the component.</li>
       <li>disabled - reactive, optional.
-        <br>Controls whether the component is enabled or disabled.</li>
+        <br>Controls the disabled state of the component.</li>
     </ul>
   </div>
 </section>
 
 <section class="content">
-  <span>Height 24. (default height)</span>
-  <div class="example">
-    <div class="preview">
-      <ui-switch></ui-switch>
-    </div>
-    <code>
-      <span>&lt;ui-switch&gt;&lt;/ui-switch&gt;</span>
-    </code>
-  </div>
-
   <span>Height 16.</span>
   <div class="example">
     <div class="preview">
-      <ui-switch height="16"></ui-switch>
+      <ui-switch height="16" aria-label="Settings"></ui-switch>
     </div>
     <code>
-      <span>&lt;ui-switch height="16"&gt;&lt;/ui-switch&gt;</span>
+      <span>&lt;ui-switch height="16" aria-label="Settings"&gt;&lt;/ui-switch&gt;</span>
     </code>
   </div>
 
-  <span>Checked</span>
+  <span>Height 24. (default height)</span>
   <div class="example">
     <div class="preview">
-      <ui-switch checked></ui-switch>
+      <ui-switch aria-label="Settings"></ui-switch>
     </div>
     <code>
-      <span>&lt;ui-switch checked&gt;&lt;/ui-switch&gt;</span>
+      <span>&lt;ui-switch aria-label="Settings"&gt;&lt;/ui-switch&gt;</span>
+    </code>
+  </div>
+
+  <span>Checked.</span>
+  <div class="example">
+    <div class="preview">
+      <ui-switch checked aria-label="Settings"></ui-switch>
+    </div>
+    <code>
+      <span>&lt;ui-switch checked aria-label="Settings"&gt;&lt;/ui-switch&gt;</span>
     </code>
   </div>
 
   <span>Disabled.</span>
   <div class="example">
     <div class="preview">
-      <ui-switch checked disabled></ui-switch>
+      <ui-switch disabled aria-label="Settings"></ui-switch>
     </div>
     <code>
-      <span>&lt;ui-switch checked disabled&gt;&lt;/ui-switch&gt;</span>
+      <span>&lt;ui-switch disabled aria-label="Settings"&gt;&lt;/ui-switch&gt;</span>
     </code>
   </div>
-
-  <span>Switch with Label.</span>
-  <div class="example">
-    <div class="preview">
-      <ui-switch label="Label"></ui-switch>
-    </div>
-    <code>
-      <span>&lt;ui-switch label="Label"&gt;&lt;/ui-switch&gt;</span>
-    </code>
-  </div>
-
 </section>
