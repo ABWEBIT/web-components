@@ -12,7 +12,7 @@
       <li>Font size is "button height / 2 - 2px", capped between 12px and 16px.</li>
       <li>Corner rounding is calculated as "button height / 4".</li>
       <li>A visible outline appears on focused buttons.</li>
-      <li>The Tab key navigates between buttons. Action is triggered by click or pressing Enter/Space when focused.</li>
+      <li>Supports keyboard navigation: Tab to move, Enter/Space to trigger action.</li>
     </ul>
   </div>
 
@@ -24,7 +24,7 @@
       <li>aria-label - static, required.
         <br>This attribute is added automatically for buttons with a label attribute and you can override it manually. If there is no label, the aria-label must be set manually.</li>
       <li>icon-leading and icon-trailing - reactive, optional.
-        <br>Define the icon displayed before and after the label.</li>
+        <br>Define the icons displayed before and after the label, respectively.</li>
       <li>height - static, optional. Default: 32.
         <br>Button height (number). Measured in pixels. Recommended: 24 to 40. Even numbers are preferable.</li>
       <li>disabled - reactive, optional.
