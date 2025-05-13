@@ -45,7 +45,7 @@ class UICheckbox extends UIBase{
     this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.innerHTML = `
-      <ui-icon icon="check"></ui-icon>
+      <ui-icon height="${height}" icon="check"></ui-icon>
     `;
 
     this.addEventListener('click',this.#onClick);

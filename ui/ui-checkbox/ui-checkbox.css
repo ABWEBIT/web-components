@@ -4,7 +4,7 @@ ui-checkbox{
   align-items:center;
   vertical-align:middle;
   height:var(--ui-object-height);
-  width:var(--ui-object-height);
+  width:fit-content;
   aspect-ratio:1;
   border:2px solid rgb(100,100,100);
   border-radius:calc(var(--ui-object-height) / 4);
