@@ -4,9 +4,8 @@ ui-button{
   vertical-align:middle;
   justify-content:center;
   height:var(--ui-object-height);
-  column-gap:calc(var(--ui-object-height) / 4);
+  column-gap:calc(var(--ui-object-height) / 4 - 2px);
   border:none;
-  border-radius:calc(var(--ui-object-height) / 4);
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
@@ -16,6 +15,15 @@ ui-button{
   text-align:center;
   cursor:pointer;
   overflow:hidden;}
+
+ui-button[shape="rounded"]{
+  border-radius:calc(var(--ui-object-height) / 4);}
+
+ui-button[shape="pill"]{
+  border-radius:var(--ui-border-radius-pill);}
+
+ui-button[shape="square"]{
+  border-radius:none;}
 
 ui-button[animated]{
   transition-duration:var(--ui-transition-duration);
@@ -44,17 +52,23 @@ ui-button[label] > span{
   text-overflow:ellipsis;
   overflow:hidden;}
 
-ui-button[label]{
+ui-button[label]:not([icon-leading]):not([icon-trailing]),
+ui-button[label][icon-leading][icon-trailing]{
   padding-inline:calc(var(--ui-object-height) / 2);}
 
-ui-button:not([label]){
-  padding-inline:calc(var(--ui-object-height) / 4);}
+ui-button[label][icon-leading]:not([icon-trailing]){
+  padding-inline:calc(var(--ui-object-height) / 2 - 2px) calc(var(--ui-object-height) / 2);}
+
+ui-button[label][icon-trailing]:not([icon-leading]){
+  padding-inline:calc(var(--ui-object-height) / 2) calc(var(--ui-object-height) / 2 - 2px);}
+
+ui-button[icon-leading]:not([label]),
+ui-button[icon-trailing]:not([label]){
+  width:var(--ui-object-height);}
 
 ui-button > ui-icon{
-  flex-grow:0!important;
-  width:fit-content;
   height:clamp(
-    12px,
-    calc(var(--ui-object-height) / 2),
-    20px
+    18px,
+    calc(var(--ui-object-height) / 2 + 4px),
+    24px
   );}

@@ -1,6 +1,6 @@
 <section class="intro">
-  <h1>Switch</h1>
-  <span class="description">Switches provide a simple and user-friendly way to toggle between two states.</span>
+  <h1>Checkbox</h1>
+  <span class="description">Checkboxes allow users to select multiple items from a list or toggle a single option on or off.</span>
   <ui-divider></ui-divider>
   <div class="info">
     <h2>Features</h2>
@@ -18,7 +18,7 @@
         <br>The aria-label must be set manually.</li>
       <li>height - static, optional. Default: 24.
         <br>Component height is measured in pixels. Recommended range: 16 to 32. Even values are preferred.</li>
-      <li>checked - reactive, required. Default: false.
+      <li>checked - reactive, optional.
         <br>Controls the checked state of the component.</li>
       <li>disabled - reactive, optional.
         <br>Controls the disabled state of the component.</li>
@@ -30,40 +30,40 @@
   <span>Height 16.</span>
   <div class="example">
     <div class="preview">
-      <ui-switch height="16" aria-label="Settings"></ui-switch>
+      <ui-checkbox height="56" aria-label="Settings"></ui-checkbox>
     </div>
     <code>
-      <span>&lt;ui-switch height="16" aria-label="Settings"&gt;&lt;/ui-switch&gt;</span>
+      <span>&lt;ui-checkbox height="16" aria-label="Settings"&gt;&lt;/ui-checkbox&gt;</span>
     </code>
   </div>
 
   <span>Height 24. (default height)</span>
   <div class="example">
     <div class="preview">
-      <ui-switch aria-label="Settings"></ui-switch>
+      <ui-checkbox aria-label="Settings"></ui-checkbox>
     </div>
     <code>
-      <span>&lt;ui-switch aria-label="Settings"&gt;&lt;/ui-switch&gt;</span>
+      <span>&lt;ui-checkbox aria-label="Settings"&gt;&lt;/ui-checkbox&gt;</span>
     </code>
   </div>
 
   <span>Checked.</span>
   <div class="example">
     <div class="preview">
-      <ui-switch checked aria-label="Settings"></ui-switch>
+      <ui-checkbox checked aria-label="Settings"></ui-checkbox>
     </div>
     <code>
-      <span>&lt;ui-switch checked aria-label="Settings"&gt;&lt;/ui-switch&gt;</span>
+      <span>&lt;ui-checkbox checked aria-label="Settings"&gt;&lt;/ui-checkbox&gt;</span>
     </code>
   </div>
 
   <span>Disabled.</span>
   <div class="example">
     <div class="preview">
-      <ui-switch disabled aria-label="Settings"></ui-switch>
+      <ui-checkbox disabled aria-label="Settings"></ui-checkbox>
     </div>
     <code>
-      <span>&lt;ui-switch disabled aria-label="Settings"&gt;&lt;/ui-switch&gt;</span>
+      <span>&lt;ui-checkbox disabled aria-label="Settings"&gt;&lt;/ui-checkbox&gt;</span>
     </code>
   </div>
 </section>

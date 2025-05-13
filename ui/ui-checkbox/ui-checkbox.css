@@ -1,17 +1,18 @@
 ui-checkbox{
+  position:relative;
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
   height:var(--ui-object-height);
-  width:calc(var(--ui-object-height) * 2);
-  padding:calc(var(--ui-object-height) / 6);
-  border:none;
-  border-radius:var(--ui-border-radius-pill);
+  width:var(--ui-object-height);
+  aspect-ratio:1;
+  border:2px solid rgb(255,255,255);
+  border-radius:calc(var(--ui-object-height) / 4);
   outline-width:2px;
   outline-offset:2px;
   outline-style:solid;
   outline-color:transparent;
-  background-color:rgb(100,100,100);
+  background-color:transparent;
   line-height:1;
   cursor:pointer;
   overflow:hidden;}
@@ -23,20 +24,15 @@ ui-checkbox[animated]{
 ui-checkbox:focus-visible:not([disabled]){
   outline-color:var(--rgb-100-100-100);}
 
-ui-checkbox::before{
-  content:'';
-  height:100%;
-  aspect-ratio:1;
-  border-radius:var(--ui-border-radius-circle);
-  background-color:var(--ui-color-white);
-  transition-duration:var(--ui-transition-duration);
-  transition-property:transform;
-  transform:translateX(0);}
-
-ui-checkbox[aria-checked="true"]::before{
+ui-checkbox[checked]::before{
   transform:translateX(
     calc(var(--ui-object-height))
   );}
 
-ui-checkbox[aria-checked="true"]{
-  background-color:rgb(35,150,245);}
+ui-checkbox > ui-icon{
+  padding:calc(var(--ui-object-height) / 10);
+  aspect-ratio:1;
+  color:transparent;}
+
+ui-checkbox[checked] > ui-icon{
+  color:rgb(255,255,255);}

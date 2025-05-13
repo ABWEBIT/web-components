@@ -4,7 +4,7 @@ import {icons} from '../../lib/icons.js';
 class UIIcon extends UIBase{
   #icon = '';
 
-  static #viewBox = '0 0 20 20';
+  static #viewBox = '0 0 24 24';
   static #xmlns = 'http://www.w3.org/2000/svg';
   static #dRegex = /^[MmLlHhVvCcSsQqTtAaZz0-9\s.,-]+$/;
 
@@ -38,11 +38,14 @@ class UIIcon extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.setAttribute('animated','');
+
+    let height = parseInt(this.getAttribute('height'),10) || 24;
+    this.style.setProperty('--ui-object-height',`${height}px`);
+
     this.innerHTML = `
       <svg viewBox="${UIIcon.#viewBox}" xmlns="${UIIcon.#xmlns}"></svg>
     `;
-
-    requestAnimationFrame(()=>this.setAttribute('animated',''));
   }
 }
 customElements.define('ui-icon',UIIcon);

@@ -52,6 +52,7 @@ class UIButton extends UIBase{
     this.setAttribute('animated','');
     this.disabled = this.getAttribute('disabled') !== null;
     if(!this.hasAttribute('aria-label') && this.#label) this.setAttribute('aria-label',this.#label);
+    if(!this.hasAttribute('shape')) this.setAttribute('shape','rounded');
 
     let height = parseInt(this.getAttribute('height'),10) || 32;
     this.style.setProperty('--ui-object-height',`${height}px`);

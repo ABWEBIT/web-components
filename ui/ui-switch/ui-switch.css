@@ -33,10 +33,10 @@ ui-switch::before{
   transition-property:transform;
   transform:translateX(0);}
 
-ui-switch[aria-checked="true"]::before{
+ui-switch[checked]::before{
   transform:translateX(
     calc(var(--ui-object-height))
   );}
 
-ui-switch[aria-checked="true"]{
+ui-switch[checked]{
   background-color:rgb(35,150,245);}
