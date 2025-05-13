@@ -6,7 +6,7 @@ ui-checkbox{
   height:var(--ui-object-height);
   width:var(--ui-object-height);
   aspect-ratio:1;
-  border:2px solid rgb(255,255,255);
+  border:2px solid rgb(100,100,100);
   border-radius:calc(var(--ui-object-height) / 4);
   outline-width:2px;
   outline-offset:2px;
@@ -23,6 +23,9 @@ ui-checkbox[animated]{
 
 ui-checkbox:focus-visible:not([disabled]){
   outline-color:var(--rgb-100-100-100);}
+
+ui-checkbox:focus:not(:focus-visible){
+  outline:none;}
 
 ui-checkbox[checked]::before{
   transform:translateX(

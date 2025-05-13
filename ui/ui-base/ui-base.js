@@ -3,8 +3,11 @@ export class UIBase extends HTMLElement{
     return Object.keys(this.properties || {});
   }
 
-  connectedCallback() {
-    if(!this.hasAttribute('ui')) this.setAttribute('ui','');
+  connectedCallback(){
+    this.setAttributes(this,{
+      'ui':true,
+      'animated':true
+    });
   }
 
   attributeChangedCallback(name,oldValue,newValue){
