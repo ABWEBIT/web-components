@@ -52,23 +52,17 @@ ui-button[label] > span{
   text-overflow:ellipsis;
   overflow:hidden;}
 
-ui-button[label]:not([icon-leading]):not([icon-trailing]),
-ui-button[label][icon-leading][icon-trailing]{
+ui-button{
   padding-inline:calc(var(--ui-object-height) / 2);}
-
-ui-button[label][icon-leading]:not([icon-trailing]){
-  padding-inline:calc(var(--ui-object-height) / 2 - 2px) calc(var(--ui-object-height) / 2);}
-
-ui-button[label][icon-trailing]:not([icon-leading]){
-  padding-inline:calc(var(--ui-object-height) / 2) calc(var(--ui-object-height) / 2 - 2px);}
-
-ui-button[icon-leading]:not([label]),
-ui-button[icon-trailing]:not([label]){
-  width:var(--ui-object-height);}
 
 ui-button > ui-icon{
   height:clamp(
-    18px,
-    calc(var(--ui-object-height) / 2 + 4px),
-    24px
+    16px,
+    calc(var(--ui-object-height) / 2),
+    28px
+  );
+  width:clamp(
+    16px,
+    calc(var(--ui-object-height) / 2),
+    28px
   );}

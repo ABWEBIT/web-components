@@ -4,9 +4,9 @@ ui-checkbox{
   align-items:center;
   vertical-align:middle;
   height:var(--ui-object-height);
-  width:fit-content;
+  width:var(--ui-object-height);
   aspect-ratio:1;
-  border:2px solid rgb(100,100,100);
+  border:none;
   border-radius:calc(var(--ui-object-height) / 4);
   outline-width:2px;
   outline-offset:2px;
@@ -19,23 +19,26 @@ ui-checkbox{
 
 ui-checkbox[animated]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:background-color;}
+  transition-property:background-color,color;}
 
 ui-checkbox:focus-visible:not([disabled]){
   outline-color:var(--rgb-100-100-100);}
 
-ui-checkbox:focus:not(:focus-visible){
-  outline:none;}
-
-ui-checkbox[checked]::before{
-  transform:translateX(
-    calc(var(--ui-object-height))
-  );}
+ui-checkbox::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:calc(var(--ui-object-height) / 4);
+  border-width:2px;
+  border-style:solid;
+  border-color:rgb(100,100,100);}
 
 ui-checkbox > ui-icon{
+  position:absolute;
   padding:calc(var(--ui-object-height) / 10);
   aspect-ratio:1;
   color:transparent;}
 
-ui-checkbox[checked] > ui-icon{
+ui-checkbox[animated][checked] > ui-icon{
+  background-color:rgb(60,120,205);
   color:rgb(255,255,255);}

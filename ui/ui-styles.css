@@ -26,6 +26,10 @@
   --ui-transition-duration:0.2s;
 }
 
+[ui]{
+  user-select:none;
+  -webkit-user-select:none;}
+
 [ui],
 [ui] *{box-sizing:border-box!important;}
 
@@ -38,11 +42,3 @@
 
 [ui] input::-ms-reveal{
   display:none;}
-
-ui-icon,
-ui-divider,
-ui-button,
-ui-input,
-ui-switch{
-  user-select:none;
-  -webkit-user-select:none;}

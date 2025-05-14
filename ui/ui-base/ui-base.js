@@ -73,4 +73,10 @@ export class UIBase extends HTMLElement{
       obj.setAttribute('icon',icon);
     });
   }
+
+  onClick(e){
+    if(this.disabled) return;
+    if(typeof this.doAction === 'function') this.doAction(e);
+  }
+
 }

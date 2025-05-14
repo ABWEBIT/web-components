@@ -1,20 +1,24 @@
 ui-icon{
   display:inline-flex;
   align-items:center;
-  vertical-align:middle;
   justify-content:center;
+  vertical-align:middle;
+  flex-shrink:0;
   height:var(--ui-object-height);
-  width:fit-content;
-  aspect-ratio:1;}
+  width:var(--ui-object-height);
+  background-color:transparent;}
 
 ui-icon[animated]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:color;}
+  transition-property:background-color,color;}
 
 ui-icon > svg{
+  display:block;
   height:100%;
-  width:fit-content;
-  aspect-ratio:1;
+  width:100%;
   fill:currentColor;
+  stroke:currentColor;
+  stroke-width:0;
   shape-rendering:geometricPrecision;
-  pointer-events:none;}
+  pointer-events:none;
+  overflow:visible;}
