@@ -17,21 +17,47 @@
       <li>type - static, optional. Default: "text".</li>
       <li>placeholder - static, optional.</li>
       <li>icon-leading and icon-trailing - reactive, optional.
-        <br>Define the icons displayed before and after the input field, respectively.</li>
-      <li>height - static, optional. Default: 32.
+        <br>Define the icons displayed before and after the label, respectively.</li>
+      <li>height - static, optional. Default: 40.
         <br>Component height is measured in pixels. Recommended range: 24 to 40. Even values are preferred.</li>
       <li>clearable - static, optional.
         <br>Adds a clear button.</li>
-      <li>disabled - reactive, optional.
-        <br>Controls the disabled state of the component.</li>
       <li>required - static, optional.
         <br>Defines whether the input is required or not.</li>
+      <li>disabled - reactive, optional.
+        <br>Controls the disabled state of the component.</li>
+      <li>shape - static, optional. Default: rounded.
+        <br>A button can be rounded, pill, or square.</li>
     </ul>
   </div>
 </section>
 
 <section class="content">
-  <span>Height 32. (default height)</span>
+  <span>Shape. (default: rounded)</span>
+  <div class="example">
+    <div class="preview">
+      <ui-input shape="rounded" placeholder="shape=&quot;rounded&quot;"></ui-input>
+      <ui-input shape="pill" placeholder="shape=&quot;pill&quot;"></ui-input>
+      <ui-input shape="square" placeholder="shape=&quot;square&quot;"></ui-input>
+    </div>
+    <code>
+      <span>&lt;ui-input shape="rounded" label="rounded"&gt;&lt;/ui-input&gt;</span>
+      <span>&lt;ui-input shape="pill" label="pill"&gt;&lt;/ui-input&gt;</span>
+      <span>&lt;ui-input shape="square" label="square"&gt;&lt;/ui-input&gt;</span>
+    </code>
+  </div>
+
+  <span>Height 32.</span>
+  <div class="example">
+    <div class="preview">
+      <ui-input height="32"></ui-input>
+    </div>
+    <code>
+      &lt;ui-input height="32"&gt;&lt;/ui-input&gt;
+    </code>
+  </div>
+
+  <span>Height 40. (default height)</span>
   <div class="example">
     <div class="preview">
       <ui-input></ui-input>
@@ -41,17 +67,7 @@
     </code>
   </div>
 
-  <span>Height 40.</span>
-  <div class="example">
-    <div class="preview">
-      <ui-input height="40"></ui-input>
-    </div>
-    <code>
-      &lt;ui-input height="40"&gt;&lt;/ui-input&gt;
-    </code>
-  </div>
-
-  <span>Disabled field.</span>
+  <span>Disabled.</span>
   <div class="example">
     <div class="preview">
       <ui-input disabled></ui-input>
@@ -71,21 +87,23 @@
     </code>
   </div>
 
+  <span>Input with placeholder.</span>
   <div class="example">
     <div class="preview">
-      <ui-input icon-leading="article" type="email" placeholder="Email"></ui-input>
+      <ui-input placeholder="Search" clearable></ui-input>
     </div>
     <code>
-      &lt;ui-input icon-leading="article" type="email" placeholder="Email"&gt;&lt;/ui-input&gt;
+      &lt;ui-input placeholder="Search" clearable&gt;&lt;/ui-input&gt;
     </code>
   </div>
 
+  <span>Input with icon.</span>
   <div class="example">
     <div class="preview">
-      <ui-input placeholder="Password" icon-leading="article" icon-trailing="send" type="password" required></ui-input>
+      <ui-input placeholder="Search" icon-leading="search" clearable></ui-input>
     </div>
     <code>
-      &lt;ui-input placeholder="Password" icon-leading="article" icon-trailing="send" type="password" required&gt;&lt;/ui-input&gt;
+      &lt;ui-input placeholder="Search" icon-leading="search" clearable&gt;&lt;/ui-input&gt;
     </code>
   </div>
 

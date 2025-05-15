@@ -1,20 +1,32 @@
 ui-button{
   display:inline-flex;
   align-items:center;
-  vertical-align:middle;
   justify-content:center;
+  vertical-align:middle;
   height:var(--ui-object-height);
-  column-gap:calc(var(--ui-object-height) / 4 - 2px);
+  column-gap:calc(var(--ui-object-height) / 4);
+  padding-inline-start:calc(var(--ui-object-height) / 2);
+  padding-inline-end:calc(var(--ui-object-height) / 2);
   border:none;
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;
-  color:var(--rgb-175-175-175);
-  background-color:rgb(25,25,25);
+  color:rgb(175,175,175);
+  background-color:rgb(30,30,30);
   text-align:center;
   cursor:pointer;
   overflow:hidden;}
+
+ui-button:not([label]):not([icon-leading]),
+ui-button:not([label]):not([icon-trailing]){
+  width:var(--ui-object-height);}
+
+ui-button[label][icon-leading]:not([icon-trailing]){
+  padding-inline-start:calc(var(--ui-object-height) / 2 - 2px);}
+
+ui-button[label][icon-trailing]:not([icon-leading]){
+  padding-inline-end:calc(var(--ui-object-height) / 2 - 2px);}
 
 ui-button[shape="rounded"]{
   border-radius:calc(var(--ui-object-height) / 4);}
@@ -31,16 +43,16 @@ ui-button[animated]{
 
 @media (hover:hover){
   ui-button:hover:not([disabled]){
-    background-color:var(--rgb-40-40-40);
+    background-color:rgb(40,40,40);
     color:var(--ui-color-white);}
 }
 
 ui-button:focus-visible:not([disabled]){
-  outline-color:var(--rgb-100-100-100);}
+  outline-color:rgb(100,100,100);}
 
 ui-button:active:not([disabled]),
 ui-button[active]:not([disabled]){
-  background-color:var(--rgb-50-50-50);}
+  background-color:rgb(50,50,50);}
 
 ui-button[label] > span{
   font-size:clamp(
@@ -52,17 +64,14 @@ ui-button[label] > span{
   text-overflow:ellipsis;
   overflow:hidden;}
 
-ui-button{
-  padding-inline:calc(var(--ui-object-height) / 2);}
-
 ui-button > ui-icon{
   height:clamp(
     16px,
     calc(var(--ui-object-height) / 2),
-    28px
+    24px
   );
   width:clamp(
     16px,
     calc(var(--ui-object-height) / 2),
-    28px
+    24px
   );}

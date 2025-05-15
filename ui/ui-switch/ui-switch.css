@@ -21,7 +21,7 @@ ui-switch[animated]{
   transition-property:background-color;}
 
 ui-switch:focus-visible:not([disabled]){
-  outline-color:var(--rgb-100-100-100);}
+  outline-color:rgb(100,100,100);}
 
 ui-switch::before{
   content:'';

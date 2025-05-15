@@ -21,13 +21,13 @@
     <ul>
       <li>label - reactive, optional.
         <br>Continuous string. (nowrap)</li>
-      <li>aria-label - static, required.
-        <br>This attribute is added automatically for buttons with a label attribute and you can override it manually. If there is no label, the aria-label must be set manually.</li>
+      <li>aria-label - dynamic, required.
+        <br>The aria-label is auto-set from label (if present), but can be overridden. If there's no label, it must be set manually.</li>
       <li>icon-leading and icon-trailing - reactive, optional.
         <br>Define the icons displayed before and after the label, respectively.</li>
       <li>height - static, optional. Default: 32.
         <br>Component height is measured in pixels. Recommended range: 24 to 40. Even values are preferred.</li>
-      <li>disabled - reactive, optional. Default: false.
+      <li>disabled - reactive, optional.
         <br>Controls the disabled state of the component.</li>
       <li>shape - static, optional. Default: rounded.
         <br>A button can be rounded, pill, or square.</li>
@@ -39,60 +39,54 @@
   <span>Shape. (default: rounded)</span>
   <div class="example">
     <div class="preview">
-      <ui-button label="shape=&quot;rounded&quot;"></ui-button>
-      <ui-button label="shape=&quot;pill&quot;" shape="pill"></ui-button>
-      <ui-button label="shape=&quot;square&quot;" shape="square"></ui-button>
+      <ui-button shape="rounded" label="shape=&quot;rounded&quot;"></ui-button>
+      <ui-button shape="pill" label="shape=&quot;pill&quot;"></ui-button>
+      <ui-button shape="square" label="shape=&quot;square&quot;"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button label="rounded"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button label="pill" shape="pill"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button label="square" shape="square" &gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button shape="rounded" label="rounded"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button shape="pill" label="pill"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button shape="square" label="square"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
   <span>Height 24.</span>
   <div class="example">
     <div class="preview">
-      <ui-button height="24" icon-leading="settings" aria-label="Settings"></ui-button>
+      <ui-button height="24" aria-label="Settings" icon-leading="settings"></ui-button>
       <ui-button height="24" label="Settings"></ui-button>
-      <ui-button height="24" icon-leading="settings" label="Settings"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button height="24" icon-leading="settings" aria-label="Settings"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button height="24" aria-label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</span>
       <span>&lt;ui-button height="24" label="Settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button height="24" icon-leading="settings" label="Settings"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
   <span>Height 32. (default: 32)</span>
   <div class="example">
     <div class="preview">
-      <ui-button icon-leading="settings" aria-label="Settings"></ui-button>
+      <ui-button aria-label="Settings" icon-leading="settings"></ui-button>
       <ui-button label="Settings"></ui-button>
-      <ui-button icon-leading="settings" label="Settings"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button icon-leading="settings" aria-label="Settings"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button aria-label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</span>
       <span>&lt;ui-button label="Settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button icon-leading="settings" label="Settings"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
   <span>Height 40.</span>
   <div class="example">
     <div class="preview">
-      <ui-button height="40" icon-leading="settings" aria-label="Settings"></ui-button>
+      <ui-button height="40" aria-label="Settings" icon-leading="settings"></ui-button>
       <ui-button height="40" label="Settings"></ui-button>
-      <ui-button height="40" icon-leading="settings" label="Settings"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button height="40" icon-leading="settings" aria-label="Settings"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button height="40" aria-label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</span>
       <span>&lt;ui-button height="40" label="Settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button height="40" icon-leading="settings" label="Settings"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
-  <span>Disabled button.</span>
+  <span>Disabled.</span>
   <div class="example">
     <div class="preview">
       <ui-button label="Settings" disabled></ui-button>
@@ -105,22 +99,22 @@
   <span>Text and icon on one side.</span>
   <div class="example">
     <div class="preview">
-      <ui-button icon-leading="settings" label="Settings"></ui-button>
-      <ui-button icon-trailing="settings" label="Settings"></ui-button>
+      <ui-button label="Settings" icon-leading="article"></ui-button>
+      <ui-button label="Settings" icon-trailing="article"></ui-button>
     </div>
     <code>
-      <span>&lt;ui-button icon-leading="settings" label="Settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button icon-trailing="settings" label="Settings"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 
   <span>Text with icons on both sides.</span>
   <div class="example">
     <div class="preview">
-      <ui-button icon-leading="settings" icon-trailing="settings" label="Settings"></ui-button> 
+      <ui-button label="Settings" icon-leading="settings" icon-trailing="settings"></ui-button> 
     </div>
     <code>
-      <span>&lt;ui-button icon-leading="settings" icon-trailing="settings" label="Settings"&gt;&lt;/ui-button&gt;</span>
+      <span>&lt;ui-button label="Settings" icon-leading="settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</span>
     </code>
   </div>
 </section>

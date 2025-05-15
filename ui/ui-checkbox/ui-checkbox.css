@@ -12,7 +12,7 @@ ui-checkbox{
   outline-offset:2px;
   outline-style:solid;
   outline-color:transparent;
-  background-color:transparent;
+  background-color:rgb(30,30,30);
   line-height:1;
   cursor:pointer;
   overflow:hidden;}
@@ -22,7 +22,7 @@ ui-checkbox[animated]{
   transition-property:background-color,color;}
 
 ui-checkbox:focus-visible:not([disabled]){
-  outline-color:var(--rgb-100-100-100);}
+  outline-color:rgb(100,100,100);}
 
 ui-checkbox::before{
   content:'';

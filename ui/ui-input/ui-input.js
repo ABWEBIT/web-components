@@ -5,6 +5,8 @@ class UIInput extends UIBase{
   #input;
   #iconLeading = '';
   #iconTrailing = '';
+  #shape = 'rounded';
+  #shapeTypes = ['rounded','pill','square'];
   #disabled = false;
   #clearable = false;
 
@@ -42,18 +44,22 @@ class UIInput extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.setAttribute('animated','');
 
-    let height = parseInt(this.getAttribute('height'),10) || 32;
+    const shapeAttr = this.getAttribute('shape');
+    if(!shapeAttr || !this.#shapeTypes.includes(shapeAttr)){
+      this.setAttribute('shape',this.#shape);
+    }
+
+    let height = parseInt(this.getAttribute('height'),10) || 40;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.#clearable = this.hasAttribute('clearable');
 
     this.innerHTML = `
-      ${this.#iconLeading ? '<ui-icon leading></ui-icon>' : ''}
+      ${this.#iconLeading ? `<ui-icon height="${height}" leading></ui-icon>` : ''}
       <input>
-      ${this.#clearable ? '<ui-icon icon="cancel"></ui-icon>' : ''}
-      ${this.#iconTrailing ? '<ui-icon trailing></ui-icon>' : ''}
+      ${this.#clearable ? `<ui-icon height="${height}" icon="cancel"></ui-icon>` : ''}
+      ${this.#iconTrailing ? `<ui-icon height="${height}" trailing></ui-icon>` : ''}
     `;
 
     requestAnimationFrame(()=>{

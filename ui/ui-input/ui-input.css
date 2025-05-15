@@ -5,18 +5,26 @@ ui-input{
   vertical-align:middle;
   height:var(--ui-object-height);
   border:none;
-  border-radius:calc(var(--ui-object-height) / 4);
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;
-  color:var(--rgb-175-175-175);
-  background-color:var(--rgb-25-25-25);
+  color:rgb(175,175,175);
+  background-color:rgb(25,25,25);
   overflow:hidden;}
 
 ui-input[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color,outline-color;}
+
+ui-input[shape="rounded"]{
+  border-radius:calc(var(--ui-object-height) / 4);}
+
+ui-input[shape="pill"]{
+  border-radius:var(--ui-border-radius-pill);}
+
+ui-input[shape="square"]{
+  border-radius:none;}
 
 ui-input input{
   height:100%;
@@ -41,17 +49,27 @@ ui-input:not([icon-trailing]):not([clearable]) input{
 }
 
 ui-input ui-icon{
-  height:var(--ui-object-height);
-  width:var(--ui-object-height);
   padding:calc(var(--ui-object-height) / 4);
-  color:var(--rgb-125-125-125)}
+  color:rgb(125,125,125)}
+
+ui-button > ui-icon{
+  height:clamp(
+    16px,
+    calc(var(--ui-object-height) / 2),
+    24px
+  );
+  width:clamp(
+    16px,
+    calc(var(--ui-object-height) / 2),
+    24px
+  );}
 
 ui-input ui-icon[icon="cancel"]{
   cursor:pointer;}
 
 @media (hover:hover){
   ui-input[animated]:hover:not([disabled]){
-    background-color:var(--rgb-35-35-35);}
+    background-color:rgb(35,35,35);}
 
   ui-input ui-icon[icon="cancel"]:hover{
     color:var(--ui-color-white);}
@@ -59,14 +77,14 @@ ui-input ui-icon[icon="cancel"]{
 
 
 ui-input[focused]{
-  background-color:var(--rgb-35-35-35);
-  outline-color:var(--rgb-100-100-100);}
+  background-color:rgb(35,35,35);
+  outline-color:rgb(100,100,100);}
 
 ui-input[error]{
-  outline-color:var(--rgb-210-55-55);}
+  outline-color:rgb(210,55,55);}
 
 ui-input[valid]{
-  outline-color:var(--rgb-85-175-85);}
+  outline-color:rgb(85,175,85);}
 
 ui-input[warning]{
-  outline-color:var(--rgb-210-175-20);}
+  outline-color:rgb(210,175,20);}
