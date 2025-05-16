@@ -16,8 +16,8 @@
     <ul>
       <li>aria-label - static, required.
         <br>The aria-label must be set manually.</li>
-      <li>height - static, optional. Default: 24.
-        <br>Component height is measured in pixels. Recommended range: 16 to 32. Even values are preferred.</li>
+      <li>height - static, optional. Default: 20.
+        <br>Component height is measured in pixels. Recommended range: 16 to 24. Even values are preferred.</li>
       <li>checked - reactive, optional.
         <br>Controls the checked state of the component.</li>
       <li>disabled - reactive, optional.
@@ -27,7 +27,17 @@
 </section>
 
 <section class="content">
-  <span>Height 24. (default height)</span>
+  <span>Height 16.</span>
+  <div class="example">
+    <div class="preview">
+      <ui-checkbox height="16" aria-label="Settings"></ui-checkbox>
+    </div>
+    <code>
+      <span>&lt;ui-checkbox height="16" aria-label="Settings"&gt;&lt;/ui-checkbox&gt;</span>
+    </code>
+  </div>
+
+  <span>Height 20. (default)</span>
   <div class="example">
     <div class="preview">
       <ui-checkbox aria-label="Settings"></ui-checkbox>
@@ -37,23 +47,13 @@
     </code>
   </div>
 
-  <span>Height 32.</span>
-  <div class="example">
-    <div class="preview">
-      <ui-checkbox height="32" aria-label="Settings"></ui-checkbox>
-    </div>
-    <code>
-      <span>&lt;ui-checkbox height="32" aria-label="Settings"&gt;&lt;/ui-checkbox&gt;</span>
-    </code>
-  </div>
-
   <span>Checked.</span>
   <div class="example">
     <div class="preview">
-      <ui-checkbox checked aria-label="Settings"></ui-checkbox>
+      <ui-checkbox aria-label="Settings" checked></ui-checkbox>
     </div>
     <code>
-      <span>&lt;ui-checkbox checked aria-label="Settings"&gt;&lt;/ui-checkbox&gt;</span>
+      <span>&lt;ui-checkbox aria-label="Settings" checked&gt;&lt;/ui-checkbox&gt;</span>
     </code>
   </div>
 

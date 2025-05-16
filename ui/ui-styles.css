@@ -4,7 +4,9 @@
 @import './ui-input/ui-input.css';
 @import './ui-switch/ui-switch.css';
 @import './ui-checkbox/ui-checkbox.css';
+@import './ui-label/ui-label.css';
 @import './ui-text/ui-text.css';
+@import './ui-focus/ui-focus.css';
 
 :root{
   /* font*/
@@ -14,10 +16,11 @@
   --ui-font-size-large:18px;
   --ui-font-size-x-large:20px;
 
-  /* border */
+  /* border radius */
   --ui-border-radius-default:8px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
+  --ui-border-radius-square:none;
 
   /* color */
   --ui-color-white:oklch(100% 0 0);
@@ -27,8 +30,8 @@
 }
 
 [ui]{
-  user-select:none;
-  -webkit-user-select:none;}
+  -webkit-user-select:none;
+  user-select:none;}
 
 [ui],
 [ui] *{box-sizing:border-box!important;}
@@ -42,3 +45,10 @@
 
 [ui] input::-ms-reveal{
   display:none;}
+
+/*
+[ui][shape="rounded"]{border-radius:var(--ui-border-radius-rounded);}
+[ui][shape="pill"]{border-radius:var(--ui-border-radius-pill);}
+[ui][shape="circle"]{border-radius:var(--ui-border-radius-circle);}
+[ui][shape="square"]{border-radius:var(--ui-border-radius-square);}
+*/

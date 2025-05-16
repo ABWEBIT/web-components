@@ -1,6 +1,8 @@
 import {UIBase} from '../ui-base/ui-base.js';
 
 class UICheckbox extends UIBase{
+  #shape = 'rounded';
+  #shapeTypes = ['rounded','pill','square'];
   #checked = false;
   #disabled = false;
 
@@ -8,8 +10,8 @@ class UICheckbox extends UIBase{
   #onKeyDown = this.onKeyDown.bind(this);
 
   static properties = Object.freeze({
-    'checked': {name: 'checked', type: Boolean, reflect: true},
-    'disabled': {name: 'disabled', type: Boolean, reflect: true}
+    'checked':{name:'checked',type:Boolean,reflect:true},
+    'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
   get checked(){return this.#checked;}
@@ -41,7 +43,7 @@ class UICheckbox extends UIBase{
     this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
 
-    let height = parseInt(this.getAttribute('height'),10) || 24;
+    let height = parseInt(this.getAttribute('height'),10) || 20;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.innerHTML = `

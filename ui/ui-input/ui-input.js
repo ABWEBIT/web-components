@@ -58,7 +58,7 @@ class UIInput extends UIBase{
     this.innerHTML = `
       ${this.#iconLeading ? `<ui-icon height="${height}" leading></ui-icon>` : ''}
       <input>
-      ${this.#clearable ? `<ui-icon height="${height}" icon="cancel"></ui-icon>` : ''}
+      ${this.#clearable ? `<ui-icon height="${height}" icon="close"></ui-icon>` : ''}
       ${this.#iconTrailing ? `<ui-icon height="${height}" trailing></ui-icon>` : ''}
     `;
 
@@ -79,7 +79,7 @@ class UIInput extends UIBase{
 
       if(this.hasAttribute('required')) this.#input.required = true;
 
-      const clear = this.querySelector('ui-icon[icon="cancel"]');
+      const clear = this.querySelector('ui-icon[icon="close"]');
       if(clear) clear.addEventListener('click',this.#onClear);
     });
   }

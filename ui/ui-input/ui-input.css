@@ -64,14 +64,14 @@ ui-button > ui-icon{
     24px
   );}
 
-ui-input ui-icon[icon="cancel"]{
+ui-input ui-icon[icon="close"]{
   cursor:pointer;}
 
 @media (hover:hover){
   ui-input[animated]:hover:not([disabled]){
     background-color:rgb(35,35,35);}
 
-  ui-input ui-icon[icon="cancel"]:hover{
+  ui-input ui-icon[icon="close"]:hover{
     color:var(--ui-color-white);}
 }
 
