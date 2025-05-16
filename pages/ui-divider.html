@@ -6,20 +6,25 @@
     <h2>Features</h2>
     <ul>
       <li>Supports LTR and RTL.</li>
+      <li>By default, horizontal divider width is 100%.</li>
+      <li>By default, vertical divider height is 100%.</li>
     </ul>
   </div>
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>label - reactive, optional. Continuous string. (nowrap)</li>
-      <li>axis - static. Divider direction (x | y). Default: x (width: 100%); y (height: 100%).</li>
-      <li>text-align - text alignment: "start"; "end". Default: center.</li>
+      <li>text - static, optional.
+        <br>Continuous string. (nowrap)</li>
+      <li>axis - static, required. Default: x.
+        <br>Divider direction: x, y. axis="x" is added automatically if not specified.</li>
+      <li>text-align - static, optional. Default: center (if not set).
+        <br>Text alignment: start, end.</li>
     </ul>
   </div>
 </section>
 
 <section class="content">
-  <span>Horizontal divider. axis="x" | 100% width.</span>
+  <span>Horizontal divider. axis="x".</span>
   <div class="example">
     <div class="preview">
       <ui-divider></ui-divider>
@@ -29,37 +34,37 @@
     </code>
   </div>
 
-  <span>Label centered.</span>
+  <span>Text centered.</span>
   <div class="example">
     <div class="preview">
-      <ui-divider label="Label"></ui-divider>
+      <ui-divider text="Text"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Label"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider text="Text"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
-  <span>Label aligned left.</span>
+  <span>Text aligned start.</span>
   <div class="example">
     <div class="preview">
-      <ui-divider label="Label" text-align="start"></ui-divider>
+      <ui-divider text="Text" text-align="start"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Label" text-align="start"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider text="Text" text-align="start"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
-  <span>Label aligned right.</span>
+  <span>Text aligned end.</span>
   <div class="example">
     <div class="preview">
-      <ui-divider label="Label" text-align="end"></ui-divider>
+      <ui-divider text="Text" text-align="end"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Label" text-align="end"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider text="Text" text-align="end"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
-  <span>Vertical divider. axis="y" | 100% height.</span>
+  <span>Vertical divider. axis="y".</span>
   <div class="example">
     <div class="preview" style="height:150px;">
       <ui-divider axis="y"></ui-divider>
@@ -69,33 +74,33 @@
     </code>
   </div>
 
-  <span>Label centered.</span>
+  <span>Text centered.</span>
   <div class="example">
     <div class="preview" style="height:150px;">
-      <ui-divider label="Label" axis="y"></ui-divider>
+      <ui-divider text="Text" axis="y"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Label" axis="y"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider text="Text" axis="y"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
-  <span>Label at the top.</span>
+  <span>Text at the top.</span>
   <div class="example">
     <div class="preview" style="height:150px;">
-      <ui-divider label="Label" axis="y" text-align="start"></ui-divider>
+      <ui-divider text="Text" axis="y" text-align="start"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Label" axis="y" text-align="start"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider text="Text" axis="y" text-align="start"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 
-  <span>Label at the bottom.</span>
+  <span>Text at the bottom.</span>
   <div class="example">
     <div class="preview" style="height:150px;">
-      <ui-divider label="Label" axis="y" text-align="end"></ui-divider>
+      <ui-divider text="Text" axis="y" text-align="end"></ui-divider>
     </div>
     <code>
-      <span>&lt;ui-divider label="Label" axis="y" text-align="end"&gt;&lt;/ui-divider&gt;</span>
+      <span>&lt;ui-divider text="Text" axis="y" text-align="end"&gt;&lt;/ui-divider&gt;</span>
     </code>
   </div>
 </section>

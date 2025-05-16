@@ -3,7 +3,8 @@ import {UIBase} from '../ui-base/ui-base.js';
 class UIFocus extends UIBase{
   connectedCallback(){
     this.setAttributes(this,{
-      'tabindex': '0'
+      'tabindex': '0',
+      'aria-hidden': 'true'
     });
   }
 }
