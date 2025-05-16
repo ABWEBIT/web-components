@@ -7,6 +7,7 @@ class UIButton extends UIBase{
   #shape = 'rounded';
   #shapeTypes = ['rounded','pill','square'];
   #disabled = false;
+  #loading = false;
 
   #onClick = this.onClick.bind(this);
   #onKeyDown = this.onKeyDown.bind(this);
@@ -15,7 +16,8 @@ class UIButton extends UIBase{
     'label':{name:'label',type:String,reflect:true},
     'icon-leading':{name:'iconLeading',type:String,reflect:true},
     'icon-trailing':{name:'iconTrailing',type:String,reflect:true},
-    'disabled':{name:'disabled',type:Boolean,reflect:true}
+    'disabled':{name:'disabled',type:Boolean,reflect:true},
+    'loading':{name:'loading',type:Boolean,reflect:true}
   });
 
   get label(){return this.#label;}
@@ -52,6 +54,16 @@ class UIButton extends UIBase{
     });
   }
 
+  get loading(){return this.#loading;}
+  set loading(value){
+    this.#loading = value === true;
+    this.reflect('loading', this.#loading);
+    //this.render();
+    this.setAttributes(this, {
+      'aria-busy': this.#loading ? 'true' : 'false'
+    });
+  }
+
   connectedCallback(){
     super.connectedCallback();
 
@@ -59,11 +71,11 @@ class UIButton extends UIBase{
       'role': 'button'
     });
 
-    this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
+    this.loading = this.hasAttribute('loading');
 
-    const shapeAttr = this.getAttribute('shape');
-    if(!shapeAttr || !this.#shapeTypes.includes(shapeAttr)){
+    const shape = this.getAttribute('shape');
+    if(!shape || !this.#shapeTypes.includes(shape)){
       this.setAttribute('shape',this.#shape);
     }
 
@@ -74,6 +86,7 @@ class UIButton extends UIBase{
       ${this.#iconLeading ? `<ui-icon height="${height}" leading></ui-icon>` : ''}
       ${this.#label ? `<span></span>` : ''}
       ${this.#iconTrailing ? `<ui-icon height="${height}" trailing></ui-icon>` : ''}
+      ${this.#loading ? `<ui-loader></ui-loader>` : ''}
     `;
 
     this.addEventListener('click',this.#onClick);

@@ -6,7 +6,7 @@
     <h2>Features</h2>
     <ul>
       <li>Supports LTR and RTL.</li>
-      <li>The following ARIA attributes are added automatically: aria-disabled.</li>
+      <li>The following ARIA attributes are added automatically: aria-disabled, aria-busy.</li>
       <li>At least one of these attributes is required to create a button: label, icon-leading, or icon-trailing.</li>
       <li>For a button with a single icon, use either icon-leading or icon-trailing.</li>
       <li>Font size is "button height / 2 - 2px", capped between 12px and 16px.</li>
@@ -29,6 +29,8 @@
         <br>Component height is measured in pixels. Recommended range: 24 to 40. Even values are preferred.</li>
       <li>disabled - reactive, optional.
         <br>Controls the disabled state of the component.</li>
+      <li>loading - reactive, optional.
+        <br>Controls the loading state of the component.</li>
       <li>shape - static, optional. Default: rounded.
         <br>A button can be rounded, pill, or square.</li>
     </ul>
@@ -99,8 +101,8 @@
   <span>Text and icon on one side.</span>
   <div class="example">
     <div class="preview">
-      <ui-button label="Settings" icon-leading="article"></ui-button>
-      <ui-button label="Settings" icon-trailing="article"></ui-button>
+      <ui-button label="Settings" icon-leading="settings"></ui-button>
+      <ui-button label="Settings" icon-trailing="settings"></ui-button>
     </div>
     <code>
       <span>&lt;ui-button label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</span>

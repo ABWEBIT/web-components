@@ -16,92 +16,91 @@
     <div class="static"></div>
     <div class="dynamic">
 <!-- variant, tone, elevation, radius -->
-      <div class="menuCategory">
+      <div class="nav-category" data-nav-category="theme">
         <div class="menuTitle">Theme</div>
-
-        <div class="menuItem">
-          <span onclick="navigate('ui-icons')" data-page="ui-icons">
-            Icons
-          </span>
-        </div>
-
       </div>
 <!-- stack, grid, container, section, split -->
-      <div class="menuCategory">
+      <div class="nav-category" data-nav-category="layout">
         <div class="menuTitle">Layout</div>
-
       </div>
 <!-- divider, icon, line, spacer, text -->
-      <div class="menuCategory">
+      <div class="nav-category" data-nav-category="primitives">
         <div class="menuTitle">Primitives</div>
-
-        <div class="menuItem">
-          <span onclick="navigate('ui-icon')" data-page="ui-icon">
-            Icon
-          </span>
-        </div>
-
-        <div class="menuItem">
-          <span onclick="navigate('ui-divider')" data-page="ui-divider">
-            Divider
-          </span>
-        </div>
-
       </div>
 <!-- button, input, select, modal, tooltip -->
-      <div class="menuCategory">
+      <div class="nav-category" data-nav-category="forms">
         <div class="menuTitle">Forms</div>
-
-        <div class="menuItem">
-          <span onclick="navigate('ui-button')" data-page="ui-button">
-            Button
-          </span>
-        </div>
-
-        <div class="menuItem">
-          <span onclick="navigate('ui-checkbox')" data-page="ui-checkbox">
-            Checkbox
-          </span>
-        </div>
-
-        <div class="menuItem">
-          <span onclick="navigate('ui-input')" data-page="ui-input">
-            Input
-          </span>
-        </div>
-
-        <div class="menuItem">
-          <span onclick="navigate('ui-label')" data-page="ui-label">
-            Label
-          </span>
-        </div>
-
-        <div class="menuItem">
-          <span onclick="navigate('ui-switch')" data-page="ui-switch">
-            Switch
-          </span>
-        </div>
-
       </div>
 <!-- portal, observer, resize-handler, mount-detector -->
-      <div class="menuCategory">
+      <div class="nav-category" data-nav-category="utilities">
         <div class="menuTitle">Utilities</div>
-
-        <div class="menuItem">
-          <span onclick="navigate('ui-focus')" data-page="ui-focus">
-            Focus
-          </span>
-        </div>
-
       </div>
-<!---->
+<!-- -->
     </div>
     <div class="static"></div>
   </nav>
 
-<article id="article"></article>
+  <article id="article"></article>
 </div>
 
+
+<script>
+  const theme = [
+    'Icons',
+  ];
+
+  const primitives = [
+    'Icon',
+    'Divider',
+    'Text',
+  ];
+
+  const forms = [
+    'Button',
+    'Checkbox',
+    'Input',
+    'Label',
+    'Switch',
+  ];
+
+  const utilities = [
+    'Focus',
+    'Loader',
+  ];
+
+  function navGenerator(id,array){
+    const container = document.querySelector(`[data-nav-category="${id}"]`);
+    if(!container) return;
+
+    const fragment = document.createDocumentFragment();
+
+    const sorted = [...array].sort((a,b) =>
+      a.localeCompare(b, undefined, {sensitivity:'base'})
+    );
+
+    sorted.forEach(label =>{
+      const page = 'ui-' + label.toLowerCase();
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'menuItem';
+
+      const span = document.createElement('span');
+      span.textContent = label;
+
+      span.setAttribute('data-page',page);
+      span.onclick = () => navigate(page);
+
+      wrapper.appendChild(span);
+      fragment.appendChild(wrapper);
+    });
+    container.appendChild(fragment);
+  }
+
+  navGenerator('theme',theme);
+  navGenerator('primitives',primitives);
+  navGenerator('forms',forms);
+  navGenerator('utilities',utilities);
+</script>
 <script type="module" src="./theme/router.js"></script>
 <script type="module" src="./ui/ui-components.js"></script>
 </body>

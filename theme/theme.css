@@ -4,8 +4,6 @@
   --font-family:Arial,Helvetica,sans-serif;
   --font-family-ui-monospace:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
 
-  --text-align-left:left;
-  --text-align-right:right;
   --text-align-center:center;
   --text-align-start:start;
   --text-align-end:end;
@@ -13,13 +11,6 @@
   --rgb-210-55-55:rgb(210,55,55);
   --rgb-85-175-85:rgb(85,175,85);
   --rgb-210-175-20:rgb(210,175,20);
-
-  --color:rgb(35,150,245);
-  --rgb-25-125-230:rgb(25,125,230);
-  --rgb-0-125-255:rgb(0,125,255);
-  --rgb-0-0-255:rgb(0,0,255);}
-
-@media (prefers-color-scheme:dark){
 
 }
 
@@ -108,8 +99,8 @@ nav span.active{
 
 article{
   position:relative;
-  width:900px;
-  max-width:900px;
+  width:1000px;
+  max-width:1000px;
   padding:60px 10px;
   flex-grow:1;}
 
@@ -178,8 +169,7 @@ article{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:10px;
-  background-color:rgb(10,10,10);}
+  gap:10px;}
 
 article .example code{
   font-family:var(--font-family-ui-monospace);
