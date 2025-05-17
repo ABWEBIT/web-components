@@ -1,8 +1,6 @@
 import {UIBase} from '../ui-base/ui-base.js';
 
-class UILoader extends UIBase{
-  #shape = 'rounded';
-  #shapeTypes = ['rounded','pill','square'];
+class UISpinner extends UIBase{
   #loading = false;
 
   static properties = Object.freeze({
@@ -18,19 +16,15 @@ class UILoader extends UIBase{
   connectedCallback(){
     super.connectedCallback();
 
-    this.setAttributes(this,{
-      'role': 'checkbox'
-    });
-
     this.loading = this.hasAttribute('loading');
 
-    let height = parseInt(this.getAttribute('height'),10) || 20;
+    let height = parseInt(this.getAttribute('height'),10) || 24;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.innerHTML = `
-      <ui-icon height="${height}" icon="check"></ui-icon>
+      <ui-icon height="${height}" icon="spinner"></ui-icon>
     `;
   }
 
 }
-customElements.define('ui-loader',UILoader);
+customElements.define('ui-spinner',UISpinner);

@@ -38,7 +38,6 @@ class UIIcon extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.setAttribute('animated','');
 
     let height = parseInt(this.getAttribute('height'),10) || 24;
     this.style.setProperty('--ui-object-height',`${height}px`);

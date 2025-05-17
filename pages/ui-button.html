@@ -1,6 +1,6 @@
 <section class="intro">
   <h1>Button</h1>
-  <span class="description">A component that triggers an action.</span>
+  <div class="description">A component that triggers an action.</div>
   <ui-divider></ui-divider>
   <div class="info">
     <h2>Features</h2>
@@ -15,7 +15,6 @@
       <li>Supports keyboard navigation: Tab to move, Enter/Space to trigger action.</li>
     </ul>
   </div>
-
   <div class="info">
     <h2>Attributes</h2>
     <ul>
@@ -38,85 +37,114 @@
 </section>
 
 <section class="content">
-  <span>Shape. (default: rounded)</span>
-  <div class="example">
-    <div class="preview">
-      <ui-button shape="rounded" label="shape=&quot;rounded&quot;"></ui-button>
-      <ui-button shape="pill" label="shape=&quot;pill&quot;"></ui-button>
-      <ui-button shape="square" label="shape=&quot;square&quot;"></ui-button>
+
+  <div class="content-item">
+    <div>Shape. (default: rounded)</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button shape="rounded" label="shape=&quot;rounded&quot;"></ui-button>
+        <ui-button shape="pill" label="shape=&quot;pill&quot;"></ui-button>
+        <ui-button shape="square" label="shape=&quot;square&quot;"></ui-button>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-button shape="rounded" label="rounded"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button shape="pill" label="pill"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button shape="square" label="square"&gt;&lt;/ui-button&gt;</div>
+        </code>
+      </div>
     </div>
-    <code>
-      <span>&lt;ui-button shape="rounded" label="rounded"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button shape="pill" label="pill"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button shape="square" label="square"&gt;&lt;/ui-button&gt;</span>
-    </code>
   </div>
 
-  <span>Height 24.</span>
-  <div class="example">
-    <div class="preview">
-      <ui-button height="24" aria-label="Settings" icon-leading="settings"></ui-button>
-      <ui-button height="24" label="Settings"></ui-button>
+  <div class="content-item">
+    <div>Height 24.</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button height="24" aria-label="Settings" icon-leading="settings"></ui-button>
+        <ui-button height="24" label="Settings"></ui-button>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-button height="24" aria-label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button height="24" label="Settings"&gt;&lt;/ui-button&gt;</div>
+        </code>
+      </div>
     </div>
-    <code>
-      <span>&lt;ui-button height="24" aria-label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button height="24" label="Settings"&gt;&lt;/ui-button&gt;</span>
-    </code>
   </div>
 
-  <span>Height 32. (default: 32)</span>
-  <div class="example">
-    <div class="preview">
-      <ui-button aria-label="Settings" icon-leading="settings"></ui-button>
-      <ui-button label="Settings"></ui-button>
+  <div class="content-item">
+    <div>Height 32. (default: 32)</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button aria-label="Settings" icon-leading="settings"></ui-button>
+        <ui-button label="Settings"></ui-button>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-button aria-label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button label="Settings"&gt;&lt;/ui-button&gt;</div>
+        </code>
+      </div>
     </div>
-    <code>
-      <span>&lt;ui-button aria-label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button label="Settings"&gt;&lt;/ui-button&gt;</span>
-    </code>
   </div>
 
-  <span>Height 40.</span>
-  <div class="example">
-    <div class="preview">
-      <ui-button height="40" aria-label="Settings" icon-leading="settings"></ui-button>
-      <ui-button height="40" label="Settings"></ui-button>
+  <div class="content-item">
+    <div>Height 40.</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button height="40" aria-label="Settings" icon-leading="settings"></ui-button>
+        <ui-button height="40" label="Settings"></ui-button>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-button height="40" aria-label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button height="40" label="Settings"&gt;&lt;/ui-button&gt;</div>
+        </code>
+      </div>
     </div>
-    <code>
-      <span>&lt;ui-button height="40" aria-label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button height="40" label="Settings"&gt;&lt;/ui-button&gt;</span>
-    </code>
   </div>
 
-  <span>Disabled.</span>
-  <div class="example">
-    <div class="preview">
-      <ui-button label="Settings" disabled></ui-button>
+  <div class="content-item">
+    <div>Disabled.</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button label="Settings" disabled></ui-button>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-button label="Settings" disabled&gt;&lt;/ui-button&gt;</div>
+        </code>
+      </div>
     </div>
-    <code>
-      <span>&lt;ui-button label="Settings" disabled&gt;&lt;/ui-button&gt;</span>
-    </code>
   </div>
 
-  <span>Text and icon on one side.</span>
-  <div class="example">
-    <div class="preview">
-      <ui-button label="Settings" icon-leading="settings"></ui-button>
-      <ui-button label="Settings" icon-trailing="settings"></ui-button>
+  <div class="content-item">
+    <div>Text and icon on one side.</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button label="Settings" icon-leading="settings"></ui-button>
+        <ui-button label="Settings" icon-trailing="settings"></ui-button>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-button label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button label="Settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</div>
+        </code>
+      </div>
     </div>
-    <code>
-      <span>&lt;ui-button label="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</span>
-      <span>&lt;ui-button label="Settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</span>
-    </code>
   </div>
 
-  <span>Text with icons on both sides.</span>
-  <div class="example">
-    <div class="preview">
-      <ui-button label="Settings" icon-leading="settings" icon-trailing="settings"></ui-button> 
+  <div class="content-item">
+    <div>Text with icons on both sides.</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button label="Settings" icon-leading="settings" icon-trailing="settings"></ui-button> 
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-button label="Settings" icon-leading="settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</div>
+        </code>
+      </div>
     </div>
-    <code>
-      <span>&lt;ui-button label="Settings" icon-leading="settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</span>
-    </code>
   </div>
 </section>

@@ -1,6 +1,6 @@
 <section class="intro">
   <h1>Icon</h1>
-  <span class="description">A component for displaying an icon.</span>
+  <div class="description">A component for displaying an icon.</div>
   <ui-divider></ui-divider>
   <div class="info">
     <h2>Features</h2>
@@ -17,17 +17,21 @@
 </section>
 
 <section class="content">
-  <span>Icon.</span>
-  <div class="example">
-    <div class="toolbar">
-      <ui-button height="28" onclick="changeIconName()" label="Reactivity Test"></ui-button>
+  <div class="content-item">
+    <div>Icon.</div>
+    <div class="example">
+      <div class="preview">
+        <ui-icon icon="home"></ui-icon>
+      </div>
+      <div class="toolbar">
+        <ui-button height="28" onclick="changeIconName()" label="Reactivity Test"></ui-button>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-icon icon="home"&gt;&lt;/ui-icon&gt;</div>
+        </code>
+      </div>
     </div>
-    <div class="preview">
-      <ui-icon icon="home"></ui-icon>
-    </div>
-    <code>
-      <span>&lt;ui-icon icon="home"&gt;&lt;/ui-icon&gt;</span>
-    </code>
   </div>
 </section>
 

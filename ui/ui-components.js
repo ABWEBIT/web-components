@@ -7,3 +7,4 @@ import './ui-checkbox/ui-checkbox.js';
 import './ui-label/ui-label.js';
 import './ui-text/ui-text.js';
 import './ui-focus/ui-focus.js';
+import './ui-spinner/ui-spinner.js';

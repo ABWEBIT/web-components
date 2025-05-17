@@ -50,7 +50,7 @@ class UIInput extends UIBase{
       this.setAttribute('shape',this.#shape);
     }
 
-    let height = parseInt(this.getAttribute('height'),10) || 40;
+    let height = parseInt(this.getAttribute('height'),10) || 32;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.#clearable = this.hasAttribute('clearable');

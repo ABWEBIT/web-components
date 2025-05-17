@@ -1,6 +1,6 @@
 <section class="intro">
   <h1>Icons</h1>
-  <span class="description">A collection of icons.</span>
+  <div class="description">A collection of icons.</div>
   <ui-divider></ui-divider>
   <div class="info">
     <h2>Design Details</h2>
@@ -11,10 +11,10 @@
   </div>
 </section>
 
-<section class="content icons-pack">
-  <span>Size: 24 x 24</span>
-  <div class="example">
-    <div class="preview"></div>
+<section class="content">
+  <div class="content-item">
+    <div>Size: 24 x 24</div>
+    <div class="icons"></div>
   </div>
 </section>
 
@@ -24,13 +24,13 @@
       'home','article','search','send','notifications','settings','check','close'
     ];
 
-    const container = document.querySelector('.content .preview');
+    const container = document.querySelector('.content .icons');
 
     const html = icons.map(name => `
-      <span class="icon-card">
+      <div class="icon-card">
         <ui-icon icon="${name}"></ui-icon>
-        <span class="icon-name">${name}</span>
-      </span>
+        <div class="icon-name">${name}</div>
+      </div>
     `).join('');
 
     container.insertAdjacentHTML('beforeend',html);

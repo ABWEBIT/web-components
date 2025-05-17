@@ -7,6 +7,7 @@
 @import './ui-label/ui-label.css';
 @import './ui-text/ui-text.css';
 @import './ui-focus/ui-focus.css';
+@import './ui-spinner/ui-spinner.css';
 
 :root{
   /* font*/
@@ -53,10 +54,3 @@
 
 [ui] input::-ms-reveal{
   display:none;}
-
-/*
-[ui][shape="rounded"]{border-radius:var(--ui-border-radius-rounded);}
-[ui][shape="pill"]{border-radius:var(--ui-border-radius-pill);}
-[ui][shape="circle"]{border-radius:var(--ui-border-radius-circle);}
-[ui][shape="square"]{border-radius:var(--ui-border-radius-square);}
-*/
