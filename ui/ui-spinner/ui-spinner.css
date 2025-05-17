@@ -1,6 +1,6 @@
 ui-icon[icon="spinner"]{
   display:inline-block;
-  animation:spin 1s linear infinite;
+  animation:spin 0.8s linear infinite;
 }
 
 @keyframes spin{

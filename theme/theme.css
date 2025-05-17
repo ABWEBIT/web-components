@@ -73,6 +73,7 @@ nav .static{
   min-height:50px;}
 
 nav .menuTitle{
+  padding-bottom:6px;
   font-size:var(--ui-font-size-medium);}
 
 nav .menuItem{
@@ -152,6 +153,9 @@ article{
 
 .content{
   row-gap:50px;}
+
+.content > .content-item{
+  row-gap:10px;}
 
 .content-item > .example{
   border:1px solid rgb(25,25,25);

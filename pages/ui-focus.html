@@ -5,27 +5,26 @@
   <div class="info">
     <h2>Usage Tips</h2>
     <ul>
-      <li>Place right after <code>&lt;body&gt;</code> to absorb unintended focus.</li>
+      <li>Place right after <code>&lt;body&gt;</code> to prevent unexpected focus jumps.</li>
     </ul>
   </div>
   <div class="info">
     <h2>Features</h2>
     <ul>
       <li>Invisible, non-interactive, but focusable.</li>
-      <li>Prevents unexpected focus jumps.</li>
     </ul>
   </div>
 </section>
 
 <section class="content">
   <div class="content-item">
-    <div>Focus placement.</div>
+    <div>Placement</div>
     <div class="example">
       <div class="code">
         <code>
           <div>&lt;body&gt;</div>
-          <div>&lt;ui-focus&gt;&lt;/ui-focus&gt;</div>
-          <div>...</div>
+          <div>&nbsp;&lt;ui-focus&gt;&lt;/ui-focus&gt;</div>
+          <div>&nbsp;&lt;!-- Remaining code --&gt;</div>
           <div>&lt;/body&gt;</div>
         </code>
       </div>

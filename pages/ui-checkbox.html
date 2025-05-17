@@ -17,18 +17,39 @@
       <li>aria-label - static, required.
         <br>The aria-label must be set manually.</li>
       <li>height - static, optional. Default: 20.
-        <br>Component height is measured in pixels. Recommended range: 16 to 24. Even values are preferred.</li>
+        <br>The component's height is measured in pixels. Recommended range: 16 to 24. Even values are preferred.</li>
       <li>checked - reactive, optional.
         <br>Controls the checked state of the component.</li>
       <li>disabled - reactive, optional.
         <br>Controls the disabled state of the component.</li>
+      <li>shape - static, optional. Default: rounded.
+        <br>A button can be rounded, circle, or square.</li>
     </ul>
   </div>
 </section>
 
 <section class="content">
+
   <div class="content-item">
-    <div>Height 16.</div>
+    <div>Shape (default: rounded)</div>
+    <div class="example">
+      <div class="preview">
+        <ui-checkbox shape="rounded" label="shape=&quot;rounded&quot;"></ui-checkbox>
+        <ui-checkbox shape="circle" label="shape=&quot;circle&quot;"></ui-checkbox>
+        <ui-checkbox shape="square" label="shape=&quot;square&quot;"></ui-checkbox>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-checkbox shape="rounded" label="rounded"&gt;&lt;/ui-checkbox&gt;</div>
+          <div>&lt;ui-checkbox shape="circle" label="circle"&gt;&lt;/ui-checkbox&gt;</div>
+          <div>&lt;ui-checkbox shape="square" label="square"&gt;&lt;/ui-checkbox&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Height 16</div>
     <div class="example">
       <div class="preview">
         <ui-checkbox height="16" aria-label="Settings"></ui-checkbox>
@@ -42,7 +63,7 @@
   </div>
 
   <div class="content-item">
-    <div>Height 20. (default)</div>
+    <div>Height 20 (default)</div>
     <div class="example">
       <div class="preview">
         <ui-checkbox aria-label="Settings"></ui-checkbox>
@@ -56,7 +77,7 @@
   </div>
 
   <div class="content-item">
-    <div>Checked.</div>
+    <div>Checked</div>
     <div class="example">
       <div class="preview">
         <ui-checkbox aria-label="Settings" checked></ui-checkbox>
@@ -70,7 +91,7 @@
   </div>
 
   <div class="content-item">
-    <div>Disabled.</div>
+    <div>Disabled</div>
     <div class="example">
       <div class="preview">
         <ui-checkbox disabled aria-label="Settings"></ui-checkbox>

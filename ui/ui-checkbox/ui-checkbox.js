@@ -2,7 +2,7 @@ import {UIBase} from '../ui-base/ui-base.js';
 
 class UICheckbox extends UIBase{
   #shape = 'rounded';
-  #shapeTypes = ['rounded','pill','square'];
+  #shapeTypes = ['rounded','circle','square'];
   #checked = false;
   #disabled = false;
 
@@ -42,6 +42,11 @@ class UICheckbox extends UIBase{
 
     this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
+
+    const shape = this.getAttribute('shape');
+    if(!shape || !this.#shapeTypes.includes(shape)){
+      this.setAttribute('shape',this.#shape);
+    }
 
     let height = parseInt(this.getAttribute('height'),10) || 20;
     this.style.setProperty('--ui-object-height',`${height}px`);
