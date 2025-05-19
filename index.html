@@ -61,6 +61,7 @@
     'Input',
     'Label',
     'Switch',
+    'Textarea',
   ];
 
   const utilities = [
@@ -96,10 +97,13 @@
     container.appendChild(fragment);
   }
 
-  navGenerator('theme',theme);
-  navGenerator('primitives',primitives);
-  navGenerator('forms',forms);
-  navGenerator('utilities',utilities);
+  [
+    ['theme',theme],
+    ['primitives',primitives],
+    ['forms',forms],
+    ['utilities',utilities]
+  ].forEach(([key,value]) => navGenerator(key,value));
+
 </script>
 <script type="module" src="./theme/router.js"></script>
 <script type="module" src="./ui/ui-components.js"></script>

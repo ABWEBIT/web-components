@@ -1,13 +1,16 @@
 @import './ui-button/ui-button.css';
+@import './ui-checkbox/ui-checkbox.css';
 @import './ui-divider/ui-divider.css';
+@import './ui-focus/ui-focus.css';
 @import './ui-icon/ui-icon.css';
 @import './ui-input/ui-input.css';
-@import './ui-switch/ui-switch.css';
-@import './ui-checkbox/ui-checkbox.css';
 @import './ui-label/ui-label.css';
-@import './ui-text/ui-text.css';
-@import './ui-focus/ui-focus.css';
 @import './ui-spinner/ui-spinner.css';
+@import './ui-switch/ui-switch.css';
+@import './ui-text/ui-text.css';
+@import './ui-textarea/ui-textarea.css';
+
+
 
 :root{
   /* font*/
@@ -29,7 +32,7 @@
 
 
 
-  --ui-color-info:rgb(25,125,230);
+  --ui-color-info:rgb(25, 125, 230);
   --ui-color-warning:rgb(245,180,40);
   --ui-color-error:rgb(230,60,60);
   --ui-color-success:rgb(45,160,80);

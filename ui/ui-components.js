@@ -1,10 +1,11 @@
 import './ui-button/ui-button.js';
+import './ui-checkbox/ui-checkbox.js';
 import './ui-divider/ui-divider.js';
+import './ui-focus/ui-focus.js';
 import './ui-icon/ui-icon.js';
 import './ui-input/ui-input.js';
-import './ui-switch/ui-switch.js';
-import './ui-checkbox/ui-checkbox.js';
 import './ui-label/ui-label.js';
-import './ui-text/ui-text.js';
-import './ui-focus/ui-focus.js';
 import './ui-spinner/ui-spinner.js';
+import './ui-switch/ui-switch.js';
+import './ui-text/ui-text.js';
+import './ui-textarea/ui-textarea.js';

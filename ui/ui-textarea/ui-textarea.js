@@ -1,0 +1,79 @@
+import {UIBase} from '../ui-base/ui-base.js';
+import {inputTypes,htmlEscape} from '../../utils/index.js';
+
+class UITextarea extends UIBase{
+  #shape = 'rounded';
+  #shapeType = ['rounded','square'];
+  #disabled = false;
+
+  #onInput = this.onInput.bind(this);
+  #onKeyDown = this.onKeyDown.bind(this);
+
+  static properties = Object.freeze({
+    'disabled':{name:'disabled',type:Boolean,reflect:true}
+  });
+
+  get disabled(){return this.#disabled;}
+  set disabled(value){
+    this.#disabled = value === true;
+    this.reflect('disabled',this.#disabled);
+    this.setAttributes(this,{
+      'tabindex': this.#disabled ? '-1' : '0',
+      'aria-disabled': this.#disabled ? 'true' : 'false',
+      'contenteditable': this.#disabled ? 'false' : 'plaintext-only'
+    });
+  }
+
+  connectedCallback(){
+    super.connectedCallback();
+/*
+    aria-labelledby="comment-label"
+    aria-placeholder="Введите комментарий"
+*/
+    this.setAttributes(this,{
+      'role': 'textbox',
+      'contenteditable': 'plaintext-only',
+      'aria-multiline': 'true',
+      'aria-required': this.hasAttribute('required') ? 'true' : 'false',
+      'empty': this.textContent.trim() === '' ? true : false,
+    });
+
+    const shape = this.getAttribute('shape');
+    if(!shape || !this.#shapeType.includes(shape)){
+      this.setAttribute('shape',this.#shape);
+    }
+
+    let height = parseInt(this.getAttribute('height'),10) || 60;
+    this.style.setProperty('--ui-object-height',`${height}px`);
+
+    this.innerHTML = '';
+
+    this.addEventListener('input',this.#onInput);
+    this.addEventListener('keydown',this.#onKeyDown);
+  }
+
+  disconnectedCallback(){
+    this.removeEventListener('input',this.#onInput);
+    this.removeEventListener('keydown',this.#onKeyDown);
+  }
+
+  onKeyDown(e){
+    this.doAction(e);
+  }
+
+  onInput(e){
+    if(this.#disabled) return;
+    this.empty();
+  }
+
+  doAction(e){
+    console.log(e.type);
+  }
+
+  empty(){
+    const empty = this.textContent.trim() === '';
+    this.toggleAttribute('empty',empty);
+  }
+
+}
+customElements.define('ui-textarea',UITextarea);

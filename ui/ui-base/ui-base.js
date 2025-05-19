@@ -51,9 +51,7 @@ export class UIBase extends HTMLElement{
   setAttributes(element,attributes){
     for(const [key,value] of Object.entries(attributes)){
       if(value == null) element.removeAttribute(key)
-      else if(typeof value === 'boolean'){
-        value ? element.setAttribute(key, '') : element.removeAttribute(key);
-      }
+      else if(typeof value === 'boolean') element.toggleAttribute(key,value);
       else element.setAttribute(key,value);
     }
   }

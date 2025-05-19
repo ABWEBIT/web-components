@@ -162,6 +162,11 @@ article{
   border-radius:var(--ui-border-radius-default);
   overflow:hidden;}
 
+.content-item > .example > .preview,
+.content-item > .example > .code,
+.content-item > .example > .toolbar{
+  max-width:100%;}
+
 .content-item > .example > .preview{
   display:flex;
   flex-wrap:wrap;
@@ -173,6 +178,7 @@ article{
   padding:15px;}
 
 .content-item > .example > .code{
+  line-height:1.5;
   background-color:rgb(10,10,10);}
 
 .content-item > .example > .preview,

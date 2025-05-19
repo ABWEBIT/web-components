@@ -1,0 +1,69 @@
+ui-textarea{
+  position:relative;
+  display:block;
+  white-space:pre-wrap;
+  /*overflow-wrap:break-word;*/
+  overflow-wrap:anywhere;
+  height:var(--ui-object-height);
+  width:100%;
+  max-width:100%;
+  padding:16px;
+  border:none;
+  outline-offset:2px;
+  outline-width:2px;
+  outline-style:solid;
+  outline-color:transparent;
+  color:rgb(175,175,175);
+  font-size:var(--ui-font-size-small);
+  background-color:rgb(10,10,10);
+  overflow:hidden;}
+
+ui-textarea[empty]::before{
+  content:attr(placeholder);
+  position:absolute;
+  color:rgb(100,100,100);
+  pointer-events:none;}
+
+ui-textarea:focus:not([disabled]){
+  background-color:rgb(25,25,25);
+  color:rgb(255,255,255);}
+
+ui-textarea:focus:not([disabled]):not([status]){
+  outline-color:rgb(100,100,100);}
+
+ui-textarea[status="error"]{
+  outline-color:rgb(210,55,55);}
+
+ui-textarea[status="valid"]{
+  outline-color:rgb(85,175,85);}
+
+ui-textarea[status="warning"]{
+  outline-color:rgb(210,175,20);}
+
+/* resize */
+ui-textarea[resize]{overflow:auto;}
+ui-textarea[resize="horizontal"]{resize:horizontal;}
+ui-textarea[resize="vertical"]{resize:vertical;}
+ui-textarea[resize="both"]{resize:both;}
+
+/* shape */
+ui-textarea[shape="rounded"]{
+  border-radius:clamp(
+    calc(var(--ui-border-radius-default, 8px) / 2),
+    calc(var(--ui-object-height, 32px) / 4),
+    var(--ui-border-radius-default, 8px)
+  );
+}
+
+ui-textarea[shape="square"]{
+  border-radius:none;}
+
+ui-textarea[animated]{
+  transition-duration:var(--ui-transition-duration);
+  transition-property:background-color,color,outline-color;}
+
+@media (hover:hover){
+  ui-textarea[animated]:hover:not([disabled]){
+    color:rgb(255,255,255);
+    background-color:rgb(25,25,25);}
+}

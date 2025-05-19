@@ -45,8 +45,8 @@ class UIInput extends UIBase{
   connectedCallback(){
     super.connectedCallback();
 
-    const shapeAttr = this.getAttribute('shape');
-    if(!shapeAttr || !this.#shapeTypes.includes(shapeAttr)){
+    const shape = this.getAttribute('shape');
+    if(!shape || !this.#shapeTypes.includes(shape)){
       this.setAttribute('shape',this.#shape);
     }
 

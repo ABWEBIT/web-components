@@ -1,0 +1,119 @@
+<section class="intro">
+  <h1>Textarea</h1>
+  <div class="description">Textarea allows users to enter and edit multiline text.</div>
+  <ui-divider></ui-divider>
+  <div class="info">
+    <h2>Features</h2>
+    <ul>
+      <li>Supports LTR and RTL.</li>
+      <li>A visible outline appears when the component is focused.</li>
+    </ul>
+  </div>
+  <div class="info">
+    <h2>Attributes</h2>
+    <ul>
+      <li>type - static, optional. Default: "text".</li>
+      <li>placeholder - static, optional.</li>
+      <li>icon-leading | icon-trailing - reactive, optional.
+        <br>Define the icons displayed before and after the label, respectively.</li>
+      <li>height - static, optional. Default: 40.
+        <br>Component height is measured in pixels. Recommended range: 24 to 40. Even values are preferred.</li>
+      <li>clearable - static, optional.
+        <br>Adds a clear button.</li>
+      <li>required - static, optional.
+        <br>Defines whether the component is required.</li>
+      <li>disabled - reactive, optional.
+        <br>Controls the disabled state of the component.</li>
+      <li>shape - static, optional. Default: rounded.
+        <br>The component shape can be rounded or square.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="content">
+  <div class="content-item">
+    <div>Shape (default: rounded)</div>
+    <div class="example">
+      <div class="preview">
+        <ui-textarea shape="rounded"></ui-textarea>
+        <ui-textarea shape="square"></ui-textarea>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-textarea shape="rounded"&gt;&lt;/ui-textarea&gt;</div>
+          <div>&lt;ui-textarea shape="square"&gt;&lt;/ui-textarea&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Input with placeholder</div>
+    <div class="example">
+      <div class="preview">
+        <ui-textarea placeholder="Placeholder"></ui-textarea>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-textarea placeholder="Placeholder"&gt;&lt;/ui-textarea&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Disabled</div>
+    <div class="example">
+      <div class="preview">
+        <ui-textarea disabled></ui-textarea>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-textarea disabled&gt;&lt;/ui-textarea&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Error</div>
+    <div class="example">
+      <div class="preview">
+        <ui-textarea status="error"></ui-textarea>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-textarea status="error"&gt;&lt;/ui-textarea&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Success</div>
+    <div class="example">
+      <div class="preview">
+        <ui-textarea status="valid"></ui-textarea>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-textarea status="valid"&gt;&lt;/ui-textarea&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Warning</div>
+    <div class="example">
+      <div class="preview">
+        <ui-textarea status="warning"></ui-textarea>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-textarea status="warning"&gt;&lt;/ui-textarea&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+</section>
