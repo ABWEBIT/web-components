@@ -9,13 +9,13 @@ class UIField extends UIBase{
     'ui-input': {focus: 'input'},
     'ui-textarea': {click: null},
     'ui-select': {focus: null},
-    'ui-switch': {click: 'button'},
+    'ui-switch': {click: null},
   };
 
   connectedCallback(){
     super.connectedCallback();
 
-    const label = this.querySelector('ui-label');
+    const label = this.querySelector('label');
     const control = this.querySelector('ui-checkbox,ui-switch,ui-input,ui-textarea,ui-select');
 
     if(!control || !label){
@@ -35,8 +35,7 @@ class UIField extends UIBase{
         control.click?.();
       }
       else if(['ui-input','ui-textarea','ui-select'].includes(tag)) {
-        const focusTarget = control.querySelector('input, select') || control;
-        focusTarget.focus?.();
+        control.focus();
       }
     });
 

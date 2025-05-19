@@ -9,8 +9,8 @@ class UILabel extends UIBase{
 
   get text(){return this.#text;}
   set text(value){
-    let str;
-    if(!(str = String(value || ''))) return;
+    let str = String(value || '');
+    if(!str) return;
 
     if(this.hasAttribute('required') && !str.endsWith('*')){
       str += ' *';
@@ -19,12 +19,10 @@ class UILabel extends UIBase{
     this.#text = str;
     this.reflect('text',this.#text);
     this.textContent = this.#text;
-
   }
 
   connectedCallback(){
     super.connectedCallback();
-
   }
 }
 customElements.define('ui-label',UILabel);
