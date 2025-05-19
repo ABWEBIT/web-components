@@ -1,0 +1,8 @@
+ui-field{
+  position:relative;
+  display:inline-flex;
+  align-items:center;}
+
+ui-field > ui-label{
+  padding-inline:10px;
+  padding-top:2px;}

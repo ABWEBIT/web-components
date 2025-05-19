@@ -48,7 +48,7 @@ class UICheckbox extends UIBase{
       this.setAttribute('shape',this.#shape);
     }
 
-    let height = parseInt(this.getAttribute('height'),10) || 20;
+    let height = parseInt(this.getAttribute('height'),10) || 24;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.innerHTML = `

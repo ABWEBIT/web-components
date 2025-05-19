@@ -1,6 +1,7 @@
 import './ui-button/ui-button.js';
 import './ui-checkbox/ui-checkbox.js';
 import './ui-divider/ui-divider.js';
+import './ui-field/ui-field.js';
 import './ui-focus/ui-focus.js';
 import './ui-icon/ui-icon.js';
 import './ui-input/ui-input.js';
