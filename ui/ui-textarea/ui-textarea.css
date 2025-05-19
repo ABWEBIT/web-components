@@ -18,6 +18,10 @@ ui-textarea{
   background-color:rgb(10,10,10);
   overflow:hidden;}
 
+ui-textarea[animated]{
+  transition-duration:var(--ui-transition-duration);
+  transition-property:background-color,color,outline-color;}
+
 ui-textarea[empty]::before{
   content:attr(placeholder);
   position:absolute;
@@ -31,14 +35,17 @@ ui-textarea:focus:not([disabled]){
 ui-textarea:focus:not([disabled]):not([status]){
   outline-color:rgb(100,100,100);}
 
-ui-textarea[status="error"]{
-  outline-color:rgb(210,55,55);}
+@media (hover:hover){
+  ui-textarea[animated]:hover:not([disabled]){
+    background-color:rgb(25,25,25);
+    color:rgb(255,255,255);
+  }
+}
 
-ui-textarea[status="valid"]{
-  outline-color:rgb(85,175,85);}
-
-ui-textarea[status="warning"]{
-  outline-color:rgb(210,175,20);}
+/* status */
+ui-textarea[status="error"]{outline-color:rgb(210,55,55);}
+ui-textarea[status="valid"]{outline-color:rgb(85,175,85);}
+ui-textarea[status="warning"]{outline-color:rgb(210,175,20);}
 
 /* resize */
 ui-textarea[resize]{overflow:auto;}
@@ -57,13 +64,3 @@ ui-textarea[shape="rounded"]{
 
 ui-textarea[shape="square"]{
   border-radius:none;}
-
-ui-textarea[animated]{
-  transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,color,outline-color;}
-
-@media (hover:hover){
-  ui-textarea[animated]:hover:not([disabled]){
-    color:rgb(255,255,255);
-    background-color:rgb(25,25,25);}
-}
