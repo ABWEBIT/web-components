@@ -5,7 +5,8 @@
   <div class="info">
     <h2>Features</h2>
     <ul>
-      <li>Supports LTR and RTL.</li>
+      <li>Supports LTR and RTL. Default: LTR.</li>
+      <li>Automatic association between the label and the form control by adding a unique UUID to the label’s id attribute and assigning this UUID to the form control’s aria-labelledby attribute. You can override the unique UUID by adding a custom id attribute to the ui-label component.</li>
     </ul>
   </div>
   <div class="info">
@@ -19,18 +20,18 @@
 
 <section class="content">
   <div class="content-item">
-    <div>Label</div>
+    <div>Passive, non-clickable label</div>
     <div class="example">
       <div class="preview">
         <ui-field>
-          <ui-label>Label</ui-label>
+          <ui-label passive>Label</ui-label>
           <ui-checkbox></ui-checkbox>
         </ui-field>
       </div>
       <div class="code">
         <code>
           <div>&lt;ui-field&gt;</div>
-            <div>&nbsp;&nbsp;&lt;ui-label&gt;Label&lt;/ui-label&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-label passive&gt;Label&lt;/ui-label&gt;</div>
             <div>&nbsp;&nbsp;&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;</div>
           <div>&lt;/ui-field&gt;</div>
         </code>
@@ -64,7 +65,7 @@
       <div class="preview">
         <ui-field required>
           <ui-label>Label</ui-label>
-          <ui-textarea></ui-textarea>
+          <ui-textarea height="200"></ui-textarea>
         </ui-field>
       </div>
       <div class="code">

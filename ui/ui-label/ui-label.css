@@ -1,3 +1,6 @@
 ui-label > span{
   padding-inline-start:6px;
   color:rgb(230,60,60);}
+
+ui-label:not([passive]){
+  cursor:pointer;}

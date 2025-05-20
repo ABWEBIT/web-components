@@ -76,5 +76,4 @@ export class UIBase extends HTMLElement{
     if(this.disabled) return;
     if(typeof this.doAction === 'function') this.doAction(e);
   }
-
 }

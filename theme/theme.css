@@ -20,7 +20,6 @@
   box-sizing:border-box!important;}
 
 a{
-  text-decoration:none;
   color:var(--ui-color-white);}
 
 iframe{border:none;}
