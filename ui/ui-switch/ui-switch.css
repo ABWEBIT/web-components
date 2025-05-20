@@ -1,5 +1,4 @@
 ui-switch{
-  direction: rtl;
   position:relative;
   display:inline-flex;
   align-items:center;
@@ -35,11 +34,11 @@ ui-switch::before{
   aspect-ratio:1;
   border-radius:var(--ui-border-radius-circle);
   background-color:var(--ui-color-white);
-  transition:inset-inline-start var(--ui-transition-duration);}
+  transition-duration:var(--ui-transition-duration);
+  transition-property:inset-inline-start;}
 
 ui-switch[checked]::before{
-  inset-inline-start:calc(100% - var(--ui-object-height) + var(--ui-object-height) / 6);
-}
+  inset-inline-start:calc(100% - var(--ui-object-height) + var(--ui-object-height) / 6);}
 
 ui-switch[checked]{
   background-color:rgb(25,125,230);}
