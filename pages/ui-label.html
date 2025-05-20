@@ -11,8 +11,10 @@
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>text-align - static, optional. Default: start (based on text direction).
-        <br>Controls text alignment: start, center, end, and justify.</li>
+      <li>required - static, optional.
+        <br>Indicates whether the associated form control is required.</li>
+      <li>symbol - static, optional. Default: *
+        <br>Overrides the default required symbol. Only a single character is allowed; if the string is longer than one character, only the first character will be used. The symbol is added only if the required attribute is present.</li>
     </ul>
   </div>
 </section>
@@ -27,7 +29,35 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;label&gt;Label&lt;/label&gt;</div>
+          <div>&lt;ui-label&gt;Label&lt;/ui-label&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Required</div>
+    <div class="example">
+      <div class="preview">
+        <ui-label required>Label</ui-label>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-label required&gt;Label&lt;/ui-label&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Override required symbol</div>
+    <div class="example">
+      <div class="preview">
+        <ui-label symbol="•" required>Label</ui-label>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-label symbol="•" required&gt;Label&lt;/ui-label&gt;</div>
         </code>
       </div>
     </div>

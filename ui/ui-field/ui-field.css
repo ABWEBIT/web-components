@@ -3,6 +3,6 @@ ui-field{
   display:inline-flex;
   align-items:center;}
 
-ui-field > label{
-  padding-inline:10px;
+ui-field > ui-label{
+  padding-inline:14px;
   padding-top:2px;}

@@ -4,6 +4,15 @@ import {uuid} from '../../utils/uuid.js';
 class UIField extends UIBase{
   #uuid = uuid();
 
+  static elements = [
+    'ui-label',
+    'ui-checkbox',
+    'ui-input',
+    'ui-textarea',
+    'ui-select',
+    'ui-switch',
+  ];
+
   static controls = {
     'ui-checkbox': {click: null},
     'ui-input': {focus: 'input'},
@@ -15,7 +24,7 @@ class UIField extends UIBase{
   connectedCallback(){
     super.connectedCallback();
 
-    const label = this.querySelector('label');
+    const label = this.querySelector('ui-label');
     const control = this.querySelector('ui-checkbox,ui-switch,ui-input,ui-textarea,ui-select');
 
     if(!control || !label){
@@ -34,11 +43,24 @@ class UIField extends UIBase{
       if(['ui-checkbox','ui-switch'].includes(tag)){
         control.click?.();
       }
-      else if(['ui-input','ui-textarea','ui-select'].includes(tag)) {
+      else if(['ui-input','ui-textarea','ui-select'].includes(tag)){
         control.focus();
       }
     });
 
+    if(this.hasAttribute('required')){
+      this.#applyRequired();
+    }
+
   }
+
+  #applyRequired(){
+    UIField.elements.forEach(tag => {
+      this.querySelectorAll(tag).forEach(element => {
+        element.setAttribute('required','');
+      });
+    });
+  }
+
 }
 customElements.define('ui-field',UIField);

@@ -12,7 +12,7 @@
     <h2>Attributes</h2>
     <ul>
       <li>required - static, optional.
-        <br>Adds an asterisk.</li>
+        <br>Adds the required attribute to all child elements.</li>
     </ul>
   </div>
 </section>
@@ -23,16 +23,16 @@
     <div class="example">
       <div class="preview">
         <ui-field>
+          <ui-label>Label</ui-label>
           <ui-checkbox></ui-checkbox>
-          <label>Label</label>
         </ui-field>
       </div>
       <div class="code">
         <code>
           <div>&lt;ui-field&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-label&gt;Label&lt;/ui-label&gt;</div>
             <div>&nbsp;&nbsp;&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;</div>
-            <div>&nbsp;&nbsp;&lt;label required&gt;Label&lt;/label&gt;</div>
-          <div>&lt;/label&gt;</div>
+          <div>&lt;/ui-field&gt;</div>
         </code>
       </div>
     </div>
@@ -42,14 +42,17 @@
     <div>Required</div>
     <div class="example">
       <div class="preview">
-        <ui-field>
+        <ui-field required>
+          <ui-label>Label</ui-label>
           <ui-switch></ui-switch>
-          <label required>Label</label>
         </ui-field>
       </div>
       <div class="code">
         <code>
-          <div>&lt;label required&gt;Label&lt;/label&gt;</div>
+          <div>&lt;ui-field required&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-label&gt;Label&lt;/ui-label&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-switch&gt;&lt;/ui-switch&gt;</div>
+          <div>&lt;/ui-field&gt;</div>
         </code>
       </div>
     </div>
@@ -59,14 +62,17 @@
     <div>Required</div>
     <div class="example">
       <div class="preview">
-        <ui-field>
-          <label required>Label</label>
+        <ui-field required>
+          <ui-label>Label</ui-label>
           <ui-textarea></ui-textarea>
         </ui-field>
       </div>
       <div class="code">
         <code>
-          <div>&lt;label required&gt;Label&lt;/label&gt;</div>
+          <div>&lt;ui-field required&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-label&gt;Label&lt;/ui-label&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-textarea&gt;&lt;/ui-textarea&gt;</div>
+          <div>&lt;/ui-field&gt;</div>
         </code>
       </div>
     </div>
