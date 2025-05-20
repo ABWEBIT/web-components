@@ -15,6 +15,10 @@ class UIField extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    const axis = this.getAttribute('axis');
+    if(!['x','y'].includes(axis)){
+      this.setAttribute('axis','x');
+    }
 
     if(this.hasAttribute('required')) this.#addRequired();
 
@@ -32,6 +36,10 @@ class UIField extends UIBase{
 
     if(!label.id) label.id = this.#uuid;
     control.setAttribute('aria-labelledby',label.id);
+
+    if(label.compareDocumentPosition(control) & Node.DOCUMENT_POSITION_FOLLOWING) {
+      this.insertBefore(label, control);
+    }
 
     if(!label.hasAttribute('passive')){
       label.addEventListener('click',() => {

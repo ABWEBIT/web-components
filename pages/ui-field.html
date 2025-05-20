@@ -3,6 +3,12 @@
   <div class="description">The Field component groups a label with a form control.</div>
   <ui-divider></ui-divider>
   <div class="info">
+    <h2>Usage</h2>
+    <ul>
+      <li>Only two components are allowed inside: a ui-label and a form control.</li>
+    </ul>
+  </div>
+  <div class="info">
     <h2>Features</h2>
     <ul>
       <li>Supports LTR and RTL. Default: LTR.</li>
@@ -20,18 +26,18 @@
 
 <section class="content">
   <div class="content-item">
-    <div>Passive, non-clickable label</div>
+    <div>Default</div>
     <div class="example">
       <div class="preview">
         <ui-field>
-          <ui-label passive>Label</ui-label>
+          <ui-label>Label</ui-label>
           <ui-checkbox></ui-checkbox>
         </ui-field>
       </div>
       <div class="code">
         <code>
           <div>&lt;ui-field&gt;</div>
-            <div>&nbsp;&nbsp;&lt;ui-label passive&gt;Label&lt;/ui-label&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-label&gt;Label&lt;/ui-label&gt;</div>
             <div>&nbsp;&nbsp;&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;</div>
           <div>&lt;/ui-field&gt;</div>
         </code>
@@ -40,18 +46,18 @@
   </div>
 
   <div class="content-item">
-    <div>Required</div>
+    <div>Passive, non-clickable label</div>
     <div class="example">
       <div class="preview">
-        <ui-field required>
-          <ui-label>Label</ui-label>
+        <ui-field>
           <ui-switch></ui-switch>
+          <ui-label passive>Label</ui-label>
         </ui-field>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-field required&gt;</div>
-            <div>&nbsp;&nbsp;&lt;ui-label&gt;Label&lt;/ui-label&gt;</div>
+          <div>&lt;ui-field&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-label passive&gt;Label&lt;/ui-label&gt;</div>
             <div>&nbsp;&nbsp;&lt;ui-switch&gt;&lt;/ui-switch&gt;</div>
           <div>&lt;/ui-field&gt;</div>
         </code>
@@ -63,7 +69,7 @@
     <div>Required</div>
     <div class="example">
       <div class="preview">
-        <ui-field required>
+        <ui-field required axis="y">
           <ui-label>Label</ui-label>
           <ui-textarea height="200"></ui-textarea>
         </ui-field>

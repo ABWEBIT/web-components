@@ -1,8 +1,23 @@
 ui-field{
   position:relative;
-  display:inline-flex;
-  align-items:center;}
+  display:inline-flex;}
 
-ui-field > ui-label{
-  padding-inline:14px;
-  padding-top:2px;}
+ui-field[axis="x"]{
+  align-items:center;
+  flex-direction:row;}
+
+ui-field[axis="x"] ui-label{
+  padding-top:2px;
+}
+
+ui-field[axis="x"] > ui-label:first-child{
+  padding-inline-end:10px;}
+
+ui-field[axis="x"] > ui-label:last-child{
+  padding-inline-start:10px;}
+
+ui-field[axis="y"]{
+  flex-direction:column;}
+
+ui-field[axis="y"] > ui-label:first-child{
+  padding-block-end:10px;}

@@ -7,7 +7,6 @@ ui-textarea{
   height:var(--ui-object-height);
   width:100%;
   max-width:100%;
-  min-width:100px;
   padding:16px;
   border:none;
   outline-offset:2px;

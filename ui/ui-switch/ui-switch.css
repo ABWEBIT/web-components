@@ -1,7 +1,10 @@
 ui-switch{
+  direction: rtl;
+  position:relative;
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
+  justify-content:start;
   height:var(--ui-object-height);
   width:calc(var(--ui-object-height) * 2);
   padding:calc(var(--ui-object-height) / 6);
@@ -25,18 +28,18 @@ ui-switch:focus-visible:not([disabled]){
 
 ui-switch::before{
   content:'';
-  height:100%;
+  position:absolute;
+  top:calc(var(--ui-object-height) / 6);
+  inset-inline-start:calc(var(--ui-object-height) / 6);
+  height:calc(var(--ui-object-height) - var(--ui-object-height) / 3);
   aspect-ratio:1;
   border-radius:var(--ui-border-radius-circle);
   background-color:var(--ui-color-white);
-  transition-duration:var(--ui-transition-duration);
-  transition-property:transform;
-  transform:translateX(0);}
+  transition:inset-inline-start var(--ui-transition-duration);}
 
 ui-switch[checked]::before{
-  transform:translateX(
-    calc(var(--ui-object-height))
-  );}
+  inset-inline-start:calc(100% - var(--ui-object-height) + var(--ui-object-height) / 6);
+}
 
 ui-switch[checked]{
   background-color:rgb(25,125,230);}
