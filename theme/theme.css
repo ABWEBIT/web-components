@@ -44,7 +44,8 @@ body{
   font-family:var(--font-family);
   font-size:var(--ui-font-size-medium);
   color:var(--ui-color-white);
-  background-color:var(--ui-color-black);}
+  background-color:var(--ui-color-black);
+  overflow-y:scroll;}
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{

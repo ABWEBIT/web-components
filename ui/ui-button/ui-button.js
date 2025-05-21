@@ -1,7 +1,7 @@
 import {UIBase} from '../ui-base/ui-base.js';
 
 class UIButton extends UIBase{
-  #label = '';
+  #text = '';
   #iconLeading = '';
   #iconTrailing = '';
   #shape = 'rounded';
@@ -13,20 +13,20 @@ class UIButton extends UIBase{
   #onKeyDown = this.onKeyDown.bind(this);
 
   static properties = Object.freeze({
-    'label':{name:'label',type:String,reflect:true},
+    'text':{name:'text',type:String,reflect:true},
     'icon-leading':{name:'iconLeading',type:String,reflect:true},
     'icon-trailing':{name:'iconTrailing',type:String,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true},
     'loading':{name:'loading',type:Boolean,reflect:true}
   });
 
-  get label(){return this.#label;}
-  set label(value){
-    if(!(this.#label = String(value || ''))) return;
-    this.updateText('span',this.#label);
-    this.reflect('label',this.#label);
+  get text(){return this.#text;}
+  set text(value){
+    if(!(this.#text = String(value || ''))) return;
+    this.updateText('span',this.#text);
+    this.reflect('text',this.#text);
     this.setAttributes(this,{
-      'aria-label': this.#label
+      'aria-label': this.#text
     });
   }
 
@@ -68,7 +68,8 @@ class UIButton extends UIBase{
     super.connectedCallback();
 
     this.setAttributes(this,{
-      'role': 'button'
+      'role': 'button',
+      'aria-busy': 'false'
     });
 
     this.disabled = this.hasAttribute('disabled');
@@ -84,7 +85,7 @@ class UIButton extends UIBase{
 
     this.innerHTML = `
       ${this.#iconLeading ? `<ui-icon height="${height}" leading></ui-icon>` : ''}
-      ${this.#label ? `<span></span>` : ''}
+      ${this.#text ? `<span></span>` : ''}
       ${this.#iconTrailing ? `<ui-icon height="${height}" trailing></ui-icon>` : ''}
       ${this.#loading ? `<ui-loader></ui-loader>` : ''}
     `;

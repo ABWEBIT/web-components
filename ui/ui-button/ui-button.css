@@ -18,15 +18,18 @@ ui-button{
   cursor:pointer;
   overflow:hidden;}
 
-ui-button:not([label]):not([icon-leading]),
-ui-button:not([label]):not([icon-trailing]){
+ui-button:not([text]):not([icon-leading]),
+ui-button:not([text]):not([icon-trailing]){
   width:var(--ui-object-height);}
 
-ui-button[label][icon-leading]:not([icon-trailing]){
+ui-button[text][icon-leading]:not([icon-trailing]){
   padding-inline-start:calc(var(--ui-object-height) / 2 - 2px);}
 
-ui-button[label][icon-trailing]:not([icon-leading]){
+ui-button[text][icon-trailing]:not([icon-leading]){
   padding-inline-end:calc(var(--ui-object-height) / 2 - 2px);}
+
+ui-button[text][icon-trailing][icon-leading]{
+  padding-inline:calc(var(--ui-object-height) / 2 - 2px);}
 
 ui-button[shape="rounded"]{
   border-radius:calc(var(--ui-object-height) / 4);}
@@ -54,7 +57,7 @@ ui-button:active:not([disabled]),
 ui-button[active]:not([disabled]){
   background-color:rgb(50,50,50);}
 
-ui-button[label] > span{
+ui-button[text] > span{
   font-size:clamp(
     var(--ui-font-size-x-small),
     calc(var(--ui-object-height) / 2 - 2px),
