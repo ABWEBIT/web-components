@@ -68,8 +68,15 @@ nav .dynamic{
   row-gap:20px;}
 
 nav .static{
+  display:flex;
+  align-items:center;
   height:50px;
   min-height:50px;}
+
+nav .version{
+  color:rgb(175,175,175);
+  font-size:var(--ui-font-size-x-small);
+}
 
 nav .menuTitle{
   padding-bottom:6px;
@@ -81,7 +88,7 @@ nav .menuItem{
   font-size:var(--ui-font-size-small);
   color:rgb(175,175,175);}
 
-nav span{
+nav .menuItem span{
   display:flex;
   align-items:center;
   column-gap:10px;
@@ -92,11 +99,11 @@ nav span{
   transition-property:background-color,color;}
 
 @media (hover:hover){
-nav span:hover{
+nav .menuItem span:hover{
   background-color:rgb(10,10,10);}
 }
 
-nav span.active{
+nav .menuItem span.active{
   background-color:rgb(25,25,25);}
 
 article{
