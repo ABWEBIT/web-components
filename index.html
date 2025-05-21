@@ -15,6 +15,9 @@
   <nav>
     <div class="static"></div>
     <div class="dynamic">
+      <div class="nav-category" data-nav-category="essentials">
+        <div class="menuTitle">Essentials</div>
+      </div>
 <!-- variant, tone, elevation, radius -->
       <div class="nav-category" data-nav-category="theme">
         <div class="menuTitle">Theme</div>
@@ -45,6 +48,10 @@
 
 
 <script>
+  const essentials = [
+    'Core Features',
+  ];
+
   const theme = [
     'Icons',
   ];
@@ -81,7 +88,7 @@
     );
 
     sorted.forEach(label =>{
-      const page = 'ui-' + label.toLowerCase();
+      const page = 'ui-' + label.toLowerCase().replace(/\s+/g, '-');
 
       const wrapper = document.createElement('div');
       wrapper.className = 'menuItem';
@@ -99,6 +106,7 @@
   }
 
   [
+    ['essentials',essentials],
     ['theme',theme],
     ['primitives',primitives],
     ['forms',forms],
