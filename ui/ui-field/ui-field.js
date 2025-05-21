@@ -15,14 +15,22 @@ class UIField extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    const axis = this.getAttribute('axis');
-    if(!['x','y'].includes(axis)){
-      this.setAttribute('axis','x');
-    }
+    const orientation = this.getAttribute('orientation');
+    if(!['horizontal','vertical'].includes(orientation)){
+      this.setAttribute('orientation','horizontal');
+    };
 
     if(this.hasAttribute('required')) this.#addRequired();
 
     const label = this.querySelector('ui-label');
+
+    const labelPosition = this.getAttribute('label-position');
+    if(!['start','end'].includes(labelPosition)){
+      this.setAttribute('label-position','start');
+    };
+
+    if(labelPosition === 'start') this.prepend(label);
+    else if(labelPosition === 'end') this.append(label);
 
     const controls = UIField.elements.filter(tag => tag !== 'ui-label');
     const control = this.querySelector(controls.join(','));
@@ -36,10 +44,6 @@ class UIField extends UIBase{
 
     if(!label.id) label.id = this.#uuid;
     control.setAttribute('aria-labelledby',label.id);
-
-    if(label.compareDocumentPosition(control) & Node.DOCUMENT_POSITION_FOLLOWING) {
-      this.insertBefore(label, control);
-    }
 
     if(!label.hasAttribute('passive')){
       label.addEventListener('click',() => {

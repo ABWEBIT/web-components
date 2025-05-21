@@ -12,14 +12,18 @@
     <h2>Features</h2>
     <ul>
       <li>Supports LTR and RTL. Default: LTR.</li>
-      <li>Automatic association between the label and the form control by adding a unique UUID to the label’s id attribute and assigning this UUID to the form control’s aria-labelledby attribute. You can override the unique UUID by adding a custom id attribute to the ui-label component.</li>
+      <li>Automatic association between the label and the form control by adding a unique UUID to the label's id attribute and assigning this UUID to the form control's aria-labelledby attribute. You can override the unique UUID by adding a custom id attribute to the ui-label component.</li>
     </ul>
   </div>
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>required - static, optional.
-        <br>Adds the required attribute to all child elements.</li>
+      <li><code>label-position</code> - static, optional. Default: <code>start</code>
+        <br>Defines the position of the <code>ui-label</code> relative to the form control. By default, the label is placed before the form control, so <code>start</code> doesn't need to be explicitly set. Use <code>end</code> to place the label after the control.</li>
+      <li><code>orientation</code> - static, optional. Default: <code>horizontal</code>
+        <br>Defines the layout direction of the label and the form control. (horizontal | vertical)</li>
+      <li><code>required</code> - static, optional.
+        <br>Adds the <code>required</code> attribute to all child elements.</li>
     </ul>
   </div>
 </section>
@@ -50,8 +54,8 @@
     <div class="example">
       <div class="preview">
         <ui-field>
-          <ui-switch></ui-switch>
           <ui-label passive>Label</ui-label>
+          <ui-switch></ui-switch>
         </ui-field>
       </div>
       <div class="code">
@@ -66,17 +70,37 @@
   </div>
 
   <div class="content-item">
-    <div>Required</div>
+    <div>label-position="end"</div>
     <div class="example">
       <div class="preview">
-        <ui-field required axis="y">
+        <ui-field label-position="end">
+          <ui-label>Label</ui-label>
+          <ui-switch></ui-switch>
+        </ui-field>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-field label-position="end"&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-label&gt;Label&lt;/ui-label&gt;</div>
+            <div>&nbsp;&nbsp;&lt;ui-switch&gt;&lt;/ui-switch&gt;</div>
+          <div>&lt;/ui-field&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Required, orientation="vertical"</div>
+    <div class="example">
+      <div class="preview">
+        <ui-field required orientation="vertical">
           <ui-label>Label</ui-label>
           <ui-textarea height="200"></ui-textarea>
         </ui-field>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-field required&gt;</div>
+          <div>&lt;ui-field required orientation="vertical"&gt;</div>
             <div>&nbsp;&nbsp;&lt;ui-label&gt;Label&lt;/ui-label&gt;</div>
             <div>&nbsp;&nbsp;&lt;ui-textarea&gt;&lt;/ui-textarea&gt;</div>
           <div>&lt;/ui-field&gt;</div>

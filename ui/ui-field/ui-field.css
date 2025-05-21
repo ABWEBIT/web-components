@@ -2,22 +2,21 @@ ui-field{
   position:relative;
   display:inline-flex;}
 
-ui-field[axis="x"]{
+ui-field[orientation="horizontal"]{
   align-items:center;
   flex-direction:row;}
 
-ui-field[axis="x"] ui-label{
-  padding-top:2px;
-}
+ui-field[orientation="horizontal"] ui-label{
+  padding-top:2px;}
 
-ui-field[axis="x"] > ui-label:first-child{
+ui-field[orientation="horizontal"] > ui-label:first-child{
   padding-inline-end:10px;}
 
-ui-field[axis="x"] > ui-label:last-child{
+ui-field[orientation="horizontal"] > ui-label:last-child{
   padding-inline-start:10px;}
 
-ui-field[axis="y"]{
+ui-field[orientation="vertical"]{
   flex-direction:column;}
 
-ui-field[axis="y"] > ui-label:first-child{
+ui-field[orientation="vertical"] > ui-label:first-child{
   padding-block-end:10px;}
