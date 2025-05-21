@@ -28,7 +28,7 @@ ui-textarea[empty]::before{
   color:rgb(100,100,100);
   pointer-events:none;}
 
-ui-textarea:focus:not([disabled]){
+ui-textarea:focus-:not([disabled]){
   background-color:rgb(25,25,25);
   color:rgb(255,255,255);}
 
@@ -44,7 +44,7 @@ ui-textarea:focus:not([disabled]):not([status]){
 
 /* status */
 ui-textarea[status="error"]{outline-color:rgb(210,55,55);}
-ui-textarea[status="valid"]{outline-color:rgb(85,175,85);}
+ui-textarea[status="success"]{outline-color:rgb(85,175,85);}
 ui-textarea[status="warning"]{outline-color:rgb(210,175,20);}
 
 /* resize */

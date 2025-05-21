@@ -80,11 +80,7 @@ ui-input[focused]{
   background-color:rgb(35,35,35);
   outline-color:rgb(100,100,100);}
 
-ui-input[error]{
-  outline-color:rgb(210,55,55);}
-
-ui-input[valid]{
-  outline-color:rgb(85,175,85);}
-
-ui-input[warning]{
-  outline-color:rgb(210,175,20);}
+/* status */
+ui-input[status="error"]{outline-color:rgb(210,55,55);}
+ui-input[status="success"]{outline-color:rgb(85,175,85);}
+ui-input[status="warning"]{outline-color:rgb(210,175,20);}

@@ -6,7 +6,6 @@ class UIIcon extends UIBase{
 
   static #viewBox = '0 0 24 24';
   static #xmlns = 'http://www.w3.org/2000/svg';
-  static #dRegex = /^[MmLlHhVvCcSsQqTtAaZz0-9\s.,-]+$/;
 
   static properties = Object.freeze({
     'icon':{name:'icon',type:String,reflect:true}
@@ -15,23 +14,19 @@ class UIIcon extends UIBase{
   get icon(){return this.#icon;}
   set icon(value){
     this.#icon = String(value || '');
-    const array = icons?.[this.#icon];
+    const data = icons?.[this.#icon];
 
-    if(!Array.isArray(array)) return;
-    if(!array.every(d => typeof d === 'string')) return;
+    if(!Array.isArray(data) || data.length === 0) return;
 
-    const paths = array
-    .filter(d=>UIIcon.#dRegex.test(d))
-    .map(d=>{
-      const path = document.createElementNS(`${UIIcon.#xmlns}`,'path');
-      path.setAttribute('d',d);
-      return path;
-    });
+    const content = data[0];
+
+    if(typeof content !== 'string') return;
 
     queueMicrotask(()=>{
       const svg = this.querySelector('svg');
       if(!svg) return;
-      svg.replaceChildren(...paths);
+
+      svg.innerHTML = content;
       this.reflect('icon',this.#icon);
     });
   }
