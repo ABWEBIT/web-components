@@ -52,7 +52,10 @@ body{
 
 #app{
   position:relative;
-  display:flex;}
+  display:flex;
+  width:1600px;
+  max-width:100%;
+  margin: auto;}
 
 nav{
   position:relative;
@@ -109,8 +112,6 @@ article{
   display:flex;
   flex-direction:column;
   row-gap:50px;
-  width:1000px;
-  max-width:1000px;
   padding:60px 10px;
   flex-grow:1;}
 
