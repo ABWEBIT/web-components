@@ -75,8 +75,7 @@ nav .static{
 
 nav .version{
   color:rgb(175,175,175);
-  font-size:var(--ui-font-size-x-small);
-}
+  font-size:var(--ui-font-size-x-small);}
 
 nav .menuTitle{
   padding-bottom:6px;
