@@ -3,9 +3,9 @@ import {UIBase} from '../ui-base/ui-base.js';
 class UIDivider extends UIBase{
   connectedCallback(){
     super.connectedCallback();
-    const axis = this.getAttribute('axis');
-    if(!['x','y'].includes(axis)){
-      this.setAttribute('axis','x');
+    const orientation = this.getAttribute('orientation');
+    if(!['horizontal','vertical'].includes(orientation)){
+      this.setAttribute('orientation','horizontal');
     }
 
     const text = this.getAttribute('text');

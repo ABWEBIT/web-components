@@ -12,19 +12,19 @@
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>text - static, optional.
+      <li><code>text</code> - static, optional.
         <br>Continuous string. (nowrap)</li>
-      <li>axis - static, required. Default: x.
-        <br>Divider direction: x, y. axis="x" is added automatically if not specified.</li>
-      <li>text-align - static, optional. Default: center (if not set).
-        <br>Text alignment: start, end.</li>
+      <li><code>text-align</code> - static, optional. Default: center.
+        <br>Text alignment: <code>start</code>, <code>end</code>.</li>
+      <li><code>orientation</code> - static, optional. Default: <code>horizontal</code>.
+        <br>Defines the divider direction. <code>horizontal</code> | <code>vertical</code></li>
     </ul>
   </div>
 </section>
 
 <section class="content">
   <div class="content-item">
-    <div>Horizontal divider (axis="x")</div>
+    <div>Horizontal divider (orientation="horizontal")</div>
     <div class="example">
       <div class="preview">
         <ui-divider></ui-divider>
@@ -80,14 +80,14 @@
   </div>
 
   <div class="content-item">
-    <div>Vertical divider (axis="y")</div>
+    <div>Vertical divider (orientation="vertical")</div>
     <div class="example">
       <div class="preview" style="height:200px;">
-        <ui-divider axis="y"></ui-divider>
+        <ui-divider orientation="vertical"></ui-divider>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-divider axis="y"&gt;&lt;/ui-divider&gt;</div>
+          <div>&lt;ui-divider orientation="vertical"&gt;&lt;/ui-divider&gt;</div>
         </code>
       </div>
     </div>
@@ -97,11 +97,11 @@
     <div>Text centered</div>
     <div class="example">
       <div class="preview" style="height:200px;">
-        <ui-divider text="Text" axis="y"></ui-divider>
+        <ui-divider text="Text" orientation="vertical"></ui-divider>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-divider text="Text" axis="y"&gt;&lt;/ui-divider&gt;</div>
+          <div>&lt;ui-divider text="Text" orientation="vertical"&gt;&lt;/ui-divider&gt;</div>
         </code>
       </div>
     </div>
@@ -111,11 +111,11 @@
     <div>Text at the top (text-align="start")</div>
     <div class="example">
       <div class="preview" style="height:200px;">
-        <ui-divider text="Text" axis="y" text-align="start"></ui-divider>
+        <ui-divider text="Text" orientation="vertical" text-align="start"></ui-divider>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-divider text="Text" axis="y" text-align="start"&gt;&lt;/ui-divider&gt;</div>
+          <div>&lt;ui-divider text="Text" orientation="vertical" text-align="start"&gt;&lt;/ui-divider&gt;</div>
         </code>
       </div>
     </div>
@@ -125,11 +125,11 @@
     <div>Text at the bottom (text-align="end")</div>
     <div class="example">
       <div class="preview" style="height:200px;">
-        <ui-divider text="Text" axis="y" text-align="end"></ui-divider>
+        <ui-divider text="Text" orientation="vertical" text-align="end"></ui-divider>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-divider text="Text" axis="y" text-align="end"&gt;&lt;/ui-divider&gt;</div>
+          <div>&lt;ui-divider text="Text" orientation="vertical" text-align="end"&gt;&lt;/ui-divider&gt;</div>
         </code>
       </div>
     </div>
