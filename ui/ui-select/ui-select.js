@@ -42,14 +42,15 @@ class UISelect extends UIBase{
       this.setAttribute('shape',this.#shape);
     }
 
-    const buttonId = 'ui-select-trigger';
     const listboxId = 'ui-select-options';
 
     this.innerHTML = `
-      <ui-button id="${buttonId}" text="Select" height="${height}"></ui-button>
+      <ui-button text="Select" height="${height}" icon-trailing="arrow-small-down"></ui-button>
       <div id="${listboxId}" role="listbox">
         <div id="opt1" role="option" aria-selected="true">Option 1</div>
         <div id="opt2" role="option" aria-selected="false">Option 2</div>
+        <div id="opt3" role="option" aria-selected="false">Option 3</div>
+        <div id="opt4" role="option" aria-selected="false">Option 4</div>
       </div>
     `;
 
