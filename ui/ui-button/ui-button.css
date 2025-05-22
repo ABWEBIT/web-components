@@ -31,15 +31,6 @@ ui-button[text][icon-trailing]:not([icon-leading]){
 ui-button[text][icon-trailing][icon-leading]{
   padding-inline:calc(var(--ui-object-height) / 2 - 2px);}
 
-ui-button[shape="rounded"]{
-  border-radius:calc(var(--ui-object-height) / 4);}
-
-ui-button[shape="pill"]{
-  border-radius:var(--ui-border-radius-pill);}
-
-ui-button[shape="square"]{
-  border-radius:none;}
-
 ui-button[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}

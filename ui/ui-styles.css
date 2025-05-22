@@ -57,3 +57,24 @@
 
 [ui] input::-ms-reveal{
   display:none;}
+
+/* border radius */
+[ui][shape="pill"],
+ui-select[shape="pill"]{
+  border-radius:var(--ui-border-radius-pill);}
+
+[ui][shape="circle"]{
+  border-radius:var(--ui-border-radius-circle);}
+
+[ui][shape="square"],
+ui-select[shape="square"]{
+  border-radius:var(--ui-border-radius-square);}
+
+[ui][shape="rounded"],
+ui-select[shape="rounded"]{
+  border-radius:clamp(
+    calc(var(--ui-border-radius-default) / 2),
+    calc(var(--ui-object-height, 32px) / 4),
+    var(--ui-border-radius-default)
+  );
+}

@@ -2,54 +2,78 @@ ui-select{
   position:relative;
   width:200px;}
 
-
-ui-select ui-button{
+ui-select > [role="combobox"]{
+  display:flex;
+  align-items:center;
   height:var(--ui-object-height);
+  padding-inline-start:calc(var(--ui-object-height) / 2)!important;
   padding-inline-end:calc(var(--ui-object-height) / 4 + 2px)!important;
-  width:100%;}
+  background-color:rgb(30,30,30);
+  cursor:pointer;
+  border-radius:inherit;
+  overflow:hidden;
+  transition-duration:var(--ui-transition-duration);
+  transition-property:background-color,outline-color,color;}
 
-ui-select ui-button span{
+@media (hover:hover){
+  ui-select > [role="combobox"]:hover:not([disabled]){
+    background-color:rgb(40,40,40);
+    color:var(--ui-color-white);}
+}
+
+ui-select > [role="combobox"] > span{
+  padding-top:1px;
   flex-grow:1;
-  text-align:left;}
+  font-size:clamp(
+    var(--ui-font-size-x-small),
+    calc(var(--ui-object-height) / 2 - 2px),
+    var(--ui-font-size-medium)
+  );}
 
-ui-select [role="listbox"]{
+ui-select > [role="combobox"] ui-icon{
+  width:18px;}
+
+
+/* listbox */
+ui-select > [role="listbox"],
+ui-select > [role="listbox"] > [role="option"]{
+  border:none;
+  border-radius:inherit;
+  overflow:hidden;}
+
+ui-select > [role="listbox"]{
   position:absolute;
   display:block;
   top:calc(var(--ui-object-height) + 4px);
   left:0;
   right:0;
-  height:auto;
   padding:6px;
-  border:none;
-  border-radius:var(--ui-border-radius-default);
-  background-color:rgb(20,20,20);
-  overflow:hidden;}
+  background-color:rgb(20,20,20);}
 
-ui-select [role="listbox"][data-open="true"] {
-  display:block;}
-
-ui-select [role="option"]{
-  padding:8px 12px;
-
-  border-radius:var(--ui-border-radius-default);
-  cursor:pointer;}
-
-
-ui-select [role="option"]{
+ui-select > [role="listbox"] > [role="option"]{
   font-size:clamp(
     var(--ui-font-size-x-small),
     calc(var(--ui-object-height) / 2 - 2px),
     var(--ui-font-size-medium)
   );
-  white-space:nowrap;
-  text-overflow:ellipsis;
-  overflow:hidden;}
+  padding:8px 12px;
+  cursor:pointer;}
+
+ui-select > [role="listbox"][data-open="false"]{
+  display:none;}
+
+ui-select > [role="listbox"][data-open="true"]{
+  display:block;}
 
 
 
-
-
-ui-select [role="option"]:hover,
-ui-select [role="option"][aria-selected="true"] {
-  background-color: rgb(35,35,35);
+@media (hover:hover){
+  ui-select [role="option"]:hover:not([disabled]){
+    background-color:rgb(40,40,40);
+    color:var(--ui-color-white);}
 }
+
+
+ui-select > [role="listbox"] > [role="option"][aria-selected="true"]{
+  background-color:rgb(30,30,30);
+  color:var(--ui-color-white);}

@@ -52,15 +52,3 @@ ui-textarea[resize]{overflow:auto;}
 ui-textarea[resize="horizontal"]{resize:horizontal;}
 ui-textarea[resize="vertical"]{resize:vertical;}
 ui-textarea[resize="both"]{resize:both;}
-
-/* shape */
-ui-textarea[shape="rounded"]{
-  border-radius:clamp(
-    calc(var(--ui-border-radius-default, 8px) / 2),
-    calc(var(--ui-object-height, 32px) / 4),
-    var(--ui-border-radius-default, 8px)
-  );
-}
-
-ui-textarea[shape="square"]{
-  border-radius:none;}

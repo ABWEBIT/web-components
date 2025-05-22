@@ -20,12 +20,6 @@ ui-input[animated]{
 ui-input[shape="rounded"]{
   border-radius:calc(var(--ui-object-height) / 4);}
 
-ui-input[shape="pill"]{
-  border-radius:var(--ui-border-radius-pill);}
-
-ui-input[shape="square"]{
-  border-radius:none;}
-
 ui-input input{
   height:100%;
   flex-grow:1;
