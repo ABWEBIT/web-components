@@ -167,7 +167,7 @@ article{
 .content-item > .example{
   border:1px solid rgb(25,25,25);
   border-radius:var(--ui-border-radius-default);
-  overflow:hidden;}
+}
 
 .content-item > .example > .preview,
 .content-item > .example > .code,
