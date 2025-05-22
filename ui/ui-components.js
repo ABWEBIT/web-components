@@ -10,3 +10,4 @@ import './ui-switch/ui-switch.js';
 import './ui-text/ui-text.js';
 import './ui-textarea/ui-textarea.js';
 import './ui-label/ui-label.js';
+import './ui-select/ui-select.js';

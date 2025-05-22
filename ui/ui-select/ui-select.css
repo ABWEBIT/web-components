@@ -1,0 +1,35 @@
+ui-select{
+  position:relative;}
+
+
+ui-select ui-button{
+  height:var(--ui-object-height);}
+
+ui-select [role="listbox"]{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+  width:auto;
+  height:auto;
+  margin-top: 2px;
+  background: #fff;
+  border:none;
+  border-radius: var(--ui-border-radius, 6px);
+  background-color: rgb(10,10,10);
+display: block;
+}
+
+ui-select [role="listbox"][data-open="true"] {
+  display: block;
+}
+
+ui-select [role="option"] {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+ui-select [role="option"]:hover,
+ui-select [role="option"][aria-selected="true"] {
+  background-color: rgb(25,25,25);
+}

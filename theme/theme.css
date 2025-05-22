@@ -74,10 +74,10 @@ nav .dynamic{
 nav .static{
   display:flex;
   align-items:center;
-  height:50px;
-  min-height:50px;}
+  height:60px;
+  min-height:60px;}
 
-nav .version{
+nav .ui-version{
   color:rgb(175,175,175);
   font-size:var(--ui-font-size-x-small);}
 

@@ -14,7 +14,9 @@
 
   <div role="navigation">
     <nav>
-      <div class="static"><span class="version">ui v.0.1.0a<span></div>
+      <div class="static">
+        <span class="ui-version"><span>
+      </div>
       <div class="dynamic">
         <div class="nav-category" data-nav-category="essentials">
           <div class="menuTitle">Essentials</div>
@@ -86,6 +88,7 @@
     'Switch',
     'Textarea',
     'Field',
+    'Select',
   ];
 
   const utilities = [
@@ -130,6 +133,14 @@
   ].forEach(([key,value]) => navGenerator(key,value));
 
 </script>
+<script type="module">
+  import {ui_version} from './ui/ui-version.js';
+  let version = document.querySelectorAll('.ui-version');
+  version.forEach(el => {
+    el.textContent = 'ui '+ui_version;
+  });
+</script>
+
 <script type="module" src="./theme/router.js"></script>
 <script type="module" src="./ui/ui-components.js"></script>
 </body>
