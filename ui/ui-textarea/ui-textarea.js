@@ -2,8 +2,6 @@ import {UIBase} from '../ui-base/ui-base.js';
 import {inputTypes,htmlEscape} from '../../utils/index.js';
 
 class UITextarea extends UIBase{
-  #shape = 'rounded';
-  #shapeType = ['rounded','square'];
   #disabled = false;
 
   #onInput = this.onInput.bind(this);
@@ -26,6 +24,7 @@ class UITextarea extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.shape();
 /*
     aria-labelledby="comment-label"
     aria-placeholder="Введите комментарий"
@@ -37,11 +36,6 @@ class UITextarea extends UIBase{
       'aria-required': this.hasAttribute('required') ? 'true' : 'false',
       'empty': this.textContent.trim() === '' ? true : false,
     });
-
-    const shape = this.getAttribute('shape');
-    if(!shape || !this.#shapeType.includes(shape)){
-      this.setAttribute('shape',this.#shape);
-    }
 
     let height = parseInt(this.getAttribute('height'),10) || 60;
     this.style.setProperty('--ui-object-height',`${height}px`);

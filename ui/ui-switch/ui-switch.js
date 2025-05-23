@@ -33,6 +33,7 @@ class UISwitch extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.height(24);
 
     this.setAttributes(this,{
       'role': 'switch'
@@ -40,9 +41,6 @@ class UISwitch extends UIBase{
 
     this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
-
-    let height = parseInt(this.getAttribute('height'),10) || 24;
-    this.style.setProperty('--ui-object-height',`${height}px`);
 
     this.innerHTML = ``;
 

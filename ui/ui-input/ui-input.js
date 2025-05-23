@@ -5,8 +5,6 @@ class UIInput extends UIBase{
   #input;
   #iconLeading = '';
   #iconTrailing = '';
-  #shape = 'rounded';
-  #shapeTypes = ['rounded','pill','square'];
   #disabled = false;
   #clearable = false;
 
@@ -44,14 +42,8 @@ class UIInput extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-
-    const shape = this.getAttribute('shape');
-    if(!shape || !this.#shapeTypes.includes(shape)){
-      this.setAttribute('shape',this.#shape);
-    }
-
-    let height = parseInt(this.getAttribute('height'),10) || 32;
-    this.style.setProperty('--ui-object-height',`${height}px`);
+    this.shape();
+    this.height(32);
 
     this.#clearable = this.hasAttribute('clearable');
 

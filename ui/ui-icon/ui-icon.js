@@ -33,9 +33,7 @@ class UIIcon extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-
-    let height = parseInt(this.getAttribute('height'),10) || 24;
-    this.style.setProperty('--ui-object-height',`${height}px`);
+    this.height(24);
 
     this.innerHTML = `
       <svg viewBox="${UIIcon.#viewBox}" xmlns="${UIIcon.#xmlns}"></svg>

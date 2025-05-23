@@ -1,27 +1,32 @@
 ui-select{
   position:relative;
-  width:200px;}
-
-ui-select > [role="combobox"]{
-  display:flex;
+  display:inline-flex;
   align-items:center;
   height:var(--ui-object-height);
+  width:200px;
   padding-inline-start:calc(var(--ui-object-height) / 2)!important;
   padding-inline-end:calc(var(--ui-object-height) / 4 + 2px)!important;
+  border:none;
+  outline-offset:2px;
+  outline-width:2px;
+  outline-style:solid;
+  outline-color:transparent;
+  color:rgb(175,175,175);
   background-color:rgb(30,30,30);
   cursor:pointer;
-  border-radius:inherit;
-  overflow:hidden;
+  overflow:hidden;}
+
+ui-select[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}
 
 @media (hover:hover){
-  ui-select > [role="combobox"]:hover:not([disabled]){
-    background-color:rgb(40,40,40);
-    color:var(--ui-color-white);}
+  ui-select:hover:not([disabled]){
+    color:var(--ui-color-white);
+    background-color:rgb(40,40,40);}
 }
 
-ui-select > [role="combobox"] > span{
+ui-select > span{
   padding-top:1px;
   flex-grow:1;
   font-size:clamp(
@@ -30,50 +35,5 @@ ui-select > [role="combobox"] > span{
     var(--ui-font-size-medium)
   );}
 
-ui-select > [role="combobox"] ui-icon{
+ui-select > ui-icon{
   width:18px;}
-
-
-/* listbox */
-ui-select > [role="listbox"],
-ui-select > [role="listbox"] > [role="option"]{
-  border:none;
-  border-radius:inherit;
-  overflow:hidden;}
-
-ui-select > [role="listbox"]{
-  position:absolute;
-  display:block;
-  top:calc(var(--ui-object-height) + 4px);
-  left:0;
-  right:0;
-  padding:6px;
-  background-color:rgb(20,20,20);}
-
-ui-select > [role="listbox"] > [role="option"]{
-  font-size:clamp(
-    var(--ui-font-size-x-small),
-    calc(var(--ui-object-height) / 2 - 2px),
-    var(--ui-font-size-medium)
-  );
-  padding:8px 12px;
-  cursor:pointer;}
-
-ui-select > [role="listbox"][data-open="false"]{
-  display:none;}
-
-ui-select > [role="listbox"][data-open="true"]{
-  display:block;}
-
-
-
-@media (hover:hover){
-  ui-select [role="option"]:hover:not([disabled]){
-    background-color:rgb(40,40,40);
-    color:var(--ui-color-white);}
-}
-
-
-ui-select > [role="listbox"] > [role="option"][aria-selected="true"]{
-  background-color:rgb(30,30,30);
-  color:var(--ui-color-white);}

@@ -1,4 +1,7 @@
 export class UIBase extends HTMLElement{
+  #shapeDefault = 'rounded';
+  #shapeTypes = ['rounded','pill','circle','square'];
+
   static get observedAttributes(){
     return Object.keys(this.properties || {});
   }
@@ -66,7 +69,7 @@ export class UIBase extends HTMLElement{
 
   updateIcon(selector,icon){
     queueMicrotask(()=>{
-      let obj = this.querySelector(`ui-icon${selector}`);
+      let obj = this.querySelector(selector);
       if(!obj) return;
       obj.setAttribute('icon',icon);
     });
@@ -75,5 +78,18 @@ export class UIBase extends HTMLElement{
   onClick(e){
     if(this.disabled) return;
     if(typeof this.doAction === 'function') this.doAction(e);
+  }
+
+  shape(){
+    const shape = this.getAttribute('shape');
+    if(!shape || !this.#shapeTypes.includes(shape)){
+      this.setAttribute('shape',this.#shapeDefault);
+    }
+  }
+
+  height(number = 32){
+    const attribute = parseInt(this.getAttribute('height'),10);
+    const height = !isNaN(attribute) ? attribute : number;
+    this.style.setProperty('--ui-object-height',`${height}px`);
   }
 }

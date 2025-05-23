@@ -1,0 +1,45 @@
+ui-listbox{
+  display:inline-flex;
+  flex-direction:column;
+  padding:6px;
+  border:none;
+  outline-offset:2px;
+  outline-width:2px;
+  outline-style:solid;
+  outline-color:transparent;
+  background-color:rgb(30,30,30);
+  overflow:hidden;
+  z-index:9999;}
+
+ui-listbox[hidden]{
+  display:none!important;}
+
+ui-listbox [role="option"]{
+  border:none;
+  border-radius:inherit;
+  font-size:clamp(
+    var(--ui-font-size-x-small),
+    calc(var(--ui-object-height) / 2 - 2px),
+    var(--ui-font-size-medium)
+  );
+  padding:8px 12px;
+  cursor:pointer;}
+
+ui-listbox[data-open="false"]{
+  display:none;}
+
+ui-listbox[data-open="true"]{
+  display:block;}
+
+
+
+@media (hover:hover){
+  ui-listbox [role="option"]:hover:not([disabled]){
+    background-color:rgb(40,40,40);
+    color:var(--ui-color-white);}
+}
+
+
+ui-listbox [role="option"][aria-selected="true"]{
+  background-color:rgb(30,30,30);
+  color:var(--ui-color-white);}

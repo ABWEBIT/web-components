@@ -4,8 +4,6 @@ class UIButton extends UIBase{
   #text = '';
   #iconLeading = '';
   #iconTrailing = '';
-  #shape = 'rounded';
-  #shapeTypes = ['rounded','pill','square'];
   #disabled = false;
   #loading = false;
 
@@ -66,6 +64,8 @@ class UIButton extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.shape();
+    this.height(32);
 
     this.setAttributes(this,{
       'role': 'button',
@@ -75,18 +75,10 @@ class UIButton extends UIBase{
     this.disabled = this.hasAttribute('disabled');
     this.loading = this.hasAttribute('loading');
 
-    const shape = this.getAttribute('shape');
-    if(!shape || !this.#shapeTypes.includes(shape)){
-      this.setAttribute('shape',this.#shape);
-    }
-
-    let height = parseInt(this.getAttribute('height'),10) || 32;
-    this.style.setProperty('--ui-object-height',`${height}px`);
-
     this.innerHTML = `
-      ${this.#iconLeading ? `<ui-icon height="${height}" leading></ui-icon>` : ''}
+      ${this.#iconLeading ? `<ui-icon leading></ui-icon>` : ''}
       ${this.#text ? `<span></span>` : ''}
-      ${this.#iconTrailing ? `<ui-icon height="${height}" trailing></ui-icon>` : ''}
+      ${this.#iconTrailing ? `<ui-icon trailing></ui-icon>` : ''}
       ${this.#loading ? `<ui-loader></ui-loader>` : ''}
     `;
 
