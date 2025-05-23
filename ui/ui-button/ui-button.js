@@ -65,7 +65,7 @@ class UIButton extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.shape();
-    this.height(32);
+    let height = this.height(32);
 
     this.setAttributes(this,{
       'role': 'button',
@@ -76,9 +76,9 @@ class UIButton extends UIBase{
     this.loading = this.hasAttribute('loading');
 
     this.innerHTML = `
-      ${this.#iconLeading ? `<ui-icon leading></ui-icon>` : ''}
+      ${this.#iconLeading ? `<ui-icon height="${height}" leading></ui-icon>` : ''}
       ${this.#text ? `<span></span>` : ''}
-      ${this.#iconTrailing ? `<ui-icon trailing></ui-icon>` : ''}
+      ${this.#iconTrailing ? `<ui-icon height="${height}" trailing></ui-icon>` : ''}
       ${this.#loading ? `<ui-loader></ui-loader>` : ''}
     `;
 

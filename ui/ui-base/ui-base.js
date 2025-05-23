@@ -91,5 +91,6 @@ export class UIBase extends HTMLElement{
     const attribute = parseInt(this.getAttribute('height'),10);
     const height = !isNaN(attribute) ? attribute : number;
     this.style.setProperty('--ui-object-height',`${height}px`);
+    return height;
   }
 }

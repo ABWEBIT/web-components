@@ -43,7 +43,7 @@ class UIInput extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.shape();
-    this.height(32);
+    let height = this.height(32);
 
     this.#clearable = this.hasAttribute('clearable');
 

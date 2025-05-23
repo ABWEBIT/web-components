@@ -34,7 +34,7 @@ class UICheckbox extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.shape();
-    this.height(24);
+    let height = this.height(24);
 
     this.setAttributes(this,{
       'role': 'checkbox'
