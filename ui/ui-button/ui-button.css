@@ -60,12 +60,8 @@ ui-button[text] > span{
 
 ui-button > ui-icon{
   height:clamp(
-    16px,
+    14px,
     calc(var(--ui-object-height) / 2),
     24px
-  );
-  width:clamp(
-    16px,
-    calc(var(--ui-object-height) / 2),
-    24px
-  );}
+  )!important;
+  aspect-ratio:1;}
