@@ -11,9 +11,6 @@ ui-listbox{
   overflow:hidden;
   z-index:9999;}
 
-ui-listbox[animated]{
-  transition-duration:var(--ui-transition-duration);}
-
 ui-listbox[hidden]{
   display:none!important;}
 
