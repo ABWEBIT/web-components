@@ -11,6 +11,9 @@ ui-listbox{
   overflow:hidden;
   z-index:9999;}
 
+ui-listbox[animated]{
+  transition-duration:var(--ui-transition-duration);}
+
 ui-listbox[hidden]{
   display:none!important;}
 
@@ -31,15 +34,16 @@ ui-listbox[data-open="false"]{
 ui-listbox[data-open="true"]{
   display:block;}
 
-
+ui-listbox[animated] [role="option"]{
+  transition-duration:var(--ui-transition-duration);
+  transition-property:background-color,color;}
 
 @media (hover:hover){
-  ui-listbox [role="option"]:hover:not([disabled]){
+  ui-listbox[animated] [role="option"]:hover:not([disabled]){
     background-color:rgb(40,40,40);
     color:var(--ui-color-white);}
 }
 
-
-ui-listbox [role="option"][aria-selected="true"]{
+ui-listbox[animated] [role="option"][aria-selected="true"]{
   background-color:rgb(30,30,30);
   color:var(--ui-color-white);}

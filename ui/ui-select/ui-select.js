@@ -4,8 +4,7 @@ import {uuid} from '../../utils/uuid.js';
 class UISelect extends UIBase{
   #uuid = uuid();
   #listbox;
-  #text = '';
-  #placeholder = '-';
+  #text = '-';
   #iconCombobox = 'arrow-down-small';
   #expanded = false;
   #disabled = false;
@@ -14,7 +13,7 @@ class UISelect extends UIBase{
   #listboxPosition = this.listboxPosition.bind(this);
 
   static properties = Object.freeze({
-    'text':{name:'text',type:String,reflect:true},
+    'text':{name:'text',type:String},
     'icon-combobox':{name:'iconCombobox',type:String,reflect:true},
     'expanded':{name:'expanded',type:Boolean,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true},
@@ -75,6 +74,7 @@ class UISelect extends UIBase{
     this.height(32);
 
     this.setAttributes(this,{
+      'type': 'select',
       'role': 'combobox',
       'aria-haspopup': 'listbox',
       'aria-expanded': this.#expanded ? 'true' : 'false',
@@ -83,7 +83,7 @@ class UISelect extends UIBase{
     });
 
     this.innerHTML = `
-      <span>${this.#placeholder}</span>
+      <span>${this.#text}</span>
       <ui-icon icon="${this.#iconCombobox}"></ui-icon>
     `;
 
@@ -102,6 +102,7 @@ class UISelect extends UIBase{
     this.#listbox.style.position = 'absolute';
 
     this.setAttributes(this.#listbox,{
+      'type': 'select',
       'uuid': this.#uuid
     });
 

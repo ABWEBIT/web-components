@@ -11,6 +11,7 @@
   <div class="info">
     <h2>Attributes</h2>
     <ul>
+      <li>text - reactive, optional. The default text or value to display. If not provided, a hyphen ("-") is shown.</li>
       <li>icon-combobox - reactive, optional. Default: arrow-down-small.</li>
     </ul>
   </div>
@@ -22,11 +23,25 @@
     <div>Default</div>
     <div class="example">
       <div class="preview">
-        <ui-select placeholder="Select"></ui-select>
+        <ui-select></ui-select>
       </div>
       <div class="code">
         <code>
           <div>&lt;ui-select&gt;&lt;/ui-select&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>text="Select"</div>
+    <div class="example">
+      <div class="preview">
+        <ui-select text="Select"></ui-select>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-select text="Select"&gt;&lt;/ui-select&gt;</div>
         </code>
       </div>
     </div>
