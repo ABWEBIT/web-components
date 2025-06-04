@@ -26,6 +26,13 @@ ui-select[animated]{
     background-color:rgb(40,40,40);}
 }
 
+ui-select[expanded]:not([disabled]){
+  color:var(--ui-color-white);
+  background-color:rgb(40,40,40);}
+
+ui-select:focus-visible:not([disabled]){
+  outline-color:rgb(100,100,100);}
+
 ui-select > span{
   padding-top:1px;
   flex-grow:1;

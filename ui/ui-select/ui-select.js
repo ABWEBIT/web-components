@@ -1,6 +1,8 @@
 import {UIBase} from '../ui-base/ui-base.js';
+import {uuid} from '../../utils/uuid.js';
 
 class UISelect extends UIBase{
+  #uuid = uuid();
   #listbox;
   #text = '';
   #placeholder = '-';
@@ -77,6 +79,7 @@ class UISelect extends UIBase{
       'aria-haspopup': 'listbox',
       'aria-expanded': this.#expanded ? 'true' : 'false',
       'tabindex': this.#disabled ? '-1' : '0',
+      'uuid': this.#uuid
     });
 
     this.innerHTML = `
@@ -86,7 +89,6 @@ class UISelect extends UIBase{
 
     this.addEventListener('click',this.#listboxToggle);
     //window.addEventListener('resize', () => this.hideListbox());
-
     //window.addEventListener('scroll', () => this.hideListbox(), true);
 
   }
@@ -99,13 +101,18 @@ class UISelect extends UIBase{
     this.#listbox = document.createElement('ui-listbox');
     this.#listbox.style.position = 'absolute';
 
+    this.setAttributes(this.#listbox,{
+      'uuid': this.#uuid
+    });
+
     // static
     ['Option 1', 'Option 2', 'Option 3'].forEach((text, i) => {
       const opt = document.createElement('div');
       opt.setAttribute('role', 'option');
       opt.textContent = text;
       opt.addEventListener('click', () => {
-        //this.selectOption(text);
+        this.text = text;
+        this.expanded = false;
       });
       this.#listbox.appendChild(opt);
     });
