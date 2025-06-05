@@ -7,11 +7,6 @@
   --text-align-center:center;
   --text-align-start:start;
   --text-align-end:end;
-
-  --rgb-210-55-55:rgb(210,55,55);
-  --rgb-85-175-85:rgb(85,175,85);
-  --rgb-210-175-20:rgb(210,175,20);
-
 }
 
 *,*::after,*::before{
@@ -47,12 +42,23 @@ body{
   background-color:var(--ui-color-black);
   overflow-y:scroll;}
 
-*::-webkit-scrollbar-track{
-  background:transparent;}
+::-webkit-scrollbar{
+  width:6px;}
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{
-  cursor:default!important;}
+  cursor:default;}
+
+::-webkit-scrollbar-thumb{
+  border-radius:var(--ui-border-radius-pill);
+  background-color:var(--ui-color-gray);}
+
+::-webkit-scrollbar-track{
+  background-color:transparent;}
+
+::-webkit-scrollbar-button{
+  display:none;}
+
 
 #app{
   position:relative;

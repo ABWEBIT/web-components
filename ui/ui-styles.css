@@ -37,6 +37,7 @@
   /* color */
   --ui-color-white:oklch(100% 0 0);
   --ui-color-black:oklch(0% 0 0);
+  --ui-color-gray:oklch(50% 0 0);
 
   --ui-color-info:rgb(25,125,230);
   --ui-color-warning:rgb(245,180,40);
@@ -48,6 +49,8 @@
   /* transition */
   --ui-transition-duration:0.2s;
 }
+
+
 
 [ui]{
   -webkit-user-select:none;
@@ -67,15 +70,13 @@
   display:none;}
 
 /* border radius */
-[ui][shape="pill"],
-ui-select[shape="pill"]{
+[ui][shape="pill"]{
   border-radius:var(--ui-border-radius-pill);}
 
 [ui][shape="circle"]{
   border-radius:var(--ui-border-radius-circle);}
 
-[ui][shape="square"],
-ui-select[shape="square"]{
+[ui][shape="square"]{
   border-radius:var(--ui-border-radius-square);}
 
 [ui][shape="rounded"],

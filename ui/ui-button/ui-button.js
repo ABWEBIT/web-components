@@ -79,7 +79,7 @@ class UIButton extends UIBase{
       ${this.#iconLeading ? `<ui-icon height="${height}" leading></ui-icon>` : ''}
       ${this.#text ? `<span></span>` : ''}
       ${this.#iconTrailing ? `<ui-icon height="${height}" trailing></ui-icon>` : ''}
-      ${this.#loading ? `<ui-loader></ui-loader>` : ''}
+      ${this.#loading ? `<ui-spinner></ui-spinner>` : ''}
     `;
 
     this.addEventListener('click',this.#onClick);
