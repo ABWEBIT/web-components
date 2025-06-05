@@ -37,7 +37,7 @@ ui-select > span{
   padding-top:1px;
   flex-grow:1;
   font-size:clamp(
-    var(--ui-font-size-x-small),
+    var(--ui-font-size-small),
     calc(var(--ui-object-height) / 2 - 2px),
     var(--ui-font-size-medium)
   );}
