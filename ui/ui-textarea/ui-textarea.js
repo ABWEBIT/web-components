@@ -37,9 +37,10 @@ class UITextarea extends UIBase{
       'empty': this.textContent.trim() === '' ? true : false,
     });
 
+/*
     let height = parseInt(this.getAttribute('height'),10) || 60;
     this.style.setProperty('--ui-object-height',`${height}px`);
-
+*/
     this.innerHTML = '';
 
     this.addEventListener('input',this.#onInput);

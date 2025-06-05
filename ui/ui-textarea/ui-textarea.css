@@ -8,6 +8,7 @@ ui-textarea{
   width:100%;
   max-width:100%;
   padding:16px;
+  min-height:32px;
   border:none;
   outline-offset:2px;
   outline-width:2px;
@@ -28,7 +29,7 @@ ui-textarea[empty]::before{
   color:rgb(100,100,100);
   pointer-events:none;}
 
-ui-textarea:focus-:not([disabled]){
+ui-textarea:focus:not([disabled]){
   background-color:rgb(25,25,25);
   color:rgb(255,255,255);}
 

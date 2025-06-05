@@ -16,7 +16,12 @@
 
 
 :root{
-  /* font*/
+  /* size */
+  --ui-size-small:24px;
+  --ui-size-medium:32px;
+  --ui-size-large:40px;
+
+  /* font */
   --ui-font-size-x-small:12px;
   --ui-font-size-small:14px;
   --ui-font-size-medium:16px;
@@ -33,12 +38,14 @@
   --ui-color-white:oklch(100% 0 0);
   --ui-color-black:oklch(0% 0 0);
 
-  --ui-color-info:rgb(25, 125, 230);
+  --ui-color-info:rgb(25,125,230);
   --ui-color-warning:rgb(245,180,40);
   --ui-color-error:rgb(230,60,60);
   --ui-color-success:rgb(45,160,80);
 
   --ui-color-blue-050:rgb(0,125,255);
+
+  /* transition */
   --ui-transition-duration:0.2s;
 }
 
