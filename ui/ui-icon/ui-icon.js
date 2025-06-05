@@ -35,9 +35,9 @@ class UIIcon extends UIBase{
     super.connectedCallback();
     this.height(24);
 
-    this.innerHTML = `
-      <svg viewBox="${UIIcon.#viewBox}" xmlns="${UIIcon.#xmlns}"></svg>
-    `;
+    const svg = document.createElementNS(UIIcon.#xmlns,'svg');
+    svg.setAttribute('viewBox',UIIcon.#viewBox);
+    this.appendChild(svg);
   }
 }
 customElements.define('ui-icon',UIIcon);

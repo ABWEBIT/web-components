@@ -47,12 +47,35 @@ class UIInput extends UIBase{
 
     this.#clearable = this.hasAttribute('clearable');
 
-    this.innerHTML = `
-      ${this.#iconLeading ? `<ui-icon height="${height}" leading></ui-icon>` : ''}
-      <input>
-      ${this.#clearable ? `<ui-icon height="${height}" icon="close"></ui-icon>` : ''}
-      ${this.#iconTrailing ? `<ui-icon height="${height}" trailing></ui-icon>` : ''}
-    `;
+    if(this.#iconLeading){
+      const icon = document.createElement('ui-icon');
+      this.setAttributes(icon,{
+        'height': height,
+        'leading': ''
+      });
+      this.appendChild(icon);
+    }
+
+    const input = document.createElement('input');
+    this.appendChild(input);
+
+    if(this.#clearable){
+      const icon = document.createElement('ui-icon');
+      this.setAttributes(icon,{
+        'height': height,
+        'icon': 'close'
+      });
+      this.appendChild(icon);
+    }
+
+    if(this.#iconTrailing){
+      const icon = document.createElement('ui-icon');
+      this.setAttributes(icon,{
+        'height': height,
+        'trailing': ''
+      });
+      this.appendChild(icon);
+    }
 
     requestAnimationFrame(()=>{
 

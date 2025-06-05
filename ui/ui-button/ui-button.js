@@ -55,8 +55,7 @@ class UIButton extends UIBase{
   get loading(){return this.#loading;}
   set loading(value){
     this.#loading = value === true;
-    this.reflect('loading', this.#loading);
-    //this.render();
+    this.reflect('loading',this.#loading);
     this.setAttributes(this, {
       'aria-busy': this.#loading ? 'true' : 'false'
     });
@@ -69,18 +68,34 @@ class UIButton extends UIBase{
 
     this.setAttributes(this,{
       'role': 'button',
-      'aria-busy': 'false'
+      'aria-busy': this.#loading ? 'true' : 'false'
     });
 
     this.disabled = this.hasAttribute('disabled');
     this.loading = this.hasAttribute('loading');
 
-    this.innerHTML = `
-      ${this.#iconLeading ? `<ui-icon height="${height}" leading></ui-icon>` : ''}
-      ${this.#text ? `<span></span>` : ''}
-      ${this.#iconTrailing ? `<ui-icon height="${height}" trailing></ui-icon>` : ''}
-      ${this.#loading ? `<ui-spinner></ui-spinner>` : ''}
-    `;
+    if(this.#iconLeading){
+      const icon = document.createElement('ui-icon');
+      this.setAttributes(icon,{
+        'height': height,
+        'leading': ''
+      });
+      this.appendChild(icon);
+    }
+
+    if(this.#text){
+      const span = document.createElement('span');
+      this.appendChild(span);
+    }
+
+    if(this.#iconTrailing){
+      const icon = document.createElement('ui-icon');
+      this.setAttributes(icon,{
+        'height': height,
+        'trailing': ''
+      });
+      this.appendChild(icon);
+    }
 
     this.addEventListener('click',this.#onClick);
     this.addEventListener('keydown',this.#onKeyDown);

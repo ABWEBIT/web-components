@@ -24,10 +24,11 @@ class UITextarea extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.replaceChildren();
     this.shape();
 /*
     aria-labelledby="comment-label"
-    aria-placeholder="Введите комментарий"
+    aria-placeholder="Placeholder"
 */
     this.setAttributes(this,{
       'role': 'textbox',
@@ -41,7 +42,6 @@ class UITextarea extends UIBase{
     let height = parseInt(this.getAttribute('height'),10) || 60;
     this.style.setProperty('--ui-object-height',`${height}px`);
 */
-    this.innerHTML = '';
 
     this.addEventListener('input',this.#onInput);
     this.addEventListener('keydown',this.#onKeyDown);

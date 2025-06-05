@@ -21,9 +21,12 @@ class UISpinner extends UIBase{
     let height = parseInt(this.getAttribute('height'),10) || 24;
     this.style.setProperty('--ui-object-height',`${height}px`);
 
-    this.innerHTML = `
-      <ui-icon height="${height}" icon="spinner"></ui-icon>
-    `;
+    const icon = document.createElement('ui-icon');
+    this.setAttributes(icon,{
+      'height': height,
+      'icon': 'spinner'
+    });
+    this.appendChild(icon);
   }
 
 }

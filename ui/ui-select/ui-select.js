@@ -82,10 +82,18 @@ class UISelect extends UIBase{
       'uuid': this.#uuid
     });
 
-    this.innerHTML = `
-      <span>${this.#text}</span>
-      <ui-icon icon="${this.#iconCombobox}"></ui-icon>
-    `;
+    if(this.#text){
+      const span = document.createElement('span');
+      this.appendChild(span);
+    }
+
+    if(this.#iconCombobox){
+      const icon = document.createElement('ui-icon');
+      this.setAttributes(icon,{
+        'icon': this.#iconCombobox
+      });
+      this.appendChild(icon);
+    }
 
     this.addEventListener('click',this.#listboxToggle);
     //window.addEventListener('resize', () => this.hideListbox());

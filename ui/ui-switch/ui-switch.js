@@ -33,6 +33,7 @@ class UISwitch extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.replaceChildren();
     this.height(24);
 
     this.setAttributes(this,{
@@ -41,8 +42,6 @@ class UISwitch extends UIBase{
 
     this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
-
-    this.innerHTML = ``;
 
     this.addEventListener('click',this.#onClick);
     this.addEventListener('keydown',this.#onKeyDown);

@@ -43,9 +43,12 @@ class UICheckbox extends UIBase{
     this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
 
-    this.innerHTML = `
-      <ui-icon height="${height}" icon="check"></ui-icon>
-    `;
+    const icon = document.createElement('ui-icon');
+    this.setAttributes(icon,{
+      'height': height,
+      'icon': 'check'
+    });
+    this.appendChild(icon);
 
     this.addEventListener('click',this.#onClick);
     this.addEventListener('keydown',this.#onKeyDown);
