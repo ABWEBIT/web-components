@@ -126,7 +126,7 @@ class UIButton extends UIBase{
   }
 
   onClick(e){
-    if(this.disabled) return;
+    if(this.disabled || this.#loading) return;
     if(typeof this.doAction === 'function') this.doAction(e);
   }
 
@@ -138,7 +138,7 @@ class UIButton extends UIBase{
   }
 
   doAction(e){
-    console.log(e.type);
+    //console.log(e.type);
   }
 
 }
