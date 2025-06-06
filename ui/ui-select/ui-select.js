@@ -82,9 +82,11 @@ class UISelect extends UIBase{
       'uuid': this.#uuid
     });
 
+    const fragment = document.createDocumentFragment();
+
     if(this.#text){
       const span = document.createElement('span');
-      this.appendChild(span);
+      fragment.appendChild(span);
     }
 
     if(this.#iconCombobox){
@@ -92,8 +94,10 @@ class UISelect extends UIBase{
       this.setAttributes(icon,{
         'icon': this.#iconCombobox
       });
-      this.appendChild(icon);
+      fragment.appendChild(icon);
     }
+
+    this.appendChild(fragment);
 
     this.addEventListener('click',this.#listboxToggle);
     //window.addEventListener('resize', () => this.hideListbox());

@@ -44,7 +44,10 @@ class UIButton extends UIBase{
 
   get disabled(){return this.#disabled;}
   set disabled(value){
-    this.#disabled = value === true;
+    const isDisabled = value === true;
+    if(this.#disabled === isDisabled) return;
+    this.#disabled = isDisabled;
+
     this.reflect('disabled',this.#disabled);
     this.setAttributes(this,{
       'tabindex': this.#disabled ? '-1' : '0',
@@ -59,6 +62,9 @@ class UIButton extends UIBase{
     this.setAttributes(this, {
       'aria-busy': this.#loading ? 'true' : 'false'
     });
+    if(this.#loading) this.disabled = true
+    else this.disabled = false;
+    this.loader();
   }
 
   connectedCallback(){
@@ -74,18 +80,20 @@ class UIButton extends UIBase{
     this.disabled = this.hasAttribute('disabled');
     this.loading = this.hasAttribute('loading');
 
+    const fragment = document.createDocumentFragment();
+
     if(this.#iconLeading){
       const icon = document.createElement('ui-icon');
       this.setAttributes(icon,{
         'height': height,
         'leading': ''
       });
-      this.appendChild(icon);
+      fragment.appendChild(icon);
     }
 
     if(this.#text){
       const span = document.createElement('span');
-      this.appendChild(span);
+      fragment.appendChild(span);
     }
 
     if(this.#iconTrailing){
@@ -94,8 +102,12 @@ class UIButton extends UIBase{
         'height': height,
         'trailing': ''
       });
-      this.appendChild(icon);
+      fragment.appendChild(icon);
     }
+
+    this.appendChild(fragment);
+
+    this.loader();
 
     this.addEventListener('click',this.#onClick);
     this.addEventListener('keydown',this.#onKeyDown);
@@ -104,6 +116,19 @@ class UIButton extends UIBase{
   disconnectedCallback(){
     this.removeEventListener('click',this.#onClick);
     this.removeEventListener('keydown',this.#onKeyDown);
+  }
+
+  loader(){
+    if(this.#loading){
+      if(!this.querySelector('ui-spinner')){
+        const spinner = document.createElement('ui-spinner');
+        this.appendChild(spinner);
+      }
+    }
+    else{
+      const spinner = this.querySelector('ui-spinner');
+      if(spinner) spinner.remove();
+    }
   }
 
   onKeyDown(e){

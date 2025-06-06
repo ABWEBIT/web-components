@@ -45,7 +45,7 @@ class UIInput extends UIBase{
     this.shape();
     let height = this.height(32);
 
-    this.#clearable = this.hasAttribute('clearable');
+    const fragment = document.createDocumentFragment();
 
     if(this.#iconLeading){
       const icon = document.createElement('ui-icon');
@@ -53,11 +53,13 @@ class UIInput extends UIBase{
         'height': height,
         'leading': ''
       });
-      this.appendChild(icon);
+      fragment.appendChild(icon);
     }
 
     const input = document.createElement('input');
-    this.appendChild(input);
+    fragment.appendChild(input);
+
+    this.#clearable = this.hasAttribute('clearable');
 
     if(this.#clearable){
       const icon = document.createElement('ui-icon');
@@ -65,7 +67,8 @@ class UIInput extends UIBase{
         'height': height,
         'icon': 'close'
       });
-      this.appendChild(icon);
+      icon.addEventListener('click',this.#onClear);
+      fragment.appendChild(icon);
     }
 
     if(this.#iconTrailing){
@@ -74,8 +77,10 @@ class UIInput extends UIBase{
         'height': height,
         'trailing': ''
       });
-      this.appendChild(icon);
+      fragment.appendChild(icon);
     }
+
+    this.appendChild(fragment);
 
     requestAnimationFrame(()=>{
 
@@ -93,9 +98,6 @@ class UIInput extends UIBase{
       if(placeholder) this.#input.setAttribute('placeholder',placeholder);
 
       if(this.hasAttribute('required')) this.#input.required = true;
-
-      const clear = this.querySelector('ui-icon[icon="close"]');
-      if(clear) clear.addEventListener('click',this.#onClear);
     });
   }
 

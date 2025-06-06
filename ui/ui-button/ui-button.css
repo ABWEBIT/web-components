@@ -4,7 +4,7 @@ ui-button{
   justify-content:center;
   vertical-align:middle;
   height:var(--ui-object-height);
-  column-gap:calc(var(--ui-object-height) / 4);
+  column-gap:calc(var(--ui-object-height) / 8);
   padding-inline-start:calc(var(--ui-object-height) / 2);
   padding-inline-end:calc(var(--ui-object-height) / 2);
   border:none;
@@ -65,3 +65,10 @@ ui-button > ui-icon{
     24px
   )!important;
   aspect-ratio:1;}
+
+ui-button > ui-spinner{
+  position:absolute;}
+
+ui-button:has(ui-spinner) span,
+ui-button:has(ui-spinner) > ui-icon{
+  opacity:0;}

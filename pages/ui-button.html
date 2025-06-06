@@ -155,14 +155,30 @@
     <div>Loading</div>
     <div class="example">
       <div class="preview">
-        <ui-button text="Settings" loading></ui-button> 
+        <ui-button id="clickMe" onclick="clickMe()" text="Click me" loading></ui-button>
+        <ui-button onclick="reset()" text="Reset"></ui-button>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button text="Settings" icon-leading="settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button text="Click me" loading&gt;&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
   </div>
 
 </section>
+
+<script>
+  function clickMe(){
+    //const button = event.currentTarget;
+    //button.loading = true;
+    let button = document.getElementById('clickMe');
+    button.setAttribute('loading','');
+  }
+
+  function reset(){
+    let button = document.getElementById('clickMe');
+    //button.loading = false;
+    button.removeAttribute('loading');
+  }
+</script>
