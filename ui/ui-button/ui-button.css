@@ -18,6 +18,9 @@ ui-button{
   cursor:pointer;
   overflow:hidden;}
 
+ui-button[loading]{
+  cursor:default;}
+
 ui-button:not([text]):not([icon-leading]),
 ui-button:not([text]):not([icon-trailing]){
   width:var(--ui-object-height);}
@@ -36,12 +39,14 @@ ui-button[animated]{
   transition-property:background-color,outline-color,color;}
 
 @media (hover:hover){
-  ui-button:hover:not([disabled]){
+  ui-button:hover:not([disabled]):not([loading]){
     background-color:rgb(40,40,40);
     color:var(--ui-color-white);}
 }
 
 ui-button:focus-visible:not([disabled]){
+  background-color:rgb(40,40,40);
+  color:var(--ui-color-white);
   outline-color:rgb(100,100,100);}
 
 ui-button:active:not([disabled]),

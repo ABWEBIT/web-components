@@ -155,7 +155,7 @@
     <div>Loading</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="clickMe" onclick="clickMe()" text="Click me" loading></ui-button>
+        <ui-button id="clickMe" text="Click me" loading></ui-button>
         <ui-button onclick="reset()" text="Reset"></ui-button>
       </div>
       <div class="code">
@@ -170,15 +170,12 @@
 
 <script>
   function clickMe(){
-    //const button = event.currentTarget;
-    //button.loading = true;
-    let button = document.getElementById('clickMe');
-    button.setAttribute('loading','');
+    const button = event.currentTarget;
+    button.loading = true;
   }
 
   function reset(){
-    let button = document.getElementById('clickMe');
-    //button.loading = false;
-    button.removeAttribute('loading');
+    const button = document.getElementById('clickMe');
+    button.loading = false;
   }
 </script>

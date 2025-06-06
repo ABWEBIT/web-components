@@ -44,10 +44,7 @@ class UIButton extends UIBase{
 
   get disabled(){return this.#disabled;}
   set disabled(value){
-    const isDisabled = value === true;
-    if(this.#disabled === isDisabled) return;
-    this.#disabled = isDisabled;
-
+    this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
     this.setAttributes(this,{
       'tabindex': this.#disabled ? '-1' : '0',
@@ -60,10 +57,9 @@ class UIButton extends UIBase{
     this.#loading = value === true;
     this.reflect('loading',this.#loading);
     this.setAttributes(this, {
+      'tabindex': this.#loading ? '-1' : '0',
       'aria-busy': this.#loading ? 'true' : 'false'
     });
-    if(this.#loading) this.disabled = true
-    else this.disabled = false;
     this.loader();
   }
 
@@ -139,6 +135,9 @@ class UIButton extends UIBase{
   }
 
   doAction(e){
+    if(this.hasAttribute('loading')){
+      this.loading = true;
+    }
     console.log(e.type);
   }
 
