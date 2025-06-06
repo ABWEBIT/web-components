@@ -155,7 +155,7 @@
     <div>Loading</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="clickMe" text="Click me" loading></ui-button>
+        <ui-button id="clickMe"  onkeydown="press(event)" text="Click me" loading></ui-button>
         <ui-button onclick="reset()" text="Reset"></ui-button>
       </div>
       <div class="code">
@@ -169,9 +169,15 @@
 </section>
 
 <script>
-  function clickMe(){
+  function doAction(event){
     const button = event.currentTarget;
     button.loading = true;
+  }
+
+  function press(e){
+    if(e.code === 'Enter' || e.code === 'Space'){
+      button.loading = true;
+    }
   }
 
   function reset(){

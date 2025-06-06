@@ -115,29 +115,29 @@ class UIButton extends UIBase{
   }
 
   loader(){
-    if(this.#loading){
-      if(!this.querySelector('ui-spinner')){
-        const spinner = document.createElement('ui-spinner');
-        this.appendChild(spinner);
-      }
+    const spinner = this.querySelector('ui-spinner');
+
+    if(this.#loading && !spinner){
+      this.appendChild(document.createElement('ui-spinner'));
     }
-    else{
-      const spinner = this.querySelector('ui-spinner');
-      if(spinner) spinner.remove();
+    else if(!this.#loading && spinner){
+      spinner.remove();
     }
+  }
+
+  onClick(e){
+    if(this.disabled) return;
+    if(typeof this.doAction === 'function') this.doAction(e);
   }
 
   onKeyDown(e){
     if(e.code !== 'Tab') e.preventDefault();
-    if(this.#disabled) return;
+    if(this.#disabled || this.#loading) return;
     if(e.repeat) return;
     if(e.code === 'Enter' || e.code === 'Space') this.doAction(e);
   }
 
   doAction(e){
-    if(this.hasAttribute('loading')){
-      this.loading = true;
-    }
     console.log(e.type);
   }
 

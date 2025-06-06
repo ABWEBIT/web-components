@@ -49,8 +49,7 @@ ui-button:focus-visible:not([disabled]){
   color:var(--ui-color-white);
   outline-color:rgb(100,100,100);}
 
-ui-button:active:not([disabled]),
-ui-button[active]:not([disabled]){
+ui-button:active:not([disabled]):not([loading]){
   background-color:rgb(50,50,50);}
 
 ui-button[text] > span{

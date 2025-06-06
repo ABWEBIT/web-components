@@ -75,11 +75,6 @@ export class UIBase extends HTMLElement{
     });
   }
 
-  onClick(e){
-    if(this.disabled) return;
-    if(typeof this.doAction === 'function') this.doAction(e);
-  }
-
   shape(){
     const shape = this.getAttribute('shape');
     if(!shape || !this.#shapeTypes.includes(shape)){

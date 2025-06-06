@@ -59,6 +59,11 @@ class UICheckbox extends UIBase{
     this.removeEventListener('keydown',this.#onKeyDown);
   }
 
+  onClick(e){
+    if(this.disabled) return;
+    if(typeof this.doAction === 'function') this.doAction(e);
+  }
+
   onKeyDown(e){
     if(e.code !== 'Tab') e.preventDefault();
     if(this.#disabled) return;
