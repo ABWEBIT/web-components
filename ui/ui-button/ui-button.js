@@ -57,7 +57,6 @@ class UIButton extends UIBase{
     this.#loading = value === true;
     this.reflect('loading',this.#loading);
     this.setAttributes(this, {
-      'tabindex': this.#loading ? '-1' : '0',
       'aria-busy': this.#loading ? 'true' : 'false'
     });
     this.loader();

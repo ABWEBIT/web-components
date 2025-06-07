@@ -156,7 +156,7 @@
     <div class="example">
       <div class="preview">
         <ui-button id="clickMe" onclick="load()" onkeydown="load()" text="Click me"></ui-button>
-        <ui-button onclick="reset()" text="Reset"></ui-button>
+        <ui-button onclick="reset()" onkeydown="reset()" text="Reset"></ui-button>
       </div>
       <div class="code">
         <code>
@@ -169,15 +169,17 @@
 </section>
 
 <script>
-  let button = document.getElementById('clickMe');
-
   function load(){
+    let button = document.getElementById('clickMe');
+
     button.doAction = function(e){
       button.loading = true;
     };
   }
 
   function reset(){
+    let button = document.getElementById('clickMe');
     button.loading = false;
+
   }
 </script>
