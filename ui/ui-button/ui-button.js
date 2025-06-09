@@ -126,17 +126,19 @@ class UIButton extends UIBase{
 
   onClick(e){
     if(this.disabled || this.#loading) return;
-    if(typeof this.doAction === 'function') this.doAction(e);
+    if(typeof this.onAction === 'function') this.onAction(e);
   }
 
   onKeyDown(e){
     if(e.code !== 'Tab') e.preventDefault();
     if(this.#disabled || this.#loading) return;
     if(e.repeat) return;
-    if(e.code === 'Enter' || e.code === 'Space') this.doAction(e);
+    if(e.code === 'Enter' || e.code === 'Space'){
+      if(typeof this.onAction === 'function') this.onAction(e);
+    }
   }
 
-  doAction(e){
+  onAction(e){
     console.log(e.type);
   }
 

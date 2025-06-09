@@ -171,8 +171,7 @@
 <script>
   function load(){
     let button = document.getElementById('clickMe');
-
-    button.doAction = function(e){
+    button.onAction = function(e){
       button.loading = true;
     };
   }
@@ -180,6 +179,5 @@
   function reset(){
     let button = document.getElementById('clickMe');
     button.loading = false;
-
   }
 </script>
