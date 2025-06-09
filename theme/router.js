@@ -5,7 +5,7 @@ export function navigate(page){
 }
 
 const loadPage = async (hash) => {
-  const page = hash ? hash.substring(1) : 'ui-core';
+  const page = hash ? hash.substring(1) : 'ui-foundation';
   try{
     const res = await fetch(`./pages/${page}.html`);
     const html = await res.text();
