@@ -121,8 +121,15 @@ class UISelect extends UIBase{
       'uuid': this.#uuid
     });
 
-    // static
-    ['Option 1', 'Option 2', 'Option 3'].forEach((text, i) => {
+    document.body.appendChild(this.#listbox);
+    return this.#listbox;
+  }
+
+  setOptions(options = []){
+    if(!this.#listbox) this.createListbox();
+    this.#listbox.replaceChildren();
+
+    options.forEach(text => {
       const opt = document.createElement('div');
       opt.setAttribute('role', 'option');
       opt.textContent = text;
@@ -132,9 +139,6 @@ class UISelect extends UIBase{
       });
       this.#listbox.appendChild(opt);
     });
-
-    document.body.appendChild(this.#listbox);
-    return this.#listbox;
   }
 
   listboxToggle(){
