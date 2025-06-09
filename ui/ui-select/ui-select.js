@@ -100,6 +100,8 @@ class UISelect extends UIBase{
     this.appendChild(fragment);
 
     this.addEventListener('click',this.#listboxToggle);
+    window.addEventListener('popstate', this.#onPopState);
+
     //window.addEventListener('resize', () => this.hideListbox());
     //window.addEventListener('scroll', () => this.hideListbox(), true);
 
@@ -107,6 +109,7 @@ class UISelect extends UIBase{
 
   disconnectedCallback(){
     this.removeEventListener('click',this.#listboxToggle);
+    window.removeEventListener('popstate', this.#onPopState);
   }
 
   createListbox(){
@@ -148,6 +151,12 @@ class UISelect extends UIBase{
 
   #onDocumentClick = (e) =>{
     if(!this.contains(e.target) && !this.#listbox.contains(e.target)) {
+      this.expanded = false;
+    }
+  }
+
+  #onPopState = () =>{
+    if (this.#expanded) {
       this.expanded = false;
     }
   }
