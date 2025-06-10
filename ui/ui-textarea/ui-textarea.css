@@ -8,14 +8,13 @@ ui-textarea{
   width:100%;
   max-width:100%;
   padding:16px;
-  min-height:32px;
   border:none;
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;
-  color:rgb(175,175,175);
   font-size:var(--ui-font-size-small);
+  color:rgb(175,175,175);
   background-color:rgb(10,10,10);
   overflow:hidden;}
 
@@ -23,11 +22,15 @@ ui-textarea[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color,outline-color;}
 
+ui-textarea[disabled]{
+  background-color:var(--ui-color-disabled-surface);
+  color:var(--ui-color-disabled-content);}
+
 ui-textarea[empty]::before{
   content:attr(placeholder);
   position:absolute;
-  color:rgb(100,100,100);
-  pointer-events:none;}
+  pointer-events:none;
+  color:inherit;}
 
 ui-textarea:focus:not([disabled]){
   background-color:rgb(25,25,25);
@@ -40,6 +43,9 @@ ui-textarea:focus:not([disabled]):not([status]){
   ui-textarea[animated]:hover:not([disabled]){
     background-color:rgb(25,25,25);
     color:rgb(255,255,255);
+  }
+  ui-textarea[animated]:hover:not([disabled]):not([status]){
+    outline-color:rgb(100,100,100);
   }
 }
 

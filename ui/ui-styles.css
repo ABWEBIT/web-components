@@ -34,10 +34,15 @@
   --ui-border-radius-circle:50%;
   --ui-border-radius-square:none;
 
-  /* color */
+  /* colors */
   --ui-color-white:oklch(100% 0 0);
   --ui-color-black:oklch(0% 0 0);
-  --ui-color-gray:oklch(50% 0 0);
+
+  /* colors: disabled form control */
+  --ui-color-disabled-surface:oklch(60% 0 0);
+  --ui-color-disabled-content:oklch(20% 0 0);
+
+
 
   --ui-color-info:rgb(25,125,230);
   --ui-color-warning:rgb(245,180,40);
@@ -60,8 +65,7 @@
 [ui] *{box-sizing:border-box!important;}
 
 [ui][disabled]{
-  cursor:not-allowed;
-  opacity:0.4;}
+  cursor:not-allowed;}
 
 [ui][disabled] *{
   pointer-events:none;}

@@ -1,5 +1,5 @@
 import {UIBase} from '../ui-base/ui-base.js';
-import {inputTypes,htmlEscape} from '../../utils/index.js';
+import {htmlEscape} from '../../utils/index.js';
 
 class UITextarea extends UIBase{
   #disabled = false;
@@ -17,8 +17,7 @@ class UITextarea extends UIBase{
     this.reflect('disabled',this.#disabled);
     this.setAttributes(this,{
       'tabindex': this.#disabled ? '-1' : '0',
-      'aria-disabled': this.#disabled ? 'true' : 'false',
-      'contenteditable': this.#disabled ? 'false' : 'plaintext-only'
+      'aria-disabled': this.#disabled ? 'true' : 'false'
     });
   }
 

@@ -69,7 +69,6 @@ ui-input ui-icon[icon="close"]{
     color:var(--ui-color-white);}
 }
 
-
 ui-input[focused]{
   background-color:rgb(35,35,35);
   outline-color:rgb(100,100,100);}
