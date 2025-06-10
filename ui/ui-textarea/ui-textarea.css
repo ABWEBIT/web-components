@@ -22,6 +22,8 @@ ui-textarea[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color,outline-color;}
 
+
+
 ui-textarea[disabled]{
   background-color:var(--ui-color-disabled-surface);
   color:var(--ui-color-disabled-content);}
@@ -29,8 +31,11 @@ ui-textarea[disabled]{
 ui-textarea[empty]::before{
   content:attr(placeholder);
   position:absolute;
-  pointer-events:none;
-  color:inherit;}
+  pointer-events:none;}
+
+ui-textarea:not([disabled])[empty]::before{
+  color:var(--ui-color-placeholder);
+}
 
 ui-textarea:focus:not([disabled]){
   background-color:rgb(25,25,25);

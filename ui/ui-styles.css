@@ -38,9 +38,13 @@
   --ui-color-white:oklch(100% 0 0);
   --ui-color-black:oklch(0% 0 0);
 
-  /* colors: disabled form control */
+  /* form colors */
+  /* disabled form control */
   --ui-color-disabled-surface:oklch(60% 0 0);
   --ui-color-disabled-content:oklch(20% 0 0);
+
+  /* placeholder */
+  --ui-color-placeholder:oklch(60% 0 0);
 
 
 
