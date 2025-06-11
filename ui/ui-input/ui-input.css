@@ -10,15 +10,16 @@ ui-input{
   outline-style:solid;
   outline-color:transparent;
   color:rgb(175,175,175);
-  background-color:rgb(25,25,25);
+  background-color:rgb(10,10,10);
   overflow:hidden;}
 
 ui-input[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color,outline-color;}
 
-ui-input[shape="rounded"]{
-  border-radius:calc(var(--ui-object-height) / 4);}
+ui-input[disabled]{
+  background-color:var(--ui-color-disabled-surface);
+  color:var(--ui-color-disabled-content);}
 
 ui-input input{
   height:100%;
@@ -34,11 +35,11 @@ ui-input input{
     var(--ui-font-size-medium)
   );}
 
-ui-input:not([icon-leading]) input{
+ui-input input{
   padding-left:calc(var(--ui-object-height) / 4 + 2px);
 }
 
-ui-input:not([icon-trailing]):not([clearable]) input{
+ui-input:not([clearable]) input{
   padding-right:calc(var(--ui-object-height) / 4 + 2px);
 }
 

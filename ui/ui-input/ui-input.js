@@ -3,8 +3,6 @@ import {inputTypes,htmlEscape} from '../../utils/index.js';
 
 class UIInput extends UIBase{
   #input;
-  #iconLeading = '';
-  #iconTrailing = '';
   #disabled = false;
   #clearable = false;
 
@@ -14,24 +12,8 @@ class UIInput extends UIBase{
   #onBlur = this.onBlur.bind(this);
 
   static properties = Object.freeze({
-    'icon-leading':{name:'iconLeading',type:String,reflect:true},
-    'icon-trailing':{name:'iconTrailing',type:String,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
-
-  get iconLeading(){return this.#iconLeading;}
-  set iconLeading(value){
-    if(!(this.#iconLeading = String(value || ''))) return;
-    this.updateIcon('[leading]',this.#iconLeading);
-    this.reflect('icon-leading',this.#iconLeading);
-  }
-
-  get iconTrailing(){return this.#iconTrailing;}
-  set iconTrailing(value){
-    if(!(this.#iconTrailing = String(value || ''))) return;
-    this.updateIcon('[trailing]',this.#iconTrailing);
-    this.reflect('icon-trailing',this.#iconTrailing);
-  }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
@@ -47,15 +29,6 @@ class UIInput extends UIBase{
 
     const fragment = document.createDocumentFragment();
 
-    if(this.#iconLeading){
-      const icon = document.createElement('ui-icon');
-      this.setAttributes(icon,{
-        'height': height,
-        'leading': ''
-      });
-      fragment.appendChild(icon);
-    }
-
     const input = document.createElement('input');
     fragment.appendChild(input);
 
@@ -68,15 +41,6 @@ class UIInput extends UIBase{
         'icon': 'close'
       });
       icon.addEventListener('click',this.#onClear);
-      fragment.appendChild(icon);
-    }
-
-    if(this.#iconTrailing){
-      const icon = document.createElement('ui-icon');
-      this.setAttributes(icon,{
-        'height': height,
-        'trailing': ''
-      });
       fragment.appendChild(icon);
     }
 

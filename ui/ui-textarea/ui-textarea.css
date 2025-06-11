@@ -22,8 +22,6 @@ ui-textarea[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color,outline-color;}
 
-
-
 ui-textarea[disabled]{
   background-color:var(--ui-color-disabled-surface);
   color:var(--ui-color-disabled-content);}
