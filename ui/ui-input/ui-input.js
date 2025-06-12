@@ -19,18 +19,18 @@ class UIInput extends UIBase{
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
-    this.tabindex();
+    this.#input?.disabled = this.#disabled;
   }
 
   connectedCallback(){
     super.connectedCallback();
     this.shape();
-    let height = this.height(32);
+    let height = this.height();
 
     const fragment = document.createDocumentFragment();
 
-    const input = document.createElement('input');
-    fragment.appendChild(input);
+    this.#input = document.createElement('input');
+    fragment.appendChild(this.#input);
 
     this.#clearable = this.hasAttribute('clearable');
 
@@ -46,29 +46,17 @@ class UIInput extends UIBase{
 
     this.appendChild(fragment);
 
-    requestAnimationFrame(()=>{
+    this.#input.addEventListener('input',this.#onInput);
+    this.#input.addEventListener('focus',this.#onFocus);
+    this.#input.addEventListener('blur',this.#onBlur);
 
-      this.#input = this.querySelector('input');
-      if(!this.#input) return;
-      this.tabindex();
-      this.#input.addEventListener('input',this.#onInput);
-      this.#input.addEventListener('focus',this.#onFocus);
-      this.#input.addEventListener('blur',this.#onBlur);
+    const type = this.getAttribute('type') || 'text';
+    this.#input.type = inputTypes(type) ? htmlEscape(type) : 'text';
 
-      const type = this.getAttribute('type') || 'text';
-      this.#input.type = inputTypes(type) ? htmlEscape(type) : 'text';
+    const placeholder = this.getAttribute('placeholder');
+    if(placeholder) this.#input.placeholder = placeholder;
 
-      const placeholder = this.getAttribute('placeholder') || '';
-      if(placeholder) this.#input.setAttribute('placeholder',placeholder);
-
-      if(this.hasAttribute('required')) this.#input.required = true;
-    });
-  }
-
-  tabindex(){
-    if(!this.#input) return;
-    if(this.#disabled) this.#input.setAttribute('tabindex','-1');
-    else this.#input.removeAttribute('tabindex');
+    this.#input.required = this.hasAttribute('required');
   }
 
   onInput(){
@@ -89,13 +77,11 @@ class UIInput extends UIBase{
   }
 
   disconnectedCallback(){
-    if(this.#input){
-      this.#input.removeEventListener('input',this.#onInput);
-      this.#input.removeEventListener('focus',this.#onFocus);
-      this.#input.removeEventListener('blur',this.#onBlur);
-    }
+    this.#input.removeEventListener('input',this.#onInput);
+    this.#input.removeEventListener('focus',this.#onFocus);
+    this.#input.removeEventListener('blur',this.#onBlur);
 
-    const clear = this.querySelector('ui-icon[icon="cancel"]');
+    const clear = this.querySelector('ui-icon[icon="close"]');
     if(clear) clear.removeEventListener('click',this.#onClear);
   }
 

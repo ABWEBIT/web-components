@@ -15,7 +15,7 @@ ui-textarea{
   outline-color:transparent;
   font-size:var(--ui-font-size-small);
   color:rgb(175,175,175);
-  background-color:rgb(10,10,10);
+  background-color:rgb(20,20,20);
   overflow:hidden;}
 
 ui-textarea[animated]{

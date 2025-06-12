@@ -14,8 +14,6 @@
     <ul>
       <li>type - static, optional. Default: "text".</li>
       <li>placeholder - static, optional.</li>
-      <li>icon-leading and icon-trailing - reactive, optional.
-        <br>Define the icons displayed before and after the label, respectively.</li>
       <li>height - static, optional. Default: 40.
         <br>Component height is measured in pixels. Recommended range: 24 to 40. Even values are preferred.</li>
       <li>clearable - static, optional.
@@ -41,37 +39,55 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-input shape="rounded" label="rounded"&gt;&lt;/ui-input&gt;</div>
-          <div>&lt;ui-input shape="pill" label="pill"&gt;&lt;/ui-input&gt;</div>
-          <div>&lt;ui-input shape="square" label="square"&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input shape="rounded"&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input shape="pill"&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input shape="square"&gt;&lt;/ui-input&gt;</div>
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Height 32 (default)</div>
+    <div>Height (default: 32)</div>
     <div class="example">
       <div class="preview">
+        <ui-input height="24"></ui-input>
         <ui-input></ui-input>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-input&gt;&lt;/ui-input&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Height 40</div>
-    <div class="example">
-      <div class="preview">
         <ui-input height="40"></ui-input>
       </div>
       <div class="code">
         <code>
-          &lt;ui-input height="40"&gt;&lt;/ui-input&gt;
+          <div>&lt;ui-input height="24"&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input height="40"&gt;&lt;/ui-input&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Placeholder</div>
+    <div class="example">
+      <div class="preview">
+        <ui-input placeholder="Placeholder"></ui-input>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-input placeholder="Placeholder"&gt;&lt;/ui-input&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Required</div>
+    <div class="example">
+      <div class="preview">
+        <ui-input placeholder="Required" required></ui-input>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-input required&gt;&lt;/ui-input&gt;
         </code>
       </div>
     </div>
@@ -85,7 +101,7 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-input placeholder="Disabled" disabled&gt;&lt;/ui-input&gt;
+          &lt;ui-input disabled&gt;&lt;/ui-input&gt;
         </code>
       </div>
     </div>
@@ -105,33 +121,7 @@
     </div>
   </div>
 
-  <div class="content-item">
-    <div>Input with placeholder</div>
-    <div class="example">
-      <div class="preview">
-        <ui-input placeholder="Search" clearable></ui-input>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-input placeholder="Search" clearable&gt;&lt;/ui-input&gt;
-        </code>
-      </div>
-    </div>
-  </div>
 
-  <div class="content-item">
-    <div>Input with icon</div>
-    <div class="example">
-      <div class="preview">
-        <ui-input placeholder="Search" icon-leading="search" clearable></ui-input>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-input placeholder="Search" icon-leading="search" clearable&gt;&lt;/ui-input&gt;
-        </code>
-      </div>
-    </div>
-  </div>
 
   <div class="content-item">
     <div>Error</div>

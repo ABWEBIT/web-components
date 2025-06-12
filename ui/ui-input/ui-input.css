@@ -10,7 +10,7 @@ ui-input{
   outline-style:solid;
   outline-color:transparent;
   color:rgb(175,175,175);
-  background-color:rgb(10,10,10);
+  background-color:rgb(20,20,20);
   overflow:hidden;}
 
 ui-input[animated]{
@@ -18,30 +18,34 @@ ui-input[animated]{
   transition-property:background-color,color,outline-color;}
 
 ui-input[disabled]{
-  background-color:var(--ui-color-disabled-surface);
-  color:var(--ui-color-disabled-content);}
+  background-color:var(--ui-color-disabled-surface);}
 
 ui-input input{
-  height:100%;
-  flex-grow:1;
-  border:none;
-  outline:none;
-  color:var(--ui-color-white);
-  background-color:transparent;
   direction:inherit;
+  border:none!important;
+  outline:none!important;
+  background-color:transparent!important;
+  height:100%;
+  padding-inline:calc(var(--ui-object-height) / 4 + 4px);
+    color:rgb(175,175,175);
+  color:var(--ui-color-white);
   font-size:clamp(
     var(--ui-font-size-x-small),
     calc(var(--ui-object-height) / 2 - 2px),
     var(--ui-font-size-medium)
   );}
 
-ui-input input{
-  padding-left:calc(var(--ui-object-height) / 4 + 2px);
-}
+ui-input[clearable] input{
+  padding-inline-end:0;}
 
-ui-input:not([clearable]) input{
-  padding-right:calc(var(--ui-object-height) / 4 + 2px);
-}
+ui-input[animated] input{
+  transition-duration:var(--ui-transition-duration);
+  transition-property:color;}
+
+ui-input[disabled] input::placeholder{
+  color:var(--ui-color-disabled-content);}
+
+
 
 ui-input ui-icon{
   padding:calc(var(--ui-object-height) / 4);
@@ -63,15 +67,16 @@ ui-input ui-icon[icon="close"]{
   cursor:pointer;}
 
 @media (hover:hover){
-  ui-input[animated]:hover:not([disabled]){
-    background-color:rgb(35,35,35);}
+  ui-input:hover:not([disabled]):not([status]){
+    background-color:rgb(20,20,20);
+    outline-color:rgb(100,100,100);}
 
   ui-input ui-icon[icon="close"]:hover{
     color:var(--ui-color-white);}
 }
 
-ui-input[focused]{
-  background-color:rgb(35,35,35);
+ui-input[focused]:not([disabled]):not([status]){
+  background-color:rgb(20,20,20);
   outline-color:rgb(100,100,100);}
 
 /* status */
