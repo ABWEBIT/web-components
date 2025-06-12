@@ -3,6 +3,7 @@ import {inputTypes,htmlEscape} from '../../utils/index.js';
 
 class UIInput extends UIBase{
   #input;
+  #value = '';
   #disabled = false;
   #clearable = false;
 
@@ -12,20 +13,29 @@ class UIInput extends UIBase{
   #onBlur = this.onBlur.bind(this);
 
   static properties = Object.freeze({
+    'value':{name:'value',type:String,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
+
+  get value(){return this.#value;}
+  set value(value){
+    if(this.#disabled) return;
+    if(!(this.#value = String(value || ''))) return;
+    this.reflect('value',this.#value);
+    if(this.#input) this.#input.value = this.#value;
+  }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
-    this.#input?.disabled = this.#disabled;
+    if(this.#input) this.#input.disabled = this.#disabled;
   }
 
   connectedCallback(){
     super.connectedCallback();
     this.shape();
-    let height = this.height();
+    this.size();
 
     const fragment = document.createDocumentFragment();
 
@@ -37,7 +47,6 @@ class UIInput extends UIBase{
     if(this.#clearable){
       const icon = document.createElement('ui-icon');
       this.setAttributes(icon,{
-        'height': height,
         'icon': 'close'
       });
       icon.addEventListener('click',this.#onClear);

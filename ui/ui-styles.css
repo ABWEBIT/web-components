@@ -16,11 +16,6 @@
 
 
 :root{
-  /* size */
-  --ui-size-small:24px;
-  --ui-size-medium:32px;
-  --ui-size-large:40px;
-
   /* font */
   --ui-font-size-x-small:12px;
   --ui-font-size-small:14px;
@@ -35,17 +30,28 @@
   --ui-border-radius-square:none;
 
   /* colors */
-  --ui-color-white:oklch(100% 0 0);
   --ui-color-black:oklch(0% 0 0);
+  --ui-color-white:oklch(100% 0 0);
 
-  /* form colors */
-  /* disabled form control */
-  --ui-color-disabled-surface:oklch(60% 0 0);
-  --ui-color-disabled-content:oklch(20% 0 0);
+  /* === form control colors === */
+  /* input | textarea */
+  --ui-color-input-surface:oklch(20% 0 0);
+  --ui-color-input-content:oklch(80% 0 0);
 
-  /* placeholder */
-  --ui-color-placeholder:oklch(60% 0 0);
+  /* input | textarea: hover & focus */
+  --ui-color-input-content:oklch(80% 0 0);
 
+  /* form control: disabled */
+  --ui-color-input-surface-disabled:oklch(60% 0 0);
+  --ui-color-input-content-disabled:oklch(20% 0 0);
+
+  /* input / textarea text */
+  --ui-color-input-text-default:oklch(70% 0 0);
+
+  /* === form control sizes === */
+  --ui-form-control-size-small:24px;
+  --ui-form-control-size-medium:32px;
+  --ui-form-control-size-large:40px;
 
 
   --ui-color-info:rgb(25,125,230);
@@ -62,6 +68,7 @@
 
 
 [ui]{
+  direction:inherit;
   -webkit-user-select:none;
   user-select:none;}
 
