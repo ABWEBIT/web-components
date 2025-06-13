@@ -1,9 +1,9 @@
 import {UIBase} from '../ui-base/ui-base.js';
-import {inputTypes,htmlEscape} from '../../utils/index.js';
+import {inputTypes} from '../../utils/index.js';
 
 class UIInput extends UIBase{
   #input;
-  #value = '';
+  #clear = null;
   #disabled = false;
   #clearable = false;
 
@@ -13,23 +13,21 @@ class UIInput extends UIBase{
   #onBlur = this.onBlur.bind(this);
 
   static properties = Object.freeze({
-    'value':{name:'value',type:String},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
+
+  get value(){return this.#input?.value ?? '';}
+  set value(value){
+    if(!this.#input) return;
+    this.#input.value = String(value ?? '');
+  }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
     if(this.#input) this.#input.disabled = this.#disabled;
-  }
-
-  get value(){return this.#value;}
-  set value(value){
-    if(!(this.#value = String(value ?? ''))) return;
-    queueMicrotask(() => {
-      if(this.#input) this.#input.value = this.#value;
-    });
+    if(this.#disabled) this.removeAttribute('focused');
   }
 
   connectedCallback(){
@@ -37,20 +35,31 @@ class UIInput extends UIBase{
     this.shape();
     this.size();
 
+    const value = this.getAttribute('value') ?? '';
+    const placeholder = this.getAttribute('placeholder') ?? '';
+    const type = this.getAttribute('type') || 'text';
+    this.removeAttribute('value');
+    this.removeAttribute('placeholder');
+    this.removeAttribute('type');
+
     const fragment = document.createDocumentFragment();
 
     this.#input = document.createElement('input');
+    if(value) this.value = value;
+    if(placeholder) this.#input.placeholder = placeholder;
+    this.#input.type = inputTypes(type) ? type : 'text';
+    this.#input.required = this.hasAttribute('required');
+
     fragment.appendChild(this.#input);
 
     this.#clearable = this.hasAttribute('clearable');
-
     if(this.#clearable){
-      const icon = document.createElement('ui-icon');
-      this.setAttributes(icon,{
+      this.#clear = document.createElement('ui-icon');
+      this.setAttributes(this.#clear,{
         'icon': 'close'
       });
-      icon.addEventListener('click',this.#onClear);
-      fragment.appendChild(icon);
+      this.#clear.addEventListener('click',this.#onClear);
+      fragment.appendChild(this.#clear);
     }
 
     this.appendChild(fragment);
@@ -58,14 +67,6 @@ class UIInput extends UIBase{
     this.#input.addEventListener('input',this.#onInput);
     this.#input.addEventListener('focus',this.#onFocus);
     this.#input.addEventListener('blur',this.#onBlur);
-
-    const type = this.getAttribute('type') || 'text';
-    this.#input.type = inputTypes(type) ? htmlEscape(type) : 'text';
-
-    const placeholder = this.getAttribute('placeholder');
-    if(placeholder) this.#input.placeholder = placeholder;
-
-    this.#input.required = this.hasAttribute('required');
   }
 
   onInput(){
@@ -83,15 +84,19 @@ class UIInput extends UIBase{
   onClear(){
     if(!this.#input) return;
     this.#input.value = '';
+    this.#input.focus();
   }
 
   disconnectedCallback(){
-    this.#input.removeEventListener('input',this.#onInput);
-    this.#input.removeEventListener('focus',this.#onFocus);
-    this.#input.removeEventListener('blur',this.#onBlur);
+    if(this.#input){
+      this.#input.removeEventListener('input',this.#onInput);
+      this.#input.removeEventListener('focus',this.#onFocus);
+      this.#input.removeEventListener('blur',this.#onBlur);
+    }
 
-    const clear = this.querySelector('ui-icon[icon="clear"]');
-    if(clear) clear.removeEventListener('click',this.#onClear);
+    if(this.#clear){
+      this.#clear.removeEventListener('click',this.#onClear);
+    }
   }
 
 }
