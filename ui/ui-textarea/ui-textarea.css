@@ -1,64 +1,68 @@
 ui-textarea{
   position:relative;
   display:block;
-  white-space:pre-wrap;
-  /*overflow-wrap:break-word;*/
-  overflow-wrap:anywhere;
-  height:var(--ui-object-height);
-  width:100%;
-  max-width:100%;
-  padding:16px;
   border:none;
-  outline-offset:2px;
+  outline-offset:0px;
   outline-width:2px;
   outline-style:solid;
-  outline-color:transparent;
-  font-size:var(--ui-font-size-small);
-  color:rgb(175,175,175);
-  background-color:rgb(20,20,20);
-  overflow:hidden;}
+  outline-color:var(--ui-color-input-outline);
+  background-color:var(--ui-color-input-surface);}
 
 ui-textarea[animated]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,color,outline-color;}
+  transition-property:background-color,outline-color;}
 
 ui-textarea[disabled]{
-  background-color:var(--ui-color-disabled-surface);
-  color:var(--ui-color-disabled-content);}
+  outline-color:var(--ui-color-input-outline-disabled);
+  background-color:var(--ui-color-input-surface-disabled);}
 
-ui-textarea[empty]::before{
-  content:attr(placeholder);
+ui-textarea textarea{
+  direction:inherit;
+  border:none;
+  outline:none;
+  padding:12px 16px;
+  resize:none;
+  font-size:var(--ui-font-size-small);
+  color:var(--ui-color-input-content);
+  background-color:transparent;}
+
+ui-textarea[disabled] textarea{
+  color:var(--ui-color-input-content);}
+
+ui-textarea textarea::placeholder{
+  color:var(--ui-color-input-placeholder);}
+
+ui-textarea[disabled] textarea::placeholder{
+  color:var(--ui-color-input-placeholder-disabled);}
+
+ui-textarea > ui-icon{
   position:absolute;
-  pointer-events:none;}
-
-ui-textarea:not([disabled])[empty]::before{
-  color:var(--ui-color-placeholder);
-}
-
-ui-textarea:focus:not([disabled]){
-  background-color:rgb(25,25,25);
-  color:rgb(255,255,255);}
-
-ui-textarea:focus:not([disabled]):not([status]){
-  outline-color:rgb(100,100,100);}
+  top:4px;
+  right:4px;
+  color:var(--ui-color-input-icons);
+  height:calc(var(--ui-form-control-size-medium) / 2);
+  width:calc(var(--ui-form-control-size-medium) / 2);
+  cursor:pointer;}
 
 @media (hover:hover){
-  ui-textarea[animated]:hover:not([disabled]){
-    background-color:rgb(25,25,25);
-    color:rgb(255,255,255);
-  }
-  ui-textarea[animated]:hover:not([disabled]):not([status]){
-    outline-color:rgb(100,100,100);
-  }
+  ui-textarea:hover:not([disabled]):not([status]){
+    outline-color:var(--ui-color-input-outline-active);}
+
+  ui-textarea > ui-icon:hover{
+    color:var(--ui-color-input-icons-active);}
 }
 
-/* status */
-ui-textarea[status="error"]{outline-color:rgb(210,55,55);}
-ui-textarea[status="success"]{outline-color:rgb(85,175,85);}
-ui-textarea[status="warning"]{outline-color:rgb(210,175,20);}
+ui-textarea[focused]:not([disabled]):not([status]){
+  outline-color:var(--ui-color-input-outline-active);}
 
-/* resize */
-ui-textarea[resize]{overflow:auto;}
-ui-textarea[resize="horizontal"]{resize:horizontal;}
-ui-textarea[resize="vertical"]{resize:vertical;}
-ui-textarea[resize="both"]{resize:both;}
+ui-textarea[status="info"]{
+  outline-color:var(--ui-color-form-control-info);}
+
+ui-textarea[status="error"]{
+  outline-color:var(--ui-color-form-control-error);}
+
+ui-textarea[status="success"]{
+  outline-color:var(--ui-color-form-control-success);}
+
+ui-textarea[status="warning"]{
+  outline-color:var(--ui-color-form-control-warning);}

@@ -105,7 +105,7 @@ nav .menuItem span{
   column-gap:10px;
   padding:5px 10px;
   font-size:100%;
-  border-radius:var(--ui-border-radius-default);
+  border-radius:var(--ui-border-radius-rounded);
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color;}
 
@@ -175,7 +175,7 @@ article{
 .content-item > .example{
   overflow:hidden;
   border:1px solid var(--ui-color-gray-25);
-  border-radius:var(--ui-border-radius-default);}
+  border-radius:var(--ui-border-radius-rounded);}
 
 .content-item > .example > .preview,
 .content-item > .example > .code,
@@ -187,7 +187,7 @@ article{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:10px;}
+  gap:20px;}
 
 .content-item > .example > .preview,
 .content-item > .example > .code{
@@ -227,7 +227,7 @@ article{
   border-width:1px;
   border-style:solid;
   border-color:rgb(50,50,50);
-  border-radius:var(--ui-border-radius-default);
+  border-radius:var(--ui-border-radius-rounded);
   line-height:1;}
 
 .content-item > .icons > .icon-card > .icon-name{

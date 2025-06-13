@@ -16,7 +16,10 @@
 
 
 :root{
-  /* font */
+  /* font family */
+  --ui-font-family:Arial,Helvetica,sans-serif;
+
+  /* font size */
   --ui-font-size-x-small:12px;
   --ui-font-size-small:14px;
   --ui-font-size-medium:16px;
@@ -24,25 +27,25 @@
   --ui-font-size-x-large:20px;
 
   /* border radius */
-  --ui-border-radius-default:8px;
+  --ui-border-radius-square:none;
+  --ui-border-radius-rounded:6px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
-  --ui-border-radius-square:none;
 
   /* colors */
   --ui-color-black:oklch(0% 0 0);
   --ui-color-white:oklch(100% 0 0);
 
-  --ui-color-gray-15: oklch(15% 0 0);
-  --ui-color-gray-20: oklch(20% 0 0);
-  --ui-color-gray-25: oklch(25% 0 0);
-  --ui-color-gray-30: oklch(30% 0 0);
-  --ui-color-gray-40: oklch(40% 0 0);
-  --ui-color-gray-50: oklch(50% 0 0);
-  --ui-color-gray-60: oklch(60% 0 0);
-  --ui-color-gray-70: oklch(70% 0 0);
-  --ui-color-gray-80: oklch(80% 0 0);
-  --ui-color-gray-90: oklch(90% 0 0);
+  --ui-color-gray-15:oklch(15% 0 0);
+  --ui-color-gray-20:oklch(20% 0 0);
+  --ui-color-gray-25:oklch(25% 0 0);
+  --ui-color-gray-30:oklch(30% 0 0);
+  --ui-color-gray-40:oklch(40% 0 0);
+  --ui-color-gray-50:oklch(50% 0 0);
+  --ui-color-gray-60:oklch(60% 0 0);
+  --ui-color-gray-70:oklch(70% 0 0);
+  --ui-color-gray-80:oklch(80% 0 0);
+  --ui-color-gray-90:oklch(90% 0 0);
 
   /* theme: scrollbar */
   --ui-color-scrollbar:var(--ui-color-gray-70);
@@ -80,7 +83,9 @@
   --ui-transition-duration:0.2s;
 }
 
-
+[ui] input,
+[ui] textarea{
+ font-family:var(--ui-font-family);}
 
 [ui]{
   direction:inherit;
@@ -100,20 +105,7 @@
   display:none;}
 
 /* border radius */
-[ui][shape="pill"]{
-  border-radius:var(--ui-border-radius-pill);}
-
-[ui][shape="circle"]{
-  border-radius:var(--ui-border-radius-circle);}
-
-[ui][shape="square"]{
-  border-radius:var(--ui-border-radius-square);}
-
-[ui][shape="rounded"],
-ui-select[shape="rounded"]{
-  border-radius:clamp(
-    calc(var(--ui-border-radius-default) / 2),
-    calc(var(--ui-object-height, 32px) / 4),
-    var(--ui-border-radius-default)
-  );
-}
+[ui][shape="square"]{border-radius:var(--ui-border-radius-square);}
+[ui][shape="rounded"]{border-radius:var(--ui-border-radius-rounded);}
+[ui][shape="pill"]{border-radius:var(--ui-border-radius-pill);}
+[ui][shape="circle"]{border-radius:var(--ui-border-radius-circle);}

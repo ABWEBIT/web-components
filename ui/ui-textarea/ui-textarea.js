@@ -2,71 +2,75 @@ import {UIBase} from '../ui-base/ui-base.js';
 import {htmlEscape} from '../../utils/index.js';
 
 class UITextarea extends UIBase{
+  #textarea;
+  #value = '';
   #disabled = false;
 
   #onInput = this.onInput.bind(this);
-  #onKeyDown = this.onKeyDown.bind(this);
+  #onFocus = this.onFocus.bind(this);
+  #onBlur = this.onBlur.bind(this);
 
   static properties = Object.freeze({
+    'value':{name:'value',type:String},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
+
+  get value(){return this.#value;}
+  set value(value){
+    if(this.#disabled) return;
+    if(!(this.#value = String(value || ''))) return;
+    if(this.#textarea) this.#textarea.value = this.#value;
+  }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
-    this.setAttributes(this,{
-      'tabindex': this.#disabled ? '-1' : '0',
-      'aria-disabled': this.#disabled ? 'true' : 'false'
-    });
+    if(this.#textarea) this.#textarea.disabled = this.#disabled;
   }
 
   connectedCallback(){
     super.connectedCallback();
     this.replaceChildren();
     this.shape();
-/*
-    aria-labelledby="comment-label"
-    aria-placeholder="Placeholder"
-*/
-    this.setAttributes(this,{
-      'role': 'textbox',
-      'contenteditable': 'plaintext-only',
-      'aria-multiline': 'true',
-      'aria-required': this.hasAttribute('required') ? 'true' : 'false',
-      'empty': this.textContent.trim() === '' ? true : false,
-    });
 
-/*
-    let height = parseInt(this.getAttribute('height'),10) || 60;
-    this.style.setProperty('--ui-object-height',`${height}px`);
-*/
+    const fragment = document.createDocumentFragment();
 
-    this.addEventListener('input',this.#onInput);
-    this.addEventListener('keydown',this.#onKeyDown);
+    this.#textarea = document.createElement('textarea');
+    fragment.appendChild(this.#textarea);
+
+    this.appendChild(fragment);
+
+    this.#textarea.addEventListener('input',this.#onInput);
+    this.#textarea.addEventListener('focus',this.#onFocus);
+    this.#textarea.addEventListener('blur',this.#onBlur);
+
+    const placeholder = this.getAttribute('placeholder');
+    if(placeholder) this.#textarea.placeholder = placeholder;
+
+    this.#textarea.required = this.hasAttribute('required');
   }
 
-  disconnectedCallback(){
-    this.removeEventListener('input',this.#onInput);
-    this.removeEventListener('keydown',this.#onKeyDown);
-  }
-
-  onKeyDown(e){
-    this.doAction(e);
-  }
-
-  onInput(e){
+  onInput(){
     if(this.#disabled) return;
-    this.empty();
+  }
+
+  onFocus(){
+    this.setAttribute('focused','');
+  }
+
+  onBlur(){
+    this.removeAttribute('focused');
   }
 
   doAction(e){
     console.log(e.type);
   }
 
-  empty(){
-    const empty = this.textContent.trim() === '';
-    this.toggleAttribute('empty',empty);
+  disconnectedCallback(){
+    this.#textarea.removeEventListener('input',this.#onInput);
+    this.#textarea.removeEventListener('focus',this.#onFocus);
+    this.#textarea.removeEventListener('blur',this.#onBlur);
   }
 
 }

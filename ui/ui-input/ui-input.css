@@ -3,7 +3,7 @@ ui-input{
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  outline-offset:-2px;
+  outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
   outline-color:var(--ui-color-input-outline);
@@ -16,10 +16,10 @@ ui-input[size="large"]{height:var(--ui-form-control-size-large);}
 
 ui-input[animated]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,outline-color,color;}
+  transition-property:background-color,outline-color;}
 
 ui-input[disabled]{
-  outline-color:transparent;
+  outline-color:var(--ui-color-input-outline-disabled);
   background-color:var(--ui-color-input-surface-disabled);}
 
 ui-input input{

@@ -33,13 +33,30 @@
     <div>Shape (default: rounded)</div>
     <div class="example">
       <div class="preview">
-        <ui-textarea shape="rounded"></ui-textarea>
+        <ui-textarea shape="rounded" clearable></ui-textarea>
         <ui-textarea shape="square"></ui-textarea>
       </div>
       <div class="code">
         <code>
           <div>&lt;ui-textarea shape="rounded"&gt;&lt;/ui-textarea&gt;</div>
           <div>&lt;ui-textarea shape="square"&gt;&lt;/ui-textarea&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Required</div>
+    <div class="example">
+      <div class="preview">
+        <ui-textarea required></ui-textarea>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-textarea required&gt;&lt;/ui-textarea&gt;</div>
         </code>
       </div>
     </div>
@@ -60,7 +77,7 @@
   </div>
 
   <div class="content-item">
-    <div>Disabled</div>
+    <div>Disabled + Placeholder</div>
     <div class="example">
       <div class="preview">
         <ui-textarea placeholder="Disabled" disabled></ui-textarea>
@@ -74,44 +91,37 @@
   </div>
 
   <div class="content-item">
-    <div>Error</div>
+    <div>Disabled + Value</div>
     <div class="example">
       <div class="preview">
+        <ui-textarea value="Disabled" disabled></ui-textarea>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-textarea value="Disabled" disabled&gt;Text&lt;/ui-textarea&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Info, Error, Success, Warning</div>
+    <div class="example">
+      <div class="preview">
+        <ui-textarea status="info"></ui-textarea>
         <ui-textarea status="error"></ui-textarea>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-textarea status="error"&gt;&lt;/ui-textarea&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Success</div>
-    <div class="example">
-      <div class="preview">
         <ui-textarea status="success"></ui-textarea>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-textarea status="success"&gt;&lt;/ui-textarea&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Warning</div>
-    <div class="example">
-      <div class="preview">
         <ui-textarea status="warning"></ui-textarea>
       </div>
       <div class="code">
         <code>
-          &lt;ui-textarea status="warning"&gt;&lt;/ui-textarea&gt;
+          <div>&lt;ui-textarea status="info"&gt;&lt;/ui-textarea&gt;</div>
+          <div>&lt;ui-textarea status="error"&gt;&lt;/ui-textarea&gt;</div>
+          <div>&lt;ui-textarea status="success"&gt;&lt;/ui-textarea&gt;</div>
+          <div>&lt;ui-textarea status="warning"&gt;&lt;/ui-textarea&gt;</div>
         </code>
       </div>
     </div>
   </div>
+
 </section>

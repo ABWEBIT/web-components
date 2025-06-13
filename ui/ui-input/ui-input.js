@@ -13,7 +13,7 @@ class UIInput extends UIBase{
   #onBlur = this.onBlur.bind(this);
 
   static properties = Object.freeze({
-    'value':{name:'value',type:String,reflect:true},
+    'value':{name:'value',type:String},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
@@ -21,7 +21,6 @@ class UIInput extends UIBase{
   set value(value){
     if(this.#disabled) return;
     if(!(this.#value = String(value || ''))) return;
-    this.reflect('value',this.#value);
     if(this.#input) this.#input.value = this.#value;
   }
 
@@ -47,7 +46,7 @@ class UIInput extends UIBase{
     if(this.#clearable){
       const icon = document.createElement('ui-icon');
       this.setAttributes(icon,{
-        'icon': 'clear'
+        'icon': 'close'
       });
       icon.addEventListener('click',this.#onClear);
       fragment.appendChild(icon);
