@@ -47,7 +47,7 @@ class UIInput extends UIBase{
     if(this.#clearable){
       const icon = document.createElement('ui-icon');
       this.setAttributes(icon,{
-        'icon': 'close'
+        'icon': 'clear'
       });
       icon.addEventListener('click',this.#onClear);
       fragment.appendChild(icon);
@@ -90,7 +90,7 @@ class UIInput extends UIBase{
     this.#input.removeEventListener('focus',this.#onFocus);
     this.#input.removeEventListener('blur',this.#onBlur);
 
-    const clear = this.querySelector('ui-icon[icon="close"]');
+    const clear = this.querySelector('ui-icon[icon="clear"]');
     if(clear) clear.removeEventListener('click',this.#onClear);
   }
 

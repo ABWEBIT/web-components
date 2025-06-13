@@ -33,35 +33,50 @@
   --ui-color-black:oklch(0% 0 0);
   --ui-color-white:oklch(100% 0 0);
 
-  /* === form control colors === */
-  /* input | textarea */
-  --ui-color-input-surface:oklch(20% 0 0);
-  --ui-color-input-content:oklch(80% 0 0);
+  --ui-color-gray-15: oklch(15% 0 0);
+  --ui-color-gray-20: oklch(20% 0 0);
+  --ui-color-gray-25: oklch(25% 0 0);
+  --ui-color-gray-30: oklch(30% 0 0);
+  --ui-color-gray-40: oklch(40% 0 0);
+  --ui-color-gray-50: oklch(50% 0 0);
+  --ui-color-gray-60: oklch(60% 0 0);
+  --ui-color-gray-70: oklch(70% 0 0);
+  --ui-color-gray-80: oklch(80% 0 0);
+  --ui-color-gray-90: oklch(90% 0 0);
 
-  /* input | textarea: hover & focus */
-  --ui-color-input-content:oklch(80% 0 0);
+  /* theme: scrollbar */
+  --ui-color-scrollbar:var(--ui-color-gray-70);
+
+  /* === form control === */
+  /* form control: default */
+  --ui-color-input-surface:var(--ui-color-gray-20);
+  --ui-color-input-outline:var(--ui-color-gray-30);
+  --ui-color-input-content:var(--ui-color-gray-90);
+  --ui-color-input-icons:var(--ui-color-gray-60);
+  --ui-color-input-placeholder:var(--ui-color-gray-50);
 
   /* form control: disabled */
-  --ui-color-input-surface-disabled:oklch(60% 0 0);
-  --ui-color-input-content-disabled:oklch(20% 0 0);
+  --ui-color-input-surface-disabled:var(--ui-color-gray-60);
+  --ui-color-input-outline-disabled:transparent;
+  --ui-color-input-content-disabled:var(--ui-color-gray-20);
+  --ui-color-input-placeholder-disabled:var(--ui-color-gray-20);
 
-  /* input / textarea text */
-  --ui-color-input-text-default:oklch(70% 0 0);
+  /* form control: hover & focused */
+  --ui-color-input-outline-active:var(--ui-color-gray-60);
+  --ui-color-input-icons-active:var(--ui-color-gray-90);
 
-  /* === form control sizes === */
+  /* form control: sizes */
   --ui-form-control-size-small:24px;
   --ui-form-control-size-medium:32px;
   --ui-form-control-size-large:40px;
 
+  /* form control: status colors */
+  --ui-color-form-control-info:oklch(65.14% 0.226 259.61);
+  --ui-color-form-control-error:oklch(59.21% 0.233 27.07);
+  --ui-color-form-control-success:oklch(70.25% 0.174 149.61);
+  --ui-color-form-control-warning:oklch(81.32% 0.183 79.64);
 
-  --ui-color-info:rgb(25,125,230);
-  --ui-color-warning:rgb(245,180,40);
-  --ui-color-error:rgb(230,60,60);
-  --ui-color-success:rgb(45,160,80);
-
-  --ui-color-blue-050:rgb(0,125,255);
-
-  /* transition */
+  /* === transition === */
   --ui-transition-duration:0.2s;
 }
 

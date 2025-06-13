@@ -1,8 +1,8 @@
 export class UIBase extends HTMLElement{
   #shapeDefault = 'rounded';
-  #shapeTypes = ['rounded','pill','circle','square'];
-  #sizeDefault = 'medium';
-  #sizeTypes = ['small','medium','large'];
+  #shapeOptions = ['rounded','pill','circle','square'];
+  #sizeDefault  = 'medium';
+  #sizeOptions  = ['small','medium','large'];
 
   static get observedAttributes(){
     return Object.keys(this.properties || {});
@@ -79,14 +79,14 @@ export class UIBase extends HTMLElement{
 
   shape(){
     const shape = this.getAttribute('shape');
-    if(!shape || !this.#shapeTypes.includes(shape)){
+    if(!shape || !this.#shapeOptions.includes(shape)){
       this.setAttribute('shape',this.#shapeDefault);
     }
   }
 
   size(){
     const size = this.getAttribute('size');
-    if(!size || !this.#sizeTypes.includes(size)){
+    if(!size || !this.#sizeOptions.includes(size)){
       this.setAttribute('size',this.#sizeDefault);
     }
   }

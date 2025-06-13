@@ -5,7 +5,7 @@
   <div class="info">
     <h2>Features</h2>
     <ul>
-      <li>A visible outline appears when the component is focused.</li>
+      <li></li>
     </ul>
   </div>
   <div class="info">
@@ -32,6 +32,7 @@
 </section>
 
 <section class="content">
+
   <div class="content-item">
     <div>Shape (default: rounded)</div>
     <div class="example">
@@ -39,6 +40,9 @@
         <ui-input></ui-input>
         <ui-input shape="pill"></ui-input>
         <ui-input shape="square"></ui-input>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
       </div>
       <div class="code">
         <code>
@@ -51,12 +55,15 @@
   </div>
 
   <div class="content-item">
-    <div>Height (default: 32)</div>
+    <div>Size (default: medium)</div>
     <div class="example">
       <div class="preview">
         <ui-input size="small"></ui-input>
         <ui-input></ui-input>
         <ui-input size="large"></ui-input>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
       </div>
       <div class="code">
         <code>
@@ -69,14 +76,38 @@
   </div>
 
   <div class="content-item">
+    <div>Clear button</div>
+    <div class="example">
+      <div class="preview">
+        <ui-input size="small" clearable></ui-input>
+        <ui-input clearable></ui-input>
+        <ui-input size="large" clearable></ui-input>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-input size="small" clearable&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input clearable&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input size="large" clearable&gt;&lt;/ui-input&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
     <div>Placeholder</div>
     <div class="example">
       <div class="preview">
         <ui-input placeholder="Placeholder"></ui-input>
       </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
       <div class="code">
         <code>
-          &lt;ui-input placeholder="Placeholder"&gt;&lt;/ui-input&gt;
+          <div>&lt;ui-input placeholder="Placeholder"&gt;&lt;/ui-input&gt;</div>
         </code>
       </div>
     </div>
@@ -86,99 +117,74 @@
     <div>Required</div>
     <div class="example">
       <div class="preview">
-        <ui-input placeholder="Required" required></ui-input>
+        <ui-input required></ui-input>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-input required&gt;&lt;/ui-input&gt;
+          <div>&lt;ui-input required&gt;&lt;/ui-input&gt;</div>
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Input: Disabled + Placeholder</div>
+    <div>Disabled + Placeholder</div>
     <div class="example">
       <div class="preview">
         <ui-input placeholder="Disabled" disabled></ui-input>
       </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
       <div class="code">
         <code>
-          &lt;ui-input placeholder="Disabled" disabled&gt;&lt;/ui-input&gt;
+          <div>&lt;ui-input placeholder="Disabled" disabled&gt;&lt;/ui-input&gt;</div>
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Input: Disabled + Value</div>
+    <div>Disabled + Value</div>
     <div class="example">
       <div class="preview">
         <ui-input value="Disabled" disabled></ui-input>
       </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
       <div class="code">
         <code>
-          &lt;ui-input value="Disabled" disabled&gt;&lt;/ui-input&gt;
+          <div>&lt;ui-input value="Disabled" disabled&gt;&lt;/ui-input&gt;</div>
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Clear button</div>
+    <div>Info, Error, Success, Warning</div>
     <div class="example">
       <div class="preview">
-        <ui-input clearable></ui-input>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-input clearable&gt;&lt;/ui-input&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="content-item">
-    <div>Error</div>
-    <div class="example">
-      <div class="preview">
+        <ui-input status="info"></ui-input>
         <ui-input status="error"></ui-input>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-input status="error"&gt;&lt;/ui-input&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Success</div>
-    <div class="example">
-      <div class="preview">
         <ui-input status="success"></ui-input>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-input status="success"&gt;&lt;/ui-input&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Warning</div>
-    <div class="example">
-      <div class="preview">
         <ui-input status="warning"></ui-input>
       </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
       <div class="code">
         <code>
-          &lt;ui-input status="warning"&gt;&lt;/ui-input&gt;
+          <div>&lt;ui-input status="info"&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input status="error"&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input status="success"&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input status="warning"&gt;&lt;/ui-input&gt;</div>
         </code>
       </div>
     </div>
   </div>
+
 </section>

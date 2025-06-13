@@ -3,13 +3,11 @@ ui-input{
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  height:var(--ui-object-height);
-  outline-offset:2px;
+  outline-offset:-2px;
   outline-width:2px;
   outline-style:solid;
-  outline-color:transparent;
+  outline-color:var(--ui-color-input-outline);
   background-color:var(--ui-color-input-surface);
-  color:var(--ui-color-input-content);
   overflow:hidden;}
 
 ui-input[size="small"]{height:var(--ui-form-control-size-small);}
@@ -18,74 +16,83 @@ ui-input[size="large"]{height:var(--ui-form-control-size-large);}
 
 ui-input[animated]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,color,outline-color;}
+  transition-property:background-color,outline-color,color;}
 
 ui-input[disabled]{
+  outline-color:transparent;
   background-color:var(--ui-color-input-surface-disabled);}
 
 ui-input input{
   direction:inherit;
-  color:inherit;
-  border:none!important;
-  outline:none!important;
-  background-color:transparent!important;
-  height:100%;}
+  border:none;
+  outline:none;
+  padding:0;
+  height:100%;
+  color:var(--ui-color-input-content);
+  background-color:transparent;}
+
+ui-input[disabled] input{
+  color:var(--ui-color-input-content-disabled);}
+
+ui-input input::placeholder{
+  color:var(--ui-color-input-placeholder);}
+
+ui-input[disabled] input::placeholder{
+  color:var(--ui-color-input-placeholder-disabled);}
 
 ui-input[size="small"] > input{
-  padding-inline:calc(var(--ui-form-control-size-small) / 4 + 2px);
+  padding-inline:calc(var(--ui-form-control-size-small) / 4 + 4px);
   font-size:var(--ui-font-size-x-small);}
 
 ui-input[size="medium"] > input{
-  padding-inline:calc(var(--ui-form-control-size-medium) / 4 + 2px);
+  padding-inline:calc(var(--ui-form-control-size-medium) / 4 + 4px);
   font-size:var(--ui-font-size-small);}
 
 ui-input[size="large"] > input{
-  padding-inline:calc(var(--ui-form-control-size-large) / 4 + 2px);
+  padding-inline:calc(var(--ui-form-control-size-large) / 4 + 6px);
   font-size:var(--ui-font-size-medium);}
 
-ui-input[clearable] input{
+ui-input[clearable] > input{
   padding-inline-end:0;}
-
-ui-input[disabled] input,
-ui-input[disabled] input::placeholder{
-  color:var(--ui-color-input-content-disabled);}
-
-ui-input > ui-icon{
-
-  color:rgb(125,125,125)}
 
 ui-input[size="small"] > ui-icon{
   height:var(--ui-form-control-size-small);
   width:var(--ui-form-control-size-small);
-  padding:calc(var(--ui-form-control-size-small) / 4);}
+  padding:calc(var(--ui-form-control-size-small) / 4 - 2px);}
 
 ui-input[size="medium"] > ui-icon{
   height:var(--ui-form-control-size-medium);
   width:var(--ui-form-control-size-medium);
-  padding:calc(var(--ui-form-control-size-medium) / 4);}
+  padding:calc(var(--ui-form-control-size-medium) / 4 - 2px);}
 
 ui-input[size="large"] > ui-icon{
   height:var(--ui-form-control-size-large);
   width:var(--ui-form-control-size-large);
-  padding:calc(var(--ui-form-control-size-large) / 4);}
+  padding:calc(var(--ui-form-control-size-large) / 4 - 2px);}
 
-ui-input ui-icon[icon="close"]{
+ui-input > ui-icon{
+  color:var(--ui-color-input-icons);
   cursor:pointer;}
 
 @media (hover:hover){
   ui-input:hover:not([disabled]):not([status]){
-    background-color:rgb(20,20,20);
-    outline-color:rgb(100,100,100);}
+    outline-color:var(--ui-color-input-outline-active);}
 
-  ui-input ui-icon[icon="close"]:hover{
-    color:var(--ui-color-white);}
+  ui-input > ui-icon:hover{
+    color:var(--ui-color-input-icons-active);}
 }
 
 ui-input[focused]:not([disabled]):not([status]){
-  background-color:rgb(20,20,20);
-  outline-color:rgb(100,100,100);}
+  outline-color:var(--ui-color-input-outline-active);}
 
-/* status */
-ui-input[status="error"]{outline-color:rgb(210,55,55);}
-ui-input[status="success"]{outline-color:rgb(85,175,85);}
-ui-input[status="warning"]{outline-color:rgb(210,175,20);}
+ui-input[status="info"]{
+  outline-color:var(--ui-color-form-control-info);}
+
+ui-input[status="error"]{
+  outline-color:var(--ui-color-form-control-error);}
+
+ui-input[status="success"]{
+  outline-color:var(--ui-color-form-control-success);}
+
+ui-input[status="warning"]{
+  outline-color:var(--ui-color-form-control-warning);}
