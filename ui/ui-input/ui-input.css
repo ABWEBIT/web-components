@@ -3,7 +3,7 @@ ui-input{
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  outline-offset:2px;
+  outline-offset:0px;
   outline-width:2px;
   outline-style:solid;
   outline-color:var(--ui-color-input-outline);
@@ -85,14 +85,7 @@ ui-input > ui-icon{
 ui-input[focused]:not([disabled]):not([status]){
   outline-color:var(--ui-color-input-outline-active);}
 
-ui-input[status="info"]{
-  outline-color:var(--ui-color-form-control-info);}
-
-ui-input[status="error"]{
-  outline-color:var(--ui-color-form-control-error);}
-
-ui-input[status="success"]{
-  outline-color:var(--ui-color-form-control-success);}
-
-ui-input[status="warning"]{
-  outline-color:var(--ui-color-form-control-warning);}
+ui-input[status="accent"]{outline-color:var(--ui-color-form-control-accent);}
+ui-input[status="error"]{outline-color:var(--ui-color-form-control-error);}
+ui-input[status="success"]{outline-color:var(--ui-color-form-control-success);}
+ui-input[status="warning"]{outline-color:var(--ui-color-form-control-warning);}

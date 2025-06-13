@@ -17,18 +17,19 @@ class UIInput extends UIBase{
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
-  get value(){return this.#value;}
-  set value(value){
-    if(this.#disabled) return;
-    if(!(this.#value = String(value || ''))) return;
-    if(this.#input) this.#input.value = this.#value;
-  }
-
   get disabled(){return this.#disabled;}
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
     if(this.#input) this.#input.disabled = this.#disabled;
+  }
+
+  get value(){return this.#value;}
+  set value(value){
+    if(!(this.#value = String(value ?? ''))) return;
+    queueMicrotask(() => {
+      if(this.#input) this.#input.value = this.#value;
+    });
   }
 
   connectedCallback(){
