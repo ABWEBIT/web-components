@@ -52,37 +52,44 @@ ui-input[size="large"] > input{
   padding-inline:calc(var(--ui-form-control-size-large) / 4 + 6px);
   font-size:var(--ui-font-size-medium);}
 
-ui-input[clearable] > input{
+ui-input:has(ui-icon) > input{
   padding-inline-end:0;}
 
-ui-input[size="small"] > ui-icon{
+ui-input > svg{
+  display:block;
+  color:var(--ui-color-input-icons);
+  fill:currentColor;
+  shape-rendering:geometricPrecision;
+  transition-duration:var(--ui-transition-duration);
+  transition-property:color;
+  cursor:pointer;}
+
+ui-input[disabled] > svg{opacity:0;}
+
+ui-input[size="small"] > svg{
   height:var(--ui-form-control-size-small);
   width:var(--ui-form-control-size-small);
   padding:calc(var(--ui-form-control-size-small) / 4 - 2px);}
 
-ui-input[size="medium"] > ui-icon{
+ui-input[size="medium"] > svg{
   height:var(--ui-form-control-size-medium);
   width:var(--ui-form-control-size-medium);
   padding:calc(var(--ui-form-control-size-medium) / 4 - 2px);}
 
-ui-input[size="large"] > ui-icon{
+ui-input[size="large"] > svg{
   height:var(--ui-form-control-size-large);
   width:var(--ui-form-control-size-large);
   padding:calc(var(--ui-form-control-size-large) / 4 - 2px);}
-
-ui-input > ui-icon{
-  color:var(--ui-color-input-icons);
-  cursor:pointer;}
 
 @media (hover:hover){
   ui-input:hover:not([disabled]):not([status]){
     outline-color:var(--ui-color-input-outline-active);}
 
-  ui-input > ui-icon:hover{
+  ui-input > svg:hover{
     color:var(--ui-color-input-icons-active);}
 }
 
-ui-input[focused]:not([disabled]):not([status]){
+ui-input:focus-within:not([disabled]):not([status]){
   outline-color:var(--ui-color-input-outline-active);}
 
 ui-input[status="accent"]{outline-color:var(--ui-color-form-control-accent);}

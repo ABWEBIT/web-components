@@ -3,6 +3,16 @@
   <div class="description">Input allows users to enter and edit text.</div>
   <ui-divider></ui-divider>
   <div class="info">
+    <h2>Usage</h2>
+    <ul>
+      <li>Static init-only attributes are removed from the custom element itself immediately after initialization. This is done to prevent confusion and avoid conflicts between attributes and properties during the component lifecycle. Their values are still applied to the relevant internal elements, so the component's behavior remains consistent with the initial configuration.<br><br>
+      
+      To update these values dynamically, use the corresponding JavaScript properties on the component instance.<br><br>
+
+      By separating initialization from update logic, this approach also improves performance by eliminating the need to observe attribute changes or reflect property updates back to attributes.</li>
+    </ul>
+  </div>
+  <div class="info">
     <h2>Features</h2>
     <ul>
       <li>The clickable area of the Clear button is larger than the icon itself to make it easier to click or tap.</li>
@@ -11,12 +21,12 @@
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>type - static, optional. Default: text.<br>
-        Specifies the input type. This attribute is removed after initialization; subsequent changes should be done via the component's type property (e.g., component.type = "email").</li>
-      <li>value - static, optional.<br>
-        Sets the current value of the input. This attribute is removed after initialization; further interaction is handled through the component's value property (e.g., component.value = "new value").</li>
-      <li>placeholder - static, optional.<br>
-        Text displayed when the input is empty. This attribute is removed after initialization; use the placeholder property to update it dynamically (e.g., component.placeholder = "enter text here").</li>
+      <li>type - static (init-only), optional. Default: text.<br>
+        Specifies the input type. Update via property: component.type = 'email'.</li>
+      <li>value - static (init-only), optional.<br>
+        Sets the current value of the input. Update via property: component.value = 'Value'.</li>
+      <li>placeholder - static (init-only), optional.<br>
+        Text displayed when the input is empty. Update via property: component.placeholder = 'Placeholder'.</li>
       <li>clearable - static, optional.<br>
         Adds a clear button to the input.</li>
       <li>required - static, optional.<br>

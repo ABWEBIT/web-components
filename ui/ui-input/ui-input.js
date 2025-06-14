@@ -4,15 +4,15 @@ import {inputTypes} from '../../utils/index.js';
 class UIInput extends UIBase{
   #input = null;
   #clear = null;
+  #required = false;
   #disabled = false;
   #clearable = false;
 
   #onInput = this.onInput.bind(this);
   #onClear = this.onClear.bind(this);
-  #onFocus = this.onFocus.bind(this);
-  #onBlur = this.onBlur.bind(this);
 
   static properties = Object.freeze({
+    'required':{name:'required',type:Boolean,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
@@ -32,6 +32,13 @@ class UIInput extends UIBase{
   set value(value){
     if(!this.#input) return;
     this.#input.value = String(value ?? '');
+  }
+
+  get required(){return this.#required;}
+  set required(value){
+    this.#required = value === true;
+    this.reflect('required',this.#required);
+    if(this.#input) this.#input.required = this.#required;
   }
 
   get disabled(){return this.#disabled;}
@@ -60,16 +67,20 @@ class UIInput extends UIBase{
     if(value) this.value = value;
     if(placeholder) this.placeholder = placeholder;
     this.#input.type = inputTypes(type) ? type : 'text';
-    this.#input.required = this.hasAttribute('required');
 
     fragment.appendChild(this.#input);
 
     this.#clearable = this.hasAttribute('clearable');
     if(this.#clearable){
-      this.#clear = document.createElement('ui-icon');
-      this.setAttributes(this.#clear,{
-        'icon': 'close'
-      });
+      const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('viewBox','0 0 24 24');
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d','M13.414,12l6.293-6.293c.391-.391.391-1.023,0-1.414s-1.023-.391-1.414,0l-6.293,6.293-6.293-6.293c-.391-.391-1.023-.391-1.414,0s-.391,1.023,0,1.414l6.293,6.293-6.293,6.293c-.391.391-.391,1.023,0,1.414.195.195.451.293.707.293s.512-.098.707-.293l6.293-6.293,6.293,6.293c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023,0-1.414l-6.293-6.293Z');
+
+      svg.appendChild(path);
+      this.#clear = svg;
+
       this.#clear.addEventListener('click',this.#onClear);
       fragment.appendChild(this.#clear);
     }
@@ -77,20 +88,10 @@ class UIInput extends UIBase{
     this.appendChild(fragment);
 
     this.#input.addEventListener('input',this.#onInput);
-    this.#input.addEventListener('focus',this.#onFocus);
-    this.#input.addEventListener('blur',this.#onBlur);
   }
 
   onInput(){
     if(this.#disabled) return;
-  }
-
-  onFocus(){
-    this.setAttribute('focused','');
-  }
-
-  onBlur(){
-    this.removeAttribute('focused');
   }
 
   onClear(){
@@ -102,8 +103,6 @@ class UIInput extends UIBase{
   disconnectedCallback(){
     if(this.#input){
       this.#input.removeEventListener('input',this.#onInput);
-      this.#input.removeEventListener('focus',this.#onFocus);
-      this.#input.removeEventListener('blur',this.#onBlur);
     }
 
     if(this.#clear){
