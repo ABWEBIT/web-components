@@ -35,34 +35,15 @@ ui-textarea textarea::placeholder{
 ui-textarea[disabled] textarea::placeholder{
   color:var(--ui-color-input-placeholder-disabled);}
 
-ui-textarea > ui-icon{
-  position:absolute;
-  top:4px;
-  right:4px;
-  color:var(--ui-color-input-icons);
-  height:calc(var(--ui-form-control-size-medium) / 2);
-  width:calc(var(--ui-form-control-size-medium) / 2);
-  cursor:pointer;}
-
 @media (hover:hover){
   ui-textarea:hover:not([disabled]):not([status]){
     outline-color:var(--ui-color-input-outline-active);}
-
-  ui-textarea > ui-icon:hover{
-    color:var(--ui-color-input-icons-active);}
 }
 
-ui-textarea[focused]:not([disabled]):not([status]){
+ui-textarea:focus-within:not([disabled]):not([status]){
   outline-color:var(--ui-color-input-outline-active);}
 
-ui-textarea[status="info"]{
-  outline-color:var(--ui-color-form-control-info);}
-
-ui-textarea[status="error"]{
-  outline-color:var(--ui-color-form-control-error);}
-
-ui-textarea[status="success"]{
-  outline-color:var(--ui-color-form-control-success);}
-
-ui-textarea[status="warning"]{
-  outline-color:var(--ui-color-form-control-warning);}
+ui-textarea[status="accent"]{outline-color:var(--ui-color-form-control-accent);}
+ui-textarea[status="error"]{outline-color:var(--ui-color-form-control-error);}
+ui-textarea[status="success"]{outline-color:var(--ui-color-form-control-success);}
+ui-textarea[status="warning"]{outline-color:var(--ui-color-form-control-warning);}

@@ -46,7 +46,6 @@ class UIInput extends UIBase{
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
     if(this.#input) this.#input.disabled = this.#disabled;
-    if(this.#disabled) this.removeAttribute('focused');
   }
 
   connectedCallback(){
@@ -91,6 +90,11 @@ class UIInput extends UIBase{
 
   onInput(){
     if(this.#disabled) return;
+    this.doAction();
+  }
+
+  doAction(e){
+    console.log(e.type);
   }
 
   onClear(){

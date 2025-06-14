@@ -2,23 +2,34 @@ import {UIBase} from '../ui-base/ui-base.js';
 import {htmlEscape} from '../../utils/index.js';
 
 class UITextarea extends UIBase{
-  #textarea;
-  #value = '';
+  #textarea = null;
+  #required = false;
   #disabled = false;
 
   #onInput = this.onInput.bind(this);
-  #onFocus = this.onFocus.bind(this);
-  #onBlur = this.onBlur.bind(this);
 
   static properties = Object.freeze({
-    'value':{name:'value',type:String},
+    'required':{name:'required',type:Boolean,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
 
-  get value(){return this.#value;}
+  get placeholder(){return this.#textarea?.placeholder ?? '';}
+  set placeholder(value){
+    if(!this.#textarea) return;
+    this.#textarea.placeholder = String(value ?? '');
+  }
+
+  get value(){return this.#textarea?.value ?? '';}
   set value(value){
-    if(!(this.#value = String(value || ''))) return;
-    if(this.#textarea) this.#textarea.value = this.#value;
+    if(!this.#textarea) return;
+    this.#textarea.value = String(value ?? '');
+  }
+
+  get required(){return this.#required;}
+  set required(value){
+    this.#required = value === true;
+    this.reflect('required',this.#required);
+    if(this.#textarea) this.#textarea.required = this.#required;
   }
 
   get disabled(){return this.#disabled;}
@@ -30,36 +41,29 @@ class UITextarea extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.replaceChildren();
     this.shape();
+
+    const value = this.getAttribute('value') ?? '';
+    const placeholder = this.getAttribute('placeholder') ?? '';
+    this.removeAttribute('value');
+    this.removeAttribute('placeholder');
 
     const fragment = document.createDocumentFragment();
 
     this.#textarea = document.createElement('textarea');
+    if(value) this.value = value;
+    if(placeholder) this.placeholder = placeholder;
+
     fragment.appendChild(this.#textarea);
 
     this.appendChild(fragment);
 
     this.#textarea.addEventListener('input',this.#onInput);
-    this.#textarea.addEventListener('focus',this.#onFocus);
-    this.#textarea.addEventListener('blur',this.#onBlur);
-
-    const placeholder = this.getAttribute('placeholder');
-    if(placeholder) this.#textarea.placeholder = placeholder;
-
-    this.#textarea.required = this.hasAttribute('required');
   }
 
   onInput(){
     if(this.#disabled) return;
-  }
-
-  onFocus(){
-    this.setAttribute('focused','');
-  }
-
-  onBlur(){
-    this.removeAttribute('focused');
+    this.doAction();
   }
 
   doAction(e){
@@ -67,9 +71,9 @@ class UITextarea extends UIBase{
   }
 
   disconnectedCallback(){
-    this.#textarea.removeEventListener('input',this.#onInput);
-    this.#textarea.removeEventListener('focus',this.#onFocus);
-    this.#textarea.removeEventListener('blur',this.#onBlur);
+    if(this.#textarea){
+      this.#textarea.removeEventListener('input',this.#onInput);
+    }
   }
 
 }
