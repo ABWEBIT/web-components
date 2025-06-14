@@ -17,7 +17,6 @@ class UITextarea extends UIBase{
 
   get value(){return this.#value;}
   set value(value){
-    if(this.#disabled) return;
     if(!(this.#value = String(value || ''))) return;
     if(this.#textarea) this.#textarea.value = this.#value;
   }

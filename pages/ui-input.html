@@ -11,22 +11,22 @@
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>type - static, optional. Default: text.
-        <br>Specifies the input type.</li>
-      <li>value - reactive, optional.
-        <br>Sets the current value of the input.</li>
-      <li>placeholder - static, optional.
-        <br>Text displayed when the input is empty.</li>
-      <li>clearable - static, optional.
-        <br>Adds a clear button.</li>
-      <li>required - static, optional.
-        <br>Indicates whether the component is required.</li>
-      <li>disabled - reactive, optional.
-        <br>Controls the disabled state of the component.</li>
-      <li>size - static, optional. Default: medium.
-        <br>Available values: small, medium, large.</li>
-      <li>shape - static, optional. Default: rounded.
-        <br>An object's corners can be rounded, pill, or square.</li>
+      <li>type - static, optional. Default: text.<br>
+        Specifies the input type. This attribute is removed after initialization; subsequent changes should be done via the component's type property (e.g., component.type = "email").</li>
+      <li>value - static, optional.<br>
+        Sets the current value of the input. This attribute is removed after initialization; further interaction is handled through the component's value property (e.g., component.value = "new value").</li>
+      <li>placeholder - static, optional.<br>
+        Text displayed when the input is empty. This attribute is removed after initialization; use the placeholder property to update it dynamically (e.g., component.placeholder = "enter text here").</li>
+      <li>clearable - static, optional.<br>
+        Adds a clear button to the input.</li>
+      <li>required - static, optional.<br>
+        Indicates whether the input is required.</li>
+      <li>disabled - reactive, optional.<br>
+        Controls the disabled state of the component and reflects changes both as an attribute and property.</li>
+      <li>size - static, optional. Default: medium.<br>
+        Available values: small, medium, large.</li>
+      <li>shape - static, optional. Default: rounded.<br>
+        Defines the shape of the input corners: rounded, pill, or square.</li>
     </ul>
   </div>
 </section>
@@ -37,7 +37,7 @@
     <div>Shape (default: rounded)</div>
     <div class="example">
       <div class="preview">
-        <ui-input id="s" value="test"></ui-input>
+        <ui-input></ui-input>
         <ui-input shape="pill"></ui-input>
         <ui-input shape="square"></ui-input>
       </div>

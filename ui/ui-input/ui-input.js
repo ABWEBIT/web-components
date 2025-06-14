@@ -2,7 +2,7 @@ import {UIBase} from '../ui-base/ui-base.js';
 import {inputTypes} from '../../utils/index.js';
 
 class UIInput extends UIBase{
-  #input;
+  #input = null;
   #clear = null;
   #disabled = false;
   #clearable = false;
@@ -15,6 +15,18 @@ class UIInput extends UIBase{
   static properties = Object.freeze({
     'disabled':{name:'disabled',type:Boolean,reflect:true}
   });
+
+  get placeholder(){return this.#input?.placeholder ?? '';}
+  set placeholder(value){
+    if(!this.#input) return;
+    this.#input.placeholder = String(value ?? '');
+  }
+
+  get type(){return this.#input?.type ?? 'text';}
+  set type(value){
+    if(!this.#input) return;
+    this.#input.type = inputTypes(value) ? value : 'text';
+  }
 
   get value(){return this.#input?.value ?? '';}
   set value(value){
@@ -46,7 +58,7 @@ class UIInput extends UIBase{
 
     this.#input = document.createElement('input');
     if(value) this.value = value;
-    if(placeholder) this.#input.placeholder = placeholder;
+    if(placeholder) this.placeholder = placeholder;
     this.#input.type = inputTypes(type) ? type : 'text';
     this.#input.required = this.hasAttribute('required');
 
