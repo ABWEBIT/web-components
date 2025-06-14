@@ -1,5 +1,4 @@
 import {UIBase} from '../ui-base/ui-base.js';
-import {htmlEscape} from '../../utils/index.js';
 
 class UITextarea extends UIBase{
   #textarea = null;
@@ -61,9 +60,9 @@ class UITextarea extends UIBase{
     this.#textarea.addEventListener('input',this.#onInput);
   }
 
-  onInput(){
+  onInput(e){
     if(this.#disabled) return;
-    this.doAction();
+    this.doAction(e);
   }
 
   doAction(e){

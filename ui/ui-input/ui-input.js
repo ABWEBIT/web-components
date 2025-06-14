@@ -88,9 +88,9 @@ class UIInput extends UIBase{
     this.#input.addEventListener('input',this.#onInput);
   }
 
-  onInput(){
+  onInput(e){
     if(this.#disabled) return;
-    this.doAction();
+    this.doAction(e);
   }
 
   doAction(e){
