@@ -10,15 +10,6 @@
     </ul>
   </div>
   <div class="info">
-    <h2>Features</h2>
-    <ul>
-      <li>Font size is "button height / 2 - 2px", capped between 12px and 16px.</li>
-      <li>Corner rounding is calculated as "button height / 4".</li>
-      <li>A visible outline appears when the component is focused.</li>
-      <li>Supports keyboard navigation: Tab to move, Enter/Space to trigger action.</li>
-    </ul>
-  </div>
-  <div class="info">
     <h2>Attributes</h2>
     <ul>
       <li>text - reactive, optional.
@@ -33,8 +24,8 @@
         <br>Controls the disabled state of the component.</li>
       <li>loading - reactive, optional.
         <br>Controls the loading state of the component.</li>
-      <li>shape - static, optional. Default: rounded.
-        <br>A button can be rounded, pill, or square.</li>
+      <li>shape - static, optional. Default: rounded.<br>
+        Sets the corner style: rounded, pill, or square.</li>
     </ul>
   </div>
 </section>
@@ -45,63 +36,39 @@
     <div>Shape (default: rounded)</div>
     <div class="example">
       <div class="preview">
-        <ui-button shape="rounded" text="shape=&quot;rounded&quot;"></ui-button>
-        <ui-button shape="pill" text="shape=&quot;pill&quot;"></ui-button>
-        <ui-button shape="square" text="shape=&quot;square&quot;"></ui-button>
+        <ui-button shape="rounded">Button</ui-button>
+        <ui-button shape="pill">Button</ui-button>
+        <ui-button shape="square">Button</ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button shape="rounded" text="rounded"&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button shape="pill" text="pill"&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button shape="square" text="square"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button shape="rounded"&gt;Button&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button shape="pill"&gt;Button&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button shape="square"&gt;Button&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Height 24</div>
+    <div>Size (default: medium)</div>
     <div class="example">
       <div class="preview">
-        <ui-button height="24" text="Settings" icon-leading="settings"></ui-button>
-        <ui-button height="24" text="Settings"></ui-button>
+        <ui-button size="small">Button</ui-button>
+        <ui-button>Button</ui-button>
+        <ui-button size="large">Button</ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button height="24" text="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button height="24" text="Settings"&gt;&lt;/ui-button&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Height: 32 (default)</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button text="Settings" icon-leading="settings"></ui-button>
-        <ui-button text="Settings"></ui-button>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-button text="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button text="Settings"&gt;&lt;/ui-button&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Height 40</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button height="40" text="Settings" icon-leading="settings"></ui-button>
-        <ui-button height="40" text="Settings"></ui-button>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-button height="40" text="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button height="40" text="Settings"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button size="small"&gt;Button&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button&gt;Button&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button size="large"&gt;Button&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -111,11 +78,14 @@
     <div>Disabled</div>
     <div class="example">
       <div class="preview">
-        <ui-button text="Settings" disabled></ui-button>
+        <ui-button disabled>Button</ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button text="Settings" disabled&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button disabled&gt;Button&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -127,6 +97,9 @@
       <div class="preview">
         <ui-button text="Settings" icon-leading="settings"></ui-button>
         <ui-button text="Settings" icon-trailing="settings"></ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
       </div>
       <div class="code">
         <code>
@@ -143,6 +116,9 @@
       <div class="preview">
         <ui-button text="Settings" icon-leading="settings" icon-trailing="settings"></ui-button> 
       </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
       <div class="code">
         <code>
           <div>&lt;ui-button text="Settings" icon-leading="settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</div>
@@ -157,6 +133,9 @@
       <div class="preview">
         <ui-button id="clickMe" onclick="load()" onkeydown="load()" text="Click me"></ui-button>
         <ui-button onclick="reset()" onkeydown="reset()" text="Reset"></ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
       </div>
       <div class="code">
         <code>

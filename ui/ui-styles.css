@@ -59,10 +59,10 @@
   --ui-color-input-placeholder:var(--ui-color-gray-50);
 
   /* form control: disabled */
-  --ui-color-input-surface-disabled:var(--ui-color-gray-60);
-  --ui-color-input-outline-disabled:transparent;
-  --ui-color-input-content-disabled:var(--ui-color-gray-20);
-  --ui-color-input-placeholder-disabled:var(--ui-color-gray-20);
+  --ui-color-form-control-surface-disabled:var(--ui-color-gray-60);
+  --ui-color-form-control-outline-disabled:transparent;
+  --ui-color-form-control-content-disabled:var(--ui-color-gray-20);
+  --ui-color-form-control-placeholder-disabled:var(--ui-color-gray-20);
 
   /* form control: hover & focused */
   --ui-color-input-surface-active:var(--ui-color-gray-25);

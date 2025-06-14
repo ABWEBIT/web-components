@@ -3,16 +3,24 @@
   <div class="description">Textarea allows users to enter and edit multiline text.</div>
   <ui-divider></ui-divider>
   <div class="info">
+    <h2>Usage</h2>
+    <ul>
+      <li>Static init-only attributes are removed from the custom element itself immediately after initialization. This is done to prevent confusion and avoid conflicts between attributes and properties during the component lifecycle. Their values are still applied to the relevant internal elements, so the component's behavior remains consistent with the initial configuration.<br><br>
+      
+      To update these values dynamically, use the corresponding JavaScript properties on the component instance.</li>
+    </ul>
+  </div>
+  <div class="info">
     <h2>Features</h2>
     <ul>
-      <li>The minimum supported version of Firefox is 136. contenteditable="plaintext-only"</li>
+      <li></li>
     </ul>
   </div>
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>placeholder - static, optional.
-        <br>Specifies a short hint that describes the expected value of the input. It appears inside the form control when it is empty.</li>
+      <li>placeholder - static (init-only), optional.<br>
+        Text displayed when the textarea is empty. Update via property: component.placeholder = 'Placeholder'.</li>
       <li>height - static, optional. Default: 40.
         <br>Component height is measured in pixels. Recommended range: 24 to 40. Even values are preferred.</li>
       <li>clearable - static, optional.
@@ -32,7 +40,7 @@
     <div>Shape (default: rounded)</div>
     <div class="example">
       <div class="preview">
-        <ui-textarea shape="rounded" clearable></ui-textarea>
+        <ui-textarea></ui-textarea>
         <ui-textarea shape="square"></ui-textarea>
       </div>
       <div class="code">
@@ -104,17 +112,17 @@
   </div>
 
   <div class="content-item">
-    <div>Info, Error, Success, Warning</div>
+    <div>Accent, Error, Success, Warning</div>
     <div class="example">
       <div class="preview">
-        <ui-textarea status="info"></ui-textarea>
+        <ui-textarea status="accent"></ui-textarea>
         <ui-textarea status="error"></ui-textarea>
         <ui-textarea status="success"></ui-textarea>
         <ui-textarea status="warning"></ui-textarea>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-textarea status="info"&gt;&lt;/ui-textarea&gt;</div>
+          <div>&lt;ui-textarea status="accent"&gt;&lt;/ui-textarea&gt;</div>
           <div>&lt;ui-textarea status="error"&gt;&lt;/ui-textarea&gt;</div>
           <div>&lt;ui-textarea status="success"&gt;&lt;/ui-textarea&gt;</div>
           <div>&lt;ui-textarea status="warning"&gt;&lt;/ui-textarea&gt;</div>

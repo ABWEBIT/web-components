@@ -13,8 +13,8 @@ ui-textarea[animated]{
   transition-property:background-color,outline-color;}
 
 ui-textarea[disabled]{
-  outline-color:var(--ui-color-input-outline-disabled);
-  background-color:var(--ui-color-input-surface-disabled);}
+  outline-color:var(--ui-color-form-control-outline-disabled);
+  background-color:var(--ui-color-form-control-surface-disabled);}
 
 ui-textarea textarea{
   direction:inherit;
@@ -27,13 +27,13 @@ ui-textarea textarea{
   background-color:transparent;}
 
 ui-textarea[disabled] textarea{
-  color:var(--ui-color-input-content);}
+  color:var(--ui-color-form-control-content-disabled);}
 
 ui-textarea textarea::placeholder{
   color:var(--ui-color-input-placeholder);}
 
 ui-textarea[disabled] textarea::placeholder{
-  color:var(--ui-color-input-placeholder-disabled);}
+  color:var(--ui-color-form-control-content-disabled);}
 
 @media (hover:hover){
   ui-textarea:hover:not([disabled]):not([status]){

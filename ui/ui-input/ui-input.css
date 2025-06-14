@@ -19,8 +19,8 @@ ui-input[animated]{
   transition-property:background-color,outline-color;}
 
 ui-input[disabled]{
-  outline-color:var(--ui-color-input-outline-disabled);
-  background-color:var(--ui-color-input-surface-disabled);}
+  outline-color:var(--ui-color-form-control-outline-disabled);
+  background-color:var(--ui-color-form-control-surface-disabled);}
 
 ui-input input{
   direction:inherit;
@@ -32,7 +32,7 @@ ui-input input{
   background-color:transparent;}
 
 ui-input[disabled] input{
-  color:var(--ui-color-input-content-disabled);}
+  color:var(--ui-color-form-control-content-disabled);}
 
 ui-input input::placeholder{
   color:var(--ui-color-input-placeholder);}

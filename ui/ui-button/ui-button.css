@@ -3,12 +3,9 @@ ui-button{
   align-items:center;
   justify-content:center;
   vertical-align:middle;
-  height:var(--ui-object-height);
   column-gap:calc(var(--ui-object-height) / 8);
-  padding-inline-start:calc(var(--ui-object-height) / 2);
-  padding-inline-end:calc(var(--ui-object-height) / 2);
   border:none;
-  outline-offset:2px;
+  outline-offset:0px;
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;
@@ -18,12 +15,38 @@ ui-button{
   cursor:pointer;
   overflow:hidden;}
 
-ui-button[loading]{
-  cursor:default;}
+ui-button[size="small"]{height:var(--ui-form-control-size-small);}
+ui-button[size="medium"]{height:var(--ui-form-control-size-medium);}
+ui-button[size="large"]{height:var(--ui-form-control-size-large);}
+
+ui-button[animated]{
+  transition-duration:var(--ui-transition-duration);
+  transition-property:background-color,outline-color,color;}
+
+ui-button[disabled]{
+  color:var(--ui-color-form-control-content-disabled);
+  background-color:var(--ui-color-form-control-surface-disabled);}
+
+ui-button[loading]{cursor:default;}
 
 ui-button:not([text]):not([icon-leading]),
 ui-button:not([text]):not([icon-trailing]){
   width:var(--ui-object-height);}
+
+ui-button[size="small"]{
+  padding-inline:calc(var(--ui-form-control-size-small) / 2);
+  font-size:var(--ui-font-size-x-small);}
+
+ui-button[size="medium"]{
+  padding-inline:calc(var(--ui-form-control-size-medium) / 2);
+  font-size:var(--ui-font-size-small);}
+
+ui-button[size="large"]{
+  padding-inline:calc(var(--ui-form-control-size-large) / 2);
+  font-size:var(--ui-font-size-medium);}
+
+
+
 
 ui-button[text][icon-leading]:not([icon-trailing]){
   padding-inline-start:calc(var(--ui-object-height) / 2 - 2px);}
@@ -34,9 +57,7 @@ ui-button[text][icon-trailing]:not([icon-leading]){
 ui-button[text][icon-trailing][icon-leading]{
   padding-inline:calc(var(--ui-object-height) / 2 - 2px);}
 
-ui-button[animated]{
-  transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,outline-color,color;}
+
 
 @media (hover:hover){
   ui-button:hover:not([disabled]):not([loading]){
