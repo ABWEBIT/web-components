@@ -52,7 +52,7 @@ ui-input[size="large"] > input{
   padding-inline:calc(var(--ui-form-control-size-large) / 4 + 6px);
   font-size:var(--ui-font-size-medium);}
 
-ui-input:has(ui-icon) > input{
+ui-input[clearable] > input{
   padding-inline-end:0;}
 
 ui-input > svg{

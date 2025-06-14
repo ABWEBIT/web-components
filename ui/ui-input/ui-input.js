@@ -72,14 +72,13 @@ class UIInput extends UIBase{
 
     this.#clearable = this.hasAttribute('clearable');
     if(this.#clearable){
-      const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-      svg.setAttribute('viewBox','0 0 24 24');
+      this.#clear = document.createElementNS('http://www.w3.org/2000/svg','svg');
+      this.#clear.setAttribute('viewBox','0 0 24 24');
 
       const path = document.createElementNS('http://www.w3.org/2000/svg','path');
       path.setAttribute('d','M13.414,12l6.293-6.293c.391-.391.391-1.023,0-1.414s-1.023-.391-1.414,0l-6.293,6.293-6.293-6.293c-.391-.391-1.023-.391-1.414,0s-.391,1.023,0,1.414l6.293,6.293-6.293,6.293c-.391.391-.391,1.023,0,1.414.195.195.451.293.707.293s.512-.098.707-.293l6.293-6.293,6.293,6.293c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023,0-1.414l-6.293-6.293Z');
 
-      svg.appendChild(path);
-      this.#clear = svg;
+      this.#clear.appendChild(path);
 
       this.#clear.addEventListener('click',this.#onClear);
       fragment.appendChild(this.#clear);
