@@ -100,7 +100,10 @@ class UIButton extends UIBase{
       fragment.appendChild(icon);
     }
 
-    this.appendChild(fragment);
+    const button = document.createElement('button');
+    button.appendChild(fragment);
+
+    this.appendChild(button);
 
     this.loader();
 

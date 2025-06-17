@@ -18,6 +18,18 @@ ui-button{
   cursor:pointer;
   overflow:hidden;}
 
+ui-button[size="small"]{
+  height:var(--ui-form-control-size-small);
+  padding-inline:calc(var(--ui-form-control-size-small) / 2);}
+
+ui-button[size="medium"]{
+  height:var(--ui-form-control-size-medium);
+  padding-inline:calc(var(--ui-form-control-size-medium) / 2);}
+
+ui-button[size="large"]{
+  height:var(--ui-form-control-size-large);
+  padding-inline:calc(var(--ui-form-control-size-large) / 2);}
+
 ui-button[loading]{
   cursor:default;}
 
