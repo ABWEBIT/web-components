@@ -4,8 +4,8 @@ ui-icon{
   justify-content:center;
   vertical-align:middle;
   flex-shrink:0;
-  height:var(--ui-object-height);
-  width:var(--ui-object-height);
+  height:inherit;
+  width:inherit;
   background-color:transparent;}
 
 ui-icon[animated]{

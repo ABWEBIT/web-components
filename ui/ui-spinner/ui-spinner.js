@@ -15,15 +15,12 @@ class UISpinner extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.size();
 
     this.loading = this.hasAttribute('loading');
 
-    let height = parseInt(this.getAttribute('height'),10) || 24;
-    this.style.setProperty('--ui-object-height',`${height}px`);
-
     const icon = document.createElement('ui-icon');
     this.setAttributes(icon,{
-      'height': height,
       'icon': 'spinner'
     });
     this.appendChild(icon);

@@ -1,93 +1,92 @@
 ui-button{
+  position:relative;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   vertical-align:middle;
-  height:var(--ui-object-height);
-  column-gap:calc(var(--ui-object-height) / 8);
-  padding-inline-start:calc(var(--ui-object-height) / 2);
-  padding-inline-end:calc(var(--ui-object-height) / 2);
   border:none;
-  outline-offset:2px;
+  outline-offset:0px;
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;
-  color:rgb(175,175,175);
-  background-color:rgb(30,30,30);
+  color:var(--ui-color-form-content);
+  background-color:var(--ui-color-form-surface);
   text-align:center;
   cursor:pointer;
   overflow:hidden;}
-
-ui-button[size="small"]{
-  height:var(--ui-form-control-size-small);
-  padding-inline:calc(var(--ui-form-control-size-small) / 2);
-  font-size:var(--ui-font-size-x-small);}
-
-ui-button[size="medium"]{
-  height:var(--ui-form-control-size-medium);
-  padding-inline:calc(var(--ui-form-control-size-medium) / 2);
-  font-size:var(--ui-font-size-small);}
-
-ui-button[size="large"]{
-  height:var(--ui-form-control-size-large);
-  padding-inline:calc(var(--ui-form-control-size-large) / 2);
-  font-size:var(--ui-font-size-medium);}
-
-ui-button[loading]{
-  cursor:default;}
-
-ui-button:not([text]):not([icon-leading]),
-ui-button:not([text]):not([icon-trailing]){
-  width:var(--ui-object-height);}
-
-ui-button[text][icon-leading]:not([icon-trailing]){
-  padding-inline-start:calc(var(--ui-object-height) / 2 - 2px);}
-
-ui-button[text][icon-trailing]:not([icon-leading]){
-  padding-inline-end:calc(var(--ui-object-height) / 2 - 2px);}
-
-ui-button[text][icon-trailing][icon-leading]{
-  padding-inline:calc(var(--ui-object-height) / 2 - 2px);}
 
 ui-button[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}
 
+ui-button[loading]{cursor:default;}
+
+ui-button[size="small"]{
+  column-gap:4px;
+  height:var(--ui-size-small);
+  font-size:var(--ui-font-size-x-small);}
+
+ui-button[size="small"] > ui-text:first-child{padding-inline-start:12px;}
+ui-button[size="small"] > ui-text:last-child{padding-inline-end:12px;}
+
+ui-button[size="medium"]{
+  column-gap:6px;
+  height:var(--ui-size-medium);
+  font-size:var(--ui-font-size-small);}
+
+ui-button[size="medium"] > ui-text:first-child{padding-inline-start:16px;}
+ui-button[size="medium"] > ui-text:last-child{padding-inline-end:16px;}
+
+ui-button[size="large"]{
+  column-gap:8px;
+  height:var(--ui-size-large);
+  font-size:var(--ui-font-size-medium);}
+
+ui-button[size="large"] > ui-text:first-child{padding-inline-start:20px;}
+ui-button[size="large"] > ui-text:last-child{padding-inline-end:20px;}
+
+ui-button:not([text]){padding-inline:0;}
+
 @media (hover:hover){
   ui-button:hover:not([disabled]):not([loading]){
-    background-color:rgb(40,40,40);
+    background-color:var(--ui-color-form-surface-active);
     color:var(--ui-color-white);}
 }
 
 ui-button:focus-visible:not([disabled]){
   background-color:rgb(40,40,40);
   color:var(--ui-color-white);
-  outline-color:rgb(100,100,100);}
+  outline-color:var(--ui-color-input-outline-active);}
 
 ui-button:active:not([disabled]):not([loading]){
   background-color:rgb(50,50,50);}
 
 ui-button[text] > span{
-  font-size:clamp(
-    var(--ui-font-size-x-small),
-    calc(var(--ui-object-height) / 2 - 2px),
-    var(--ui-font-size-medium)
-  );
   white-space:nowrap;
   text-overflow:ellipsis;
   overflow:hidden;}
 
-ui-button > ui-icon{
-  height:clamp(
-    14px,
-    calc(var(--ui-object-height) / 2),
-    24px
-  )!important;
-  aspect-ratio:1;}
+ui-button > ui-icon{}
+
+ui-button[size="small"] > ui-icon{width:var(--ui-size-small);}
+ui-button[size="medium"] > ui-icon{width:var(--ui-size-medium);}
+ui-button[size="large"] > ui-icon{width:var(--ui-size-large);}
+
+ui-button[size="small"] > ui-icon,
+ui-button[size="small"] > ui-spinner{
+  height:var(--ui-size-x-small);}
+
+ui-button[size="medium"] > ui-icon,
+ui-button[size="medium"] > ui-spinner{
+  height:calc(var(--ui-size-x-small) + 4px);}
+
+ui-button[size="large"] > ui-icon,
+ui-button[size="large"] > ui-spinner{
+  height:var(--ui-size-small);}
 
 ui-button > ui-spinner{
   position:absolute;}
 
-ui-button:has(ui-spinner) span,
-ui-button:has(ui-spinner) > ui-icon{
+ui-button[loading] > ui-text,
+ui-button[loading] > ui-icon{
   opacity:0;}

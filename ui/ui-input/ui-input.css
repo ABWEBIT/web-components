@@ -10,9 +10,9 @@ ui-input{
   background-color:var(--ui-color-input-surface);
   overflow:hidden;}
 
-ui-input[size="small"]{height:var(--ui-form-control-size-small);}
-ui-input[size="medium"]{height:var(--ui-form-control-size-medium);}
-ui-input[size="large"]{height:var(--ui-form-control-size-large);}
+ui-input[size="small"]{height:var(--ui-size-small);}
+ui-input[size="medium"]{height:var(--ui-size-medium);}
+ui-input[size="large"]{height:var(--ui-size-large);}
 
 ui-input[animated]{
   transition-duration:var(--ui-transition-duration);
@@ -41,15 +41,15 @@ ui-input[disabled] input::placeholder{
   color:var(--ui-color-input-placeholder-disabled);}
 
 ui-input[size="small"] > input{
-  padding-inline:calc(var(--ui-form-control-size-small) / 4 + 4px);
+  padding-inline:calc(var(--ui-size-small) / 4 + 4px);
   font-size:var(--ui-font-size-x-small);}
 
 ui-input[size="medium"] > input{
-  padding-inline:calc(var(--ui-form-control-size-medium) / 4 + 4px);
+  padding-inline:calc(var(--ui-size-medium) / 4 + 4px);
   font-size:var(--ui-font-size-small);}
 
 ui-input[size="large"] > input{
-  padding-inline:calc(var(--ui-form-control-size-large) / 4 + 6px);
+  padding-inline:calc(var(--ui-size-large) / 4 + 6px);
   font-size:var(--ui-font-size-medium);}
 
 ui-input[clearable] > input{
@@ -67,19 +67,19 @@ ui-input > svg{
 ui-input[disabled] > svg{opacity:0;}
 
 ui-input[size="small"] > svg{
-  height:var(--ui-form-control-size-small);
-  width:var(--ui-form-control-size-small);
-  padding:calc(var(--ui-form-control-size-small) / 4 - 2px);}
+  height:var(--ui-size-small);
+  width:var(--ui-size-small);
+  padding:calc(var(--ui-size-small) / 4 - 2px);}
 
 ui-input[size="medium"] > svg{
-  height:var(--ui-form-control-size-medium);
-  width:var(--ui-form-control-size-medium);
-  padding:calc(var(--ui-form-control-size-medium) / 4 - 2px);}
+  height:var(--ui-size-medium);
+  width:var(--ui-size-medium);
+  padding:calc(var(--ui-size-medium) / 4 - 2px);}
 
 ui-input[size="large"] > svg{
-  height:var(--ui-form-control-size-large);
-  width:var(--ui-form-control-size-large);
-  padding:calc(var(--ui-form-control-size-large) / 4 - 2px);}
+  height:var(--ui-size-large);
+  width:var(--ui-size-large);
+  padding:calc(var(--ui-size-large) / 4 - 2px);}
 
 @media (hover:hover){
   ui-input:hover:not([disabled]):not([status]){

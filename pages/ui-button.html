@@ -36,18 +36,24 @@
     <div>Shape (default: rounded)</div>
     <div class="example">
       <div class="preview">
-        <ui-button shape="rounded" text="Button"></ui-button>
-        <ui-button shape="pill" text="Button"></ui-button>
-        <ui-button shape="square" text="Button"></ui-button>
+        <ui-button shape="rounded">
+          <ui-text>Button</ui-text>
+        </ui-button>
+        <ui-button shape="pill">
+          <ui-text>Button</ui-text>
+        </ui-button>
+        <ui-button shape="square">
+          <ui-text>Button</ui-text>
+        </ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button shape="rounded" text="rounded"&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button shape="pill" text="pill"&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button shape="square" text="square"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button shape="rounded | pill | square"&gt;</div>
+          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
+          <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -57,18 +63,51 @@
     <div>Size (default: medium)</div>
     <div class="example">
       <div class="preview">
-        <ui-button size="small" text="Button"></ui-button>
-        <ui-button text="Button"></ui-button>
-        <ui-button size="large" text="Button"></ui-button>
+        <ui-button size="small">
+          <ui-text>Button</ui-text>
+        </ui-button>
+        <ui-button size="medium">
+          <ui-text>Button</ui-text>
+        </ui-button>
+        <ui-button size="large">
+          <ui-text>Button</ui-text>
+        </ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button size="small"&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button size="large"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button shape="small | medium | large"&gt;</div>
+          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
+          <div>&lt;/ui-button&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Size (default: medium)</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button size="small">
+          <ui-icon icon="article"></ui-icon>
+        </ui-button>
+        <ui-button size="medium">
+          <ui-icon icon="article"></ui-icon>
+        </ui-button>
+        <ui-button size="large">
+          <ui-icon icon="article"></ui-icon>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-button shape="small | medium | large"&gt;</div>
+          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
+          <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -78,14 +117,18 @@
     <div>Disabled</div>
     <div class="example">
       <div class="preview">
-        <ui-button text="Settings" disabled></ui-button>
+        <ui-button disabled>
+          <ui-text>Button</ui-text>
+        </ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button text="Settings" disabled&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button disabled&gt;</div>
+          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
+          <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -95,16 +138,24 @@
     <div>Text and icon on one side</div>
     <div class="example">
       <div class="preview">
-        <ui-button text="Settings" icon-leading="settings"></ui-button>
-        <ui-button text="Settings" icon-trailing="settings"></ui-button>
+        <ui-button>
+          <ui-icon icon="article"></ui-icon>
+          <ui-text>Button</ui-text>
+        </ui-button>
+        <ui-button>
+          <ui-text>Button</ui-text>
+          <ui-icon icon="article"></ui-icon>
+        </ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button text="Settings" icon-leading="settings"&gt;&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button text="Settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button&gt;</div>
+          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
+          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
+          <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -114,14 +165,22 @@
     <div>Text with icons on both sides</div>
     <div class="example">
       <div class="preview">
-        <ui-button text="Settings" icon-leading="settings" icon-trailing="settings"></ui-button> 
+        <ui-button>
+          <ui-icon icon="article"></ui-icon>
+          <ui-text>Button</ui-text>
+          <ui-icon icon="send"></ui-icon>
+        </ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button text="Settings" icon-leading="settings" icon-trailing="settings"&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button&gt;</div>
+          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
+          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
+          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
+          <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -131,15 +190,21 @@
     <div>Loading</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="clickMe" onclick="load()" onkeydown="load()" text="Click me"></ui-button>
-        <ui-button onclick="reset()" onkeydown="reset()" text="Reset"></ui-button>
+        <ui-button id="clickMe" onclick="load()" onkeydown="load()">
+          <ui-text>Click me</ui-text>
+        </ui-button>
+        <ui-button onclick="reset(event)" onkeydown="reset(event)">
+          <ui-text>Reset</ui-text>
+        </ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button text="Click me" loading&gt;&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button loading&gt;</div>
+          <div>&nbsp;&lt;ui-text&gt;Click me&lt;/ui-text&gt;</div>
+          <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -155,8 +220,14 @@
     };
   }
 
-  function reset(){
+  function reset(e){
     let button = document.getElementById('clickMe');
-    button.loading = false;
+    if(e.type === 'click'){
+      button.loading = false;
+      return;
+    }
+    if(e.type === 'keydown' && (e.code === 'Enter' || e.code === 'Space')){
+      button.loading = false;
+    }
   }
 </script>

@@ -2,8 +2,6 @@ import {UIBase} from '../ui-base/ui-base.js';
 
 class UIButton extends UIBase{
   #text = '';
-  #iconLeading = '';
-  #iconTrailing = '';
   #disabled = false;
   #loading = false;
 
@@ -12,8 +10,6 @@ class UIButton extends UIBase{
 
   static properties = Object.freeze({
     'text':{name:'text',type:String,reflect:true},
-    'icon-leading':{name:'iconLeading',type:String,reflect:true},
-    'icon-trailing':{name:'iconTrailing',type:String,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true},
     'loading':{name:'loading',type:Boolean,reflect:true}
   });
@@ -26,20 +22,6 @@ class UIButton extends UIBase{
     this.setAttributes(this,{
       'aria-label': this.#text
     });
-  }
-
-  get iconLeading(){return this.#iconLeading;}
-  set iconLeading(value){
-    if(!(this.#iconLeading = String(value || ''))) return;
-    this.updateIcon('[leading]',this.#iconLeading);
-    this.reflect('icon-leading',this.#iconLeading);
-  }
-
-  get iconTrailing(){return this.#iconTrailing;}
-  set iconTrailing(value){
-    if(!(this.#iconTrailing = String(value || ''))) return;
-    this.updateIcon('[trailing]',this.#iconTrailing);
-    this.reflect('icon-trailing',this.#iconTrailing);
   }
 
   get disabled(){return this.#disabled;}
@@ -74,35 +56,6 @@ class UIButton extends UIBase{
 
     this.disabled = this.hasAttribute('disabled');
     this.loading = this.hasAttribute('loading');
-
-    const fragment = document.createDocumentFragment();
-
-    if(this.#iconLeading){
-      const icon = document.createElement('ui-icon');
-      this.setAttributes(icon,{
-        'leading': ''
-      });
-      fragment.appendChild(icon);
-    }
-
-    if(this.#text){
-      const span = document.createElement('span');
-      fragment.appendChild(span);
-    }
-
-    if(this.#iconTrailing){
-      const icon = document.createElement('ui-icon');
-      this.setAttributes(icon,{
-        'trailing': ''
-      });
-      fragment.appendChild(icon);
-    }
-
-    //const button = document.createElement('button');
-
-    //button.appendChild(fragment);
-
-    this.appendChild(fragment);
 
     this.loader();
 

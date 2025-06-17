@@ -33,7 +33,6 @@ class UIIcon extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.height(24);
 
     const svg = document.createElementNS(UIIcon.#xmlns,'svg');
     svg.setAttribute('viewBox',UIIcon.#viewBox);
