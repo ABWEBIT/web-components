@@ -65,7 +65,7 @@ class UIButton extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.shape();
-    let height = this.height(32);
+    this.size();
 
     this.setAttributes(this,{
       'role': 'button',
@@ -80,7 +80,6 @@ class UIButton extends UIBase{
     if(this.#iconLeading){
       const icon = document.createElement('ui-icon');
       this.setAttributes(icon,{
-        'height': height,
         'leading': ''
       });
       fragment.appendChild(icon);
@@ -94,16 +93,16 @@ class UIButton extends UIBase{
     if(this.#iconTrailing){
       const icon = document.createElement('ui-icon');
       this.setAttributes(icon,{
-        'height': height,
         'trailing': ''
       });
       fragment.appendChild(icon);
     }
 
-    const button = document.createElement('button');
-    button.appendChild(fragment);
+    //const button = document.createElement('button');
 
-    this.appendChild(button);
+    //button.appendChild(fragment);
+
+    this.appendChild(fragment);
 
     this.loader();
 

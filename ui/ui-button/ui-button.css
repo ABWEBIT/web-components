@@ -20,15 +20,18 @@ ui-button{
 
 ui-button[size="small"]{
   height:var(--ui-form-control-size-small);
-  padding-inline:calc(var(--ui-form-control-size-small) / 2);}
+  padding-inline:calc(var(--ui-form-control-size-small) / 2);
+  font-size:var(--ui-font-size-x-small);}
 
 ui-button[size="medium"]{
   height:var(--ui-form-control-size-medium);
-  padding-inline:calc(var(--ui-form-control-size-medium) / 2);}
+  padding-inline:calc(var(--ui-form-control-size-medium) / 2);
+  font-size:var(--ui-font-size-small);}
 
 ui-button[size="large"]{
   height:var(--ui-form-control-size-large);
-  padding-inline:calc(var(--ui-form-control-size-large) / 2);}
+  padding-inline:calc(var(--ui-form-control-size-large) / 2);
+  font-size:var(--ui-font-size-medium);}
 
 ui-button[loading]{
   cursor:default;}
