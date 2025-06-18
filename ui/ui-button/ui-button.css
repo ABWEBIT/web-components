@@ -19,6 +19,10 @@ ui-button[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}
 
+ui-button[disabled]{
+  color:var(--ui-color-form-content-disabled);
+  background-color:var(--ui-color-form-surface-disabled);}
+
 ui-button[loading]{cursor:default;}
 
 ui-button[size="small"]{
@@ -61,6 +65,7 @@ ui-button:active:not([disabled]):not([loading]){
   background-color:var(--ui-color-form-surface-active);}
 
 ui-button > ui-text{
+  width:auto;
   white-space:nowrap;
   text-overflow:ellipsis;
   overflow:hidden;}

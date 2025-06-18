@@ -28,10 +28,10 @@
 
   /* ui icon size */
   --ui-size-icon-x-small:16px;
-  --ui-size-icon-small:18px;
-  --ui-size-icon-medium:20px;
-  --ui-size-icon-large:22px;
-  --ui-size-icon-x-large:24px;
+  --ui-size-icon-small:20px;
+  --ui-size-icon-medium:24px;
+  --ui-size-icon-large:28px;
+  --ui-size-icon-x-large:32px;
 
   /* ui size */
   --ui-size-x-small:16px;
