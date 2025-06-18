@@ -22,67 +22,63 @@ ui-button[animated]{
 ui-button[loading]{cursor:default;}
 
 ui-button[size="small"]{
-  column-gap:4px;
+  column-gap:6px;
   height:var(--ui-size-small);
-  font-size:var(--ui-font-size-x-small);}
+  font-size:var(--ui-size-font-x-small);
+  padding-inline:10px;}
 
-ui-button[size="small"] > ui-text:first-child{padding-inline-start:12px;}
-ui-button[size="small"] > ui-text:last-child{padding-inline-end:12px;}
+ui-button[size="small"]:not(:has(ui-text)){
+  padding-inline:4px;}
 
 ui-button[size="medium"]{
   column-gap:6px;
   height:var(--ui-size-medium);
-  font-size:var(--ui-font-size-small);}
+  font-size:var(--ui-size-font-small);
+  padding-inline:14px;}
 
-ui-button[size="medium"] > ui-text:first-child{padding-inline-start:16px;}
-ui-button[size="medium"] > ui-text:last-child{padding-inline-end:16px;}
+ui-button[size="medium"]:not(:has(ui-text)){
+  padding-inline:6px;}
 
 ui-button[size="large"]{
-  column-gap:8px;
+  column-gap:6px;
   height:var(--ui-size-large);
-  font-size:var(--ui-font-size-medium);}
+  font-size:var(--ui-size-font-medium);
+  padding-inline:18px;}
 
-ui-button[size="large"] > ui-text:first-child{padding-inline-start:20px;}
-ui-button[size="large"] > ui-text:last-child{padding-inline-end:20px;}
-
-ui-button:not([text]){padding-inline:0;}
+ui-button[size="large"]:not(:has(ui-text)){
+  padding-inline:8px;}
 
 @media (hover:hover){
   ui-button:hover:not([disabled]):not([loading]){
-    background-color:var(--ui-color-form-surface-active);
-    color:var(--ui-color-white);}
+    background-color:var(--ui-color-form-surface-hover);
+    color:var(--ui-color-form-content-hover);}
 }
 
 ui-button:focus-visible:not([disabled]){
-  background-color:rgb(40,40,40);
-  color:var(--ui-color-white);
-  outline-color:var(--ui-color-input-outline-active);}
+  outline-color:var(--ui-color-form-outline-focus);}
 
 ui-button:active:not([disabled]):not([loading]){
-  background-color:rgb(50,50,50);}
+  background-color:var(--ui-color-form-surface-active);}
 
-ui-button[text] > span{
+ui-button > ui-text{
   white-space:nowrap;
   text-overflow:ellipsis;
   overflow:hidden;}
 
-ui-button > ui-icon{}
-
-ui-button[size="small"] > ui-icon{width:var(--ui-size-small);}
-ui-button[size="medium"] > ui-icon{width:var(--ui-size-medium);}
-ui-button[size="large"] > ui-icon{width:var(--ui-size-large);}
-
 ui-button[size="small"] > ui-icon,
 ui-button[size="small"] > ui-spinner{
-  height:var(--ui-size-x-small);}
+  height:var(--ui-size-icon-x-small);
+  width:var(--ui-size-icon-x-small);}
 
 ui-button[size="medium"] > ui-icon,
 ui-button[size="medium"] > ui-spinner{
-  height:calc(var(--ui-size-x-small) + 4px);}
+  height:var(--ui-size-icon-small);
+  width:var(--ui-size-icon-small);}
 
 ui-button[size="large"] > ui-icon,
 ui-button[size="large"] > ui-spinner{
-  height:var(--ui-size-small);}
+  height:var(--ui-size-icon-medium);
+  width:var(--ui-size-icon-medium);}
 
 ui-button > ui-spinner{
   position:absolute;}

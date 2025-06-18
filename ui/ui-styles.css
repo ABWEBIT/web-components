@@ -20,13 +20,20 @@
   --ui-font-family:Arial,Helvetica,sans-serif;
 
   /* font size */
-  --ui-font-size-x-small:12px;
-  --ui-font-size-small:14px;
-  --ui-font-size-medium:16px;
-  --ui-font-size-large:18px;
-  --ui-font-size-x-large:20px;
+  --ui-size-font-x-small:12px;
+  --ui-size-font-small:14px;
+  --ui-size-font-medium:16px;
+  --ui-size-font-large:18px;
+  --ui-size-font-x-large:20px;
 
-  /* ui sizes */
+  /* ui icon size */
+  --ui-size-icon-x-small:16px;
+  --ui-size-icon-small:18px;
+  --ui-size-icon-medium:20px;
+  --ui-size-icon-large:22px;
+  --ui-size-icon-x-large:24px;
+
+  /* ui size */
   --ui-size-x-small:16px;
   --ui-size-small:24px;
   --ui-size-medium:32px;
@@ -65,10 +72,18 @@
   --ui-color-form-icons:var(--ui-color-gray-60);
   --ui-color-form-placeholder:var(--ui-color-gray-50);
 
-  /* form control: hover & focused */
-  --ui-color-form-surface-active:var(--ui-color-gray-25);
-  --ui-color-form-outline-active:var(--ui-color-gray-60);
-  --ui-color-form-icons-active:var(--ui-color-gray-90);
+  /* form control: hover */
+  --ui-color-form-surface-hover:var(--ui-color-gray-25);
+  --ui-color-form-outline-hover:var(--ui-color-gray-60);
+  --ui-color-form-content-hover:var(--ui-color-white);
+
+  /* form control: focused */
+  --ui-color-form-surface-focus:var(--ui-color-gray-25);
+  --ui-color-form-outline-focus:var(--ui-color-gray-60);
+  --ui-color-form-content-focus:var(--ui-color-white);
+
+  /* form control: active */
+  --ui-color-form-surface-active:var(--ui-color-gray-30);
 
   /* form control: disabled */
   --ui-color-form-surface-disabled:var(--ui-color-gray-60);
