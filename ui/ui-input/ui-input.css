@@ -92,7 +92,7 @@ ui-input[size="large"] > svg{
 ui-input:focus-within:not([disabled]):not([status]){
   outline-color:var(--ui-color-input-outline-active);}
 
-ui-input[status="accent"]{outline-color:var(--ui-color-form-control-accent);}
-ui-input[status="error"]{outline-color:var(--ui-color-form-control-error);}
-ui-input[status="success"]{outline-color:var(--ui-color-form-control-success);}
-ui-input[status="warning"]{outline-color:var(--ui-color-form-control-warning);}
+ui-input[status="accent"]{outline-color:var(--ui-color-accent);}
+ui-input[status="error"]{outline-color:var(--ui-color-critical);}
+ui-input[status="success"]{outline-color:var(--ui-color-positive);}
+ui-input[status="warning"]{outline-color:var(--ui-color-warning);}

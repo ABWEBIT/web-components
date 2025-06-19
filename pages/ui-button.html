@@ -11,16 +11,16 @@
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>text - reactive, optional.
-        <br>Continuous string. (nowrap)</li>
-      <li>aria-label - dynamic, required.
-        <br>The aria-label is auto-set from text attribute (if present), but can be overridden. If there's no text attribute, aria-label must be set manually.</li>
+      <li>aria-label - static, required.
+        <br>Aria-label must be set manually.</li>
       <li>disabled - reactive, optional.
         <br>Controls the disabled state of the component.</li>
       <li>loading - reactive, optional.
         <br>Controls the loading state of the component.</li>
+      <li>size - static, optional. Default: medium.<br>
+        Available values: small, medium, large.</li>
       <li>shape - static, optional. Default: rounded.<br>
-        Defines the shape of the component corners: rounded, pill, square or circle.</li>
+        Sets the corner style: rounded, pill, sharp or circle.</li>
     </ul>
   </div>
 </section>
@@ -31,8 +31,9 @@
     <div>Minimal</div>
     <div class="example">
       <div class="preview">
+        <ui-button>Button</ui-button>
         <ui-button>
-          <ui-text>Button</ui-text>
+          <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
       <div class="toolbar">
@@ -40,8 +41,10 @@
       </div>
       <div class="code">
         <code>
+          <div>&lt;ui-button&gt;Button&lt;/ui-button&gt;</div>
+          <br>
           <div>&lt;ui-button&gt;</div>
-          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
+          <div>&nbsp;&lt;ui-icon icon="icon"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
@@ -52,27 +55,17 @@
     <div>Shape (default: rounded)</div>
     <div class="example">
       <div class="preview">
-        <ui-button shape="rounded">
-          <ui-text>Button</ui-text>
-        </ui-button>
-        <ui-button shape="pill">
-          <ui-text>Button</ui-text>
-        </ui-button>
-        <ui-button shape="square">
-          <ui-text>Button</ui-text>
-        </ui-button>
-        <ui-button shape="circle">
-          <ui-text>Button</ui-text>
-        </ui-button>
+        <ui-button shape="rounded">Button</ui-button>
+        <ui-button shape="pill">Button</ui-button>
+        <ui-button shape="sharp">Button</ui-button>
+        <ui-button shape="circle">Button</ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button shape="rounded | pill | square | circle"&gt;</div>
-          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
+          <div>shape="rounded | pill | sharp | circle"</div>
         </code>
       </div>
     </div>
@@ -88,7 +81,7 @@
         <ui-button shape="circle">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
-        <ui-button shape="square">
+        <ui-button shape="sharp">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -97,36 +90,7 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button shape="rounded | circle | square"&gt;</div>
-          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Size (default: medium)</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button size="small">
-          <ui-text>Button</ui-text>
-        </ui-button>
-        <ui-button size="medium">
-          <ui-text>Button</ui-text>
-        </ui-button>
-        <ui-button size="large">
-          <ui-text>Button</ui-text>
-        </ui-button>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-button size="small | medium | large"&gt;</div>
-          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
+          <div>shape="rounded | circle | sharp"</div>
         </code>
       </div>
     </div>
@@ -138,12 +102,15 @@
       <div class="preview">
         <ui-button size="small">
           <ui-icon icon="article"></ui-icon>
+          Button
         </ui-button>
         <ui-button size="medium">
           <ui-icon icon="article"></ui-icon>
+          Button
         </ui-button>
         <ui-button size="large">
           <ui-icon icon="article"></ui-icon>
+          Button
         </ui-button>
       </div>
       <div class="toolbar">
@@ -153,37 +120,7 @@
         <code>
           <div>&lt;ui-button size="small | medium | large"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Size (default: medium)</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button size="small">
-          <ui-icon icon="article"></ui-icon>
-          <ui-text>Button</ui-text>
-        </ui-button>
-        <ui-button size="medium">
-          <ui-icon icon="article"></ui-icon>
-          <ui-text>Button</ui-text>
-        </ui-button>
-        <ui-button size="large">
-          <ui-icon icon="article"></ui-icon>
-          <ui-text>Button</ui-text>
-        </ui-button>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-button size="small | medium | large"&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
+          <div>&nbsp;Button</div>
           <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
@@ -233,6 +170,11 @@
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
           <div>&lt;/ui-button&gt;</div>
+          <br>
+          <div>&lt;ui-button&gt;</div>
+          <div>&nbsp;&lt;ui-text&gt;Button&lt;/ui-text&gt;</div>
+          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
+          <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -267,19 +209,15 @@
     <div>Loading</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="clickMe" onclick="load()" onkeydown="load()">
-          <ui-text>Click me</ui-text>
-        </ui-button>
-        <ui-button onclick="reset(event)" onkeydown="reset(event)">
-          <ui-text>Reset</ui-text>
-        </ui-button>
+        <ui-button id="clickMe" onclick="load()" onkeydown="load()" aria-label="Click me">Click me</ui-button>
+        <ui-button onclick="reset(event)" onkeydown="reset(event)" aria-label="Reset">Reset</ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button loading&gt;</div>
+          <div>&lt;ui-button loading aria-label="Click me"&gt;</div>
           <div>&nbsp;&lt;ui-text&gt;Click me&lt;/ui-text&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>

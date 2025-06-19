@@ -48,6 +48,7 @@ class UIButton extends UIBase{
     super.connectedCallback();
     this.shape();
     this.size();
+    this.variant();
 
     this.setAttributes(this,{
       'role': 'button',

@@ -16,53 +16,138 @@
 
 
 :root{
+  --ui-line-height-100:1.0;
+  --ui-line-height-150:1.5;
+
   /* font family */
   --ui-font-family:Arial,Helvetica,sans-serif;
+  --ui-font-family-ui-monospace:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+
+  /* theme: scrollbar */
+  --ui-color-scrollbar:var(--ui-color-gray-600);
+
+  /* h size */
+  --ui-h1:36px;
+  --ui-h2:24px;
+  --ui-h3:22px;
+  --ui-h4:21px;
+  --ui-h5:20px;
+  --ui-h6:19px;
 
   /* font size */
-  --ui-size-font-x-small:12px;
-  --ui-size-font-small:14px;
-  --ui-size-font-medium:16px;
-  --ui-size-font-large:18px;
-  --ui-size-font-x-large:20px;
+  --ui-font-size-x-small:11px;
+  --ui-font-size-small:12px;
+  --ui-font-size-medium:14px;
+  --ui-font-size-large:16px;
+  --ui-font-size-x-large:18px;
 
-  /* ui icon size */
-  --ui-size-icon-x-small:16px;
-  --ui-size-icon-small:20px;
-  --ui-size-icon-medium:24px;
-  --ui-size-icon-large:28px;
-  --ui-size-icon-x-large:32px;
+  /* ui icon sizes */
+  --ui-icon-size-x-small:12px;
+  --ui-icon-size-small:16px;
+  --ui-icon-size-medium:20px;
+  --ui-icon-size-large:22px;
+  --ui-icon-size-x-large:24px;
 
-  /* ui size */
-  --ui-size-x-small:16px;
-  --ui-size-small:24px;
-  --ui-size-medium:32px;
-  --ui-size-large:40px;
-  --ui-size-x-large:48px;
+  /* ui height */
+  --ui-height-x-small:16px;
+  --ui-height-small:24px;
+  --ui-height-medium:32px;
+  --ui-height-large:40px;
+  --ui-height-x-large:48px;
 
-  /* border radius */
-  --ui-border-radius-square:none;
-  --ui-border-radius-rounded:6px;
-  --ui-border-radius-pill:9999px;
-  --ui-border-radius-circle:50%;
+  /* ui padding inline */
+  --ui-padding-inline-x-small:6px;
+  --ui-padding-inline-small:8px;
+  --ui-padding-inline-medium:12px;
+  --ui-padding-inline-large:14px;
+  --ui-padding-inline-x-large:16px;
+
+  /* ui button default */
+  --ui-column-gap-x-small:3px;
+  --ui-column-gap-small:4px;
+  --ui-column-gap-medium:5px;
+  --ui-column-gap-large:6px;
+  --ui-column-gap-x-large:7px;
 
   /* colors */
   --ui-color-black:oklch(0% 0 0);
   --ui-color-white:oklch(100% 0 0);
 
-  --ui-color-gray-15:oklch(15% 0 0);
-  --ui-color-gray-20:oklch(20% 0 0);
-  --ui-color-gray-25:oklch(25% 0 0);
-  --ui-color-gray-30:oklch(30% 0 0);
-  --ui-color-gray-40:oklch(40% 0 0);
-  --ui-color-gray-50:oklch(50% 0 0);
-  --ui-color-gray-60:oklch(60% 0 0);
-  --ui-color-gray-70:oklch(70% 0 0);
-  --ui-color-gray-80:oklch(80% 0 0);
-  --ui-color-gray-90:oklch(90% 0 0);
+  /* gray */
+  --ui-color-gray-100:oklch(90% 0 0);
+  --ui-color-gray-150:oklch(85% 0 0);
+  --ui-color-gray-200:oklch(80% 0 0);
+  --ui-color-gray-250:oklch(75% 0 0);
+  --ui-color-gray-300:oklch(70% 0 0);
+  --ui-color-gray-350:oklch(65% 0 0);
+  --ui-color-gray-400:oklch(60% 0 0);
+  --ui-color-gray-450:oklch(55% 0 0);
+  --ui-color-gray-500:oklch(50% 0 0);
+  --ui-color-gray-550:oklch(45% 0 0);
+  --ui-color-gray-600:oklch(40% 0 0);
+  --ui-color-gray-650:oklch(35% 0 0);
+  --ui-color-gray-700:oklch(30% 0 0);
+  --ui-color-gray-750:oklch(25% 0 0);
+  --ui-color-gray-800:oklch(20% 0 0);
+  --ui-color-gray-850:oklch(15% 0 0);
+  --ui-color-gray-900:oklch(10% 0 0);
 
-  /* theme: scrollbar */
-  --ui-color-scrollbar:var(--ui-color-gray-70);
+  /* red */
+  --ui-color-red-100:oklch(95% 0.01 27);
+  --ui-color-red-200:oklch(88% 0.05 27);
+  --ui-color-red-300:oklch(78% 0.10 27);
+  --ui-color-red-400:oklch(68% 0.18 27);
+  --ui-color-red-500:oklch(60% 0.23 27);
+  --ui-color-red-600:oklch(52% 0.23 27);
+  --ui-color-red-700:oklch(45% 0.21 27);
+  --ui-color-red-800:oklch(38% 0.18 27);
+  --ui-color-red-900:oklch(30% 0.15 27);
+
+  /* green */
+  --ui-color-green-100:oklch(95% 0.01 148);
+  --ui-color-green-200:oklch(88% 0.05 148);
+  --ui-color-green-300:oklch(78% 0.10 148);
+  --ui-color-green-400:oklch(70% 0.16 148);
+  --ui-color-green-500:oklch(66% 0.19 148);
+  --ui-color-green-600:oklch(58% 0.19 148);
+  --ui-color-green-700:oklch(48% 0.17 148);
+  --ui-color-green-800:oklch(38% 0.14 148);
+  --ui-color-green-900:oklch(30% 0.12 148);
+
+  /* blue */
+  --ui-color-blue-100:oklch(95% 0.01 252);
+  --ui-color-blue-200:oklch(90% 0.04 252);
+  --ui-color-blue-300:oklch(80% 0.10 252);
+  --ui-color-blue-400:oklch(70% 0.15 252);
+  --ui-color-blue-500:oklch(63% 0.23 252);
+  --ui-color-blue-600:oklch(57% 0.25 252);
+  --ui-color-blue-700:oklch(50% 0.23 252);
+  --ui-color-blue-800:oklch(42% 0.22 252);
+  --ui-color-blue-900:oklch(28% 0.18 252);
+
+  /* yellow */
+  --ui-color-yellow-100:oklch(98% 0.01 83);
+  --ui-color-yellow-200:oklch(93% 0.04 83);
+  --ui-color-yellow-300:oklch(88% 0.08 83);
+  --ui-color-yellow-400:oklch(84% 0.13 83);
+  --ui-color-yellow-500:oklch(81% 0.17 83);
+  --ui-color-yellow-600:oklch(72% 0.17 83);
+  --ui-color-yellow-700:oklch(60% 0.15 83);
+  --ui-color-yellow-800:oklch(50% 0.13 83);
+  --ui-color-yellow-900:oklch(40% 0.10 83);
+
+  /* border radius */
+  --ui-border-radius-sharp:none;
+  --ui-border-radius-rounded:6px;
+  --ui-border-radius-pill:9999px;
+  --ui-border-radius-circle:50%;
+
+  /* text-align */
+  --ui-text-align-center:center;
+  --ui-text-align-start:start;
+  --ui-text-align-end:end;
+
+
 
   /* === form === */
   /* form control: default */
@@ -85,19 +170,14 @@
   /* form control: active */
   --ui-color-form-surface-active:var(--ui-color-gray-30);
 
-  /* form control: disabled */
-  --ui-color-form-surface-disabled:var(--ui-color-gray-60);
-  --ui-color-form-outline-disabled:transparent;
-  --ui-color-form-content-disabled:var(--ui-color-gray-20);
-  --ui-color-form-placeholder-disabled:var(--ui-color-gray-20);
 
 
 
-  /* form control: status colors */
-  --ui-color-form-accent:oklch(65.14% 0.226 259.61);
-  --ui-color-form-error:oklch(59.21% 0.233 27.07);
-  --ui-color-form-success:oklch(70.25% 0.174 149.61);
-  --ui-color-form-warning:oklch(81.32% 0.183 79.64);
+
+
+
+
+
 
   /* === transition === */
   --ui-transition-duration:0.2s;
@@ -113,19 +193,20 @@
   user-select:none;}
 
 [ui],
-[ui] *{box-sizing:border-box!important;}
+[ui] *{
+  box-sizing:border-box!important;}
 
 [ui][disabled]{
+  opacity:0.5;
+  pointer-events:auto;
   cursor:not-allowed;}
 
-[ui][disabled] *{
-  pointer-events:none;}
+[ui][loading]{cursor:default;}
 
-[ui] input::-ms-reveal{
-  display:none;}
+[ui] input::-ms-reveal{display:none;}
 
 /* border radius */
-[ui][shape="square"]{border-radius:var(--ui-border-radius-square);}
 [ui][shape="rounded"]{border-radius:var(--ui-border-radius-rounded);}
+[ui][shape="sharp"]{border-radius:var(--ui-border-radius-sharp);}
 [ui][shape="pill"]{border-radius:var(--ui-border-radius-pill);}
 [ui][shape="circle"]{border-radius:var(--ui-border-radius-circle);}
