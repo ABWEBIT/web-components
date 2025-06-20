@@ -27,12 +27,12 @@
   --ui-color-scrollbar:var(--ui-color-gray-600);
 
   /* h size */
-  --ui-h1:36px;
-  --ui-h2:24px;
-  --ui-h3:22px;
-  --ui-h4:21px;
-  --ui-h5:20px;
-  --ui-h6:19px;
+  --ui-h1-size:40px;
+  --ui-h2-size:32px;
+  --ui-h3-size:28px;
+  --ui-h4-size:24px;
+  --ui-h5-size:20px;
+  --ui-h6-size:18px;
 
   /* font size */
   --ui-font-size-x-small:11px;

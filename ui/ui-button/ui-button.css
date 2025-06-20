@@ -18,7 +18,11 @@ ui-button{
   cursor:pointer;
   overflow:hidden;}
 
-ui-button[icon-only]{
+ui-button[display="full-width"]{
+  width:100%;}
+
+ui-button[display="icon-only"]{
+  padding:0;
   aspect-ratio:1;}
 
 ui-button[animated]{
@@ -41,13 +45,12 @@ ui-button > ui-spinner > ui-icon{
 
 ui-button > ui-spinner{
   position:absolute;
-  display:inline-flex;
+  display:flex;
   align-items:center;
   justify-content:center;
-  vertical-align:middle;
   width:100%;
   height:100%;
-  background-color:var(--ui-color-gray-800);}
+  background-color:var(--ui-button-loader-background-color);}
 
 @media (hover:hover){
   ui-button:hover:not([disabled]):not([loading]){
@@ -60,6 +63,7 @@ ui-button:active:not([disabled]):not([loading]){
 
 /* variant */
 ui-button[variant="gray"]{
+  --ui-button-loader-background-color:var(--ui-color-gray-800);
   --ui-button-background-color:var(--ui-color-gray-800);
   --ui-button-background-color-hover:var(--ui-color-gray-750);
   --ui-button-background-color-active:var(--ui-color-gray-700);
@@ -85,6 +89,13 @@ ui-button[size="medium"]{
 ui-button[size="large"]{
   --ui-font-size:var(--ui-font-size-large);
   --ui-button-height:var(--ui-height-large);
+  --ui-button-padding-inline:var(--ui-padding-inline-large);
+  --ui-button-column-gap:var(--ui-column-gap-large);
+  --ui-icon-size:var(--ui-icon-size-large);}
+
+ui-button[size="xxx-large"]{
+  --ui-font-size:var(--ui-font-size-x-large);
+  --ui-button-height:var(--ui-height-x-large);
   --ui-button-padding-inline:var(--ui-padding-inline-large);
   --ui-button-column-gap:var(--ui-column-gap-large);
   --ui-icon-size:var(--ui-icon-size-large);}
