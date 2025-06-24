@@ -1,7 +1,6 @@
 import {UIBase} from '../ui-base/ui-base.js';
 
 class UIButton extends UIBase{
-  #text = '';
   #disabled = false;
   #loading = false;
 
@@ -9,20 +8,9 @@ class UIButton extends UIBase{
   #onKeyDown = this.onKeyDown.bind(this);
 
   static properties = Object.freeze({
-    'text':{name:'text',type:String,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true},
     'loading':{name:'loading',type:Boolean,reflect:true}
   });
-
-  get text(){return this.#text;}
-  set text(value){
-    if(!(this.#text = String(value || ''))) return;
-    this.updateText('span',this.#text);
-    this.reflect('text',this.#text);
-    this.setAttributes(this,{
-      'aria-label': this.#text
-    });
-  }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
@@ -48,7 +36,7 @@ class UIButton extends UIBase{
     super.connectedCallback();
     this.shape();
     this.size();
-    this.variant();
+    this.color();
 
     this.setAttributes(this,{
       'role': 'button',

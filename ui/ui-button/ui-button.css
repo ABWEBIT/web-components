@@ -18,25 +18,12 @@ ui-button{
   cursor:pointer;
   overflow:hidden;}
 
-ui-button[display="full-width"]{
-  width:100%;}
-
-ui-button[display="icon-only"]{
-  padding:0;
-  aspect-ratio:1;}
-
 ui-button[animated]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}
 
 ui-button:focus-visible:not([disabled]){
   outline-color:var(--ui-button-outline-focus);}
-
-ui-button > ui-text{
-  width:auto;
-  white-space:nowrap;
-  text-overflow:ellipsis;
-  overflow:hidden;}
 
 ui-button > ui-icon,
 ui-button > ui-spinner > ui-icon{
@@ -61,10 +48,18 @@ ui-button > ui-spinner{
 ui-button:active:not([disabled]):not([loading]){
   background-color:var(--ui-button-background-color-active);}
 
-/* variant */
-ui-button[variant="gray"]{
-  --ui-button-loader-background-color:var(--ui-color-gray-800);
+/* display */
+ui-button[display="width-full"]{
+  width:100%;}
+
+ui-button[display="aspect-square"]{
+  padding:0;
+  aspect-ratio:1;}
+
+/* color */
+ui-button[color="gray"]{
   --ui-button-background-color:var(--ui-color-gray-800);
+  --ui-button-loader-background-color:var(--ui-color-gray-800);
   --ui-button-background-color-hover:var(--ui-color-gray-750);
   --ui-button-background-color-active:var(--ui-color-gray-700);
   --ui-button-color:var(--ui-color-gray-150);
@@ -89,13 +84,6 @@ ui-button[size="medium"]{
 ui-button[size="large"]{
   --ui-font-size:var(--ui-font-size-large);
   --ui-button-height:var(--ui-height-large);
-  --ui-button-padding-inline:var(--ui-padding-inline-large);
-  --ui-button-column-gap:var(--ui-column-gap-large);
-  --ui-icon-size:var(--ui-icon-size-large);}
-
-ui-button[size="xxx-large"]{
-  --ui-font-size:var(--ui-font-size-x-large);
-  --ui-button-height:var(--ui-height-x-large);
   --ui-button-padding-inline:var(--ui-padding-inline-large);
   --ui-button-column-gap:var(--ui-column-gap-large);
   --ui-icon-size:var(--ui-icon-size-large);}

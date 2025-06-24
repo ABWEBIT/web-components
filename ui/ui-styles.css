@@ -170,15 +170,6 @@
   /* form control: active */
   --ui-color-form-surface-active:var(--ui-color-gray-30);
 
-
-
-
-
-
-
-
-
-
   /* === transition === */
   --ui-transition-duration:0.2s;
 }

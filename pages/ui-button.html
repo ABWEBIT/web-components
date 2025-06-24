@@ -5,22 +5,39 @@
   <div class="info">
     <h2>Usage</h2>
     <ul>
-      <li>To create a button, you must include at least one of the following: ui-text or ui-icon. You can also combine them.</li>
+      <li>To create a button, you must include at least one of the following inside &lt;ui-button&gt;:
+        <ul>
+          <li>plain text (e.g., Submit)</li>
+          <li>a &lt;ui-text&gt; component</li>
+          <li>a &lt;ui-icon&gt; component</li>
+        </ul>
+      You can combine them freely - for example, both text and icon together.<br><br>
+      If you're using multiple elements (e.g. an icon and text), it's recommended to wrap the text inside a &lt;ui-text&gt; component for consistent styling, spacing, and alignment.</li>
     </ul>
   </div>
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>aria-label - static, required.
-        <br>Aria-label must be set manually.</li>
-      <li>disabled - reactive, optional.
-        <br>Controls the disabled state of the component.</li>
-      <li>loading - reactive, optional.
-        <br>Controls the loading state of the component.</li>
-      <li>size - static, optional. Default: medium.<br>
+      <li>aria-label - static (required).<br>
+        Must be set manually for accessibility.</li>
+      <li>disabled - reactive (optional).<br>
+        Controls the disabled state of the component.</li>
+      <li>loading - reactive (optional).<br>
+        Controls the loading state of the component.</li>
+      <li>size - static (optional). Default: medium.<br>
         Available values: small, medium, large.</li>
-      <li>shape - static, optional. Default: rounded.<br>
-        Sets the corner style: rounded, pill, sharp or circle.</li>
+      <li>shape - static (optional). Default: rounded.<br>
+        Sets the corner style: rounded, pill, sharp, or circle.</li>
+      <li>color - static (optional). Default: gray.<br>
+        Specifies the color scheme.</li>
+      <li>display - static (optional).<br>
+        Defines component dimensions.<br><br>
+        Available options:
+        <ul>
+          <li>width-full - sets width to 100%</li>
+          <li>aspect-square - enforces 1:1 aspect ratio</li>
+        </ul>
+      </li>
     </ul>
   </div>
 </section>
@@ -32,7 +49,23 @@
     <div class="example">
       <div class="preview">
         <ui-button>Button</ui-button>
-        <ui-button display="icon-only">
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-button&gt;Button&lt;/ui-button&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Icon Only</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button display="aspect-square">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -41,10 +74,8 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button&gt;Button&lt;/ui-button&gt;</div>
-          <br>
-          <div>&lt;ui-button&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="icon"&gt;&lt;/ui-icon&gt;</div>
+          <div>&lt;ui-button display="aspect-square"&gt;</div>
+          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
@@ -52,10 +83,10 @@
   </div>
 
   <div class="content-item">
-    <div>Minimal</div>
+    <div>Full Width</div>
     <div class="example">
       <div class="preview">
-        <ui-button display="full-width">Button</ui-button>
+        <ui-button display="full">Button</ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -82,7 +113,9 @@
       </div>
       <div class="code">
         <code>
-          <div>shape="rounded | pill | sharp | circle"</div>
+          <div>&lt;ui-button shape="rounded | pill | sharp | circle"&gt;</div>
+          <div>&nbsp;Button</div>
+          <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -107,7 +140,9 @@
       </div>
       <div class="code">
         <code>
-          <div>shape="rounded | circle | sharp"</div>
+          <div>&lt;ui-button shape="rounded | sharp | circle"&gt;</div>
+          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
+          <div>&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>

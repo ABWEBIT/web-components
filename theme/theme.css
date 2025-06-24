@@ -146,6 +146,12 @@ article{
   row-gap:16px;
   margin:0;}
 
+.intro > .info > ul ul{
+  display:flex;
+  flex-direction:column;
+  row-gap:8px;
+  margin:10px 5px;}
+
 
 
 /* content */
