@@ -25,10 +25,9 @@ ui-button[animated]{
 ui-button:focus-visible:not([disabled]){
   outline-color:var(--ui-button-outline-focus);}
 
-ui-button > ui-icon,
-ui-button > ui-spinner > ui-icon{
-  height:var(--ui-icon-size);
-  width:var(--ui-icon-size);}
+ui-button svg{
+  height:var(--ui-icon-size)!important;
+  width:var(--ui-icon-size)!important;}
 
 ui-button > ui-spinner{
   position:absolute;
@@ -48,11 +47,12 @@ ui-button > ui-spinner{
 ui-button:active:not([disabled]):not([loading]){
   background-color:var(--ui-button-background-color-active);}
 
-/* display */
-ui-button[display="width-full"]{
+/* width-mode */
+ui-button[width-mode="full"]{
   width:100%;}
 
-ui-button[display="aspect-square"]{
+/* aspect-ratio */
+ui-button[aspect-ratio="1/1"]{
   padding:0;
   aspect-ratio:1;}
 

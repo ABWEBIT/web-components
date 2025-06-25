@@ -16,6 +16,7 @@
 
 
 :root{
+  /* line height */
   --ui-line-height-100:1.0;
   --ui-line-height-150:1.5;
 
@@ -23,7 +24,7 @@
   --ui-font-family:Arial,Helvetica,sans-serif;
   --ui-font-family-ui-monospace:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
 
-  /* theme: scrollbar */
+  /* scrollbar */
   --ui-color-scrollbar:var(--ui-color-gray-600);
 
   /* h size */
@@ -63,11 +64,11 @@
   --ui-padding-inline-x-large:16px;
 
   /* ui button default */
-  --ui-column-gap-x-small:3px;
-  --ui-column-gap-small:4px;
-  --ui-column-gap-medium:5px;
-  --ui-column-gap-large:6px;
-  --ui-column-gap-x-large:7px;
+  --ui-column-gap-x-small:4px;
+  --ui-column-gap-small:6px;
+  --ui-column-gap-medium:8px;
+  --ui-column-gap-large:10px;
+  --ui-column-gap-x-large:12px;
 
   /* colors */
   --ui-color-black:oklch(0% 0 0);
