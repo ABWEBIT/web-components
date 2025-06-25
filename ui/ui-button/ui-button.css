@@ -15,8 +15,7 @@ ui-button{
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;
-  cursor:pointer;
-  overflow:hidden;}
+  cursor:pointer;}
 
 ui-button[animated]{
   transition-duration:var(--ui-transition-duration);
