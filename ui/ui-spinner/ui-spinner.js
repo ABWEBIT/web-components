@@ -1,29 +1,27 @@
 import {UIBase} from '../ui-base/ui-base.js';
+import {icons} from '../../lib/icons.js';
 
 class UISpinner extends UIBase{
-  #loading = false;
-
-  static properties = Object.freeze({
-    'loading':{name:'loading',type:Boolean,reflect:true}
-  });
-
-  get loading(){return this.#loading;}
-  set loading(value){
-    this.#loading = value === true;
-    this.reflect('loading',this.#loading);
-  }
+  static #icon = 'spinner';
+  static #viewBox = '0 0 24 24';
+  static #xmlns = 'http://www.w3.org/2000/svg';
 
   connectedCallback(){
     super.connectedCallback();
-    this.size();
 
-    this.loading = this.hasAttribute('loading');
+    const svg = document.createElementNS(UISpinner.#xmlns,'svg');
+    svg.setAttribute('viewBox',UISpinner.#viewBox);
+    const data = icons?.[UISpinner.#icon];
 
-    const icon = document.createElement('ui-icon');
-    this.setAttributes(icon,{
-      'icon': 'spinner'
-    });
-    this.appendChild(icon);
+    if(!Array.isArray(data) || data.length === 0) return;
+
+    const content = data[0];
+
+    if(typeof content !== 'string') return;
+
+    svg.innerHTML = content;
+
+    this.appendChild(svg);
   }
 
 }

@@ -175,14 +175,16 @@
   --ui-transition-duration:0.2s;
 }
 
-[ui] input,
-[ui] textarea{
- font-family:var(--ui-font-family);}
-
 [ui]{
   direction:inherit;
   -webkit-user-select:none;
   user-select:none;}
+
+[ui] input,
+[ui] textarea{
+ font-family:var(--ui-font-family);}
+
+[ui] input::-ms-reveal{display:none;}
 
 [ui],
 [ui] *{
@@ -195,10 +197,18 @@
 
 [ui][loading]{cursor:default;}
 
-[ui] input::-ms-reveal{display:none;}
+[ui] svg{
+  pointer-events:none;
+  shape-rendering:geometricPrecision;}
 
 /* border radius */
 [ui][shape="rounded"]{border-radius:var(--ui-border-radius-rounded);}
 [ui][shape="sharp"]{border-radius:var(--ui-border-radius-sharp);}
 [ui][shape="pill"]{border-radius:var(--ui-border-radius-pill);}
 [ui][shape="circle"]{border-radius:var(--ui-border-radius-circle);}
+
+/* animations */
+@keyframes spin{
+  0% {transform:rotate(0deg);}
+  100% {transform:rotate(360deg);}
+}

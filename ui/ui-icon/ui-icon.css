@@ -4,11 +4,10 @@ ui-icon{
   justify-content:center;
   vertical-align:middle;
   flex-shrink:0;
-  height:inherit;
-  width:inherit;
-  background-color:transparent;}
+  height:24px;
+  width:24px;}
 
-ui-icon[animated]{
+ui-icon[animation-ready]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color;}
 
@@ -19,6 +18,4 @@ ui-icon > svg{
   fill:currentColor;
   stroke:currentColor;
   stroke-width:0;
-  shape-rendering:geometricPrecision;
-  pointer-events:none;
   overflow:visible;}

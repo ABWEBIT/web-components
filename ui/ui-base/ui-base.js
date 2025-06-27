@@ -9,7 +9,8 @@ export class UIBase extends HTMLElement{
 
   connectedCallback(){
     this.setAttributes(this,{
-      'ui':true
+      'ui': true,
+      'animation-ready': true
     });
   }
 
@@ -73,23 +74,6 @@ export class UIBase extends HTMLElement{
       if(!obj) return;
       obj.setAttribute('icon',icon);
     });
-  }
-
-  get animated(){return this.hasAttribute('animated');}
-
-  set animated(value){
-    if(value){
-      this.setAttribute('animated', '');
-    }
-    else{
-      this.removeAttribute('animated');
-    }
-  }
-
-  animated(){
-    if(!this.hasAttribute('animated')){
-      this.setAttribute('animated','');
-    }
   }
 
   shape(){
