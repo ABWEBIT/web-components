@@ -1,34 +1,36 @@
 <section class="intro">
   <h1>Divider</h1>
-  <div class="description">A component for separating content using a line or a line with text.</div>
+  <div class="description">A component for visually separating content with a line that may contain additional elements such as text or icons.</div>
   <ui-divider></ui-divider>
   <div class="info">
     <h2>Usage</h2>
     <ul>
-      <li>The component acts as both a button and a wrapper. It can contain text, icons, or both - in any order you prefer.</li>
+      <li>If the component includes any content in addition to the line, it should be wrapped in an element such as a &lt;span&gt; or &lt;div&gt; to ensure proper rendering.</li>
+      <li>When using non-text content (e.g., icons or custom elements), additional CSS may be required to ensure correct styling.</li>
     </ul>
   </div>
   <div class="info">
     <h2>Features</h2>
     <ul>
-      <li>By default, horizontal divider width is 100%.</li>
-      <li>By default, vertical divider height is 100%.</li>
+      <li>By default, a horizontal divider has a width of 100%.</li>
+      <li>By default, a vertical divider has a height of 100%.</li>
     </ul>
   </div>
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>content-align - static (optional). Default: center.
-        <br>Text alignment: start, end.</li>
-      <li>orientation - static (optional). Default: horizontal.
-        <br>Defines the divider direction. </li>
+      <li>content-align - static (optional). Default: center.<br>
+        Available options: start, center, end.</li>
+      <li>orientation - static (optional). Default: horizontal.<br>
+        Available options: horizontal, vertical.<br>
+        Defines the divider direction.</li>
     </ul>
   </div>
 </section>
 
 <section class="content">
   <div class="content-item">
-    <div>Horizontal divider (orientation="horizontal")</div>
+    <div>Horizontal divider</div>
     <div class="example">
       <div class="preview">
         <ui-divider></ui-divider>
@@ -42,7 +44,7 @@
   </div>
 
   <div class="content-item">
-    <div>Text centered</div>
+    <div>With centered Content</div>
     <div class="example">
       <div class="preview">
         <ui-divider>
@@ -52,7 +54,7 @@
       <div class="code">
         <code>
           <div>&lt;ui-divider&gt;</div>
-          <div>&nbsp;&lt;span&gt;Text&lt;span&gt;</div>
+          <div>&nbsp;&lt;span&gt;Text&lt;/span&gt;</div>
           <div>&lt;/ui-divider&gt;</div>
         </code>
       </div>
@@ -60,7 +62,7 @@
   </div>
 
   <div class="content-item">
-    <div>Text aligned start (content-align="start")</div>
+    <div>Content aligned to start</div>
     <div class="example">
       <div class="preview">
         <ui-divider content-align="start">
@@ -70,7 +72,7 @@
       <div class="code">
         <code>
           <div>&lt;ui-divider content-align="start"&gt;</div>
-          <div>&nbsp;&lt;span&gt;Text&lt;span&gt;</div>
+          <div>&nbsp;&lt;span&gt;Text&lt;/span&gt;</div>
           <div>&lt;/ui-divider&gt;</div>
         </code>
       </div>
@@ -78,7 +80,7 @@
   </div>
 
   <div class="content-item">
-    <div>Text aligned end (content-align="end")</div>
+    <div>Content aligned to end</div>
     <div class="example">
       <div class="preview">
         <ui-divider content-align="end">
@@ -88,7 +90,7 @@
       <div class="code">
         <code>
           <div>&lt;ui-divider content-align="end"&gt;</div>
-          <div>&nbsp;&lt;span&gt;Text&lt;span&gt;</div>
+          <div>&nbsp;&lt;span&gt;Text&lt;/span&gt;</div>
           <div>&lt;/ui-divider&gt;</div>
         </code>
       </div>
@@ -96,7 +98,7 @@
   </div>
 
   <div class="content-item">
-    <div>Vertical divider (orientation="vertical")</div>
+    <div>Vertical divider</div>
     <div class="example">
       <div class="preview" style="height:200px;">
         <ui-divider orientation="vertical"></ui-divider>
@@ -120,7 +122,7 @@
       <div class="code">
         <code>
           <div>&lt;ui-divider orientation="vertical"&gt;</div>
-          <div>&nbsp;&lt;span&gt;Text&lt;span&gt;</div>
+          <div>&nbsp;&lt;span&gt;Text&lt;/span&gt;</div>
           <div>&lt;/ui-divider&gt;</div>
         </code>
       </div>
@@ -138,7 +140,7 @@
       <div class="code">
         <code>
           <div>&lt;ui-divider orientation="vertical" content-align="start"&gt;</div>
-          <div>&nbsp;&lt;span&gt;Text&lt;span&gt;</div>
+          <div>&nbsp;&lt;span&gt;Text&lt;/span&gt;</div>
           <div>&lt;/ui-divider&gt;</div>
         </code>
       </div>
@@ -156,7 +158,7 @@
       <div class="code">
         <code>
           <div>&lt;ui-divider orientation="vertical" content-align="end"&gt;</div>
-          <div>&nbsp;&lt;span&gt;Text&lt;span&gt;</div>
+          <div>&nbsp;&lt;span&gt;Text&lt;/span&gt;</div>
           <div>&lt;/ui-divider&gt;</div>
         </code>
       </div>
