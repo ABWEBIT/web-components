@@ -7,13 +7,6 @@ class UIDivider extends UIBase{
     if(!['horizontal','vertical'].includes(orientation)){
       this.setAttribute('orientation','horizontal');
     }
-
-    const text = this.getAttribute('text');
-    if(text){
-      const span = document.createElement('span');
-      span.textContent = text;
-      this.appendChild(span);
-    }
   }
 }
 customElements.define('ui-divider',UIDivider);
