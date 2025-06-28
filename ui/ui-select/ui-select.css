@@ -16,7 +16,7 @@ ui-select{
   cursor:pointer;
   overflow:hidden;}
 
-ui-select[animated]{
+ui-select[ui]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}
 

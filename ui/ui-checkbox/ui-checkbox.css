@@ -16,7 +16,7 @@ ui-checkbox{
   cursor:pointer;
   overflow:hidden;}
 
-ui-checkbox[animated]{
+ui-checkbox[ui]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color;}
 

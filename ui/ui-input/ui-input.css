@@ -14,7 +14,7 @@ ui-input[size="small"]{height:var(--ui-size-small);}
 ui-input[size="medium"]{height:var(--ui-size-medium);}
 ui-input[size="large"]{height:var(--ui-size-large);}
 
-ui-input[animated]{
+ui-input[ui]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color;}
 

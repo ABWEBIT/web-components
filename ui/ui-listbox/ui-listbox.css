@@ -31,16 +31,16 @@ ui-listbox[data-open="false"]{
 ui-listbox[data-open="true"]{
   display:block;}
 
-ui-listbox[animated] [role="option"]{
+ui-listbox[ui] [role="option"]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color;}
 
 @media (hover:hover){
-  ui-listbox[animated] [role="option"]:hover:not([disabled]){
+  ui-listbox[ui] [role="option"]:hover:not([disabled]){
     background-color:rgb(40,40,40);
     color:var(--ui-color-white);}
 }
 
-ui-listbox[animated] [role="option"][aria-selected="true"]{
+ui-listbox[ui] [role="option"][aria-selected="true"]{
   background-color:rgb(30,30,30);
   color:var(--ui-color-white);}

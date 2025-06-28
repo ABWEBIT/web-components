@@ -18,7 +18,7 @@ ui-switch{
   cursor:pointer;
   overflow:hidden;}
 
-ui-switch[animated]{
+ui-switch[ui]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color;}
 
