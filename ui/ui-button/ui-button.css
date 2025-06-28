@@ -6,7 +6,8 @@ ui-button{
   vertical-align:middle;
   border:none;
   height:var(--ui-button-height);
-  padding-inline:var(--ui-button-padding-inline);
+  padding-inline-start:var(--ui-button-padding-inline);
+  padding-inline-end:var(--ui-button-padding-inline);
   column-gap:var(--ui-button-column-gap);
   font-size:var(--ui-font-size);
   color:var(--ui-button-color);

@@ -9,10 +9,9 @@ ui-icon{
 
 ui-icon[ui]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,color;}
+  transition-property:color;}
 
 ui-icon > svg{
-  display:block;
   height:100%;
   width:100%;
   stroke-width:0;}

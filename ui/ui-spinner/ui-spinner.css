@@ -4,8 +4,7 @@ ui-spinner{
   justify-content:center;}
 
 ui-spinner > svg{
-  display:block;
   height:24px;
   width:24px;
   stroke-width:0;
-  animation:spin 0.8s linear infinite;}
+  animation:rotate360 0.8s linear infinite;}

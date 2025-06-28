@@ -198,8 +198,10 @@
 [ui][loading]{cursor:default;}
 
 [ui] svg{
+  display:block;
   fill:currentColor;
   stroke:currentColor;
+  background-color:transparent;
   pointer-events:none;
   shape-rendering:geometricPrecision;}
 
@@ -210,7 +212,7 @@
 [ui][shape="circle"]{border-radius:var(--ui-border-radius-circle);}
 
 /* animations */
-@keyframes spin{
+@keyframes rotate360{
   0% {transform:rotate(0deg);}
   100% {transform:rotate(360deg);}
 }
