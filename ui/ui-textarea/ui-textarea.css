@@ -3,18 +3,34 @@ ui-textarea{
   display:block;
   border:none;
   outline-offset:0px;
-  outline-width:2px;
+  outline-width:-1px;
   outline-style:solid;
-  outline-color:var(--ui-color-input-outline);
-  background-color:var(--ui-color-input-surface);}
+  outline-color:transparent;
+  color:var(--ui-textarea-color);
+  background-color:var(--ui-textarea-background-color);
+  font-size:var(--ui-font-size-medium);
+  overflow: hidden;}
 
-ui-textarea[animated]{
+ui-textarea[ui]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,outline-color;}
+  transition-property:background-color,outline-color,color;}
 
 ui-textarea[disabled]{
   outline-color:var(--ui-color-form-control-outline-disabled);
   background-color:var(--ui-color-form-control-surface-disabled);}
+
+ui-textarea::before{
+  position:absolute;
+  bottom:0;
+  display:block;  
+  content:'';
+  width:100%;
+  height:100%;
+  border-top:1px solid #ccc;
+  border-left:1px solid #ccc;
+  border-right:1px solid #ccc;
+  border-bottom:2px solid #ccc;
+  pointer-events:none;}
 
 ui-textarea textarea{
   direction:inherit;
@@ -22,8 +38,8 @@ ui-textarea textarea{
   outline:none;
   padding:12px 16px;
   resize:none;
-  font-size:var(--ui-font-size-small);
-  color:var(--ui-color-input-content);
+  font-size:inherit;
+  color:inherit;
   background-color:transparent;}
 
 ui-textarea[disabled] textarea{
@@ -37,11 +53,21 @@ ui-textarea[disabled] textarea::placeholder{
 
 @media (hover:hover){
   ui-textarea:hover:not([disabled]):not([status]){
-    outline-color:var(--ui-color-input-outline-active);}
+    outline-color:var(--ui-textarea-outline-focus);
+    color:var(--ui-textarea-color-hover);}
 }
 
 ui-textarea:focus-within:not([disabled]):not([status]){
-  outline-color:var(--ui-color-input-outline-active);}
+  outline-color:var(--ui-textarea-outline-focus);}
+
+/* color */
+ui-textarea[color="gray"]{
+  --ui-textarea-background-color:var(--ui-color-gray-800);
+  --ui-textarea-color:var(--ui-color-gray-150);
+  --ui-textarea-color-hover:var(--ui-color-white);
+  --ui-textarea-outline:var(--ui-color-gray-600);
+  --ui-textarea-outline-focus:var(--ui-color-gray-400);
+  --ui-textarea-outline-active:var(--ui-color-gray-400);}
 
 ui-textarea[status="accent"]{outline-color:var(--ui-color-form-control-accent);}
 ui-textarea[status="error"]{outline-color:var(--ui-color-form-control-error);}

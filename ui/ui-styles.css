@@ -198,6 +198,8 @@
 [ui][loading]{cursor:default;}
 
 [ui] svg{
+  fill:currentColor;
+  stroke:currentColor;
   pointer-events:none;
   shape-rendering:geometricPrecision;}
 

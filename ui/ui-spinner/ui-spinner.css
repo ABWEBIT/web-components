@@ -7,7 +7,5 @@ ui-spinner > svg{
   display:block;
   height:24px;
   width:24px;
-  fill:currentColor;
-  stroke:currentColor;
   stroke-width:0;
   animation:spin 0.8s linear infinite;}

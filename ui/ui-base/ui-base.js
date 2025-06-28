@@ -9,8 +9,7 @@ export class UIBase extends HTMLElement{
 
   connectedCallback(){
     this.setAttributes(this,{
-      'ui': true,
-      'animation-ready': true
+      'ui': true
     });
   }
 

@@ -7,7 +7,7 @@ ui-icon{
   height:24px;
   width:24px;}
 
-ui-icon[animation-ready]{
+ui-icon[ui]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color;}
 
@@ -15,7 +15,4 @@ ui-icon > svg{
   display:block;
   height:100%;
   width:100%;
-  fill:currentColor;
-  stroke:currentColor;
-  stroke-width:0;
-  overflow:visible;}
+  stroke-width:0;}
