@@ -197,6 +197,7 @@ article{
 
 .content-item > .example > .toolbar{
   display:flex;
+  align-items:center;
   padding:10px 15px;
   font-size:var(--ui-font-size-small);
   gap:10px;}
