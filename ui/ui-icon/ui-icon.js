@@ -14,12 +14,11 @@ class UIIcon extends UIBase{
   get icon(){return this.#icon;}
   set icon(value){
     this.#icon = String(value || '');
-    const data = icons?.[this.#icon];
 
+    const data = icons?.[this.#icon];
     if(!Array.isArray(data) || data.length === 0) return;
 
     const content = data[0];
-
     if(typeof content !== 'string') return;
 
     queueMicrotask(()=>{
