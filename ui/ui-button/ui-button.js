@@ -17,8 +17,8 @@ class UIButton extends UIBase{
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
     this.setAttributes(this,{
-      'tabindex': this.#disabled ? '-1' : '0',
-      'aria-disabled': this.#disabled ? 'true' : 'false'
+      'aria-disabled': this.#disabled ? 'true' : 'false',
+      'tabindex': this.#disabled ? '-1' : '0'
     });
   }
 

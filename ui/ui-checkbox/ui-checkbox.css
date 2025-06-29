@@ -45,7 +45,7 @@ ui-checkbox[checked] > svg{
   opacity:1;}
 
 /* color */
-ui-checkbox[color="gray"]{
+ui-checkbox[color="default"]{
   --ui-checkbox-background-color:var(--ui-color-gray-800);
   --ui-checkbox-border-color:var(--ui-color-gray-500);
   --ui-checkbox-outline-focus:var(--ui-color-gray-400);}

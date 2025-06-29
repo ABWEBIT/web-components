@@ -34,7 +34,8 @@ class UISwitch extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.replaceChildren();
-    this.height(24);
+    this.size('small');
+    this.color();
 
     this.setAttributes(this,{
       'role': 'switch'

@@ -87,16 +87,9 @@ export class UIBase extends HTMLElement{
     }
   }
 
-  color(){
+  color(colorDefault = 'default'){
     if(!this.hasAttribute('color')){
-      this.setAttribute('color',this.#colorDefault);
+      this.setAttribute('color',colorDefault);
     }
-  }
-
-  height(number = 32){
-    const attribute = parseInt(this.getAttribute('height'),10);
-    const height = !isNaN(attribute) ? attribute : number;
-    this.style.setProperty('--ui-object-height',`${height}px`);
-    return height;
   }
 }

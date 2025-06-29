@@ -61,7 +61,7 @@ ui-textarea:focus-within:not([disabled]):not([status]){
   outline-color:var(--ui-textarea-outline-focus);}
 
 /* color */
-ui-textarea[color="gray"]{
+ui-textarea[color="default"]{
   --ui-textarea-background-color:var(--ui-color-gray-800);
   --ui-textarea-color:var(--ui-color-gray-150);
   --ui-textarea-color-hover:var(--ui-color-white);

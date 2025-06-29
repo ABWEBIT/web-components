@@ -58,7 +58,7 @@ ui-button[aspect-ratio="1/1"]{
   aspect-ratio:1;}
 
 /* color */
-ui-button[color="gray"]{
+ui-button[color="default"]{
   --ui-button-background-color:var(--ui-color-gray-800);
   --ui-button-loader-background-color:var(--ui-color-gray-800);
   --ui-button-background-color-hover:var(--ui-color-gray-750);
