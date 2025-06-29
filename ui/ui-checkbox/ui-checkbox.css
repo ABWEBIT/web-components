@@ -3,15 +3,15 @@ ui-checkbox{
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  height:var(--ui-object-height);
-  width:var(--ui-object-height);
+  height:24px;
+  width:24px;
   aspect-ratio:1;
   border:none;
   outline-width:2px;
   outline-offset:2px;
   outline-style:solid;
   outline-color:transparent;
-  background-color:rgb(30,30,30);
+  background-color:var(--ui-checkbox-background-color);
   color:transparent;
   cursor:pointer;
   overflow:hidden;}
@@ -31,14 +31,20 @@ ui-checkbox::before{
   overflow:hidden;}
 
 ui-checkbox:focus-visible:not([disabled]){
-  outline-color:rgb(100,100,100);}
+  outline-color:var(--ui-checkbox-outline-focus);}
 
-ui-checkbox > ui-icon{
+ui-checkbox > svg{
   position:absolute;
   padding:calc(var(--ui-object-height) / 10);
+  stroke-width:0;
   border-radius:inherit;
   overflow:hidden;}
 
-ui-checkbox[checked] > ui-icon{
+ui-checkbox[checked] > svg{
   background-color:rgb(25,125,230);
   color:rgb(255,255,255);}
+
+/* color */
+ui-checkbox[color="gray"]{
+  --ui-checkbox-background-color:var(--ui-color-gray-800);
+  --ui-checkbox-outline-focus:var(--ui-color-gray-400);}

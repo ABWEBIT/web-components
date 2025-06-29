@@ -1,4 +1,5 @@
 import {UIBase} from '../ui-base/ui-base.js';
+import {icons} from '../../lib/icons.js';
 
 class UICheckbox extends UIBase{
   #checked = false;
@@ -6,6 +7,10 @@ class UICheckbox extends UIBase{
 
   #onClick = this.onClick.bind(this);
   #onKeyDown = this.onKeyDown.bind(this);
+
+  static #icon = 'check';
+  static #viewBox = '0 0 24 24';
+  static #xmlns = 'http://www.w3.org/2000/svg';
 
   static properties = Object.freeze({
     'checked':{name:'checked',type:Boolean,reflect:true},
@@ -34,21 +39,24 @@ class UICheckbox extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.shape();
-    let height = this.height(24);
-
-    this.setAttributes(this,{
-      'role': 'checkbox'
-    });
+    this.size();
+    this.color();
+    this.setAttribute('role','checkbox');
 
     this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
 
-    const icon = document.createElement('ui-icon');
-    this.setAttributes(icon,{
-      'height': height,
-      'icon': 'check'
-    });
-    this.appendChild(icon);
+    const svg = document.createElementNS(UICheckbox.#xmlns,'svg');
+    svg.setAttribute('viewBox',UICheckbox.#viewBox);
+
+    const data = icons?.[UICheckbox.#icon];
+    if(!Array.isArray(data) || data.length === 0) return;
+
+    const content = data[0];
+    if(typeof content !== 'string') return;
+
+    svg.innerHTML = content;
+    this.appendChild(svg);
 
     this.addEventListener('click',this.#onClick);
     this.addEventListener('keydown',this.#onKeyDown);
