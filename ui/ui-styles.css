@@ -201,7 +201,6 @@
   display:block;
   fill:currentColor;
   stroke:currentColor;
-  background-color:transparent;
   pointer-events:none;
   shape-rendering:geometricPrecision;}
 

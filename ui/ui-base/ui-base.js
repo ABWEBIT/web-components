@@ -81,9 +81,9 @@ export class UIBase extends HTMLElement{
     }
   }
 
-  size(){
+  size(sizeDefault = this.#sizeDefault){
     if(!this.hasAttribute('size')){
-      this.setAttribute('size',this.#sizeDefault);
+      this.setAttribute('size',sizeDefault);
     }
   }
 
