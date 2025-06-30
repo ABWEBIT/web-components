@@ -31,7 +31,7 @@ ui-checkbox:focus-visible:not([disabled]){
 
 ui-checkbox > svg{
   position:absolute;
-  background-color:var(--ui-checkbox-check-background-color);
+  background-color:var(--ui-checkbox-checked-background-color);
   color:inherit;
   stroke-width:0;
   border-radius:inherit;
@@ -49,7 +49,7 @@ ui-checkbox[color="default"]{
   --ui-checkbox-background-color:var(--ui-color-gray-800);
   --ui-checkbox-border-color:var(--ui-color-gray-500);
   --ui-checkbox-outline-focus:var(--ui-color-gray-400);
-  --ui-checkbox-check-background-color:var(--ui-color-blue-500);
+  --ui-checkbox-checked-background-color:var(--ui-color-blue-500);
   --ui-checkbox-color:var(--ui-color-white);}
 
 /* size */

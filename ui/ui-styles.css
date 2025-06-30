@@ -27,6 +27,8 @@
   /* scrollbar */
   --ui-color-scrollbar:var(--ui-color-gray-600);
 
+  /* outline focus */
+
   /* ui size */
   --ui-size-x-small:16px;
   --ui-size-small:24px;
@@ -63,7 +65,7 @@
   --ui-padding-inline-large:14px;
   --ui-padding-inline-x-large:16px;
 
-  /* ui button default */
+  /* ui column gap */
   --ui-column-gap-x-small:4px;
   --ui-column-gap-small:6px;
   --ui-column-gap-medium:8px;
@@ -148,30 +150,7 @@
   --ui-text-align-start:start;
   --ui-text-align-end:end;
 
-
-
-  /* === form === */
-  /* form control: default */
-  --ui-color-form-surface:var(--ui-color-gray-20);
-  --ui-color-form-outline:var(--ui-color-gray-30);
-  --ui-color-form-content:var(--ui-color-gray-80);
-  --ui-color-form-icons:var(--ui-color-gray-60);
-  --ui-color-form-placeholder:var(--ui-color-gray-50);
-
-  /* form control: hover */
-  --ui-color-form-surface-hover:var(--ui-color-gray-25);
-  --ui-color-form-outline-hover:var(--ui-color-gray-60);
-  --ui-color-form-content-hover:var(--ui-color-white);
-
-  /* form control: focused */
-  --ui-color-form-surface-focus:var(--ui-color-gray-25);
-  --ui-color-form-outline-focus:var(--ui-color-gray-60);
-  --ui-color-form-content-focus:var(--ui-color-white);
-
-  /* form control: active */
-  --ui-color-form-surface-active:var(--ui-color-gray-30);
-
-  /* === transition === */
+  /* transition */
   --ui-transition-duration:0.2s;
 }
 

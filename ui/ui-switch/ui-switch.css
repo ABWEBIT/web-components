@@ -13,17 +13,17 @@ ui-switch{
   outline-offset:2px;
   outline-style:solid;
   outline-color:transparent;
-  background-color:rgb(100,100,100);
+  background-color:var(--ui-switch-background-color);
   line-height:1;
   cursor:pointer;
   overflow:hidden;}
 
 ui-switch[ui]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:background-color;}
+  transition-property:background-color,outline-color;}
 
 ui-switch:focus-visible:not([disabled]){
-  outline-color:rgb(100,100,100);}
+  outline-color:var(--ui-switch-outline-focus);}
 
 ui-switch::before{
   content:'';
@@ -41,13 +41,14 @@ ui-switch[checked]::before{
   inset-inline-start:calc(100% - var(--ui-switch-size) + var(--ui-switch-size) / 6);}
 
 ui-switch[checked]{
-  background-color:rgb(25,125,230);}
+  background-color:var(--ui-switch-checked-background-color);}
 
 /* color */
 ui-switch[color="default"]{
-  --ui-switch-background-color:var(--ui-color-gray-800);
+  --ui-switch-background-color:var(--ui-color-gray-600);
   --ui-switch-border-color:var(--ui-color-gray-500);
-  --ui-switch-outline-focus:var(--ui-color-gray-400);}
+  --ui-switch-outline-focus:var(--ui-color-gray-400);
+  --ui-switch-checked-background-color:var(--ui-color-blue-500);}
 
 /* size */
 ui-switch[size="small"]{
