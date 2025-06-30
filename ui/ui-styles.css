@@ -27,8 +27,6 @@
   /* scrollbar */
   --ui-color-scrollbar:var(--ui-color-gray-600);
 
-  /* outline focus */
-
   /* ui size */
   --ui-size-x-small:16px;
   --ui-size-small:24px;
@@ -152,6 +150,9 @@
 
   /* transition */
   --ui-transition-duration:0.2s;
+
+  /* default color scheme */
+  --ui-outline-color:var(--ui-color-gray-400);
 }
 
 [ui]{
@@ -173,6 +174,9 @@
   opacity:0.5;
   pointer-events:auto;
   cursor:not-allowed;}
+
+[ui][disabled] *{
+  pointer-events:none;}
 
 [ui][loading]{cursor:default;}
 

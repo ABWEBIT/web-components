@@ -1,8 +1,4 @@
 export class UIBase extends HTMLElement{
-  #shapeDefault = 'rounded';
-  #sizeDefault  = 'medium';
-  #colorDefault = 'gray';
-
   static get observedAttributes(){
     return Object.keys(this.properties || {});
   }
@@ -75,21 +71,21 @@ export class UIBase extends HTMLElement{
     });
   }
 
-  shape(){
+  shape(shape = 'rounded'){
     if(!this.getAttribute('shape')){
-      this.setAttribute('shape',this.#shapeDefault);
+      this.setAttribute('shape',shape);
     }
   }
 
-  size(sizeDefault = this.#sizeDefault){
+  size(size = 'default'){
     if(!this.hasAttribute('size')){
-      this.setAttribute('size',sizeDefault);
+      this.setAttribute('size',size);
     }
   }
 
-  color(colorDefault = 'default'){
+  color(color = 'default'){
     if(!this.hasAttribute('color')){
-      this.setAttribute('color',colorDefault);
+      this.setAttribute('color',color);
     }
   }
 }

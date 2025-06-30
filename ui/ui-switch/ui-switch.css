@@ -23,7 +23,7 @@ ui-switch[ui]{
   transition-property:background-color,outline-color;}
 
 ui-switch:focus-visible:not([disabled]){
-  outline-color:var(--ui-switch-outline-focus);}
+  outline-color:var(--ui-switch-outline-color);}
 
 ui-switch::before{
   content:'';
@@ -47,7 +47,7 @@ ui-switch[checked]{
 ui-switch[color="default"]{
   --ui-switch-background-color:var(--ui-color-gray-600);
   --ui-switch-border-color:var(--ui-color-gray-500);
-  --ui-switch-outline-focus:var(--ui-color-gray-400);
+  --ui-switch-outline-color:var(--ui-outline-color);
   --ui-switch-checked-background-color:var(--ui-color-blue-500);}
 
 /* size */

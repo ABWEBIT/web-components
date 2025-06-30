@@ -7,7 +7,7 @@
     <ul>
       <li>
         Static init-only attributes are removed from the custom element itself immediately after initialization. This is done to prevent confusion and avoid conflicts between attributes and properties during the component lifecycle. Their values are still applied to the relevant internal elements, so the component's behavior remains consistent with the initial configuration.<br><br>
-        To update these values dynamically, use the corresponding JavaScript properties on the component instance.
+        To update these values dynamically, use the corresponding properties on the component instance.
       </li>
     </ul>
   </div>
@@ -50,9 +50,14 @@
         size - static (optional). Default: medium.<br>
         Available options: small, medium, large.
       </li>
-      <li>shape - static (optional). Default: rounded.<br>
+      <li>
+        shape - static (optional). Default: rounded.<br>
         Available options: rounded, pill, sharp.<br>
         Sets the corner style.
+      </li>
+      <li>
+        color - static (optional). Default: default.<br>
+        Specifies the color scheme.
       </li>
     </ul>
   </div>

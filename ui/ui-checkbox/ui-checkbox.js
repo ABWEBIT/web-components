@@ -39,7 +39,7 @@ class UICheckbox extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.shape();
-    this.size('small');
+    this.size();
     this.color();
     this.setAttribute('role','checkbox');
 
