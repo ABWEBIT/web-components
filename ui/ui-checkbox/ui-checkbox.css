@@ -5,60 +5,62 @@ ui-checkbox{
   vertical-align:middle;
   height:var(--ui-checkbox-size);
   width:var(--ui-checkbox-size);
-  border:none;
   outline-width:2px;
   outline-offset:2px;
   outline-style:solid;
   outline-color:transparent;
   background-color:var(--ui-checkbox-background-color);
-  color:transparent;
-  cursor:pointer;
-  overflow:hidden;}
+  color:var(--ui-checkbox-color);
+  cursor:pointer;}
 
 ui-checkbox[ui]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:outline-color,color;}
+  transition-property:outline-color;}
 
 ui-checkbox::before{
-  content:'';
   position:absolute;
+  content:'';
   inset:0;
   border-radius:inherit;
-  border-width:2px;
+  border-width:1px;
   border-style:solid;
-  border-color:var(--ui-checkbox-border-color);
-  overflow:hidden;}
+  border-color:var(--ui-checkbox-border-color);}
 
 ui-checkbox:focus-visible:not([disabled]){
   outline-color:var(--ui-checkbox-outline-focus);}
 
 ui-checkbox > svg{
   position:absolute;
-  background-color:var(--ui-color-blue-500);
-  color:var(--ui-color-white);
+  background-color:var(--ui-checkbox-check-background-color);
+  color:inherit;
   stroke-width:0;
   border-radius:inherit;
-  overflow:hidden;
   opacity:0;}
 
 ui-checkbox[checked] > svg{
   opacity:1;}
 
+ui-checkbox[ui] > svg{
+  transition-duration:var(--ui-transition-duration);
+  transition-property:opacity;}
+
 /* color */
 ui-checkbox[color="default"]{
   --ui-checkbox-background-color:var(--ui-color-gray-800);
   --ui-checkbox-border-color:var(--ui-color-gray-500);
-  --ui-checkbox-outline-focus:var(--ui-color-gray-400);}
+  --ui-checkbox-outline-focus:var(--ui-color-gray-400);
+  --ui-checkbox-check-background-color:var(--ui-color-blue-500);
+  --ui-checkbox-color:var(--ui-color-white);}
 
 /* size */
-ui-checkbox[size="x-small"]{
-  --ui-checkbox-size:var(--ui-height-x-small);
-  --ui-icon-size:var(--ui-icon-size-x-small);}
-
 ui-checkbox[size="small"]{
-  --ui-checkbox-size:var(--ui-height-small);
+  --ui-checkbox-size:var(--ui-size-small);
   --ui-icon-size:var(--ui-icon-size-small);}
 
 ui-checkbox[size="medium"]{
-  --ui-checkbox-size:var(--ui-height-medium);
+  --ui-checkbox-size:var(--ui-size-medium);
   --ui-icon-size:var(--ui-icon-size-medium);}
+
+ui-checkbox[size="large"]{
+  --ui-checkbox-size:var(--ui-size-large);
+  --ui-icon-size:var(--ui-icon-size-large);}

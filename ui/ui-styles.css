@@ -27,6 +27,13 @@
   /* scrollbar */
   --ui-color-scrollbar:var(--ui-color-gray-600);
 
+  /* ui size */
+  --ui-size-x-small:16px;
+  --ui-size-small:24px;
+  --ui-size-medium:32px;
+  --ui-size-large:40px;
+  --ui-size-x-large:48px;
+
   /* h size */
   --ui-h1-size:40px;
   --ui-h2-size:32px;
@@ -48,13 +55,6 @@
   --ui-icon-size-medium:20px;
   --ui-icon-size-large:22px;
   --ui-icon-size-x-large:24px;
-
-  /* ui height */
-  --ui-height-x-small:16px;
-  --ui-height-small:24px;
-  --ui-height-medium:32px;
-  --ui-height-large:40px;
-  --ui-height-x-large:48px;
 
   /* ui padding inline */
   --ui-padding-inline-x-small:6px;

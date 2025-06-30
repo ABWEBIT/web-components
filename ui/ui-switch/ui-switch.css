@@ -50,14 +50,14 @@ ui-switch[color="default"]{
   --ui-switch-outline-focus:var(--ui-color-gray-400);}
 
 /* size */
-ui-switch[size="x-small"]{
-  --ui-switch-size:var(--ui-height-x-small);
-  --ui-icon-size:var(--ui-icon-size-x-small);}
-
 ui-switch[size="small"]{
-  --ui-switch-size:var(--ui-height-small);
+  --ui-switch-size:var(--ui-size-small);
   --ui-icon-size:var(--ui-icon-size-small);}
 
 ui-switch[size="medium"]{
-  --ui-switch-size:var(--ui-height-medium);
+  --ui-switch-size:var(--ui-size-medium);
   --ui-icon-size:var(--ui-icon-size-medium);}
+
+ui-switch[size="large"]{
+  --ui-switch-size:var(--ui-size-large);
+  --ui-icon-size:var(--ui-icon-size-large);}
