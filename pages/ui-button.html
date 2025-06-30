@@ -11,34 +11,45 @@
       <li>
         To make the button square, use aspect-ratio="1/1".
       </li>
+      <li>
+        More customization options can be added via the CSS.
+      </li>
     </ul>
   </div>
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>aria-label - static (required).<br>
-        Must be set manually for accessibility.
+      <li>
+        aria-label - static (required).<br>
+        Must be set manually.
       </li>
-      <li>disabled - reactive (optional).<br>
+      <li>
+        disabled - reactive (optional).<br>
         Controls the disabled state of the component.
       </li>
-      <li>loading - reactive (optional).<br>
+      <li>
+        loading - reactive (optional).<br>
         Controls the loading state of the component.
       </li>
-      <li>size - static (optional). Default: medium.<br>
-        Available options: small, medium, large.
+      <li>
+        size - static (optional). Default: default.<br>
+        Specifies the component's size (extendable via CSS).
       </li>
-      <li>shape - static (optional). Default: rounded.<br>
+      <li>
+        color - static (optional). Default: default.<br>
+        Specifies the component's color scheme (extendable via CSS).
+      </li>
+      <li>
+        shape - static (optional). Default: rounded.<br>
         Available options: rounded, pill, sharp, circle.<br>
         Sets the corner style.
       </li>
-      <li>color - static (optional). Default: default.<br>
-        Specifies the color scheme.
-      </li>
-      <li>aspect-ratio="1/1" - static (optional).<br>
+      <li>
+        aspect-ratio="1/1" - static (optional).<br>
         Makes the component square using a 1:1 aspect ratio.
       </li>
-      <li>width-mode="full" - static (optional).<br>
+      <li>
+        width-mode="full" - static (optional).<br>
         Expands the component to take up 100% of the available width.
       </li>
     </ul>
@@ -65,39 +76,10 @@
   </div>
 
   <div class="content-item">
-    <div>Text Only, Size Attribute (default: medium)</div>
+    <div>Icon Only, Square</div>
     <div class="example">
       <div class="preview">
-        <ui-button size="small">Button</ui-button>
-        <ui-button size="medium">Button</ui-button>
-        <ui-button size="large">Button</ui-button>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-button size="small"&gt;Button&lt;/ui-button&gt;</div>
-          <br>
-          <div>&lt;ui-button size="medium"&gt;Button&lt;/ui-button&gt;</div>
-          <br>
-          <div>&lt;ui-button size="large"&gt;Button&lt;/ui-button&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Icon Only, Size Attribute (default: medium), Square Aspect Ratio</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button size="small" aspect-ratio="1/1">
-          <ui-icon icon="settings"></ui-icon>
-        </ui-button>
-        <ui-button size="medium" aspect-ratio="1/1">
-          <ui-icon icon="settings"></ui-icon>
-        </ui-button>
-        <ui-button size="large" aspect-ratio="1/1">
+        <ui-button aspect-ratio="1/1">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -106,15 +88,7 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button size="small" aspect-ratio="1/1"&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
-          <br>
-          <div>&lt;ui-button size="medium" aspect-ratio="1/1"&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
-          <br>
-          <div>&lt;ui-button size="large" aspect-ratio="1/1"&gt;</div>
+          <div>&lt;ui-button aspect-ratio="1/1"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>
@@ -140,7 +114,7 @@
   </div>
 
   <div class="content-item">
-    <div>Shape (default: rounded)</div>
+    <div>Text-Only, Different Shapes</div>
     <div class="example">
       <div class="preview">
         <ui-button shape="rounded">Button</ui-button>
@@ -154,11 +128,8 @@
       <div class="code">
         <code>
           <div>&lt;ui-button shape="rounded"&gt;Button&lt;/ui-button&gt;</div>
-          <br>
           <div>&lt;ui-button shape="pill"&gt;Button&lt;/ui-button&gt;</div>
-          <br>
           <div>&lt;ui-button shape="sharp"&gt;Button&lt;/ui-button&gt;</div>
-          <br>
           <div>&lt;ui-button shape="circle"&gt;Button&lt;/ui-button&gt;</div>
         </code>
       </div>
@@ -166,7 +137,7 @@
   </div>
 
   <div class="content-item">
-    <div>Icon Only, Shape Attribute (default: rounded), Square Aspect Ratio</div>
+    <div>Icon-Only, Different Shapes, Square</div>
     <div class="example">
       <div class="preview">
         <ui-button shape="rounded" aspect-ratio="1/1">
@@ -224,7 +195,7 @@
     <div class="example">
       <div class="preview">
         <ui-button>
-          <ui-icon icon="article"></ui-icon>
+          <ui-icon icon="home"></ui-icon>
           Button
         </ui-button>
         <ui-button>
@@ -299,7 +270,7 @@
 <script>
   function load(){
     let button = document.getElementById('clickMe');
-    button.onAction = function(e){
+    button.onAction = function(){
       button.loading = true;
     };
   }

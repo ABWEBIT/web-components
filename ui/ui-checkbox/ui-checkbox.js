@@ -55,7 +55,7 @@ class UICheckbox extends UIBase{
     const content = data[0];
     if(typeof content !== 'string') return;
 
-    svg.innerHTML = content;
+    svg.innerHTML =`<rect></rect>` +  content;
     this.appendChild(svg);
 
     this.addEventListener('click',this.#onClick);

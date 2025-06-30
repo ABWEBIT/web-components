@@ -83,7 +83,7 @@ class UIButton extends UIBase{
   }
 
   onAction(e){
-    console.log(e.type);
+    //console.log(e.type);
   }
 
 }

@@ -150,9 +150,6 @@
 
   /* transition */
   --ui-transition-duration:0.2s;
-
-  /* default color scheme */
-  --ui-outline-color:var(--ui-color-gray-400);
 }
 
 [ui]{
@@ -183,7 +180,7 @@
 [ui] svg{
   display:block;
   fill:currentColor;
-  stroke:currentColor;
+  /*stroke:currentColor;*/
   pointer-events:none;
   shape-rendering:geometricPrecision;}
 

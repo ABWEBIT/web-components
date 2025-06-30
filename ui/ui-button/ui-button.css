@@ -16,8 +16,7 @@ ui-button{
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;
-  cursor:pointer;
-  overflow:hidden;}
+  cursor:pointer;}
 
 ui-button[ui]{
   transition-duration:var(--ui-transition-duration);
@@ -35,8 +34,8 @@ ui-button > ui-spinner{
   display:flex;
   align-items:center;
   justify-content:center;
-  width:100%;
-  height:100%;
+  border-radius:inherit;
+  inset:0;
   background-color:var(--ui-button-loader-background-color);}
 
 @media (hover:hover){
@@ -68,23 +67,9 @@ ui-button[color="default"]{
   --ui-button-outline-color:var(--ui-outline-color);}
 
 /* size */
-ui-button[size="small"]{
-  --ui-font-size:var(--ui-font-size-small);
-  --ui-button-height:var(--ui-size-small);
-  --ui-button-padding-inline:var(--ui-padding-inline-small);
-  --ui-button-column-gap:var(--ui-column-gap-small);
-  --ui-icon-size:var(--ui-icon-size-small);}
-
-ui-button[size="medium"]{
+ui-button[size="default"]{
   --ui-font-size:var(--ui-font-size-medium);
-  --ui-button-height:var(--ui-size-medium);
+  --ui-button-height:32px;
   --ui-button-padding-inline:var(--ui-padding-inline-medium);
   --ui-button-column-gap:var(--ui-column-gap-medium);
   --ui-icon-size:var(--ui-icon-size-medium);}
-
-ui-button[size="large"]{
-  --ui-font-size:var(--ui-font-size-large);
-  --ui-button-height:var(--ui-size-large);
-  --ui-button-padding-inline:var(--ui-padding-inline-large);
-  --ui-button-column-gap:var(--ui-column-gap-large);
-  --ui-icon-size:var(--ui-icon-size-large);}
