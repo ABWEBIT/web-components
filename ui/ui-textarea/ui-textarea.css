@@ -1,6 +1,11 @@
 ui-textarea{
   position:relative;
-  display:block;
+  display:inline-flex;
+  height:fit-content;
+  min-height:var(--ui-textarea-min-height);
+  width:fit-content;
+  min-width:var(--ui-textarea-min-width);
+  max-width:100%;
   outline-width:2px;
   outline-offset:2px;
   outline-style:solid;
@@ -12,8 +17,8 @@ ui-textarea[ui]{
   transition-property:outline-color;}
 
 ui-textarea::before{
-  position:absolute;
   content:'';
+  position:absolute;
   inset:0;
   border-radius:inherit;
   border-width:1px;
@@ -25,14 +30,18 @@ ui-textarea textarea{
   direction:inherit;
   border:none;
   outline:none;
+  min-height:var(--ui-textarea-min-height);
+  width:100%;
+  min-width:var(--ui-textarea-min-width);
   padding:var(--ui-textarea-padding);
-  resize:none;
+  resize:vertical;
   font-size:var(--ui-textarea-font-size);
   color:var(--ui-textarea-font-color);
   background-color:transparent;}
 
-ui-textarea textarea::placeholder{
-  color:var(--ui-textarea-placeholder-font-color);}
+ui-textarea textarea::placeholder,
+ui-textarea[disabled] textarea{
+  color:var(--ui-textarea-disabled-placeholder-font-color);}
 
 @media (hover:hover){
   ui-textarea:hover:not([disabled]){
@@ -42,19 +51,25 @@ ui-textarea textarea::placeholder{
 ui-textarea:focus-within:not([disabled]){
   outline-color:var(--ui-textarea-outline-color);}
 
+/* width-mode */
+ui-textarea[width-mode="full"],
+ui-textarea[width-mode="full"] textarea{
+  width:100%!important;}
+
 /* color */
 ui-textarea[color="default"]{
   --ui-textarea-background-color:var(--ui-color-gray-800);
   --ui-textarea-border-color:var(--ui-color-gray-500);
   --ui-textarea-font-color:var(--ui-color-white);
-  --ui-textarea-placeholder-font-color:var(--ui-color-gray-400);
+  --ui-textarea-disabled-placeholder-font-color:var(--ui-color-gray-400);
   --ui-textarea-outline-color:var(--ui-color-gray-500);}
 
 /* size */
 ui-textarea[size="default"]{
   --ui-textarea-font-size:14px;
-  --ui-textarea-min-height:100px;
-  --ui-textarea-padding:10px 12px;}
+  --ui-textarea-padding:10px 12px;
+  --ui-textarea-min-height:34px;
+  --ui-textarea-min-width:100px;}
 
 ui-textarea[status="accent"]::before{border-color:var(--ui-color-blue-500);}
 ui-textarea[status="error"]::before{border-color:var(--ui-color-red-500);}

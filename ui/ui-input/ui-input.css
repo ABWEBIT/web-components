@@ -15,8 +15,8 @@ ui-input[ui]{
   transition-property:outline-color;}
 
 ui-input::before{
-  position:absolute;
   content:'';
+  position:absolute;
   inset:0;
   border-radius:inherit;
   border-width:1px;
