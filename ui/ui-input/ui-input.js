@@ -5,16 +5,13 @@ import {icons} from '../../lib/icons.js';
 class UIInput extends UIBase{
   #input = null;
   #clear = null;
+  #iconInput = 'close';
   #required = false;
   #disabled = false;
   #clearable = false;
 
   #onInput = this.onInput.bind(this);
   #onClear = this.onClear.bind(this);
-
-  static #icon = 'close';
-  static #viewBox = '0 0 24 24';
-  static #xmlns = 'http://www.w3.org/2000/svg';
 
   static properties = Object.freeze({
     'required':{name:'required',type:Boolean,reflect:true},
@@ -77,16 +74,8 @@ class UIInput extends UIBase{
 
     this.#clearable = this.hasAttribute('clearable');
     if(this.#clearable){
-      this.#clear = document.createElementNS(UIInput.#xmlns,'svg');
-      this.#clear.setAttribute('viewBox',UIInput.#viewBox);
-
-      const data = icons?.[UIInput.#icon];
-      if(!Array.isArray(data) || data.length === 0) return;
-
-      const content = data[0];
-      if(typeof content !== 'string') return;
-
-      this.#clear.innerHTML = content;
+      this.#clear = document.createElement('ui-icon');
+      this.#clear.setAttribute('icon',this.#iconInput);
 
       this.#clear.addEventListener('click',this.#onClear);
       fragment.appendChild(this.#clear);
@@ -109,7 +98,7 @@ class UIInput extends UIBase{
   onClear(){
     if(!this.#input) return;
     this.#input.value = '';
-    this.#input.focus();
+    //this.#input.focus();
   }
 
   disconnectedCallback(){

@@ -46,19 +46,9 @@ ui-switch[checked]{
 /* color */
 ui-switch[color="default"]{
   --ui-switch-background-color:var(--ui-color-gray-600);
-  --ui-switch-border-color:var(--ui-color-gray-500);
-  --ui-switch-outline-color:var(--ui-outline-color);
+  --ui-switch-outline-color:var(--ui-color-gray-500);
   --ui-switch-checked-background-color:var(--ui-color-blue-500);}
 
 /* size */
-ui-switch[size="small"]{
-  --ui-switch-size:var(--ui-size-small);
-  --ui-icon-size:var(--ui-icon-size-small);}
-
-ui-switch[size="medium"]{
-  --ui-switch-size:var(--ui-size-medium);
-  --ui-icon-size:var(--ui-icon-size-medium);}
-
-ui-switch[size="large"]{
-  --ui-switch-size:var(--ui-size-large);
-  --ui-icon-size:var(--ui-icon-size-large);}
+ui-switch[size="default"]{
+  --ui-switch-size:24px;}

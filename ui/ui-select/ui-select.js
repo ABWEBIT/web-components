@@ -92,9 +92,7 @@ class UISelect extends UIBase{
 
     if(this.#iconCombobox){
       const icon = document.createElement('ui-icon');
-      this.setAttributes(icon,{
-        'icon': this.#iconCombobox
-      });
+      icon.setAttribute('icon',this.#iconCombobox);
       fragment.appendChild(icon);
     }
 

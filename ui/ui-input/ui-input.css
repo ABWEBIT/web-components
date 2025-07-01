@@ -45,7 +45,7 @@ ui-input[disabled] input::placeholder{
 ui-input[clearable] > input{
   padding-inline-end:0;}
 
-ui-input > svg{
+ui-input > ui-icon{
   display:block;
   height:100%;
   width:var(--ui-input-icon-size);
@@ -55,12 +55,9 @@ ui-input > svg{
   cursor:pointer;
   pointer-events:all!important;}
 
-ui-input[ui] > svg{
-  transition-duration:var(--ui-transition-duration);
-  transition-property:color;}
 
 @media (hover:hover){
-  ui-input > svg:hover{
+  ui-input > ui-icon:hover{
     color:var(--ui-color-input-icons-active);}
 }
 

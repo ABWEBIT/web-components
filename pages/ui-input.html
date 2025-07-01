@@ -23,6 +23,10 @@
     <h2>Attributes</h2>
     <ul>
       <li>
+        aria-label - static (required).<br>
+        If used outside of the <a href="#ui-field">field</a> component, the aria-label must be set manually.
+      </li>
+      <li>
         type - static (init-only, optional). Default: text.<br>
         Specifies the input type. Update via property: component.type = 'email'.
       </li>
@@ -36,14 +40,14 @@
       </li>
       <li>
         clearable - static (optional).<br>
-        Adds a clear button to the input.
+        Adds a clear button to the component.
       </li>
       <li>
-        required - reactive (optional). Default: false.<br>
-        Indicates whether the input is required.
+        required - reactive (optional).<br>
+        Indicates whether the component is required.
       </li>
       <li>
-        disabled - reactive (optional). Default: false.<br>
+        disabled - reactive (optional).<br>
         Controls the disabled state of the component.
       </li>
       <li>
