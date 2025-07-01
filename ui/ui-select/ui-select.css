@@ -2,10 +2,10 @@ ui-select{
   position:relative;
   display:inline-flex;
   align-items:center;
-  height:var(--ui-object-height);
+  height:var(--ui-select-height);
   width:200px;
-  padding-inline-start:calc(var(--ui-object-height) / 2)!important;
-  padding-inline-end:calc(var(--ui-object-height) / 4 + 2px)!important;
+  padding-inline-start:calc(var(--ui-select-height) / 2)!important;
+  padding-inline-end:calc(var(--ui-select-height) / 4 + 2px)!important;
   border:none;
   outline-offset:2px;
   outline-width:2px;
@@ -48,3 +48,11 @@ ui-select > ui-icon{
 ui-listbox[type="select"]{
   font-size:var(--ui-font-size-small);
   color:rgb(175,175,175);}
+
+/* size */
+ui-select[size="default"]{
+  --ui-select-height:32px;
+  --ui-select-padding-inline:16px;
+  --ui-select-column-gap:6px;
+  --ui-select-icon-size:20px;
+  --ui-select-font-size:14px;}

@@ -49,27 +49,6 @@
   --ui-font-size-large:16px;
   --ui-font-size-x-large:18px;
 
-  /* ui icon sizes */
-  --ui-icon-size-x-small:12px;
-  --ui-icon-size-small:16px;
-  --ui-icon-size-medium:20px;
-  --ui-icon-size-large:22px;
-  --ui-icon-size-x-large:24px;
-
-  /* ui padding inline */
-  --ui-padding-inline-x-small:6px;
-  --ui-padding-inline-small:8px;
-  --ui-padding-inline-medium:12px;
-  --ui-padding-inline-large:14px;
-  --ui-padding-inline-x-large:16px;
-
-  /* ui column gap */
-  --ui-column-gap-x-small:4px;
-  --ui-column-gap-small:6px;
-  --ui-column-gap-medium:8px;
-  --ui-column-gap-large:10px;
-  --ui-column-gap-x-large:12px;
-
   /* colors */
   --ui-color-black:oklch(0% 0 0);
   --ui-color-white:oklch(100% 0 0);
@@ -138,7 +117,7 @@
   --ui-color-yellow-900:oklch(40% 0.10 83);
 
   /* border radius */
-  --ui-border-radius-sharp:none;
+  --ui-border-radius-square:none;
   --ui-border-radius-rounded:6px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
@@ -186,7 +165,7 @@
 
 /* border radius */
 [ui][shape="rounded"]{border-radius:var(--ui-border-radius-rounded);}
-[ui][shape="sharp"]{border-radius:var(--ui-border-radius-sharp);}
+[ui][shape="square"]{border-radius:var(--ui-border-radius-square);}
 [ui][shape="pill"]{border-radius:var(--ui-border-radius-pill);}
 [ui][shape="circle"]{border-radius:var(--ui-border-radius-circle);}
 

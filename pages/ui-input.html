@@ -47,17 +47,17 @@
         Controls the disabled state of the component.
       </li>
       <li>
-        size - static (optional). Default: medium.<br>
-        Available options: small, medium, large.
-      </li>
-      <li>
         shape - static (optional). Default: rounded.<br>
-        Available options: rounded, pill, sharp.<br>
+        Available options: rounded, pill, square.<br>
         Sets the corner style.
       </li>
       <li>
+        size - static (optional). Default: default.<br>
+        Specifies the component's size (extendable via CSS).
+      </li>
+      <li>
         color - static (optional). Default: default.<br>
-        Specifies the color scheme.
+        Specifies the component's color scheme (extendable via CSS).
       </li>
     </ul>
   </div>
@@ -66,10 +66,27 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Shape (default: rounded)</div>
+    <div>Minimal</div>
     <div class="example">
       <div class="preview">
         <ui-input></ui-input>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-input&gt;&lt;/ui-input&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Shape (default: rounded)</div>
+    <div class="example">
+      <div class="preview">
+        <ui-input shape="rounded"></ui-input>
         <ui-input shape="pill"></ui-input>
         <ui-input shape="square"></ui-input>
       </div>
@@ -78,30 +95,9 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-input&gt;&lt;/ui-input&gt;</div>
+          <div>&lt;ui-input shape="rounded"&gt;&lt;/ui-input&gt;</div>
           <div>&lt;ui-input shape="pill"&gt;&lt;/ui-input&gt;</div>
           <div>&lt;ui-input shape="square"&gt;&lt;/ui-input&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Size (default: medium)</div>
-    <div class="example">
-      <div class="preview">
-        <ui-input size="small"></ui-input>
-        <ui-input></ui-input>
-        <ui-input size="large"></ui-input>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-input size="small"&gt;&lt;/ui-input&gt;</div>
-          <div>&lt;ui-input&gt;&lt;/ui-input&gt;</div>
-          <div>&lt;ui-input size="large"&gt;&lt;/ui-input&gt;</div>
         </code>
       </div>
     </div>
@@ -111,18 +107,14 @@
     <div>Clear button</div>
     <div class="example">
       <div class="preview">
-        <ui-input size="small" clearable></ui-input>
         <ui-input clearable></ui-input>
-        <ui-input size="large" clearable></ui-input>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-input size="small" clearable&gt;&lt;/ui-input&gt;</div>
           <div>&lt;ui-input clearable&gt;&lt;/ui-input&gt;</div>
-          <div>&lt;ui-input size="large" clearable&gt;&lt;/ui-input&gt;</div>
         </code>
       </div>
     </div>

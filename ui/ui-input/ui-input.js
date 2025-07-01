@@ -1,5 +1,6 @@
 import {UIBase} from '../ui-base/ui-base.js';
 import {inputTypes} from '../../utils/index.js';
+import {icons} from '../../lib/icons.js';
 
 class UIInput extends UIBase{
   #input = null;
@@ -10,6 +11,10 @@ class UIInput extends UIBase{
 
   #onInput = this.onInput.bind(this);
   #onClear = this.onClear.bind(this);
+
+  static #icon = 'close';
+  static #viewBox = '0 0 24 24';
+  static #xmlns = 'http://www.w3.org/2000/svg';
 
   static properties = Object.freeze({
     'required':{name:'required',type:Boolean,reflect:true},
@@ -72,13 +77,16 @@ class UIInput extends UIBase{
 
     this.#clearable = this.hasAttribute('clearable');
     if(this.#clearable){
-      this.#clear = document.createElementNS('http://www.w3.org/2000/svg','svg');
-      this.#clear.setAttribute('viewBox','0 0 24 24');
+      this.#clear = document.createElementNS(UIInput.#xmlns,'svg');
+      this.#clear.setAttribute('viewBox',UIInput.#viewBox);
 
-      const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-      path.setAttribute('d','M13.414,12l6.293-6.293c.391-.391.391-1.023,0-1.414s-1.023-.391-1.414,0l-6.293,6.293-6.293-6.293c-.391-.391-1.023-.391-1.414,0s-.391,1.023,0,1.414l6.293,6.293-6.293,6.293c-.391.391-.391,1.023,0,1.414.195.195.451.293.707.293s.512-.098.707-.293l6.293-6.293,6.293,6.293c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023,0-1.414l-6.293-6.293Z');
+      const data = icons?.[UIInput.#icon];
+      if(!Array.isArray(data) || data.length === 0) return;
 
-      this.#clear.appendChild(path);
+      const content = data[0];
+      if(typeof content !== 'string') return;
+
+      this.#clear.innerHTML = content;
 
       this.#clear.addEventListener('click',this.#onClear);
       fragment.appendChild(this.#clear);

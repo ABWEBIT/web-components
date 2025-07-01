@@ -71,7 +71,8 @@ class UISelect extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.shape();
-    this.height(32);
+    this.size();
+    this.color();
 
     this.setAttributes(this,{
       'type': 'select',

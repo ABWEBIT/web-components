@@ -41,7 +41,7 @@
       </li>
       <li>
         shape - static (optional). Default: rounded.<br>
-        Available options: rounded, pill, sharp, circle.<br>
+        Available options: rounded, pill, square, circle.<br>
         Sets the corner style.
       </li>
       <li>
@@ -76,7 +76,7 @@
   </div>
 
   <div class="content-item">
-    <div>Icon Only, Square</div>
+    <div>Icon Only, Aspect Ratio 1/1</div>
     <div class="example">
       <div class="preview">
         <ui-button aspect-ratio="1/1">
@@ -119,7 +119,7 @@
       <div class="preview">
         <ui-button shape="rounded">Button</ui-button>
         <ui-button shape="pill">Button</ui-button>
-        <ui-button shape="sharp">Button</ui-button>
+        <ui-button shape="square">Button</ui-button>
         <ui-button shape="circle">Button</ui-button>
       </div>
       <div class="toolbar">
@@ -129,7 +129,7 @@
         <code>
           <div>&lt;ui-button shape="rounded"&gt;Button&lt;/ui-button&gt;</div>
           <div>&lt;ui-button shape="pill"&gt;Button&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button shape="sharp"&gt;Button&lt;/ui-button&gt;</div>
+          <div>&lt;ui-button shape="square"&gt;Button&lt;/ui-button&gt;</div>
           <div>&lt;ui-button shape="circle"&gt;Button&lt;/ui-button&gt;</div>
         </code>
       </div>
@@ -137,7 +137,7 @@
   </div>
 
   <div class="content-item">
-    <div>Icon-Only, Different Shapes, Square</div>
+    <div>Icon-Only, Different Shapes, Aspect Ratio 1/1</div>
     <div class="example">
       <div class="preview">
         <ui-button shape="rounded" aspect-ratio="1/1">
@@ -146,7 +146,7 @@
         <ui-button shape="circle" aspect-ratio="1/1">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
-        <ui-button shape="sharp" aspect-ratio="1/1">
+        <ui-button shape="square" aspect-ratio="1/1">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -163,7 +163,7 @@
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
           <br>
-          <div>&lt;ui-button shape="sharp" aspect-ratio="1/1"&gt;</div>
+          <div>&lt;ui-button shape="square" aspect-ratio="1/1"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>
@@ -191,7 +191,7 @@
   </div>
 
   <div class="content-item">
-    <div>Text and icon on one side</div>
+    <div>Text with an icon</div>
     <div class="example">
       <div class="preview">
         <ui-button>
@@ -248,7 +248,7 @@
   </div>
 
   <div class="content-item">
-    <div>Loading</div>
+    <div>Adding Loading state.</div>
     <div class="example">
       <div class="preview">
         <ui-button id="clickMe" onclick="load()" onkeydown="load()" aria-label="Click me">Click me</ui-button>

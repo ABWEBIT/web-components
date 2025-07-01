@@ -64,41 +64,29 @@ ui-input[ui] > svg{
     color:var(--ui-color-input-icons-active);}
 }
 
-ui-input:focus-within:not([disabled]):not([status]){
+ui-input:focus-within:not([disabled]){
   outline-color:var(--ui-input-outline-color);}
 
-ui-input[status="accent"]{border-color:var(--ui-color-accent);}
-ui-input[status="error"]{border-color:var(--ui-color-critical);}
-ui-input[status="success"]{border-color:var(--ui-color-positive);}
-ui-input[status="warning"]{border-color:var(--ui-color-warning);}
+ui-input[status="accent"]::before{border-color:var(--ui-color-blue-500);}
+ui-input[status="error"]::before{border-color:var(--ui-color-red-500);}
+ui-input[status="success"]::before{border-color:var(--ui-color-green-500);}
+ui-input[status="warning"]::before{border-color:var(--ui-color-yellow-500);}
 
 /* color */
 ui-input[color="default"]{
   --ui-input-background-color:var(--ui-color-gray-800);
   --ui-input-border-color:var(--ui-color-gray-500);
   --ui-input-border-color-hover:var(--ui-color-gray-100);
-  --ui-input-outline-color:var(--ui-outline-color);
+  --ui-input-outline-color:var(--ui-color-gray-500);
   --ui-input-color:var(--ui-color-white);
   --ui-input-svg-color:var(--ui-color-gray-500);
   --ui-input-placeholder-color:var(--ui-color-gray-500);
   --ui-input-disabled-color:var(--ui-color-gray-300);}
 
 /* size */
-ui-input[size="small"]{
-  --ui-input-size:var(--ui-size-small);
-  --ui-input-icon-size:var(--ui-icon-size-small);
-  --ui-input-icon-padding:2px;
-  --ui-input-font-size:var(--ui-font-size-small);
-  --ui-input-padding-inline:var(--ui-padding-inline-small);}
-
-ui-input[size="medium"]{
-  --ui-input-size:var(--ui-size-medium);
-  --ui-input-icon-size:var(--ui-icon-size-medium);
-  --ui-input-font-size:var(--ui-font-size-medium);
-  --ui-input-padding-inline:var(--ui-padding-inline-medium);}
-
-ui-input[size="large"]{
-  --ui-input-size:var(--ui-size-large);
-  --ui-input-icon-size:var(--ui-icon-size-large);
-  --ui-input-font-size:var(--ui-font-size-large);
-  --ui-input-padding-inline:var(--ui-padding-inline-large);}
+ui-input[size="default"]{
+  --ui-input-font-size:14px;
+  --ui-input-size:32px;
+  --ui-input-icon-size:28px;
+  --ui-input-icon-padding:4px;
+  --ui-input-padding-inline:8px;}
