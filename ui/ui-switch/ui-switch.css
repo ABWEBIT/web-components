@@ -3,52 +3,46 @@ ui-switch{
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  justify-content:start;
-  height:var(--ui-switch-size);
-  width:calc(var(--ui-switch-size) * 2);
-  padding:calc(var(--ui-switch-size) / 6);
-  border:none;
+  height:var(--ui-switch-height);
+  width:var(--ui-switch-width);
+  padding-inline-start:var(--ui-switch-button-position-start);
   border-radius:var(--ui-border-radius-pill);
   outline-width:2px;
   outline-offset:2px;
   outline-style:solid;
   outline-color:transparent;
   background-color:var(--ui-switch-background-color);
-  line-height:1;
-  cursor:pointer;
-  overflow:hidden;}
+  cursor:pointer;}
 
 ui-switch[ui]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,outline-color;}
+  transition-property:background-color,outline-color,padding-inline-start;}
 
 ui-switch:focus-visible:not([disabled]){
   outline-color:var(--ui-switch-outline-color);}
 
 ui-switch::before{
-  content:'';
-  position:absolute;
-  top:calc(var(--ui-switch-size) / 6);
-  inset-inline-start:calc(var(--ui-switch-size) / 6);
-  height:calc(var(--ui-switch-size) - var(--ui-switch-size) / 3);
-  aspect-ratio:1;
+  height:var(--ui-switch-button-size);
+  width:var(--ui-switch-button-size);
   border-radius:var(--ui-border-radius-circle);
-  background-color:var(--ui-color-white);
-  transition-duration:var(--ui-transition-duration);
-  transition-property:inset-inline-start;}
-
-ui-switch[checked]::before{
-  inset-inline-start:calc(100% - var(--ui-switch-size) + var(--ui-switch-size) / 6);}
+  background-color:var(--ui-switch-button-background-color);
+  content:'';}
 
 ui-switch[checked]{
+  padding-inline-start:var(--ui-switch-button-position-end);
   background-color:var(--ui-switch-checked-background-color);}
 
 /* color */
 ui-switch[color="default"]{
   --ui-switch-background-color:var(--ui-color-gray-600);
+  --ui-switch-checked-background-color:var(--ui-color-blue-500);
   --ui-switch-outline-color:var(--ui-color-gray-500);
-  --ui-switch-checked-background-color:var(--ui-color-blue-500);}
+  --ui-switch-button-background-color:var(--ui-color-white);}
 
 /* size */
 ui-switch[size="default"]{
-  --ui-switch-size:24px;}
+  --ui-switch-height:24px;
+  --ui-switch-width:40px;
+  --ui-switch-button-size:16px;
+  --ui-switch-button-position-start:4px;
+  --ui-switch-button-position-end:20px;}

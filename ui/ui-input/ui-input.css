@@ -12,7 +12,7 @@ ui-input{
 
 ui-input[ui]{
   transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,outline-color;}
+  transition-property:outline-color;}
 
 ui-input::before{
   position:absolute;
@@ -32,7 +32,7 @@ ui-input input{
   height:100%;
   font-size:var(--ui-input-font-size);
   padding-inline:var(--ui-input-padding-inline);
-  color:var(--ui-input-color);
+  color:var(--ui-input-font-color);
   background-color:transparent;}
 
 ui-input input::placeholder{
@@ -57,6 +57,9 @@ ui-input > ui-icon{
 
 
 @media (hover:hover){
+  ui-input:hover:not([disabled]){
+    outline-color:var(--ui-input-outline-color);}
+
   ui-input > ui-icon:hover{
     color:var(--ui-color-input-icons-active);}
 }
@@ -75,8 +78,8 @@ ui-input[color="default"]{
   --ui-input-border-color:var(--ui-color-gray-500);
   --ui-input-border-color-hover:var(--ui-color-gray-100);
   --ui-input-outline-color:var(--ui-color-gray-500);
-  --ui-input-color:var(--ui-color-white);
-  --ui-input-svg-color:var(--ui-color-gray-500);
+  --ui-input-font-color:var(--ui-color-white);
+  --ui-input-svg-color:var(--ui-color-gray-400);
   --ui-input-placeholder-color:var(--ui-color-gray-500);
   --ui-input-disabled-color:var(--ui-color-gray-300);}
 
@@ -86,4 +89,4 @@ ui-input[size="default"]{
   --ui-input-size:32px;
   --ui-input-icon-size:28px;
   --ui-input-icon-padding:4px;
-  --ui-input-padding-inline:8px;}
+  --ui-input-padding-inline:12px;}
