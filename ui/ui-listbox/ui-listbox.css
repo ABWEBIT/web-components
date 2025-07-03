@@ -36,7 +36,7 @@ ui-listbox[ui] [role="option"]{
 
 ui-listbox[ui] [role="option"][aria-selected="true"]{
   background-color:var(--ui-listbox-option-background-color-selected);
-  color:var(--ui-listbox-font-color-hover);}
+  color:var(--ui-listbox-font-color-active);}
 
 /* color */
 ui-listbox[color="default"]{
@@ -44,7 +44,8 @@ ui-listbox[color="default"]{
   --ui-listbox-option-background-color-hover:var(--ui-color-gray-650);
   --ui-listbox-option-background-color-selected:var(--ui-color-gray-700);
   --ui-listbox-font-color:var(--ui-color-gray-150);
-  --ui-listbox-font-color-hover:var(--ui-color-white);}
+  --ui-listbox-font-color-hover:var(--ui-color-white);
+  --ui-listbox-font-color-active:var(--ui-color-white);}
 
 /* size */
 ui-listbox[size="default"]{
