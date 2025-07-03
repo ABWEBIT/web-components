@@ -21,7 +21,6 @@ ui-select[ui]{
 
 @media (hover:hover){
   ui-select:hover:not([disabled]){
-    
     background-color:var(--ui-select-background-color-hover);}
 }
 
@@ -38,11 +37,6 @@ ui-select > span{
 
 ui-select > ui-icon{
   width:18px;}
-
-ui-listbox[type="select"]{
-
-  font-size:var(--ui-font-size-small);
-  color:rgb(175,175,175);}
 
 /* color */
 ui-select[color="default"]{

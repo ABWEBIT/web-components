@@ -15,6 +15,8 @@ class UIListbox extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.shape();
+    this.size();
+    this.color();
 
     this.setAttributes(this,{
       'role': 'listbox'

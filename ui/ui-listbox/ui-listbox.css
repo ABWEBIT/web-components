@@ -8,7 +8,6 @@ ui-listbox{
   outline-style:solid;
   outline-color:transparent;
   background-color:rgb(30,30,30);
-  overflow:hidden;
   z-index:9999;}
 
 ui-listbox[hidden]{
@@ -17,19 +16,9 @@ ui-listbox[hidden]{
 ui-listbox [role="option"]{
   border:none;
   border-radius:inherit;
-  font-size:clamp(
-    var(--ui-font-size-x-small),
-    calc(var(--ui-object-height) / 2 - 2px),
-    var(--ui-font-size-medium)
-  );
-  padding:8px 12px;
+  font-size:var(--ui-listbox-font-size);
+  padding:8px 8px;
   cursor:pointer;}
-
-ui-listbox[data-open="false"]{
-  display:none;}
-
-ui-listbox[data-open="true"]{
-  display:block;}
 
 ui-listbox[ui] [role="option"]{
   transition-duration:var(--ui-transition-duration);
@@ -38,9 +27,22 @@ ui-listbox[ui] [role="option"]{
 @media (hover:hover){
   ui-listbox[ui] [role="option"]:hover:not([disabled]){
     background-color:rgb(40,40,40);
-    color:var(--ui-color-white);}
+    color:var(--ui-listbox-font-color-hover);}
 }
 
 ui-listbox[ui] [role="option"][aria-selected="true"]{
   background-color:rgb(30,30,30);
-  color:var(--ui-color-white);}
+  color:var(--ui-listbox-font-color-hover);}
+
+/* select listbox */
+ui-listbox[type="select"]{
+  color:var(--ui-listbox-font-color);}
+
+/* color */
+ui-listbox[color="default"]{
+  --ui-listbox-font-color:var(--ui-color-gray-150);
+  --ui-listbox-font-color-hover:var(--ui-color-white);}
+
+/* size */
+ui-listbox[size="default"]{
+  --ui-listbox-font-size:13px;}

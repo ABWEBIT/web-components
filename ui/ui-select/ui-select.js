@@ -4,6 +4,7 @@ import {uuid} from '../../utils/uuid.js';
 class UISelect extends UIBase{
   #uuid = uuid();
   #listbox;
+  #items = [];
   #text = '-';
   #iconCombobox = 'arrow-down-small';
   #expanded = false;
@@ -13,11 +14,24 @@ class UISelect extends UIBase{
   #listboxPosition = this.listboxPosition.bind(this);
 
   static properties = Object.freeze({
-    'text':{name:'text',type:String},
+    'text':{name:'text',type:String,reflect:true},
     'icon-combobox':{name:'iconCombobox',type:String,reflect:true},
     'expanded':{name:'expanded',type:Boolean,reflect:true},
     'disabled':{name:'disabled',type:Boolean,reflect:true},
   });
+
+  get items(){return this.#items;}
+
+  set items(value){
+    if(!Array.isArray(value)){
+      throw new Error('Items must be an array');
+    }
+    this.#items = value;
+
+    if(this.#listbox){
+      this.#listbox.options = this.#items;
+    }
+  }
 
   get text(){return this.#text;}
   set text(value){
@@ -80,6 +94,7 @@ class UISelect extends UIBase{
       'aria-haspopup': 'listbox',
       'aria-expanded': this.#expanded ? 'true' : 'false',
       'tabindex': this.#disabled ? '-1' : '0',
+      'text': this.#text,
       'uuid': this.#uuid
     });
 
@@ -87,6 +102,7 @@ class UISelect extends UIBase{
 
     if(this.#text){
       const span = document.createElement('span');
+      span.textContent = this.#text;
       fragment.appendChild(span);
     }
 
@@ -100,9 +116,6 @@ class UISelect extends UIBase{
 
     this.addEventListener('click',this.#listboxToggle);
     window.addEventListener('popstate', this.#onPopState);
-
-    //window.addEventListener('resize', () => this.hideListbox());
-    //window.addEventListener('scroll', () => this.hideListbox(), true);
 
   }
 
@@ -120,14 +133,19 @@ class UISelect extends UIBase{
       'uuid': this.#uuid
     });
 
-    document.body.appendChild(this.#listbox);
+    this.#listbox.options = this.#items;
 
     this.#listbox.addEventListener('option-selected', e => {
-      if (e.detail.uuid === this.#uuid) {
-        this.text = e.detail.value;
-        this.expanded = false;
-      }
+      this.text = e.detail.value;
+      //this.expanded = false;
+      this.dispatchEvent(new CustomEvent('select-changed', {
+        detail: { value: e.detail.value },
+        bubbles: true,
+        composed: true,
+      }));
     });
+
+    document.body.appendChild(this.#listbox);
 
     return this.#listbox;
   }
