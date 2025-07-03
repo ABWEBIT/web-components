@@ -136,13 +136,22 @@ class UISelect extends UIBase{
     this.#listbox.options = this.#items;
 
     this.#listbox.addEventListener('option-selected', e => {
-      this.text = e.detail.value;
-      //this.expanded = false;
-      this.dispatchEvent(new CustomEvent('select-changed', {
-        detail: { value: e.detail.value },
-        bubbles: true,
-        composed: true,
-      }));
+
+      if(e.detail.uuid === this.#uuid){
+
+        this.text = e.detail.value;
+        //this.expanded = false;
+        this.dispatchEvent(new CustomEvent('select-changed',{
+          detail: {
+            uuid: this.#uuid,
+            value: e.detail.value
+          },
+          bubbles: true,
+          composed: true,
+        }));
+
+      }
+
     });
 
     document.body.appendChild(this.#listbox);
@@ -157,9 +166,12 @@ class UISelect extends UIBase{
   listboxPosition(){
     if(!this.#listbox) return;
     const rect = this.getBoundingClientRect();
-    this.#listbox.style.top = `${rect.bottom + window.scrollY + 4}px`;
-    this.#listbox.style.left = `${rect.left + window.scrollX}px`;
-    this.#listbox.style.minWidth = `${rect.width}px`;
+
+    Object.assign(this.#listbox.style, {
+      top: `${rect.bottom + window.scrollY + 4}px`,
+      left: `${rect.left + window.scrollX}px`,
+      width: `${rect.width}px`
+    });
   }
 
   #onDocumentClick = (e) =>{

@@ -1,6 +1,7 @@
 import {UIBase} from '../ui-base/ui-base.js';
 
 class UIListbox extends UIBase{
+  #selectedValue = null;
   #options = [];
 
   get options(){return this.#options;}
@@ -29,8 +30,16 @@ class UIListbox extends UIBase{
     options.forEach(text => {
       const opt = document.createElement('div');
       opt.setAttribute('role','option');
+      
+      this.setAttributes(opt,{
+        'aria-selected': text === this.#selectedValue ? 'true' : 'false'
+      });
+
+
       opt.textContent = text;
       opt.addEventListener('click', () => {
+        this.#selectedValue = text;
+        this.highlightSelected();
         this.dispatchEvent(new CustomEvent('option-selected',{
           detail: {
             uuid: this.getAttribute('uuid'),
@@ -41,6 +50,14 @@ class UIListbox extends UIBase{
         }));
       });
       this.appendChild(opt);
+    });
+  }
+
+  highlightSelected() {
+    [...this.children].forEach(child => {
+      if(child.getAttribute('role') === 'option') {
+        child.setAttribute('aria-selected', child.textContent === this.#selectedValue ? 'true' : 'false');
+      }
     });
   }
 
