@@ -11,10 +11,9 @@ ui-select{
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;
-  color:rgb(175,175,175);
-  background-color:rgb(30,30,30);
-  cursor:pointer;
-  overflow:hidden;}
+  color:var(--ui-color-white);
+  background-color:var(--ui-select-background-color);
+  cursor:pointer;}
 
 ui-select[ui]{
   transition-duration:var(--ui-transition-duration);
@@ -22,32 +21,37 @@ ui-select[ui]{
 
 @media (hover:hover){
   ui-select:hover:not([disabled]){
-    color:var(--ui-color-white);
-    background-color:rgb(40,40,40);}
+    
+    background-color:var(--ui-select-background-color-hover);}
 }
 
 ui-select[expanded]:not([disabled]){
   color:var(--ui-color-white);
-  background-color:rgb(40,40,40);}
+  background-color:var(--ui-select-background-color-hover);}
 
 ui-select:focus-visible:not([disabled]){
   outline-color:rgb(100,100,100);}
 
 ui-select > span{
-  padding-top:1px;
   flex-grow:1;
-  font-size:clamp(
-    var(--ui-font-size-small),
-    calc(var(--ui-object-height) / 2 - 2px),
-    var(--ui-font-size-medium)
-  );}
+  font-size:var(--ui-select-font-size);}
 
 ui-select > ui-icon{
   width:18px;}
 
 ui-listbox[type="select"]{
+
   font-size:var(--ui-font-size-small);
   color:rgb(175,175,175);}
+
+/* color */
+ui-select[color="default"]{
+  --ui-select-background-color:var(--ui-color-gray-800);
+  --ui-select-background-color-hover:var(--ui-color-gray-750);
+  --ui-select-background-color-active:var(--ui-color-gray-700);
+  --ui-select-font-color-:var(--ui-color-gray-150);
+  --ui-select-font-color-hover:var(--ui-color-white);
+  --ui-select-outline-color:var(--ui-color-gray-500);}
 
 /* size */
 ui-select[size="default"]{

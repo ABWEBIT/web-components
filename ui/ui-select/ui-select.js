@@ -121,23 +121,15 @@ class UISelect extends UIBase{
     });
 
     document.body.appendChild(this.#listbox);
-    return this.#listbox;
-  }
 
-  setOptions(options = []){
-    if(!this.#listbox) this.createListbox();
-    this.#listbox.replaceChildren();
-
-    options.forEach(text => {
-      const opt = document.createElement('div');
-      opt.setAttribute('role', 'option');
-      opt.textContent = text;
-      opt.addEventListener('click', () => {
-        this.text = text;
+    this.#listbox.addEventListener('option-selected', e => {
+      if (e.detail.uuid === this.#uuid) {
+        this.text = e.detail.value;
         this.expanded = false;
-      });
-      this.#listbox.appendChild(opt);
+      }
     });
+
+    return this.#listbox;
   }
 
   listboxToggle(){
@@ -159,7 +151,7 @@ class UISelect extends UIBase{
   }
 
   #onPopState = () =>{
-    if (this.#expanded) {
+    if(this.#expanded){
       this.expanded = false;
     }
   }

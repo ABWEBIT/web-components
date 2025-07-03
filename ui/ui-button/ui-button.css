@@ -10,7 +10,7 @@ ui-button{
   padding-inline-end:var(--ui-button-padding-inline);
   column-gap:var(--ui-button-column-gap);
   font-size:var(--ui-button-font-size);
-  color:var(--ui-button-color);
+  color:var(--ui-button-font-color);
   background-color:var(--ui-button-background-color);
   outline-offset:2px;
   outline-width:2px;
@@ -41,7 +41,7 @@ ui-button > ui-spinner{
 @media (hover:hover){
   ui-button:hover:not([disabled]):not([loading]){
     background-color:var(--ui-button-background-color-hover);
-    color:var(--ui-button-color-hover);}
+    color:var(--ui-button-font-color-hover);}
 }
 
 ui-button:active:not([disabled]):not([loading]){
@@ -62,8 +62,8 @@ ui-button[color="default"]{
   --ui-button-loader-background-color:var(--ui-color-gray-800);
   --ui-button-background-color-hover:var(--ui-color-gray-750);
   --ui-button-background-color-active:var(--ui-color-gray-700);
-  --ui-button-color:var(--ui-color-gray-150);
-  --ui-button-color-hover:var(--ui-color-white);
+  --ui-button-font-color:var(--ui-color-gray-150);
+  --ui-button-font-color-hover:var(--ui-color-white);
   --ui-button-outline-color:var(--ui-color-gray-500);}
 
 /* size */

@@ -8,11 +8,11 @@ ui-divider::after{
   content:'';
   display:block;
   flex-grow:1;
-  background-color:var(--ui-color-gray-750);}
+  background-color:var(--ui-divider-background-color);}
 
-ui-divider > *{
-  font-size:var(--ui-font-size-small);
-  color:var(--ui-color-gray-250);
+ui-divider > span{
+  font-size:var(--ui-divider-font-size);
+  color:var(--ui-divider-font-color);
   white-space:nowrap;}
 
 ui-divider[content-align="start"]::before,
@@ -44,3 +44,12 @@ ui-divider[orientation="vertical"]::after{width:1px;}
 ui-divider[orientation="vertical"][content-align="start"]::before,
 ui-divider[orientation="vertical"][content-align="end"]::after{
   height:20px;}
+
+/* color */
+ui-divider[color="default"]{
+  --ui-divider-background-color:var(--ui-color-gray-750);
+  --ui-divider-font-color:var(--ui-color-gray-250);}
+
+/* size */
+ui-divider[size="default"]{
+  --ui-divider-font-size:14px;}
