@@ -128,7 +128,7 @@
   --ui-text-align-end:end;
 
   /* transition */
-  --ui-transition-duration:0.2s;
+  --ui-transition-duration:0.15s;
 }
 
 [ui]{

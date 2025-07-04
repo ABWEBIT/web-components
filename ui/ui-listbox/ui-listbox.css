@@ -38,6 +38,27 @@ ui-listbox[ui] [role="option"][aria-selected="true"]{
   background-color:var(--ui-listbox-option-background-color-selected);
   color:var(--ui-listbox-font-color-active);}
 
+ui-listbox:focus-visible:not([disabled]){
+  outline-color:var(--ui-listbox-outline-color);}
+
+@keyframes fade-slide-in{
+  from {
+    opacity:0;
+    transform:translateY(-4px);
+  }
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+ui-listbox[type="select"] {
+  animation:fade-slide-in 0.15s ease-out;
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity 0.15s ease-out, transform 0.15s ease-out;
+}
+
 /* color */
 ui-listbox[color="default"]{
   --ui-listbox-background-color:var(--ui-color-gray-800);
@@ -45,7 +66,8 @@ ui-listbox[color="default"]{
   --ui-listbox-option-background-color-selected:var(--ui-color-gray-700);
   --ui-listbox-font-color:var(--ui-color-gray-150);
   --ui-listbox-font-color-hover:var(--ui-color-white);
-  --ui-listbox-font-color-active:var(--ui-color-white);}
+  --ui-listbox-font-color-active:var(--ui-color-white);
+  --ui-listbox-outline-color:var(--ui-color-gray-500);}
 
 /* size */
 ui-listbox[size="default"]{

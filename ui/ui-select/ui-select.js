@@ -69,7 +69,10 @@ class UISelect extends UIBase{
       this.#listbox ??= this.createListbox();
       this.#listbox.hidden = false;
 
+      this.#listbox.setAttribute('tabindex', '0');
       this.listboxPosition();
+
+      requestAnimationFrame(() => this.#listbox.focus());
 
       document.addEventListener('click',this.#onDocumentClick,true);
       window.addEventListener('resize',this.#listboxPosition);
@@ -115,13 +118,14 @@ class UISelect extends UIBase{
     this.appendChild(fragment);
 
     this.addEventListener('click',this.#listboxToggle);
-    window.addEventListener('popstate', this.#onPopState);
-
+    window.addEventListener('popstate',this.#onPopState);
+    this.addEventListener('keydown',this.#onKeyDown);
   }
 
   disconnectedCallback(){
     this.removeEventListener('click',this.#listboxToggle);
-    window.removeEventListener('popstate', this.#onPopState);
+    window.removeEventListener('popstate',this.#onPopState);
+    this.removeEventListener('keydown',this.#onKeyDown);
   }
 
   createListbox(){
@@ -185,6 +189,20 @@ class UISelect extends UIBase{
       this.expanded = false;
     }
   }
+
+  #onKeyDown = (e) => {
+    if (this.#disabled) return;
+
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.listboxToggle();
+    }
+
+    if (!this.#expanded && e.key === 'ArrowDown') {
+      e.preventDefault();
+      this.expanded = true;
+    }
+  };
 
 }
 customElements.define('ui-select',UISelect);

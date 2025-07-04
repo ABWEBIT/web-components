@@ -30,7 +30,7 @@ ui-select[expanded]:not([disabled]){
   background-color:var(--ui-select-background-color-hover);}
 
 ui-select:focus-visible:not([disabled]){
-  outline-color:rgb(100,100,100);}
+  outline-color:var(--ui-select-outline-color);}
 
 ui-select > span{
   flex-grow:1;
@@ -40,7 +40,11 @@ ui-select > span{
   text-overflow:ellipsis;}
 
 ui-select > ui-icon{
+  transform:rotate(0deg);
   width:20px;}
+
+ui-select[expanded] > ui-icon{
+  transform:rotate(-180deg);}
 
 /* color */
 ui-select[color="default"]{
@@ -49,7 +53,6 @@ ui-select[color="default"]{
   --ui-select-background-color-active:var(--ui-color-gray-700);
 
   --ui-select-font-color:var(--ui-color-white);
-
   --ui-select-outline-color:var(--ui-color-gray-500);}
 
 /* size */
