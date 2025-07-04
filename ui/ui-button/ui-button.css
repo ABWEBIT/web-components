@@ -25,15 +25,15 @@ ui-button[ui]{
 ui-button:focus-visible:not([disabled]){
   outline-color:var(--ui-button-outline-color);}
 
-ui-button svg{
-  height:var(--ui-button-icon-size)!important;
-  width:var(--ui-button-icon-size)!important;}
+ui-button > ui-icon{
+  height:var(--ui-button-icon-size);
+  width:var(--ui-button-icon-size);}
 
 ui-button > ui-icon:first-child{
-  margin-inline-start:-4px;}
+  margin-inline-start:-2px;}
 
 ui-button > ui-icon:last-child{
-  margin-inline-end:-4px;}
+  margin-inline-end:-2px;}
 
 ui-button > ui-spinner{
   position:absolute;
@@ -43,6 +43,10 @@ ui-button > ui-spinner{
   border-radius:inherit;
   inset:0;
   background-color:var(--ui-button-loader-background-color);}
+
+ui-button > ui-spinner > svg{
+  height:var(--ui-button-loader-icon-size);
+  width:var(--ui-button-loader-icon-size);}
 
 @media (hover:hover){
   ui-button:hover:not([disabled]):not([loading]){
@@ -77,5 +81,6 @@ ui-button[size="default"]{
   --ui-button-font-size:14px;
   --ui-button-height:32px;
   --ui-button-padding-inline:16px;
-  --ui-button-column-gap:6px;
-  --ui-button-icon-size:20px;}
+  --ui-button-column-gap:8px;
+  --ui-button-icon-size:16px;
+  --ui-button-loader-icon-size:20px;}
