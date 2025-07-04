@@ -22,6 +22,7 @@ ui-listbox [role="option"]{
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;
+  outline-offset:-2px;
   cursor:pointer;}
 
 ui-listbox[ui] [role="option"]{

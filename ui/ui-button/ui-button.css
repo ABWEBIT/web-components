@@ -29,6 +29,12 @@ ui-button svg{
   height:var(--ui-button-icon-size)!important;
   width:var(--ui-button-icon-size)!important;}
 
+ui-button > ui-icon:first-child{
+  margin-inline-start:-4px;}
+
+ui-button > ui-icon:last-child{
+  margin-inline-end:-4px;}
+
 ui-button > ui-spinner{
   position:absolute;
   display:flex;
