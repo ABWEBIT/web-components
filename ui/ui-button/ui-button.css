@@ -35,6 +35,13 @@ ui-button > ui-icon:not(:only-child):first-child{
 ui-button > ui-icon:not(:only-child):last-child{
   margin-inline-end:-2px;}
 
+ui-button:has(> ui-icon:only-child){
+  padding:0;
+  aspect-ratio:1;}
+
+ui-button:has(> ui-icon:only-child) > ui-icon{
+  transform:translateX(0.2px);}
+
 ui-button > ui-spinner{
   position:absolute;
   display:flex;
@@ -60,11 +67,6 @@ ui-button:active:not([disabled]):not([loading]){
 /* width-mode */
 ui-button[width-mode="full"]{
   width:100%;}
-
-/* aspect-ratio */
-ui-button[aspect-ratio="1/1"]{
-  padding:0;
-  aspect-ratio:1;}
 
 /* color */
 ui-button[color="default"]{
