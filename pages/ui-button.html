@@ -6,13 +6,16 @@
     <h2>Usage</h2>
     <ul>
       <li>
-        The component acts as both a button and a wrapper. It can contain text, icons, or both - in any order you prefer.
+        The component functions as both a button and a wrapper. It can contain text, icons, or both - in any order.
+      </li>
+      <li>
+        It is initially designed to work with ui-icon and &lt;span&gt;, but since the structure is implemented purely in CSS, it can be easily adapted to support raw svg or other elements if needed.
+      </li>
+      <li>
+        When the button includes multiple elements, text content must be wrapped in a &lt;span&gt; for consistent styling.
       </li>
       <li>
         To make the button square, use aspect-ratio="1/1".
-      </li>
-      <li>
-        More customization options can be added via the CSS.
       </li>
     </ul>
   </div>
@@ -239,7 +242,7 @@
         <code>
           <div>&lt;ui-button&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&nbsp;Button</div>
+          <div>&nbsp;&lt;span&gt;Button&lt;/span&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>

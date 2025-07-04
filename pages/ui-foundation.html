@@ -3,24 +3,27 @@
   <div class="description">Key fundamental capabilities of the UI library.</div>
   <ui-divider></ui-divider>
   <div class="info">
-    <h2>Information</h2>
+    <h2>Architecture</h2>
     <ul>
       <li>
         The library does not use Shadow DOM.
       </li>
       <li>
-        The library does not use internal CSS class names.
+        No internal CSS class names are required or exposed.
       </li>
       <li>
-        Text direction follows the parent or system context unless explicitly set.
+        Text direction (LTR/RTL) inherits from the parent or system unless overridden.
       </li>
     </ul>
   </div>
   <div class="info">
-    <h2>Features</h2>
+    <h2>Styling</h2>
     <ul>
       <li>
-        Supports both LTR (Left-to-Right) and RTL (Right-to-Left) text directions.
+        All components are easily customizable via CSS.
+      </li>
+      <li>
+        Styles can be overridden using standard selectors, CSS variables, or utility classes.
       </li>
     </ul>
   </div>
@@ -28,7 +31,7 @@
     <h2>Attributes</h2>
     <ul>
       <li>
-        ARIA attributes used are valid for their roles and accurately reflect the component's state.
+        ARIA attributes reflect the correct roles and component states.
       </li>
     </ul>
   </div>
