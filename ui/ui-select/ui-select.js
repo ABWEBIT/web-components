@@ -3,7 +3,8 @@ import {uuid} from '../../utils/uuid.js';
 
 class UISelect extends UIBase{
   #uuid = uuid();
-  #listbox;
+  #listenerController = null;
+  #listbox = null;
   #items = [];
   #text = '-';
   #iconName= 'arrow-down-small';
@@ -34,7 +35,10 @@ class UISelect extends UIBase{
 
   get text(){return this.#text;}
   set text(value){
-    if(!(this.#text = String(value || ''))) return;
+    const text = String(value || '');
+    if(this.#text === text) return;
+    this.#text = text;
+
     this.updateText('span',this.#text);
     this.reflect('text',this.#text);
   }
@@ -73,18 +77,23 @@ class UISelect extends UIBase{
         }
       });
 
-      document.addEventListener('click',this.#onDocumentClick,true);
-      window.addEventListener('resize',this.#listboxPosition);
+      this.#listenerController = new AbortController();
+
+      document.addEventListener('click',this.#onDocumentClick,{
+        capture: true,
+        signal: this.#listenerController.signal,
+      });
+      window.addEventListener('resize',this.#listboxPosition,{
+        signal: this.#listenerController.signal,
+      });
     }
     else if(this.#listbox){
       this.#listbox.hidden = true;
 
-      document.removeEventListener('click',this.#onDocumentClick,true);
-      window.removeEventListener('resize',this.#listboxPosition);
+      this.#listenerController?.abort();
+      this.#listenerController = null;
     }
   }
-
-
 
   connectedCallback(){
     super.connectedCallback();
@@ -129,6 +138,11 @@ class UISelect extends UIBase{
     this.removeEventListener('click',this.#listboxToggle);
     window.removeEventListener('popstate',this.#onPopState);
     this.removeEventListener('keydown',this.#onKeyDown);
+
+    if(this.#listbox){
+      this.#listbox.remove();
+      this.#listbox = null;
+    }
   }
 
   createListbox(){
@@ -182,7 +196,7 @@ class UISelect extends UIBase{
   }
 
   #onDocumentClick = (e) =>{
-    if(!this.contains(e.target) && !this.#listbox.contains(e.target)) {
+    if(!this.contains(e.target) && !this.#listbox.contains(e.target)){
       this.expanded = false;
     }
   }
