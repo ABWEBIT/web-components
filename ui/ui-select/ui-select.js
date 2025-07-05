@@ -68,16 +68,19 @@ class UISelect extends UIBase{
       this.#listbox ??= this.#listboxCreate();
       this.#listbox.hidden = false;
 
-      this.#listbox.setAttribute('tabindex','0');
+
       this.#listboxPosition();
 
       requestAnimationFrame(() => {
+        this.#listbox.focus();
+/*
         const options = this.#listbox.querySelectorAll('[role="option"]:not([aria-disabled="true"])');
         const firstOption = options[0];
 
         if(firstOption){
           firstOption.focus();
         }
+*/
       });
 
       this.#listboxListenerController = new AbortController();
@@ -86,6 +89,12 @@ class UISelect extends UIBase{
         capture: true,
         signal: this.#listboxListenerController.signal,
       });
+
+      document.addEventListener('keydown',this.#onEscapeDocument,{
+        capture: true,
+        signal: this.#listboxListenerController.signal,
+      });
+
       window.addEventListener('resize',this.#listboxPosition,{
         signal: this.#listboxListenerController.signal,
       });
@@ -165,6 +174,7 @@ class UISelect extends UIBase{
 
     this.setAttributes(this.#listbox,{
       'type': 'select',
+      'tabindex': '0',
       'uuid': this.#uuid
     });
 
@@ -216,6 +226,13 @@ class UISelect extends UIBase{
     }
   }
 
+  #onEscapeDocument = (e) =>{
+    if(e.key === 'Escape'){
+      e.preventDefault();
+      this.expanded = false;
+    }
+  }
+
   #onPopState = () =>{
     if(this.#expanded){
       this.expanded = false;
@@ -224,6 +241,7 @@ class UISelect extends UIBase{
 
   #onClick = (e) =>{
     if(this.disabled) return;
+
     e.preventDefault();
     e.stopPropagation();
     this.#listboxToggle();
@@ -232,16 +250,16 @@ class UISelect extends UIBase{
   #onKeyDown = (e) =>{
     if(this.#disabled) return;
 
-    if(e.key === 'Enter' || e.key === ' ' || e.code === 'Space'){
+    if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
       this.#listboxToggle();
     }
 
-    if(!this.#expanded && e.key === 'ArrowDown') {
+    if(!this.#expanded && e.key === 'ArrowDown'){
       e.preventDefault();
       this.#listboxToggle();
     }
-  };
+  }
 
 }
 customElements.define('ui-select',UISelect);

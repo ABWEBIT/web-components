@@ -91,7 +91,7 @@ class UIListbox extends UIBase{
       this.highlightSelected();
     }
 
-    if(e.key === 'Enter'){
+    if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
       const active = options[this.#activeIndex];
       if (active) {
@@ -108,16 +108,7 @@ class UIListbox extends UIBase{
         }));
       }
     }
-
-    if(e.key === 'Escape'){
-      e.preventDefault();
-      this.dispatchEvent(new CustomEvent('close-listbox', {
-        detail: { uuid: this.getAttribute('uuid') },
-        bubbles: true,
-        composed: true
-      }));
-    }
-  };
+  }
 
 }
 customElements.define('ui-listbox',UIListbox);
