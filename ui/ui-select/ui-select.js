@@ -32,16 +32,20 @@ class UISelect extends UIBase{
 
   get text(){return this.#text;}
   set text(value){
-    const text = String(value || '');
-    if(this.#text === text) return;
-    this.#text = text;
+    const valueNew = String(value || '');
+    if(this.#text === valueNew) return;
+    this.#text = valueNew;
+
     this.updateText('span',this.#text);
     this.reflect('text',this.#text);
   }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
-    this.#disabled = value === true;
+    const valueNew = value === true;
+    if(this.#disabled === valueNew) return;
+    this.#disabled = valueNew;
+
     this.reflect('disabled',this.#disabled);
     this.setAttributes(this,{
       'tabindex': this.#disabled ? '-1' : '0',
@@ -51,7 +55,10 @@ class UISelect extends UIBase{
 
   get expanded(){return this.#expanded;}
   set expanded(value){
-    this.#expanded = value === true;
+    const valueNew = value === true;
+    if(this.#expanded === valueNew) return;
+    this.#expanded = valueNew;
+
     this.reflect('expanded',this.#expanded);
     this.setAttributes(this,{
       'aria-expanded': this.#expanded ? 'true' : 'false'
@@ -61,7 +68,7 @@ class UISelect extends UIBase{
       this.#listbox ??= this.#listboxCreate();
       this.#listbox.hidden = false;
 
-      this.#listbox.setAttribute('tabindex', '0');
+      this.#listbox.setAttribute('tabindex','0');
       this.#listboxPosition();
 
       requestAnimationFrame(() => {
@@ -88,6 +95,8 @@ class UISelect extends UIBase{
 
       this.#listboxListenerController?.abort();
       this.#listboxListenerController = null;
+
+      console.log(this.#listboxListenerController);
     }
   }
 
@@ -128,7 +137,6 @@ class UISelect extends UIBase{
     this.#componentListenerController = new AbortController();
 
     window.addEventListener('popstate',this.#onPopState,{
-      capture: true,
       signal: this.#componentListenerController.signal
     });
 
@@ -190,7 +198,7 @@ class UISelect extends UIBase{
     this.expanded = !this.expanded;
   }
 
-  #listboxPosition(){
+  #listboxPosition = () =>{
     if(!this.#listbox) return;
     const rect = this.getBoundingClientRect();
 
@@ -202,7 +210,8 @@ class UISelect extends UIBase{
   }
 
   #onDocumentClick = (e) =>{
-    if(!this.contains(e.target) && !this.#listbox.contains(e.target)){
+    const сlickInside = this.contains(e.target) || this.#listbox?.contains(e.target);
+    if(!сlickInside){
       this.expanded = false;
     }
   }
@@ -216,6 +225,7 @@ class UISelect extends UIBase{
   #onClick = (e) =>{
     if(this.disabled) return;
     e.preventDefault();
+    e.stopPropagation();
     this.#listboxToggle();
   }
 
