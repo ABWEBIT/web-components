@@ -3,16 +3,14 @@ import {uuid} from '../../utils/uuid.js';
 
 class UISelect extends UIBase{
   #uuid = uuid();
-  #listenerController = null;
+  #listboxListenerController = null;
+  #componentListenerController = null;
   #listbox = null;
   #items = [];
   #text = '-';
-  #iconName= 'arrow-down-small';
+  #iconName = 'arrow-down-small';
   #expanded = false;
   #disabled = false;
-
-  #listboxToggle = this.listboxToggle.bind(this);
-  #listboxPosition = this.listboxPosition.bind(this);
 
   static properties = Object.freeze({
     'text':{name:'text',type:String,reflect:true},
@@ -21,7 +19,6 @@ class UISelect extends UIBase{
   });
 
   get items(){return this.#items;}
-
   set items(value){
     if(!Array.isArray(value)){
       throw new Error('Items must be an array');
@@ -38,7 +35,6 @@ class UISelect extends UIBase{
     const text = String(value || '');
     if(this.#text === text) return;
     this.#text = text;
-
     this.updateText('span',this.#text);
     this.reflect('text',this.#text);
   }
@@ -62,11 +58,11 @@ class UISelect extends UIBase{
     });
 
     if(this.#expanded){
-      this.#listbox ??= this.createListbox();
+      this.#listbox ??= this.#listboxCreate();
       this.#listbox.hidden = false;
 
       this.#listbox.setAttribute('tabindex', '0');
-      this.listboxPosition();
+      this.#listboxPosition();
 
       requestAnimationFrame(() => {
         const options = this.#listbox.querySelectorAll('[role="option"]:not([aria-disabled="true"])');
@@ -77,21 +73,21 @@ class UISelect extends UIBase{
         }
       });
 
-      this.#listenerController = new AbortController();
+      this.#listboxListenerController = new AbortController();
 
       document.addEventListener('click',this.#onDocumentClick,{
         capture: true,
-        signal: this.#listenerController.signal,
+        signal: this.#listboxListenerController.signal,
       });
       window.addEventListener('resize',this.#listboxPosition,{
-        signal: this.#listenerController.signal,
+        signal: this.#listboxListenerController.signal,
       });
     }
     else if(this.#listbox){
       this.#listbox.hidden = true;
 
-      this.#listenerController?.abort();
-      this.#listenerController = null;
+      this.#listboxListenerController?.abort();
+      this.#listboxListenerController = null;
     }
   }
 
@@ -126,18 +122,28 @@ class UISelect extends UIBase{
     fragment.appendChild(icon);
     this.removeAttribute('icon');
 
-
     this.appendChild(fragment);
 
-    this.addEventListener('click',this.#listboxToggle);
-    window.addEventListener('popstate',this.#onPopState);
-    this.addEventListener('keydown',this.#onKeyDown);
+    // listeners
+    this.#componentListenerController = new AbortController();
+
+    window.addEventListener('popstate',this.#onPopState,{
+      capture: true,
+      signal: this.#componentListenerController.signal
+    });
+
+    this.addEventListener('click',this.#onClick,{
+      signal: this.#componentListenerController.signal
+    });
+
+    this.addEventListener('keydown',this.#onKeyDown,{
+      signal: this.#componentListenerController.signal
+    });
   }
 
   disconnectedCallback(){
-    this.removeEventListener('click',this.#listboxToggle);
-    window.removeEventListener('popstate',this.#onPopState);
-    this.removeEventListener('keydown',this.#onKeyDown);
+    this.#componentListenerController?.abort();
+    this.#componentListenerController = null;
 
     if(this.#listbox){
       this.#listbox.remove();
@@ -145,7 +151,7 @@ class UISelect extends UIBase{
     }
   }
 
-  createListbox(){
+  #listboxCreate = () =>{
     this.#listbox = document.createElement('ui-listbox');
     this.#listbox.style.position = 'absolute';
 
@@ -180,11 +186,11 @@ class UISelect extends UIBase{
     return this.#listbox;
   }
 
-  listboxToggle(){
+  #listboxToggle = () =>{
     this.expanded = !this.expanded;
   }
 
-  listboxPosition(){
+  #listboxPosition(){
     if(!this.#listbox) return;
     const rect = this.getBoundingClientRect();
 
@@ -207,17 +213,23 @@ class UISelect extends UIBase{
     }
   }
 
+  #onClick = (e) =>{
+    if(this.disabled) return;
+    e.preventDefault();
+    this.#listboxToggle();
+  }
+
   #onKeyDown = (e) =>{
     if(this.#disabled) return;
 
-    if(e.key === 'Enter' || e.key === ' '){
+    if(e.key === 'Enter' || e.key === ' ' || e.code === 'Space'){
       e.preventDefault();
-      this.listboxToggle();
+      this.#listboxToggle();
     }
 
     if(!this.#expanded && e.key === 'ArrowDown') {
       e.preventDefault();
-      this.expanded = true;
+      this.#listboxToggle();
     }
   };
 
