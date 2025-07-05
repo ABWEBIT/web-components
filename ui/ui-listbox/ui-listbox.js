@@ -35,7 +35,7 @@ class UIListbox extends UIBase{
     options.forEach(text => {
       const opt = document.createElement('div');
       opt.setAttribute('role', 'option');
-      opt.setAttribute('tabindex', '-1'); // управляем фокусом вручную
+      opt.setAttribute('tabindex', '-1');
       opt.textContent = text;
 
       opt.addEventListener('click', () => {
@@ -55,7 +55,6 @@ class UIListbox extends UIBase{
       this.appendChild(opt);
     });
 
-    // При отрисовке ищем выбранное значение
     if (this.#selectedValue) {
       this.#activeIndex = options.indexOf(this.#selectedValue);
     }

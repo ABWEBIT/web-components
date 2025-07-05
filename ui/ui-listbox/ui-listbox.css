@@ -2,11 +2,7 @@ ui-listbox{
   display:inline-flex;
   flex-direction:column;
   padding:6px;
-  border:none;
-  outline-offset:2px;
-  outline-width:2px;
-  outline-style:solid;
-  outline-color:transparent;
+  outline:none;
   color:var(--ui-listbox-font-color);
   background-color:var(--ui-listbox-background-color);
   z-index:9999;}
@@ -15,14 +11,13 @@ ui-listbox[hidden]{
   display:none!important;}
 
 ui-listbox [role="option"]{
-  border:none;
+  outline:none;
   border-radius:inherit;
   font-size:var(--ui-listbox-font-size);
   padding:8px 8px;
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;
-  outline-offset:-2px;
   cursor:pointer;}
 
 ui-listbox[ui] [role="option"]{
@@ -39,7 +34,14 @@ ui-listbox[ui] [role="option"][aria-selected="true"]{
   background-color:var(--ui-listbox-option-background-color-selected);
   color:var(--ui-listbox-font-color-active);}
 
+ui-listbox [role="option"]:focus-visible:not([disabled]){
+  background-color:var(--ui-listbox-option-background-color-hover);
+  color:var(--ui-listbox-font-color-hover);}
+
 ui-listbox:focus-visible:not([disabled]){
+  outline-color:var(--ui-listbox-outline-color);}
+
+ui-listbox:focus-within:not([disabled]){
   outline-color:var(--ui-listbox-outline-color);}
 
 @keyframes fade-slide-in{
