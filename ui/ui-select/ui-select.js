@@ -20,17 +20,14 @@ class UISelect extends UIBase{
 
   get items(){return this.#items;}
   set items(value){
-    if(!Array.isArray(value)){
-      throw new Error('Items must be an array');
-    }
+    if(!Array.isArray(value)) throw new Error('Items must be an array');
+
+    const itemsSelected = value.filter(item => item.selected === true);
+    if(itemsSelected.length > 1) throw new Error('Only one item can be selected');
+
     this.#items = value;
-
-    if(this.#listbox){
-      this.#listbox.options = this.#items;
-    }
-
-    const itemSelected = this.#items.find(item => item.selected === true);
-    this.text = itemSelected ? itemSelected.label : this.#text;
+    if(this.#listbox) this.#listbox.options = this.#items;
+    this.text = itemsSelected[0]?.label ?? this.#text;
   }
 
   get text(){return this.#text;}
@@ -68,9 +65,7 @@ class UISelect extends UIBase{
     });
 
     if(this.#expanded){
-      this.#listbox ??= this.#listboxCreate();
-
-      this.#listboxPosition();
+      this.#listboxCreate();
 
       this.#listboxListenerController = new AbortController();
 
@@ -91,13 +86,12 @@ class UISelect extends UIBase{
       this.#listbox.addEventListener('focusout',this.#onListboxFocusOut,{
         signal: this.#listboxListenerController?.signal
       });
-
     }
-    else if(this.#listbox){
-      this.#listbox.remove();
-      this.#listbox = null;
+    else{
       this.#listboxListenerController?.abort();
       this.#listboxListenerController = null;
+      this.#listbox?.remove();
+      this.#listbox = null;
     }
   }
 
@@ -134,7 +128,6 @@ class UISelect extends UIBase{
 
     this.appendChild(fragment);
 
-    // listeners
     this.#componentListenerController = new AbortController();
 
     window.addEventListener('popstate',this.#onPopState,{
@@ -151,13 +144,13 @@ class UISelect extends UIBase{
   }
 
   disconnectedCallback(){
+    this.#listboxListenerController?.abort();
+    this.#listboxListenerController = null;
     this.#componentListenerController?.abort();
     this.#componentListenerController = null;
 
-    if(this.#listbox){
-      this.#listbox.remove();
-      this.#listbox = null;
-    }
+    this.#listbox?.remove();
+    this.#listbox = null;
   }
 
   #listboxCreate = () =>{
@@ -191,6 +184,7 @@ class UISelect extends UIBase{
     });
 
     document.body.appendChild(this.#listbox);
+    this.#listboxPosition();
 
     return this.#listbox;
   }

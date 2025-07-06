@@ -69,6 +69,23 @@
     </div>
   </div>
 
+  <div class="content-item">
+    <div>Disabled</div>
+    <div class="example">
+      <div class="preview">
+        <ui-select disabled></ui-select>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-select disabled&gt;&lt;/ui-select&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <script>
@@ -79,7 +96,7 @@ document.getElementById('id1').items = [
 ];
 
 document.getElementById('id2').items = [
-  { value: '1', label: 'ID2 Option 1', selected: true, disabled: false },
+  { value: '1', label: 'ID2 Option 1', selected: false, disabled: false },
   { value: '2', label: 'ID2 Option 2', selected: false, disabled: true },
   { value: '3', label: 'ID2 Option 3', selected: false, disabled: false },
 ];
