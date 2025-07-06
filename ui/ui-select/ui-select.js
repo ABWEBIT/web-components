@@ -100,12 +100,10 @@ class UISelect extends UIBase{
       });
     }
     else if(this.#listbox){
-      this.#listbox.hidden = true;
-
+      this.#listbox.remove();
+      this.#listbox = null;
       this.#listboxListenerController?.abort();
       this.#listboxListenerController = null;
-
-      console.log(this.#listboxListenerController);
     }
   }
 
