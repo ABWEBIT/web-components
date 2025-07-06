@@ -19,12 +19,17 @@ class UIListbox extends UIBase{
     this.shape();
     this.size();
     this.color();
+    
 
     this.setAttributes(this,{
       'role': 'listbox'
     });
 
     this.addEventListener('keydown',this.#onKeyDown);
+
+      requestAnimationFrame(() => {
+        this.focus();
+      });
   }
 
   setOptions(options = []) {

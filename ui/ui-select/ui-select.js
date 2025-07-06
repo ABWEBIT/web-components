@@ -28,6 +28,9 @@ class UISelect extends UIBase{
     if(this.#listbox){
       this.#listbox.options = this.#items;
     }
+
+    const itemSelected = this.#items.find(item => item.selected === true);
+    this.text = itemSelected ? itemSelected.label : this.#text;
   }
 
   get text(){return this.#text;}
@@ -66,38 +69,29 @@ class UISelect extends UIBase{
 
     if(this.#expanded){
       this.#listbox ??= this.#listboxCreate();
-      this.#listbox.hidden = false;
-
 
       this.#listboxPosition();
-
-      requestAnimationFrame(() => {
-        this.#listbox.focus();
-/*
-        const options = this.#listbox.querySelectorAll('[role="option"]:not([aria-disabled="true"])');
-        const firstOption = options[0];
-
-        if(firstOption){
-          firstOption.focus();
-        }
-*/
-      });
 
       this.#listboxListenerController = new AbortController();
 
       document.addEventListener('click',this.#onDocumentClick,{
         capture: true,
-        signal: this.#listboxListenerController.signal,
+        signal: this.#listboxListenerController?.signal,
       });
 
       document.addEventListener('keydown',this.#onEscapeDocument,{
         capture: true,
-        signal: this.#listboxListenerController.signal,
+        signal: this.#listboxListenerController?.signal,
       });
 
       window.addEventListener('resize',this.#listboxPosition,{
-        signal: this.#listboxListenerController.signal,
+        signal: this.#listboxListenerController?.signal,
       });
+
+      this.#listbox.addEventListener('focusout',this.#onListboxFocusOut,{
+        signal: this.#listboxListenerController?.signal
+      });
+
     }
     else if(this.#listbox){
       this.#listbox.remove();
@@ -172,7 +166,7 @@ class UISelect extends UIBase{
 
     this.setAttributes(this.#listbox,{
       'type': 'select',
-      'tabindex': '0',
+      'tabindex': '-1',
       'uuid': this.#uuid
     });
 
@@ -186,7 +180,6 @@ class UISelect extends UIBase{
         this.expanded = false;
         this.dispatchEvent(new CustomEvent('select-changed',{
           detail: {
-            uuid: this.#uuid,
             value: e.detail.value
           },
           bubbles: true,
@@ -202,11 +195,11 @@ class UISelect extends UIBase{
     return this.#listbox;
   }
 
-  #listboxToggle = () =>{
+  #listboxToggle = () => {
     this.expanded = !this.expanded;
   }
 
-  #listboxPosition = () =>{
+  #listboxPosition = () => {
     if(!this.#listbox) return;
     const rect = this.getBoundingClientRect();
 
@@ -217,35 +210,42 @@ class UISelect extends UIBase{
     });
   }
 
-  #onDocumentClick = (e) =>{
+  #onDocumentClick = (e) => {
     const сlickInside = this.contains(e.target) || this.#listbox?.contains(e.target);
     if(!сlickInside){
       this.expanded = false;
     }
   }
 
-  #onEscapeDocument = (e) =>{
+  #onEscapeDocument = (e) => {
     if(e.key === 'Escape'){
       e.preventDefault();
       this.expanded = false;
     }
   }
 
-  #onPopState = () =>{
+  #onListboxFocusOut = (e) => {
+    const related = e.relatedTarget;
+    const inside = this.contains(related) || this.#listbox?.contains(related);
+
+    if(!inside){
+      this.expanded = false;
+    }
+  }
+
+  #onPopState = () => {
     if(this.#expanded){
       this.expanded = false;
     }
   }
 
-  #onClick = (e) =>{
+  #onClick = (e) => {
     if(this.disabled) return;
-
     e.preventDefault();
-    e.stopPropagation();
     this.#listboxToggle();
   }
 
-  #onKeyDown = (e) =>{
+  #onKeyDown = (e) => {
     if(this.#disabled) return;
 
     if(e.key === 'Enter' || e.key === ' '){
