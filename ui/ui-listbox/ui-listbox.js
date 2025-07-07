@@ -4,6 +4,7 @@ class UIListbox extends UIBase{
   #options = [];
   #selectedValue = null;
   #activeIndex = -1;
+  #activeElement = null;
 
   get options(){return this.#options;}
   set options(value){
@@ -19,38 +20,60 @@ class UIListbox extends UIBase{
     this.shape();
     this.size();
     this.color();
-    
 
     this.setAttributes(this,{
       'role': 'listbox'
     });
 
     this.addEventListener('keydown',this.#onKeyDown);
-
-      requestAnimationFrame(() => {
-        this.focus();
-      });
+    requestAnimationFrame(() => {
+      this.focus();
+    });
   }
 
-  setOptions(options = []) {
+  setOptions(options = []){
+    if(!Array.isArray(options)){
+      throw new Error('Options must be an array');
+    }
+
     this.replaceChildren();
     this.#options = options;
     this.#activeIndex = -1;
+    this.#activeElement = null;
+    this.#selectedValue = null;
 
-    options.forEach(text => {
+    options.forEach((item, index) => {
+      if(typeof item !== 'object' || item === null){
+        throw new Error('Each option must be an object with {label, value}');
+      }
+
+      const {label,value,selected,disabled} = item;
+
       const opt = document.createElement('div');
-      opt.setAttribute('role', 'option');
-      opt.setAttribute('tabindex', '-1');
-      opt.textContent = text;
+      this.setAttributes(opt,{
+        'role': 'option',
+        'tabindex': '-1',
+        'aria-disabled': disabled ? 'true' : 'false'
+      });
+      opt.textContent = label;
+      opt.dataset.value = value;
+
+      if (selected && !disabled) {
+        this.#selectedValue = value;
+        this.#activeIndex = index;
+      }
 
       opt.addEventListener('click', () => {
-        this.#selectedValue = text;
-        this.#activeIndex = [...this.children].indexOf(opt);
+        if (disabled) return;
+
+        this.#selectedValue = value;
+        this.#activeIndex = index;
         this.highlightSelected();
+
         this.dispatchEvent(new CustomEvent('option-selected', {
           detail: {
             uuid: this.getAttribute('uuid'),
-            value: text
+            value: item.label
           },
           bubbles: true,
           composed: true
@@ -60,58 +83,72 @@ class UIListbox extends UIBase{
       this.appendChild(opt);
     });
 
-    if (this.#selectedValue) {
-      this.#activeIndex = options.indexOf(this.#selectedValue);
-    }
-
     this.highlightSelected();
   }
 
   highlightSelected(){
-    [...this.children].forEach((child, index) => {
-      const isSelected = child.textContent === this.#selectedValue;
-      const isActive = index === this.#activeIndex;
+    const options = [...this.children];
+    const newActive = options[this.#activeIndex];
 
-      child.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+    if(this.#activeElement && this.#activeElement !== newActive){
+      this.#activeElement.setAttribute('aria-selected','false');
+      this.#activeElement.blur?.();
+    }
 
-      if(isActive){
-        child.focus();
-      }
-    });
+    if(newActive){
+      newActive.setAttribute('aria-selected','true');
+      newActive.focus?.();
+      this.#activeElement = newActive;
+    }
   }
 
   #onKeyDown = (e) => {
-    const options = [...this.children];
-    if(!options.length) return;
+    const maxIndex = this.#options.length - 1;
+    if(maxIndex < 0) return;
+
+    const moveTo = (direction) => {
+      let index = this.#activeIndex;
+      do{
+        index += direction;
+        if(index < 0 || index > maxIndex) break;
+
+        const item = this.#options[index];
+        if(item.disabled !== true){
+          this.#activeIndex = index;
+          this.highlightSelected();
+          break;
+        }
+      }
+      while(true);
+    };
 
     if(e.key === 'ArrowDown'){
       e.preventDefault();
-      this.#activeIndex = Math.min(this.#activeIndex + 1, options.length - 1);
-      this.highlightSelected();
+      moveTo(1);
     }
 
     if(e.key === 'ArrowUp'){
       e.preventDefault();
-      this.#activeIndex = Math.max(this.#activeIndex - 1, 0);
-      this.highlightSelected();
+      moveTo(-1);
     }
 
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
-      const active = options[this.#activeIndex];
-      if (active) {
-        const text = active.textContent;
-        this.#selectedValue = text;
-        this.highlightSelected();
-        this.dispatchEvent(new CustomEvent('option-selected', {
-          detail: {
-            uuid: this.getAttribute('uuid'),
-            value: text
-          },
-          bubbles: true,
-          composed: true
-        }));
-      }
+      const item = this.#options[this.#activeIndex];
+      if (!item || item.disabled === true) return;
+
+      this.#selectedValue = item.value;
+      this.highlightSelected();
+
+      this.dispatchEvent(new CustomEvent('option-selected', {
+        detail: {
+          uuid: this.getAttribute('uuid'),
+          value: item.label
+        },
+        bubbles: true,
+        composed: true
+      }));
+
     }
   }
 

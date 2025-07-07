@@ -24,17 +24,21 @@ ui-listbox[ui] [role="option"]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,color;}
 
+ui-listbox[ui] [role="option"][aria-disabled="true"]{
+  opacity:0.5;
+  cursor:default!important;}
+
 @media (hover:hover){
-  ui-listbox[ui] [role="option"]:hover:not([disabled]){
+  ui-listbox[ui] [role="option"]:hover:not([aria-disabled="true"]){
     background-color:var(--ui-listbox-option-background-color-hover);
     color:var(--ui-listbox-font-color-hover);}
 }
 
-ui-listbox[ui] [role="option"][aria-selected="true"]{
+ui-listbox [role="option"][aria-selected="true"]{
   background-color:var(--ui-listbox-option-background-color-selected);
   color:var(--ui-listbox-font-color-active);}
 
-ui-listbox [role="option"]:focus-visible:not([disabled]){
+ui-listbox [role="option"]:focus-visible:not([aria-disabled="true"]){
   background-color:var(--ui-listbox-option-background-color-hover);
   color:var(--ui-listbox-font-color-hover);}
 

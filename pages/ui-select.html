@@ -24,7 +24,8 @@
         If used outside of the <a href="#ui-field">field</a> component, the aria-label must be set manually.
       </li>
       <li>
-        text - reactive (optional). The default text or value to display. If not provided, a hyphen ("-") is shown.
+        text - reactive (optional). Default: "-".<br>
+        The default text or value to display.
       </li>
       <li>
         icon - static (init-only, optional). Default: arrow-down-small.
@@ -53,17 +54,17 @@
   </div>
 
   <div class="content-item">
-    <div>text="Select"</div>
+    <div>placeholder="Select"</div>
     <div class="example">
       <div class="preview">
-        <ui-select text="Select" id="id2"></ui-select>
+        <ui-select placeholder="Select" id="id2"></ui-select>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-select text="Select"&gt;&lt;/ui-select&gt;</div>
+          <div>&lt;ui-select placeholder="Select"&gt;&lt;/ui-select&gt;</div>
         </code>
       </div>
     </div>
@@ -91,8 +92,8 @@
 <script>
 document.getElementById('id1').items = [
   { value: '1', label: 'ID1_Option_111111111111111111111111', selected: true, disabled: false },
-  { value: '2', label: 'ID1 Option 2', selected: false, disabled: true },
-  { value: '3', label: 'ID1 Option 3', selected: false, disabled: false },
+  { value: '2', label: 'ID1 Option 2', selected: false, disabled: false },
+  { value: '3', label: 'ID1 Option 3', selected: false, disabled: true },
 ];
 
 document.getElementById('id2').items = [

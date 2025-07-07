@@ -7,7 +7,8 @@ class UISelect extends UIBase{
   #componentListenerController = null;
   #listbox = null;
   #items = [];
-  #text = '-';
+  #text = '';
+  #textDefault = '-';
   #iconName = 'arrow-down-small';
   #expanded = false;
   #disabled = false;
@@ -27,7 +28,9 @@ class UISelect extends UIBase{
 
     this.#items = value;
     if(this.#listbox) this.#listbox.options = this.#items;
-    this.text = itemsSelected[0]?.label ?? this.#text;
+
+    if(itemsSelected.length === 1) this.text = itemsSelected[0].label
+    else this.text = this.getAttribute('placeholder') || this.#textDefault;
   }
 
   get text(){return this.#text;}
@@ -82,10 +85,11 @@ class UISelect extends UIBase{
       window.addEventListener('resize',this.#listboxPosition,{
         signal: this.#listboxListenerController?.signal,
       });
-
+/*
       this.#listbox.addEventListener('focusout',this.#onListboxFocusOut,{
         signal: this.#listboxListenerController?.signal
       });
+*/
     }
     else{
       this.#listboxListenerController?.abort();
@@ -107,17 +111,14 @@ class UISelect extends UIBase{
       'aria-haspopup': 'listbox',
       'aria-expanded': this.#expanded ? 'true' : 'false',
       'tabindex': this.#disabled ? '-1' : '0',
-      'text': this.#text,
       'uuid': this.#uuid
     });
 
     const fragment = document.createDocumentFragment();
 
-    if(this.#text){
-      const span = document.createElement('span');
-      span.textContent = this.#text;
-      fragment.appendChild(span);
-    }
+    const span = document.createElement('span');
+    span.textContent = this.getAttribute('placeholder') || this.#textDefault;
+    fragment.appendChild(span);
 
     const iconName = this.getAttribute('icon') || this.#iconName;
 
@@ -163,24 +164,18 @@ class UISelect extends UIBase{
       'uuid': this.#uuid
     });
 
-    this.#listbox.options = this.#items;
+    const items = this.#items.map(item => ({
+      ...item,
+      selected: item.label === this.#text
+    }));
+
+    this.#listbox.options = items;
 
     this.#listbox.addEventListener('option-selected', e => {
-
       if(e.detail.uuid === this.#uuid){
-
         this.text = e.detail.value;
-        this.expanded = false;
-        this.dispatchEvent(new CustomEvent('select-changed',{
-          detail: {
-            value: e.detail.value
-          },
-          bubbles: true,
-          composed: true,
-        }));
-
+        //this.expanded = false;
       }
-
     });
 
     document.body.appendChild(this.#listbox);
@@ -205,8 +200,8 @@ class UISelect extends UIBase{
   }
 
   #onDocumentClick = (e) => {
-    const сlickInside = this.contains(e.target) || this.#listbox?.contains(e.target);
-    if(!сlickInside){
+    const clickInside = this.contains(e.target) || this.#listbox?.contains(e.target);
+    if(!clickInside){
       this.expanded = false;
     }
   }
