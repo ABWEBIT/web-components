@@ -56,20 +56,20 @@ class UIListbox extends UIBase{
 
       const {label,value,selected,disabled} = item;
 
-      const opt = document.createElement('div');
-      this.setAttributes(opt,{
+      const option = document.createElement('div');
+      this.setAttributes(option,{
         'role': 'option',
         'tabindex': '-1',
         'aria-disabled': disabled ? 'true' : 'false'
       });
-      opt.textContent = label;
-      opt.dataset.value = value;
+      option.textContent = label;
+      option.dataset.value = value;
 
       if(selected && !disabled){
         this.#indexActive = index;
       }
 
-      opt.addEventListener('click', () => {
+      option.addEventListener('click', () => {
         if(disabled) return;
 
         this.#indexActive = index;
@@ -85,7 +85,7 @@ class UIListbox extends UIBase{
         }));
       });
 
-      this.appendChild(opt);
+      this.appendChild(option);
     });
 
     this.selectedHighlight();
@@ -95,8 +95,8 @@ class UIListbox extends UIBase{
     const newActive = this.children[this.#indexActive];
     
     if(this.#indexCurrent !== newActive){
-      this.#indexCurrent?.setAttribute('aria-selected', 'false');
-      newActive?.setAttribute('aria-selected', 'true');
+      this.#indexCurrent?.setAttribute('aria-selected','false');
+      newActive?.setAttribute('aria-selected','true');
       this.#indexCurrent = newActive ?? null;
     }
   }
@@ -134,11 +134,11 @@ class UIListbox extends UIBase{
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
       const item = this.#options[this.#indexActive];
-      if (!item || item.disabled === true) return;
+      if(!item || item.disabled === true) return;
 
       this.selectedHighlight();
 
-      this.dispatchEvent(new CustomEvent('option-selected', {
+      this.dispatchEvent(new CustomEvent('option-selected',{
         detail: {
           uuid: this.getAttribute('uuid'),
           value: item.label
