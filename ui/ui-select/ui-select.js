@@ -85,11 +85,11 @@ class UISelect extends UIBase{
       window.addEventListener('resize',this.#listboxPosition,{
         signal: this.#listboxListenerController?.signal,
       });
-/*
+
       this.#listbox.addEventListener('focusout',this.#onListboxFocusOut,{
         signal: this.#listboxListenerController?.signal
       });
-*/
+
     }
     else{
       this.#listboxListenerController?.abort();
@@ -174,7 +174,7 @@ class UISelect extends UIBase{
     this.#listbox.addEventListener('option-selected', e => {
       if(e.detail.uuid === this.#uuid){
         this.text = e.detail.value;
-        //this.expanded = false;
+        this.expanded = false;
       }
     });
 
