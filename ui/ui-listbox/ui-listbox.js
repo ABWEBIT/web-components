@@ -68,7 +68,7 @@ class UIListbox extends UIBase{
 
         this.#selectedValue = value;
         this.#activeIndex = index;
-        this.highlightSelected();
+        this.selectedHighlight();
 
         this.dispatchEvent(new CustomEvent('option-selected', {
           detail: {
@@ -83,23 +83,16 @@ class UIListbox extends UIBase{
       this.appendChild(opt);
     });
 
-    this.highlightSelected();
+    this.selectedHighlight();
   }
 
-  highlightSelected(){
-    const options = [...this.children];
-    const newActive = options[this.#activeIndex];
-
-    if(this.#activeElement && this.#activeElement !== newActive){
-      this.#activeElement.setAttribute('aria-selected','false');
-    }
-
-    if(newActive){
-      newActive.setAttribute('aria-selected','true');
-      this.#activeElement = newActive;
-    }
-    else{
-      this.#activeElement = null;
+  selectedHighlight(){
+    const newActive = this.children[this.#activeIndex];
+    
+    if(this.#activeElement !== newActive){
+      this.#activeElement?.setAttribute('aria-selected', 'false');
+      newActive?.setAttribute('aria-selected', 'true');
+      this.#activeElement = newActive ?? null;
     }
   }
 
@@ -116,7 +109,7 @@ class UIListbox extends UIBase{
         const item = this.#options[index];
         if(item.disabled !== true){
           this.#activeIndex = index;
-          this.highlightSelected();
+          this.selectedHighlight();
           break;
         }
       }
@@ -139,7 +132,7 @@ class UIListbox extends UIBase{
       if (!item || item.disabled === true) return;
 
       this.#selectedValue = item.value;
-      this.highlightSelected();
+      this.selectedHighlight();
 
       this.dispatchEvent(new CustomEvent('option-selected', {
         detail: {
