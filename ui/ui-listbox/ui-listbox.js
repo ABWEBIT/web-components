@@ -2,9 +2,8 @@ import {UIBase} from '../ui-base/ui-base.js';
 
 class UIListbox extends UIBase{
   #options = [];
-  #selectedValue = null;
-  #activeIndex = -1;
-  #activeElement = null;
+  #indexActive = -1;
+  #indexCurrent = null;
 
   get options(){return this.#options;}
   set options(value){
@@ -38,9 +37,8 @@ class UIListbox extends UIBase{
 
     this.replaceChildren();
     this.#options = options;
-    this.#activeIndex = -1;
-    this.#activeElement = null;
-    this.#selectedValue = null;
+    this.#indexActive = -1;
+    this.#indexCurrent = null;
 
     options.forEach((item, index) => {
       if(typeof item !== 'object' || item === null){
@@ -58,16 +56,14 @@ class UIListbox extends UIBase{
       opt.textContent = label;
       opt.dataset.value = value;
 
-      if (selected && !disabled) {
-        this.#selectedValue = value;
-        this.#activeIndex = index;
+      if(selected && !disabled){
+        this.#indexActive = index;
       }
 
       opt.addEventListener('click', () => {
-        if (disabled) return;
+        if(disabled) return;
 
-        this.#selectedValue = value;
-        this.#activeIndex = index;
+        this.#indexActive = index;
         this.selectedHighlight();
 
         this.dispatchEvent(new CustomEvent('option-selected', {
@@ -87,28 +83,28 @@ class UIListbox extends UIBase{
   }
 
   selectedHighlight(){
-    const newActive = this.children[this.#activeIndex];
+    const newActive = this.children[this.#indexActive];
     
-    if(this.#activeElement !== newActive){
-      this.#activeElement?.setAttribute('aria-selected', 'false');
+    if(this.#indexCurrent !== newActive){
+      this.#indexCurrent?.setAttribute('aria-selected', 'false');
       newActive?.setAttribute('aria-selected', 'true');
-      this.#activeElement = newActive ?? null;
+      this.#indexCurrent = newActive ?? null;
     }
   }
 
   #onKeyDown = (e) => {
-    const maxIndex = this.#options.length - 1;
-    if(maxIndex < 0) return;
+    const indexMax = this.#options.length - 1;
+    if(indexMax < 0) return;
 
     const moveTo = (direction) => {
-      let index = this.#activeIndex;
+      let index = this.#indexActive;
       do{
         index += direction;
-        if(index < 0 || index > maxIndex) break;
+        if(index < 0 || index > indexMax) break;
 
         const item = this.#options[index];
         if(item.disabled !== true){
-          this.#activeIndex = index;
+          this.#indexActive = index;
           this.selectedHighlight();
           break;
         }
@@ -128,10 +124,9 @@ class UIListbox extends UIBase{
 
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
-      const item = this.#options[this.#activeIndex];
+      const item = this.#options[this.#indexActive];
       if (!item || item.disabled === true) return;
 
-      this.#selectedValue = item.value;
       this.selectedHighlight();
 
       this.dispatchEvent(new CustomEvent('option-selected', {
