@@ -4,6 +4,7 @@ class UIListbox extends UIBase{
   #options = [];
   #indexActive = -1;
   #indexCurrent = null;
+  #componentListenerController = null;
 
   get options(){return this.#options;}
   set options(value){
@@ -24,10 +25,18 @@ class UIListbox extends UIBase{
       'role': 'listbox'
     });
 
-    this.addEventListener('keydown',this.#onKeyDown);
-    requestAnimationFrame(() => {
-      this.focus();
+    requestAnimationFrame(() => this.focus());
+
+    this.#componentListenerController = new AbortController();
+
+    this.addEventListener('keydown',this.#onKeyDown,{
+      signal: this.#componentListenerController.signal
     });
+  }
+
+  disconnectedCallback(){
+    this.#componentListenerController?.abort();
+    this.#componentListenerController = null;
   }
 
   setOptions(options = []){
