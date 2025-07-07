@@ -92,13 +92,14 @@ class UIListbox extends UIBase{
 
     if(this.#activeElement && this.#activeElement !== newActive){
       this.#activeElement.setAttribute('aria-selected','false');
-      this.#activeElement.blur?.();
     }
 
     if(newActive){
       newActive.setAttribute('aria-selected','true');
-      newActive.focus?.();
       this.#activeElement = newActive;
+    }
+    else{
+      this.#activeElement = null;
     }
   }
 

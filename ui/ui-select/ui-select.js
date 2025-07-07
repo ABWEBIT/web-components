@@ -40,7 +40,6 @@ class UISelect extends UIBase{
     this.#text = valueNew;
 
     this.updateText('span',this.#text);
-    this.reflect('text',this.#text);
   }
 
   get disabled(){return this.#disabled;}
