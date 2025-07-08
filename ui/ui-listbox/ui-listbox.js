@@ -1,4 +1,5 @@
 import {UIBase} from '../ui-base/ui-base.js';
+import {uuid} from '../../utils/uuid.js';
 
 class UIListbox extends UIBase{
   #options = [];
@@ -6,8 +7,12 @@ class UIListbox extends UIBase{
   #indexCurrent = null;
   #componentListenerController = null;
 
+  #optionUUID = uuid();
+
   get options(){return this.#options;}
-  set options(value){this.setOptions(value);}
+  set options(value){
+    this.setOptions(value);
+  }
 
   connectedCallback(){
     super.connectedCallback();
@@ -41,18 +46,21 @@ class UIListbox extends UIBase{
     this.#indexActive = -1;
     this.#indexCurrent = null;
 
-    options.forEach((item, index) => {
+    options.forEach((item,index) => {
       if(typeof item !== 'object' || item === null){
         throw new Error('Each option must be an object with {label, value}');
       }
 
       const {label,value,selected,disabled} = item;
-
       const option = document.createElement('div');
+
+      const optionId = `id-${index}--${this.#optionUUID}`;
+
       this.setAttributes(option,{
         'role': 'option',
         'tabindex': '-1',
-        'aria-disabled': disabled ? 'true' : 'false'
+        'aria-disabled': disabled ? 'true' : 'false',
+        'id': optionId
       });
       option.textContent = label;
       option.dataset.value = value;
@@ -69,7 +77,7 @@ class UIListbox extends UIBase{
 
         this.dispatchEvent(new CustomEvent('option-selected', {
           detail: {
-            uuid: this.getAttribute('uuid'),
+            uuid: this.getAttribute('id'),
             value: item.label
           },
           bubbles: true,
@@ -91,6 +99,10 @@ class UIListbox extends UIBase{
       newActive?.setAttribute('aria-selected','true');
       this.#indexCurrent = newActive ?? null;
     }
+  }
+
+  onKeyDownExternal(e){
+    this.#onKeyDown(e);
   }
 
   #onKeyDown = (e) => {

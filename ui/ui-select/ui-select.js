@@ -2,7 +2,8 @@ import {UIBase} from '../ui-base/ui-base.js';
 import {uuid} from '../../utils/uuid.js';
 
 class UISelect extends UIBase{
-  #uuid = uuid();
+  #uuid = `id-${uuid()}`;
+  #uniqueId = `id-${uuid()}`;
   #listboxListenerController = null;
   #componentListenerController = null;
   #listbox = null;
@@ -107,10 +108,12 @@ class UISelect extends UIBase{
     this.setAttributes(this,{
       'type': 'select',
       'role': 'combobox',
-      'aria-haspopup': 'listbox',
-      'aria-expanded': this.#expanded ? 'true' : 'false',
       'tabindex': this.#disabled ? '-1' : '0',
-      'uuid': this.#uuid
+      'uuid': this.#uuid,
+      'aria-haspopup': 'listbox',
+      'aria-activedescendant': '',
+      'aria-expanded': this.#expanded ? 'true' : 'false',
+      'aria-controls': this.#uuid
     });
 
     const fragment = document.createDocumentFragment();
@@ -160,7 +163,8 @@ class UISelect extends UIBase{
     this.setAttributes(this.#listbox,{
       'type': 'select',
       'tabindex': '-1',
-      'uuid': this.#uuid
+      'uuid': this.#uuid,
+      'id': this.#uuid
     });
 
     const items = this.#items.map(item => ({
@@ -173,6 +177,7 @@ class UISelect extends UIBase{
     this.#listbox.addEventListener('option-selected', e => {
       if(e.detail.uuid === this.#uuid){
         this.text = e.detail.value;
+        this.setAttribute('aria-activedescendant',e.detail.optionId);
         this.expanded = false;
       }
     });
@@ -180,7 +185,6 @@ class UISelect extends UIBase{
     document.body.appendChild(this.#listbox);
     this.#listboxPosition();
 
-    requestAnimationFrame(() => this.#listbox.focus());
     return this.#listbox;
   }
 
@@ -242,9 +246,8 @@ class UISelect extends UIBase{
       this.#listboxToggle();
     }
 
-    if(!this.#expanded && e.key === 'ArrowDown'){
-      e.preventDefault();
-      this.#listboxToggle();
+    if(this.#expanded && typeof this.#listbox.onKeyDownExternal === 'function') {
+      this.#listbox.onKeyDownExternal(e);
     }
   }
 
