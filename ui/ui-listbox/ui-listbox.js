@@ -7,13 +7,7 @@ class UIListbox extends UIBase{
   #componentListenerController = null;
 
   get options(){return this.#options;}
-  set options(value){
-    if(!Array.isArray(value)) {
-      throw new Error('Options must be an array');
-    }
-    this.#options = value;
-    this.setOptions(this.#options);
-  }
+  set options(value){this.setOptions(value);}
 
   connectedCallback(){
     super.connectedCallback();
@@ -24,8 +18,6 @@ class UIListbox extends UIBase{
     this.setAttributes(this,{
       'role': 'listbox'
     });
-
-    requestAnimationFrame(() => this.focus());
 
     this.#componentListenerController = new AbortController();
 

@@ -180,6 +180,7 @@ class UISelect extends UIBase{
     document.body.appendChild(this.#listbox);
     this.#listboxPosition();
 
+    requestAnimationFrame(() => this.#listbox.focus());
     return this.#listbox;
   }
 
