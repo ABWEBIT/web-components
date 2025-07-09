@@ -1,13 +1,10 @@
 import {UIBase} from '../ui-base/ui-base.js';
-import {uuid} from '../../utils/uuid.js';
 
 class UIListbox extends UIBase{
   #options = [];
   #indexActive = -1;
   #indexCurrent = null;
   #componentListenerController = null;
-
-  #optionUUID = uuid();
 
   get options(){return this.#options;}
   set options(value){
@@ -54,7 +51,7 @@ class UIListbox extends UIBase{
       const {label,value,selected,disabled} = item;
       const option = document.createElement('div');
 
-      const optionId = `id-${index}--${this.#optionUUID}`;
+      const optionId = `${this.id}--option-${index}`;
 
       this.setAttributes(option,{
         'role': 'option',
@@ -62,8 +59,18 @@ class UIListbox extends UIBase{
         'aria-disabled': disabled ? 'true' : 'false',
         'id': optionId
       });
-      option.textContent = label;
+
       option.dataset.value = value;
+
+      const optionText = document.createElement('span');
+      optionText.textContent = label;
+      option.appendChild(optionText);
+
+      if(selected){
+        const optionSelectedIcon = document.createElement('ui-icon');
+        optionSelectedIcon.setAttribute('icon','check');
+        option.appendChild(optionSelectedIcon);
+      }
 
       if(selected && !disabled){
         this.#indexActive = index;
@@ -77,8 +84,9 @@ class UIListbox extends UIBase{
 
         this.dispatchEvent(new CustomEvent('option-selected', {
           detail: {
-            uuid: this.getAttribute('id'),
-            value: item.label
+            label: item.label,
+            value: item.value,
+            optionId
           },
           bubbles: true,
           composed: true
@@ -106,6 +114,7 @@ class UIListbox extends UIBase{
   }
 
   #onKeyDown = (e) => {
+
     const indexMax = this.#options.length - 1;
     if(indexMax < 0) return;
 
@@ -142,10 +151,14 @@ class UIListbox extends UIBase{
 
       this.selectedHighlight();
 
+      const optionElement = this.children[this.#indexActive];
+      const optionId = optionElement?.id ?? '';
+
       this.dispatchEvent(new CustomEvent('option-selected',{
         detail: {
-          uuid: this.getAttribute('uuid'),
-          value: item.label
+          label: item.label,
+          value: item.value,
+          optionId
         },
         bubbles: true,
         composed: true

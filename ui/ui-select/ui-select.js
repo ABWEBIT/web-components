@@ -2,11 +2,10 @@ import {UIBase} from '../ui-base/ui-base.js';
 import {uuid} from '../../utils/uuid.js';
 
 class UISelect extends UIBase{
-  #uuid = `id-${uuid()}`;
-  #uniqueId = `id-${uuid()}`;
   #listboxListenerController = null;
   #componentListenerController = null;
   #listbox = null;
+  #listboxId = `id-${uuid()}`;
   #items = [];
   #text = '';
   #textDefault = '-';
@@ -24,14 +23,30 @@ class UISelect extends UIBase{
   set items(value){
     if(!Array.isArray(value)) throw new Error('Items must be an array');
 
-    const itemsSelected = value.filter(item => item.selected === true);
-    if(itemsSelected.length > 1) throw new Error('Only one item can be selected');
+    let selected = null;
 
-    this.#items = value;
+    this.#items = value.map((item, index) => {
+      const itemNew = {
+        ...item,
+        optionId: `${this.#listboxId}--option-${index}`
+      };
+      if(itemNew.selected) {
+        if(selected) throw new Error('Only one item can be selected');
+        selected = itemNew;
+      }
+      return itemNew;
+    });
+
     if(this.#listbox) this.#listbox.options = this.#items;
 
-    if(itemsSelected.length === 1) this.text = itemsSelected[0].label
-    else this.text = this.getAttribute('placeholder') || this.#textDefault;
+    if(selected){
+      this.text = selected.label;
+      this.setAttribute('aria-activedescendant',selected.optionId);
+    }
+    else{
+      this.text = this.getAttribute('placeholder') || this.#textDefault;
+      this.removeAttribute('aria-activedescendant');
+    }
   }
 
   get text(){return this.#text;}
@@ -86,16 +101,15 @@ class UISelect extends UIBase{
         signal: this.#listboxListenerController?.signal,
       });
 
-      this.#listbox.addEventListener('focusout',this.#onListboxFocusOut,{
-        signal: this.#listboxListenerController?.signal
-      });
-
     }
     else{
       this.#listboxListenerController?.abort();
       this.#listboxListenerController = null;
-      this.#listbox?.remove();
-      this.#listbox = null;
+
+      if(this.#listbox){
+        this.#listbox.remove();
+        this.#listbox = null;
+      }
     }
   }
 
@@ -106,14 +120,11 @@ class UISelect extends UIBase{
     this.color();
 
     this.setAttributes(this,{
-      'type': 'select',
       'role': 'combobox',
       'tabindex': this.#disabled ? '-1' : '0',
-      'uuid': this.#uuid,
       'aria-haspopup': 'listbox',
-      'aria-activedescendant': '',
       'aria-expanded': this.#expanded ? 'true' : 'false',
-      'aria-controls': this.#uuid
+      'aria-controls': this.#listboxId
     });
 
     const fragment = document.createDocumentFragment();
@@ -144,6 +155,10 @@ class UISelect extends UIBase{
     this.addEventListener('keydown',this.#onKeyDown,{
       signal: this.#componentListenerController.signal
     });
+/*
+    this.addEventListener('focusout',this.#onFocusOut,{
+      signal: this.#componentListenerController.signal
+    });*/
   }
 
   disconnectedCallback(){
@@ -152,8 +167,10 @@ class UISelect extends UIBase{
     this.#componentListenerController?.abort();
     this.#componentListenerController = null;
 
-    this.#listbox?.remove();
-    this.#listbox = null;
+    if(this.#listbox){
+      this.#listbox.remove();
+      this.#listbox = null;
+    }
   }
 
   #listboxCreate = () =>{
@@ -161,11 +178,10 @@ class UISelect extends UIBase{
     this.#listbox.style.position = 'absolute';
 
     this.setAttributes(this.#listbox,{
-      'type': 'select',
       'tabindex': '-1',
-      'uuid': this.#uuid,
-      'id': this.#uuid
+      'id': this.#listboxId
     });
+
 
     const items = this.#items.map(item => ({
       ...item,
@@ -175,11 +191,13 @@ class UISelect extends UIBase{
     this.#listbox.options = items;
 
     this.#listbox.addEventListener('option-selected', e => {
-      if(e.detail.uuid === this.#uuid){
-        this.text = e.detail.value;
-        this.setAttribute('aria-activedescendant',e.detail.optionId);
-        this.expanded = false;
-      }
+      this.text = e.detail.label;
+      this.setAttribute('aria-activedescendant',e.detail.optionId);
+      this.expanded = false;
+    });
+
+    this.#listbox.addEventListener('active-descendant-change', e => {
+      this.setAttribute('aria-activedescendant', e.detail.optionId || '');
     });
 
     document.body.appendChild(this.#listbox);
@@ -217,7 +235,7 @@ class UISelect extends UIBase{
     }
   }
 
-  #onListboxFocusOut = (e) => {
+  #onFocusOut = (e) => {
     const related = e.relatedTarget;
     const inside = this.contains(related) || this.#listbox?.contains(related);
 
@@ -227,9 +245,7 @@ class UISelect extends UIBase{
   }
 
   #onPopState = () => {
-    if(this.#expanded){
-      this.expanded = false;
-    }
+    this.expanded &&= false;
   }
 
   #onClick = (e) => {
@@ -241,12 +257,11 @@ class UISelect extends UIBase{
   #onKeyDown = (e) => {
     if(this.#disabled) return;
 
-    if(e.key === 'Enter' || e.key === ' '){
+    if(!this.#expanded && (e.key === 'Enter' || e.key === ' ')){
       e.preventDefault();
       this.#listboxToggle();
     }
-
-    if(this.#expanded && typeof this.#listbox.onKeyDownExternal === 'function') {
+    else if(this.#expanded && this.#listbox?.onKeyDownExternal){
       this.#listbox.onKeyDownExternal(e);
     }
   }

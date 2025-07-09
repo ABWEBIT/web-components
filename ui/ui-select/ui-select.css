@@ -41,7 +41,7 @@ ui-select > span{
 
 ui-select > ui-icon{
   transform:rotate(0deg);
-  width:20px;}
+  width:var(--ui-select-icon-size);}
 
 ui-select[expanded] > ui-icon{
   transform:rotate(-180deg);}
