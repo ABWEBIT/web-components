@@ -51,13 +51,13 @@ class UIListbox extends UIBase{
       const {label,value,selected,disabled} = item;
       const option = document.createElement('div');
 
-      const optionId = `${this.id}--option-${index}`;
+      const id = `${this.id}--option-${index}`;
 
       this.setAttributes(option,{
         'role': 'option',
         'tabindex': '-1',
         'aria-disabled': disabled ? 'true' : 'false',
-        'id': optionId
+        'id': id
       });
 
       option.dataset.value = value;
@@ -86,7 +86,7 @@ class UIListbox extends UIBase{
           detail: {
             label: item.label,
             value: item.value,
-            optionId
+            id
           },
           bubbles: true,
           composed: true
@@ -152,13 +152,13 @@ class UIListbox extends UIBase{
       this.selectedHighlight();
 
       const optionElement = this.children[this.#indexActive];
-      const optionId = optionElement?.id ?? '';
+      const id = optionElement?.id ?? '';
 
       this.dispatchEvent(new CustomEvent('option-selected',{
         detail: {
           label: item.label,
           value: item.value,
-          optionId
+          id
         },
         bubbles: true,
         composed: true

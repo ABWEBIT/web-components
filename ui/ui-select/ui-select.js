@@ -28,9 +28,9 @@ class UISelect extends UIBase{
     this.#items = value.map((item, index) => {
       const itemNew = {
         ...item,
-        optionId: `${this.#listboxId}--option-${index}`
+        id: `${this.#listboxId}--option-${index}`
       };
-      if(itemNew.selected) {
+      if(itemNew.selected){
         if(selected) throw new Error('Only one item can be selected');
         selected = itemNew;
       }
@@ -41,7 +41,7 @@ class UISelect extends UIBase{
 
     if(selected){
       this.text = selected.label;
-      this.setAttribute('aria-activedescendant',selected.optionId);
+      this.setAttribute('aria-activedescendant',selected.id);
     }
     else{
       this.text = this.getAttribute('placeholder') || this.#textDefault;
@@ -182,7 +182,6 @@ class UISelect extends UIBase{
       'id': this.#listboxId
     });
 
-
     const items = this.#items.map(item => ({
       ...item,
       selected: item.label === this.#text
@@ -192,12 +191,12 @@ class UISelect extends UIBase{
 
     this.#listbox.addEventListener('option-selected', e => {
       this.text = e.detail.label;
-      this.setAttribute('aria-activedescendant',e.detail.optionId);
+      this.setAttribute('aria-activedescendant',e.detail.id);
       this.expanded = false;
     });
 
     this.#listbox.addEventListener('active-descendant-change', e => {
-      this.setAttribute('aria-activedescendant', e.detail.optionId || '');
+      this.setAttribute('aria-activedescendant', e.detail.id || '');
     });
 
     document.body.appendChild(this.#listbox);

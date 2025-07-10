@@ -12,7 +12,7 @@ ui-listbox [role="option"]{
   outline:none;
   border-radius:inherit;
   font-size:var(--ui-listbox-font-size);
-  padding:8px 8px;
+  padding:8px 12px;
   cursor:pointer;}
 
 ui-listbox [role="option"] > span{
@@ -23,7 +23,7 @@ ui-listbox [role="option"] > span{
   text-overflow:ellipsis;}
 
 ui-listbox [role="option"] > ui-icon{
-  height:var(--ui-select-icon-size);
+  height:100%;
   width:var(--ui-select-icon-size);}
 
 ui-listbox[ui] [role="option"]{
@@ -69,8 +69,7 @@ ui-listbox{
   animation:fade-slide-in 0.15s ease-out;
   opacity:1;
   transform:translateY(0);
-  transition:opacity 0.15s ease-out, transform 0.15s ease-out;
-}
+  transition:opacity 0.15s ease-out, transform 0.15s ease-out;}
 
 /* color */
 ui-listbox[color="default"]{
