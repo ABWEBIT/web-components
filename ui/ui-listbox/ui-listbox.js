@@ -57,6 +57,7 @@ class UIListbox extends UIBase{
         'role': 'option',
         'tabindex': '-1',
         'aria-disabled': disabled ? 'true' : 'false',
+        'aria-selected': selected ? 'true' : 'false',
         'id': id
       });
 
@@ -103,8 +104,8 @@ class UIListbox extends UIBase{
     const newActive = this.children[this.#indexActive];
     
     if(this.#indexCurrent !== newActive){
-      this.#indexCurrent?.setAttribute('aria-selected','false');
-      newActive?.setAttribute('aria-selected','true');
+      this.#indexCurrent?.setAttribute('data-active','false');
+      newActive?.setAttribute('data-active','true');
       this.#indexCurrent = newActive ?? null;
     }
   }

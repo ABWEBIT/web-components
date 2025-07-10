@@ -40,19 +40,9 @@ ui-listbox[ui] [role="option"][aria-disabled="true"]{
     color:var(--ui-listbox-font-color-hover);}
 }
 
-ui-listbox [role="option"][aria-selected="true"]{
+ui-listbox [role="option"][data-active="true"]{
   background-color:var(--ui-listbox-option-background-color-selected);
   color:var(--ui-listbox-font-color-active);}
-
-ui-listbox [role="option"]:focus-visible:not([aria-disabled="true"]){
-  background-color:var(--ui-listbox-option-background-color-hover);
-  color:var(--ui-listbox-font-color-hover);}
-
-ui-listbox:focus-visible:not([disabled]){
-  outline-color:var(--ui-listbox-outline-color);}
-
-ui-listbox:focus-within:not([disabled]){
-  outline-color:var(--ui-listbox-outline-color);}
 
 @keyframes fade-slide-in{
   from {
