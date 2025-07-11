@@ -1,26 +1,98 @@
-const article = document.getElementById('article');
+  const components = [
+    { label: 'Foundation', link: './pages/ui-foundation.html', category: 'essentials' },
+    { label: 'Icons', link: './pages/ui-icons.html', category: 'theme' },
+    { label: 'Icon', link: './ui/ui-icon/ui-icon.html', category: 'primitives' },
+    { label: 'Divider', link: './ui/ui-divider/ui-divider.html', category: 'primitives' },
+    { label: 'Text', link: './ui/ui-text/ui-text.html', category: 'primitives' },
+    { label: 'Button', link: './ui/ui-button/ui-button.html', category: 'forms' },
+    { label: 'Checkbox', link: './ui/ui-checkbox/ui-checkbox.html', category: 'forms' },
+    { label: 'Input', link: './ui/ui-input/ui-input.html', category: 'forms' },
+    { label: 'Label', link: './ui/ui-label/ui-label.html', category: 'forms' },
+    { label: 'Switch', link: './ui/ui-switch/ui-switch.html', category: 'forms' },
+    { label: 'Textarea', link: './ui/ui-textarea/ui-textarea.html', category: 'forms' },
+    { label: 'Field', link: './ui/ui-field/ui-field.html', category: 'forms' },
+    { label: 'Select', link: './ui/ui-select/ui-select.html', category: 'forms' },
+    { label: 'Listbox', link: './ui/ui-listbox/ui-listbox.html', category: 'forms' },
+    { label: 'Focus', link: './ui/ui-focus/ui-focus.html', category: 'utilities' },
+    { label: 'Spinner', link: './ui/ui-spinner/ui-spinner.html', category: 'utilities' },
+  ];
 
-export function navigate(page){
-  location.hash = page;
+function generateNav(data) {
+  const categories = ['essentials', 'theme', 'primitives', 'forms', 'utilities'];
+
+  categories.forEach(category => {
+    const container = document.querySelector(`[data-nav-category="${category}"]`);
+    if (!container) return;
+
+    const items = data
+      .filter(item => item.category === category)
+      .sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }));
+
+    const fragment = document.createDocumentFragment();
+
+    items.forEach(({ label, link }) => {
+      const pageId = link.match(/ui-[\w-]+(?=\.html)/)?.[0]; // ui-button
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'menuItem';
+
+      const span = document.createElement('span');
+      span.textContent = label;
+      span.setAttribute('data-link', link);
+      span.onclick = () => navigate(pageId);
+
+      wrapper.appendChild(span);
+      fragment.appendChild(wrapper);
+    });
+
+    container.appendChild(fragment);
+  });
 }
 
-const loadPage = async (hash) => {
-  const page = hash ? hash.substring(1) : 'ui-foundation';
-  try{
-    const res = await fetch(`./pages/${page}.html`);
+generateNav(components);
+
+const article = document.getElementById('article');
+
+function navigate(pageId) {
+  location.hash = pageId;
+}
+
+async function loadPage(hash) {
+  const pageId = hash ? hash.substring(1) : 'ui-foundation';
+
+  const component = components.find(item =>
+    item.link.includes(pageId + '.html')
+  );
+
+  const link = component?.link;
+
+  if (!link) {
+    article.innerHTML = '<p>Not Found</p>';
+    updateActiveMenuItem(null);
+    return;
+  }
+
+  try {
+    const res = await fetch(link);
     const html = await res.text();
     article.innerHTML = html;
     runInlineScripts(article);
-    updateActiveMenuItem(page);
+    updateActiveMenuItem(link);
+  } catch (e) {
+    article.innerHTML = '<p>Load error</p>';
   }
-  catch(e){
-    article.innerHTML = '<p>Not Found</p>';
-  }
-};
+}
+
 
 let prevScripts = [];
 
-const runInlineScripts = (container) => {
+function updateActiveMenuItem(currentLink) {
+  document.querySelectorAll('nav span[data-link]').forEach(span => {
+    span.classList.toggle('active', span.getAttribute('data-link') === currentLink);
+  });
+}
+
+function runInlineScripts(container) {
   prevScripts.forEach(script => script.remove());
   prevScripts = [];
 
@@ -35,19 +107,9 @@ const runInlineScripts = (container) => {
     document.body.appendChild(newScript);
     prevScripts.push(newScript);
   });
-};
+}
 
 
-const updateActiveMenuItem = (page) => {
-  document.querySelectorAll('nav span[data-page]').forEach(span => {
-    if (span.getAttribute('data-page') === page) {
-      span.classList.add('active');
-    } else {
-      span.classList.remove('active');
-    }
-  });
-};
-
-window.navigate = navigate;
 window.addEventListener('hashchange', () => loadPage(location.hash));
 window.addEventListener('DOMContentLoaded', () => loadPage(location.hash));
+window.navigate = navigate;
