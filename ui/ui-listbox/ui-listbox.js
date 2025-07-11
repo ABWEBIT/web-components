@@ -58,6 +58,7 @@ class UIListbox extends UIBase{
         'tabindex': '-1',
         'aria-disabled': disabled ? 'true' : 'false',
         'aria-selected': selected ? 'true' : 'false',
+        'data-active': 'false',
         'id': id
       });
 
