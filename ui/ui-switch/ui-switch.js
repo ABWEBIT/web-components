@@ -1,4 +1,4 @@
-import {UIBase} from '../ui-base/ui-base.js';
+import {UIBase} from '../ui-base.js';
 
 class UISwitch extends UIBase{
   #checked = false;

@@ -1,4 +1,4 @@
-import {UIBase} from '../ui-base/ui-base.js';
+import {UIBase} from '../ui-base.js';
 import {icons} from '../../lib/icons.js';
 
 class UIIcon extends UIBase{

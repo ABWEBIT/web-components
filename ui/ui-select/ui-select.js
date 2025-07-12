@@ -1,4 +1,4 @@
-import {UIBase} from '../ui-base/ui-base.js';
+import {UIBase} from '../ui-base.js';
 import {uuid} from '../../utils/uuid.js';
 
 class UISelect extends UIBase{
