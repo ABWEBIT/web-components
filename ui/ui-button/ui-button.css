@@ -74,7 +74,6 @@ ui-button[color="default"]{
   --ui-button-background-color-hover:var(--ui-color-gray-750);
   --ui-button-background-color-active:var(--ui-color-gray-700);
   --ui-button-loader-background-color:var(--ui-color-gray-800);
-
   --ui-button-font-color:var(--ui-color-gray-150);
   --ui-button-font-color-hover:var(--ui-color-white);
   --ui-button-outline-color:var(--ui-color-gray-500);}
