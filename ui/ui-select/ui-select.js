@@ -175,7 +175,6 @@ class UISelect extends UIBase{
 
   #listboxCreate = () =>{
     this.#listbox = document.createElement('ui-listbox');
-    this.#listbox.style.position = 'absolute';
 
     this.setAttributes(this.#listbox,{
       'tabindex': '-1',

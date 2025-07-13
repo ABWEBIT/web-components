@@ -4,6 +4,7 @@
     { label: 'Icon', link: './ui/ui-icon/ui-icon.html', category: 'primitives' },
     { label: 'Divider', link: './ui/ui-divider/ui-divider.html', category: 'primitives' },
     { label: 'Text', link: './ui/ui-text/ui-text.html', category: 'primitives' },
+    { label: 'Accordion', link: './ui/ui-accordion/ui-accordion.html', category: 'components' },
     { label: 'Button', link: './ui/ui-button/ui-button.html', category: 'forms' },
     { label: 'Checkbox', link: './ui/ui-checkbox/ui-checkbox.html', category: 'forms' },
     { label: 'Input', link: './ui/ui-input/ui-input.html', category: 'forms' },
@@ -15,10 +16,11 @@
     { label: 'Listbox', link: './ui/ui-listbox/ui-listbox.html', category: 'forms' },
     { label: 'Focus', link: './ui/ui-focus/ui-focus.html', category: 'utilities' },
     { label: 'Spinner', link: './ui/ui-spinner/ui-spinner.html', category: 'utilities' },
+    { label: 'Portal', link: './ui/ui-portal/ui-portal.html', category: 'utilities' },
   ];
 
 function generateNav(data) {
-  const categories = ['essentials', 'theme', 'primitives', 'forms', 'utilities'];
+  const categories = ['essentials', 'theme', 'primitives', 'forms', 'components', 'utilities'];
 
   categories.forEach(category => {
     const container = document.querySelector(`[data-nav-category="${category}"]`);
