@@ -36,7 +36,7 @@
     <div>Minimal</div>
     <div class="example">
       <div class="preview">
-        <ui-accordion></ui-accordion>
+        <ui-accordion id="id1"></ui-accordion>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -49,93 +49,11 @@
     </div>
   </div>
 
-<ui-accordion>
-  <div data-accordion-item>
-    <div data-accordion-title></div>
-    <div data-accordion-content></div>
-  </div>
-</ui-accordion>
-
-<ui-accordion>
-  <dl>
-    <dt></dt>
-    <dd></dd>
-  </dl>
-</ui-accordion>
-
-<ui-accordion>
-  <ul>
-    <li></li>
-    <li></li>
-  </ul>
-</ui-accordion>
-
-
-<ui-accordion>
-  <ui-accordion-item>
-    <ui-accordion-title></ui-accordion-title>
-    <ui-accordion-text></ui-accordion-text>
-  </ui-accordion-item>
-</ui-accordion>
-
-<ui-accordion>
-  <ui-item>
-    <ui-title></ui-title>
-    <ui-text></ui-text>
-  </ui-item>
-</ui-accordion>
-
-  <div class="content-item">
-    <div>Full Width</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button width-mode="full">Button</ui-button>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-button width-mode="full"&gt;Button&lt;/ui-button&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Text with an icon</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button>
-          <ui-icon icon="home"></ui-icon>
-          <span>Button</span>
-        </ui-button>
-        <ui-button>
-          <span>Button</span>
-          <ui-icon icon="article"></ui-icon>
-        </ui-button>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-button&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&nbsp;&lt;span&gt;Button&lt;/span&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
-          <br>
-          <div>&lt;ui-button&gt;</div>
-          <div>&nbsp;&lt;span&gt;Button&lt;/span&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
 </section>
 
 <script>
-
+document.getElementById('id1').items = [
+  {title:'What is Lorem?',content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
+  {title:'Why use it?',content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+];
 </script>
