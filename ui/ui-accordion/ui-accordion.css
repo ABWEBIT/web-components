@@ -50,7 +50,6 @@ ui-accordion > :where([data-ui]) > [data-ui="accordion-content"]{
   padding-inline:var(--ui-accordion-padding-inline);
   padding-block:var(--ui-accordion-content-padding-block);
   line-height:var(--ui-line-height-150);
-
   background-color:var(--ui-accordion-content-background-color);
 }
 
@@ -63,7 +62,6 @@ ui-accordion[color="default"]{
   --ui-accordion-content-background-color:var(--ui-color-gray-850);
   --ui-accordion-title-font-color:var(--ui-color-white);
   --ui-accordion-content-font-color:var(--ui-color-gray-200);
-
   --ui-accordion-outline-color:var(--ui-color-gray-500);}
 
 /* size */

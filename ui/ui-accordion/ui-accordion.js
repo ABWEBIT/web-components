@@ -38,6 +38,9 @@ class UIAccordion extends UIBase{
     this.#items.forEach((item,index) => {
       const accordionItem = document.createElement('div');
       const accordionTitle = document.createElement('div');
+      const accordionTitleSpan = document.createElement('span');
+      accordionTitle.appendChild(accordionTitleSpan);
+
       const accordionContent = document.createElement('div');
 
       accordionItem.setAttribute('data-ui','accordion-item');
@@ -48,7 +51,7 @@ class UIAccordion extends UIBase{
 
       accordionContent.setAttribute('data-ui','accordion-content');
 
-      accordionTitle.textContent = item.title ?? '';
+      accordionTitleSpan.textContent = item.title ?? '';
       accordionContent.textContent = item.content ?? '';
       
       accordionItem.dataset.index = index;
