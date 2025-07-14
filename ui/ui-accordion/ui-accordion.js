@@ -1,15 +1,10 @@
 import {UIBase} from '../ui-base.js';
 
 class UIAccordion extends UIBase{
-  #disabled = false;
+  #componentListenerController = new AbortController();
   #items = [];
-
-  #onClick = this.onClick.bind(this);
-  #onKeyDown = this.onKeyDown.bind(this);
-
-  static properties = Object.freeze({
-    'disabled':{name:'disabled',type:Boolean,reflect:true}
-  });
+  #iconName = 'arrow-down-small';
+  #button = null;
 
   get items(){return this.#items;}
   set items(value){
@@ -18,18 +13,20 @@ class UIAccordion extends UIBase{
     this.render();
   }
 
+  get multiple(){return this.hasAttribute('multiple');}
+
   connectedCallback(){
     super.connectedCallback();
     this.size();
     this.color();
 
-    this.addEventListener('click',this.#onClick);
-    this.addEventListener('keydown',this.#onKeyDown);
+    const opts = { signal: this.#componentListenerController.signal };
+    this.addEventListener('click',this.#onClick,opts);
+    this.addEventListener('keydown',this.#onKeyDown,opts);
   }
 
   disconnectedCallback(){
-    this.removeEventListener('click',this.#onClick);
-    this.removeEventListener('keydown',this.#onKeyDown);
+    this.#componentListenerController.abort();
   }
 
   render(){
@@ -37,47 +34,63 @@ class UIAccordion extends UIBase{
 
     this.#items.forEach((item,index) => {
       const accordionItem = document.createElement('div');
-      const accordionTitle = document.createElement('div');
-      const accordionTitleSpan = document.createElement('span');
-      accordionTitle.appendChild(accordionTitleSpan);
-
-      const accordionContent = document.createElement('div');
-
-      accordionItem.setAttribute('data-ui','accordion-item');
-      this.setAttributes(accordionTitle,{
-        'tabindex': '0',
-        'data-ui': 'accordion-title'
+      this.setAttributes(accordionItem,{
+        'data-ui': 'accordion-item',
+        'data-ui-index': index
       });
 
-      accordionContent.setAttribute('data-ui','accordion-content');
+      const accordionHeader = document.createElement('div');
+      this.#button = accordionHeader;
+      this.setAttributes(accordionHeader,{
+        'data-ui': 'accordion-header',
+        'role': 'button',
+        'tabindex': '0',
+        'aria-expanded': 'false'
+      });
 
-      accordionTitleSpan.textContent = item.title ?? '';
-      accordionContent.textContent = item.content ?? '';
+      const accordionHeaderText = document.createElement('div');
+      accordionHeaderText.setAttribute('data-ui','accordion-header-text');
+      accordionHeaderText.textContent = item.header ?? '';
+
+      const accordionHeaderIcon = document.createElement('div');
+      accordionHeaderIcon.setAttribute('data-ui','accordion-header-icon');
+
+      const iconName = this.getAttribute('icon') || this.#iconName;
+
+      const icon = document.createElement('ui-icon');
+      icon.setAttribute('icon',iconName);
+      accordionHeaderIcon.appendChild(icon);
+
+      accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
+  
+      const accordionBody = document.createElement('div');
+      accordionBody.setAttribute('data-ui','accordion-body');
+      accordionBody.innerHTML = item.body ?? '';
       
-      accordionItem.dataset.index = index;
-
-      accordionItem.append(accordionTitle,accordionContent);
+      accordionItem.append(accordionHeader,accordionBody);
       this.appendChild(accordionItem);
     });
   }
 
 
-  onClick(e){
-    if(this.disabled) return;
-    if(typeof this.onAction === 'function') this.onAction(e);
+  #onClick = (e) => {
+    if(typeof this.#onAction === 'function') this.#onAction(e);
   }
 
-  onKeyDown(e){
+  #onKeyDown = (e) => {
     if(e.code !== 'Tab') e.preventDefault();
-    if(this.#disabled) return;
     if(e.repeat) return;
     if(e.code === 'Enter' || e.code === 'Space'){
-      if(typeof this.onAction === 'function') this.onAction(e);
+      this.#onAction(e);
     }
   }
 
-  onAction(e){
-    //console.log(e.type);
+  #onAction = (e) => {
+    const title = e.target.closest('[data-ui="accordion-header"]');
+    if(!title) return;
+    e.preventDefault();
+    const expanded = title.getAttribute('aria-expanded') === 'true';
+    title.setAttribute('aria-expanded',String(!expanded));
   }
 
 }

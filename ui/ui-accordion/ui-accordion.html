@@ -22,10 +22,6 @@
         Available options: rounded, pill, square, circle.<br>
         Sets the corner style.
       </li>
-      <li>
-        width-mode="full" - static (optional).<br>
-        Expands the component to take up 100% of the available width.
-      </li>
     </ul>
   </div>
 </section>
@@ -43,7 +39,16 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-accordion&gt;&lt;/ui-accordion&gt;</div>
+          <div>&lt;ui-accordion id="id1"&gt;&lt;/ui-accordion&gt;</div>
+          <br>
+          <div>element.items = [</div>
+          <div>{</div>
+          <div>title: 'What is Lorem?',</div>
+          <div>content: 'Lorem ipsum dolor sit amet...'},</div>
+          <div>{</div>
+          <div>title: 'Why use it?',</div>
+          <div>content: 'Lorem ipsum dolor sit amet...'}</div>
+          <div>];</div>
         </code>
       </div>
     </div>
@@ -53,7 +58,8 @@
 
 <script>
 document.getElementById('id1').items = [
-  {title:'What is Lorem?',content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-  {title:'Why use it?',content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+  {header:'What is Lorem?',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
+  {header:'Why use it?',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
+  {header:'Why use it?',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 ];
 </script>
