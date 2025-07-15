@@ -13,8 +13,7 @@ ui-listbox [role="option"]{
   outline:none;
   border-radius:inherit;
   font-size:var(--ui-listbox-font-size);
-  padding:8px 12px;
-  cursor:pointer;}
+  padding:8px 12px;}
 
 ui-listbox [role="option"] > span{
   display:block;

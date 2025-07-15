@@ -1,10 +1,9 @@
 import {UIBase} from '../ui-base.js';
 
 class UIAccordion extends UIBase{
-  #componentListenerController = new AbortController();
+  #componentListener = new AbortController();
   #items = [];
-  #iconName = 'arrow-down-small';
-  #button = null;
+  #iconExpand = 'arrow-down-small';
 
   get items(){return this.#items;}
   set items(value){
@@ -13,20 +12,20 @@ class UIAccordion extends UIBase{
     this.render();
   }
 
-  get multiple(){return this.hasAttribute('multiple');}
-
   connectedCallback(){
     super.connectedCallback();
+    this.shape();
     this.size();
     this.color();
 
-    const opts = { signal: this.#componentListenerController.signal };
+    const opts = { signal: this.#componentListener.signal };
     this.addEventListener('click',this.#onClick,opts);
     this.addEventListener('keydown',this.#onKeyDown,opts);
   }
 
   disconnectedCallback(){
-    this.#componentListenerController.abort();
+    this.#componentListener.abort();
+    this.#componentListener = null;
   }
 
   render(){
@@ -40,7 +39,6 @@ class UIAccordion extends UIBase{
       });
 
       const accordionHeader = document.createElement('div');
-      this.#button = accordionHeader;
       this.setAttributes(accordionHeader,{
         'data-ui': 'accordion-header',
         'role': 'button',
@@ -55,11 +53,12 @@ class UIAccordion extends UIBase{
       const accordionHeaderIcon = document.createElement('div');
       accordionHeaderIcon.setAttribute('data-ui','accordion-header-icon');
 
-      const iconName = this.getAttribute('icon') || this.#iconName;
+      const iconName = this.getAttribute('icon') || this.#iconExpand;
 
       const icon = document.createElement('ui-icon');
       icon.setAttribute('icon',iconName);
       accordionHeaderIcon.appendChild(icon);
+      this.removeAttribute('icon');
 
       accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
   
@@ -72,15 +71,14 @@ class UIAccordion extends UIBase{
     });
   }
 
-
   #onClick = (e) => {
     if(typeof this.#onAction === 'function') this.#onAction(e);
   }
 
   #onKeyDown = (e) => {
-    if(e.code !== 'Tab') e.preventDefault();
+    if(e.key !== 'Tab') e.preventDefault();
     if(e.repeat) return;
-    if(e.code === 'Enter' || e.code === 'Space'){
+    if(e.key === 'Enter' || e.key === ' '){
       this.#onAction(e);
     }
   }

@@ -9,7 +9,7 @@ class UISelect extends UIBase{
   #items = [];
   #text = '';
   #textDefault = '-';
-  #iconName = 'arrow-down-small';
+  #iconExpand = 'arrow-down-small';
   #expanded = false;
   #disabled = false;
 
@@ -55,7 +55,7 @@ class UISelect extends UIBase{
     if(this.#text === valueNew) return;
     this.#text = valueNew;
 
-    this.updateText('span',this.#text);
+    this.updateText('[data-ui="select-text"]',this.#text);
   }
 
   get disabled(){return this.#disabled;}
@@ -129,15 +129,21 @@ class UISelect extends UIBase{
 
     const fragment = document.createDocumentFragment();
 
-    const span = document.createElement('span');
-    span.textContent = this.getAttribute('placeholder') || this.#textDefault;
-    fragment.appendChild(span);
+    const selectText = document.createElement('div');
+    selectText.setAttribute('data-ui','select-text');
+    selectText.textContent = this.getAttribute('placeholder') || this.#textDefault;
+    fragment.appendChild(selectText);
 
-    const iconName = this.getAttribute('icon') || this.#iconName;
+    const selectIconExpand = document.createElement('div');
+    selectIconExpand.setAttribute('data-ui','select-icon-expand');
+
+    const iconName = this.getAttribute('icon') || this.#iconExpand;
 
     const icon = document.createElement('ui-icon');
     icon.setAttribute('icon',iconName);
-    fragment.appendChild(icon);
+    selectIconExpand.appendChild(icon);
+
+    fragment.appendChild(selectIconExpand);
     this.removeAttribute('icon');
 
     this.appendChild(fragment);

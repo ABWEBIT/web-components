@@ -15,8 +15,7 @@ ui-button{
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
-  outline-color:transparent;
-  cursor:pointer;}
+  outline-color:transparent;}
 
 ui-button[ui]{
   transition-duration:var(--ui-transition-duration);

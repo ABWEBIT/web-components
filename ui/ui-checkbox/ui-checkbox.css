@@ -10,8 +10,7 @@ ui-checkbox{
   outline-style:solid;
   outline-color:transparent;
   background-color:var(--ui-checkbox-background-color);
-  color:var(--ui-checkbox-color);
-  cursor:pointer;}
+  color:var(--ui-checkbox-color);}
 
 ui-checkbox[ui]{
   transition-duration:var(--ui-transition-duration);

@@ -13,8 +13,7 @@ ui-select{
   outline-color:transparent;
   color:var(--ui-select-font-color);
   background-color:var(--ui-select-background-color);
-  overflow:hidden;
-  cursor:pointer;}
+  overflow:hidden;}
 
 ui-select[ui]{
   transition-duration:var(--ui-transition-duration);
@@ -32,26 +31,27 @@ ui-select[expanded]:not([disabled]){
 ui-select:focus-visible:not([disabled]){
   outline-color:var(--ui-select-outline-color);}
 
-ui-select > span{
+ui-select [data-ui="select-text"]{
   flex-grow:1;
+  padding-inline-end:6px;
   font-size:var(--ui-select-font-size);
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;}
 
-ui-select > ui-icon{
-  transform:rotate(0deg);
-  width:var(--ui-select-icon-size);}
+ui-select [data-ui="select-icon-expand"] ui-icon{
+  width:var(--ui-select-icon-size);
+  transition-duration:var(--ui-transition-duration);
+  transition-property:transform;}
 
-ui-select[expanded] > ui-icon{
-  transform:rotate(-180deg);}
+ui-select[aria-expanded="true"] [data-ui="select-icon-expand"] ui-icon{
+  transform:rotate(180deg);}
 
 /* color */
 ui-select[color="default"]{
   --ui-select-background-color:var(--ui-color-gray-800);
   --ui-select-background-color-hover:var(--ui-color-gray-750);
   --ui-select-background-color-active:var(--ui-color-gray-700);
-
   --ui-select-font-color:var(--ui-color-white);
   --ui-select-outline-color:var(--ui-color-gray-500);}
 

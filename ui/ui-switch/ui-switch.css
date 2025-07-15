@@ -11,8 +11,7 @@ ui-switch{
   outline-offset:2px;
   outline-style:solid;
   outline-color:transparent;
-  background-color:var(--ui-switch-background-color);
-  cursor:pointer;}
+  background-color:var(--ui-switch-background-color);}
 
 ui-switch[ui]{
   transition-duration:var(--ui-transition-duration);
