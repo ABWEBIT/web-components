@@ -12,5 +12,6 @@ import './ui-listbox/ui-listbox.js';
 import './ui-select/ui-select.js';
 import './ui-spinner/ui-spinner.js';
 import './ui-switch/ui-switch.js';
+import './ui-tabs/ui-tabs.js';
 import './ui-text/ui-text.js';
 import './ui-textarea/ui-textarea.js';
