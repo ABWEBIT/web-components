@@ -73,10 +73,10 @@ class UICheckbox extends UIBase{
   }
 
   onKeyDown(e){
-    if(e.code !== 'Tab') e.preventDefault();
+    if(e.key !== 'Tab') e.preventDefault();
     if(this.#disabled) return;
     if(e.repeat) return;
-    if(e.code === 'Enter' || e.code === 'Space') this.doAction(e);
+    if(e.key === 'Enter' || e.key === ' ') this.doAction(e);
   }
 
   doAction(e){

@@ -11,6 +11,14 @@
     </ul>
   </div>
   <div class="info">
+    <h2>Features</h2>
+    <ul>
+      <li>
+        Supports keyboard navigation: Tab to move forward, Shift + Tab to move backward, Enter or Space to trigger actions.
+      </li>
+    </ul>
+  </div>
+  <div class="info">
     <h2>Attributes</h2>
     <ul>
       <li>
@@ -46,7 +54,29 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-accordion&gt;&lt;/ui-accordion&gt;</div>
+          <div>&lt;ui-accordion id="id1"&gt;&lt;/ui-accordion&gt;</div>
+<br>
+<div>document.getElementById('id1').items = [</div>
+<div>{
+    header:'What is Lorem?',
+    panel:'Lorem ipsum dolor sit amet...',
+    expanded:true
+  },
+</div>
+<div>
+  {
+    header:'Why use it?',
+    panel:'Lorem ipsum dolor sit amet...'
+  },
+</div>
+<div>
+  {
+    header:'Where to use?',
+    panel:'Lorem ipsum dolor sit amet...'
+  }
+</div>
+<div>];</div>
+
         </code>
       </div>
     </div>
@@ -58,11 +88,12 @@
 document.getElementById('id1').items = [
   {
     header:'What is Lorem?',
-    panel:'Lorem ipsum dolor sit amet...'
+    panel:'Lorem ipsum dolor sit amet...',
+    expanded:true
   },
   {
     header:'Why use it?',
-    panel:'Lorem ipsum dolor sit amet...'
+    panel:'Lorem ipsum dolor sit amet...',
   },
   {
     header:'Where to use?',

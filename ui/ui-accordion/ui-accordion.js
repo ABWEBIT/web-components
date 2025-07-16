@@ -1,7 +1,7 @@
 import {UIBase} from '../ui-base.js';
+import {uuid} from '../../utils/uuid.js';
 
 class UIAccordion extends UIBase{
-  #componentListener = new AbortController();
   #items = [];
   #iconExpand = 'arrow-down-small';
 
@@ -18,84 +18,91 @@ class UIAccordion extends UIBase{
     this.size();
     this.color();
 
-    const opts = {signal: this.#componentListener.signal};
-    this.addEventListener('click',this.#onClick,opts);
-    this.addEventListener('keydown',this.#onKeyDown,opts);
-  }
-
-  disconnectedCallback(){
-    this.#componentListener.abort();
-    this.#componentListener = null;
+    this.#iconExpand = this.getAttribute('icon') || this.#iconExpand;
+    this.removeAttribute('icon');
   }
 
   render(){
     this.replaceChildren();
+    const fragment = document.createDocumentFragment();
 
     this.#items.forEach((item,index) => {
+      const id = uuid();
+      const idControl = `id-controls-${id}`;
+      const idHeader = `id-header-${id}`;
+
+      /* header */
+      const accordionHeader = document.createElement('button');
+      this.setAttributes(accordionHeader,{
+        'type': 'button',
+        'data-ui': 'accordion-header',
+        'aria-expanded': item.expanded ? 'true' : 'false',
+        'aria-controls': idControl,
+        'id': idHeader
+      });
+
+      /* events */
+      accordionHeader.addEventListener('keydown',(e) => {
+        if(e.key !== 'Tab') e.preventDefault();
+        if(e.repeat) return;
+        if(e.key === 'Enter' || e.key === ' '){
+          this.#onAction(accordionHeader);
+        }
+      });
+
+      accordionHeader.addEventListener('click',() =>{
+        this.#onAction(accordionHeader);
+      });
+
+      /* header text */
+      const accordionHeaderText = document.createElement('span');
+      this.setAttributes(accordionHeaderText,{
+        'data-ui': 'accordion-header-text'
+      });
+      accordionHeaderText.textContent = item.header ?? '';
+
+      /* header expand icon */
+      const accordionHeaderIcon = document.createElement('span');
+      this.setAttributes(accordionHeaderIcon,{
+        'data-ui': 'accordion-header-icon',
+        'aria-hidden': 'true'
+      });
+
+      const icon = document.createElement('ui-icon');
+      icon.setAttribute('icon',this.#iconExpand);
+      accordionHeaderIcon.appendChild(icon);
+
+      accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
+  
+      /* panel */
+      const accordionPanel = document.createElement('div');
+      accordionPanel.setAttribute('data-ui','accordion-panel');
+      this.setAttributes(accordionPanel,{
+        'role': 'region',
+        'id': idControl,
+        'aria-labelledby': idHeader
+      });
+      accordionPanel.hidden = !item.expanded;
+      accordionPanel.innerHTML = item.panel ?? '';
+      
+      /* item */
       const accordionItem = document.createElement('div');
       this.setAttributes(accordionItem,{
         'data-ui': 'accordion-item',
         'data-ui-index': index
       });
 
-      const accordionHeader = document.createElement('div');
-      this.setAttributes(accordionHeader,{
-        'data-ui': 'accordion-header',
-        'role': 'button',
-        'tabindex': '0',
-        'aria-expanded': 'false'
-      });
-
-      const accordionHeaderText = document.createElement('div');
-      accordionHeaderText.setAttribute('data-ui','accordion-header-text');
-      accordionHeaderText.textContent = item.header ?? '';
-
-      const accordionHeaderIcon = document.createElement('div');
-      this.setAttributes(accordionHeaderIcon,{
-        'data-ui': 'accordion-header-icon',
-        'aria-hidden': 'true'
-      });
-
-      const iconName = this.getAttribute('icon') || this.#iconExpand;
-
-      const icon = document.createElement('ui-icon');
-      icon.setAttribute('icon',iconName);
-      accordionHeaderIcon.appendChild(icon);
-      this.removeAttribute('icon');
-
-      accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
-  
-      const accordionPanel = document.createElement('div');
-      accordionPanel.setAttribute('data-ui','accordion-panel');
-      this.setAttributes(accordionPanel,{
-        'role': 'region'
-      });
-
-      accordionPanel.innerHTML = item.panel ?? '';
-      
       accordionItem.append(accordionHeader,accordionPanel);
-      this.appendChild(accordionItem);
+      fragment.appendChild(accordionItem);
     });
+    this.appendChild(fragment);
   }
 
-  #onClick = (e) => {
-    if(typeof this.#onAction === 'function') this.#onAction(e);
-  }
-
-  #onKeyDown = (e) => {
-    if(e.key !== 'Tab') e.preventDefault();
-    if(e.repeat) return;
-    if(e.key === 'Enter' || e.key === ' '){
-      this.#onAction(e);
-    }
-  }
-
-  #onAction = (e) => {
-    const title = e.target.closest('[data-ui="accordion-header"]');
-    if(!title) return;
-    e.preventDefault();
-    const expanded = title.getAttribute('aria-expanded') === 'true';
-    title.setAttribute('aria-expanded',String(!expanded));
+  #onAction = (button) => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded',String(!expanded));
+    const panel = document.getElementById(button.getAttribute('aria-controls'));
+    panel.hidden = expanded;
   }
 
 }

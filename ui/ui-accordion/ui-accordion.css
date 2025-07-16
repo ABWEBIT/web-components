@@ -9,6 +9,8 @@ ui-accordion [data-ui="accordion-item"]{
 
 ui-accordion [data-ui="accordion-header"]{
   display:flex;
+  width:100%;
+  text-align:start;
   padding-inline:var(--ui-accordion-header-padding-inline);
   font-size:var(--ui-accordion-header-font-size);
   background-color:var(--ui-accordion-header-background-color);
