@@ -5,8 +5,7 @@ ui-accordion{
   row-gap:var(--ui-accordion-row-gap);}
 
 ui-accordion [data-ui="accordion-item"]{
-  border-radius:inherit;
-  overflow:hidden;}
+  border-radius:inherit;}
 
 ui-accordion [data-ui="accordion-header"]{
   display:flex;
@@ -42,18 +41,18 @@ ui-accordion [data-ui="accordion-header-icon"]{
   display:flex;
   align-items:center;}
 
-ui-accordion [data-ui="accordion-body"]{
+ui-accordion [data-ui="accordion-panel"]{
   display:none;
   -webkit-user-select:text;
   user-select:text;
-  font-size:var(--ui-accordion-body-font-size);
-  color:var(--ui-accordion-body-font-color);
-  padding-inline:var(--ui-accordion-body-padding-inline);
-  padding-block:var(--ui-accordion-body-padding-block);
+  font-size:var(--ui-accordion-panel-font-size);
+  color:var(--ui-accordion-panel-font-color);
+  padding-inline:var(--ui-accordion-panel-padding-inline);
+  padding-block:var(--ui-accordion-panel-padding-block);
   line-height:var(--ui-line-height-150);
-  background-color:var(--ui-accordion-body-background-color);}
+  background-color:var(--ui-accordion-panel-background-color);}
 
-ui-accordion [data-ui="accordion-header"][aria-expanded="true"] + [data-ui="accordion-body"]{
+ui-accordion [data-ui="accordion-header"][aria-expanded="true"] + [data-ui="accordion-panel"]{
   display:block;}
 
 ui-accordion [data-ui="accordion-header"] ui-icon{
@@ -70,17 +69,17 @@ ui-accordion[color="default"]{
   --ui-accordion-header-background-color:var(--ui-color-gray-800);
   --ui-accordion-header-background-color-hover:var(--ui-color-gray-750);
   --ui-accordion-header-background-color-active:var(--ui-color-gray-700);
-  --ui-accordion-body-background-color:var(--ui-color-gray-850);
+  --ui-accordion-panel-background-color:var(--ui-color-gray-850);
   --ui-accordion-header-font-color:var(--ui-color-white);
-  --ui-accordion-body-font-color:var(--ui-color-gray-200);}
+  --ui-accordion-panel-font-color:var(--ui-color-gray-200);}
 
 /* size */
 ui-accordion[size="default"]{
   --ui-accordion-header-font-size:18px;
-  --ui-accordion-body-font-size:16px;
+  --ui-accordion-panel-font-size:16px;
   --ui-accordion-row-gap:10px;
   --ui-accordion-header-padding-inline:20px 12px;
-  --ui-accordion-body-padding-inline:20px;
+  --ui-accordion-panel-padding-inline:20px;
   --ui-accordion-header-padding-block:16px;
-  --ui-accordion-body-padding-block:12px;
+  --ui-accordion-panel-padding-block:12px;
   --ui-accordion-icon-expand-size:24px;}

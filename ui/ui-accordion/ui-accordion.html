@@ -46,13 +46,7 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-accordion id="id1"&gt;&lt;/ui-accordion&gt;</div>
-          <br>
-          <div>element.items = [</div>
-          <div>{header:'What is Lorem?',body:'Lorem ipsum dolor sit amet...'},</div>
-          <div>{header:'Why use it?',body:'Lorem ipsum dolor sit amet...'},</div>
-          <div>{header:'Where to use?',body:'Lorem ipsum dolor sit amet...'}</div>
-          <div>];</div>
+          <div>&lt;ui-accordion&gt;&lt;/ui-accordion&gt;</div>
         </code>
       </div>
     </div>
@@ -62,8 +56,17 @@
 
 <script>
 document.getElementById('id1').items = [
-  {header:'What is Lorem?',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-  {header:'Why use it?',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-  {header:'Where to use?',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+  {
+    header:'What is Lorem?',
+    panel:'Lorem ipsum dolor sit amet...'
+  },
+  {
+    header:'Why use it?',
+    panel:'Lorem ipsum dolor sit amet...'
+  },
+  {
+    header:'Where to use?',
+    panel:'Lorem ipsum dolor sit amet...'
+  }
 ];
 </script>

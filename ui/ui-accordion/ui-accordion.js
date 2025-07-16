@@ -18,7 +18,7 @@ class UIAccordion extends UIBase{
     this.size();
     this.color();
 
-    const opts = { signal: this.#componentListener.signal };
+    const opts = {signal: this.#componentListener.signal};
     this.addEventListener('click',this.#onClick,opts);
     this.addEventListener('keydown',this.#onKeyDown,opts);
   }
@@ -51,7 +51,10 @@ class UIAccordion extends UIBase{
       accordionHeaderText.textContent = item.header ?? '';
 
       const accordionHeaderIcon = document.createElement('div');
-      accordionHeaderIcon.setAttribute('data-ui','accordion-header-icon');
+      this.setAttributes(accordionHeaderIcon,{
+        'data-ui': 'accordion-header-icon',
+        'aria-hidden': 'true'
+      });
 
       const iconName = this.getAttribute('icon') || this.#iconExpand;
 
@@ -62,11 +65,15 @@ class UIAccordion extends UIBase{
 
       accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
   
-      const accordionBody = document.createElement('div');
-      accordionBody.setAttribute('data-ui','accordion-body');
-      accordionBody.innerHTML = item.body ?? '';
+      const accordionPanel = document.createElement('div');
+      accordionPanel.setAttribute('data-ui','accordion-panel');
+      this.setAttributes(accordionPanel,{
+        'role': 'region'
+      });
+
+      accordionPanel.innerHTML = item.panel ?? '';
       
-      accordionItem.append(accordionHeader,accordionBody);
+      accordionItem.append(accordionHeader,accordionPanel);
       this.appendChild(accordionItem);
     });
   }
