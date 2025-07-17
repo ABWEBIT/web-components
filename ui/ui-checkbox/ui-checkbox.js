@@ -81,7 +81,7 @@ class UICheckbox extends UIBase{
     }
   }
 
-  doAction(e){
+  doAction = (e) =>{
     this.checked = !this.#checked;
     //console.log(e.type);
   }

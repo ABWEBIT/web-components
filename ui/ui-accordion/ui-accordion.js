@@ -5,11 +5,11 @@ class UIAccordion extends UIBase{
   #items = [];
   #iconExpand = 'arrow-down-small';
 
-  //get items(){return this.#items;}
+  get items(){return this.#items;}
   set items(value){
     if(!Array.isArray(value)) throw new Error('Items must be an array');
     this.#items = value;
-    this.render();
+    this.#render();
   }
 
   connectedCallback(){
@@ -22,7 +22,7 @@ class UIAccordion extends UIBase{
     this.removeAttribute('icon');
   }
 
-  render(){
+  #render(){
     this.replaceChildren();
     const fragment = document.createDocumentFragment();
 
