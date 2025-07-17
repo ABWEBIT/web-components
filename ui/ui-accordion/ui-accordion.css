@@ -26,12 +26,12 @@ ui-accordion [data-ui="accordion-header"]:focus-visible{
   outline-color:var(--ui-outline-color);}
 
 @media (hover:hover){
-  ui-accordion [data-ui="accordion-header"]:hover{
+  ui-accordion [data-ui="accordion-header"]:not([disabled]):hover{
     background-color:var(--ui-accordion-header-background-color-hover);}
 }
 
 ui-accordion [data-ui="accordion-header"][aria-expanded="true"],
-ui-accordion [data-ui="accordion-header"]:active{
+ui-accordion [data-ui="accordion-header"]:not([disabled]):active{
   background-color:var(--ui-accordion-header-background-color-active);}
 
 ui-accordion [data-ui="accordion-header-text"]{

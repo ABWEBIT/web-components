@@ -5,7 +5,7 @@ class UIAccordion extends UIBase{
   #items = [];
   #iconExpand = 'arrow-down-small';
 
-  get items(){return this.#items;}
+  //get items(){return this.#items;}
   set items(value){
     if(!Array.isArray(value)) throw new Error('Items must be an array');
     this.#items = value;
@@ -40,18 +40,23 @@ class UIAccordion extends UIBase{
         'aria-controls': idControl,
         'id': idHeader
       });
+      accordionHeader.disabled = !!item.disabled
 
       /* events */
       accordionHeader.addEventListener('keydown',(e) => {
-        if(e.key !== 'Tab') e.preventDefault();
-        if(e.repeat) return;
         if(e.key === 'Enter' || e.key === ' '){
-          this.#onAction(accordionHeader);
+          e.preventDefault();
+          if(e.repeat) return;
+          if(!accordionHeader.disabled){
+            this.#onAction(accordionHeader);
+          }
         }
       });
 
       accordionHeader.addEventListener('click',() =>{
-        this.#onAction(accordionHeader);
+        if(!accordionHeader.disabled){
+          this.#onAction(accordionHeader);
+        }
       });
 
       /* header text */
@@ -82,7 +87,7 @@ class UIAccordion extends UIBase{
         'id': idControl,
         'aria-labelledby': idHeader
       });
-      accordionPanel.hidden = !item.expanded;
+      accordionPanel.hidden = !item.expanded || item.disabled;
       accordionPanel.innerHTML = item.panel ?? '';
       
       /* item */

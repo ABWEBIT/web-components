@@ -67,16 +67,18 @@ class UICheckbox extends UIBase{
     this.removeEventListener('keydown',this.#onKeyDown);
   }
 
-  onClick(e){
+  onClick = (e) =>{
     if(this.disabled) return;
     if(typeof this.doAction === 'function') this.doAction(e);
   }
 
-  onKeyDown(e){
-    if(e.key !== 'Tab') e.preventDefault();
+  onKeyDown = (e) => {
     if(this.#disabled) return;
-    if(e.repeat) return;
-    if(e.key === 'Enter' || e.key === ' ') this.doAction(e);
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      if(e.repeat) return;
+      this.onAction(accordionHeader);
+    }
   }
 
   doAction(e){

@@ -152,12 +152,12 @@
 [ui] *{
   box-sizing:border-box!important;}
 
-[ui][disabled]{
+[disabled]{
   opacity:0.5;
   pointer-events:auto;
   cursor:not-allowed;}
 
-[ui][disabled] *{
+[disabled] *{
   pointer-events:none;}
 
 [ui][loading]{
