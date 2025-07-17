@@ -1,15 +1,14 @@
 import {UIBase} from '../ui-base.js';
 
 class UITabs extends UIBase{
-  #componentListener = new AbortController();
   #items = [];
-  #iconExpand = 'arrow-down-small';
+  #activeIndex = 0;
 
   get items(){return this.#items;}
   set items(value){
     if(!Array.isArray(value)) throw new Error('Items must be an array');
     this.#items = value;
-    this.render();
+    this.#render();
   }
 
   connectedCallback(){
@@ -17,78 +16,90 @@ class UITabs extends UIBase{
     this.shape();
     this.size();
     this.color();
-
-    const opts = { signal: this.#componentListener.signal };
-    this.addEventListener('click',this.#onClick,opts);
-    this.addEventListener('keydown',this.#onKeyDown,opts);
   }
 
-  disconnectedCallback(){
-    this.#componentListener.abort();
-    this.#componentListener = null;
-  }
-
-  render(){
+  #render(){
     this.replaceChildren();
 
-    this.#items.forEach((item,index) => {
-      const accordionItem = document.createElement('div');
-      this.setAttributes(accordionItem,{
-        'data-ui': 'accordion-item',
-        'data-ui-index': index
-      });
-
-      const accordionHeader = document.createElement('div');
-      this.setAttributes(accordionHeader,{
-        'data-ui': 'accordion-header',
-        'role': 'button',
-        'tabindex': '0',
-        'aria-expanded': 'false'
-      });
-
-      const accordionHeaderText = document.createElement('div');
-      accordionHeaderText.setAttribute('data-ui','accordion-header-text');
-      accordionHeaderText.textContent = item.header ?? '';
-
-      const accordionHeaderIcon = document.createElement('div');
-      accordionHeaderIcon.setAttribute('data-ui','accordion-header-icon');
-
-      const iconName = this.getAttribute('icon') || this.#iconExpand;
-
-      const icon = document.createElement('ui-icon');
-      icon.setAttribute('icon',iconName);
-      accordionHeaderIcon.appendChild(icon);
-      this.removeAttribute('icon');
-
-      accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
-  
-      const accordionBody = document.createElement('div');
-      accordionBody.setAttribute('data-ui','accordion-body');
-      accordionBody.innerHTML = item.body ?? '';
-      
-      accordionItem.append(accordionHeader,accordionBody);
-      this.appendChild(accordionItem);
+    const tablist = document.createElement('div');
+    this.setAttributes(tablist, {
+      'data-ui': 'tabs-list',
+      'role': 'tablist'
     });
+
+    const panelsContainer = document.createElement('div');
+    panelsContainer.setAttribute('data-ui', 'tabs-panels');
+
+    this.#items.forEach((item,index) => {
+      const tab = document.createElement('button');
+      this.setAttributes(tab, {
+        'data-ui': 'tab',
+        'role': 'tab',
+        'type': 'button',
+        'tabindex': index === this.#activeIndex ? '0' : '-1',
+        'aria-selected': index === this.#activeIndex ? 'true' : 'false',
+        'id': `tab-${index}`,
+        'aria-controls': `tabpanel-${index}`
+      });
+      tab.textContent = item.header ?? '';
+      tab.addEventListener('click', () => this.#activateTab(index));
+      tab.addEventListener('keydown', (e) => this.#onKeyDown(e, index));
+
+      tablist.appendChild(tab);
+
+      // Panel
+      const panel = document.createElement('div');
+      this.setAttributes(panel, {
+        'data-ui': 'tabpanel',
+        'role': 'tabpanel',
+        'id': `tabpanel-${index}`,
+        'aria-labelledby': `tab-${index}`
+      });
+      panel.hidden = index !== this.#activeIndex;
+      panel.innerHTML = item.panel ?? '';
+
+      panelsContainer.appendChild(panel);
+    });
+    this.append(tablist, panelsContainer);
   }
 
-  #onClick = (e) => {
-    if(typeof this.#onAction === 'function') this.#onAction(e);
+  #activateTab(index) {
+    this.#activeIndex = index;
+    this.#render();
   }
 
-  #onKeyDown = (e) => {
-    if(e.key !== 'Tab') e.preventDefault();
-    if(e.repeat) return;
-    if(e.key === 'Enter' || e.key === ' '){
-      this.#onAction(e);
+  #onKeyDown(e, index) {
+    const total = this.#items.length;
+    let newIndex = index;
+
+    switch (e.key) {
+      case 'ArrowRight':
+        newIndex = (index + 1) % total;
+        break;
+      case 'ArrowLeft':
+        newIndex = (index - 1 + total) % total;
+        break;
+      case 'Home':
+        newIndex = 0;
+        break;
+      case 'End':
+        newIndex = total - 1;
+        break;
+      case 'Enter':
+      case ' ':
+        this.#activateTab(index);
+        return;
+      default:
+        return;
     }
+
+    e.preventDefault();
+    this.#focusTab(newIndex);
   }
 
-  #onAction = (e) => {
-    const title = e.target.closest('[data-ui="accordion-header"]');
-    if(!title) return;
-    e.preventDefault();
-    const expanded = title.getAttribute('aria-expanded') === 'true';
-    title.setAttribute('aria-expanded',String(!expanded));
+  #focusTab(index) {
+    const tabs = this.querySelectorAll('[role="tab"]');
+    tabs[index]?.focus();
   }
 
 }

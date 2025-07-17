@@ -3,19 +3,8 @@
   <div class="description">Tabs organize content into separate panels that users can switch between.</div>
   <ui-divider></ui-divider>
   <div class="info">
-    <h2>Usage</h2>
-    <ul>
-      <li>
-        The component functions as both a button and a wrapper.
-      </li>
-    </ul>
-  </div>
-  <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>
-        icon - static (init-only, optional). Default: arrow-down-small.
-      </li>
       <li>
         size - static (optional). Default: default.<br>
         Specifies the component's size (extendable via CSS).
@@ -39,14 +28,14 @@
     <div>Minimal</div>
     <div class="example">
       <div class="preview">
-        <ui-accordion id="id1"></ui-accordion>
+        <ui-tabs id="id1"></ui-tabs>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-accordion id="id1"&gt;&lt;/ui-accordion&gt;</div>
+          <div>&lt;ui-tabs id="id1"&gt;&lt;/ui-tabs&gt;</div>
           <br>
           <div>element.items = [</div>
           <div>{header:'What is Lorem?',body:'Lorem ipsum dolor sit amet...'},</div>
@@ -62,8 +51,17 @@
 
 <script>
 document.getElementById('id1').items = [
-  {header:'What is Lorem?',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-  {header:'Why use it?',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-  {header:'Where to use?',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+  {
+    header:'What is Lorem?',
+    panel:'Lorem <strong>ipsum</strong> dolor sit amet...',
+  },
+  {
+    header:'Why use it?',
+    panel:'Lorem <strong>ipsum</strong> dolor sit...',
+  },
+  {
+    header:'Where to use?',
+    panel:'Lorem <strong>ipsum</strong> dolor...'
+  }
 ];
 </script>
