@@ -1,15 +1,13 @@
-ui-tabs {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  row-gap: var(--ui-tabs-row-gap);
-}
+ui-tabs{
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  column-gap:20px;}
 
-ui-tabs [data-ui="tabs-list"] {
-  display: flex;
-  border-bottom: 1px solid var(--ui-tabs-border-color);
-  gap: var(--ui-tabs-header-gap);
-}
+ui-tabs [data-ui="tabs-list"]{
+  display:flex;
+  border-bottom:1px solid var(--ui-tabs-border-color);
+  gap:var(--ui-tabs-header-gap);}
 
 ui-tabs [data-ui="tab"] {
   background: none;
@@ -50,9 +48,8 @@ ui-tabs [data-ui="tabpanel"] {
   display: block;
 }
 
-ui-tabs [data-ui="tabpanel"][hidden] {
-  display: none;
-}
+ui-tabs [data-ui="tabpanel"][hidden]{
+  display:none;}
 
 /* Color theme */
 ui-tabs[color="default"] {
