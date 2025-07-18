@@ -70,7 +70,7 @@ class UITabs extends UIBase{
 
   #activateTab(index) {
     this.#activeIndex = index;
-    this.#render();
+    //this.#render();
   }
 
   #onKeyDown(e, index) {
