@@ -46,7 +46,7 @@ ui-accordion [data-ui="accordion-header-icon"]{
   align-items:center;}
 
 ui-accordion [data-ui="accordion-panel"]{
-  display:none;
+  display:block;
   -webkit-user-select:text;
   user-select:text;
   font-size:var(--ui-accordion-panel-font-size);
@@ -56,8 +56,8 @@ ui-accordion [data-ui="accordion-panel"]{
   line-height:var(--ui-line-height-150);
   background-color:var(--ui-accordion-panel-background-color);}
 
-ui-accordion [data-ui="accordion-header"][aria-expanded="true"] + [data-ui="accordion-panel"]{
-  display:block;}
+ui-accordion [data-ui="accordion-panel"][hidden]{
+  display:none;}
 
 ui-accordion [data-ui="accordion-header"] ui-icon{
   width:var(--ui-accordion-icon-expand-size);

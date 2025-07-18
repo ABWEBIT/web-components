@@ -6,17 +6,18 @@ ui-tabs{
 
 ui-tabs [data-ui="tabslist"]{
   display:flex;
-  gap:var(--ui-tabs-tabslist-gap);}
+  flex-wrap:wrap;
+  gap:var(--ui-tabs-tabslist-column-gap);}
 
 ui-tabs [data-ui="tab"]{
   background:none;
-  border:none;
+  border-radius:var(--ui-tabs-tab-border-radius);
   cursor:pointer;
-  padding-inline:var(--ui-tabs-header-padding-inline);
-  padding-block:var(--ui-tabs-header-padding-block);
-  font-size:var(--ui-tabs-header-font-size);
-  color:var(--ui-tabs-header-font-color);
-  background-color:var(--ui-tabs-header-background-color);
+  padding-inline:var(--ui-tabs-tab-padding-inline);
+  padding-block:var(--ui-tabs-tab-padding-block);
+  font-size:var(--ui-tabs-tab-font-size);
+  color:var(--ui-tabs-tab-font-color);
+  background-color:var(--ui-tabs-tab-background-color);
   outline:none;}
 
 ui-tabs[ui] [data-ui="tab"]{
@@ -27,19 +28,23 @@ ui-tabs [data-ui="tab"]:focus-visible {
   outline:var(--ui-outline-width) solid var(--ui-outline-color);
   outline-offset: var(--ui-outline-offset);}
 
-@media (hover: hover) {
-  ui-tabs [data-ui="tab"]:hover {
-    background-color: var(--ui-tabs-header-background-color-hover);
+@media (hover: hover){
+  ui-tabs [data-ui="tab"]:not([disabled]):hover{
+    background-color:var(--ui-tabs-tab-background-color-hover);
   }
 }
 
-ui-tabs [data-ui="tab"][aria-selected="true"] {
-  background-color: var(--ui-tabs-header-background-color-active);
-  color: var(--ui-tabs-header-font-color-active);
+ui-tabs [data-ui="tab"][aria-selected="true"],
+ui-tabs [data-ui="tab"]:not([disabled]):active{
+  background-color:var(--ui-tabs-tab-background-color-active);
+  color:var(--ui-tabs-tab-font-color-active);
 }
 
 ui-tabs [data-ui="tabpanel"]{
   display:block;
+  border-radius:var(--ui-tabs-tabpanel-border-radius);
+  -webkit-user-select:text;
+  user-select:text;
   padding-inline:var(--ui-tabs-tabpanel-padding-inline);
   padding-block:var(--ui-tabs-tabpanel-padding-block);
   font-size:var(--ui-tabs-tabpanel-font-size);
@@ -49,25 +54,33 @@ ui-tabs [data-ui="tabpanel"]{
 ui-tabs [data-ui="tabpanel"][hidden]{
   display:none;}
 
+/* shape */
+ui-tabs[shape="rounded"]{
+  --ui-tabs-tab-border-radius:var(--ui-border-radius-rounded);
+  --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-rounded);}
+
+ui-tabs[shape="square"]{
+  --ui-tabs-tab-border-radius:var(--ui-border-radius-square);
+  --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-square);}
+
 /* color */
-ui-tabs[color="default"] {
-  --ui-tabs-header-background-color: var(--ui-color-gray-800);
-  --ui-tabs-header-background-color-hover: var(--ui-color-gray-750);
-  --ui-tabs-header-background-color-active: var(--ui-color-gray-700);
-  --ui-tabs-body-background-color: var(--ui-color-gray-850);
-  --ui-tabs-header-font-color: var(--ui-color-white);
-  --ui-tabs-header-font-color-active: var(--ui-color-white);
-  --ui-tabs-body-font-color: var(--ui-color-gray-200);
-  --ui-tabs-border-color: var(--ui-color-gray-600);}
+ui-tabs[color="default"]{
+  --ui-tabs-tab-background-color:var(--ui-color-gray-800);
+  --ui-tabs-tab-background-color-hover:var(--ui-color-gray-750);
+  --ui-tabs-tab-background-color-active:var(--ui-color-gray-700);
+  --ui-tabs-tab-font-color:var(--ui-color-white);
+  --ui-tabs-tab-font-color-active:var(--ui-color-white);
+  --ui-tabs-tabpanel-background-color:var(--ui-color-gray-850);
+  --ui-tabs-tabpanel-font-color:var(--ui-color-gray-200);
+  --ui-tabs-border-color:var(--ui-color-gray-600);}
 
 /* size */
 ui-tabs[size="default"]{
   --ui-tabs-row-gap:10px;
-  --ui-tabs-tabslist-gap:10px;
-  --ui-tabs-tabslist-font-size:18px;
-  --ui-tabs-tabslist-padding-inline: 20px;
-  --ui-tabs-tabslist-padding-block: 12px;
-
+  --ui-tabs-tabslist-column-gap:10px;
+  --ui-tabs-tab-font-size:18px;
+  --ui-tabs-tab-padding-inline:20px;
+  --ui-tabs-tab-padding-block:12px;
   --ui-tabs-tabpanel-font-size:16px;
-  --ui-tabs-tabpanel-padding-inline: 20px;
-  --ui-tabs-tabpanel-padding-block: 16px;}
+  --ui-tabs-tabpanel-padding-inline:20px;
+  --ui-tabs-tabpanel-padding-block:16px;}

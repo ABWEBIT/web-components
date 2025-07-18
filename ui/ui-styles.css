@@ -190,12 +190,6 @@ button{
   cursor:pointer;
   touch-action:manipulation;}
 
-/* border radius */
-[ui][shape="rounded"]{border-radius:var(--ui-border-radius-rounded);}
-[ui][shape="square"]{border-radius:var(--ui-border-radius-square);}
-[ui][shape="pill"]{border-radius:var(--ui-border-radius-pill);}
-[ui][shape="circle"]{border-radius:var(--ui-border-radius-circle);}
-
 /* animations */
 @keyframes rotate360{
   0% {transform:rotate(0deg);}
