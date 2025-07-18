@@ -24,7 +24,7 @@ class UITabs extends UIBase{
 
     const tablist = document.createElement('div');
     this.setAttributes(tablist, {
-      'data-ui': 'tabs-list',
+      'data-ui': 'tabslist',
       'role': 'tablist'
     });
 

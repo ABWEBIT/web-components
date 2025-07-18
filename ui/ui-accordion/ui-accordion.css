@@ -18,7 +18,9 @@ ui-accordion [data-ui="accordion-header"]{
   outline-offset:var(--ui-outline-offset);
   outline-width:var(--ui-outline-width);
   outline-style:var(--ui-outline-style);
-  outline-color:transparent;
+  outline-color:transparent;}
+
+ui-accordion[ui]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}
 
