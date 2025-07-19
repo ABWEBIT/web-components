@@ -28,14 +28,37 @@
     <div>Minimal</div>
     <div class="example">
       <div class="preview">
-        <ui-tabs id="id1"></ui-tabs>
+        <ui-tabs></ui-tabs>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-tabs id="id1"&gt;&lt;/ui-tabs&gt;</div>
+          <div>&lt;ui-tabs&gt;&lt;/ui-tabs&gt;</div>
+          <br>
+          <div>element.items = [</div>
+          <div>{header:'What is Lorem?',panel:'Lorem ipsum dolor sit amet...'},</div>
+          <div>{header:'Why use it?',panel:'Lorem ipsum dolor sit amet...',disabled: true},</div>
+          <div>{header:'Where to use?',panel:'Lorem ipsum dolor sit amet...'}</div>
+          <div>];</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Minimal</div>
+    <div class="example">
+      <div class="preview">
+        <ui-tabs shape="square"></ui-tabs>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-tabs shape="square"&gt;&lt;/ui-tabs&gt;</div>
           <br>
           <div>element.items = [</div>
           <div>{header:'What is Lorem?',panel:'Lorem ipsum dolor sit amet...'},</div>
@@ -50,7 +73,7 @@
 </section>
 
 <script>
-document.getElementById('id1').items = [
+const items = [
   {
     header:'What is Lorem?',
     panel:'Lorem <strong>ipsum</strong> dolor sit amet...',
@@ -58,10 +81,19 @@ document.getElementById('id1').items = [
   {
     header:'Why use it?',
     panel:'Lorem <strong>ipsum</strong> dolor sit...',
+    disabled: true
   },
   {
     header:'Where to use?',
     panel:'Lorem <strong>ipsum</strong> dolor...'
+  },
+  {
+    header:'Lorem Lorem',
+    panel:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   }
 ];
+
+document.querySelectorAll('ui-tabs').forEach(tab => {
+  tab.items = items;
+});
 </script>

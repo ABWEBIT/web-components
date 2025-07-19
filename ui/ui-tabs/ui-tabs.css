@@ -50,7 +50,8 @@ ui-tabs [data-ui="tab-panel"]{
   padding-block:var(--ui-tabs-tab-panel-padding-block);
   font-size:var(--ui-tabs-tab-panel-font-size);
   color:var(--ui-tabs-tab-panel-font-color);
-  background-color:var(--ui-tabs-tab-panel-background-color);}
+  background-color:var(--ui-tabs-tab-panel-background-color);
+  line-height:var(--ui-line-height-150);}
 
 ui-tabs [data-ui="tab-panel"][hidden]{
   display:none;}

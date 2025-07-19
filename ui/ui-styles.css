@@ -153,13 +153,7 @@
 [ui] *{
   box-sizing:border-box!important;}
 
-[disabled]{
-  opacity:0.5;
-  pointer-events:auto;
-  cursor:not-allowed;}
 
-[disabled] *{
-  pointer-events:none;}
 
 [ui][loading]{
   cursor:default;}
@@ -189,6 +183,17 @@ button{
   margin:0;
   cursor:pointer;
   touch-action:manipulation;}
+
+button[disabled],
+[disabled]{
+  cursor:not-allowed;}
+
+[disabled]{
+  opacity:0.5;
+  pointer-events:auto;}
+
+[disabled] *{
+  pointer-events:none;}
 
 /* animations */
 @keyframes rotate360{

@@ -53,8 +53,8 @@ ui-accordion [data-ui="accordion-panel"]{
   color:var(--ui-accordion-panel-font-color);
   padding-inline:var(--ui-accordion-panel-padding-inline);
   padding-block:var(--ui-accordion-panel-padding-block);
-  line-height:var(--ui-line-height-150);
-  background-color:var(--ui-accordion-panel-background-color);}
+  background-color:var(--ui-accordion-panel-background-color);
+  line-height:var(--ui-line-height-150);}
 
 ui-accordion [data-ui="accordion-panel"][hidden]{
   display:none;}
