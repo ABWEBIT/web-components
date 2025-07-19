@@ -24,12 +24,12 @@ class UITabs extends UIBase{
 
     const tablist = document.createElement('div');
     this.setAttributes(tablist, {
-      'data-ui': 'tabslist',
+      'data-ui': 'tabs-list',
       'role': 'tablist'
     });
 
     const panelsContainer = document.createElement('div');
-    panelsContainer.setAttribute('data-ui', 'tabs-panels');
+    panelsContainer.setAttribute('data-ui','tabs-panels');
 
     this.#items.forEach((item,index) => {
       const id = uuid();
@@ -37,7 +37,7 @@ class UITabs extends UIBase{
       const idTab = `id-tab-${id}`;
 
       const tab = document.createElement('button');
-      this.setAttributes(tab, {
+      this.setAttributes(tab,{
         'data-ui': 'tab',
         'role': 'tab',
         'type': 'button',
@@ -47,15 +47,19 @@ class UITabs extends UIBase{
         'aria-controls': idControl
       });
       tab.textContent = item.header ?? '';
-      tab.addEventListener('click', () => this.#activateTab(index));
-      tab.addEventListener('keydown', (e) => this.#onKeyDown(e, index));
+      tab.addEventListener('click',() =>{
+        if(!tab.disabled){
+          this.#onAction(accordionHeader);
+        }
+      });
+      tab.addEventListener('keydown',(e) => this.#onKeyDown(e,index));
 
       tablist.appendChild(tab);
 
       // Panel
       const panel = document.createElement('div');
       this.setAttributes(panel, {
-        'data-ui': 'tabpanel',
+        'data-ui': 'tab-panel',
         'role': 'tabpanel',
         'id': idControl,
         'aria-labelledby': idTab
@@ -65,7 +69,7 @@ class UITabs extends UIBase{
 
       panelsContainer.appendChild(panel);
     });
-    this.append(tablist, panelsContainer);
+    this.append(tablist,panelsContainer);
   }
 
   #activateTab(index) {
@@ -73,7 +77,7 @@ class UITabs extends UIBase{
     //this.#render();
   }
 
-  #onKeyDown(e, index) {
+  #onKeyDown(e,index){
     const total = this.#items.length;
     let newIndex = index;
 

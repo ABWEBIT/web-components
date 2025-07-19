@@ -4,10 +4,10 @@ ui-tabs{
   width:100%;
   row-gap:var(--ui-tabs-row-gap);}
 
-ui-tabs [data-ui="tabslist"]{
+ui-tabs [data-ui="tabs-list"]{
   display:flex;
   flex-wrap:wrap;
-  gap:var(--ui-tabs-tabslist-column-gap);}
+  gap:var(--ui-tabs-tabs-list-column-gap);}
 
 ui-tabs [data-ui="tab"]{
   background:none;
@@ -18,69 +18,70 @@ ui-tabs [data-ui="tab"]{
   font-size:var(--ui-tabs-tab-font-size);
   color:var(--ui-tabs-tab-font-color);
   background-color:var(--ui-tabs-tab-background-color);
-  outline:none;}
+  outline-offset:var(--ui-outline-offset);
+  outline-width:var(--ui-outline-width);
+  outline-style:var(--ui-outline-style);
+  outline-color:transparent;}
 
 ui-tabs[ui] [data-ui="tab"]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}
 
 ui-tabs [data-ui="tab"]:focus-visible {
-  outline:var(--ui-outline-width) solid var(--ui-outline-color);
-  outline-offset: var(--ui-outline-offset);}
+  outline-color:var(--ui-outline-color);}
 
 @media (hover: hover){
-  ui-tabs [data-ui="tab"]:not([disabled]):hover{
+  ui-tabs [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):hover{
     background-color:var(--ui-tabs-tab-background-color-hover);
-  }
+    color:var(--ui-tabs-tab-font-color-hover);}
 }
 
 ui-tabs [data-ui="tab"][aria-selected="true"],
-ui-tabs [data-ui="tab"]:not([disabled]):active{
+ui-tabs [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):active{
   background-color:var(--ui-tabs-tab-background-color-active);
-  color:var(--ui-tabs-tab-font-color-active);
-}
+  color:var(--ui-tabs-tab-font-color-active);}
 
-ui-tabs [data-ui="tabpanel"]{
+ui-tabs [data-ui="tab-panel"]{
   display:block;
-  border-radius:var(--ui-tabs-tabpanel-border-radius);
   -webkit-user-select:text;
   user-select:text;
-  padding-inline:var(--ui-tabs-tabpanel-padding-inline);
-  padding-block:var(--ui-tabs-tabpanel-padding-block);
-  font-size:var(--ui-tabs-tabpanel-font-size);
-  color:var(--ui-tabs-tabpanel-font-color);
-  background-color:var(--ui-tabs-tabpanel-background-color);}
+  border-radius:var(--ui-tabs-tab-panel-border-radius);
+  padding-inline:var(--ui-tabs-tab-panel-padding-inline);
+  padding-block:var(--ui-tabs-tab-panel-padding-block);
+  font-size:var(--ui-tabs-tab-panel-font-size);
+  color:var(--ui-tabs-tab-panel-font-color);
+  background-color:var(--ui-tabs-tab-panel-background-color);}
 
-ui-tabs [data-ui="tabpanel"][hidden]{
+ui-tabs [data-ui="tab-panel"][hidden]{
   display:none;}
 
 /* shape */
 ui-tabs[shape="rounded"]{
   --ui-tabs-tab-border-radius:var(--ui-border-radius-rounded);
-  --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-rounded);}
+  --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-rounded);}
 
 ui-tabs[shape="square"]{
   --ui-tabs-tab-border-radius:var(--ui-border-radius-square);
-  --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-square);}
+  --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-square);}
 
 /* color */
 ui-tabs[color="default"]{
   --ui-tabs-tab-background-color:var(--ui-color-gray-800);
   --ui-tabs-tab-background-color-hover:var(--ui-color-gray-750);
   --ui-tabs-tab-background-color-active:var(--ui-color-gray-700);
-  --ui-tabs-tab-font-color:var(--ui-color-white);
+  --ui-tabs-tab-font-color:var(--ui-color-gray-150);
+  --ui-tabs-tab-font-color-hover:var(--ui-color-white);
   --ui-tabs-tab-font-color-active:var(--ui-color-white);
-  --ui-tabs-tabpanel-background-color:var(--ui-color-gray-850);
-  --ui-tabs-tabpanel-font-color:var(--ui-color-gray-200);
-  --ui-tabs-border-color:var(--ui-color-gray-600);}
+  --ui-tabs-tab-panel-background-color:var(--ui-color-gray-850);
+  --ui-tabs-tab-panel-font-color:var(--ui-color-gray-200);}
 
 /* size */
 ui-tabs[size="default"]{
   --ui-tabs-row-gap:10px;
-  --ui-tabs-tabslist-column-gap:10px;
+  --ui-tabs-tabs-list-column-gap:10px;
   --ui-tabs-tab-font-size:18px;
   --ui-tabs-tab-padding-inline:20px;
   --ui-tabs-tab-padding-block:12px;
-  --ui-tabs-tabpanel-font-size:16px;
-  --ui-tabs-tabpanel-padding-inline:20px;
-  --ui-tabs-tabpanel-padding-block:16px;}
+  --ui-tabs-tab-panel-font-size:16px;
+  --ui-tabs-tab-panel-padding-inline:20px;
+  --ui-tabs-tab-panel-padding-block:16px;}
