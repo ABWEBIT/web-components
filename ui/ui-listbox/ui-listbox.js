@@ -1,10 +1,11 @@
 import {UIBase} from '../ui-base.js';
 
 class UIListbox extends UIBase{
+  #listeners = null;
   #options = [];
   #indexActive = -1;
   #indexCurrent = null;
-  #componentListenerController = null;
+
 
   get options(){return this.#options;}
   set options(value){
@@ -21,16 +22,15 @@ class UIListbox extends UIBase{
       'role': 'listbox'
     });
 
-    this.#componentListenerController = new AbortController();
+    this.#listeners = new AbortController();
+    const signal = this.#listeners.signal;
 
-    this.addEventListener('keydown',this.#onKeyDown,{
-      signal: this.#componentListenerController.signal
-    });
+    this.addEventListener('keydown',this.#onKeyDown,{signal});
   }
 
   disconnectedCallback(){
-    this.#componentListenerController?.abort();
-    this.#componentListenerController = null;
+    this.#listeners?.abort();
+    this.#listeners = null;
   }
 
   setOptions(options = []){

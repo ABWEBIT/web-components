@@ -68,7 +68,7 @@ class UICheckbox extends UIBase{
     this.#listeners = null;
   }
 
-  #onClick = (e) =>{
+  #onClick = (e) => {
     if(this.disabled) return;
     e.preventDefault();
     this.#onAction(e);
@@ -83,7 +83,7 @@ class UICheckbox extends UIBase{
     }
   }
 
-  #onAction = (e) =>{
+  #onAction = (e) => {
     this.checked = !this.#checked;
     console.log(e.type);
   }

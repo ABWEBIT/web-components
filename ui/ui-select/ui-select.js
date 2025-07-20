@@ -155,9 +155,8 @@ class UISelect extends UIBase{
     this.addEventListener('click',this.#onClick,{signal});
     this.addEventListener('keydown',this.#onKeyDown,{signal});
 /*
-    this.addEventListener('focusout',this.#onFocusOut,{
-      signal: this.#componentListenerController.signal
-    });*/
+    this.addEventListener('focusout',this.#onFocusOut,{signal});
+*/
   }
 
   disconnectedCallback(){

@@ -1,11 +1,9 @@
 import {UIBase} from '../ui-base.js';
 
 class UISwitch extends UIBase{
+  #listeners = null;
   #checked = false;
   #disabled = false;
-
-  #onClick = this.onClick.bind(this);
-  #onKeyDown = this.onKeyDown.bind(this);
 
   static properties = Object.freeze({
     'checked': {name: 'checked', type: Boolean, reflect: true},
@@ -44,28 +42,33 @@ class UISwitch extends UIBase{
     this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
 
-    this.addEventListener('click',this.#onClick);
-    this.addEventListener('keydown',this.#onKeyDown);
+    this.#listeners = new AbortController();
+    const signal = this.#listeners.signal;
+
+    this.addEventListener('click',this.#onClick,{signal});
+    this.addEventListener('keydown',this.#onKeyDown,{signal});
   }
 
   disconnectedCallback(){
-    this.removeEventListener('click',this.#onClick);
-    this.removeEventListener('keydown',this.#onKeyDown);
+    this.#listeners?.abort();
+    this.#listeners = null;
   }
 
-  onClick(e){
+  #onClick = (e) => {
     if(this.disabled) return;
-    if(typeof this.doAction === 'function') this.doAction(e);
+    this.#onAction(e);
   }
 
-  onKeyDown(e){
-    if(e.code !== 'Tab') e.preventDefault();
+  #onKeyDown = (e) => {
     if(this.#disabled) return;
-    if(e.repeat) return;
-    if(e.code === 'Enter' || e.code === 'Space') this.doAction(e);
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      if(e.repeat) return;
+      this.#onAction(e);
+    }
   }
 
-  doAction(e){
+  #onAction = (e) => {
     this.checked = !this.#checked;
     console.log(e.type);
   }
