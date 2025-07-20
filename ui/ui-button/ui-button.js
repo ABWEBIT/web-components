@@ -3,9 +3,7 @@ import {UIBase} from '../ui-base.js';
 class UIButton extends UIBase{
   #disabled = false;
   #loading = false;
-
-  #onClick = this.onClick.bind(this);
-  #onKeyDown = this.onKeyDown.bind(this);
+  #listeners = null;
 
   static properties = Object.freeze({
     'disabled':{name:'disabled',type:Boolean,reflect:true},
@@ -29,7 +27,7 @@ class UIButton extends UIBase{
     this.setAttributes(this, {
       'aria-busy': this.#loading ? 'true' : 'false'
     });
-    this.loader();
+    this.#loader();
   }
 
   connectedCallback(){
@@ -46,18 +44,21 @@ class UIButton extends UIBase{
     this.disabled = this.hasAttribute('disabled');
     this.loading = this.hasAttribute('loading');
 
-    this.loader();
+    this.#loader();
 
-    this.addEventListener('click',this.#onClick);
-    this.addEventListener('keydown',this.#onKeyDown);
+    this.#listeners = new AbortController();
+    const signal = this.#listeners.signal;
+
+    this.addEventListener('click',this.#onClick,{signal});
+    this.addEventListener('keydown',this.#onKeyDown,{signal});
   }
 
   disconnectedCallback(){
-    this.removeEventListener('click',this.#onClick);
-    this.removeEventListener('keydown',this.#onKeyDown);
+    this.#listeners?.abort();
+    this.#listeners = null;
   }
 
-  loader(){
+  #loader = () => {
     const spinner = this.querySelector('ui-spinner');
 
     if(this.#loading && !spinner){
@@ -68,22 +69,23 @@ class UIButton extends UIBase{
     }
   }
 
-  onClick(e){
+  #onClick = (e) => {
     if(this.disabled || this.#loading) return;
-    if(typeof this.onAction === 'function') this.onAction(e);
+    e.preventDefault();
+    this.#onAction(e);
   }
 
-  onKeyDown(e){
-    if(e.code !== 'Tab') e.preventDefault();
-    if(this.#disabled || this.#loading) return;
-    if(e.repeat) return;
-    if(e.code === 'Enter' || e.code === 'Space'){
-      if(typeof this.onAction === 'function') this.onAction(e);
+  #onKeyDown = (e) => {
+    if(this.#disabled) return;
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      if(e.repeat) return;
+      this.#onAction(e);
     }
   }
 
-  onAction(e){
-    //console.log(e.type);
+  #onAction(e){
+    console.log(e.type);
   }
 
 }

@@ -5,6 +5,7 @@ ui-checkbox{
   vertical-align:middle;
   height:var(--ui-checkbox-size);
   width:var(--ui-checkbox-size);
+  border-radius:var(--ui-checkbox-border-radius);
   outline-width:2px;
   outline-offset:2px;
   outline-style:solid;
@@ -48,6 +49,16 @@ ui-checkbox[checked] > svg{
 ui-checkbox[ui] > svg{
   transition-duration:var(--ui-transition-duration);
   transition-property:opacity;}
+
+/* shape */
+ui-checkbox[shape="rounded"]{
+  --ui-checkbox-border-radius:var(--ui-border-radius-rounded);}
+
+ui-checkbox[shape="square"]{
+  --ui-checkbox-border-radius:var(--ui-border-radius-square);}
+
+ui-checkbox[shape="circle"]{
+  --ui-checkbox-border-radius:var(--ui-border-radius-circle);}
 
 /* color */
 ui-checkbox[color="default"]{

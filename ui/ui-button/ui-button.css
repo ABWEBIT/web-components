@@ -5,6 +5,7 @@ ui-button{
   justify-content:center;
   vertical-align:middle;
   border:none;
+  border-radius:var(--ui-button-border-radius);
   height:var(--ui-button-height);
   padding-inline-start:var(--ui-button-padding-inline);
   padding-inline-end:var(--ui-button-padding-inline);
@@ -66,6 +67,19 @@ ui-button:active:not([disabled]):not([loading]){
 /* width-mode */
 ui-button[width-mode="full"]{
   width:100%;}
+
+/* shape */
+ui-button[shape="rounded"]{
+  --ui-button-border-radius:var(--ui-border-radius-rounded);}
+
+ui-button[shape="square"]{
+  --ui-button-border-radius:var(--ui-border-radius-square);}
+
+ui-button[shape="pill"]{
+  --ui-button-border-radius:var(--ui-border-radius-pill);}
+
+ui-button[shape="circle"]{
+  --ui-button-border-radius:var(--ui-border-radius-circle);}
 
 /* color */
 ui-button[color="default"]{

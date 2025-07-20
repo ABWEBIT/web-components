@@ -149,18 +149,11 @@ class UISelect extends UIBase{
     this.appendChild(fragment);
 
     this.#componentListenerController = new AbortController();
+    const signal = this.#componentListenerController.signal;
 
-    window.addEventListener('popstate',this.#onPopState,{
-      signal: this.#componentListenerController.signal
-    });
-
-    this.addEventListener('click',this.#onClick,{
-      signal: this.#componentListenerController.signal
-    });
-
-    this.addEventListener('keydown',this.#onKeyDown,{
-      signal: this.#componentListenerController.signal
-    });
+    window.addEventListener('popstate',this.#onPopState,{signal});
+    this.addEventListener('click',this.#onClick,{signal});
+    this.addEventListener('keydown',this.#onKeyDown,{signal});
 /*
     this.addEventListener('focusout',this.#onFocusOut,{
       signal: this.#componentListenerController.signal

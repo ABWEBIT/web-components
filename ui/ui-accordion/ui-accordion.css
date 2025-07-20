@@ -4,6 +4,12 @@ ui-accordion{
   width:100%;
   row-gap:var(--ui-accordion-row-gap);}
 
+ui-accordion [data-ui="accordion-item"]{
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  row-gap:var(--ui-accordion-row-gap);}
+
 ui-accordion [data-ui="accordion-header"]{
   display:flex;
   width:100%;
@@ -47,6 +53,7 @@ ui-accordion [data-ui="accordion-panel"]{
   display:block;
   -webkit-user-select:text;
   user-select:text;
+  border-radius:var(--ui-accordion-header-border-radius);
   font-size:var(--ui-accordion-panel-font-size);
   color:var(--ui-accordion-panel-font-color);
   padding-inline:var(--ui-accordion-panel-padding-inline);

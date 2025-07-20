@@ -2,11 +2,9 @@ import {UIBase} from '../ui-base.js';
 import {icons} from '../../lib/icons.js';
 
 class UICheckbox extends UIBase{
-  #checked = false;
   #disabled = false;
-
-  #onClick = this.onClick.bind(this);
-  #onKeyDown = this.onKeyDown.bind(this);
+  #checked = false;
+  #listeners = null;
 
   static #icon = 'check';
   static #viewBox = '0 0 24 24';
@@ -58,32 +56,36 @@ class UICheckbox extends UIBase{
     svg.innerHTML =`<rect></rect>` +  content;
     this.appendChild(svg);
 
-    this.addEventListener('click',this.#onClick);
-    this.addEventListener('keydown',this.#onKeyDown);
+    this.#listeners = new AbortController();
+    const signal = this.#listeners.signal;
+
+    this.addEventListener('click',this.#onClick,{signal});
+    this.addEventListener('keydown',this.#onKeyDown,{signal});
   }
 
   disconnectedCallback(){
-    this.removeEventListener('click',this.#onClick);
-    this.removeEventListener('keydown',this.#onKeyDown);
+    this.#listeners?.abort();
+    this.#listeners = null;
   }
 
-  onClick = (e) =>{
+  #onClick = (e) =>{
     if(this.disabled) return;
-    if(typeof this.doAction === 'function') this.doAction(e);
+    e.preventDefault();
+    this.#onAction(e);
   }
 
-  onKeyDown = (e) => {
+  #onKeyDown = (e) => {
     if(this.#disabled) return;
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
       if(e.repeat) return;
-      this.onAction(accordionHeader);
+      this.#onAction(e);
     }
   }
 
-  doAction = (e) =>{
+  #onAction = (e) =>{
     this.checked = !this.#checked;
-    //console.log(e.type);
+    console.log(e.type);
   }
 
 }
