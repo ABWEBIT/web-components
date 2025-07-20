@@ -1,9 +1,9 @@
 import {UIBase} from '../ui-base.js';
 
 class UIButton extends UIBase{
+  #listeners = null;
   #disabled = false;
   #loading = false;
-  #listeners = null;
 
   static properties = Object.freeze({
     'disabled':{name:'disabled',type:Boolean,reflect:true},

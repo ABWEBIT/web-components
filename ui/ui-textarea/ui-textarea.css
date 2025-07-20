@@ -10,6 +10,7 @@ ui-textarea{
   outline-offset:2px;
   outline-style:solid;
   outline-color:transparent;
+  border-radius:var(--ui-textarea-border-radius);
   background-color:var(--ui-textarea-background-color);}
 
 ui-textarea[ui]{
@@ -55,6 +56,13 @@ ui-textarea:focus-within:not([disabled]){
 ui-textarea[width-mode="full"],
 ui-textarea[width-mode="full"] textarea{
   width:100%!important;}
+
+/* shape */
+ui-textarea[shape="rounded"]{
+  --ui-textarea-border-radius:var(--ui-border-radius-rounded);}
+
+ui-textarea[shape="square"]{
+  --ui-textarea-border-radius:var(--ui-border-radius-square);}
 
 /* color */
 ui-textarea[color="default"]{

@@ -1,11 +1,10 @@
 import {UIBase} from '../ui-base.js';
 
 class UITextarea extends UIBase{
+  #listeners = null;
   #textarea = null;
   #required = false;
   #disabled = false;
-
-  #onInput = this.onInput.bind(this);
 
   static properties = Object.freeze({
     'required':{name:'required',type:Boolean,reflect:true},
@@ -59,22 +58,24 @@ class UITextarea extends UIBase{
 
     this.appendChild(fragment);
 
-    this.#textarea.addEventListener('input',this.#onInput);
-  }
+    this.#listeners = new AbortController();
+    const signal = this.#listeners.signal;
 
-  onInput(e){
-    if(this.#disabled) return;
-    this.doAction(e);
-  }
-
-  doAction(e){
-    console.log(e.type);
+    this.#textarea.addEventListener('input',this.#onInput,{signal});
   }
 
   disconnectedCallback(){
-    if(this.#textarea){
-      this.#textarea.removeEventListener('input',this.#onInput);
-    }
+    this.#listeners?.abort();
+    this.#listeners = null;
+  }
+
+  #onInput = (e) => {
+    if(this.#disabled) return;
+    this.#onAction(e);
+  }
+
+  #onAction = (e) => {
+    console.log(e.type);
   }
 
 }
