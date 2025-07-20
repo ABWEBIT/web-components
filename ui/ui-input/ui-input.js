@@ -3,15 +3,13 @@ import {inputTypes} from '../../utils/index.js';
 import {icons} from '../../lib/icons.js';
 
 class UIInput extends UIBase{
+  #listeners = null;
   #input = null;
   #clear = null;
   #iconInput = 'close';
   #required = false;
   #disabled = false;
   #clearable = false;
-
-  #onInput = this.onInput.bind(this);
-  #onClear = this.onClear.bind(this);
 
   static properties = Object.freeze({
     'required':{name:'required',type:Boolean,reflect:true},
@@ -64,6 +62,8 @@ class UIInput extends UIBase{
     this.removeAttribute('type');
 
     const fragment = document.createDocumentFragment();
+    this.#listeners = new AbortController();
+    const signal = this.#listeners.signal;
 
     this.#input = document.createElement('input');
     if(value) this.value = value;
@@ -77,38 +77,33 @@ class UIInput extends UIBase{
       this.#clear = document.createElement('ui-icon');
       this.#clear.setAttribute('icon',this.#iconInput);
 
-      this.#clear.addEventListener('click',this.#onClear);
+      this.#clear.addEventListener('click',this.#onClear,{signal});
       fragment.appendChild(this.#clear);
     }
 
     this.appendChild(fragment);
 
-    this.#input.addEventListener('input',this.#onInput);
-  }
-
-  onInput(e){
-    if(this.#disabled) return;
-    this.doAction(e);
-  }
-
-  doAction(e){
-    console.log(e.type);
-  }
-
-  onClear(){
-    if(!this.#input) return;
-    this.#input.value = '';
-    //this.#input.focus();
+    this.#input.addEventListener('input',this.#onInput,{signal});
   }
 
   disconnectedCallback(){
-    if(this.#input){
-      this.#input.removeEventListener('input',this.#onInput);
-    }
+    this.#listeners?.abort();
+    this.#listeners = null;
+  }
 
-    if(this.#clear){
-      this.#clear.removeEventListener('click',this.#onClear);
-    }
+  #onInput = (e) =>{
+    if(this.#disabled) return;
+    this.#onAction(e);
+  }
+
+  #onAction = (e) =>{
+    console.log(e.type);
+  }
+
+  #onClear = (e) =>{
+    if(!this.#input) return;
+    this.#input.value = '';
+    //this.#input.focus();
   }
 
 }

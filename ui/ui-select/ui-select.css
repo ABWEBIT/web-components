@@ -7,6 +7,7 @@ ui-select{
   padding-inline-start:calc(var(--ui-select-height) / 2)!important;
   padding-inline-end:calc(var(--ui-select-height) / 4 + 2px)!important;
   border:none;
+  border-radius:var(--ui-select-border-radius);
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
@@ -46,6 +47,16 @@ ui-select [data-ui="select-icon-expand"] ui-icon{
 
 ui-select[aria-expanded="true"] [data-ui="select-icon-expand"] ui-icon{
   transform:rotate(180deg);}
+
+/* shape */
+ui-select[shape="rounded"]{
+  --ui-select-border-radius:var(--ui-border-radius-rounded);}
+
+ui-select[shape="square"]{
+  --ui-select-border-radius:var(--ui-border-radius-square);}
+
+ui-select[shape="pill"]{
+  --ui-select-border-radius:var(--ui-border-radius-pill);}
 
 /* color */
 ui-select[color="default"]{

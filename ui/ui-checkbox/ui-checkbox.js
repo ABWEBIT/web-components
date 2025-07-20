@@ -2,9 +2,9 @@ import {UIBase} from '../ui-base.js';
 import {icons} from '../../lib/icons.js';
 
 class UICheckbox extends UIBase{
+  #listeners = null;
   #disabled = false;
   #checked = false;
-  #listeners = null;
 
   static #icon = 'check';
   static #viewBox = '0 0 24 24';

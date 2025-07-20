@@ -24,7 +24,7 @@ class UIButton extends UIBase{
   set loading(value){
     this.#loading = value === true;
     this.reflect('loading',this.#loading);
-    this.setAttributes(this, {
+    this.setAttributes(this,{
       'aria-busy': this.#loading ? 'true' : 'false'
     });
     this.#loader();
@@ -76,7 +76,7 @@ class UIButton extends UIBase{
   }
 
   #onKeyDown = (e) => {
-    if(this.#disabled) return;
+    if(this.#disabled || this.#loading) return;
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
       if(e.repeat) return;
@@ -84,7 +84,7 @@ class UIButton extends UIBase{
     }
   }
 
-  #onAction(e){
+  #onAction = (e) => {
     console.log(e.type);
   }
 

@@ -4,6 +4,7 @@ ui-input{
   align-items:center;
   vertical-align:middle;
   height:var(--ui-input-size);
+  border-radius:var(--ui-input-border-radius);
   outline-width:2px;
   outline-offset:2px;
   outline-style:solid;
@@ -71,6 +72,16 @@ ui-input[status="accent"]::before{border-color:var(--ui-color-blue-500);}
 ui-input[status="error"]::before{border-color:var(--ui-color-red-500);}
 ui-input[status="success"]::before{border-color:var(--ui-color-green-500);}
 ui-input[status="warning"]::before{border-color:var(--ui-color-yellow-500);}
+
+/* shape */
+ui-input[shape="rounded"]{
+  --ui-input-border-radius:var(--ui-border-radius-rounded);}
+
+ui-input[shape="square"]{
+  --ui-input-border-radius:var(--ui-border-radius-square);}
+
+ui-input[shape="pill"]{
+  --ui-input-border-radius:var(--ui-border-radius-pill);}
 
 /* color */
 ui-input[color="default"]{
