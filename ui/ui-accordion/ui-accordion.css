@@ -4,13 +4,11 @@ ui-accordion{
   width:100%;
   row-gap:var(--ui-accordion-row-gap);}
 
-ui-accordion [data-ui="accordion-item"]{
-  border-radius:inherit;}
-
 ui-accordion [data-ui="accordion-header"]{
   display:flex;
   width:100%;
   text-align:start;
+  border-radius:var(--ui-accordion-header-border-radius);
   padding-inline:var(--ui-accordion-header-padding-inline);
   font-size:var(--ui-accordion-header-font-size);
   background-color:var(--ui-accordion-header-background-color);
@@ -28,12 +26,12 @@ ui-accordion [data-ui="accordion-header"]:focus-visible{
   outline-color:var(--ui-outline-color);}
 
 @media (hover:hover){
-  ui-accordion [data-ui="accordion-header"]:not([disabled])[aria-expanded="false"]:hover{
+  ui-accordion [data-ui="accordion-header"]:not([disabled]):not([aria-expanded="true"]):hover{
     background-color:var(--ui-accordion-header-background-color-hover);}
 }
 
 ui-accordion [data-ui="accordion-header"][aria-expanded="true"],
-ui-accordion [data-ui="accordion-header"]:not([disabled]):active{
+ui-accordion [data-ui="accordion-header"]:not([disabled]):not([aria-expanded="true"]):active{
   background-color:var(--ui-accordion-header-background-color-active);}
 
 ui-accordion [data-ui="accordion-header-text"]{
@@ -67,6 +65,15 @@ ui-accordion [data-ui="accordion-header"] ui-icon{
 
 ui-accordion [data-ui="accordion-header"][aria-expanded="true"] ui-icon{
   transform:rotate(180deg);}
+
+/* shape */
+ui-accordion[shape="rounded"]{
+  --ui-accordion-header-border-radius:var(--ui-border-radius-rounded);
+  --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-rounded);}
+
+ui-accordion[shape="square"]{
+  --ui-accordion-header-border-radius:var(--ui-border-radius-square);
+  --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-square);}
 
 /* color */
 ui-accordion[color="default"]{

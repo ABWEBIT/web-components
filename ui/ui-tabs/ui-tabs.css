@@ -27,7 +27,7 @@ ui-tabs[ui] [data-ui="tab"]{
   transition-duration:var(--ui-transition-duration);
   transition-property:background-color,outline-color,color;}
 
-ui-tabs [data-ui="tab"]:focus-visible {
+ui-tabs [data-ui="tab"]:focus-visible{
   outline-color:var(--ui-outline-color);}
 
 @media (hover: hover){
