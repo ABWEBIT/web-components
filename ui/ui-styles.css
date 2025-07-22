@@ -1,5 +1,6 @@
 @import './ui-accordion/ui-accordion.css';
 @import './ui-button/ui-button.css';
+@import './ui-breadcrumb/ui-breadcrumb.css';
 @import './ui-checkbox/ui-checkbox.css';
 @import './ui-divider/ui-divider.css';
 @import './ui-field/ui-field.css';
@@ -200,11 +201,3 @@ button[disabled],
   0% {transform:rotate(0deg);}
   100% {transform:rotate(360deg);}
 }
-/*
-
-[ui][shape="rounded"]{border-radius:var(--ui-border-radius-rounded);}
-[ui][shape="square"]{border-radius:var(--ui-border-radius-square);}
-[ui][shape="pill"]{border-radius:var(--ui-border-radius-pill);}
-[ui][shape="circle"]{border-radius:var(--ui-border-radius-circle);}
-
-*/

@@ -1,0 +1,15 @@
+ui-text{
+  line-height:1.5;
+  width:100%;}
+
+ui-text[text-align="start"]{
+  text-align:start;}
+
+ui-text[text-align="end"]{
+  text-align:end;}
+
+ui-text[text-align="center"]{
+  text-align:center;}
+
+ui-text[text-align="justify"]{
+  text-align:justify;}
