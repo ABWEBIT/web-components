@@ -2,6 +2,7 @@
     { label: 'Accordion', link: './ui/ui-accordion/ui-accordion.html', category: 'components' },
     { label: 'Tabs', link: './ui/ui-tabs/ui-tabs.html', category: 'components' },
     { label: 'Foundation', link: './pages/ui-foundation.html', category: 'essentials' },
+    { label: 'Spinner', link: './ui/ui-spinner/ui-spinner.html', category: 'components' },
     { label: 'Icons', link: './pages/ui-icons.html', category: 'theme' },
     { label: 'Icon', link: './ui/ui-icon/ui-icon.html', category: 'primitives' },
     { label: 'Divider', link: './ui/ui-divider/ui-divider.html', category: 'primitives' },
@@ -16,7 +17,6 @@
     { label: 'Select', link: './ui/ui-select/ui-select.html', category: 'forms' },
     { label: 'Listbox', link: './ui/ui-listbox/ui-listbox.html', category: 'forms' },
     { label: 'Focus', link: './ui/ui-focus/ui-focus.html', category: 'utilities' },
-    { label: 'Spinner', link: './ui/ui-spinner/ui-spinner.html', category: 'utilities' },
     { label: 'Portal', link: './ui/ui-portal/ui-portal.html', category: 'utilities' },
   ];
 
