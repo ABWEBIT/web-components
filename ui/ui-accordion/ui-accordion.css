@@ -7,7 +7,6 @@ ui-accordion{
 ui-accordion [data-ui="accordion-item"]{
   display:flex;
   flex-direction:column;
-  width:100%;
   row-gap:var(--ui-accordion-row-gap);}
 
 ui-accordion [data-ui="accordion-header"]{
@@ -58,7 +57,6 @@ ui-accordion [data-ui="accordion-panel"]{
   color:var(--ui-accordion-panel-font-color);
   padding-inline:var(--ui-accordion-panel-padding-inline);
   padding-block:var(--ui-accordion-panel-padding-block);
-  background-color:var(--ui-accordion-panel-background-color);
   line-height:var(--ui-line-height-150);}
 
 ui-accordion [data-ui="accordion-panel"][hidden]{
@@ -87,7 +85,6 @@ ui-accordion[color="default"]{
   --ui-accordion-header-background-color:var(--ui-color-gray-800);
   --ui-accordion-header-background-color-hover:var(--ui-color-gray-750);
   --ui-accordion-header-background-color-active:var(--ui-color-gray-700);
-  --ui-accordion-panel-background-color:var(--ui-color-gray-850);
   --ui-accordion-header-font-color:var(--ui-color-white);
   --ui-accordion-panel-font-color:var(--ui-color-gray-200);}
 

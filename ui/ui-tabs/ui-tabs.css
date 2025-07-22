@@ -50,7 +50,6 @@ ui-tabs [data-ui="tab-panel"]{
   padding-block:var(--ui-tabs-tab-panel-padding-block);
   font-size:var(--ui-tabs-tab-panel-font-size);
   color:var(--ui-tabs-tab-panel-font-color);
-  background-color:var(--ui-tabs-tab-panel-background-color);
   line-height:var(--ui-line-height-150);}
 
 ui-tabs [data-ui="tab-panel"][hidden]{
@@ -73,7 +72,6 @@ ui-tabs[color="default"]{
   --ui-tabs-tab-font-color:var(--ui-color-gray-150);
   --ui-tabs-tab-font-color-hover:var(--ui-color-white);
   --ui-tabs-tab-font-color-active:var(--ui-color-white);
-  --ui-tabs-tab-panel-background-color:var(--ui-color-gray-850);
   --ui-tabs-tab-panel-font-color:var(--ui-color-gray-200);}
 
 /* size */

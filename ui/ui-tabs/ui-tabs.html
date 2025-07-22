@@ -25,7 +25,7 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Minimal</div>
+    <div>Shape rounded with disabled tab</div>
     <div class="example">
       <div class="preview">
         <ui-tabs></ui-tabs>
@@ -37,18 +37,24 @@
         <code>
           <div>&lt;ui-tabs&gt;&lt;/ui-tabs&gt;</div>
           <br>
-          <div>element.items = [</div>
-          <div>{header:'What is Lorem?',panel:'Lorem ipsum dolor sit amet...'},</div>
-          <div>{header:'Why use it?',panel:'Lorem ipsum dolor sit amet...',disabled: true},</div>
-          <div>{header:'Where to use?',panel:'Lorem ipsum dolor sit amet...'}</div>
-          <div>];</div>
+          items = [{<br>
+          &nbsp;label:'What is Lorem?',<br>
+          &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
+          },{<br>
+          &nbsp;label:'Why use it?',<br>
+          &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
+          &nbsp;disabled:true<br>
+          },{<br>
+          &nbsp;label:'Where to use?',<br>
+          &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
+          }];
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Minimal</div>
+    <div>Shape square with disabled tab</div>
     <div class="example">
       <div class="preview">
         <ui-tabs shape="square"></ui-tabs>
@@ -59,20 +65,6 @@
       <div class="code">
         <code>
           <div>&lt;ui-tabs shape="square"&gt;&lt;/ui-tabs&gt;</div>
-          <br>
-          element.items = [{<br>
-          &nbsp;header:'What is Lorem?',<br>
-          &nbsp;panel:'Lorem ipsum dolor sit amet...'<br>
-          },{<br>
-          &nbsp;header:'Why use it?',<br>
-          &nbsp;panel:'Lorem ipsum dolor sit amet...'<br>
-          },{<br>
-          &nbsp;header:'Where to use?',<br>
-          &nbsp;panel:'Lorem ipsum dolor sit amet...'<br>
-          },{<br>
-          &nbsp;header:'Lorem Lorem',<br>
-          &nbsp;panel:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'<br>
-          }];
         </code>
       </div>
     </div>
@@ -81,25 +73,17 @@
 </section>
 
 <script>
-items = [
-  {
-    header:'What is Lorem?',
-    panel:'Lorem <strong>ipsum</strong> dolor sit amet...',
-  },
-  {
-    header:'Why use it?',
-    panel:'Lorem <strong>ipsum</strong> dolor sit...',
-    disabled: true
-  },
-  {
-    header:'Where to use?',
-    panel:'Lorem <strong>ipsum</strong> dolor...'
-  },
-  {
-    header:'Lorem Lorem',
-    panel:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-  }
-];
+items = [{
+  label:'What is Lorem?',
+  content:'Lorem <strong>ipsum</strong> dolor sit amet...',
+},{
+  label:'Why use it?',
+  content:'Lorem <strong>ipsum</strong> dolor sit...',
+  disabled:true
+},{
+  label:'Where to use?',
+  content:'Lorem <strong>ipsum</strong> dolor...'
+}];
 
 document.querySelectorAll('ui-tabs').forEach(tab => {
   tab.items = items;

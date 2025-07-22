@@ -64,7 +64,7 @@ class UIAccordion extends UIBase{
       this.setAttributes(accordionHeaderText,{
         'data-ui': 'accordion-header-text'
       });
-      accordionHeaderText.textContent = item.header ?? '';
+      accordionHeaderText.textContent = item.label ?? '';
 
       /* header expand icon */
       const accordionHeaderIcon = document.createElement('span');
@@ -88,7 +88,7 @@ class UIAccordion extends UIBase{
         'aria-labelledby': idHeader
       });
       accordionPanel.hidden = !item.expanded || item.disabled;
-      accordionPanel.innerHTML = item.panel ?? '';
+      accordionPanel.innerHTML = item.content ?? '';
       
       /* item */
       const accordionItem = document.createElement('div');

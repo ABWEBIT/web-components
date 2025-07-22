@@ -31,31 +31,27 @@
     <div>Minimal</div>
     <div class="example">
       <div class="preview">
-        <ui-accordion id="id1"></ui-accordion>
+        <ui-accordion></ui-accordion>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-accordion id="id1"&gt;&lt;/ui-accordion&gt;</div>
-<br>
-<div>document.getElementById('id1').items = [</div>
-<div>{</div>
-&nbsp;header:'What is Lorem?',<br>
-&nbsp;panel:'Lorem &lt;strong&gt;ipsum&lt;/strong&gt; dolor sit amet...',<br>
-&nbsp;expanded:true
-<div>},{</div>
-&nbsp;header:'Why use it?',<br>
-&nbsp;panel:'Lorem ipsum dolor sit amet...',<br>
-&nbsp;disabled:true
-<div>},{</div>
-<div></div>
-&nbsp;header:'Where to use?',<br>
-&nbsp;panel:'Lorem ipsum dolor sit amet...'
-<div>}</div>
-<div>];</div>
-
+          <div>&lt;ui-accordion&gt;&lt;/ui-accordion&gt;</div>
+          <br>
+          items = [{<br>
+          &nbsp;label:'What is Lorem?',<br>
+          &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
+          &nbsp;expanded:true<br>
+          },{<br>
+          &nbsp;label:'Why use it?',<br>
+          &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
+          &nbsp;disabled:true<br>
+          },{<br>
+          &nbsp;label:'Where to use?',<br>
+          &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
+          }];
         </code>
       </div>
     </div>
@@ -64,20 +60,20 @@
 </section>
 
 <script>
-document.getElementById('id1').items = [
-  {
-    header:'What is Lorem?',
-    panel:'Lorem <strong>ipsum</strong> dolor sit amet...',
-    expanded:true
-  },
-  {
-    header:'Why use it?',
-    panel:'Lorem ipsum dolor sit amet...',
-    disabled:true
-  },
-  {
-    header:'Where to use?',
-    panel:'Lorem ipsum dolor sit amet...'
-  }
-];
+items = [{
+  label:'What is Lorem?',
+  content:'Lorem <strong>ipsum</strong> dolor sit amet...',
+  expanded:true
+},{
+  label:'Why use it?',
+  content:'Lorem ipsum dolor sit amet...',
+  disabled:true
+},{
+  label:'Where to use?',
+  content:'Lorem ipsum dolor sit amet...'
+}];
+
+document.querySelectorAll('ui-accordion').forEach(accordion => {
+  accordion.items = items;
+});
 </script>

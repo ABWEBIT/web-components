@@ -47,7 +47,7 @@ class UITabs extends UIBase{
         'aria-controls': idControl
       });
       tab.disabled = !!item.disabled
-      tab.textContent = item.header ?? '';
+      tab.textContent = item.label ?? '';
       tab.addEventListener('click', () => {
         if(!tab.disabled){
           this.#activateTab(index);
@@ -66,7 +66,7 @@ class UITabs extends UIBase{
         'aria-labelledby': idTab
       });
       panel.hidden = index !== this.#activeIndex || item.disabled;
-      panel.innerHTML = item.panel ?? '';
+      panel.innerHTML = item.content ?? '';
 
       panelsContainer.appendChild(panel);
     });
