@@ -8,6 +8,7 @@ class UIBreadcrumb extends UIBase{
   get items(){return this.#items;}
   set items(value){
     if(!Array.isArray(value)) throw new Error('Items must be an array');
+    if(this.#items === value) return;
     this.#items = value;
     this.#render();
   }
@@ -91,9 +92,7 @@ class UIBreadcrumb extends UIBase{
   }
 
   #isRTL(){
-    return (
-      this.dir === 'rtl' || getComputedStyle(this).direction === 'rtl' || document.documentElement.dir === 'rtl'
-    );
+    return this.dir === 'rtl' || getComputedStyle(this).direction === 'rtl' || document.documentElement.dir === 'rtl';
   }
 }
 
