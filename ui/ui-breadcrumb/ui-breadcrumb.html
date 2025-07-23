@@ -20,7 +20,7 @@
     <div>Start</div>
     <div class="example">
       <div class="preview">
-        <ui-breadcrumb></ui-breadcrumb>
+        <ui-breadcrumb id="ex1"></ui-breadcrumb>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -31,16 +31,51 @@
           <br>
           items = [{<br>
           &nbsp;label:'Home',<br>
+          &nbsp;href:'#'<br>
+          },{<br>
+          &nbsp;label:'Settings',<br>
+          &nbsp;href:'#'<br>
+          },{<br>
+          &nbsp;label:'Notifications',<br>
+          &nbsp;href:'#'<br>
+          },{<br>
+          &nbsp;label:'Article',<br>
+          &nbsp;href:'#'<br>
+          }];
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Start</div>
+    <div class="example">
+      <div class="preview">
+        <ui-breadcrumb id="ex2"></ui-breadcrumb>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-breadcrumb&gt;&lt;/ui-breadcrumb&gt;</div>
+          <br>
+          items = [{<br>
+          &nbsp;icon:'home',<br>
+          &nbsp;label:'Home',<br>
           &nbsp;href:'/'<br>
           },{<br>
-          &nbsp;label:'Level 1',<br>
-          &nbsp;href:'/level_1'<br>
+          &nbsp;icon:'settings',<br>
+          &nbsp;label:'Settings',<br>
+          &nbsp;href:'/'<br>
           },{<br>
-          &nbsp;label:'Level 2',<br>
-          &nbsp;href:'/level_1/level_2'<br>
+          &nbsp;icon:'notifications',<br>
+          &nbsp;label:'Notifications',<br>
+          &nbsp;href:'/'<br>
           },{<br>
-          &nbsp;label:'Level 3',<br>
-          &nbsp;href:'/level_1/level_2/level_3'<br>
+          &nbsp;icon:'article',<br>
+          &nbsp;label:'Article',<br>
+          &nbsp;href:'/'<br>
           }];
         </code>
       </div>
@@ -51,24 +86,38 @@
 
 <script>
 items = [{
+  label:'Home',
+  href:'/',
+},{
+  label:'Settings',
+  href:'/'
+},{
+  label:'Notifications',
+  href:'/'
+},{
+  label:'Article',
+  href:'/'
+}];
+
+document.getElementById('ex1').items = items;
+
+items = [{
   icon:'home',
   label:'Home',
   href:'/',
 },{
   icon:'settings',
-  label:'Level 1',
-  href:'/level_1'
+  label:'Settings',
+  href:'/'
 },{
   icon:'notifications',
-  label:'Level 2',
-  href:'/level_1/level_2'
+  label:'Notifications',
+  href:'/'
 },{
   icon:'article',
-  label:'Level 3',
-  href:'/level_1/level_2/level_3'
+  label:'Article',
+  href:'/'
 }];
 
-document.querySelectorAll('ui-breadcrumb').forEach(breadcrumb => {
-  breadcrumb.items = items;
-});
+document.getElementById('ex2').items = items;
 </script>

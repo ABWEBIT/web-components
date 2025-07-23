@@ -58,7 +58,7 @@ class UIBreadcrumb extends UIBase{
         const iconEl = document.createElement('ui-icon');
         this.setAttributes(iconEl,{
           icon: item.icon,
-          'data-ui': 'breadcrumb-item-icon',
+          'data-ui': 'breadcrumb-icon',
           'aria-hidden': 'true'
         });
         contentElement.appendChild(iconEl);

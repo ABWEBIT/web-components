@@ -24,17 +24,17 @@ ui-breadcrumb [data-ui="breadcrumb-item"]{
   display:flex;
   align-items:center;}
 
-ui-breadcrumb [data-ui="breadcrumb-item"] ui-icon[data-ui="breadcrumb-separator"]{
-  width:var(--ui-breadcrumb-icon-size);
+ui-breadcrumb ui-icon[data-ui="breadcrumb-separator"]{
+  width:var(--ui-breadcrumb-separator-size);
   height:100%;
-  padding-inline:4px;}
+  margin-inline:4px;}
 
-ui-breadcrumb [data-ui="breadcrumb-item"] ui-icon[data-ui="breadcrumb-item-icon"]{
+ui-breadcrumb ui-icon[data-ui="breadcrumb-icon"]{
   width:var(--ui-breadcrumb-icon-size);
   height:100%;
-  padding-inline-start:2px;
-  padding-inline-end:6px;
-  margin-top:-2px;}
+  margin-top:-3px;
+  margin-inline-start:-4px;
+  margin-inline-end:4px;}
 
 /* color */
 ui-breadcrumb[color="default"]{
@@ -44,4 +44,5 @@ ui-breadcrumb[color="default"]{
 /* size */
 ui-breadcrumb[size="default"]{
   --ui-breadcrumb-font-size:14px;
-  --ui-breadcrumb-icon-size:28px;}
+  --ui-breadcrumb-icon-size:16px;
+  --ui-breadcrumb-separator-size:20px;}
