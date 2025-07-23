@@ -3,14 +3,6 @@
   <div class="description">Breadcrumbs show the current page's location within a navigational hierarchy and allow users to navigate to parent pages.</div>
   <ui-divider></ui-divider>
   <div class="info">
-    <h2>Features</h2>
-    <ul>
-      <li>
-        The text block width is 100%.
-      </li>
-    </ul>
-  </div>
-  <div class="info">
     <h2>Attributes</h2>
     <ul>
       <li>
@@ -28,65 +20,28 @@
     <div>Start</div>
     <div class="example">
       <div class="preview">
-        <ui-text>Text</ui-text>
+        <ui-breadcrumb></ui-breadcrumb>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-text&gt;Text&lt;/ui-text&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>End</div>
-    <div class="example">
-      <div class="preview">
-        <ui-text text-align="end">Text</ui-text>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-text text-align="end"&gt;Text&lt;/ui-text&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Center</div>
-    <div class="example">
-      <div class="preview">
-        <ui-text text-align="center">Text</ui-text>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-text text-align="center"&gt;Text&lt;/ui-text&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Justify</div>
-    <div class="example">
-      <div class="preview">
-        <ui-text text-align="justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</ui-text>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-text text-align="justify"&gt;Lorem Ipsum ...&lt;/ui-text&gt;</div>
+          <div>&lt;ui-breadcrumb&gt;&lt;/ui-breadcrumb&gt;</div>
+          <br>
+          items = [{<br>
+          &nbsp;label:'Home',<br>
+          &nbsp;href:'/'<br>
+          },{<br>
+          &nbsp;label:'Level 1',<br>
+          &nbsp;href:'/level_1'<br>
+          },{<br>
+          &nbsp;label:'Level 2',<br>
+          &nbsp;href:'/level_1/level_2'<br>
+          },{<br>
+          &nbsp;label:'Level 3',<br>
+          &nbsp;href:'/level_1/level_2/level_3'<br>
+          }];
         </code>
       </div>
     </div>
@@ -94,5 +49,26 @@
 
 </section>
 
+<script>
+items = [{
+  icon:'home',
+  label:'Home',
+  href:'/',
+},{
+  icon:'settings',
+  label:'Level 1',
+  href:'/level_1'
+},{
+  icon:'notifications',
+  label:'Level 2',
+  href:'/level_1/level_2'
+},{
+  icon:'article',
+  label:'Level 3',
+  href:'/level_1/level_2/level_3'
+}];
 
-
+document.querySelectorAll('ui-breadcrumb').forEach(breadcrumb => {
+  breadcrumb.items = items;
+});
+</script>

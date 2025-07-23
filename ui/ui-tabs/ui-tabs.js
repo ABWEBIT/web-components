@@ -5,7 +5,7 @@ class UITabs extends UIBase{
   #items = [];
   #activeIndex = 0;
 
-  get items() {return this.#items;}
+  get items(){return this.#items;}
   set items(value){
     if(!Array.isArray(value)) throw new Error('Items must be an array');
     this.#items = value;
