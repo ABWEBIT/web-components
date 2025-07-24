@@ -7,7 +7,7 @@ class UIBreadcrumb extends UIBase{
 
   get items(){return this.#items;}
   set items(value){
-    if(!Array.isArray(value)) throw new Error('Items must be an array');
+    if(!Array.isArray(value)) throw new TypeError('Items must be an array');
     if(this.#items === value) return;
     this.#items = value;
     this.#render();
@@ -20,7 +20,9 @@ class UIBreadcrumb extends UIBase{
   }
 
   #render(){
-    this.replaceChildren();
+    const isRTL = this.dir === 'rtl' || document.documentElement.dir === 'rtl' || getComputedStyle(this).direction === 'rtl';
+
+    const separatorIcon = isRTL ? this.#iconSeparatorRTL : this.#iconSeparatorLTR;
 
     const breadcrumb = document.createElement('nav');
     this.setAttributes(breadcrumb,{
@@ -29,70 +31,64 @@ class UIBreadcrumb extends UIBase{
     });
 
     const ol = document.createElement('ol');
-    ol.setAttribute('data-ui','breadcrumb-list');
+    ol.setAttribute('data-ui', 'breadcrumb-list');
 
-    const fragment = document.createDocumentFragment();
-    const isRTL = this.#isRTL();
-    const separatorIcon = isRTL ? this.#iconSeparatorRTL : this.#iconSeparatorLTR;
+    const separatorTemplate = document.createElement('ui-icon');
+    this.setAttributes(separatorTemplate,{
+      'data-ui': 'breadcrumb-separator',
+      'aria-hidden': 'true',
+      'icon': separatorIcon
+    });
 
     this.#items.forEach((item,index) => {
+      if(!item.label && !item.icon){
+        console.warn(`Breadcrumb item at index ${index} has no "label" or "icon".`);
+      }
+
       const li = document.createElement('li');
       li.setAttribute('data-ui','breadcrumb-item');
 
       const isLast = index === this.#items.length - 1;
-      const hasIcon = !!item.icon;
-      const hasLabel = !!item.label;
+      const itemContent = isLast ? document.createElement('span') : document.createElement('a');
 
-      let contentElement;
-      if(!isLast && item.href){
-        contentElement = document.createElement('a');
-        contentElement.href = item.href;
-        contentElement.setAttribute('data-ui','breadcrumb-link');
+      if(isLast){
+        this.setAttributes(itemContent,{
+          'data-ui': 'breadcrumb-current',
+          'aria-current': 'page'
+        });
       }
       else{
-        contentElement = document.createElement('span');
-        contentElement.setAttribute('aria-current','page');
-        contentElement.setAttribute('data-ui','breadcrumb-current');
+        itemContent.setAttribute('data-ui','breadcrumb-link');
+        itemContent.href = item.href || '';
       }
 
-      if(hasIcon){
-        const iconEl = document.createElement('ui-icon');
-        this.setAttributes(iconEl,{
-          icon: item.icon,
+      if(item.icon){
+        const iconContent = document.createElement('ui-icon');
+        this.setAttributes(iconContent,{
           'data-ui': 'breadcrumb-icon',
-          'aria-hidden': 'true'
+          'aria-hidden': 'true',
+          'icon': item.icon
         });
-        contentElement.appendChild(iconEl);
+        itemContent.appendChild(iconContent);
       }
 
-      if(hasLabel){
-        const textEl = document.createElement('span');
-        textEl.textContent = item.label;
-        contentElement.appendChild(textEl);
+      if(item.label){
+        const textContent = document.createElement('span');
+        textContent.textContent = item.label;
+        itemContent.appendChild(textContent);
       }
 
-      li.appendChild(contentElement);
+      li.appendChild(itemContent);
 
       if(!isLast){
-        const separator = document.createElement('ui-icon');
-        this.setAttributes(separator, {
-          'data-ui': 'breadcrumb-separator',
-          'aria-hidden': 'true',
-          icon: separatorIcon
-        });
-        li.appendChild(separator);
+        li.appendChild(separatorTemplate.cloneNode(true));
       }
 
-      fragment.appendChild(li);
+      ol.appendChild(li);
     });
 
-    ol.appendChild(fragment);
     breadcrumb.appendChild(ol);
-    this.appendChild(breadcrumb);
-  }
-
-  #isRTL(){
-    return this.dir === 'rtl' || getComputedStyle(this).direction === 'rtl' || document.documentElement.dir === 'rtl';
+    this.replaceChildren(breadcrumb);
   }
 }
 

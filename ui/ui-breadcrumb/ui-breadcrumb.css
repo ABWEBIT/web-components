@@ -1,6 +1,17 @@
 ui-breadcrumb{
   font-size:var(--ui-breadcrumb-font-size);}
 
+ui-breadcrumb [data-ui="breadcrumb-list"]{
+  display:flex;
+  list-style:none;
+  padding:0;
+  margin:0;}
+
+ui-breadcrumb [data-ui="breadcrumb-item"]{
+  display:flex;
+  white-space:nowrap;
+  align-items:center;}
+
 ui-breadcrumb [data-ui="breadcrumb-link"]{
   color:var(--ui-breadcrumb-font-color);
   text-decoration:none;
@@ -11,18 +22,6 @@ ui-breadcrumb [data-ui="breadcrumb-link"]{
   ui-breadcrumb [data-ui="breadcrumb-link"]:hover{
     color:var(--ui-breadcrumb-font-color-hover);}
 }
-
-ui-breadcrumb [data-ui="breadcrumb-list"]{
-  display:flex;
-
-  flex-wrap:wrap;
-  list-style:none;
-  padding:0;
-  margin:0;}
-
-ui-breadcrumb [data-ui="breadcrumb-item"]{
-  display:flex;
-  align-items:center;}
 
 ui-breadcrumb ui-icon[data-ui="breadcrumb-separator"]{
   width:var(--ui-breadcrumb-separator-size);
