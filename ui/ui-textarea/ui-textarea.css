@@ -64,8 +64,8 @@ ui-textarea[shape="rounded"]{
 ui-textarea[shape="square"]{
   --ui-textarea-border-radius:var(--ui-border-radius-square);}
 
-/* color */
-ui-textarea[color="default"]{
+/* theme */
+ui-textarea[theme="default"]{
   --ui-textarea-background-color:var(--ui-color-gray-800);
   --ui-textarea-border-color:var(--ui-color-gray-500);
   --ui-textarea-font-color:var(--ui-color-white);

@@ -35,8 +35,8 @@ ui-breadcrumb ui-icon[data-ui="breadcrumb-icon"]{
   margin-inline-start:-2px;
   margin-inline-end:6px;}
 
-/* color */
-ui-breadcrumb[color="default"]{
+/* theme */
+ui-breadcrumb[theme="default"]{
   --ui-breadcrumb-font-color:var(--ui-color-gray-150);
   --ui-breadcrumb-font-color-hover:var(--ui-color-white);}
 

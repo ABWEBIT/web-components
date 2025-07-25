@@ -81,8 +81,8 @@ ui-button[shape="pill"]{
 ui-button[shape="circle"]{
   --ui-button-border-radius:var(--ui-border-radius-circle);}
 
-/* color */
-ui-button[color="default"]{
+/* theme */
+ui-button[theme="default"]{
   --ui-button-background-color:var(--ui-color-gray-800);
   --ui-button-background-color-hover:var(--ui-color-gray-750);
   --ui-button-background-color-active:var(--ui-color-gray-700);

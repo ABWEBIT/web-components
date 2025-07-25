@@ -1,14 +1,15 @@
 import {UIBase} from '../ui-base.js';
 
-class UIDivider extends UIBase{
+class UISeparator extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.size();
-    this.color();
+    this.theme();
+
     const orientation = this.getAttribute('orientation');
     if(!['horizontal','vertical'].includes(orientation)){
       this.setAttribute('orientation','horizontal');
     }
   }
 }
-customElements.define('ui-divider',UIDivider);
+customElements.define('ui-separator',UISeparator);

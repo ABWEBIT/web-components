@@ -31,8 +31,8 @@ ui-switch[checked]{
   padding-inline-start:var(--ui-switch-button-position-end);
   background-color:var(--ui-switch-checked-background-color);}
 
-/* color */
-ui-switch[color="default"]{
+/* theme */
+ui-switch[theme="default"]{
   --ui-switch-background-color:var(--ui-color-gray-600);
   --ui-switch-checked-background-color:var(--ui-color-blue-500);
   --ui-switch-outline-color:var(--ui-color-gray-500);

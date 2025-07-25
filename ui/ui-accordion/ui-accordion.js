@@ -16,7 +16,7 @@ class UIAccordion extends UIBase{
     super.connectedCallback();
     this.shape();
     this.size();
-    this.color();
+    this.theme();
 
     this.#iconExpand = this.getAttribute('icon') || this.#iconExpand;
     this.removeAttribute('icon');

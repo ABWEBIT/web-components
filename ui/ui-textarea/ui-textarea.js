@@ -41,7 +41,7 @@ class UITextarea extends UIBase{
     super.connectedCallback();
     this.shape();
     this.size();
-    this.color();
+    this.theme();
 
     const value = this.getAttribute('value') ?? '';
     const placeholder = this.getAttribute('placeholder') ?? '';

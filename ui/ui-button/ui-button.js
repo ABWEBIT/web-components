@@ -34,7 +34,7 @@ class UIButton extends UIBase{
     super.connectedCallback();
     this.shape();
     this.size();
-    this.color();
+    this.theme();
 
     this.setAttributes(this,{
       'role': 'button',

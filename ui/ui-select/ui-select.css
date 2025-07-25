@@ -58,8 +58,8 @@ ui-select[shape="square"]{
 ui-select[shape="pill"]{
   --ui-select-border-radius:var(--ui-border-radius-pill);}
 
-/* color */
-ui-select[color="default"]{
+/* theme */
+ui-select[theme="default"]{
   --ui-select-background-color:var(--ui-color-gray-800);
   --ui-select-background-color-hover:var(--ui-color-gray-750);
   --ui-select-background-color-active:var(--ui-color-gray-700);

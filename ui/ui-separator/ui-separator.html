@@ -1,0 +1,78 @@
+<section class="intro">
+  <h1>Separator</h1>
+  <div class="description">A component for visually separating content with a line.</div>
+  <div class="info">
+    <h2>Usage</h2>
+    <ul>
+      <li>
+        Any content added inside the component should be wrapped in a &lt;span&gt; to ensure proper rendering.
+      </li>
+      <li>
+        When using non-text content (e.g., icons or custom elements), additional CSS may be required to ensure correct styling.
+      </li>
+    </ul>
+  </div>
+  <div class="info">
+    <h2>Features</h2>
+    <ul>
+      <li>
+        By default, a horizontal separator has a width of 100%.
+      </li>
+      <li>
+        By default, a vertical separator has a height of 100%.
+      </li>
+    </ul>
+  </div>
+  <div class="info">
+    <h2>Attributes</h2>
+    <ul>
+      <li>
+        orientation - static (optional). Default: horizontal.<br>
+        Available options: horizontal, vertical.<br>
+        Defines the separator direction.
+      </li>
+      <li>
+        color - static (optional). Default: default.<br>
+        Specifies the component's color scheme (extendable via CSS).
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="content">
+
+  <div class="content-item">
+    <div>Horizontal separator</div>
+    <div class="example">
+      <div class="preview">
+        <ui-separator></ui-separator>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-separator&gt;&lt;/ui-separator&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Vertical separator</div>
+    <div class="example">
+      <div class="preview" style="height:200px;">
+        <ui-separator orientation="vertical"></ui-separator>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-separator orientation="vertical"&gt;&lt;/ui-separator&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+</section>

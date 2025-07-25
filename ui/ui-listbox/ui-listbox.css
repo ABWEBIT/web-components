@@ -61,8 +61,8 @@ ui-listbox{
   transform:translateY(0);
   transition:opacity 0.15s ease-out, transform 0.15s ease-out;}
 
-/* color */
-ui-listbox[color="default"]{
+/* theme */
+ui-listbox[theme="default"]{
   --ui-listbox-background-color:var(--ui-color-gray-800);
   --ui-listbox-option-background-color-hover:var(--ui-color-gray-650);
   --ui-listbox-option-background-color-selected:var(--ui-color-gray-700);

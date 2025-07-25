@@ -3,7 +3,7 @@ import './ui-alert/ui-alert.js';
 import './ui-button/ui-button.js';
 import './ui-breadcrumb/ui-breadcrumb.js';
 import './ui-checkbox/ui-checkbox.js';
-import './ui-divider/ui-divider.js';
+import './ui-separator/ui-separator.js';
 import './ui-field/ui-field.js';
 import './ui-focus/ui-focus.js';
 import './ui-portal/ui-portal.js';

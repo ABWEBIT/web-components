@@ -1,0 +1,19 @@
+ui-separator{
+  display:block;
+  background-color:var(--ui-separator-background-color);}
+
+ui-separator[orientation="horizontal"]{
+  height:var(--ui-separator-size);
+  width:100%;}
+
+ui-separator[orientation="vertical"]{
+  height:100%;
+  width:var(--ui-separator-size);}
+
+/* theme */
+ui-separator[theme="default"]{
+  --ui-separator-background-color:var(--ui-color-gray-750);}
+
+/* size */
+ui-separator[size="default"]{
+  --ui-separator-size:1px;}

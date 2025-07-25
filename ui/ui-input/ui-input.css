@@ -83,8 +83,8 @@ ui-input[shape="square"]{
 ui-input[shape="pill"]{
   --ui-input-border-radius:var(--ui-border-radius-pill);}
 
-/* color */
-ui-input[color="default"]{
+/* theme */
+ui-input[theme="default"]{
   --ui-input-background-color:var(--ui-color-gray-800);
   --ui-input-border-color:var(--ui-color-gray-500);
   --ui-input-border-color-hover:var(--ui-color-gray-100);

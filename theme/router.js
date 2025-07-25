@@ -7,7 +7,7 @@
     { label: 'Spinner', link: './ui/ui-spinner/ui-spinner.html', category: 'components' },
     { label: 'Icons', link: './pages/ui-icons.html', category: 'theme' },
     { label: 'Icon', link: './ui/ui-icon/ui-icon.html', category: 'primitives' },
-    { label: 'Divider', link: './ui/ui-divider/ui-divider.html', category: 'primitives' },
+    { label: 'Separator', link: './ui/ui-separator/ui-separator.html', category: 'primitives' },
     { label: 'Text', link: './ui/ui-text/ui-text.html', category: 'primitives' },
     { label: 'Button', link: './ui/ui-button/ui-button.html', category: 'forms' },
     { label: 'Checkbox', link: './ui/ui-checkbox/ui-checkbox.html', category: 'forms' },

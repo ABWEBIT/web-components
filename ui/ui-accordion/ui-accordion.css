@@ -75,8 +75,8 @@ ui-accordion[shape="square"]{
   --ui-accordion-header-border-radius:var(--ui-border-radius-square);
   --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-square);}
 
-/* color */
-ui-accordion[color="default"]{
+/* theme */
+ui-accordion[theme="default"]{
   --ui-accordion-border-color:var(--ui-color-gray-800);
   --ui-accordion-header-font-color:var(--ui-color-white);
   --ui-accordion-panel-font-color:var(--ui-color-gray-200);}

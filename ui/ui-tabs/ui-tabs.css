@@ -79,8 +79,8 @@ ui-tabs[shape="square"]{
   --ui-tabs-tab-border-radius:var(--ui-border-radius-square);
   --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-square);}
 
-/* color */
-ui-tabs[color="default"]{
+/* theme */
+ui-tabs[theme="default"]{
   --ui-tabs-tab-before-background-color-hover:var(--ui-color-gray-700);
   --ui-tabs-tab-before-background-color-active:var(--ui-color-gray-600);
   --ui-tabs-tab-font-color:var(--ui-color-gray-150);

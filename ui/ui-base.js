@@ -83,9 +83,9 @@ export class UIBase extends HTMLElement{
     }
   }
 
-  color(color = 'default'){
-    if(!this.hasAttribute('color')){
-      this.setAttribute('color',color);
+  theme(theme = 'default'){
+    if(!this.hasAttribute('theme')){
+      this.setAttribute('theme',theme);
     }
   }
 }
