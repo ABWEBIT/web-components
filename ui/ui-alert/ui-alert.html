@@ -1,22 +1,17 @@
 <section class="intro">
-  <h1>Text</h1>
-  <div class="description">Standardizes and ensures consistent text styling.</div>
+  <h1>Alert</h1>
+  <div class="description">Displays a message that draws the user's attention.</div>
   <div class="info">
     <h2>Features</h2>
     <ul>
       <li>
-        The text block width is 100%.
+        
       </li>
     </ul>
   </div>
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>
-        text-align - static (optional). Default: start.<br>
-        Available options: start, center, end, justify.<br>
-        Controls text alignment.
-      </li>
       <li>
         theme - static (optional). Default: default.<br>
         Specifies the component's color scheme (extendable via CSS).
@@ -31,17 +26,24 @@
     <div>Start</div>
     <div class="example">
       <div class="preview">
-        <ui-alert></ui-alert>
+        <ui-alert id="ex1"></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-text&gt;Text&lt;/ui-text&gt;</div>
+          <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
         </code>
       </div>
     </div>
   </div>
 
 </section>
+
+<script>
+document.getElementById('ex1').setData({
+  type:'error',
+  label:'Something went wrong'
+});
+</script>
