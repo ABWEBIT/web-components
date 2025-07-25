@@ -7,9 +7,10 @@ ui-tabs{
 ui-tabs [data-ui="tabs-list"]{
   display:flex;
   flex-wrap:wrap;
-  gap:var(--ui-tabs-tabs-list-column-gap);}
+  column-gap:var(--ui-tabs-tabs-list-column-gap);}
 
 ui-tabs [data-ui="tab"]{
+  position:relative;
   background:none;
   border-radius:var(--ui-tabs-tab-border-radius);
   cursor:pointer;
@@ -17,11 +18,21 @@ ui-tabs [data-ui="tab"]{
   padding-block:var(--ui-tabs-tab-padding-block);
   font-size:var(--ui-tabs-tab-font-size);
   color:var(--ui-tabs-tab-font-color);
-  background-color:var(--ui-tabs-tab-background-color);
   outline-offset:var(--ui-outline-offset);
   outline-width:var(--ui-outline-width);
   outline-style:var(--ui-outline-style);
   outline-color:transparent;}
+
+ui-tabs [data-ui="tab"]::before{
+  content:'';
+  position:absolute;
+  background-color:transparent;
+  bottom:0;
+  left:10%;
+  width:80%;
+  height:1px;
+  transition-duration:var(--ui-transition-duration);
+  transition-property:background-color;}
 
 ui-tabs[ui] [data-ui="tab"]{
   transition-duration:var(--ui-transition-duration);
@@ -31,15 +42,19 @@ ui-tabs [data-ui="tab"]:focus-visible{
   outline-color:var(--ui-outline-color);}
 
 @media (hover: hover){
+  ui-tabs [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):hover::before{
+    background-color:var(--ui-tabs-tab-before-background-color-hover);
+  }
+
   ui-tabs [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):hover{
-    background-color:var(--ui-tabs-tab-background-color-hover);
     color:var(--ui-tabs-tab-font-color-hover);}
 }
 
-ui-tabs [data-ui="tab"][aria-selected="true"],
-ui-tabs [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):active{
-  background-color:var(--ui-tabs-tab-background-color-active);
+ui-tabs [data-ui="tab"][aria-selected="true"]{
   color:var(--ui-tabs-tab-font-color-active);}
+
+ui-tabs [data-ui="tab"][aria-selected="true"]::before{
+  background-color:var(--ui-tabs-tab-before-background-color-active);}
 
 ui-tabs [data-ui="tab-panel"]{
   display:block;
@@ -66,9 +81,8 @@ ui-tabs[shape="square"]{
 
 /* color */
 ui-tabs[color="default"]{
-  --ui-tabs-tab-background-color:var(--ui-color-gray-800);
-  --ui-tabs-tab-background-color-hover:var(--ui-color-gray-750);
-  --ui-tabs-tab-background-color-active:var(--ui-color-gray-700);
+  --ui-tabs-tab-before-background-color-hover:var(--ui-color-gray-700);
+  --ui-tabs-tab-before-background-color-active:var(--ui-color-gray-600);
   --ui-tabs-tab-font-color:var(--ui-color-gray-150);
   --ui-tabs-tab-font-color-hover:var(--ui-color-white);
   --ui-tabs-tab-font-color-active:var(--ui-color-white);
@@ -77,7 +91,7 @@ ui-tabs[color="default"]{
 /* size */
 ui-tabs[size="default"]{
   --ui-tabs-row-gap:10px;
-  --ui-tabs-tabs-list-column-gap:10px;
+  --ui-tabs-tabs-list-column-gap:0px;
   --ui-tabs-tab-font-size:18px;
   --ui-tabs-tab-padding-inline:20px;
   --ui-tabs-tab-padding-block:12px;

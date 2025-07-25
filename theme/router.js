@@ -1,6 +1,7 @@
   const components = [
     { label: 'Foundation', link: './pages/ui-foundation.html', category: 'essentials' },
     { label: 'Accordion', link: './ui/ui-accordion/ui-accordion.html', category: 'components' },
+    { label: 'Alert', link: './ui/ui-alert/ui-alert.html', category: 'components' },
     { label: 'Tabs', link: './ui/ui-tabs/ui-tabs.html', category: 'components' },
     { label: 'Breadcrumb', link: './ui/ui-breadcrumb/ui-breadcrumb.html', category: 'components' },
     { label: 'Spinner', link: './ui/ui-spinner/ui-spinner.html', category: 'components' },

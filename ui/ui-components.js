@@ -1,4 +1,5 @@
 import './ui-accordion/ui-accordion.js';
+import './ui-alert/ui-alert.js';
 import './ui-button/ui-button.js';
 import './ui-breadcrumb/ui-breadcrumb.js';
 import './ui-checkbox/ui-checkbox.js';
