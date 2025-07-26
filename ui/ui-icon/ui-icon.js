@@ -36,6 +36,7 @@ class UIIcon extends UIBase{
     const svg = document.createElementNS(UIIcon.#xmlns,'svg');
     svg.setAttribute('viewBox',UIIcon.#viewBox);
     this.appendChild(svg);
+    this.setAttribute('aria-hidden','true');
   }
 }
 customElements.define('ui-icon',UIIcon);

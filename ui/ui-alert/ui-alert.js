@@ -11,24 +11,41 @@ class UIAlert extends UIBase{
   }
 
   setData({label,content} = {}){
-    const wrapper = document.createElement('div');
-    wrapper.setAttribute('data-ui','alert-body');
+    if(!label) throw new Error('UIAlert: required "label" is missing.');
 
-    if(label){
-      const uiAlertLabel = document.createElement('div');
-      uiAlertLabel.setAttribute('data-ui','alert-label');
-      uiAlertLabel.textContent = label;
-      wrapper.appendChild(uiAlertLabel);
-    }
+    const alertBody = document.createElement('div');
+    alertBody.setAttribute('data-ui','alert-body');
+
+    const alertHeader = document.createElement('div');
+    alertHeader.setAttribute('data-ui','alert-header');
+
+    const closeButton = document.createElement('button');
+    closeButton.setAttribute('data-ui','alert-close');
+
+    closeButton.addEventListener('click',() => {
+      this.remove();
+    });
+
+    const closeIcon = document.createElement('ui-icon');
+    closeIcon.setAttribute('icon','close');
+    closeButton.appendChild(closeIcon);
+
+    const alertLabel = document.createElement('div');
+    alertLabel.setAttribute('data-ui','alert-label');
+    alertLabel.textContent = label;
+
+    alertHeader.append(alertLabel,closeButton);
+
+    alertBody.appendChild(alertHeader);
 
     if(content){
       const uiAlertContent = document.createElement('div');
       uiAlertContent.setAttribute('data-ui','alert-content');
-      uiAlertContent.innerHTML = content;
-      wrapper.appendChild(uiAlertContent);
+      uiAlertContent.textContent = content;
+      alertBody.appendChild(uiAlertContent);
     }
 
-    this.replaceChildren(wrapper);
+    this.replaceChildren(alertBody);
   }
 
 

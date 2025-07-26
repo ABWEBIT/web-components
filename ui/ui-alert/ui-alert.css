@@ -4,22 +4,60 @@ ui-alert{
   border-radius:var(--ui-alert-border-radius);
   background-color:var(--ui-alert-background-color);
   row-gap:var(--ui-alert-row-gap);
-  max-width:100%;}
+  width:100%;
+  max-width:400px;}
 
 ui-alert [data-ui="alert-body"]{
   display:flex;
   flex-direction:column;
+  flex-grow:1;
   row-gap:var(--ui-alert-row-gap);}
+
+ui-alert [data-ui="alert-header"]{
+  display:flex;}
 
 ui-alert [data-ui="alert-label"]{
   -webkit-user-select:text;
   user-select:text;
+  flex-grow:1;
   font-size:var(--ui-alert-label-font-size);
   color:var(--ui-alert-label-font-color);}
+
+ui-alert [data-ui="alert-close"]{
+  display:flex;
+  align-items:center;
+  flex-shrink:0;
+  margin-block-start:-12px;
+  margin-inline-end:-16px;
+  width:var(--ui-alert-close-icon-size);
+  height:var(--ui-alert-close-icon-size);
+  outline-offset:2px;
+  outline-width:2px;
+  outline-style:solid;
+  outline-color:transparent;
+  transition-duration:var(--ui-transition-duration);
+  transition-property:outline-color;}
+
+ui-alert [data-ui="alert-close"]:focus-visible{
+  outline-color:var(--ui-alert-outline-color);
+}
+
+ui-alert [data-ui="alert-close"] ui-icon{
+  color:var(--ui-alert-close-icon-color);
+  width:100%;
+  height:100%;
+  transition-duration:var(--ui-transition-duration);
+  transition-property:color;}
+
+@media (hover:hover){
+  ui-alert [data-ui="alert-close"] ui-icon:hover{
+    color:var(--ui-alert-close-icon-color-hover);}
+}
 
 ui-alert [data-ui="alert-content"]{
   -webkit-user-select:text;
   user-select:text;
+
   line-height:var(--ui-line-height-150);
   font-size:var(--ui-alert-content-font-size);
   color:var(--ui-alert-content-font-color);}
@@ -34,7 +72,10 @@ ui-alert[shape="square"]{
 ui-alert[theme="default"]{
   --ui-alert-background-color:var(--ui-color-gray-800);
   --ui-alert-label-font-color:var(--ui-color-white);
-  --ui-alert-content-font-color:var(--ui-color-gray-350);}
+  --ui-alert-content-font-color:var(--ui-color-gray-350);
+  --ui-alert-close-icon-color:var(--ui-color-gray-350);
+  --ui-alert-close-icon-color-hover:var(--ui-color-white);
+  --ui-alert-outline-color:var(--ui-color-gray-500);}
 
 /* size */
 ui-alert[size="default"]{
@@ -42,5 +83,4 @@ ui-alert[size="default"]{
   --ui-alert-label-font-size:14px;
   --ui-alert-content-font-size:14px;
   --ui-alert-row-gap:8px;
-
-  --ui-alert-icon-size:16px;}
+  --ui-alert-close-icon-size:16px;}

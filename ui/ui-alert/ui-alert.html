@@ -56,16 +56,38 @@
     </div>
   </div>
 
+  <div class="content-item">
+    <div>Alert with Label and Description</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert id="ex3"></ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <script>
 document.getElementById('ex1').setData({
+  icon:'home',
   label:'Access denied',
-  content:'You do not have the necessary permissions to view this section.<br>Please log in with an authorized account or contact an administrator.'
+  content:'You do not have the necessary permissions to view this section.'
 });
 
 document.getElementById('ex2').setData({
   label:'Successfully submitted',
-  content:'Your form was submitted successfully. You will receive a confirmation email shortly with the next steps.'
+  content:'Your form was submitted successfully. You will receive a a a confirmation email shortly with the next steps.'
+});
+
+document.getElementById('ex3').setData({
+  label:'An unexpected error occurred'
 });
 </script>
