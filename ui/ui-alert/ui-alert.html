@@ -23,10 +23,27 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Start</div>
+    <div>Alert with Label only</div>
     <div class="example">
       <div class="preview">
         <ui-alert id="ex1"></ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with Label and Description</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert id="ex2"></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -43,7 +60,12 @@
 
 <script>
 document.getElementById('ex1').setData({
-  type:'error',
-  label:'Something went wrong'
+  label:'Access denied',
+  content:'You do not have the necessary permissions to view this section.<br>Please log in with an authorized account or contact an administrator.'
+});
+
+document.getElementById('ex2').setData({
+  label:'Successfully submitted',
+  content:'Your form was submitted successfully. You will receive a confirmation email shortly with the next steps.'
 });
 </script>

@@ -121,7 +121,7 @@
 
   /* border radius */
   --ui-border-radius-square:none;
-  --ui-border-radius-rounded:6px;
+  --ui-border-radius-rounded:8px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
 
