@@ -9,69 +9,66 @@ class UIAlert extends UIBase{
     this.size();
     this.theme();
 
-    this.setAttribute('role','alert')
-  }
-
-  setData({label,content,icon = null,closable = true} = {}){
-    if(!label) throw new Error('UIAlert: required "label" is missing.');
-
-    this.#listeners?.abort();
-    this.#listeners = null;
-
-    this.#listeners = new AbortController();
-    const signal = this.#listeners.signal;
+    this.setAttribute('role','alert');
 
     const fragment = document.createDocumentFragment();
 
-    if(icon){
-      const iconWrapper = document.createElement('div');
-      iconWrapper.setAttribute('data-ui','alert-icon');
-
-      const alertIcon = document.createElement('ui-icon');
-      alertIcon.setAttribute('icon',icon);
-      iconWrapper.appendChild(alertIcon);
-
-      fragment.appendChild(iconWrapper);
+    const alertIcon = this.getAttribute('icon');
+    if(alertIcon){
+      const container = document.createElement('div');
+      container.setAttribute('data-ui','alert-icon');
+      const uiIcon = document.createElement('ui-icon');
+      uiIcon.setAttribute('icon',alertIcon);
+      container.append(uiIcon);
+      fragment.prepend(container);
+      this.removeAttribute('icon');
     }
 
     const alertBody = document.createElement('div');
     alertBody.setAttribute('data-ui','alert-body');
+    fragment.append(alertBody);
 
-    const alertHeader = document.createElement('div');
-    alertHeader.setAttribute('data-ui','alert-header');
-
-    const alertLabel = document.createElement('div');
-    alertLabel.setAttribute('data-ui','alert-label');
-    alertLabel.textContent = label;
-
-    alertHeader.appendChild(alertLabel);
-
-    if(closable){
-      const closeButton = document.createElement('button');
-      closeButton.setAttribute('data-ui','alert-close');
-      closeButton.setAttribute('aria-label','Close alert');
-      closeButton.setAttribute('type','button');
-
-      closeButton.addEventListener('click', () => this.remove(),{signal});
-
-      const closeIcon = document.createElement('ui-icon');
-      closeIcon.setAttribute('icon','close');
-      closeButton.appendChild(closeIcon);
-
-      alertHeader.appendChild(closeButton);
+    const alertLabel = this.getAttribute('label');
+    if(alertLabel){
+      const container = document.createElement('div');
+      container.setAttribute('data-ui','alert-label');
+      container.textContent = alertLabel;
+      alertBody.append(container);
+      this.removeAttribute('label');
     }
 
-    alertBody.appendChild(alertHeader);
+    const alertContent = this.getAttribute('content');
+    if(alertContent){
+      const container = document.createElement('div');
+      container.setAttribute('data-ui','alert-content');
+      container.textContent = alertContent;
+      alertBody.append(container);
+      this.removeAttribute('content');
+    }
+    
+    if(this.hasAttribute('closable')){
+      const button = document.createElement('button');
+      button.setAttribute('data-ui','alert-close');
+      button.setAttribute('aria-label','Close alert');
+      button.setAttribute('type','button');
 
-    if(content){
-      const alertContent = document.createElement('div');
-      alertContent.setAttribute('data-ui', 'alert-content');
-      alertContent.textContent = content;
-      alertBody.appendChild(alertContent);
+      this.#listeners = new AbortController();
+      const signal = this.#listeners.signal;
+      button.addEventListener('click', () => this.remove(),{signal});
+
+      const uiIcon = document.createElement('ui-icon');
+      uiIcon.setAttribute('icon','close');
+      button.append(uiIcon);
+
+      fragment.append(button);
     }
 
-    fragment.appendChild(alertBody);
-    this.replaceChildren(fragment);
+    this.append(fragment);
+  }
+
+  disconnectedCallback(){
+    this.#listeners?.abort();
+    this.#listeners = null;
   }
 
 }

@@ -2,16 +2,32 @@
   <h1>Alert</h1>
   <div class="description">Displays a message that draws the user's attention.</div>
   <div class="info">
-    <h2>Features</h2>
+    <h2>Usage</h2>
     <ul>
       <li>
-        
+        All attributes are optional, but the component must have either a label or content to display a meaningful message.
       </li>
     </ul>
   </div>
   <div class="info">
     <h2>Attributes</h2>
     <ul>
+      <li>
+        label - static (init-only, optional).<br>
+        The main heading or title of the alert.
+      </li>
+      <li>
+        content - static (init-only, optional).<br>
+        Additional message below the label.
+      </li>
+      <li>
+        icon - static (init-only, optional).<br>
+        Name of icon to display.
+      </li>
+      <li>
+        closable - static (optional).<br>
+        If present, displays a close button.
+      </li>
       <li>
         size - static (optional). Default: default.<br>
         Specifies the component's size (extendable via CSS).
@@ -35,83 +51,119 @@
     <div>Alert with Label only</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="ex0"></ui-alert>
+        <ui-alert 
+          label="Alert with Label only">
+        </ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
-          <br>
-          element.setData({<br>
-          &nbsp;label:'Only label and is required'<br>
-          });
+          &lt;ui-alert<br>
+          &nbsp;label="Alert with Label only"&gt;<br>
+          &lt;/ui-alert&gt;
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Alert with Label and Description</div>
+    <div>Alert with Content only</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="ex1"></ui-alert>
+        <ui-alert 
+          content="Alert with Content only">
+        </ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
-          <br>
-          element.setData({<br>
-          &nbsp;label:'Alert',<br>
-          &nbsp;content:'Description goes here'<br>
-          });
+          &lt;ui-alert<br>
+          &nbsp;content="Alert with Content only"&gt;<br>
+          &lt;/ui-alert&gt;
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Alert with Label, Description and Icon</div>
+    <div>Alert with Label and Content</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="ex2"></ui-alert>
+        <ui-alert 
+          label="Alert"
+          content="Alert with Label and Content">
+        </ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
-          <br>
-          element.setData({<br>
-          &nbsp;icon:'info',<br>
-          &nbsp;label:'Information notice',<br>
-          &nbsp;content:'Please be aware that system maintenance is scheduled for tonight at 19:00.'<br>
-          });
+          &lt;ui-alert<br>
+          &nbsp;label="Alert"<br>
+          &nbsp;content="Alert with Label and Content"&gt;<br>
+          &lt;/ui-alert&gt;
         </code>
       </div>
     </div>
   </div>
+
+  <div class="content-item">
+    <div>Alert with Label, Content and Icon</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert
+          label="Update Complete"
+          content="Your settings have been successfully saved."
+          icon="info">
+        </ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert<br>
+          &nbsp;label="Update Complete"<br>
+          &nbsp;content="Your settings have been successfully saved."<br>
+          &nbsp;icon="info"&gt;<br>
+          &lt;/ui-alert&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with Label, Content, Icon and Close Button</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert
+          label="System Alert"
+          content="The system will be unavailable from 19:00."
+          icon="warning"
+          closable>
+        </ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert<br>
+          &nbsp;label="System Alert"<br>
+          &nbsp;content="The system will be unavailable from 19:00."<br>
+          &nbsp;icon="warning"<br>
+          &nbsp;closable&gt;<br>
+          &lt;/ui-alert&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+
 
 </section>
-
-<script>
-document.getElementById('ex0').setData({
-  label:'Only label and is required'
-});
-
-document.getElementById('ex1').setData({
-  label:'Alert',
-  content:'Description goes here'
-});
-
-document.getElementById('ex2').setData({
-  icon:'info',
-  label:'Information notice',
-  content:'Please be aware that system maintenance is scheduled for tonight at 19:00.'
-});
-</script>
