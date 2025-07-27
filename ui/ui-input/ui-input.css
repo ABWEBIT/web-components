@@ -68,11 +68,6 @@ ui-input > ui-icon{
 ui-input:focus-within:not([disabled]){
   outline-color:var(--ui-input-outline-color);}
 
-ui-input[status="accent"]::before{border-color:var(--ui-color-blue-500);}
-ui-input[status="error"]::before{border-color:var(--ui-color-red-500);}
-ui-input[status="success"]::before{border-color:var(--ui-color-green-500);}
-ui-input[status="warning"]::before{border-color:var(--ui-color-yellow-500);}
-
 /* shape */
 ui-input[shape="rounded"]{
   --ui-input-border-radius:var(--ui-border-radius-rounded);}

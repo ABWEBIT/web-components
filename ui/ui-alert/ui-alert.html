@@ -13,8 +13,17 @@
     <h2>Attributes</h2>
     <ul>
       <li>
+        size - static (optional). Default: default.<br>
+        Specifies the component's size (extendable via CSS).
+      </li>
+      <li>
         theme - static (optional). Default: default.<br>
         Specifies the component's color scheme (extendable via CSS).
+      </li>
+      <li>
+        shape - static (optional). Default: rounded.<br>
+        Available options: rounded, square.<br>
+        Sets the corner style.
       </li>
     </ul>
   </div>
@@ -26,6 +35,27 @@
     <div>Alert with Label only</div>
     <div class="example">
       <div class="preview">
+        <ui-alert id="ex0"></ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
+          <br>
+          element.setData({<br>
+          &nbsp;label:'Only label and is required'<br>
+          });
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with Label and Description</div>
+    <div class="example">
+      <div class="preview">
         <ui-alert id="ex1"></ui-alert>
       </div>
       <div class="toolbar">
@@ -34,13 +64,18 @@
       <div class="code">
         <code>
           <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
+          <br>
+          element.setData({<br>
+          &nbsp;label:'Alert',<br>
+          &nbsp;content:'Description goes here'<br>
+          });
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Alert with Label and Description</div>
+    <div>Alert with Label, Description and Icon</div>
     <div class="example">
       <div class="preview">
         <ui-alert id="ex2"></ui-alert>
@@ -51,23 +86,12 @@
       <div class="code">
         <code>
           <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Alert with Label and Description</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert id="ex3"></ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-alert&gt;&lt;/ui-alert&gt;</div>
+          <br>
+          element.setData({<br>
+          &nbsp;icon:'info',<br>
+          &nbsp;label:'Information notice',<br>
+          &nbsp;content:'Please be aware that system maintenance is scheduled for tonight at 19:00.'<br>
+          });
         </code>
       </div>
     </div>
@@ -76,18 +100,18 @@
 </section>
 
 <script>
+document.getElementById('ex0').setData({
+  label:'Only label and is required'
+});
+
 document.getElementById('ex1').setData({
-  icon:'home',
-  label:'Access denied',
-  content:'You do not have the necessary permissions to view this section.'
+  label:'Alert',
+  content:'Description goes here'
 });
 
 document.getElementById('ex2').setData({
-  label:'Successfully submitted',
-  content:'Your form was submitted successfully. You will receive a a a confirmation email shortly with the next steps.'
-});
-
-document.getElementById('ex3').setData({
-  label:'An unexpected error occurred'
+  icon:'info',
+  label:'Information notice',
+  content:'Please be aware that system maintenance is scheduled for tonight at 19:00.'
 });
 </script>
