@@ -5,7 +5,16 @@
     <h2>Usage</h2>
     <ul>
       <li>
-        All attributes are optional, but the component must have either a label or content to display a meaningful message.
+        The component requires either the label attribute or inner HTML content to display a meaningful message.
+      </li>
+      <li>
+        The label does not support HTML markup.
+      </li>
+      <li>
+        The content area supports HTML markup for richer formatting.
+      </li>
+      <li>
+        The component uses the <a href="#ui-icon">ui-icon</a> component to render icons.
       </li>
     </ul>
   </div>
@@ -13,20 +22,16 @@
     <h2>Attributes</h2>
     <ul>
       <li>
-        label - static (init-only, optional).<br>
+        label - static (init-only, required).<br>
         The main heading or title of the alert.
-      </li>
-      <li>
-        content - static (init-only, optional).<br>
-        Additional message below the label.
       </li>
       <li>
         icon - static (init-only, optional).<br>
         Name of icon to display.
       </li>
       <li>
-        closable - static (optional).<br>
-        If present, displays a close button.
+        no-close - static (optional, boolean).<br>
+        If present, the close button is not rendered.
       </li>
       <li>
         size - static (optional). Default: default.<br>
@@ -48,20 +53,52 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Alert with Label only</div>
+    <div>Alert with label only and without a close button</div>
     <div class="example">
       <div class="preview">
-        <ui-alert 
-          label="Alert with Label only">
-        </ui-alert>
+        <ui-alert label="Label" no-close></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert<br>
-          &nbsp;label="Alert with Label only"&gt;<br>
+          &lt;ui-alert label="Label" no-close&gt;&lt;/ui-alert&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with content only and a close button</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert>Content</ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert&gt;Content&lt;/ui-alert&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with label and content</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert label="Info">New features have been added in the latest update.</ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert label="Info"&gt;<br>
+          &nbsp;New features have been added in the latest update.<br>
           &lt;/ui-alert&gt;
         </code>
       </div>
@@ -69,101 +106,22 @@
   </div>
 
   <div class="content-item">
-    <div>Alert with Content only</div>
+    <div>Alert with label, content and icon</div>
     <div class="example">
       <div class="preview">
-        <ui-alert 
-          content="Alert with Content only">
-        </ui-alert>
+        <ui-alert label="Update Complete" icon="info">Your settings have been <strong>successfully</strong> saved.</ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert<br>
-          &nbsp;content="Alert with Content only"&gt;<br>
+          &lt;ui-alert icon="info" label="Update Complete"&gt;<br>
+          &nbsp;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.<br>
           &lt;/ui-alert&gt;
         </code>
       </div>
     </div>
   </div>
-
-  <div class="content-item">
-    <div>Alert with Label and Content</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert 
-          label="Alert"
-          content="Alert with Label and Content">
-        </ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert<br>
-          &nbsp;label="Alert"<br>
-          &nbsp;content="Alert with Label and Content"&gt;<br>
-          &lt;/ui-alert&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Alert with Label, Content and Icon</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert
-          label="Update Complete"
-          content="Your settings have been successfully saved."
-          icon="info">
-        </ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert<br>
-          &nbsp;label="Update Complete"<br>
-          &nbsp;content="Your settings have been successfully saved."<br>
-          &nbsp;icon="info"&gt;<br>
-          &lt;/ui-alert&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Alert with Label, Content, Icon and Close Button</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert
-          label="System Alert"
-          content="The system will be unavailable from 19:00."
-          icon="warning"
-          closable>
-        </ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert<br>
-          &nbsp;label="System Alert"<br>
-          &nbsp;content="The system will be unavailable from 19:00."<br>
-          &nbsp;icon="warning"<br>
-          &nbsp;closable&gt;<br>
-          &lt;/ui-alert&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-
 
 </section>

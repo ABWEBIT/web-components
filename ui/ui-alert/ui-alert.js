@@ -11,6 +11,8 @@ class UIAlert extends UIBase{
 
     this.setAttribute('role','alert');
 
+    const initialChildNodes = [...this.childNodes];
+
     const fragment = document.createDocumentFragment();
 
     const alertIcon = this.getAttribute('icon');
@@ -37,16 +39,14 @@ class UIAlert extends UIBase{
       this.removeAttribute('label');
     }
 
-    const alertContent = this.getAttribute('content');
-    if(alertContent){
+    if(initialChildNodes.length > 0){
       const container = document.createElement('div');
       container.setAttribute('data-ui','alert-content');
-      container.textContent = alertContent;
+      container.append(...initialChildNodes);
       alertBody.append(container);
-      this.removeAttribute('content');
     }
     
-    if(this.hasAttribute('closable')){
+    if(!this.hasAttribute('no-close')){
       const button = document.createElement('button');
       button.setAttribute('data-ui','alert-close');
       button.setAttribute('aria-label','Close alert');
@@ -63,7 +63,8 @@ class UIAlert extends UIBase{
       fragment.append(button);
     }
 
-    this.append(fragment);
+    this.replaceChildren(fragment);
+
   }
 
   disconnectedCallback(){
