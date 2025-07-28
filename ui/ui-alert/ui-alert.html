@@ -5,13 +5,10 @@
     <h2>Usage</h2>
     <ul>
       <li>
-        The component requires either the label attribute or inner HTML content to display a meaningful message.
+        The component requires either the title or description to display a meaningful message.
       </li>
       <li>
-        The label does not support HTML markup.
-      </li>
-      <li>
-        The content area supports HTML markup for richer formatting.
+        HTML markup is supported in the title and description fields for richer formatting.
       </li>
       <li>
         The component uses the <a href="#ui-icon">ui-icon</a> component to render icons.
@@ -21,10 +18,6 @@
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>
-        label - static (init-only, required).<br>
-        The main heading or title of the alert.
-      </li>
       <li>
         icon - static (init-only, optional).<br>
         Name of icon to display.
@@ -131,7 +124,7 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert&gt;<br>
+          &lt;ui-alert icon="info"&gt;<br>
           &nbsp;&lt;alert-title&gt;Update Complete&lt;/alert-title&gt;<br>
           &nbsp;&lt;alert-description&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/alert-description&gt;<br>
           &lt;/ui-alert&gt;

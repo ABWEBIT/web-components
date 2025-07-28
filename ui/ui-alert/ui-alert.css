@@ -5,7 +5,7 @@ ui-alert{
   background-color:var(--ui-alert-background-color);
   row-gap:var(--ui-alert-row-gap);
   width:100%;
-  max-width:500px;}
+  max-width:var(--ui-alert-max-width);}
 
 ui-alert [data-ui="alert-icon"]{
   display:flex;
@@ -73,6 +73,10 @@ ui-alert [data-ui="alert-description"]{
 
 ui-alert [data-ui="alert-description"] ul,
 ui-alert [data-ui="alert-description"] ol{
+  margin:0;
+  padding-inline-start:14px;}
+
+ui-alert [data-ui="alert-description"] p{
   margin:0;}
 
 /* shape */
@@ -94,6 +98,7 @@ ui-alert[theme="default"]{
 
 /* size */
 ui-alert[size="default"]{
+  --ui-alert-max-width:500px;
   --ui-alert-padding:16px 18px 16px 20px;
   --ui-alert-title-font-size:14px;
   --ui-alert-description-font-size:14px;
