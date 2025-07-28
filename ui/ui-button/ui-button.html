@@ -11,7 +11,7 @@
         It is initially designed to work with ui-icon and &lt;span&gt;, but since the structure is implemented purely in CSS, it can be easily adapted to support raw svg or other elements if needed.
       </li>
       <li>
-        When the button includes multiple elements, text content must be wrapped in a &lt;span&gt; for consistent styling.
+        The component uses the <a href="#ui-icon">ui-icon</a> component to render icons.
       </li>
     </ul>
   </div>
@@ -43,10 +43,6 @@
         Available options: rounded, pill, square, circle.<br>
         Sets the corner style.
       </li>
-      <li>
-        width-mode="full" - static (optional).<br>
-        Expands the component to take up 100% of the available width.
-      </li>
     </ul>
   </div>
 </section>
@@ -58,7 +54,7 @@
     <div class="example">
       <div class="preview">
         <ui-button>Button</ui-button>
-        <ui-button>
+        <ui-button size="square">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -78,30 +74,12 @@
   </div>
 
   <div class="content-item">
-    <div>Full Width</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button width-mode="full">Button</ui-button>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-button width-mode="full"&gt;Button&lt;/ui-button&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
     <div>Text-Only, Different Shapes</div>
     <div class="example">
       <div class="preview">
         <ui-button shape="rounded">Button</ui-button>
         <ui-button shape="pill">Button</ui-button>
         <ui-button shape="square">Button</ui-button>
-        <ui-button shape="circle">Button</ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -111,7 +89,6 @@
           <div>&lt;ui-button shape="rounded"&gt;Button&lt;/ui-button&gt;</div>
           <div>&lt;ui-button shape="pill"&gt;Button&lt;/ui-button&gt;</div>
           <div>&lt;ui-button shape="square"&gt;Button&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button shape="circle"&gt;Button&lt;/ui-button&gt;</div>
         </code>
       </div>
     </div>
@@ -121,13 +98,13 @@
     <div>Icon-Only, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button shape="rounded">
+        <ui-button size="square" shape="rounded">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button shape="circle">
+        <ui-button size="square" shape="circle">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button shape="square">
+        <ui-button size="square" shape="square">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
       </div>
@@ -158,10 +135,10 @@
       <div class="preview">
         <ui-button>
           <ui-icon icon="home"></ui-icon>
-          <span>Button</span>
+          Button
         </ui-button>
         <ui-button>
-          <span>Button</span>
+          Button
           <ui-icon icon="article"></ui-icon>
         </ui-button>
       </div>
@@ -172,11 +149,11 @@
         <code>
           <div>&lt;ui-button&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&nbsp;&lt;span&gt;Button&lt;/span&gt;</div>
+          <div>&nbsp;Button</div>
           <div>&lt;/ui-button&gt;</div>
           <br>
           <div>&lt;ui-button&gt;</div>
-          <div>&nbsp;&lt;span&gt;Button&lt;/span&gt;</div>
+          <div>&nbsp;Button</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>

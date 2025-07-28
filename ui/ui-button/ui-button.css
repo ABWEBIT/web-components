@@ -1,5 +1,4 @@
 ui-button{
-  position:relative;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -16,11 +15,12 @@ ui-button{
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
-  outline-color:transparent;}
+  outline-color:transparent;
 
-ui-button[ui]{
-  transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,outline-color,color;}
+  &[ui]{
+    transition-duration:var(--ui-transition-duration);
+    transition-property:background-color,outline-color,color;}
+}
 
 ui-button:focus-visible:not([disabled]){
   outline-color:var(--ui-button-outline-color);}
@@ -29,14 +29,13 @@ ui-button > ui-icon{
   height:var(--ui-button-icon-size);
   width:var(--ui-button-icon-size);}
 
-ui-button > ui-icon:not(:only-child):first-child{
+ui-button ui-icon:first-child{
   margin-inline-start:-2px;}
 
-ui-button > ui-icon:not(:only-child):last-child{
+ui-button ui-icon:last-child{
   margin-inline-end:-2px;}
 
 ui-button:has(> ui-icon:only-child){
-  padding:0;
   aspect-ratio:1;}
 
 ui-button:has(> ui-icon:only-child) > ui-icon{
@@ -63,10 +62,6 @@ ui-button > ui-spinner > svg{
 
 ui-button:active:not([disabled]):not([loading]){
   background-color:var(--ui-button-background-color-active);}
-
-/* width-mode */
-ui-button[width-mode="full"]{
-  width:100%;}
 
 /* shape */
 ui-button[shape="rounded"]{
@@ -96,6 +91,12 @@ ui-button[size="default"]{
   --ui-button-font-size:14px;
   --ui-button-height:32px;
   --ui-button-padding-inline:16px;
-  --ui-button-column-gap:8px;
+  --ui-button-column-gap:10px;
+  --ui-button-icon-size:16px;
+  --ui-button-loader-icon-size:20px;}
+
+ui-button[size="square"]{
+  --ui-button-height:32px;
+  --ui-button-padding-inline:8px;
   --ui-button-icon-size:16px;
   --ui-button-loader-icon-size:20px;}

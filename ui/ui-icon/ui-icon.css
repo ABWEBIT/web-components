@@ -5,13 +5,13 @@ ui-icon{
   vertical-align:middle;
   flex-shrink:0;
   height:24px;
-  width:24px;}
+  width:24px;
 
-ui-icon[ui]{
-  transition-duration:var(--ui-transition-duration);
-  transition-property:color;}
+  &[ui]{
+    transition-duration:var(--ui-transition-duration);
+    transition-property:color;}
 
-ui-icon > svg{
-  height:100%;
-  width:100%;
-  stroke-width:0;}
+  > svg{
+    height:100%;
+    width:100%;}
+}

@@ -11,8 +11,6 @@ class UIAlert extends UIBase{
 
     this.setAttribute('role','alert');
 
-    const initialChildNodes = [...this.childNodes];
-
     const fragment = document.createDocumentFragment();
 
     const alertIcon = this.getAttribute('icon');
@@ -30,19 +28,23 @@ class UIAlert extends UIBase{
     alertBody.setAttribute('data-ui','alert-body');
     fragment.append(alertBody);
 
-    const alertLabel = this.getAttribute('label');
-    if(alertLabel){
+    const alertTitle = [...(this.querySelector('alert-title')?.childNodes || [])];
+    console.log(alertTitle);
+
+    if(alertTitle.length > 0){
       const container = document.createElement('div');
-      container.setAttribute('data-ui','alert-label');
-      container.textContent = alertLabel;
+      container.setAttribute('data-ui','alert-title');
+      container.append(...alertTitle);
       alertBody.append(container);
-      this.removeAttribute('label');
     }
 
-    if(initialChildNodes.length > 0){
+    const alertDescription = [...(this.querySelector('alert-description')?.childNodes || [])];
+    console.log(alertDescription);
+
+    if(alertDescription.length > 0){
       const container = document.createElement('div');
-      container.setAttribute('data-ui','alert-content');
-      container.append(...initialChildNodes);
+      container.setAttribute('data-ui','alert-description');
+      container.append(...alertDescription);
       alertBody.append(container);
     }
     

@@ -27,13 +27,13 @@ ui-alert [data-ui="alert-body"]{
   padding-inline-end:6px;
   row-gap:var(--ui-alert-row-gap);}
 
-ui-alert [data-ui="alert-label"]{
+ui-alert [data-ui="alert-title"]{
   -webkit-user-select:text;
   user-select:text;
   flex-grow:1;
   line-height:var(--ui-line-height-150);
-  font-size:var(--ui-alert-label-font-size);
-  color:var(--ui-alert-label-font-color);}
+  font-size:var(--ui-alert-title-font-size);
+  color:var(--ui-alert-title-font-color);}
 
 ui-alert [data-ui="alert-close"]{
   display:flex;
@@ -64,15 +64,15 @@ ui-alert [data-ui="alert-close"] ui-icon{
     color:var(--ui-alert-close-icon-color-hover);}
 }
 
-ui-alert [data-ui="alert-content"]{
+ui-alert [data-ui="alert-description"]{
   -webkit-user-select:text;
   user-select:text;
   line-height:var(--ui-line-height-150);
-  font-size:var(--ui-alert-content-font-size);
-  color:var(--ui-alert-content-font-color);}
+  font-size:var(--ui-alert-description-font-size);
+  color:var(--ui-alert-description-font-color);}
 
-ui-alert [data-ui="alert-content"] ul,
-ui-alert [data-ui="alert-content"] ol{
+ui-alert [data-ui="alert-description"] ul,
+ui-alert [data-ui="alert-description"] ol{
   margin:0;}
 
 /* shape */
@@ -85,8 +85,8 @@ ui-alert[shape="square"]{
 /* theme */
 ui-alert[theme="default"]{
   --ui-alert-background-color:var(--ui-color-gray-800);
-  --ui-alert-label-font-color:var(--ui-color-white);
-  --ui-alert-content-font-color:var(--ui-color-gray-350);
+  --ui-alert-title-font-color:var(--ui-color-white);
+  --ui-alert-description-font-color:var(--ui-color-gray-350);
   --ui-alert-icon-color:var(--ui-color-white);
   --ui-alert-close-icon-color:var(--ui-color-gray-350);
   --ui-alert-close-icon-color-hover:var(--ui-color-white);
@@ -95,8 +95,8 @@ ui-alert[theme="default"]{
 /* size */
 ui-alert[size="default"]{
   --ui-alert-padding:16px 18px 16px 20px;
-  --ui-alert-label-font-size:14px;
-  --ui-alert-content-font-size:14px;
+  --ui-alert-title-font-size:14px;
+  --ui-alert-description-font-size:14px;
   --ui-alert-row-gap:8px;
   --ui-alert-icon-size:24px;
   --ui-alert-close-icon-size:17px;}

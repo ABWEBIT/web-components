@@ -53,52 +53,20 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Alert with label only and without a close button</div>
+    <div>Alert with title only and without a close button</div>
     <div class="example">
       <div class="preview">
-        <ui-alert label="Label" no-close></ui-alert>
+        <ui-alert no-close>
+          <alert-title>Title</alert-title>
+        </ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert label="Label" no-close&gt;&lt;/ui-alert&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Alert with content only and a close button</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert>Content</ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert&gt;Content&lt;/ui-alert&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Alert with label and content</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert label="Info">New features have been added in the latest update.</ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert label="Info"&gt;<br>
-          &nbsp;New features have been added in the latest update.<br>
+          &lt;ui-alert no-close&gt;<br>
+          &nbsp;&lt;alert-title&gt;Title&lt;/alert-title&gt;<br>
           &lt;/ui-alert&gt;
         </code>
       </div>
@@ -106,18 +74,66 @@
   </div>
 
   <div class="content-item">
-    <div>Alert with label, content and icon</div>
+    <div>Alert with description only and a close button</div>
     <div class="example">
       <div class="preview">
-        <ui-alert label="Update Complete" icon="info">Your settings have been <strong>successfully</strong> saved.</ui-alert>
+        <ui-alert>
+          <alert-description>Description.</alert-description>
+        </ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert icon="info" label="Update Complete"&gt;<br>
-          &nbsp;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.<br>
+          &lt;ui-alert&gt;<br>
+          &nbsp;&lt;alert-description&gt;Description&lt;/alert-description&gt;<br>
+          &lt;/ui-alert&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with title and description</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert>
+          <alert-title>Info</alert-title>
+          <alert-description>New features have been added in the latest update.</alert-description>
+        </ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert&gt;<br>
+          &nbsp;&lt;alert-title&gt;Info&lt;/alert-title&gt;<br>
+          &nbsp;&lt;alert-description&gt;New features have been added in the latest update.&lt;/alert-description&gt;<br>
+          &lt;/ui-alert&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with title, description and icon</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert icon="info">
+          <alert-title>Update Complete</alert-title>
+          <alert-description>Your settings have been <strong>successfully</strong> saved.</alert-description>
+        </ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert&gt;<br>
+          &nbsp;&lt;alert-title&gt;Update Complete&lt;/alert-title&gt;<br>
+          &nbsp;&lt;alert-description&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/alert-description&gt;<br>
           &lt;/ui-alert&gt;
         </code>
       </div>
