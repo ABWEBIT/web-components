@@ -11,37 +11,38 @@ ui-switch{
   outline-offset:2px;
   outline-style:solid;
   outline-color:transparent;
-  background-color:var(--ui-switch-background-color);}
+  background-color:var(--ui-switch-background-color);
 
-ui-switch[ui]{
-  transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,outline-color,padding-inline-start;}
+  &[ui]{
+    transition-duration:var(--ui-transition-duration);
+    transition-property:background-color,outline-color,padding-inline-start;}
 
-ui-switch:focus-visible:not([disabled]){
-  outline-color:var(--ui-switch-outline-color);}
+  &:focus-visible:not([disabled]){
+    outline-color:var(--ui-switch-outline-color);}
 
-ui-switch::before{
-  height:var(--ui-switch-button-size);
-  width:var(--ui-switch-button-size);
-  border-radius:var(--ui-border-radius-circle);
-  background-color:var(--ui-switch-button-background-color);
-  content:'';}
+  &::before{
+    height:var(--ui-switch-button-size);
+    width:var(--ui-switch-button-size);
+    border-radius:var(--ui-border-radius-circle);
+    background-color:var(--ui-switch-button-background-color);
+    content:'';}
 
-ui-switch[checked]{
-  padding-inline-start:var(--ui-switch-button-position-end);
-  background-color:var(--ui-switch-checked-background-color);}
+  &[checked]{
+    padding-inline-start:var(--ui-switch-button-position-end);
+    background-color:var(--ui-switch-checked-background-color);}
 
-/* theme */
-ui-switch[theme="default"]{
-  --ui-switch-background-color:var(--ui-color-gray-600);
-  --ui-switch-checked-background-color:var(--ui-color-blue-500);
-  --ui-switch-outline-color:var(--ui-color-gray-500);
-  --ui-switch-button-background-color:var(--ui-color-white);}
+  /* theme */
+  &[theme="default"]{
+    --ui-switch-background-color:var(--ui-color-gray-600);
+    --ui-switch-checked-background-color:var(--ui-color-blue-500);
+    --ui-switch-outline-color:var(--ui-color-gray-500);
+    --ui-switch-button-background-color:var(--ui-color-white);}
 
-/* size */
-ui-switch[size="default"]{
-  --ui-switch-height:24px;
-  --ui-switch-width:40px;
-  --ui-switch-button-size:16px;
-  --ui-switch-button-position-start:4px;
-  --ui-switch-button-position-end:20px;}
+  /* size */
+  &[size="default"]{
+    --ui-switch-height:24px;
+    --ui-switch-width:40px;
+    --ui-switch-button-size:16px;
+    --ui-switch-button-position-start:4px;
+    --ui-switch-button-position-end:20px;}
+}

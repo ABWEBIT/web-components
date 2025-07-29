@@ -2,99 +2,100 @@ ui-tabs{
   display:flex;
   flex-direction:column;
   width:100%;
-  row-gap:var(--ui-tabs-row-gap);}
+  row-gap:var(--ui-tabs-row-gap);
 
-ui-tabs [data-ui="tabs-list"]{
-  display:flex;
-  flex-wrap:wrap;
-  column-gap:var(--ui-tabs-tabs-list-column-gap);}
+  & [data-ui="tabs-list"]{
+    display:flex;
+    flex-wrap:wrap;
+    column-gap:var(--ui-tabs-tabs-list-column-gap);}
 
-ui-tabs [data-ui="tab"]{
-  position:relative;
-  background:none;
-  border-radius:var(--ui-tabs-tab-border-radius);
-  cursor:pointer;
-  padding-inline:var(--ui-tabs-tab-padding-inline);
-  padding-block:var(--ui-tabs-tab-padding-block);
-  font-size:var(--ui-tabs-tab-font-size);
-  color:var(--ui-tabs-tab-font-color);
-  outline-offset:var(--ui-outline-offset);
-  outline-width:var(--ui-outline-width);
-  outline-style:var(--ui-outline-style);
-  outline-color:transparent;}
+  & [data-ui="tab"]{
+    position:relative;
+    background:none;
+    border-radius:var(--ui-tabs-tab-border-radius);
+    cursor:pointer;
+    padding-inline:var(--ui-tabs-tab-padding-inline);
+    padding-block:var(--ui-tabs-tab-padding-block);
+    font-size:var(--ui-tabs-tab-font-size);
+    color:var(--ui-tabs-tab-font-color);
+    outline-offset:var(--ui-outline-offset);
+    outline-width:var(--ui-outline-width);
+    outline-style:var(--ui-outline-style);
+    outline-color:transparent;}
 
-ui-tabs [data-ui="tab"]::before{
-  content:'';
-  position:absolute;
-  background-color:transparent;
-  bottom:0;
-  left:10%;
-  width:80%;
-  height:1px;
-  transition-duration:var(--ui-transition-duration);
-  transition-property:background-color;}
+  & [data-ui="tab"]::before{
+    content:'';
+    position:absolute;
+    background-color:transparent;
+    bottom:0;
+    left:10%;
+    width:80%;
+    height:1px;
+    transition-duration:var(--ui-transition-duration);
+    transition-property:background-color;}
 
-ui-tabs[ui] [data-ui="tab"]{
-  transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,outline-color,color;}
+  &[ui] [data-ui="tab"]{
+    transition-duration:var(--ui-transition-duration);
+    transition-property:background-color,outline-color,color;}
 
-ui-tabs [data-ui="tab"]:focus-visible{
-  outline-color:var(--ui-outline-color);}
+  & [data-ui="tab"]:focus-visible{
+    outline-color:var(--ui-outline-color);}
 
-@media (hover: hover){
-  ui-tabs [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):hover::before{
-    background-color:var(--ui-tabs-tab-before-background-color-hover);
+  @media (hover: hover){
+    & [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):hover::before{
+      background-color:var(--ui-tabs-tab-before-background-color-hover);
+    }
+
+    & [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):hover{
+      color:var(--ui-tabs-tab-font-color-hover);}
   }
 
-  ui-tabs [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):hover{
-    color:var(--ui-tabs-tab-font-color-hover);}
+  & [data-ui="tab"][aria-selected="true"]{
+    color:var(--ui-tabs-tab-font-color-active);}
+
+  & [data-ui="tab"][aria-selected="true"]::before{
+    background-color:var(--ui-tabs-tab-before-background-color-active);}
+
+  & [data-ui="tab-panel"]{
+    display:block;
+    -webkit-user-select:text;
+    user-select:text;
+    border-radius:var(--ui-tabs-tab-panel-border-radius);
+    padding-inline:var(--ui-tabs-tab-panel-padding-inline);
+    padding-block:var(--ui-tabs-tab-panel-padding-block);
+    font-size:var(--ui-tabs-tab-panel-font-size);
+    color:var(--ui-tabs-tab-panel-font-color);
+    line-height:var(--ui-line-height-150);}
+
+  & [data-ui="tab-panel"][hidden]{
+    display:none;}
+
+  /* shape */
+  &[shape="rounded"]{
+    --ui-tabs-tab-border-radius:var(--ui-border-radius-rounded);
+    --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-rounded);}
+
+  &[shape="square"]{
+    --ui-tabs-tab-border-radius:var(--ui-border-radius-square);
+    --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-square);}
+
+  /* theme */
+  &[theme="default"]{
+    --ui-tabs-tab-before-background-color-hover:var(--ui-color-gray-700);
+    --ui-tabs-tab-before-background-color-active:var(--ui-color-gray-600);
+    --ui-tabs-tab-font-color:var(--ui-color-gray-150);
+    --ui-tabs-tab-font-color-hover:var(--ui-color-white);
+    --ui-tabs-tab-font-color-active:var(--ui-color-white);
+    --ui-tabs-tab-panel-font-color:var(--ui-color-gray-200);}
+
+  /* size */
+  &[size="default"]{
+    --ui-tabs-row-gap:10px;
+    --ui-tabs-tabs-list-column-gap:0px;
+    --ui-tabs-tab-font-size:18px;
+    --ui-tabs-tab-padding-inline:20px;
+    --ui-tabs-tab-padding-block:12px;
+    --ui-tabs-tab-panel-font-size:16px;
+    --ui-tabs-tab-panel-padding-inline:20px;
+    --ui-tabs-tab-panel-padding-block:16px;}
 }
-
-ui-tabs [data-ui="tab"][aria-selected="true"]{
-  color:var(--ui-tabs-tab-font-color-active);}
-
-ui-tabs [data-ui="tab"][aria-selected="true"]::before{
-  background-color:var(--ui-tabs-tab-before-background-color-active);}
-
-ui-tabs [data-ui="tab-panel"]{
-  display:block;
-  -webkit-user-select:text;
-  user-select:text;
-  border-radius:var(--ui-tabs-tab-panel-border-radius);
-  padding-inline:var(--ui-tabs-tab-panel-padding-inline);
-  padding-block:var(--ui-tabs-tab-panel-padding-block);
-  font-size:var(--ui-tabs-tab-panel-font-size);
-  color:var(--ui-tabs-tab-panel-font-color);
-  line-height:var(--ui-line-height-150);}
-
-ui-tabs [data-ui="tab-panel"][hidden]{
-  display:none;}
-
-/* shape */
-ui-tabs[shape="rounded"]{
-  --ui-tabs-tab-border-radius:var(--ui-border-radius-rounded);
-  --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-rounded);}
-
-ui-tabs[shape="square"]{
-  --ui-tabs-tab-border-radius:var(--ui-border-radius-square);
-  --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-square);}
-
-/* theme */
-ui-tabs[theme="default"]{
-  --ui-tabs-tab-before-background-color-hover:var(--ui-color-gray-700);
-  --ui-tabs-tab-before-background-color-active:var(--ui-color-gray-600);
-  --ui-tabs-tab-font-color:var(--ui-color-gray-150);
-  --ui-tabs-tab-font-color-hover:var(--ui-color-white);
-  --ui-tabs-tab-font-color-active:var(--ui-color-white);
-  --ui-tabs-tab-panel-font-color:var(--ui-color-gray-200);}
-
-/* size */
-ui-tabs[size="default"]{
-  --ui-tabs-row-gap:10px;
-  --ui-tabs-tabs-list-column-gap:0px;
-  --ui-tabs-tab-font-size:18px;
-  --ui-tabs-tab-padding-inline:20px;
-  --ui-tabs-tab-padding-block:12px;
-  --ui-tabs-tab-panel-font-size:16px;
-  --ui-tabs-tab-panel-padding-inline:20px;
-  --ui-tabs-tab-panel-padding-block:16px;}

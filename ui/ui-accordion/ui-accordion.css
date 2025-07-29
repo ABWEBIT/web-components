@@ -1,92 +1,93 @@
 ui-accordion{
   display:block;
-  width:100%;}
-
-ui-accordion [data-ui="accordion-item"]{
-  width:100%;}
-
-ui-accordion [data-ui="accordion-item"]:not(:last-child){
-  border-bottom:1px solid var(--ui-accordion-border-color);}
-
-ui-accordion [data-ui="accordion-header"]{
-  display:flex;
   width:100%;
-  text-align:start;
-  border-radius:var(--ui-accordion-header-border-radius);
-  padding-inline:var(--ui-accordion-header-padding-inline);
-  font-size:var(--ui-accordion-header-font-size);
-  color:var(--ui-accordion-header-font-color);
-  outline-offset:var(--ui-outline-offset);
-  outline-width:var(--ui-outline-width);
-  outline-style:var(--ui-outline-style);
-  outline-color:transparent;}
 
-ui-accordion[ui]{
-  transition-duration:var(--ui-transition-duration);
-  transition-property:background-color,outline-color,color;}
+  & [data-ui="accordion-item"]{
+    width:100%;}
 
-ui-accordion [data-ui="accordion-header"]:focus-visible{
-  outline-color:var(--ui-outline-color);}
+  & [data-ui="accordion-item"]:not(:last-child){
+    border-bottom:1px solid var(--ui-accordion-border-color);}
 
-@media (hover:hover){
-  ui-accordion [data-ui="accordion-header"]:not([disabled]):hover{
-    text-decoration:underline;}
+  & [data-ui="accordion-header"]{
+    display:flex;
+    width:100%;
+    text-align:start;
+    border-radius:var(--ui-accordion-header-border-radius);
+    padding-inline:var(--ui-accordion-header-padding-inline);
+    font-size:var(--ui-accordion-header-font-size);
+    color:var(--ui-accordion-header-font-color);
+    outline-offset:var(--ui-outline-offset);
+    outline-width:var(--ui-outline-width);
+    outline-style:var(--ui-outline-style);
+    outline-color:transparent;}
+
+  &[ui]{
+    transition-duration:var(--ui-transition-duration);
+    transition-property:background-color,outline-color,color;}
+
+  & [data-ui="accordion-header"]:focus-visible{
+    outline-color:var(--ui-outline-color);}
+
+  @media (hover:hover){
+    & [data-ui="accordion-header"]:not([disabled]):hover{
+      text-decoration:underline;}
+  }
+
+
+  & [data-ui="accordion-header-text"]{
+    line-height:var(--ui-line-height-150);
+    padding-block:var(--ui-accordion-header-padding-block);
+    flex-grow:1;}
+
+  & [data-ui="accordion-header-icon"]{
+    display:flex;
+    align-items:center;}
+
+  & [data-ui="accordion-panel"] {
+    display:block;
+    -webkit-user-select:text;
+    user-select:text;
+    border-radius:var(--ui-accordion-header-border-radius);
+    font-size:var(--ui-accordion-panel-font-size);
+    color:var(--ui-accordion-panel-font-color);
+    padding-inline:var(--ui-accordion-panel-padding-inline);
+    padding-block:var(--ui-accordion-panel-padding-block);
+    line-height:var(--ui-line-height-150);}
+
+  & [data-ui="accordion-panel"][hidden] {
+    display:none;}
+
+  & [data-ui="accordion-header"] ui-icon{
+    width:var(--ui-accordion-icon-expand-size);
+    height:var(--ui-accordion-icon-expand-size);
+    transition-duration:var(--ui-transition-duration);
+    transition-property:transform;}
+
+  & [data-ui="accordion-header"][aria-expanded="true"] ui-icon{
+    transform:rotate(180deg);}
+
+  /* shape */
+  &[shape="rounded"]{
+    --ui-accordion-header-border-radius:var(--ui-border-radius-rounded);
+    --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-rounded);}
+
+  &[shape="square"]{
+    --ui-accordion-header-border-radius:var(--ui-border-radius-square);
+    --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-square);}
+
+  /* theme */
+  &[theme="default"]{
+    --ui-accordion-border-color:var(--ui-color-gray-800);
+    --ui-accordion-header-font-color:var(--ui-color-white);
+    --ui-accordion-panel-font-color:var(--ui-color-gray-200);}
+
+  /* size */
+  &[size="default"]{
+    --ui-accordion-header-font-size:18px;
+    --ui-accordion-panel-font-size:16px;
+    --ui-accordion-header-padding-inline:20px 12px;
+    --ui-accordion-panel-padding-inline:20px;
+    --ui-accordion-header-padding-block:16px;
+    --ui-accordion-panel-padding-block:12px;
+    --ui-accordion-icon-expand-size:24px;}
 }
-
-
-ui-accordion [data-ui="accordion-header-text"]{
-  line-height:var(--ui-line-height-150);
-  padding-block:var(--ui-accordion-header-padding-block);
-  flex-grow:1;}
-
-ui-accordion [data-ui="accordion-header-icon"]{
-  display:flex;
-  align-items:center;}
-
-ui-accordion [data-ui="accordion-panel"] {
-  display:block;
-  -webkit-user-select:text;
-  user-select:text;
-  border-radius:var(--ui-accordion-header-border-radius);
-  font-size:var(--ui-accordion-panel-font-size);
-  color:var(--ui-accordion-panel-font-color);
-  padding-inline:var(--ui-accordion-panel-padding-inline);
-  padding-block:var(--ui-accordion-panel-padding-block);
-  line-height:var(--ui-line-height-150);}
-
-ui-accordion [data-ui="accordion-panel"][hidden] {
-  display:none;}
-
-ui-accordion [data-ui="accordion-header"] ui-icon{
-  width:var(--ui-accordion-icon-expand-size);
-  height:var(--ui-accordion-icon-expand-size);
-  transition-duration:var(--ui-transition-duration);
-  transition-property:transform;}
-
-ui-accordion [data-ui="accordion-header"][aria-expanded="true"] ui-icon{
-  transform:rotate(180deg);}
-
-/* shape */
-ui-accordion[shape="rounded"]{
-  --ui-accordion-header-border-radius:var(--ui-border-radius-rounded);
-  --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-rounded);}
-
-ui-accordion[shape="square"]{
-  --ui-accordion-header-border-radius:var(--ui-border-radius-square);
-  --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-square);}
-
-/* theme */
-ui-accordion[theme="default"]{
-  --ui-accordion-border-color:var(--ui-color-gray-800);
-  --ui-accordion-header-font-color:var(--ui-color-white);
-  --ui-accordion-panel-font-color:var(--ui-color-gray-200);}
-
-/* size */
-ui-accordion[size="default"]{
-  --ui-accordion-header-font-size:18px;
-  --ui-accordion-panel-font-size:16px;
-  --ui-accordion-header-padding-inline:20px 12px;
-  --ui-accordion-panel-padding-inline:20px;
-  --ui-accordion-header-padding-block:16px;
-  --ui-accordion-panel-padding-block:12px;
-  --ui-accordion-icon-expand-size:24px;}

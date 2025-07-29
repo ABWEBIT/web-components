@@ -1,10 +1,11 @@
 ui-spinner{
   display:inline-flex;
   align-items:center;
-  justify-content:center;}
+  justify-content:center;
 
-ui-spinner > svg{
-  height:24px;
-  width:24px;
-  stroke-width:0;
-  animation:rotate360 0.8s linear infinite;}
+  & > svg{
+    height:24px;
+    width:24px;
+    stroke-width:0;
+    animation:rotate360 0.8s linear infinite;}
+}

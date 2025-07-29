@@ -11,7 +11,7 @@ ui-icon{
     transition-duration:var(--ui-transition-duration);
     transition-property:color;}
 
-  > svg{
+  & > svg{
     height:100%;
     width:100%;}
 }

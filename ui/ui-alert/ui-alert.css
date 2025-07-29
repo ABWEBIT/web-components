@@ -1,107 +1,110 @@
 ui-alert{
   display:flex;
-  padding:var(--ui-alert-padding);
+  padding-block:var(--ui-alert-padding-block);
+  padding-inline:var(--ui-alert-padding-inline);
   border-radius:var(--ui-alert-border-radius);
   background-color:var(--ui-alert-background-color);
   row-gap:var(--ui-alert-row-gap);
   width:100%;
-  max-width:var(--ui-alert-max-width);}
+  max-width:var(--ui-alert-max-width);
 
-ui-alert [data-ui="alert-icon"]{
-  display:flex;
-  align-items:center;
-  padding-inline-end:20px;
-  height:100%;
-  color:var(--ui-alert-icon-color);}
+  & [data-ui="alert-icon"]{
+    display:flex;
+    align-items:center;
+    padding-inline-end:20px;
+    height:100%;
+    color:var(--ui-alert-icon-color);}
 
-ui-alert [data-ui="alert-icon"] ui-icon{
-  width:var(--ui-alert-icon-size);
-  height:var(--ui-alert-icon-size);}
+  & [data-ui="alert-icon"] svg{
+    width:var(--ui-alert-icon-size);
+    height:var(--ui-alert-icon-size);}
 
-ui-alert [data-ui="alert-body"]{
-  display:flex;
-  flex-direction:column;
-  flex-grow:1;
-  min-width:0;
-  padding-block-start:2px;
-  padding-inline-end:6px;
-  row-gap:var(--ui-alert-row-gap);}
+  & [data-ui="alert-body"]{
+    display:flex;
+    flex-direction:column;
+    flex-grow:1;
+    min-width:0;
+    padding-block-start:2px;
+    padding-inline-end:6px;
+    row-gap:var(--ui-alert-row-gap);}
 
-ui-alert [data-ui="alert-title"]{
-  -webkit-user-select:text;
-  user-select:text;
-  flex-grow:1;
-  line-height:var(--ui-line-height-150);
-  font-size:var(--ui-alert-title-font-size);
-  color:var(--ui-alert-title-font-color);}
+  & [data-ui="alert-title"]{
+    -webkit-user-select:text;
+    user-select:text;
+    flex-grow:1;
+    line-height:var(--ui-line-height-150);
+    font-size:var(--ui-alert-title-font-size);
+    color:var(--ui-alert-title-font-color);}
 
-ui-alert [data-ui="alert-close"]{
-  display:flex;
-  border-radius:var(--ui-border-radius-circle);
-  flex-shrink:0;
-  margin-top:2px;
-  width:var(--ui-alert-close-icon-size);
-  height:var(--ui-alert-close-icon-size);
-  outline-offset:2px;
-  outline-width:2px;
-  outline-style:solid;
-  outline-color:transparent;
-  transition-duration:var(--ui-transition-duration);
-  transition-property:outline-color;}
+  & [data-ui="alert-close"]{
+    display:flex;
+    border-radius:var(--ui-border-radius-circle);
+    flex-shrink:0;
+    margin-top:2px;
+    width:var(--ui-alert-close-icon-size);
+    height:var(--ui-alert-close-icon-size);
+    outline-offset:2px;
+    outline-width:2px;
+    outline-style:solid;
+    outline-color:transparent;
+    transition-duration:var(--ui-transition-duration);
+    transition-property:outline-color;}
 
-ui-alert [data-ui="alert-close"]:focus-visible{
-  outline-color:var(--ui-alert-outline-color);}
+  & [data-ui="alert-close"]:focus-visible{
+    outline-color:var(--ui-alert-outline-color);}
 
-ui-alert [data-ui="alert-close"] ui-icon{
-  color:var(--ui-alert-close-icon-color);
-  width:var(--ui-alert-close-icon-size);
-  height:var(--ui-alert-close-icon-size);
-  transition-duration:var(--ui-transition-duration);
-  transition-property:color;}
+  & [data-ui="alert-close"] ui-icon{
+    color:var(--ui-alert-close-icon-color);
+    width:var(--ui-alert-close-icon-size);
+    height:var(--ui-alert-close-icon-size);
+    transition-duration:var(--ui-transition-duration);
+    transition-property:color;}
 
-@media (hover:hover){
-  ui-alert [data-ui="alert-close"] ui-icon:hover{
-    color:var(--ui-alert-close-icon-color-hover);}
+  @media (hover: hover){
+    & [data-ui="alert-close"] ui-icon:hover{
+      color:var(--ui-alert-close-icon-color-hover);}
+  }
+
+  & [data-ui="alert-description"]{
+    -webkit-user-select:text;
+    user-select:text;
+    line-height:var(--ui-line-height-150);
+    font-size:var(--ui-alert-description-font-size);
+    color:var(--ui-alert-description-font-color);}
+
+  & [data-ui="alert-description"] ul,
+  & [data-ui="alert-description"] ol{
+    margin:0;
+    padding-inline-start:14px;}
+
+  & [data-ui="alert-description"] p{
+    margin:0;}
+
+  /* shape */
+  &[shape="rounded"]{
+    --ui-alert-border-radius:var(--ui-border-radius-rounded);}
+
+  &[shape="square"]{
+    --ui-alert-border-radius:var(--ui-border-radius-square);}
+
+  /* theme */
+  &[theme="default"]{
+    --ui-alert-background-color:var(--ui-color-gray-800);
+    --ui-alert-title-font-color:var(--ui-color-white);
+    --ui-alert-description-font-color:var(--ui-color-gray-350);
+    --ui-alert-icon-color:var(--ui-color-white);
+    --ui-alert-close-icon-color:var(--ui-color-gray-350);
+    --ui-alert-close-icon-color-hover:var(--ui-color-white);
+    --ui-alert-outline-color:var(--ui-color-gray-500);}
+
+  /* size */
+  &[size="default"]{
+    --ui-alert-max-width:500px;
+    --ui-alert-padding-block:16px;
+    --ui-alert-padding-inline:20px 18px;
+    --ui-alert-title-font-size:14px;
+    --ui-alert-description-font-size:14px;
+    --ui-alert-row-gap:8px;
+    --ui-alert-icon-size:24px;
+    --ui-alert-close-icon-size:17px;}
 }
-
-ui-alert [data-ui="alert-description"]{
-  -webkit-user-select:text;
-  user-select:text;
-  line-height:var(--ui-line-height-150);
-  font-size:var(--ui-alert-description-font-size);
-  color:var(--ui-alert-description-font-color);}
-
-ui-alert [data-ui="alert-description"] ul,
-ui-alert [data-ui="alert-description"] ol{
-  margin:0;
-  padding-inline-start:14px;}
-
-ui-alert [data-ui="alert-description"] p{
-  margin:0;}
-
-/* shape */
-ui-alert[shape="rounded"]{
-  --ui-alert-border-radius:var(--ui-border-radius-rounded);}
-
-ui-alert[shape="square"]{
-  --ui-alert-border-radius:var(--ui-border-radius-square);}
-
-/* theme */
-ui-alert[theme="default"]{
-  --ui-alert-background-color:var(--ui-color-gray-800);
-  --ui-alert-title-font-color:var(--ui-color-white);
-  --ui-alert-description-font-color:var(--ui-color-gray-350);
-  --ui-alert-icon-color:var(--ui-color-white);
-  --ui-alert-close-icon-color:var(--ui-color-gray-350);
-  --ui-alert-close-icon-color-hover:var(--ui-color-white);
-  --ui-alert-outline-color:var(--ui-color-gray-500);}
-
-/* size */
-ui-alert[size="default"]{
-  --ui-alert-max-width:500px;
-  --ui-alert-padding:16px 18px 16px 20px;
-  --ui-alert-title-font-size:14px;
-  --ui-alert-description-font-size:14px;
-  --ui-alert-row-gap:8px;
-  --ui-alert-icon-size:24px;
-  --ui-alert-close-icon-size:17px;}

@@ -29,7 +29,6 @@ class UIAlert extends UIBase{
     fragment.append(alertBody);
 
     const alertTitle = [...(this.querySelector('alert-title')?.childNodes || [])];
-    console.log(alertTitle);
 
     if(alertTitle.length > 0){
       const container = document.createElement('div');
@@ -39,7 +38,6 @@ class UIAlert extends UIBase{
     }
 
     const alertDescription = [...(this.querySelector('alert-description')?.childNodes || [])];
-    console.log(alertDescription);
 
     if(alertDescription.length > 0){
       const container = document.createElement('div');
