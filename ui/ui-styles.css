@@ -176,6 +176,12 @@
   touch-action:manipulation;}
 
 button{
+  outline-offset:2px;
+  outline-width:2px;
+  outline-style:solid;
+  outline-color:transparent;}
+
+button{
   appearance:none;
   font:inherit;
   color:inherit;
@@ -183,16 +189,17 @@ button{
   border:0;
   padding:0;
   margin:0;
+  line-height:1;
   cursor:pointer;
-  touch-action:manipulation;}
+  touch-action:manipulation;
+  -webkit-user-select:none;
+  user-select:none;
 
-button[disabled],
-[disabled]{
-  cursor:not-allowed;}
-
-[disabled]{
-  opacity:0.5;
-  pointer-events:auto;}
+  &[disabled]{
+    cursor:not-allowed;
+    opacity:0.5;
+    pointer-events:auto;}
+}
 
 [disabled] *{
   pointer-events:none;}

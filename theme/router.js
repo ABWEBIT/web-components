@@ -1,14 +1,19 @@
   const components = [
     { label: 'Foundation', link: './pages/ui-foundation.html', category: 'essentials' },
+
     { label: 'Accordion', link: './ui/ui-accordion/ui-accordion.html', category: 'components' },
     { label: 'Alert', link: './ui/ui-alert/ui-alert.html', category: 'components' },
     { label: 'Tabs', link: './ui/ui-tabs/ui-tabs.html', category: 'components' },
     { label: 'Breadcrumb', link: './ui/ui-breadcrumb/ui-breadcrumb.html', category: 'components' },
-    { label: 'Spinner', link: './ui/ui-spinner/ui-spinner.html', category: 'components' },
+
+
     { label: 'Icons', link: './pages/ui-icons.html', category: 'theme' },
+
     { label: 'Icon', link: './ui/ui-icon/ui-icon.html', category: 'primitives' },
     { label: 'Separator', link: './ui/ui-separator/ui-separator.html', category: 'primitives' },
     { label: 'Text', link: './ui/ui-text/ui-text.html', category: 'primitives' },
+    { label: 'Spinner', link: './ui/ui-spinner/ui-spinner.html', category: 'primitives' },
+
     { label: 'Button', link: './ui/ui-button/ui-button.html', category: 'forms' },
     { label: 'Checkbox', link: './ui/ui-checkbox/ui-checkbox.html', category: 'forms' },
     { label: 'Input', link: './ui/ui-input/ui-input.html', category: 'forms' },
@@ -18,6 +23,7 @@
     { label: 'Field', link: './ui/ui-field/ui-field.html', category: 'forms' },
     { label: 'Select', link: './ui/ui-select/ui-select.html', category: 'forms' },
     { label: 'Listbox', link: './ui/ui-listbox/ui-listbox.html', category: 'forms' },
+
     { label: 'Focus', link: './ui/ui-focus/ui-focus.html', category: 'utilities' },
     { label: 'Portal', link: './ui/ui-portal/ui-portal.html', category: 'utilities' },
   ];

@@ -54,7 +54,7 @@
     <div class="example">
       <div class="preview">
         <ui-button>Button</ui-button>
-        <ui-button size="square">
+        <ui-button size="icon">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -65,7 +65,7 @@
         <code>
           <div>&lt;ui-button&gt;Button&lt;/ui-button&gt;</div>
           <br>
-          <div>&lt;ui-button&gt;</div>
+          <div>&lt;ui-button size="icon"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>
@@ -98,13 +98,13 @@
     <div>Icon-Only, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button size="square" shape="rounded">
+        <ui-button size="icon" shape="rounded">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="square" shape="circle">
+        <ui-button size="icon" shape="circle">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="square" shape="square">
+        <ui-button size="icon" shape="square">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
       </div>
@@ -113,15 +113,15 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button shape="rounded"&gt;</div>
+          <div>&lt;ui-button size="icon" shape="rounded"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
           <br>
-          <div>&lt;ui-button shape="circle"&gt;</div>
+          <div>&lt;ui-button size="icon" shape="circle"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
           <br>
-          <div>&lt;ui-button shape="square"&gt;</div>
+          <div>&lt;ui-button size="icon" shape="square"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>
@@ -209,8 +209,8 @@
     <div>Adding Loading state.</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="clickMe" onclick="load()" onkeydown="load()" aria-label="Start Loading">Start Loading</ui-button>
-        <ui-button onclick="reset(event)" onkeydown="reset(event)" aria-label="Reset">Reset</ui-button>
+        <ui-button id="clickMe" onclick="load()" aria-label="Start Loading">Start Loading</ui-button>
+        <ui-button onclick="reset()" aria-label="Reset">Reset</ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -231,14 +231,8 @@
     button.loading = true;
   }
 
-  function reset(e){
+  function reset(){
     let button = document.getElementById('clickMe');
-    if(e.type === 'click'){
-      button.loading = false;
-      return;
-    }
-    if(e.type === 'keydown' && (e.code === 'Enter' || e.code === 'Space')){
-      button.loading = false;
-    }
+    button.loading = false;
   }
 </script>

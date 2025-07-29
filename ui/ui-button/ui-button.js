@@ -2,6 +2,7 @@ import {UIBase} from '../ui-base.js';
 
 class UIButton extends UIBase{
   #listeners = null;
+  #button = null;
   #disabled = false;
   #loading = false;
 
@@ -14,19 +15,12 @@ class UIButton extends UIBase{
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
-    this.setAttributes(this,{
-      'aria-disabled': this.#disabled ? 'true' : 'false',
-      'tabindex': this.#disabled ? '-1' : '0'
-    });
   }
 
   get loading(){return this.#loading;}
   set loading(value){
     this.#loading = value === true;
     this.reflect('loading',this.#loading);
-    this.setAttributes(this,{
-      'aria-busy': this.#loading ? 'true' : 'false'
-    });
     this.#loader();
   }
 
@@ -36,26 +30,22 @@ class UIButton extends UIBase{
     this.size();
     this.theme();
 
-    this.setAttributes(this,{
-      'role': 'button',
-      'aria-busy': this.#loading ? 'true' : 'false'
-    });
-
     this.disabled = this.hasAttribute('disabled');
     this.loading = this.hasAttribute('loading');
 
     this.#loader();
 
-    this.#listeners = new AbortController();
-    const signal = this.#listeners.signal;
+    this.#button = document.createElement('button');
+    if(this.disabled) this.#button.disabled = true;
 
-    this.addEventListener('click',this.#onClick,{signal});
-    this.addEventListener('keydown',this.#onKeyDown,{signal});
+    const buttonContent = [...(this?.childNodes || [])];
+
+    this.#button.append(...buttonContent);
+    this.replaceChildren(this.#button);
   }
 
   disconnectedCallback(){
-    this.#listeners?.abort();
-    this.#listeners = null;
+
   }
 
   #loader = () => {

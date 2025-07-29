@@ -1,44 +1,43 @@
 ui-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  vertical-align:middle;
-  border:none;
+  position:relative;
   border-radius:var(--ui-button-border-radius);
   height:var(--ui-button-height);
-  padding-inline-start:var(--ui-button-padding-inline);
-  padding-inline-end:var(--ui-button-padding-inline);
-  column-gap:var(--ui-button-column-gap);
-  font-size:var(--ui-button-font-size);
-  color:var(--ui-button-font-color);
-  background-color:var(--ui-button-background-color);
-  outline-offset:2px;
-  outline-width:2px;
-  outline-style:solid;
-  outline-color:transparent;
+  width:var(--ui-button-width);
 
-  &[ui]{
+  & button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    vertical-align:middle;
+    border-radius:inherit;
+    height:100%;
+    width:100%;
+    padding-inline:var(--ui-button-padding-inline);
+    column-gap:var(--ui-button-column-gap);
+    font-size:var(--ui-button-font-size);
+    color:var(--ui-button-font-color);
+    background-color:var(--ui-button-background-color);
+
+    @media (hover: hover){
+      &:hover:not([disabled]){
+        color:var(--ui-button-font-color-hover);
+        background-color:var(--ui-button-background-color-hover);}
+    }
+
+    &:active:not([disabled]){
+      background-color:var(--ui-button-background-color-active);}
+
+    &:focus-visible:not([disabled]){
+      outline-color:var(--ui-button-outline-color);}
+  }
+
+  &[ui] button{
     transition-duration:var(--ui-transition-duration);
     transition-property:background-color,outline-color,color;}
 
-  &:focus-visible:not([disabled]){
-    outline-color:var(--ui-button-outline-color);}
-
-  & > ui-icon{
+  & button ui-icon{
     height:var(--ui-button-icon-size);
     width:var(--ui-button-icon-size);}
-
-  & ui-icon:first-child{
-    margin-inline-start:-2px;}
-
-  & ui-icon:last-child{
-    margin-inline-end:-2px;}
-
-  &:has(> ui-icon:only-child){
-    aspect-ratio:1;}
-
-  &:has(> ui-icon:only-child) > ui-icon{
-    transform:translateX(0.2px);}
 
   & > ui-spinner{
     position:absolute;
@@ -53,14 +52,9 @@ ui-button{
     height:var(--ui-button-loader-icon-size);
     width:var(--ui-button-loader-icon-size);}
 
-  @media (hover: hover){
-    &:hover:not([disabled]):not([loading]){
-      background-color:var(--ui-button-background-color-hover);
-      color:var(--ui-button-font-color-hover);}
-  }
 
-  &:active:not([disabled]):not([loading]){
-    background-color:var(--ui-button-background-color-active);}
+
+
 
   /* shape */
   &[shape="rounded"]{
@@ -94,8 +88,7 @@ ui-button{
     --ui-button-icon-size:16px;
     --ui-button-loader-icon-size:20px;}
 
-  &[size="square"]{
-    --ui-button-font-size:14px;
+  &[size="icon"]{
     --ui-button-height:32px;
     --ui-button-padding-inline:8px;
     --ui-button-icon-size:16px;

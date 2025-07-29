@@ -47,8 +47,9 @@ class UIAlert extends UIBase{
     }
     
     if(!this.hasAttribute('no-close')){
-      const button = document.createElement('button');
+      const button = document.createElement('ui-button');
       button.setAttribute('data-ui','alert-close');
+      button.setAttribute('shape','circle');
       button.setAttribute('aria-label','Close alert');
       button.setAttribute('type','button');
 

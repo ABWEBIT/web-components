@@ -8,16 +8,18 @@ ui-alert{
   width:100%;
   max-width:var(--ui-alert-max-width);
 
+  /* icon */
   & [data-ui="alert-icon"]{
     display:flex;
     align-items:center;
     padding-inline-end:20px;
     height:100%;
-    color:var(--ui-alert-icon-color);}
+    color:var(--ui-alert-icon-color);
 
-  & [data-ui="alert-icon"] svg{
-    width:var(--ui-alert-icon-size);
-    height:var(--ui-alert-icon-size);}
+    svg{
+      width:var(--ui-alert-icon-size);
+      height:var(--ui-alert-icon-size);}
+  }
 
   & [data-ui="alert-body"]{
     display:flex;
@@ -36,49 +38,29 @@ ui-alert{
     font-size:var(--ui-alert-title-font-size);
     color:var(--ui-alert-title-font-color);}
 
-  & [data-ui="alert-close"]{
-    display:flex;
-    border-radius:var(--ui-border-radius-circle);
-    flex-shrink:0;
-    margin-top:2px;
-    width:var(--ui-alert-close-icon-size);
-    height:var(--ui-alert-close-icon-size);
-    outline-offset:2px;
-    outline-width:2px;
-    outline-style:solid;
-    outline-color:transparent;
-    transition-duration:var(--ui-transition-duration);
-    transition-property:outline-color;}
-
-  & [data-ui="alert-close"]:focus-visible{
-    outline-color:var(--ui-alert-outline-color);}
-
-  & [data-ui="alert-close"] ui-icon{
+  & ui-button[data-ui="alert-close"]{
     color:var(--ui-alert-close-icon-color);
     width:var(--ui-alert-close-icon-size);
     height:var(--ui-alert-close-icon-size);
-    transition-duration:var(--ui-transition-duration);
-    transition-property:color;}
 
-  @media (hover: hover){
-    & [data-ui="alert-close"] ui-icon:hover{
-      color:var(--ui-alert-close-icon-color-hover);}
+
+    @media (hover: hover){
+      &:hover svg{
+        color:var(--ui-alert-close-icon-color-hover);}
+    }
   }
 
+  /* description */
   & [data-ui="alert-description"]{
     -webkit-user-select:text;
     user-select:text;
     line-height:var(--ui-line-height-150);
     font-size:var(--ui-alert-description-font-size);
-    color:var(--ui-alert-description-font-color);}
+    color:var(--ui-alert-description-font-color);
 
-  & [data-ui="alert-description"] ul,
-  & [data-ui="alert-description"] ol{
-    margin:0;
-    padding-inline-start:14px;}
-
-  & [data-ui="alert-description"] p{
-    margin:0;}
+    ul,ol,p{margin:0;}
+    ul,ol{padding-inline-start:14px;}
+  }
 
   /* shape */
   &[shape="rounded"]{
