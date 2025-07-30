@@ -143,27 +143,25 @@
 [ui]{
   direction:inherit;
   -webkit-user-select:none;
-  user-select:none;}
+  user-select:none;
+  box-sizing:border-box!important;
 
-[ui] input,
-[ui] textarea{
- font-family:var(--ui-font-family);}
+  *,
+  *::before,
+  *::after{box-sizing:inherit;}
 
-[ui] input::-ms-reveal{display:none;}
+  input,
+  textarea,
+  button{font-family:var(--ui-font-family);}
 
-[ui],
-[ui] *{
-  box-sizing:border-box!important;}
-
-
-
-[ui][loading]{
-  cursor:default;}
+  input::-ms-reveal{display:none;}
+}
 
 [ui] svg{
   display:block;
   fill:currentColor;
-  /*stroke:currentColor;*/
+  stroke:currentColor;
+  stroke-width:0;
   pointer-events:none;
   shape-rendering:geometricPrecision;}
 
@@ -183,7 +181,6 @@ button{
 
 button{
   appearance:none;
-  font:inherit;
   color:inherit;
   background:none;
   border:0;
@@ -200,6 +197,9 @@ button{
     opacity:0.5;
     pointer-events:auto;}
 }
+
+[loading]{
+  cursor:default;}
 
 [disabled] *{
   pointer-events:none;}

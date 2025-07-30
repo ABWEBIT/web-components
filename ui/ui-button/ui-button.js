@@ -33,19 +33,15 @@ class UIButton extends UIBase{
     this.disabled = this.hasAttribute('disabled');
     this.loading = this.hasAttribute('loading');
 
-    this.#loader();
-
     this.#button = document.createElement('button');
+
+    this.#button.type = this.getAttribute('type') || 'button';
     if(this.disabled) this.#button.disabled = true;
 
     const buttonContent = [...(this?.childNodes || [])];
 
     this.#button.append(...buttonContent);
     this.replaceChildren(this.#button);
-  }
-
-  disconnectedCallback(){
-
   }
 
   #loader = () => {
