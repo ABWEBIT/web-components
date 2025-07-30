@@ -1,7 +1,6 @@
 import {UIBase} from '../ui-base.js';
 
 class UIButton extends UIBase{
-  #listeners = null;
   #button = null;
   #disabled = false;
   #loading = false;
@@ -15,6 +14,9 @@ class UIButton extends UIBase{
   set disabled(value){
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
+    if(this.#button){
+      this.#button.disabled = this.#disabled;
+    }
   }
 
   get loading(){return this.#loading;}
@@ -30,17 +32,13 @@ class UIButton extends UIBase{
     this.size();
     this.theme();
 
-    this.disabled = this.hasAttribute('disabled');
-    this.loading = this.hasAttribute('loading');
-
     this.#button = document.createElement('button');
-
     this.#button.type = this.getAttribute('type') || 'button';
-    if(this.disabled) this.#button.disabled = true;
+    this.disabled = this.hasAttribute('disabled');
 
-    const buttonContent = [...(this?.childNodes || [])];
+    const content = [...(this.childNodes)];
 
-    this.#button.append(...buttonContent);
+    this.#button.append(...content);
     this.replaceChildren(this.#button);
   }
 
@@ -48,31 +46,13 @@ class UIButton extends UIBase{
     const spinner = this.querySelector('ui-spinner');
 
     if(this.#loading && !spinner){
-      this.appendChild(document.createElement('ui-spinner'));
+      this.append(document.createElement('ui-spinner'));
+      this.disabled = true;
     }
     else if(!this.#loading && spinner){
       spinner.remove();
+      this.disabled = false;
     }
   }
-
-  #onClick = (e) => {
-    if(this.disabled || this.#loading) return;
-    e.preventDefault();
-    this.#onAction(e);
-  }
-
-  #onKeyDown = (e) => {
-    if(this.#disabled || this.#loading) return;
-    if(e.key === 'Enter' || e.key === ' '){
-      e.preventDefault();
-      if(e.repeat) return;
-      this.#onAction(e);
-    }
-  }
-
-  #onAction = (e) => {
-    console.log(e.type);
-  }
-
 }
 customElements.define('ui-button',UIButton);
