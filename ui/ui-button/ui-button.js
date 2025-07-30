@@ -12,18 +12,22 @@ class UIButton extends UIBase{
 
   get disabled(){return this.#disabled;}
   set disabled(value){
+    if(this.#disabled === (value === true)) return
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
     if(this.#button){
       this.#button.disabled = this.#disabled;
     }
+    console.log('dis');
   }
 
   get loading(){return this.#loading;}
   set loading(value){
+    if(this.#loading === (value === true)) return
     this.#loading = value === true;
     this.reflect('loading',this.#loading);
     this.#loader();
+    console.log('loa');
   }
 
   connectedCallback(){
@@ -34,11 +38,11 @@ class UIButton extends UIBase{
 
     this.#button = document.createElement('button');
     this.#button.type = this.getAttribute('type') || 'button';
-    this.disabled = this.hasAttribute('disabled');
+    this.removeAttribute('type');
 
-    const content = [...(this.childNodes)];
-
+    const content = [...this.childNodes];
     this.#button.append(...content);
+
     this.replaceChildren(this.#button);
   }
 
