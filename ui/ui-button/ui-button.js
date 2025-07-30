@@ -6,28 +6,26 @@ class UIButton extends UIBase{
   #loading = false;
 
   static properties = Object.freeze({
-    'disabled':{name:'disabled',type:Boolean,reflect:true},
-    'loading':{name:'loading',type:Boolean,reflect:true}
+    'disabled':{name:'uiDisabled',type:Boolean,reflect:true},
+    'loading':{name:'uiLoading',type:Boolean,reflect:true}
   });
 
-  get disabled(){return this.#disabled;}
-  set disabled(value){
+  get uiDisabled(){return this.#disabled;}
+  set uiDisabled(value){
     if(this.#disabled === (value === true)) return
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
     if(this.#button){
       this.#button.disabled = this.#disabled;
     }
-    console.log('dis');
   }
 
-  get loading(){return this.#loading;}
-  set loading(value){
+  get uiLoading(){return this.#loading;}
+  set uiLoading(value){
     if(this.#loading === (value === true)) return
     this.#loading = value === true;
     this.reflect('loading',this.#loading);
     this.#loader();
-    console.log('loa');
   }
 
   connectedCallback(){
@@ -51,11 +49,11 @@ class UIButton extends UIBase{
 
     if(this.#loading && !spinner){
       this.append(document.createElement('ui-spinner'));
-      this.disabled = true;
+      this.uiDisabled = true;
     }
     else if(!this.#loading && spinner){
       spinner.remove();
-      this.disabled = false;
+      this.uiDisabled = false;
     }
   }
 }

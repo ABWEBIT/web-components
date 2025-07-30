@@ -231,12 +231,10 @@
 
 <script>
   function load(){
-    let button = document.getElementById('clickMe');
-    button.loading = true;
+    document.getElementById('clickMe').uiLoading = true;
   }
 
   function reset(){
-    let button = document.getElementById('clickMe');
-    button.loading = false;
+    document.getElementById('clickMe').uiLoading = false;
   }
 </script>
