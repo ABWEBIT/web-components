@@ -179,6 +179,9 @@ button{
   outline-style:solid;
   outline-color:transparent;}
 
+button:focus-visible:not([disabled]){
+  outline-color:var(--ui-color-gray-500);}
+
 button{
   appearance:none;
   color:inherit;

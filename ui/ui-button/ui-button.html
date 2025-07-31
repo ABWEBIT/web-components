@@ -8,10 +8,7 @@
         The component functions as both a button and a wrapper. It can contain text, icons, or both - in any order.
       </li>
       <li>
-        It is initially designed to work with ui-icon and &lt;span&gt;, but since the structure is implemented purely in CSS, it can be easily adapted to support raw svg or other elements if needed.
-      </li>
-      <li>
-        The component uses the <a href="#ui-icon">ui-icon</a> component to render icons.
+        It's preferred to use the <a href="#ui-icon">ui-icon</a> component to render icons, but it can be easily adapted to support raw SVG or other elements if needed.
       </li>
     </ul>
   </div>
@@ -23,7 +20,7 @@
         Must be set manually.
       </li>
       <li>
-        type - static (inin only, optional).<br>
+        type - static (init-only, optional).<br>
         Controls the disabled state of the component.
       </li>
       <li>
@@ -36,7 +33,8 @@
       </li>
       <li>
         size - static (optional). Default: default.<br>
-        Specifies the component's size (extendable via CSS).
+        Specifies the component's size (extendable via CSS).<br>
+        size="icon-only" - for a button with symmetrical sides that contains only an icon.
       </li>
       <li>
         theme - static (optional). Default: default.<br>
@@ -58,7 +56,7 @@
     <div class="example">
       <div class="preview">
         <ui-button>Button</ui-button>
-        <ui-button size="icon">
+        <ui-button size="icon-only">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -69,7 +67,7 @@
         <code>
           <div>&lt;ui-button&gt;Button&lt;/ui-button&gt;</div>
           <br>
-          <div>&lt;ui-button size="icon"&gt;</div>
+          <div>&lt;ui-button size="icon-only"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>
@@ -102,13 +100,13 @@
     <div>Icon-Only, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button size="icon" shape="rounded">
+        <ui-button size="icon-only" shape="rounded">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="icon" shape="circle">
+        <ui-button size="icon-only" shape="circle">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="icon" shape="square">
+        <ui-button size="icon-only" shape="square">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
       </div>
@@ -117,15 +115,15 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button size="icon" shape="rounded"&gt;</div>
+          <div>&lt;ui-button size="icon-only" shape="rounded"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
           <br>
-          <div>&lt;ui-button size="icon" shape="circle"&gt;</div>
+          <div>&lt;ui-button size="icon-only" shape="circle"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
           <br>
-          <div>&lt;ui-button size="icon" shape="square"&gt;</div>
+          <div>&lt;ui-button size="icon-only" shape="square"&gt;</div>
           <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
           <div>&lt;/ui-button&gt;</div>
         </code>
