@@ -69,6 +69,11 @@ ui-button{
     --ui-button-font-color-hover:var(--ui-color-white);
     --ui-button-font-color-active:var(--ui-color-white);}
 
+  &[theme="transparent"]{
+    --ui-button-font-color:var(--ui-color-gray-150);
+    --ui-button-font-color-hover:var(--ui-color-white);
+    --ui-button-font-color-active:var(--ui-color-white);}
+
   &[theme="close-button"]{
     --ui-button-background-color:var(--ui-color-gray-800);
     --ui-button-background-color-hover:var(--ui-color-gray-750);
@@ -92,4 +97,9 @@ ui-button{
     --ui-button-padding-inline:8px;
     --ui-button-icon-size:16px;
     --ui-button-loader-icon-size:20px;}
+
+  &[size="slim-text"]{
+    --ui-button-height:fit-content;
+    --ui-button-width:fit-content;
+    --ui-button-icon-size:14px;}
 }
