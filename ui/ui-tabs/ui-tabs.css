@@ -65,7 +65,7 @@ ui-tabs{
     padding-block:var(--ui-tabs-tab-panel-padding-block);
     font-size:var(--ui-tabs-tab-panel-font-size);
     color:var(--ui-tabs-tab-panel-font-color);
-    line-height:var(--ui-line-height-150);}
+    line-height:var(--ui-line-height-normal);}
 
   & [data-ui="tab-panel"][hidden]{
     display:none;}

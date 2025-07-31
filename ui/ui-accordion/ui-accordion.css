@@ -35,7 +35,7 @@ ui-accordion{
 
 
   & [data-ui="accordion-header-text"]{
-    line-height:var(--ui-line-height-150);
+    line-height:var(--ui-line-height-normal);
     padding-block:var(--ui-accordion-header-padding-block);
     flex-grow:1;}
 
@@ -52,7 +52,7 @@ ui-accordion{
     color:var(--ui-accordion-panel-font-color);
     padding-inline:var(--ui-accordion-panel-padding-inline);
     padding-block:var(--ui-accordion-panel-padding-block);
-    line-height:var(--ui-line-height-150);}
+    line-height:var(--ui-line-height-normal);}
 
   & [data-ui="accordion-panel"][hidden] {
     display:none;}

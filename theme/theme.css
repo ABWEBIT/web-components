@@ -123,37 +123,41 @@ article{
   display:flex;
   flex-direction:column;
   row-gap:30px;
-  line-height:var(--ui-line-height-150);}
+    line-height:var(--ui-line-height-normal);
 
-.intro > h1{
-  line-height:1;
-  color:var(--ui-color-white);
-  font-size:var(--ui-h1-size);}
+  > h1{
+    line-height:var(--ui-line-height-x-small);
+    color:var(--ui-color-white);
+    font-size:var(--ui-h1-size);}
 
-.intro > .description{
-  color:var(--ui-color-gray-200);}
+  > .description{
+    color:var(--ui-color-gray-200);}
+}
 
-.intro > .info{
+/* details */
+.details{
   display:flex;
   flex-direction:column;
-  row-gap:20px;}
+  row-gap:30px;
+  line-height:var(--ui-line-height-normal);
 
-.intro > .info > h2{
-  font-size:var(--ui-h2-size);}
+  > .info{
+    display:flex;
+    flex-direction:column;
+    row-gap:20px;
 
-.intro > .info > ul{
-  display:flex;
-  flex-direction:column;
-  row-gap:16px;
-  margin:0;}
+    > h2{
+      line-height:var(--ui-line-height-x-small);
+      color:var(--ui-color-white);
+      font-size:var(--ui-h2-size);}
 
-.intro > .info > ul ul{
-  display:flex;
-  flex-direction:column;
-  row-gap:8px;
-  margin:10px 5px;}
-
-
+    > ul{
+      display:flex;
+      flex-direction:column;
+      row-gap:16px;
+      margin:0;}
+  }
+}
 
 /* content */
 .content,
@@ -189,7 +193,7 @@ article{
   padding:25px 15px;}
 
 .content-item > .example > .code{
-  line-height:var(--ui-line-height-150);
+  line-height:var(--ui-line-height-normal);
   background-color:var(--ui-color-gray-850);}
 
 .content-item > .example > .preview,
@@ -203,6 +207,9 @@ article{
   font-size:var(--ui-font-size-small);
   gap:10px;}
 
+.content-item > .example > .toolbar span{
+  line-height:var(--ui-line-height-x-small);
+  vertical-align:middle;}
 
 
 /* icons */
@@ -224,7 +231,7 @@ article{
   border-style:solid;
   border-color:var(--ui-color-gray-750);
   border-radius:var(--ui-border-radius-rounded);
-  line-height:1;}
+  line-height:var(--ui-line-height-x-small);}
 
 .content-item > .icons > .icon-card > .icon-name{
   color:var(--ui-color-gray-250);

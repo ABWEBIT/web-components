@@ -1,5 +1,5 @@
 ui-text{
-  line-height:var(--ui-line-height-150);
+  line-height:var(--ui-line-height-normal);
   width:100%;
 
   &[text-align="start"]{text-align:start;}

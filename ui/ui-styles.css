@@ -20,8 +20,11 @@
 
 :root{
   /* line height */
-  --ui-line-height-100:1.0;
-  --ui-line-height-150:1.5;
+  --ui-line-height-x-small:1;
+  --ui-line-height-small:1.2;
+  --ui-line-height-normal:1.5;
+  --ui-line-height-large:1.7;
+  --ui-line-height-x-large:2;
 
   /* font family */
   --ui-font-family:Arial,Helvetica,sans-serif;

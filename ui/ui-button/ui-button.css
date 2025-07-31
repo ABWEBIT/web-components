@@ -6,7 +6,7 @@ ui-button{
 
   /* button */
   & > button{
-    display:inline-flex;
+    display:flex;
     align-items:center;
     justify-content:center;
     vertical-align:middle;
@@ -101,5 +101,5 @@ ui-button{
   &[size="slim-text"]{
     --ui-button-height:fit-content;
     --ui-button-width:fit-content;
-    --ui-button-icon-size:14px;}
+    --ui-button-font-size:12px;}
 }

@@ -1,7 +1,9 @@
 ui-alert{
+  position:relative;
   display:flex;
   padding-block:var(--ui-alert-padding-block);
-  padding-inline:var(--ui-alert-padding-inline);
+  padding-inline-start:var(--ui-alert-padding-inline-start);
+  padding-inline-end:var(--ui-alert-padding-inline-end);
   border-radius:var(--ui-alert-border-radius);
   background-color:var(--ui-alert-background-color);
   row-gap:var(--ui-alert-row-gap);
@@ -28,38 +30,45 @@ ui-alert{
     min-width:0;
     padding-block-start:2px;
     padding-inline-end:6px;
-    row-gap:var(--ui-alert-row-gap);}
+    row-gap:var(--ui-alert-row-gap);
+  }
 
-  & > [data-ui="alert-title"]{
+  /* title */
+  & [data-ui="alert-title"]{
     -webkit-user-select:text;
     user-select:text;
     flex-grow:1;
-    line-height:var(--ui-line-height-150);
+    line-height:var(--ui-line-height-normal);
     font-size:var(--ui-alert-title-font-size);
     color:var(--ui-alert-title-font-color);}
 
-  & > ui-button[data-ui="alert-close"]{
-    color:var(--ui-alert-close-icon-color);
-    width:var(--ui-alert-close-icon-size);
-    height:var(--ui-alert-close-icon-size);
-    padding:4px;
-
-    @media (hover: hover){
-      &:hover svg{
-        color:var(--ui-alert-close-icon-color-hover);}
-    }
-  }
-
   /* description */
-  & > [data-ui="alert-description"]{
+  & [data-ui="alert-description"]{
     -webkit-user-select:text;
     user-select:text;
-    line-height:var(--ui-line-height-150);
+    line-height:var(--ui-line-height-normal);
     font-size:var(--ui-alert-description-font-size);
     color:var(--ui-alert-description-font-color);
 
     ul,ol,p{margin:0;}
     ul,ol{padding-inline-start:14px;}
+  }
+
+  /* close button */
+  & > ui-button[data-ui="alert-close"]{
+    position:absolute;
+    top:6px;
+    inset-inline-end:6px;
+    width:var(--ui-alert-close-button-size);
+    height:var(--ui-alert-close-button-size);
+
+    &[size="alert-close"]{
+    --ui-button-height:100%;
+    --ui-button-icon-size:16px;}
+
+    > button{
+      background-color: transparent;
+    }
   }
 
   /* shape */
@@ -80,10 +89,11 @@ ui-alert{
   &[size="default"]{
     --ui-alert-max-width:500px;
     --ui-alert-padding-block:16px;
-    --ui-alert-padding-inline:20px 18px;
+    --ui-alert-padding-inline-start:20px;
+    --ui-alert-padding-inline-end:18px;
     --ui-alert-title-font-size:14px;
     --ui-alert-description-font-size:14px;
     --ui-alert-row-gap:8px;
     --ui-alert-icon-size:24px;
-    --ui-alert-close-icon-size:17px;}
+    --ui-alert-close-button-size:24px;}
 }
