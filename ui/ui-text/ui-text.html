@@ -1,24 +1,14 @@
 <section class="intro">
   <h1>Text</h1>
-  <div class="description">Standardizes and ensures consistent text styling.</div>
+  <div class="description">A simple wrapper component that acts only as a semantic container, without behavior, styling, or layout.</div>
 </section>
 
 <section class="details">
   <div class="info">
-    <h2>Features</h2>
+    <h2>Usage</h2>
     <ul>
       <li>
-        The text block width is 100%.
-      </li>
-    </ul>
-  </div>
-  <div class="info">
-    <h2>Attributes</h2>
-    <ul>
-      <li>
-        text-align - static (optional). Default: start.<br>
-        Available options: start, center, end, justify.<br>
-        Controls text alignment.
+        Wrap content inside this component to provide a simple semantic container; all styling and behavior should be handled by the parent component where it is used.
       </li>
     </ul>
   </div>
@@ -27,7 +17,6 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Start</div>
     <div class="example">
       <div class="preview">
         <ui-text>Text</ui-text>
@@ -43,58 +32,4 @@
     </div>
   </div>
 
-  <div class="content-item">
-    <div>End</div>
-    <div class="example">
-      <div class="preview">
-        <ui-text text-align="end">Text</ui-text>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-text text-align="end"&gt;Text&lt;/ui-text&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Center</div>
-    <div class="example">
-      <div class="preview">
-        <ui-text text-align="center">Text</ui-text>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-text text-align="center"&gt;Text&lt;/ui-text&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Justify</div>
-    <div class="example">
-      <div class="preview">
-        <ui-text text-align="justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</ui-text>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-text text-align="justify"&gt;Lorem Ipsum ...&lt;/ui-text&gt;</div>
-        </code>
-      </div>
-    </div>
-  </div>
-
 </section>
-
-
-

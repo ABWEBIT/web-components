@@ -8,23 +8,23 @@
     <h2>Usage</h2>
     <ul>
       <li>
-        The component requires either the title or description to display a meaningful message.
+        The component must be composed of the following containers: ui-icon, ui-title, and ui-content. While their order is not strictly required, following the recommended sequence ensures better consistency and styling.<br>
+        Recommended order: ui-icon - ui-title - ui-content.
       </li>
       <li>
-        HTML markup is supported in the title and description fields for richer formatting.
+        Either a title or a description is required to display a meaningful message.
       </li>
       <li>
-        The component uses the <a href="#ui-icon">ui-icon</a> component to render icons.
+        HTML markup is supported in both the title and description fields for richer formatting.
+      </li>
+      <li>
+        This component is designed to work with the <a href="#ui-icon">ui-icon</a> component for rendering icons, but it can easily be adapted to support raw SVGs or other elements if needed.
       </li>
     </ul>
   </div>
   <div class="info">
     <h2>Attributes</h2>
     <ul>
-      <li>
-        icon - static (init-only, optional).<br>
-        Name of icon to display.
-      </li>
       <li>
         no-close - static (optional, boolean).<br>
         If present, the close button is not rendered.
@@ -53,7 +53,7 @@
     <div class="example">
       <div class="preview">
         <ui-alert no-close>
-          <alert-title>Title</alert-title>
+          <ui-title>Title</ui-title>
         </ui-alert>
       </div>
       <div class="toolbar">
@@ -62,7 +62,7 @@
       <div class="code">
         <code>
           &lt;ui-alert no-close&gt;<br>
-          &nbsp;&lt;alert-title&gt;Title&lt;/alert-title&gt;<br>
+          &nbsp;&lt;ui-title&gt;Title&lt;/ui-title&gt;<br>
           &lt;/ui-alert&gt;
         </code>
       </div>
@@ -74,7 +74,7 @@
     <div class="example">
       <div class="preview">
         <ui-alert>
-          <alert-description>Description.</alert-description>
+          <ui-content>Description.</ui-content>
         </ui-alert>
       </div>
       <div class="toolbar">
@@ -83,7 +83,7 @@
       <div class="code">
         <code>
           &lt;ui-alert&gt;<br>
-          &nbsp;&lt;alert-description&gt;Description&lt;/alert-description&gt;<br>
+          &nbsp;&lt;ui-content&gt;Description&lt;/ui-content&gt;<br>
           &lt;/ui-alert&gt;
         </code>
       </div>
@@ -95,8 +95,8 @@
     <div class="example">
       <div class="preview">
         <ui-alert>
-          <alert-title>Info</alert-title>
-          <alert-description>New features have been added in the latest update.</alert-description>
+          <ui-title>Info</ui-title>
+          <ui-content>New features have been added in the latest update.</ui-content>
         </ui-alert>
       </div>
       <div class="toolbar">
@@ -105,8 +105,8 @@
       <div class="code">
         <code>
           &lt;ui-alert&gt;<br>
-          &nbsp;&lt;alert-title&gt;Info&lt;/alert-title&gt;<br>
-          &nbsp;&lt;alert-description&gt;New features have been added in the latest update.&lt;/alert-description&gt;<br>
+          &nbsp;&lt;ui-title&gt;Info&lt;/ui-title&gt;<br>
+          &nbsp;&lt;ui-content&gt;New features have been added in the latest update.&lt;/ui-content&gt;<br>
           &lt;/ui-alert&gt;
         </code>
       </div>
@@ -117,9 +117,10 @@
     <div>Alert with title, description and icon</div>
     <div class="example">
       <div class="preview">
-        <ui-alert icon="info">
-          <alert-title>Update Complete Your settings have been Your settings have been</alert-title>
-          <alert-description>Your settings have been <strong>successfully</strong> saved.</alert-description>
+        <ui-alert>
+          <ui-icon icon="info"></ui-icon>
+          <ui-title>Update Complete</ui-title>
+          <ui-content>Your settings have been <strong>successfully</strong> saved.</ui-content>
         </ui-alert>
       </div>
       <div class="toolbar">
@@ -127,9 +128,10 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert icon="info"&gt;<br>
-          &nbsp;&lt;alert-title&gt;Update Complete&lt;/alert-title&gt;<br>
-          &nbsp;&lt;alert-description&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/alert-description&gt;<br>
+          &lt;ui-alert&gt;<br>
+          &nbsp;&lt;ui-icon icon="info"&gt;&lt;/ui-icon&gt;<br>
+          &nbsp;&lt;ui-title&gt;Update Complete&lt;/ui-title&gt;<br>
+          &nbsp;&lt;ui-content&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/ui-content&gt;<br>
           &lt;/ui-alert&gt;
         </code>
       </div>

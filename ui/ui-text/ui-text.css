@@ -1,9 +1,0 @@
-ui-text{
-  line-height:var(--ui-line-height-normal);
-  width:100%;
-
-  &[text-align="start"]{text-align:start;}
-  &[text-align="end"]{text-align:end;}
-  &[text-align="center"]{text-align:center;}
-  &[text-align="justify"]{text-align:justify;}
-}

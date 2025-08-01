@@ -1,8 +1,2 @@
-import {UIBase} from '../ui-base.js';
-
-class UIText extends UIBase{
-  connectedCallback(){
-    super.connectedCallback();
-  }
-}
+class UIText extends HTMLElement{}
 customElements.define('ui-text',UIText);
