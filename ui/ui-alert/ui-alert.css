@@ -69,8 +69,11 @@ ui-alert{
   }
 
   /* shape */
-  &[shape="rounded"]{--ui-alert-border-radius:var(--ui-border-radius-rounded);}
-  &[shape="square"]{--ui-alert-border-radius:var(--ui-border-radius-square);}
+  &[shape="rounded"]{
+    --ui-alert-border-radius:var(--ui-border-radius-rounded);}
+
+  &[shape="square"]{
+    --ui-alert-border-radius:var(--ui-border-radius-square);}
 
   /* theme */
   &[theme="default"]{

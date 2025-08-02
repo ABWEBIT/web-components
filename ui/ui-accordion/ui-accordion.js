@@ -9,7 +9,7 @@ class UIAccordion extends UIBase{
   set items(value){
     if(!Array.isArray(value)) throw new Error('Items must be an array');
     this.#items = value;
-    this.#render();
+    //this.#render();
   }
 
   connectedCallback(){

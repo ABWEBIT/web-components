@@ -11,7 +11,7 @@ class UIAlert extends UIBase{
 
     this.setAttribute('role','alert');
 
-    if(!this.hasAttribute('no-close')){
+    if(this.hasAttribute('closable')){
       const button = document.createElement('ui-button');
       button.setAttribute('size','none');
       button.setAttribute('theme','transparent');

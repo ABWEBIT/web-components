@@ -33,7 +33,32 @@
     <div>Minimal</div>
     <div class="example">
       <div class="preview">
-        <ui-accordion></ui-accordion>
+        <ui-accordion>
+          <ui-item>
+            <ui-button>
+              <ui-title>What is Lorem?</ui-title>
+            </ui-button>
+            <ui-content>
+              Lorem <strong>ipsum</strong> dolor sit amet...
+            </ui-content>
+          </ui-item>
+          <ui-item>
+            <ui-button>
+              <ui-title>Why use it?</ui-title>
+            </ui-button>
+            <ui-content>
+              Lorem ipsum dolor sit amet...
+            </ui-content>
+          </ui-item>
+          <ui-item>
+            <ui-button>
+              <ui-title>Where to use?</ui-title>
+            </ui-button>
+            <ui-content>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </ui-content>
+          </ui-item>
+        </ui-accordion>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -60,22 +85,3 @@
   </div>
 
 </section>
-
-<script>
-items = [{
-  label:'What is Lorem?',
-  content:'Lorem <strong>ipsum</strong> dolor sit amet...',
-  expanded:true
-},{
-  label:'Why use it?',
-  content:'Lorem ipsum dolor sit amet...',
-  disabled:true
-},{
-  label:'Where to use?',
-  content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-}];
-
-document.querySelectorAll('ui-accordion').forEach(accordion => {
-  accordion.items = items;
-});
-</script>

@@ -26,8 +26,8 @@
     <h2>Attributes</h2>
     <ul>
       <li>
-        no-close - static (optional, boolean).<br>
-        If present, the close button is not rendered.
+        closable - static (optional, boolean).<br>
+        Renders a close button when present.
       </li>
       <li>
         size - static (optional). Default: default.<br>
@@ -49,10 +49,10 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Alert with title only and without a close button</div>
+    <div>Alert with title only</div>
     <div class="example">
       <div class="preview">
-        <ui-alert no-close>
+        <ui-alert>
           <ui-title>Title</ui-title>
         </ui-alert>
       </div>
@@ -61,7 +61,7 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert no-close&gt;<br>
+          &lt;ui-alert&gt;<br>
           &nbsp;&lt;ui-title&gt;Title&lt;/ui-title&gt;<br>
           &lt;/ui-alert&gt;
         </code>
@@ -70,7 +70,7 @@
   </div>
 
   <div class="content-item">
-    <div>Alert with description only and a close button</div>
+    <div>Alert with description only</div>
     <div class="example">
       <div class="preview">
         <ui-alert>
@@ -91,10 +91,10 @@
   </div>
 
   <div class="content-item">
-    <div>Alert with title and description</div>
+    <div>Alert with a title, description, and a close button</div>
     <div class="example">
       <div class="preview">
-        <ui-alert>
+        <ui-alert closable>
           <ui-title>Info</ui-title>
           <ui-content>New features have been added in the latest update.</ui-content>
         </ui-alert>
@@ -104,7 +104,7 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert&gt;<br>
+          &lt;ui-alert closable&gt;<br>
           &nbsp;&lt;ui-title&gt;Info&lt;/ui-title&gt;<br>
           &nbsp;&lt;ui-content&gt;New features have been added in the latest update.&lt;/ui-content&gt;<br>
           &lt;/ui-alert&gt;
@@ -114,10 +114,10 @@
   </div>
 
   <div class="content-item">
-    <div>Alert with title, description and icon</div>
+    <div>Alert with a title, description, a close button and an icon</div>
     <div class="example">
       <div class="preview">
-        <ui-alert>
+        <ui-alert closable>
           <ui-icon icon="info"></ui-icon>
           <ui-title>Update Complete</ui-title>
           <ui-content>Your settings have been <strong>successfully</strong> saved.</ui-content>
@@ -128,7 +128,7 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert&gt;<br>
+          &lt;ui-alert closable&gt;<br>
           &nbsp;&lt;ui-icon icon="info"&gt;&lt;/ui-icon&gt;<br>
           &nbsp;&lt;ui-title&gt;Update Complete&lt;/ui-title&gt;<br>
           &nbsp;&lt;ui-content&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/ui-content&gt;<br>
