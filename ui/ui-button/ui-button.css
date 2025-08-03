@@ -49,7 +49,7 @@ ui-button{
     > :is(ui-icon,svg){
       height:var(--ui-button-icon-size);
       width:var(--ui-button-icon-size);
-      margin-inline:var(--ui-button-remove-extra-space);}
+      margin-inline:var(--ui-button-icon-margin-inline-trim);}
   }
 
   &[ui] > button{
@@ -95,7 +95,7 @@ ui-button{
     --ui-button-column-gap:10px;
     --ui-button-icon-size:16px;
     --ui-button-loader-icon-size:20px;
-    --ui-button-remove-extra-space:-2px;}
+    --ui-button-icon-margin-inline-trim:-2px;}
 
   &[size="icon-only"]{
     --ui-button-height:32px;

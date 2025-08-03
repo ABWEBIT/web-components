@@ -8,10 +8,13 @@
     <h2>Usage</h2>
     <ul>
       <li>
-        The component functions as both a button and a wrapper. It can contain text, icons, or both - in any order.
+        The component functions as a wrapper. It can contain text, icons, or both - in any order.
       </li>
       <li>
-        It's preferred to use the <a href="#ui-icon">ui-icon</a> component to render icons, but it can be easily adapted to support raw SVG or other elements if needed.
+        This component is designed to work with the <a href="#ui-icon">ui-icon</a> component for rendering icons, but it can easily be adapted to support raw SVGs or other elements if needed.
+      </li>
+      <li>
+        Since the default icons have 2px padding inside the SVG, --ui-button-icon-margin-inline-trim: -2px is applied in size="default" to visually balance the button's side spacing. This affects only the width - not the height. If your icons extend to the full SVG width, you should remove this adjustment.
       </li>
     </ul>
   </div>
