@@ -19,8 +19,8 @@
     <h2>Attributes</h2>
     <ul>
       <li>
-        aria-label - static (required).<br>
-        Must be set manually.
+        aria-label - static (init-only, required).<br>
+        Must be set manually for icon-only buttons.
       </li>
       <li>
         type - static (init-only, optional).<br>
@@ -37,7 +37,7 @@
       <li>
         size - static (optional). Default: default.<br>
         Specifies the component's size (extendable via CSS).<br>
-        size="default-icon" - for a button with symmetrical sides that contains only an icon.
+        size="icon-only" - for a button with symmetrical sides that contains only an icon.
       </li>
       <li>
         theme - static (optional). Default: default.<br>
@@ -59,7 +59,7 @@
     <div class="example">
       <div class="preview">
         <ui-button>Button</ui-button>
-        <ui-button size="default-icon">
+        <ui-button size="icon-only">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -70,7 +70,7 @@
         <code>
           &lt;ui-button&gt;Button&lt;/ui-button&gt;<br>
           <br>
-          &lt;ui-button size="default-icon"&gt;<br>
+          &lt;ui-button size="icon-only"&gt;<br>
           &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
           &lt;/ui-button&gt;
         </code>
@@ -100,16 +100,16 @@
   </div>
 
   <div class="content-item">
-    <div>default-icon, Different Shapes</div>
+    <div>icon, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button size="default-icon" shape="rounded">
+        <ui-button size="icon-only" shape="rounded">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="default-icon" shape="circle">
+        <ui-button size="icon-only" shape="circle">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="default-icon" shape="square">
+        <ui-button size="icon-only" shape="square">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
       </div>
@@ -118,15 +118,15 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-button size="default-icon" shape="rounded"&gt;<br>
+          &lt;ui-button size="icon-only" shape="rounded"&gt;<br>
           &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
           &lt;/ui-button&gt;<br>
           <br>
-          &lt;ui-button size="default-icon" shape="circle"&gt;<br>
+          &lt;ui-button size="icon-only" shape="circle"&gt;<br>
           &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
           &lt;/ui-button&gt;<br>
           <br>
-          &lt;ui-button size="default-icon" shape="square"&gt;<br>
+          &lt;ui-button size="icon-only" shape="square"&gt;<br>
           &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
           &lt;/ui-button&gt;
         </code>

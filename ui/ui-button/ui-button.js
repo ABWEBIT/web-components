@@ -25,7 +25,9 @@ class UIButton extends UIBase{
     if(this.#loading === (value === true)) return;
     this.#loading = value === true;
     this.reflect('loading',this.#loading);
-    this.#loader();
+    if(this.#button){
+      this.#loader();
+    }
   }
 
   connectedCallback(){
@@ -39,8 +41,10 @@ class UIButton extends UIBase{
     this.removeAttribute('type');
 
     const content = [...this.childNodes];
-    this.#button.append(...content);
-    this.replaceChildren(this.#button);
+    if(content.length > 0){
+      this.#button.append(...content);
+      this.replaceChildren(this.#button);
+    }
   }
 
   #loader = () => {

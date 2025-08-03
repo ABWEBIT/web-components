@@ -48,7 +48,8 @@ ui-button{
 
     > :is(ui-icon,svg){
       height:var(--ui-button-icon-size);
-      width:var(--ui-button-icon-size);}
+      width:var(--ui-button-icon-size);
+      margin-inline:var(--ui-button-remove-extra-space);}
   }
 
   &[ui] > button{
@@ -93,11 +94,12 @@ ui-button{
     --ui-button-padding-inline:16px;
     --ui-button-column-gap:10px;
     --ui-button-icon-size:16px;
-    --ui-button-loader-icon-size:20px;}
+    --ui-button-loader-icon-size:20px;
+    --ui-button-remove-extra-space:-2px;}
 
-  &[size="default-icon"]{
+  &[size="icon-only"]{
     --ui-button-height:32px;
-    --ui-button-padding-inline:8px;
+    --ui-button-width:32px;
     --ui-button-icon-size:16px;
     --ui-button-loader-icon-size:20px;}
 }
