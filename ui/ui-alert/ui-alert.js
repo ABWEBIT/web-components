@@ -13,13 +13,14 @@ class UIAlert extends UIBase{
 
     if(this.hasAttribute('closable')){
       const button = document.createElement('ui-button');
-      button.setAttribute('size','none');
-      button.setAttribute('theme','transparent');
+      button.setAttribute('ui','alert-close');
+      button.setAttribute('size','alert');
+      button.setAttribute('theme','alert');
       button.setAttribute('shape','circle');
 
       this.#listeners = new AbortController();
       const signal = this.#listeners.signal;
-      button.addEventListener('click', () => this.remove(),{signal});
+      button.addEventListener('click',() => this.remove(),{signal});
 
       const uiIcon = document.createElement('ui-icon');
       uiIcon.setAttribute('icon','close');

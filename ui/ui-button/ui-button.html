@@ -37,7 +37,7 @@
       <li>
         size - static (optional). Default: default.<br>
         Specifies the component's size (extendable via CSS).<br>
-        size="icon-only" - for a button with symmetrical sides that contains only an icon.
+        size="default-icon" - for a button with symmetrical sides that contains only an icon.
       </li>
       <li>
         theme - static (optional). Default: default.<br>
@@ -59,7 +59,7 @@
     <div class="example">
       <div class="preview">
         <ui-button>Button</ui-button>
-        <ui-button size="icon-only">
+        <ui-button size="default-icon">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -68,11 +68,11 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button&gt;Button&lt;/ui-button&gt;</div>
+          &lt;ui-button&gt;Button&lt;/ui-button&gt;<br>
           <br>
-          <div>&lt;ui-button size="icon-only"&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
+          &lt;ui-button size="default-icon"&gt;<br>
+          &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
+          &lt;/ui-button&gt;
         </code>
       </div>
     </div>
@@ -91,25 +91,25 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button shape="rounded"&gt;Button&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button shape="pill"&gt;Button&lt;/ui-button&gt;</div>
-          <div>&lt;ui-button shape="square"&gt;Button&lt;/ui-button&gt;</div>
+          &lt;ui-button shape="rounded"&gt;Button&lt;/ui-button&gt;<br>
+          &lt;ui-button shape="pill"&gt;Button&lt;/ui-button&gt;<br>
+          &lt;ui-button shape="square"&gt;Button&lt;/ui-button&gt;
         </code>
       </div>
     </div>
   </div>
 
   <div class="content-item">
-    <div>Icon-Only, Different Shapes</div>
+    <div>default-icon, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button size="icon-only" shape="rounded">
+        <ui-button size="default-icon" shape="rounded">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="icon-only" shape="circle">
+        <ui-button size="default-icon" shape="circle">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="icon-only" shape="square">
+        <ui-button size="default-icon" shape="square">
           <ui-icon icon="article"></ui-icon>
         </ui-button>
       </div>
@@ -118,17 +118,17 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button size="icon-only" shape="rounded"&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
+          &lt;ui-button size="default-icon" shape="rounded"&gt;<br>
+          &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
+          &lt;/ui-button&gt;<br>
           <br>
-          <div>&lt;ui-button size="icon-only" shape="circle"&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
+          &lt;ui-button size="default-icon" shape="circle"&gt;<br>
+          &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
+          &lt;/ui-button&gt;<br>
           <br>
-          <div>&lt;ui-button size="icon-only" shape="square"&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
+          &lt;ui-button size="default-icon" shape="square"&gt;<br>
+          &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
+          &lt;/ui-button&gt;
         </code>
       </div>
     </div>
@@ -152,15 +152,15 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&nbsp;Button</div>
-          <div>&lt;/ui-button&gt;</div>
+          &lt;ui-button&gt;<br>
+          &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
+          &nbsp;Button<br>
+          &lt;/ui-button&gt;<br>
           <br>
-          <div>&lt;ui-button&gt;</div>
-          <div>&nbsp;Button</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
+          &lt;ui-button&gt;<br>
+          &nbsp;Button<br>
+          &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
+          &lt;/ui-button&gt;
         </code>
       </div>
     </div>
@@ -172,7 +172,7 @@
       <div class="preview">
         <ui-button>
           <ui-icon icon="article"></ui-icon>
-          <span>Button</span>
+          Button
           <ui-icon icon="send"></ui-icon>
         </ui-button>
       </div>
@@ -181,11 +181,11 @@
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&nbsp;&lt;span&gt;Button&lt;/span&gt;</div>
-          <div>&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;</div>
-          <div>&lt;/ui-button&gt;</div>
+          &lt;ui-button&gt;<br>
+          &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
+          &nbsp;Button<br>
+          &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
+          &lt;/ui-button&gt;
         </code>
       </div>
     </div>
@@ -195,16 +195,14 @@
     <div>Disabled</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="s" disabled>
-          Button
-        </ui-button>
+        <ui-button disabled>Button</ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button disabled&gt;Button&lt;/ui-button&gt;</div>
+          &lt;ui-button disabled&gt;Button&lt;/ui-button&gt;
         </code>
       </div>
     </div>
@@ -214,15 +212,15 @@
     <div>Adding Loading state.</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="clickMe" onclick="load()" aria-label="Start Loading">Start Loading</ui-button>
-        <ui-button onclick="reset()" aria-label="Reset">Reset</ui-button>
+        <ui-button id="clickMe" onclick="load()">Start Loading</ui-button>
+        <ui-button onclick="reset()">Reset</ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          <div>&lt;ui-button loading&gt;Start Loading&lt;/ui-button&gt;</div>
+          &lt;ui-button loading&gt;Start Loading&lt;/ui-button&gt;
         </code>
       </div>
     </div>

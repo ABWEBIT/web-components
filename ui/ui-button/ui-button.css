@@ -4,6 +4,9 @@ ui-button{
   height:var(--ui-button-height);
   width:var(--ui-button-width);
 
+  &[loading]{
+    cursor:default;}
+
   /* button */
   & > button{
     display:flex;
@@ -11,22 +14,36 @@ ui-button{
     justify-content:center;
     vertical-align:middle;
     border-radius:inherit;
+    border:0;
+    line-height:1;
+    padding:0;
+    margin:0;
     height:100%;
     width:100%;
+    cursor:pointer;
+    touch-action:manipulation;
+    -webkit-user-select:none;
+    user-select:none;
+    appearance:none;
     padding-inline:var(--ui-button-padding-inline);
     column-gap:var(--ui-button-column-gap);
     font-size:var(--ui-button-font-size);
-    color:var(--ui-button-font-color);
+    color:var(--ui-button-color);
     background-color:var(--ui-button-background-color);
+
+    &[disabled]{
+      cursor:not-allowed;
+      opacity:0.5;
+      pointer-events:auto;}
 
     @media (hover: hover){
       &:hover:not([disabled]){
-        color:var(--ui-button-font-color-hover);
+        color:var(--ui-button-color-hover);
         background-color:var(--ui-button-background-color-hover);}
     }
 
     &:active:not([disabled]){
-      color:var(--ui-button-font-color-active);
+      color:var(--ui-button-color-active);
       background-color:var(--ui-button-background-color-active);}
 
     > :is(ui-icon,svg){
@@ -64,15 +81,10 @@ ui-button{
     --ui-button-background-color:var(--ui-color-gray-800);
     --ui-button-background-color-hover:var(--ui-color-gray-750);
     --ui-button-background-color-active:var(--ui-color-gray-700);
-    --ui-button-loader-background-color:var(--ui-color-gray-800);
-    --ui-button-font-color:var(--ui-color-gray-150);
-    --ui-button-font-color-hover:var(--ui-color-white);
-    --ui-button-font-color-active:var(--ui-color-white);}
-
-  &[theme="transparent"]{
-    --ui-button-font-color:var(--ui-color-gray-150);
-    --ui-button-font-color-hover:var(--ui-color-white);
-    --ui-button-font-color-active:var(--ui-color-white);}
+    --ui-button-loader-background-color:var(--ui-color-gray-700);
+    --ui-button-color:var(--ui-color-gray-150);
+    --ui-button-color-hover:var(--ui-color-white);
+    --ui-button-color-active:var(--ui-color-white);}
 
   /* size */
   &[size="default"]{
@@ -83,7 +95,7 @@ ui-button{
     --ui-button-icon-size:16px;
     --ui-button-loader-icon-size:20px;}
 
-  &[size="icon-only"]{
+  &[size="default-icon"]{
     --ui-button-height:32px;
     --ui-button-padding-inline:8px;
     --ui-button-icon-size:16px;

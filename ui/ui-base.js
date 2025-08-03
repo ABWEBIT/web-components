@@ -4,9 +4,7 @@ export class UIBase extends HTMLElement{
   }
 
   connectedCallback(){
-    this.setAttributes(this,{
-      'ui': true
-    });
+    if(!this.hasAttribute('ui')) this.setAttribute('ui','');
   }
 
   attributeChangedCallback(name,oldValue,newValue){
@@ -72,7 +70,7 @@ export class UIBase extends HTMLElement{
   }
 
   shape(shape = 'rounded'){
-    if(!this.getAttribute('shape')){
+    if(!this.hasAttribute('shape')){
       this.setAttribute('shape',shape);
     }
   }

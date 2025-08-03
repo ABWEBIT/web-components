@@ -56,16 +56,22 @@ ui-alert{
   }
 
   /* close button */
-  & > ui-button:has(ui-icon[icon="close"]){
+  & > ui-button[ui="alert-close"]{
     position:absolute;
     top:14px;
     inset-inline-end:12px;
-    height:var(--ui-alert-close-button-size);
-    width:var(--ui-alert-close-button-size);
+    height:24px;
+    width:24px;
 
-    > button > ui-icon > svg{
-      height:var(--ui-alert-close-icon-size);
-      width:var(--ui-alert-close-icon-size);}
+    &[size="alert"] > button > ui-icon > svg{
+      height:16px;
+      width:16px;}
+
+    &[theme="alert"]{
+      --ui-button-font-color:var(--ui-color-gray-150);
+      --ui-button-font-color-hover:var(--ui-color-white);
+      --ui-button-font-color-active:var(--ui-color-white);
+    }
   }
 
   /* shape */
@@ -91,7 +97,5 @@ ui-alert{
     --ui-alert-padding-inline:20px;
     --ui-alert-title-font-size:14px;
     --ui-alert-content-font-size:14px;
-    --ui-alert-icon-size:24px;
-    --ui-alert-close-button-size:24px;
-    --ui-alert-close-icon-size:16px;}
+    --ui-alert-icon-size:24px;}
 }
