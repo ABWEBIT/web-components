@@ -40,11 +40,18 @@ class UIButton extends UIBase{
     this.#button.type = this.getAttribute('type') || 'button';
     this.removeAttribute('type');
 
+    const ariaLabel = this.getAttribute('aria-label');
+    if(ariaLabel){
+      this.#button.setAttribute('aria-label',ariaLabel);
+      this.removeAttribute('aria-label');
+    }
+
     const content = [...this.childNodes];
     if(content.length > 0){
       this.#button.append(...content);
       this.replaceChildren(this.#button);
     }
+
   }
 
   #loader = () => {

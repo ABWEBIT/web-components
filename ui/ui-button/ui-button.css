@@ -1,8 +1,6 @@
 ui-button{
   position:relative;
   border-radius:var(--ui-button-border-radius);
-  height:var(--ui-button-height);
-  width:var(--ui-button-width);
 
   &[loading]{
     cursor:default;}
@@ -46,7 +44,7 @@ ui-button{
       color:var(--ui-button-color-active);
       background-color:var(--ui-button-background-color-active);}
 
-    > :is(ui-icon,svg){
+    > ui-icon{
       height:var(--ui-button-icon-size);
       width:var(--ui-button-icon-size);
       margin-inline:var(--ui-button-icon-margin-inline-trim);}
@@ -89,8 +87,8 @@ ui-button{
 
   /* size */
   &[size="default"]{
+    height:32px;
     --ui-button-font-size:14px;
-    --ui-button-height:32px;
     --ui-button-padding-inline:16px;
     --ui-button-column-gap:10px;
     --ui-button-icon-size:16px;
@@ -98,8 +96,8 @@ ui-button{
     --ui-button-icon-margin-inline-trim:-2px;}
 
   &[size="icon-only"]{
-    --ui-button-height:32px;
-    --ui-button-width:32px;
+    height:32px;
+    width:32px;
     --ui-button-icon-size:16px;
     --ui-button-loader-icon-size:20px;}
 }

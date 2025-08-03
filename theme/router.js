@@ -42,7 +42,7 @@ function generateNav(data) {
     const fragment = document.createDocumentFragment();
 
     items.forEach(({ label, link }) => {
-      const pageId = link.match(/ui-[\w-]+(?=\.html)/)?.[0]; // ui-button
+      const pageId = link.match(/ui-[\w-]+(?=\.html)/)?.[0];
 
       const wrapper = document.createElement('div');
       wrapper.className = 'menuItem';
@@ -52,11 +52,11 @@ function generateNav(data) {
       span.setAttribute('data-link', link);
       span.onclick = () => navigate(pageId);
 
-      wrapper.appendChild(span);
-      fragment.appendChild(wrapper);
+      wrapper.append(span);
+      fragment.append(wrapper);
     });
 
-    container.appendChild(fragment);
+    container.append(fragment);
   });
 }
 
@@ -115,7 +115,7 @@ function runInlineScripts(container) {
     } else {
       newScript.textContent = oldScript.textContent;
     }
-    document.body.appendChild(newScript);
+    document.body.append(newScript);
     prevScripts.push(newScript);
   });
 }
