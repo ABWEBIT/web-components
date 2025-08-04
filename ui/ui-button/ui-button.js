@@ -1,7 +1,7 @@
 import {UIBase} from '../ui-base.js';
 
 class UIButton extends UIBase{
-  #button = null;
+  #listeners = null;
   #disabled = false;
   #loading = false;
 
@@ -15,9 +15,7 @@ class UIButton extends UIBase{
     if(this.#disabled === (value === true)) return;
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
-    if(this.#button){
-      this.#button.disabled = this.#disabled;
-    }
+    this.#syncDisabled();
   }
 
   get uiLoading(){return this.#loading;}
@@ -25,35 +23,34 @@ class UIButton extends UIBase{
     if(this.#loading === (value === true)) return;
     this.#loading = value === true;
     this.reflect('loading',this.#loading);
-    if(this.#button){
-      this.#loader();
-    }
+    this.#syncLoading();
   }
 
   connectedCallback(){
     super.connectedCallback();
+    this.setAttribute('role','button');
     this.shape();
     this.size();
     this.theme();
 
-    this.#button = document.createElement('button');
-    this.#button.type = this.getAttribute('type') || 'button';
-    this.removeAttribute('type');
+    if(!this.hasAttribute('tabindex')) this.tabIndex = 0;
 
-    const ariaLabel = this.getAttribute('aria-label');
-    if(ariaLabel){
-      this.#button.setAttribute('aria-label',ariaLabel);
-      this.removeAttribute('aria-label');
-    }
+    this.#listeners = new AbortController();
+    const signal = this.#listeners.signal;
 
-    const content = [...this.childNodes];
-    if(content.length > 0){
-      this.#button.append(...content);
-      this.replaceChildren(this.#button);
-    }
+    this.addEventListener('click',this.#onClick,{signal});
+    this.addEventListener('keydown',this.#onKeyDown,{signal});
+
+    this.#syncDisabled();
+    this.#syncLoading();
   }
 
-  #loader = () => {
+  disconnectedCallback(){
+    this.#listeners?.abort();
+    this.#listeners = null;
+  }
+
+  #syncLoading = () => {
     const spinner = this.querySelector('ui-spinner');
 
     if(this.#loading && !spinner){
@@ -64,6 +61,31 @@ class UIButton extends UIBase{
       spinner.remove();
       this.uiDisabled = false;
     }
+  }
+
+  #syncDisabled = () => {
+    this.ariaDisabled = String(this.#disabled);
+    this.tabIndex = this.#disabled ? -1 : 0;
+  }
+
+  #onClick = e => {
+    if(this.disabled) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    this.#onAction(e);
+  }
+
+  #onKeyDown = e => {
+    if(this.#disabled) return;
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      if(e.repeat) return;
+      this.click(e);
+    }
+  }
+
+  #onAction = (e) => {
+    //console.log(e.type);
   }
 }
 customElements.define('ui-button',UIButton);

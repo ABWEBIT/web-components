@@ -8,7 +8,7 @@
     <h2>Usage</h2>
     <ul>
       <li>
-        The component functions as a wrapper. It can contain text, icons, or both - in any order.
+        The component can contain text, icons, or both - in any order.
       </li>
       <li>
         This component is designed to work with the <a href="#ui-icon">ui-icon</a> component for rendering icons, but it can easily be adapted to support raw SVGs or other elements if needed.
@@ -22,12 +22,8 @@
     <h2>Attributes</h2>
     <ul>
       <li>
-        aria-label - static (init-only, required).<br>
+        aria-label - static (required).<br>
         Must be set manually for icon-only buttons.
-      </li>
-      <li>
-        type - static (init-only, optional).<br>
-        Controls the disabled state of the component.
       </li>
       <li>
         disabled - reactive (optional).<br>
@@ -61,7 +57,7 @@
     <div>Minimal</div>
     <div class="example">
       <div class="preview">
-        <ui-button>Button</ui-button>
+        <ui-button id="s">Button</ui-button>
         <ui-button size="icon-only">
           <ui-icon icon="settings"></ui-icon>
         </ui-button>

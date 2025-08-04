@@ -36,10 +36,10 @@ class UICheckbox extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.setAttribute('role','checkbox');
     this.shape();
     this.size();
     this.theme();
-    this.setAttribute('role','checkbox');
 
     this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
@@ -71,6 +71,7 @@ class UICheckbox extends UIBase{
   #onClick = (e) => {
     if(this.disabled) return;
     e.preventDefault();
+    e.stopImmediatePropagation();
     this.#onAction(e);
   }
 

@@ -172,13 +172,13 @@
   cursor:pointer;
   touch-action:manipulation;}
 
-button{
+[role="button"]{
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;}
 
-button:focus-visible:not([disabled]){
+[role="button"]:focus-visible:not([disabled]){
   outline-color:var(--ui-color-gray-500);}
 
 /* animations */

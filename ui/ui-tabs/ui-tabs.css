@@ -3,16 +3,17 @@ ui-tabs{
   flex-direction:column;
   width:100%;
   row-gap:var(--ui-tabs-row-gap);
+  border-radius:var(--ui-tabs-tab-border-radius);
 
   & [data-ui="tabs-list"]{
     display:flex;
     flex-wrap:wrap;
     column-gap:var(--ui-tabs-tabs-list-column-gap);}
 
-  & [data-ui="tab"]{
+  & [role="tab"]{
     position:relative;
     background:none;
-    border-radius:var(--ui-tabs-tab-border-radius);
+
     cursor:pointer;
     padding-inline:var(--ui-tabs-tab-padding-inline);
     padding-block:var(--ui-tabs-tab-padding-block);
@@ -23,37 +24,26 @@ ui-tabs{
     outline-style:var(--ui-outline-style);
     outline-color:transparent;}
 
-  & [data-ui="tab"]::before{
-    content:'';
-    position:absolute;
-    background-color:transparent;
-    bottom:0;
-    left:10%;
-    width:80%;
-    height:1px;
-    transition-duration:var(--ui-transition-duration);
-    transition-property:background-color;}
-
-  &[ui] [data-ui="tab"]{
+  &[ui] [role="tab"]{
     transition-duration:var(--ui-transition-duration);
     transition-property:background-color,outline-color,color;}
 
-  & [data-ui="tab"]:focus-visible{
+  & [role="tab"]:focus-visible{
     outline-color:var(--ui-outline-color);}
 
   @media (hover: hover){
-    & [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):hover::before{
+    & [role="tab"]:not([aria-selected="true"]):not([disabled]):hover::before{
       background-color:var(--ui-tabs-tab-before-background-color-hover);
     }
 
-    & [data-ui="tab"]:not([aria-selected="true"]):not([disabled]):hover{
+    & [role="tab"]:not([aria-selected="true"]):not([disabled]):hover{
       color:var(--ui-tabs-tab-font-color-hover);}
   }
 
-  & [data-ui="tab"][aria-selected="true"]{
+  & [role="tab"][aria-selected="true"]{
     color:var(--ui-tabs-tab-font-color-active);}
 
-  & [data-ui="tab"][aria-selected="true"]::before{
+  & [role="tab"][aria-selected="true"]::before{
     background-color:var(--ui-tabs-tab-before-background-color-active);}
 
   & [data-ui="tab-panel"]{
@@ -91,8 +81,8 @@ ui-tabs{
   /* size */
   &[size="default"]{
     --ui-tabs-row-gap:10px;
-    --ui-tabs-tabs-list-column-gap:0px;
-    --ui-tabs-tab-font-size:18px;
+    --ui-tabs-tabs-list-column-gap:10px;
+    --ui-tabs-tab-font-size:16px;
     --ui-tabs-tab-padding-inline:20px;
     --ui-tabs-tab-padding-block:12px;
     --ui-tabs-tab-panel-font-size:16px;

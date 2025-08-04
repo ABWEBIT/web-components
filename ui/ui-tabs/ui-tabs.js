@@ -29,7 +29,7 @@ class UITabs extends UIBase{
     });
 
     const panelsContainer = document.createElement('div');
-    panelsContainer.setAttribute('data-ui', 'tabs-panels');
+    panelsContainer.setAttribute('data-ui','tabs-panels');
 
     this.#items.forEach((item,index) => {
       const id = uuid();
