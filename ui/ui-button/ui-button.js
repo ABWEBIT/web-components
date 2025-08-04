@@ -51,7 +51,6 @@ class UIButton extends UIBase{
       this.#button.append(...content);
       this.replaceChildren(this.#button);
     }
-
   }
 
   #loader = () => {

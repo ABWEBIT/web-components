@@ -8,5 +8,5 @@ Safari 17.2+\
 Opera 106+\
 Firefox 117
 
-ECMAScript 2021 (ES12)\
+ECMAScript 2022 (ES13)\
 CSS Nesting

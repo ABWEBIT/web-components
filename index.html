@@ -54,14 +54,14 @@
   <article id="article"></article>
 </div>
 
+<ui-portal></ui-portal>
 <script type="module">
-  import {ui_version} from './ui/ui-version.js';
+  import {UIVersion} from './ui/ui-version.js';
   let version = document.querySelectorAll('.ui-version');
   version.forEach(el => {
-    el.textContent = 'ui '+ui_version;
+    el.textContent = 'ui '+UIVersion;
   });
 </script>
-
 <script type="module" src="./theme/router.js"></script>
 <script type="module" src="./ui/ui-components.js"></script>
 </body>
