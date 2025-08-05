@@ -3,13 +3,12 @@ import {uuid} from '../../utils/uuid.js';
 
 class UIAccordion extends UIBase{
   #items = [];
-  #iconExpand = 'arrow-down-small';
 
   get items(){return this.#items;}
   set items(value){
     if(!Array.isArray(value)) throw new Error('Items must be an array');
     this.#items = value;
-    //this.#render();
+    this.#render();
   }
 
   connectedCallback(){
@@ -17,30 +16,31 @@ class UIAccordion extends UIBase{
     this.shape();
     this.size();
     this.theme();
-
-    this.#iconExpand = this.getAttribute('icon') || this.#iconExpand;
-    this.removeAttribute('icon');
   }
 
   #render(){
-    this.replaceChildren();
     const fragment = document.createDocumentFragment();
 
     this.#items.forEach((item,index) => {
       const id = uuid();
-      const idControl = `id-controls-${id}`;
       const idHeader = `id-header-${id}`;
+      const idPanel = `id-panel-${id}`;
 
       /* header */
-      const accordionHeader = document.createElement('button');
+      const accordionHeader = document.createElement('ui-accordion-header');
       this.setAttributes(accordionHeader,{
-        'type': 'button',
-        'data-ui': 'accordion-header',
+        'role': 'button',
+        'tabindex': item.disabled ? '-1' : '0',
         'aria-expanded': item.expanded ? 'true' : 'false',
-        'aria-controls': idControl,
+        'aria-controls': idPanel,
         'id': idHeader
       });
-      accordionHeader.disabled = !!item.disabled
+
+      if(item.disabled){
+        accordionHeader.disabled = !!item.disabled;
+        accordionHeader.setAttribute('disabled','');
+        accordionHeader.ariaDisabled = String(!!item.disabled);
+      }
 
       /* events */
       accordionHeader.addEventListener('keydown',(e) => {
@@ -60,54 +60,44 @@ class UIAccordion extends UIBase{
       });
 
       /* header text */
-      const accordionHeaderText = document.createElement('span');
-      this.setAttributes(accordionHeaderText,{
-        'data-ui': 'accordion-header-text'
-      });
-      accordionHeaderText.textContent = item.label ?? '';
+      const accordionHeaderText = document.createTextNode(item.label ?? '');
 
       /* header expand icon */
-      const accordionHeaderIcon = document.createElement('span');
+      const accordionHeaderIcon = document.createElement('ui-icon');
       this.setAttributes(accordionHeaderIcon,{
-        'data-ui': 'accordion-header-icon',
-        'aria-hidden': 'true'
+        'icon': 'arrow-down-small'
       });
-
-      const icon = document.createElement('ui-icon');
-      icon.setAttribute('icon',this.#iconExpand);
-      accordionHeaderIcon.appendChild(icon);
 
       accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
   
       /* panel */
-      const accordionPanel = document.createElement('div');
-      accordionPanel.setAttribute('data-ui','accordion-panel');
+      const accordionPanel = document.createElement('ui-accordion-panel');
       this.setAttributes(accordionPanel,{
         'role': 'region',
-        'id': idControl,
+        'id': idPanel,
         'aria-labelledby': idHeader
       });
       accordionPanel.hidden = !item.expanded || item.disabled;
       accordionPanel.innerHTML = item.content ?? '';
       
       /* item */
-      const accordionItem = document.createElement('div');
+      const accordionItem = document.createElement('ui-accordion-item');
       this.setAttributes(accordionItem,{
-        'data-ui': 'accordion-item',
-        'data-ui-index': index
+        'index': index
       });
 
       accordionItem.append(accordionHeader,accordionPanel);
       fragment.appendChild(accordionItem);
     });
-    this.appendChild(fragment);
+    this.replaceChildren(fragment);
   }
 
   #onAction = (button) => {
     const expanded = button.getAttribute('aria-expanded') === 'true';
     button.setAttribute('aria-expanded',String(!expanded));
-    const panel = document.getElementById(button.getAttribute('aria-controls'));
-    panel.hidden = expanded;
+
+    const panel = this.querySelector(`#${button.getAttribute('aria-controls')}`);
+    if(panel) panel.hidden = expanded;
   }
 
 }
