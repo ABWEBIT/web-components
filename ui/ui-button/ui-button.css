@@ -6,8 +6,6 @@ ui-button{
   vertical-align:middle;
   border-radius:inherit;
   line-height:1;
-  cursor:pointer;
-  touch-action:manipulation;
   -webkit-user-select:none;
   user-select:none;
   appearance:none;
@@ -21,14 +19,6 @@ ui-button{
   &[ui]{
     transition-duration:var(--ui-transition-duration);
     transition-property:background-color,outline-color,color;}
-
-  &[disabled]:not([loading]){
-    cursor:not-allowed;
-    opacity:0.5;
-    pointer-events:auto;}
-
-  &[loading]{
-    cursor:default;}
 
   @media (hover: hover){
     &:hover:not([disabled]){

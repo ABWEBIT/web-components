@@ -181,6 +181,14 @@
 [role="button"]:focus-visible:not([disabled]){
   outline-color:var(--ui-color-gray-500);}
 
+[disabled]:not([loading]){
+  cursor:not-allowed;
+  opacity:0.5;
+  pointer-events:auto;}
+
+[loading]{
+  cursor:default;}
+
 /* animations */
 @keyframes rotate360{
   0% {transform:rotate(0deg);}

@@ -63,15 +63,9 @@ ui-alert{
     height:24px;
     width:24px;
 
-    &[size="alert"] > button > ui-icon > svg{
+    > ui-icon > svg{
       height:16px;
       width:16px;}
-
-    &[theme="alert"]{
-      --ui-button-font-color:var(--ui-color-gray-150);
-      --ui-button-font-color-hover:var(--ui-color-white);
-      --ui-button-font-color-active:var(--ui-color-white);
-    }
   }
 
   /* shape */

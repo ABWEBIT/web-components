@@ -2,13 +2,10 @@ ui-accordion{
   display:block;
   width:100%;
 
-  & > ui-item{
+  & > ui-accordion-item{
     width:100%;}
 
-  & > ui-item:not(:last-child){
-    border-bottom:1px solid var(--ui-accordion-border-color);}
-
-  & > ui-item > ui-button{
+  & > ui-accordion-item > ui-button{
     display:flex;
     width:100%;
     text-align:start;
@@ -21,25 +18,24 @@ ui-accordion{
     transition-duration:var(--ui-transition-duration);
     transition-property:background-color,outline-color,color;}
 
-  & > ui-item > ui-button:focus-visible{
+  & > ui-accordion-item > ui-button:focus-visible{
     outline-color:var(--ui-outline-color);}
 
   @media (hover:hover){
-    & > ui-item > ui-button:not([disabled]):hover{
+    & > ui-accordion-item > ui-button:not([disabled]):hover{
       text-decoration:underline;}
   }
 
-
-  & > ui-item > ui-button > ui-title{
+  & > ui-accordion-item > ui-button > ui-title{
     line-height:var(--ui-line-height-150);
     padding-block:var(--ui-accordion-header-padding-block);
     flex-grow:1;}
 
-  & > ui-item > ui-button > ui-icon{
+  & > ui-accordion-item > ui-button > ui-icon{
     display:flex;
     align-items:center;}
 
-  & > ui-item > ui-content{
+  & > ui-accordion-item > ui-accordion-panel{
     display:block;
     -webkit-user-select:text;
     user-select:text;
@@ -50,16 +46,16 @@ ui-accordion{
     padding-block:var(--ui-accordion-panel-padding-block);
     line-height:var(--ui-line-height-150);}
 
-  & > ui-item > ui-content[hidden]{
+  & > ui-accordion-item > ui-accordion-panel[hidden]{
     display:none;}
 
-  & > ui-item > ui-button > ui-icon{
+  & > ui-accordion-item > ui-button > ui-icon{
     width:var(--ui-accordion-icon-expand-size);
     height:var(--ui-accordion-icon-expand-size);
     transition-duration:var(--ui-transition-duration);
     transition-property:transform;}
 
-  & > ui-item > ui-button[aria-expanded="true"] > ui-icon{
+  & > ui-accordion-item > ui-button[aria-expanded="true"] > ui-icon{
     transform:rotate(180deg);}
 
   /* shape */

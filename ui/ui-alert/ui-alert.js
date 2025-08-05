@@ -14,8 +14,7 @@ class UIAlert extends UIBase{
     if(this.hasAttribute('closable')){
       const button = document.createElement('ui-button');
       button.setAttribute('ui','alert-close');
-      button.setAttribute('size','alert');
-      button.setAttribute('theme','alert');
+      button.setAttribute('size','none');
       button.setAttribute('shape','circle');
 
       this.#listeners = new AbortController();
