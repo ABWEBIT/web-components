@@ -29,7 +29,6 @@ class UIAccordion extends UIBase{
       /* header */
       const accordionHeader = document.createElement('ui-button');
       this.setAttributes(accordionHeader,{
-        'ui': 'accordion-header',
         'theme': 'none',
         'size': 'none',
         'aria-expanded': item.expanded ? 'true' : 'false',

@@ -10,7 +10,7 @@ ui-accordion{
     width:100%;
     background-color:var(--ui-accordion-background-color);
 
-    > ui-button[ui="accordion-header"]{
+    > ui-button[aria-controls]{
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -24,24 +24,24 @@ ui-accordion{
       transition-property:background-color,outline-color,color;}
 
     @media (hover: hover){
-      > ui-button[ui="accordion-header"]:not([disabled]):hover{
+      > ui-button[aria-controls]:not([disabled]):hover{
         text-decoration:underline;}
     }
 
-    > ui-button[ui="accordion-header"] > ui-icon{
+    > ui-button[aria-controls] > ui-icon{
       display:flex;
       align-items:center;
       width:var(--ui-accordion-icon-expand-size);
       height:var(--ui-accordion-icon-expand-size);}
 
-    > ui-button[ui="accordion-header"][aria-expanded] > ui-icon{
+    > ui-button[aria-controls][aria-expanded] > ui-icon{
       transition-duration:var(--ui-transition-duration);
       transition-property:transform;}
 
-    > ui-button[ui="accordion-header"][aria-expanded="false"] > ui-icon{
+    > ui-button[aria-controls][aria-expanded="false"] > ui-icon{
         transform:rotate(0deg);}
 
-    > ui-button[ui="accordion-header"][aria-expanded="true"] > ui-icon{
+    > ui-button[aria-controls][aria-expanded="true"] > ui-icon{
         transform:rotate(180deg);}
 
     > [role="region"]{
