@@ -2,6 +2,7 @@ import {UIBase} from '../ui-base.js';
 
 class UIAlert extends UIBase{
   #listeners = null;
+  #data = {};
 
   connectedCallback(){
     super.connectedCallback();
@@ -37,3 +38,9 @@ class UIAlert extends UIBase{
 
 }
 customElements.define('ui-alert',UIAlert);
+
+class UIAlertTitle extends HTMLElement{}
+customElements.define('ui-alert-title',UIAlertTitle);
+
+class UIAlertContent extends HTMLElement{}
+customElements.define('ui-alert-content',UIAlertContent);

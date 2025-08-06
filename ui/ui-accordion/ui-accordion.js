@@ -27,37 +27,19 @@ class UIAccordion extends UIBase{
       const idPanel = `id-panel-${id}`;
 
       /* header */
-      const accordionHeader = document.createElement('ui-accordion-header');
+      const accordionHeader = document.createElement('ui-button');
       this.setAttributes(accordionHeader,{
-        'role': 'button',
-        'tabindex': item.disabled ? '-1' : '0',
+        'ui': 'accordion-header',
+        'theme': 'none',
+        'size': 'none',
         'aria-expanded': item.expanded ? 'true' : 'false',
         'aria-controls': idPanel,
         'id': idHeader
       });
 
       if(item.disabled){
-        accordionHeader.disabled = !!item.disabled;
         accordionHeader.setAttribute('disabled','');
-        accordionHeader.ariaDisabled = String(!!item.disabled);
       }
-
-      /* events */
-      accordionHeader.addEventListener('keydown',(e) => {
-        if(e.key === 'Enter' || e.key === ' '){
-          e.preventDefault();
-          if(e.repeat) return;
-          if(!accordionHeader.disabled){
-            this.#onAction(accordionHeader);
-          }
-        }
-      });
-
-      accordionHeader.addEventListener('click',() =>{
-        if(!accordionHeader.disabled){
-          this.#onAction(accordionHeader);
-        }
-      });
 
       /* header text */
       const accordionHeaderText = document.createTextNode(item.label ?? '');
@@ -71,7 +53,7 @@ class UIAccordion extends UIBase{
       accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
   
       /* panel */
-      const accordionPanel = document.createElement('ui-accordion-panel');
+      const accordionPanel = document.createElement('section');
       this.setAttributes(accordionPanel,{
         'role': 'region',
         'id': idPanel,
@@ -81,22 +63,28 @@ class UIAccordion extends UIBase{
       accordionPanel.innerHTML = item.content ?? '';
       
       /* item */
-      const accordionItem = document.createElement('ui-accordion-item');
+      const accordionItem = document.createElement('div');
       this.setAttributes(accordionItem,{
-        'index': index
+        'role': 'presentation',
+        'data-index': index
       });
 
       accordionItem.append(accordionHeader,accordionPanel);
       fragment.appendChild(accordionItem);
+
+      /* events */
+      accordionHeader.onAction = (e) => {
+        if(!item.disabled){
+          this.#onAction(accordionHeader,accordionPanel);
+        }
+      }
     });
     this.replaceChildren(fragment);
   }
 
-  #onAction = (button) => {
+  #onAction = (button,panel) => {
     const expanded = button.getAttribute('aria-expanded') === 'true';
     button.setAttribute('aria-expanded',String(!expanded));
-
-    const panel = this.querySelector(`#${button.getAttribute('aria-controls')}`);
     if(panel) panel.hidden = expanded;
   }
 

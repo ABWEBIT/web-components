@@ -71,18 +71,18 @@ ui-button{
     --ui-button-color-active:var(--ui-color-white);}
 
   /* size */
-  &[size="default"]{
+  &[size="default"],
+  &[size="icon-only"]{
     height:32px;
+    --ui-button-icon-size:16px;
+    --ui-button-loader-icon-size:20px;}
+
+  &[size="default"]{
     --ui-button-font-size:14px;
     --ui-button-padding-inline:16px;
     --ui-button-column-gap:10px;
-    --ui-button-icon-size:16px;
-    --ui-button-loader-icon-size:20px;
     --ui-button-icon-margin-inline-trim:-2px;}
 
   &[size="icon-only"]{
-    height:32px;
-    width:32px;
-    --ui-button-icon-size:16px;
-    --ui-button-loader-icon-size:20px;}
+    width:32px;}
 }

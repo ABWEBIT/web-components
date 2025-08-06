@@ -64,18 +64,18 @@ class UIButton extends UIBase{
   }
 
   #syncDisabled = () => {
-    this.ariaDisabled = String(this.#disabled);
+    if(this.#disabled) this.ariaDisabled = String(this.#disabled);
     this.tabIndex = this.#disabled ? -1 : 0;
   }
 
-  #onClick = e => {
+  #onClick = (e) => {
     if(this.disabled) return;
     e.preventDefault();
     e.stopImmediatePropagation();
-    this.#onAction(e);
+    this.onAction(e);
   }
 
-  #onKeyDown = e => {
+  #onKeyDown = (e) => {
     if(this.#disabled) return;
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
@@ -84,7 +84,7 @@ class UIButton extends UIBase{
     }
   }
 
-  #onAction = (e) => {
+  onAction(e){
     //console.log(e.type);
   }
 }
