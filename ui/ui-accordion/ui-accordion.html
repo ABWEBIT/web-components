@@ -22,6 +22,27 @@
       </li>
     </ul>
   </div>
+  <div class="info">
+    <h2>Object properties</h2>
+    <ul>
+      <li>
+        title - required.<br>
+        The text displayed in the accordion header.
+      </li>
+      <li>
+        content - required.<br>
+        The HTML or text content shown inside the expanded panel.
+      </li>
+      <li>
+        disabled - optional.<br>
+        If true, the item is non-interactive and cannot be toggled.
+      </li>
+      <li>
+        expanded - optional.<br>
+        If true, the panel is expanded by default on initial render.
+      </li>
+    </ul>
+  </div>
 </section>
 
 <section class="content">
@@ -30,25 +51,25 @@
     <div>Minimal</div>
     <div class="example">
       <div class="preview">
-        <ui-accordion></ui-accordion>
+        <ui-accordion id="accordion"></ui-accordion>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-accordion&gt;&lt;/ui-accordion&gt;<br>
+          &lt;ui-accordion id="accordion"&gt;&lt;/ui-accordion&gt;<br>
           <br>
-          accordion.items = [{<br>
-          &nbsp;label:'What is Lorem?',<br>
+          accordion.data = [{<br>
+          &nbsp;title:'What is Lorem?',<br>
           &nbsp;content:'Lorem ipsum dolor sit amet...',<br>
           &nbsp;expanded:true<br>
           },{<br>
-          &nbsp;label:'Why use it?',<br>
+          &nbsp;title:'Why use it?',<br>
           &nbsp;content:'Lorem ipsum dolor sit amet...',<br>
           &nbsp;disabled:true<br>
           },{<br>
-          &nbsp;label:'Where to use?',<br>
+          &nbsp;title:'Where to use?',<br>
           &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
           }];
         </code>
@@ -59,16 +80,16 @@
 </section>
 
 <script>
-document.querySelector('ui-accordion').items = [{
-label:'What is Lorem?',
+accordion.data = [{
+title:'What is Lorem?',
 content:'Lorem ipsum dolor sit amet...',
 expanded:true
 },{
-label:'Why use it?',
+title:'Why use it?',
 content:'Lorem ipsum dolor sit amet...',
 disabled:true
 },{
-label:'Where to use?',
+title:'Where to use?',
 content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <u>quis nostrud exercitation</u> ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 }];
 </script>

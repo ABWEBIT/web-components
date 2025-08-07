@@ -2,12 +2,12 @@ import {UIBase} from '../ui-base.js';
 import {uuid} from '../../utils/uuid.js';
 
 class UIAccordion extends UIBase{
-  #items = [];
+  #data = [];
 
-  get items(){return this.#items;}
-  set items(value){
+  get data(){return this.#data;}
+  set data(value){
     if(!Array.isArray(value)) throw new Error('Items must be an array');
-    this.#items = value;
+    this.#data = value;
     this.#render();
   }
 
@@ -21,7 +21,7 @@ class UIAccordion extends UIBase{
   #render(){
     const fragment = document.createDocumentFragment();
 
-    this.#items.forEach((item,index) => {
+    this.#data.forEach((item,index) => {
       const id = uuid();
       const idHeader = `id-header-${id}`;
       const idPanel = `id-panel-${id}`;
@@ -30,7 +30,7 @@ class UIAccordion extends UIBase{
       const accordionHeader = document.createElement('ui-button');
       this.setAttributes(accordionHeader,{
         'theme': 'none',
-        'size': 'none',
+        'size': '',
         'aria-expanded': item.expanded ? 'true' : 'false',
         'aria-controls': idPanel,
         'id': idHeader
@@ -41,7 +41,7 @@ class UIAccordion extends UIBase{
       }
 
       /* header text */
-      const accordionHeaderText = document.createTextNode(item.label ?? '');
+      const accordionHeaderText = document.createTextNode(item.title ?? '');
 
       /* header expand icon */
       const accordionHeaderIcon = document.createElement('ui-icon');
@@ -52,7 +52,7 @@ class UIAccordion extends UIBase{
       accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
   
       /* panel */
-      const accordionPanel = document.createElement('section');
+      const accordionPanel = document.createElement('div');
       this.setAttributes(accordionPanel,{
         'role': 'region',
         'id': idPanel,
@@ -64,12 +64,11 @@ class UIAccordion extends UIBase{
       /* item */
       const accordionItem = document.createElement('div');
       this.setAttributes(accordionItem,{
-        'role': 'presentation',
         'data-index': index
       });
 
       accordionItem.append(accordionHeader,accordionPanel);
-      fragment.appendChild(accordionItem);
+      fragment.append(accordionItem);
 
       /* events */
       accordionHeader.onAction = (e) => {

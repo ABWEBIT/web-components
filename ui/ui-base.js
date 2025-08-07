@@ -45,11 +45,11 @@ export class UIBase extends HTMLElement{
     }
   }
 
-  setAttributes(element,attributes){
+  setAttributes(target,attributes){
     for(const [key,value] of Object.entries(attributes)){
-      if(value == null) element.removeAttribute(key)
-      else if(typeof value === 'boolean') element.toggleAttribute(key,value);
-      else element.setAttribute(key,value);
+      if(value == null) target.removeAttribute(key)
+      else if(typeof value === 'boolean') target.toggleAttribute(key,value);
+      else target.setAttribute(key,value);
     }
   }
 

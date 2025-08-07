@@ -49,90 +49,24 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Alert with title only</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert>
-          <ui-title>Title</ui-title>
-        </ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert&gt;<br>
-          &nbsp;&lt;ui-title&gt;Title&lt;/ui-title&gt;<br>
-          &lt;/ui-alert&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Alert with description only</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert>
-          <ui-content>Description.</ui-content>
-        </ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert&gt;<br>
-          &nbsp;&lt;ui-content&gt;Description&lt;/ui-content&gt;<br>
-          &lt;/ui-alert&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Alert with a title, description, and a close button</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert closable>
-          <ui-title>Info</ui-title>
-          <ui-content>New features have been added in the latest update.</ui-content>
-        </ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert closable&gt;<br>
-          &nbsp;&lt;ui-title&gt;Info&lt;/ui-title&gt;<br>
-          &nbsp;&lt;ui-content&gt;New features have been added in the latest update.&lt;/ui-content&gt;<br>
-          &lt;/ui-alert&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
     <div>Alert with a title, description, a close button and an icon</div>
     <div class="example">
       <div class="preview">
-        <ui-alert closable>
-          <ui-icon icon="info"></ui-icon>
-          <ui-title>Update Complete</ui-title>
-          <ui-content>Your settings have been <strong>successfully</strong> saved.</ui-content>
-        </ui-alert>
+        <ui-alert id="uialert"></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert closable&gt;<br>
-          &nbsp;&lt;ui-icon icon="info"&gt;&lt;/ui-icon&gt;<br>
-          &nbsp;&lt;ui-title&gt;Update Complete&lt;/ui-title&gt;<br>
-          &nbsp;&lt;ui-content&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/ui-content&gt;<br>
-          &lt;/ui-alert&gt;
+          &lt;ui-alert id="uialert"&gt;&lt;/ui-alert&gt;<br>
+          <br>
+          uialert.data = [{<br>
+          &nbsp;icon: 'info',<br>
+          &nbsp;title: 'Update Complete',<br>
+          &nbsp;content: 'Your settings have been <strong>successfully</strong> saved.',<br>
+          &nbsp;closable: true<br>
+          }];
         </code>
       </div>
     </div>
@@ -140,15 +74,11 @@
 
 </section>
 
-
-
-<ui-alert closable ui shape="rounded" size="default" theme="default" role="alert">
-  <ui-icon icon="info" ui aria-hidden="true">
-    <svg viewBox="0 0 24 24"><path fill="currentColor" d=""></path></svg>
-  </ui-icon>
-
-  <ui-alert-title>Update Complete</ui-alert-title>
-  <ui-alert-content>Your settings have been <strong>successfully</strong> saved.</ui-alert-content>
-  <ui-button ui="alert-close" size="none" shape="circle" role="button" theme="default" tabindex="0" aria-disabled="false"><ui-icon icon="close" ui="" aria-hidden="true"><svg viewBox="0 0 24 24"><path d=""></path></svg></ui-icon>
-  </ui-button>
-</ui-alert>
+<script>
+uialert.data = [{
+  icon: 'info',
+  title: 'Update Complete',
+  content: 'Your settings have been <strong>successfully</strong> saved.',
+  closable: true
+}];
+</script>
