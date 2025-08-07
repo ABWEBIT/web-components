@@ -146,23 +146,31 @@
   direction:inherit;
   -webkit-user-select:none;
   user-select:none;
-  box-sizing:border-box!important;
+  box-sizing:border-box;
 
-  *,
-  *::before,
-  *::after{box-sizing:inherit!important;}
+  :is(*,*::before,*::after){box-sizing:inherit;}
 
   :is(input,textarea,button){font-family:var(--ui-font-family);}
   input::-ms-reveal{display:none;}
+
+  svg{
+    display:block;
+    fill:currentColor;
+    stroke:currentColor;
+    stroke-width:0;
+    pointer-events:none;
+    shape-rendering:geometricPrecision;}
+
+  h1{font-size:var(--ui-h1-size);}
+  h2{font-size:var(--ui-h2-size);}
+  h3{font-size:var(--ui-h3-size);}
+  h4{font-size:var(--ui-h4-size);}
+  h5{font-size:var(--ui-h5-size);}
+  h6{font-size:var(--ui-h6-size);}
 }
 
-[ui] svg{
-  display:block;
-  fill:currentColor;
-  stroke:currentColor;
-  stroke-width:0;
-  pointer-events:none;
-  shape-rendering:geometricPrecision;}
+
+
 
 [role="button"],
 [role="switch"],

@@ -15,10 +15,7 @@
         Either a title or a description is required to display a meaningful message.
       </li>
       <li>
-        HTML markup is supported in both the title and description fields for richer formatting.
-      </li>
-      <li>
-        This component is designed to work with the <a href="#ui-icon">ui-icon</a> component for rendering icons, but it can easily be adapted to support raw SVGs or other elements if needed.
+        This component is designed to work with the <a href="#ui-icon">ui-icon</a> component for rendering icons.
       </li>
     </ul>
   </div>
@@ -52,6 +49,30 @@
     <div>Alert with a title, description, a close button and an icon</div>
     <div class="example">
       <div class="preview">
+        <ui-alert>
+          <ui-icon icon="info"></ui-icon>
+          <div role="heading" aria-level="6">Update Complete</div>
+          <div role="note">Your settings have been <strong>successfully</strong> saved.</div>
+        </ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert icon="info"&gt;<br>
+          &nbsp;&lt;div role="heading" aria-level="6"&gt;Update Complete&lt;/div&gt;<br>
+          &nbsp;&lt;div role="note"&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/div&gt;<br>
+          &lt;/ui-alert&gt;
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with a title, description, a close button and an icon</div>
+    <div class="example">
+      <div class="preview">
         <ui-alert id="uialert"></ui-alert>
       </div>
       <div class="toolbar">
@@ -61,12 +82,10 @@
         <code>
           &lt;ui-alert id="uialert"&gt;&lt;/ui-alert&gt;<br>
           <br>
-          uialert.data = [{<br>
-          &nbsp;icon: 'info',<br>
+          uialert.data = {<br>
           &nbsp;title: 'Update Complete',<br>
-          &nbsp;content: 'Your settings have been <strong>successfully</strong> saved.',<br>
-          &nbsp;closable: true<br>
-          }];
+          &nbsp;description: 'Your settings have been successfully saved.',<br>
+          };
         </code>
       </div>
     </div>
@@ -75,10 +94,9 @@
 </section>
 
 <script>
-uialert.data = [{
+uialert.data = {
   icon: 'info',
   title: 'Update Complete',
-  content: 'Your settings have been <strong>successfully</strong> saved.',
-  closable: true
-}];
+  description: 'Your settings have been successfully saved.'
+};
 </script>
