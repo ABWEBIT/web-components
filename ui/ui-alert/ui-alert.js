@@ -1,11 +1,11 @@
 import {UIBase} from '../ui-base.js';
+import DOMPurify from '../../utils/purify.es.mjs';
 
 class UIAlert extends UIBase{
   #data = null;
 
   get data(){return this.#data;}
   set data(value){
-
     this.#data = value;
     this.#render();
   }
@@ -16,25 +16,6 @@ class UIAlert extends UIBase{
     this.shape();
     this.size();
     this.theme();
-
-    if(!this.hasAttribute('non-closable')){
-      const button = document.createElement('ui-button');
-      button.setAttribute('ui','alert-close');
-
-      button.setAttribute('size','none');
-      button.setAttribute('shape','circle');
-
-      const uiIcon = document.createElement('ui-icon');
-      uiIcon.setAttribute('icon','close');
-      button.append(uiIcon);
-
-      button.onAction = (e) => {
-        this.#onAction();
-      }
-
-      this.append(button);
-    }
-
   }
 
   #render(){
@@ -43,7 +24,7 @@ class UIAlert extends UIBase{
 
     const fragment = document.createDocumentFragment();
 
-    if(d.icon){
+    if(this.hasAttribute('icon')){
       const icon = document.createElement('ui-icon');
       icon.setAttribute('icon',this.getAttribute('icon'));
       fragment.append(icon);
@@ -60,7 +41,7 @@ class UIAlert extends UIBase{
     if(d.description){
       const description = document.createElement('div');
       description.role = 'note';
-      description.textContent = d.description;
+      description.innerHTML = DOMPurify.sanitize(d.description);
       fragment.append(description);
     }
 

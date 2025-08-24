@@ -49,42 +49,18 @@
     <div>Alert with a title, description, a close button and an icon</div>
     <div class="example">
       <div class="preview">
-        <ui-alert>
-          <ui-icon icon="info"></ui-icon>
-          <div role="heading" aria-level="6">Update Complete</div>
-          <div role="note">Your settings have been <strong>successfully</strong> saved.</div>
-        </ui-alert>
+        <ui-alert id="uialert" icon="info"></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert icon="info"&gt;<br>
-          &nbsp;&lt;div role="heading" aria-level="6"&gt;Update Complete&lt;/div&gt;<br>
-          &nbsp;&lt;div role="note"&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/div&gt;<br>
-          &lt;/ui-alert&gt;
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Alert with a title, description, a close button and an icon</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert id="uialert"></ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert id="uialert"&gt;&lt;/ui-alert&gt;<br>
+          &lt;ui-alert icon="info"&gt;&lt;/ui-alert&gt;<br>
           <br>
           uialert.data = {<br>
           &nbsp;title: 'Update Complete',<br>
-          &nbsp;description: 'Your settings have been successfully saved.',<br>
+          &nbsp;description: 'Your settings have been <strong>successfully</strong> saved.',<br>
           };
         </code>
       </div>
@@ -95,8 +71,7 @@
 
 <script>
 uialert.data = {
-  icon: 'info',
   title: 'Update Complete',
-  description: 'Your settings have been successfully saved.'
+  description: `Your settings <script>alert("XSS")</script> have been <strong>successfully</strong> saved.`
 };
 </script>
