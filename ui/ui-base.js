@@ -46,10 +46,12 @@ export class UIBase extends HTMLElement{
   }
 
   setAttributes(target,attributes){
+    if (!target || typeof target.setAttribute !== 'function') return;
+
     for(const [key,value] of Object.entries(attributes)){
       if(value == null) target.removeAttribute(key)
       else if(typeof value === 'boolean') target.toggleAttribute(key,value);
-      else target.setAttribute(key,value);
+      else target.setAttribute(key,String(value));
     }
   }
 
@@ -70,20 +72,17 @@ export class UIBase extends HTMLElement{
   }
 
   shape(shape = 'rounded'){
-    if(!this.hasAttribute('shape')){
-      this.setAttribute('shape',shape);
-    }
+    if(this.hasAttribute('shape')) return;
+    this.setAttribute('shape',shape);
   }
 
   size(size = 'default'){
-    if(!this.hasAttribute('size')){
-      this.setAttribute('size',size);
-    }
+    if(this.hasAttribute('size')) return;
+    this.setAttribute('size',size);
   }
 
   theme(theme = 'default'){
-    if(!this.hasAttribute('theme')){
-      this.setAttribute('theme',theme);
-    }
+    if(this.hasAttribute('theme')) return;
+    this.setAttribute('theme',theme);
   }
 }

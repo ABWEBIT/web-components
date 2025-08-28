@@ -29,9 +29,12 @@ class UIButton extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.setAttribute('role','button');
-    this.shape();
-    this.size();
-    this.theme();
+
+    if(!this.hasAttribute('manual-config')){
+      this.shape();
+      this.size();
+      this.theme();
+    }
 
     if(!this.hasAttribute('tabindex')) this.tabIndex = 0;
 

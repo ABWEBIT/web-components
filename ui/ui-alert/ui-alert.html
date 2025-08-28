@@ -8,11 +8,7 @@
     <h2>Usage</h2>
     <ul>
       <li>
-        The component must be composed of the following containers: ui-icon, ui-title, and ui-content. While their order is not strictly required, following the recommended sequence ensures better consistency and styling.<br>
-        Recommended order: ui-icon - ui-title - ui-content.
-      </li>
-      <li>
-        Either a title or a description is required to display a meaningful message.
+        Neither element is mandatory; however, either a title or a description is required to display a meaningful message.
       </li>
       <li>
         This component is designed to work with the <a href="#ui-icon">ui-icon</a> component for rendering icons.
@@ -23,8 +19,8 @@
     <h2>Attributes</h2>
     <ul>
       <li>
-        closable - static (optional, boolean).<br>
-        Renders a close button when present.
+        non-closable - static (optional, boolean).<br>
+        Hides the close button when the attribute is present.
       </li>
       <li>
         size - static (optional). Default: default.<br>
@@ -46,10 +42,32 @@
 <section class="content">
 
   <div class="content-item">
+    <div>Alert with a title and description, without a close button</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert ui="alert" non-closable></ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert non-closable&gt;&lt;/ui-alert&gt;<br>
+          <br>
+          alert.data = {<br>
+          &nbsp;title: 'Update Complete',<br>
+          &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
+          };
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
     <div>Alert with a title, description, a close button and an icon</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="uialert" icon="info"></ui-alert>
+        <ui-alert ui="alert" icon="info"></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -58,9 +76,9 @@
         <code>
           &lt;ui-alert icon="info"&gt;&lt;/ui-alert&gt;<br>
           <br>
-          uialert.data = {<br>
+          alert.data = {<br>
           &nbsp;title: 'Update Complete',<br>
-          &nbsp;description: 'Your settings have been <strong>successfully</strong> saved.',<br>
+          &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
         </code>
       </div>
@@ -70,8 +88,12 @@
 </section>
 
 <script>
-uialert.data = {
-  title: 'Update Complete',
-  description: `Your settings <script>alert("XSS")</script> have been <strong>successfully</strong> saved.`
-};
+const alerts = document.querySelectorAll('[ui="alert"]');
+alerts.forEach(alert => {
+  alert.data = {
+    title: 'Update Complete',
+    description: 'Your settings have been <strong>successfully</strong> saved.'
+  };
+});
+
 </script>

@@ -47,26 +47,22 @@ class UIAlert extends UIBase{
 
     if(!this.hasAttribute('non-closable')){
       const button = document.createElement('ui-button');
-      button.setAttribute('ui','alert-close');
-      button.setAttribute('size','none');
-      button.setAttribute('shape','circle');
+      this.setAttributes(button,{
+        'ui':'alert-close',
+        'shape':'circle',
+        'size':'alert-close'
+      })
 
       const uiIcon = document.createElement('ui-icon');
       uiIcon.setAttribute('icon','close');
       button.append(uiIcon);
 
-      button.onAction = (e) => {
-        this.#onAction();
-      }
+      button.onAction = () => this.remove();
 
       fragment.append(button);
     }
 
     this.replaceChildren(fragment);
-  }
-
-  #onAction = (e) => {
-    this.remove();
   }
 
 }

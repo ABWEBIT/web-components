@@ -60,8 +60,10 @@ ui-alert{
     position:absolute;
     top:14px;
     inset-inline-end:12px;
-    height:24px;
-    width:24px;
+
+    &[size="alert-close"]{
+      height:24px;
+      width:24px;}
 
     > ui-icon > svg{
       height:16px;

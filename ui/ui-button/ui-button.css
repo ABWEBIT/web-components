@@ -27,8 +27,8 @@ ui-button{
   }
 
   &:focus-visible:not([disabled]){
-    color:var(--ui-button-color-hover);
-    background-color:var(--ui-button-background-color-hover);}
+    color:var(--ui-button-color-focus);
+    background-color:var(--ui-button-background-color-focus);}
 
   &:active:not([disabled]){
     color:var(--ui-button-color-active);
@@ -55,19 +55,28 @@ ui-button{
   }
 
   /* shape */
-  &[shape="rounded"]{--ui-button-border-radius:var(--ui-border-radius-rounded);}
-  &[shape="square"]{--ui-button-border-radius:var(--ui-border-radius-square);}
-  &[shape="pill"]{--ui-button-border-radius:var(--ui-border-radius-pill);}
-  &[shape="circle"]{--ui-button-border-radius:var(--ui-border-radius-circle);}
+  &[shape="rounded"]{
+    --ui-button-border-radius:var(--ui-border-radius-rounded);}
+
+  &[shape="square"]{
+    --ui-button-border-radius:var(--ui-border-radius-square);}
+
+  &[shape="pill"]{
+    --ui-button-border-radius:var(--ui-border-radius-pill);}
+
+  &[shape="circle"]{
+    --ui-button-border-radius:var(--ui-border-radius-circle);}
 
   /* theme */
   &[theme="default"]{
     --ui-button-background-color:var(--ui-color-gray-800);
     --ui-button-background-color-hover:var(--ui-color-gray-750);
+    --ui-button-background-color-focus:var(--ui-color-gray-750);
     --ui-button-background-color-active:var(--ui-color-gray-700);
     --ui-button-loader-background-color:var(--ui-color-gray-700);
     --ui-button-color:var(--ui-color-gray-150);
     --ui-button-color-hover:var(--ui-color-white);
+    --ui-button-color-focus:var(--ui-color-white);
     --ui-button-color-active:var(--ui-color-white);}
 
   /* size */

@@ -58,8 +58,8 @@
 <script type="module">
   import {UIVersion} from './ui/ui-version.js';
   let version = document.querySelectorAll('.ui-version');
-  version.forEach(el => {
-    el.textContent = 'ui '+UIVersion;
+  version.forEach(v => {
+    v.textContent = 'ui '+UIVersion;
   });
 </script>
 <script type="module" src="./theme/router.js"></script>
