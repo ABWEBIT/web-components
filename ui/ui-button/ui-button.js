@@ -72,7 +72,7 @@ class UIButton extends UIBase{
   }
 
   #onClick = (e) => {
-    if(this.disabled) return;
+    if(this.#disabled) return;
     e.preventDefault();
     e.stopImmediatePropagation();
     this.onAction(e);

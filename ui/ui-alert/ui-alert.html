@@ -87,13 +87,16 @@
 
 </section>
 
-<script>
-const alerts = document.querySelectorAll('[ui="alert"]');
-alerts.forEach(alert => {
-  alert.data = {
-    title: 'Update Complete',
-    description: 'Your settings have been <strong>successfully</strong> saved.'
-  };
-});
+<script defer>
+(() => {
 
+  let alerts = document.querySelectorAll('[ui="alert"]');
+  alerts.forEach(alert => {
+    alert.data = {
+      title: 'Update Complete',
+      description: 'Your settings have been <strong>successfully</strong> saved.'
+    };
+  });
+
+})();
 </script>
