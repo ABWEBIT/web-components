@@ -11,7 +11,7 @@ ui-alert{
   background-color:var(--ui-alert-background-color);
   max-width:var(--ui-alert-max-width);
 
-  &:has([role="heading"]):has([role="note"]){gap:8px 0;}
+  &:has([role="heading"]):has([role="note"]){row-gap:8px;}
 
   /* icon */
   & > ui-icon{
@@ -88,7 +88,7 @@ ui-alert{
 
   /* size */
   &[size="default"]{
-    --ui-alert-max-width:500px;
+    --ui-alert-max-width:auto;
     --ui-alert-padding-block:16px;
     --ui-alert-padding-inline:20px;
     --ui-alert-title-font-size:14px;

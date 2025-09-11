@@ -53,7 +53,7 @@ class UITabs extends UIBase{
           this.#activateTab(index);
         }
       });
-      tab.addEventListener('keydown', (e) => this.#onKeyDown(e,index));
+      tab.addEventListener('keydown',(e) => this.#onKeyDown(e,index));
 
       tablist.appendChild(tab);
 
