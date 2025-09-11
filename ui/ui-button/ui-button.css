@@ -13,7 +13,11 @@ ui-button{
   column-gap:var(--ui-button-column-gap);
   font-size:var(--ui-button-font-size);
   color:var(--ui-button-color);
+
+
   background-color:var(--ui-button-background-color);
+
+  --ui-button-border-radius:var(--ui-border-radius-rounded);
   border-radius:var(--ui-button-border-radius);
 
   &[ui]{
@@ -55,17 +59,10 @@ ui-button{
   }
 
   /* shape */
-  &[shape="rounded"]{
-    --ui-button-border-radius:var(--ui-border-radius-rounded);}
-
-  &[shape="square"]{
-    --ui-button-border-radius:var(--ui-border-radius-square);}
-
-  &[shape="pill"]{
-    --ui-button-border-radius:var(--ui-border-radius-pill);}
-
-  &[shape="circle"]{
-    --ui-button-border-radius:var(--ui-border-radius-circle);}
+  &[shape="rounded"]{--ui-button-border-radius:var(--ui-border-radius-rounded);}
+  &[shape="square"]{--ui-button-border-radius:var(--ui-border-radius-square);}
+  &[shape="pill"]{--ui-button-border-radius:var(--ui-border-radius-pill);}
+  &[shape="circle"]{--ui-button-border-radius:var(--ui-border-radius-circle);}
 
   /* theme */
   &[theme="default"]{

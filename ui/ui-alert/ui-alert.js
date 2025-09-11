@@ -16,6 +16,12 @@ class UIAlert extends UIBase{
     this.shape();
     this.size();
     this.theme();
+
+    if(!this.hasAttribute('non-closable')){
+      const button = document.querySelector('[ui="alert-close"]');
+      button.onAction = () => this.remove();
+    }
+
   }
 
   #render(){

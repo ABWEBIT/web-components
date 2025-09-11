@@ -45,16 +45,38 @@
     <div>Alert with a title and description, without a close button</div>
     <div class="example">
       <div class="preview">
-        <ui-alert ui="alert" non-closable></ui-alert>
+        <ui-alert id="ex00" non-closable></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert non-closable&gt;&lt;/ui-alert&gt;<br>
+          &lt;ui-alert id="ex01" non-closable&gt;&lt;/ui-alert&gt;<br>
           <br>
-          alert.data = {<br>
+          ex01.data = {<br>
+          &nbsp;title: 'Update Complete',<br>
+          &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
+          };
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with a title and description, without a close button</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert id="ex01" non-closable></ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert id="ex01" non-closable&gt;&lt;/ui-alert&gt;<br>
+          <br>
+          ex01.data = {<br>
           &nbsp;title: 'Update Complete',<br>
           &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
@@ -67,19 +89,47 @@
     <div>Alert with a title, description, a close button and an icon</div>
     <div class="example">
       <div class="preview">
-        <ui-alert ui="alert" icon="info"></ui-alert>
+        <ui-alert id="ex02" icon="info"></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert icon="info"&gt;&lt;/ui-alert&gt;<br>
+          &lt;ui-alert id="ex02" icon="info"&gt;&lt;/ui-alert&gt;<br>
           <br>
-          alert.data = {<br>
+          ex02.data = {<br>
           &nbsp;title: 'Update Complete',<br>
           &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Alert with a title, description, a close button and an icon</div>
+    <div class="example">
+      <div class="preview">
+        <ui-alert icon="info">
+          <ui-icon icon="info"></ui-icon>
+          <div role="heading" aria-level="6">Update Complete</div>
+          <div role="note">Your settings have been <strong>successfully</strong> saved.</div>
+          <ui-button ui="alert-close" shape="circle" theme="default" manual-config>
+            <ui-icon icon="close"></ui-icon>
+          </ui-button>
+        </ui-alert>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+        <code>
+          &lt;ui-alert icon="info"&gt;<br>
+          &nbsp;&lt;ui-icon icon="info"&gt;&lt;/ui-icon&gt;<br>
+          &nbsp;&lt;div role="heading" aria-level="6"&gt;Update Complete&lt;/div&gt;<br>
+          &nbsp;&lt;div role="note"&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/div&gt;<br>
+          &lt;/ui-alert&gt;<br>
         </code>
       </div>
     </div>
@@ -90,13 +140,22 @@
 <script defer>
 (() => {
 
-  let alerts = document.querySelectorAll('[ui="alert"]');
-  alerts.forEach(alert => {
-    alert.data = {
-      title: 'Update Complete',
-      description: 'Your settings have been <strong>successfully</strong> saved.'
-    };
-  });
+  let ex00 = document.getElementById('ex00');
+  ex00.data = {
+    description: 'Your settings have been <strong>successfully</strong> saved.'
+  };
+
+  let ex01 = document.getElementById('ex01');
+  ex01.data = {
+    title: 'Update Complete',
+    description: 'Your settings have been <strong>successfully</strong> saved.'
+  };
+
+  let ex02 = document.getElementById('ex02');
+  ex02.data = {
+    title: 'Update Complete',
+    description: 'Your settings have been <strong>successfully</strong> saved.'
+  };
 
 })();
 </script>

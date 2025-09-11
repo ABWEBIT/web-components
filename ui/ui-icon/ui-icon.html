@@ -8,7 +8,18 @@
     <h2>Features</h2>
     <ul>
       <li>
-        The SVG uses currentColor, inheriting the font color from the parent element.
+        The SVG uses currentColor for both fill and stroke.
+      </li>
+    </ul>
+  </div>
+  <div class="info">
+    <h2>Usage</h2>
+    <ul>
+      <li>
+        For filled icons, ensure &lt;path&gt; has stroke="none" to prevent unintended strokes from global CSS.
+      </li>
+      <li>
+        Line icons may require additional CSS for stroke settings.
       </li>
     </ul>
   </div>

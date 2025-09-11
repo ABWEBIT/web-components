@@ -151,13 +151,13 @@
   :is(*,*::before,*::after){box-sizing:inherit;}
 
   :is(input,textarea,button){font-family:var(--ui-font-family);}
+
   input::-ms-reveal{display:none;}
 
   svg{
     display:block;
     fill:currentColor;
     stroke:currentColor;
-    stroke-width:0;
     pointer-events:none;
     shape-rendering:geometricPrecision;}
 
@@ -168,9 +168,6 @@
   h5{font-size:var(--ui-h5-size);}
   h6{font-size:var(--ui-h6-size);}
 }
-
-
-
 
 [role="button"],
 [role="switch"],

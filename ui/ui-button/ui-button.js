@@ -31,7 +31,7 @@ class UIButton extends UIBase{
     this.setAttribute('role','button');
 
     if(!this.hasAttribute('manual-config')){
-      this.shape();
+
       this.size();
       this.theme();
     }
