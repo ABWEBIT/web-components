@@ -41,7 +41,7 @@ body{
 
 ::-webkit-scrollbar-thumb{
   border-radius:var(--ui-border-radius-pill);
-  background-color:var(--ui-color-scrollbar);}
+  background-color:var(--ui-scrollbar-color);}
 
 ::-webkit-scrollbar-track{
   background-color:transparent;}

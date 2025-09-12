@@ -23,7 +23,7 @@
     <ul>
       <li>
         aria-label - static (required).<br>
-        Must be set manually for icon-only buttons.
+        Must be set manually for icon buttons.
       </li>
       <li>
         disabled - reactive (optional).<br>
@@ -34,13 +34,9 @@
         Controls the loading state of the component.
       </li>
       <li>
-        size - static (optional). Default: default.<br>
-        Specifies the component's size (extendable via CSS).<br>
-        size="icon-only" - for a button with symmetrical sides that contains only an icon.
-      </li>
-      <li>
-        theme - static (optional). Default: default.<br>
-        Specifies the component's color scheme (extendable via CSS).
+        icon-only - static (optional).<br>
+        Indicates that the button contains only an icon, without text.<br>
+        The button will be displayed as a square (with symmetrical sides).
       </li>
       <li>
         shape - static (optional). Default: rounded.<br>
@@ -58,7 +54,7 @@
     <div class="example">
       <div class="preview">
         <ui-button>Button</ui-button>
-        <ui-button size="icon-only">
+        <ui-button aria-label="Button" icon-only>
           <ui-icon icon="settings"></ui-icon>
         </ui-button>
       </div>
@@ -69,7 +65,7 @@
         <code>
           &lt;ui-button&gt;Button&lt;/ui-button&gt;<br>
           <br>
-          &lt;ui-button size="icon-only"&gt;<br>
+          &lt;ui-button aria-label="Button" icon-only&gt;<br>
           &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
           &lt;/ui-button&gt;
         </code>
@@ -99,16 +95,16 @@
   </div>
 
   <div class="content-item">
-    <div>icon, Different Shapes</div>
+    <div>Icon, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button size="icon-only" shape="rounded">
+        <ui-button aria-label="Button" shape="rounded" icon-only>
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="icon-only" shape="circle">
+        <ui-button aria-label="Button" shape="circle" icon-only>
           <ui-icon icon="article"></ui-icon>
         </ui-button>
-        <ui-button size="icon-only" shape="square">
+        <ui-button aria-label="Button" shape="square" icon-only>
           <ui-icon icon="article"></ui-icon>
         </ui-button>
       </div>
@@ -117,15 +113,15 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-button size="icon-only" shape="rounded"&gt;<br>
+          &lt;ui-button aria-label="Button" shape="rounded" icon-only&gt;<br>
           &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
           &lt;/ui-button&gt;<br>
           <br>
-          &lt;ui-button size="icon-only" shape="circle"&gt;<br>
+          &lt;ui-button aria-label="Button" shape="circle" icon-only&gt;<br>
           &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
           &lt;/ui-button&gt;<br>
           <br>
-          &lt;ui-button size="icon-only" shape="square"&gt;<br>
+          &lt;ui-button aria-label="Button" shape="square" icon-only&gt;<br>
           &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
           &lt;/ui-button&gt;
         </code>
@@ -186,8 +182,8 @@
     <div>Adding a loading attribute and state.</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="clickMe" onclick="load()">Start Loading</ui-button>
-        <ui-button onclick="reset()">Reset</ui-button>
+        <ui-button id="loading">Start Loading</ui-button>
+        <ui-button id="reset">Reset</ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -202,12 +198,19 @@
 
 </section>
 
-<script>
-  function load(){
-    document.getElementById('clickMe').uiLoading = true;
-  }
+<script defer>
+(() => {
 
-  function reset(){
-    document.getElementById('clickMe').uiLoading = false;
-  }
+  const buttonLoading = document.getElementById('loading');
+  const buttonReset = document.getElementById('reset');
+
+  buttonLoading.addEventListener('button-action',async (e) =>{
+    buttonLoading.loading = true;
+  });
+
+  buttonReset.addEventListener('button-action',(e) => {
+    buttonLoading.loading = false;
+  });
+
+})();
 </script>

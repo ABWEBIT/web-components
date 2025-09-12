@@ -30,7 +30,7 @@
   --ui-font-family-ui-monospace:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
 
   /* scrollbar */
-  --ui-color-scrollbar:var(--ui-color-gray-600);
+  --ui-scrollbar-color:var(--ui-color-gray-600);
 
   /* ui size */
   --ui-size-x-small:16px;
@@ -38,6 +38,7 @@
   --ui-size-medium:32px;
   --ui-size-large:40px;
   --ui-size-x-large:48px;
+  --ui-size-default:var(--ui-size-medium);
 
   /* h size */
   --ui-h1-size:40px;
@@ -53,6 +54,7 @@
   --ui-font-size-medium:14px;
   --ui-font-size-large:16px;
   --ui-font-size-x-large:18px;
+  --ui-font-size-default:var(--ui-font-size-medium);
 
   /* colors */
   --ui-color-black:oklch(0% 0 0);
@@ -121,11 +123,12 @@
   --ui-color-yellow-800:oklch(50% 0.13 83);
   --ui-color-yellow-900:oklch(40% 0.10 83);
 
-  /* border radius */
+  /*** border radius ***/
   --ui-border-radius-square:none;
   --ui-border-radius-rounded:8px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
+  --ui-border-radius-default:var(--ui-border-radius-rounded);
 
   /* text-align */
   --ui-text-align-center:center;
@@ -133,25 +136,46 @@
   --ui-text-align-end:end;
 
   /* transition */
-  --ui-transition-duration:0.15s;
+  --ui-transition-duration-x-fast:0.075s;
+  --ui-transition-duration-fast:0.15s;
+  --ui-transition-duration-medium:0.25s;
+  --ui-transition-duration-slow:0.4s;
+  --ui-transition-duration-x-slow:0.6s;
+  --ui-transition-duration-default:var(--ui-transition-duration-x-fast);
 
-  /* outline */
+
+
+  /***** dark theme *****/
+  /* text colors */
+  --ui-text-color-default:var(--ui-color-gray-150);
+  --ui-text-color-hover:var(--ui-color-white);
+  --ui-text-color-focus:var(--ui-color-white);
+  --ui-text-color-active:var(--ui-color-white);
+
+  /* surface background colors */
+  --ui-surface-color-default:var(--ui-color-gray-800);
+  --ui-surface-color-hover:var(--ui-color-gray-750);
+  --ui-surface-color-focus:var(--ui-color-gray-750);
+  --ui-surface-color-active:var(--ui-color-gray-700);
+
+  /* outline size, style and color */
   --ui-outline-offset:2px;
   --ui-outline-width:2px;
   --ui-outline-style:solid;
-  --ui-outline-color:var(--ui-color-gray-500);
+  --ui-outline-color-inactive:transparent;
+  --ui-outline-color-active:var(--ui-color-gray-500);
 }
+
+@media (prefers-color-scheme: light){}
 
 [ui]{
   direction:inherit;
+  box-sizing:border-box;
   -webkit-user-select:none;
   user-select:none;
-  box-sizing:border-box;
 
   :is(*,*::before,*::after){box-sizing:inherit;}
-
   :is(input,textarea,button){font-family:var(--ui-font-family);}
-
   input::-ms-reveal{display:none;}
 
   svg{
@@ -174,17 +198,18 @@
 [role="checkbox"],
 [role="combobox"],
 [role="option"]{
+  appearance:none;
   cursor:pointer;
   touch-action:manipulation;}
 
 [role="button"]{
-  outline-offset:2px;
-  outline-width:2px;
-  outline-style:solid;
-  outline-color:transparent;}
+  outline-offset:var(--ui-outline-offset);
+  outline-width:var(--ui-outline-width);
+  outline-style:var(--ui-outline-style);
+  outline-color:var(--ui-outline-color-inactive);}
 
 [role="button"]:focus-visible:not([disabled]){
-  outline-color:var(--ui-color-gray-500);}
+  outline-color:var(--ui-outline-color-active);}
 
 [disabled]:not([loading]){
   cursor:not-allowed;

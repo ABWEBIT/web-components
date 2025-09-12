@@ -6,20 +6,20 @@ class UIButton extends UIBase{
   #loading = false;
 
   static properties = Object.freeze({
-    'disabled':{name:'uiDisabled',type:Boolean,reflect:true},
-    'loading':{name:'uiLoading',type:Boolean,reflect:true}
+    'disabled':{name:'disabled',type:Boolean,reflect:true},
+    'loading':{name:'loading',type:Boolean,reflect:true}
   });
 
-  get uiDisabled(){return this.#disabled;}
-  set uiDisabled(value){
+  get disabled(){return this.#disabled;}
+  set disabled(value){
     if(this.#disabled === (value === true)) return;
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
     this.#syncDisabled();
   }
 
-  get uiLoading(){return this.#loading;}
-  set uiLoading(value){
+  get loading(){return this.#loading;}
+  set loading(value){
     if(this.#loading === (value === true)) return;
     this.#loading = value === true;
     this.reflect('loading',this.#loading);
@@ -29,12 +29,6 @@ class UIButton extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.setAttribute('role','button');
-
-    if(!this.hasAttribute('manual-config')){
-
-      this.size();
-      this.theme();
-    }
 
     if(!this.hasAttribute('tabindex')) this.tabIndex = 0;
 
@@ -53,42 +47,50 @@ class UIButton extends UIBase{
     this.#listeners = null;
   }
 
-  #syncLoading = () => {
+  #syncLoading = () =>{
     const spinner = this.querySelector('ui-spinner');
 
     if(this.#loading && !spinner){
       this.append(document.createElement('ui-spinner'));
-      this.uiDisabled = true;
+      this.disabled = true;
     }
     else if(!this.#loading && spinner){
       spinner.remove();
-      this.uiDisabled = false;
+      this.disabled = false;
     }
+
+    if(this.#loading) this.ariaBusy = true
+    else this.removeAttribute('aria-busy');
   }
 
-  #syncDisabled = () => {
-    if(this.#disabled) this.ariaDisabled = String(this.#disabled);
+  #syncDisabled = () =>{
+    if(this.#disabled) this.ariaDisabled = true
+    else this.removeAttribute('aria-disabled');
     this.tabIndex = this.#disabled ? -1 : 0;
   }
 
-  #onClick = (e) => {
+  #onClick = (e) =>{
     if(this.#disabled) return;
     e.preventDefault();
     e.stopImmediatePropagation();
-    this.onAction(e);
+    this.#onAction(e);
   }
 
-  #onKeyDown = (e) => {
+  #onKeyDown = (e) =>{
     if(this.#disabled) return;
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
       if(e.repeat) return;
-      this.click(e);
+      this.#onAction(e);
     }
   }
 
-  onAction(e){
-    //console.log(e.type);
+  #onAction = (e) =>{
+    this.dispatchEvent(new CustomEvent('button-action',{
+      detail:{originalEvent:e},
+      bubbles:true,
+      composed:true
+    }));
   }
 }
 customElements.define('ui-button',UIButton);
