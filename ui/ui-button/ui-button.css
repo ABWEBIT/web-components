@@ -56,7 +56,7 @@ ui-button{
     color:var(--ui-button-content-color-active);
     background-color:var(--ui-button-surface-color-active);}
 
-  > ui-icon{
+  & > ui-icon{
     height:var(--ui-button-icon-height);
     width:var(--ui-button-icon-width);
     margin-inline:var(--ui-button-icon-margin-inline);}
@@ -71,7 +71,7 @@ ui-button{
     inset:0;
     background-color:var(--ui-button-loader-surface-color);
 
-    > svg{
+    & > svg{
       height:var(--ui-button-loader-icon-height);
       width:var(--ui-button-loader-icon-width);}
   }

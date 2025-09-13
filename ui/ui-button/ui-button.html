@@ -189,7 +189,7 @@
   </div>
 
   <div class="content-item">
-    <div>Adding a loading attribute and state.</div>
+    <div>Loading state</div>
     <div class="example">
       <div class="preview">
         <ui-button id="loading">Start Loading</ui-button>
@@ -200,7 +200,16 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-button&gt;Start Loading&lt;/ui-button&gt;
+          &lt;ui-button&gt;Start Loading&lt;/ui-button&gt;<br><br>
+          const buttonLoading = document.getElementById('loading');<br>
+          const buttonReset = document.getElementById('reset');<br><br>
+
+          buttonLoading.addEventListener('button-action',() =>{<br>
+          &nbsp;buttonLoading.loading = true;<br>
+          });<br><br>
+          buttonReset.addEventListener('button-action',() =>{<br>
+          &nbsp;buttonLoading.loading = false;<br>
+          });
         </code>
       </div>
     </div>
@@ -214,11 +223,11 @@
   const buttonLoading = document.getElementById('loading');
   const buttonReset = document.getElementById('reset');
 
-  buttonLoading.addEventListener('button-action',async (e) =>{
+  buttonLoading.addEventListener('button-action',() =>{
     buttonLoading.loading = true;
   });
 
-  buttonReset.addEventListener('button-action',(e) => {
+  buttonReset.addEventListener('button-action',() => {
     buttonLoading.loading = false;
   });
 

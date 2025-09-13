@@ -13,9 +13,6 @@ class UIAccordion extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.shape();
-    this.size();
-    this.theme();
   }
 
   #render(){
@@ -29,8 +26,6 @@ class UIAccordion extends UIBase{
       /* header */
       const accordionHeader = document.createElement('ui-button');
       this.setAttributes(accordionHeader,{
-        'theme': 'none',
-        'size': '',
         'aria-expanded': item.expanded ? 'true' : 'false',
         'aria-controls': idPanel,
         'id': idHeader
@@ -71,11 +66,11 @@ class UIAccordion extends UIBase{
       fragment.append(accordionItem);
 
       /* events */
-      accordionHeader.onAction = (e) => {
+      accordionHeader.addEventListener('button-action',() =>{
         if(!item.disabled){
           this.#onAction(accordionHeader,accordionPanel);
         }
-      }
+      });
     });
     this.replaceChildren(fragment);
   }

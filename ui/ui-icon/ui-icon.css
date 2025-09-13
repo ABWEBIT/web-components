@@ -1,14 +1,17 @@
 ui-icon{
+  --ui-icon-height:24px;
+  --ui-icon-width:24px;
+
   display:inline-flex;
   align-items:center;
   justify-content:center;
   vertical-align:middle;
   flex-shrink:0;
-  height:24px;
-  width:24px;
+  height:var(--ui-icon-height);
+  width:var(--ui-icon-width);
 
   &[ui]{
-    transition-duration:var(--ui-transition-duration);
+    transition-duration:var(--ui-transition-duration-default);
     transition-property:color;}
 
   & > svg{

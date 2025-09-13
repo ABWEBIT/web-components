@@ -35,18 +35,18 @@ class UIAlert extends UIBase{
       fragment.append(title);
     }
 
-    if(d.description){
-      const description = document.createElement('div');
-      description.role = 'note';
-      description.innerHTML = DOMPurify.sanitize(d.description);
-      fragment.append(description);
+    if(d.content){
+      const content = document.createElement('div');
+      content.role = 'note';
+      content.innerHTML = DOMPurify.sanitize(d.content);
+      fragment.append(content);
     }
 
     if(!this.hasAttribute('non-closable')){
       const button = document.createElement('ui-button');
       this.setAttributes(button,{
-        'ui':'alert-close',
         'shape':'circle',
+        'close':'',
         'icon-only':''
       })
 

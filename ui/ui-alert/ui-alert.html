@@ -1,6 +1,6 @@
 <section class="intro">
   <h1>Alert</h1>
-  <div class="description">Displays a message that draws the user's attention.</div>
+  <div class="content">Displays a message that draws the user's attention.</div>
 </section>
 
 <section class="details">
@@ -8,7 +8,7 @@
     <h2>Usage</h2>
     <ul>
       <li>
-        Neither element is mandatory; however, either a title or a description is required to display a meaningful message.
+        Neither element is mandatory; however, either a title or a content is required to display a meaningful message.
       </li>
       <li>
         This component is designed to work with the <a href="#ui-icon">ui-icon</a> component for rendering icons.
@@ -23,9 +23,26 @@
         Hides the close button when the attribute is present.
       </li>
       <li>
+        icon - static (optional).<br>
+        Adds an icon by specifying its name in the attribute, e.g., <code>icon="name"</code>.
+      </li>
+      <li>
         shape - static (optional). Default: rounded.<br>
         Available options: rounded, square.<br>
         Sets the corner style.
+      </li>
+    </ul>
+  </div>
+  <div class="info">
+    <h2>Object properties</h2>
+    <ul>
+      <li>
+        title - optional.<br>
+        The main heading or title of the alert. Displayed prominently at the top of the alert box. Only plain text is allowed.
+      </li>
+      <li>
+        content - optional.<br>
+        Additional content of the alert, which can include plain text or sanitized HTML.
       </li>
     </ul>
   </div>
@@ -34,7 +51,7 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Alert with description, without a close button</div>
+    <div>Alert with content, without a close button</div>
     <div class="example">
       <div class="preview">
         <ui-alert id="ex00" non-closable></ui-alert>
@@ -46,8 +63,8 @@
         <code>
           &lt;ui-alert id="ex00" non-closable&gt;&lt;/ui-alert&gt;<br>
           <br>
-          ex01.data = {<br>
-          &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
+          ex00.data = {<br>
+          &nbsp;content: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
         </code>
       </div>
@@ -55,7 +72,7 @@
   </div>
 
   <div class="content-item">
-    <div>Alert with title and description</div>
+    <div>Alert with title and content</div>
     <div class="example">
       <div class="preview">
         <ui-alert id="ex01"></ui-alert>
@@ -69,7 +86,7 @@
           <br>
           ex01.data = {<br>
           &nbsp;title: 'Update Complete',<br>
-          &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
+          &nbsp;content: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
         </code>
       </div>
@@ -77,7 +94,7 @@
   </div>
 
   <div class="content-item">
-    <div>Alert with title, description, close button, and icon</div>
+    <div>Alert with title, content, close button, and icon</div>
     <div class="example">
       <div class="preview">
         <ui-alert id="ex02" icon="info"></ui-alert>
@@ -91,7 +108,7 @@
           <br>
           ex02.data = {<br>
           &nbsp;title: 'Update Complete',<br>
-          &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
+          &nbsp;content: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
         </code>
       </div>
@@ -105,19 +122,19 @@
 
   let ex00 = document.getElementById('ex00');
   ex00.data = {
-    description: 'Your settings have been <strong>successfully</strong> saved.'
+    content: 'Your settings have been <strong>successfully</strong> saved.'
   };
 
   let ex01 = document.getElementById('ex01');
   ex01.data = {
     title: 'Update Complete',
-    description: 'Your settings have been <strong>successfully</strong> saved.'
+    content: 'Your settings have been <strong>successfully</strong> saved.'
   };
 
   let ex02 = document.getElementById('ex02');
   ex02.data = {
     title: 'Update Complete',
-    description: 'Your settings have been <strong>successfully</strong> saved.'
+    content: 'Your settings have been <strong>successfully</strong> saved.'
   };
 
 })();
