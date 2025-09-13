@@ -1,6 +1,6 @@
 <section class="intro">
   <h1>Alert</h1>
-  <div class="content">Displays a message that draws the user's attention.</div>
+  <div class="description">Displays a message that draws the user's attention.</div>
 </section>
 
 <section class="details">
@@ -54,16 +54,16 @@
     <div>Alert with content, without a close button</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="ex00" non-closable></ui-alert>
+        <ui-alert id="alert00" non-closable></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert id="ex00" non-closable&gt;&lt;/ui-alert&gt;<br>
+          &lt;ui-alert id="alert" non-closable&gt;&lt;/ui-alert&gt;<br>
           <br>
-          ex00.data = {<br>
+          alert.data = {<br>
           &nbsp;content: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
         </code>
@@ -75,16 +75,16 @@
     <div>Alert with title and content</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="ex01"></ui-alert>
+        <ui-alert id="alert01"></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert id="ex01"&gt;&lt;/ui-alert&gt;<br>
+          &lt;ui-alert id="alert"&gt;&lt;/ui-alert&gt;<br>
           <br>
-          ex01.data = {<br>
+          alert.data = {<br>
           &nbsp;title: 'Update Complete',<br>
           &nbsp;content: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
@@ -97,16 +97,16 @@
     <div>Alert with title, content, close button, and icon</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="ex02" icon="info"></ui-alert>
+        <ui-alert id="alert02" icon="info"></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert id="ex02" icon="info"&gt;&lt;/ui-alert&gt;<br>
+          &lt;ui-alert id="alert" icon="info"&gt;&lt;/ui-alert&gt;<br>
           <br>
-          ex02.data = {<br>
+          alert.data = {<br>
           &nbsp;title: 'Update Complete',<br>
           &nbsp;content: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
@@ -120,19 +120,19 @@
 <script defer>
 (() => {
 
-  let ex00 = document.getElementById('ex00');
-  ex00.data = {
+  let alert00 = document.getElementById('alert00');
+  alert00.data = {
     content: 'Your settings have been <strong>successfully</strong> saved.'
   };
 
-  let ex01 = document.getElementById('ex01');
-  ex01.data = {
+  let alert01 = document.getElementById('alert01');
+  alert01.data = {
     title: 'Update Complete',
     content: 'Your settings have been <strong>successfully</strong> saved.'
   };
 
-  let ex02 = document.getElementById('ex02');
-  ex02.data = {
+  let alert02 = document.getElementById('alert02');
+  alert02.data = {
     title: 'Update Complete',
     content: 'Your settings have been <strong>successfully</strong> saved.'
   };

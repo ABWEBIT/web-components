@@ -7,9 +7,10 @@ ui-button{
   --ui-button-column-gap:12px;
   --ui-button-icon-height:16px;
   --ui-button-icon-width:16px;
-  --ui-button-loader-icon-height:20px;
-  --ui-button-loader-icon-width:20px;
   --ui-button-icon-margin-inline:-2px;
+  --ui-button-spinner-icon-height:20px;
+  --ui-button-spinner-icon-width:20px;
+  --ui-button-spinner-surface-color:var(--ui-surface-color-active);
   --ui-button-content-color-default:var(--ui-content-color-default);
   --ui-button-content-color-hover:var(--ui-content-color-hover);
   --ui-button-content-color-focus:var(--ui-content-color-focus);
@@ -18,7 +19,6 @@ ui-button{
   --ui-button-surface-color-hover:var(--ui-surface-color-hover);
   --ui-button-surface-color-focus:var(--ui-surface-color-focus);
   --ui-button-surface-color-active:var(--ui-surface-color-active);
-  --ui-button-loader-surface-color:var(--ui-surface-color-active);
 
   position:relative;
   display:flex;
@@ -57,24 +57,18 @@ ui-button{
     background-color:var(--ui-button-surface-color-active);}
 
   & > ui-icon{
-    height:var(--ui-button-icon-height);
-    width:var(--ui-button-icon-width);
+    --ui-icon-height:var(--ui-button-icon-height);
+    --ui-icon-width:var(--ui-button-icon-width);
     margin-inline:var(--ui-button-icon-margin-inline);}
 
   /* spinner */
   & > ui-spinner{
+    --ui-spinner-icon-height:var(--ui-button-spinner-icon-height);
+    --ui-spinner-icon-width:var(--ui-button-spinner-icon-width);
     position:absolute;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     border-radius:inherit;
     inset:0;
-    background-color:var(--ui-button-loader-surface-color);
-
-    & > svg{
-      height:var(--ui-button-loader-icon-height);
-      width:var(--ui-button-loader-icon-width);}
-  }
+    background-color:var(--ui-button-spinner-surface-color);}
 
   /* shape */
   &[shape="rounded"]{--ui-button-border-radius:var(--ui-border-radius-rounded);}

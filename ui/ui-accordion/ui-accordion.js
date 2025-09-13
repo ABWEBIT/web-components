@@ -1,8 +1,9 @@
 import {UIBase} from '../ui-base.js';
 import {uuid} from '../../utils/uuid.js';
+import DOMPurify from '../../utils/purify.es.mjs';
 
 class UIAccordion extends UIBase{
-  #data = [];
+  #data = null;
 
   get data(){return this.#data;}
   set data(value){
@@ -16,9 +17,12 @@ class UIAccordion extends UIBase{
   }
 
   #render(){
+    const d = this.#data;
+    if(!d) return;
+
     const fragment = document.createDocumentFragment();
 
-    this.#data.forEach((item,index) => {
+    d.forEach((item,index) => {
       const id = uuid();
       const idHeader = `id-header-${id}`;
       const idPanel = `id-panel-${id}`;
@@ -26,9 +30,9 @@ class UIAccordion extends UIBase{
       /* header */
       const accordionHeader = document.createElement('ui-button');
       this.setAttributes(accordionHeader,{
-        'aria-expanded': item.expanded ? 'true' : 'false',
-        'aria-controls': idPanel,
-        'id': idHeader
+        'aria-expanded':item.expanded ? 'true' : 'false',
+        'aria-controls':idPanel,
+        'id':idHeader
       });
 
       if(item.disabled){
@@ -41,7 +45,7 @@ class UIAccordion extends UIBase{
       /* header expand icon */
       const accordionHeaderIcon = document.createElement('ui-icon');
       this.setAttributes(accordionHeaderIcon,{
-        'icon': 'arrow-down-small'
+        'icon':'arrow-down-small'
       });
 
       accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
@@ -49,17 +53,18 @@ class UIAccordion extends UIBase{
       /* panel */
       const accordionPanel = document.createElement('div');
       this.setAttributes(accordionPanel,{
-        'role': 'region',
-        'id': idPanel,
-        'aria-labelledby': idHeader
+        'role':'region',
+        'id':idPanel,
+        'aria-labelledby':idHeader,
+        'aria-hidden':item.expanded ? 'false' : 'true',
       });
-      accordionPanel.hidden = !item.expanded || item.disabled;
-      accordionPanel.innerHTML = item.content ?? '';
+
+      accordionPanel.innerHTML = DOMPurify.sanitize(item.content ?? '');
       
       /* item */
       const accordionItem = document.createElement('div');
       this.setAttributes(accordionItem,{
-        'data-index': index
+        'data-index':index
       });
 
       accordionItem.append(accordionHeader,accordionPanel);
@@ -78,7 +83,7 @@ class UIAccordion extends UIBase{
   #onAction = (button,panel) => {
     const expanded = button.getAttribute('aria-expanded') === 'true';
     button.setAttribute('aria-expanded',String(!expanded));
-    if(panel) panel.hidden = expanded;
+    if(panel) panel.ariaHidden = expanded;
   }
 
 }

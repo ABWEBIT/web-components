@@ -12,7 +12,7 @@ ui-alert{
   --ui-alert-surface-color-default:var(--ui-surface-color-default);
   --ui-alert-icon-color:var(--ui-color-white);
   --ui-alert-title-color:var(--ui-color-white);
-  --ui-alert-content-color:var(--ui-color-gray-300);
+  --ui-alert-content-color:var(--ui-color-gray-200);
 
   position:relative;
   display:grid;

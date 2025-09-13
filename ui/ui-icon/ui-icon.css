@@ -10,10 +10,6 @@ ui-icon{
   height:var(--ui-icon-height);
   width:var(--ui-icon-width);
 
-  &[ui]{
-    transition-duration:var(--ui-transition-duration-default);
-    transition-property:color;}
-
   & > svg{
     height:100%;
     width:100%;}

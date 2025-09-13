@@ -1,11 +1,13 @@
 ui-spinner{
+  --ui-spinner-icon-height:24px;
+  --ui-spinner-icon-width:24px;
+
   display:inline-flex;
   align-items:center;
   justify-content:center;
 
   & > svg{
-    height:24px;
-    width:24px;
-    stroke-width:0;
+    height:var(--ui-spinner-icon-height);
+    width:var(--ui-spinner-icon-width);
     animation:rotate360 0.8s linear infinite;}
 }

@@ -1,14 +1,21 @@
 ui-accordion{
   --ui-accordion-border-radius:var(--ui-border-radius-default);
+  --ui-accordion-line-height:var(--ui-line-height-normal);
   --ui-accordion-header-font-size:16px;
   --ui-accordion-panel-font-size:14px;
   --ui-accordion-header-padding-inline:20px 12px;
   --ui-accordion-panel-padding-inline:20px;
   --ui-accordion-header-padding-block:12px;
   --ui-accordion-panel-padding-block:12px;
-  --ui-accordion-icon-expand-size:24px;
+  --ui-accordion-icon-expand-height:24px;
+  --ui-accordion-icon-expand-width:24px;
 
   --ui-accordion-surface-color:var(--ui-surface-color-default);
+  --ui-accordion-header-surface-color-default:transparent;
+  --ui-accordion-header-surface-color-hover:transparent;
+  --ui-accordion-header-surface-color-focus:transparent;
+  --ui-accordion-header-surface-color-active:transparent;
+  --ui-accordion-panel-surface-color:transparent;
   --ui-accordion-header-font-color:var(--ui-color-white);
   --ui-accordion-panel-font-color:var(--ui-color-gray-200);
 
@@ -23,43 +30,38 @@ ui-accordion{
     width:100%;
     background-color:var(--ui-accordion-surface-color);
 
-    > ui-button[aria-controls]{
+    & > ui-button[aria-controls]{
       --ui-button-size:auto;
-      --ui-button-surface-color-default:transparent;
-      --ui-button-surface-color-hover:transparent;
-      --ui-button-surface-color-focus:transparent;
-      --ui-button-surface-color-active:transparent;
+      --ui-button-surface-color-default:var(--ui-accordion-header-surface-color-default);
+      --ui-button-surface-color-hover:var(--ui-accordion-header-surface-color-hover);
+      --ui-button-surface-color-focus:var(--ui-accordion-header-surface-color-focus);
+      --ui-button-surface-color-active:var(--ui-accordion-header-surface-color-active);
+      --ui-button-padding-inline:var(--ui-accordion-header-padding-inline);
 
       justify-content:space-between;
       border-radius:inherit;
       padding-block:var(--ui-accordion-header-padding-block);
-      padding-inline:var(--ui-accordion-header-padding-inline);
       font-size:var(--ui-accordion-header-font-size);
       color:var(--ui-accordion-header-font-color);}
 
     @media (hover: hover){
-      > ui-button[aria-controls]:not([disabled]):hover{
+      & > ui-button[aria-controls]:not([disabled]):hover{
         text-decoration:underline;}
     }
 
-    > ui-button[aria-controls] > ui-icon{
-      display:flex;
-      align-items:center;
-      width:var(--ui-accordion-icon-expand-size);
-      height:var(--ui-accordion-icon-expand-size);}
+    & > ui-button[aria-controls]{
+      --ui-button-icon-height:var(--ui-accordion-icon-expand-height);
+      --ui-button-icon-width:var(--ui-accordion-icon-expand-width);
 
-    > ui-button[aria-controls][aria-expanded] > ui-icon{
-      transition-duration:var(--ui-transition-duration);
-      transition-property:transform;}
+      &[aria-expanded] > ui-icon{
+        transition-duration:var(--ui-transition-duration-default);
+        transition-property:transform;}
 
-    > ui-button[aria-controls][aria-expanded="false"] > ui-icon{
-      transform:rotate(0deg);}
+      &[aria-expanded="false"] > ui-icon{transform:rotate(0deg);}
+      &[aria-expanded="true"] > ui-icon{transform:rotate(180deg);}
+    }
 
-    > ui-button[aria-controls][aria-expanded="true"] > ui-icon{
-      transform:rotate(180deg);}
-
-    > [role="region"]{
-      display:block;
+    & > [role="region"]{
       -webkit-user-select:text;
       user-select:text;
       border-radius:inherit;
@@ -67,10 +69,14 @@ ui-accordion{
       color:var(--ui-accordion-panel-font-color);
       padding-inline:var(--ui-accordion-panel-padding-inline);
       padding-block:var(--ui-accordion-panel-padding-block);
-      line-height:var(--ui-line-height-normal);}
+      line-height:var(--ui-accordion-line-height);
 
-    > [role="region"][hidden]{
-      display:none;}
+      &[aria-hidden="false"]{
+        display:block;}
+
+      &[aria-hidden="true"]{
+        display:none;}
+    }
   }
 
   /* shape */
