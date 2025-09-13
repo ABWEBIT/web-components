@@ -14,7 +14,17 @@
         This component is designed to work with the <a href="#ui-icon">ui-icon</a> component for rendering icons, but it can easily be adapted to support raw SVGs or other elements if needed.
       </li>
       <li>
-        Since the default icons have 2px padding inside the SVG, --ui-button-icon-margin-inline-trim: -2px is applied in size="default" to visually balance the button's side spacing. This affects only the width - not the height. If your icons extend to the full SVG width, you should remove this adjustment.
+        Since the default icons have 2px of padding inside the SVG,  <code>--ui-button-icon-margin-inline:-2px</code> is applied to visually balance the button's horizontal spacing. This adjustment affects only the width, not the height. If your icons extend to the full SVG width, you should remove this adjustment or set it to 0px.
+      </li>
+      <li>
+        Action Event - This component dispatches a custom event "button-action" whenever it is activated via click or keyboard (Enter / Space).
+        External scripts should listen to this event to handle button actions.<br><br>
+        Example:<br>
+        <code>
+        button.addEventListener('button-action',() =>{<br>
+        &nbsp;console.log('Button clicked');<br>
+        });
+        </code>
       </li>
     </ul>
   </div>
@@ -77,7 +87,7 @@
     <div>Text-Only, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button shape="rounded">Button</ui-button>
+        <ui-button>Button</ui-button>
         <ui-button shape="pill">Button</ui-button>
         <ui-button shape="square">Button</ui-button>
       </div>
@@ -86,7 +96,7 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-button shape="rounded"&gt;Button&lt;/ui-button&gt;<br>
+          &lt;ui-button&gt;Button&lt;/ui-button&gt;<br>
           &lt;ui-button shape="pill"&gt;Button&lt;/ui-button&gt;<br>
           &lt;ui-button shape="square"&gt;Button&lt;/ui-button&gt;
         </code>
@@ -95,10 +105,10 @@
   </div>
 
   <div class="content-item">
-    <div>Icon, Different Shapes</div>
+    <div>Icon-Only, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button aria-label="Button" shape="rounded" icon-only>
+        <ui-button aria-label="Button" icon-only>
           <ui-icon icon="article"></ui-icon>
         </ui-button>
         <ui-button aria-label="Button" shape="circle" icon-only>
@@ -113,7 +123,7 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-button aria-label="Button" shape="rounded" icon-only&gt;<br>
+          &lt;ui-button aria-label="Button" icon-only&gt;<br>
           &nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;<br>
           &lt;/ui-button&gt;<br>
           <br>

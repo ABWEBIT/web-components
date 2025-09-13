@@ -146,13 +146,13 @@
 
 
   /***** dark theme *****/
-  /* text colors */
-  --ui-text-color-default:var(--ui-color-gray-150);
-  --ui-text-color-hover:var(--ui-color-white);
-  --ui-text-color-focus:var(--ui-color-white);
-  --ui-text-color-active:var(--ui-color-white);
+  /* content (text/icons) colors */
+  --ui-content-color-default:var(--ui-color-gray-150);
+  --ui-content-color-hover:var(--ui-color-white);
+  --ui-content-color-focus:var(--ui-color-white);
+  --ui-content-color-active:var(--ui-color-white);
 
-  /* surface background colors */
+  /* surface colors */
   --ui-surface-color-default:var(--ui-color-gray-800);
   --ui-surface-color-hover:var(--ui-color-gray-750);
   --ui-surface-color-focus:var(--ui-color-gray-750);

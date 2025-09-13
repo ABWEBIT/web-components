@@ -23,14 +23,6 @@
         Hides the close button when the attribute is present.
       </li>
       <li>
-        size - static (optional). Default: default.<br>
-        Specifies the component's size (extendable via CSS).
-      </li>
-      <li>
-        theme - static (optional). Default: default.<br>
-        Specifies the component's color scheme (extendable via CSS).
-      </li>
-      <li>
         shape - static (optional). Default: rounded.<br>
         Available options: rounded, square.<br>
         Sets the corner style.
@@ -42,7 +34,7 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Alert with a title and description, without a close button</div>
+    <div>Alert with description, without a close button</div>
     <div class="example">
       <div class="preview">
         <ui-alert id="ex00" non-closable></ui-alert>
@@ -52,10 +44,9 @@
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert id="ex01" non-closable&gt;&lt;/ui-alert&gt;<br>
+          &lt;ui-alert id="ex00" non-closable&gt;&lt;/ui-alert&gt;<br>
           <br>
           ex01.data = {<br>
-          &nbsp;title: 'Update Complete',<br>
           &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
         </code>
@@ -64,17 +55,17 @@
   </div>
 
   <div class="content-item">
-    <div>Alert with a title and description, without a close button</div>
+    <div>Alert with title and description</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="ex01" non-closable></ui-alert>
+        <ui-alert id="ex01"></ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
         <code>
-          &lt;ui-alert id="ex01" non-closable&gt;&lt;/ui-alert&gt;<br>
+          &lt;ui-alert id="ex01"&gt;&lt;/ui-alert&gt;<br>
           <br>
           ex01.data = {<br>
           &nbsp;title: 'Update Complete',<br>
@@ -86,7 +77,7 @@
   </div>
 
   <div class="content-item">
-    <div>Alert with a title, description, a close button and an icon</div>
+    <div>Alert with title, description, close button, and icon</div>
     <div class="example">
       <div class="preview">
         <ui-alert id="ex02" icon="info"></ui-alert>
@@ -102,34 +93,6 @@
           &nbsp;title: 'Update Complete',<br>
           &nbsp;description: 'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'<br>
           };
-        </code>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Alert with a title, description, a close button and an icon</div>
-    <div class="example">
-      <div class="preview">
-        <ui-alert icon="info">
-          <ui-icon icon="info"></ui-icon>
-          <div role="heading" aria-level="6">Update Complete</div>
-          <div role="note">Your settings have been <strong>successfully</strong> saved.</div>
-          <ui-button ui="alert-close" shape="circle" theme="default" manual-config>
-            <ui-icon icon="close"></ui-icon>
-          </ui-button>
-        </ui-alert>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          &lt;ui-alert icon="info"&gt;<br>
-          &nbsp;&lt;ui-icon icon="info"&gt;&lt;/ui-icon&gt;<br>
-          &nbsp;&lt;div role="heading" aria-level="6"&gt;Update Complete&lt;/div&gt;<br>
-          &nbsp;&lt;div role="note"&gt;Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.&lt;/div&gt;<br>
-          &lt;/ui-alert&gt;<br>
         </code>
       </div>
     </div>

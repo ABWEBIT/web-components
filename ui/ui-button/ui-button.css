@@ -1,7 +1,7 @@
 ui-button{
+  --ui-button-border-radius:var(--ui-border-radius-default);
   --ui-button-size:var(--ui-size-default);
   --ui-button-line-height:var(--ui-line-height-x-small);
-  --ui-button-border-radius:var(--ui-border-radius-default);
   --ui-button-font-size:var(--ui-font-size-default);
   --ui-button-padding-inline:16px;
   --ui-button-column-gap:12px;
@@ -9,11 +9,11 @@ ui-button{
   --ui-button-icon-width:16px;
   --ui-button-loader-icon-height:20px;
   --ui-button-loader-icon-width:20px;
-  --ui-button-icon-spacing-fix:-2px;
-  --ui-button-text-color-default:var(--ui-text-color-default);
-  --ui-button-text-color-hover:var(--ui-text-color-hover);
-  --ui-button-text-color-focus:var(--ui-text-color-focus);
-  --ui-button-text-color-active:var(--ui-text-color-active);
+  --ui-button-icon-margin-inline:-2px;
+  --ui-button-content-color-default:var(--ui-content-color-default);
+  --ui-button-content-color-hover:var(--ui-content-color-hover);
+  --ui-button-content-color-focus:var(--ui-content-color-focus);
+  --ui-button-content-color-active:var(--ui-content-color-active);
   --ui-button-surface-color-default:var(--ui-surface-color-default);
   --ui-button-surface-color-hover:var(--ui-surface-color-hover);
   --ui-button-surface-color-focus:var(--ui-surface-color-focus);
@@ -31,10 +31,11 @@ ui-button{
   padding-inline:var(--ui-button-padding-inline);
   column-gap:var(--ui-button-column-gap);
   font-size:var(--ui-button-font-size);
-  color:var(--ui-button-text-color-default);
+  color:var(--ui-button-content-color-default);
   background-color:var(--ui-button-surface-color-default);
 
   &[icon-only]{
+    padding-inline:0;
     width:var(--ui-button-size);}
 
   &[ui]{
@@ -43,22 +44,22 @@ ui-button{
 
   @media (hover: hover){
     &:hover:not([disabled]){
-      color:var(--ui-button-text-color-hover);
+      color:var(--ui-button-content-color-hover);
       background-color:var(--ui-button-surface-color-hover);}
   }
 
   &:focus-visible:not([disabled]){
-    color:var(--ui-button-text-color-focus);
+    color:var(--ui-button-content-color-focus);
     background-color:var(--ui-button-surface-color-focus);}
 
   &:active:not([disabled]){
-    color:var(--ui-button-text-color-active);
+    color:var(--ui-button-content-color-active);
     background-color:var(--ui-button-surface-color-active);}
 
   > ui-icon{
     height:var(--ui-button-icon-height);
     width:var(--ui-button-icon-width);
-    margin-inline:var(--ui-button-icon-spacing-fix);}
+    margin-inline:var(--ui-button-icon-margin-inline);}
 
   /* spinner */
   & > ui-spinner{

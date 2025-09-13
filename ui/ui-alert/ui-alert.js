@@ -13,15 +13,6 @@ class UIAlert extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.setAttribute('role','alert');
-    this.shape();
-    this.size();
-    this.theme();
-
-    if(!this.hasAttribute('non-closable')){
-      const button = document.querySelector('[ui="alert-close"]');
-      button.onAction = () => this.remove();
-    }
-
   }
 
   #render(){
@@ -56,14 +47,14 @@ class UIAlert extends UIBase{
       this.setAttributes(button,{
         'ui':'alert-close',
         'shape':'circle',
-        'size':'alert-close'
+        'icon-only':''
       })
 
       const uiIcon = document.createElement('ui-icon');
       uiIcon.setAttribute('icon','close');
       button.append(uiIcon);
 
-      button.onAction = () => this.remove();
+      button.addEventListener('button-action',() => this.remove());
 
       fragment.append(button);
     }
