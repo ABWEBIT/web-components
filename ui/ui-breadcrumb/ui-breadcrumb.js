@@ -31,7 +31,7 @@ class UIBreadcrumb extends UIBase{
     });
 
     const ol = document.createElement('ol');
-    ol.setAttribute('data-ui', 'breadcrumb-list');
+    ol.setAttribute('data-ui','breadcrumb-list');
 
     const separatorTemplate = document.createElement('ui-icon');
     this.setAttributes(separatorTemplate,{

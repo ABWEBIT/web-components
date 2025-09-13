@@ -31,13 +31,10 @@ class UISwitch extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.role = 'switch';
     this.replaceChildren();
     this.size();
     this.theme();
-
-    this.setAttributes(this,{
-      'role': 'switch'
-    });
 
     this.checked = this.hasAttribute('checked');
     this.disabled = this.hasAttribute('disabled');
@@ -54,12 +51,12 @@ class UISwitch extends UIBase{
     this.#listeners = null;
   }
 
-  #onClick = (e) => {
+  #onClick = (e) =>{
     if(this.disabled) return;
     this.#onAction(e);
   }
 
-  #onKeyDown = (e) => {
+  #onKeyDown = (e) =>{
     if(this.#disabled) return;
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
@@ -68,9 +65,8 @@ class UISwitch extends UIBase{
     }
   }
 
-  #onAction = (e) => {
+  #onAction = (e) =>{
     this.checked = !this.#checked;
-    console.log(e.type);
   }
 
 }

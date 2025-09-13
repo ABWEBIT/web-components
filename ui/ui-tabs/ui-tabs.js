@@ -23,10 +23,8 @@ class UITabs extends UIBase{
     this.replaceChildren();
 
     const tablist = document.createElement('div');
-    this.setAttributes(tablist,{
-      'data-ui': 'tabs-list',
-      'role': 'tablist'
-    });
+    tablist.role = 'tablist';
+    tablist.dataset.ui = 'tabs-list';
 
     const panelsContainer = document.createElement('div');
     panelsContainer.setAttribute('data-ui','tabs-panels');
@@ -36,11 +34,10 @@ class UITabs extends UIBase{
       const idControl = `id-controls-${id}`;
       const idTab = `id-tab-${id}`;
 
-      const tab = document.createElement('button');
+      const tab = document.createElement('ui-button');
       this.setAttributes(tab,{
         'data-ui': 'tab',
         'role': 'tab',
-        'type': 'button',
         'tabindex': index === this.#activeIndex && !item.disabled ? '0' : '-1',
         'aria-selected': index === this.#activeIndex ? 'true' : 'false',
         'id': idTab,

@@ -28,7 +28,7 @@ class UIButton extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.setAttribute('role','button');
+    this.role = 'button';
 
     if(!this.hasAttribute('tabindex')) this.tabIndex = 0;
 
@@ -60,12 +60,12 @@ class UIButton extends UIBase{
     }
 
     if(this.#loading) this.ariaBusy = true
-    else this.removeAttribute('aria-busy');
+    else this.ariaBusy = null;
   }
 
   #syncDisabled = () =>{
     if(this.#disabled) this.ariaDisabled = true
-    else this.removeAttribute('aria-disabled');
+    else this.ariaDisabled = null;
     this.tabIndex = this.#disabled ? -1 : 0;
   }
 

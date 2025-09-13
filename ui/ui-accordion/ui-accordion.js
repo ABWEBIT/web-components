@@ -29,43 +29,33 @@ class UIAccordion extends UIBase{
 
       /* header */
       const accordionHeader = document.createElement('ui-button');
-      this.setAttributes(accordionHeader,{
-        'aria-expanded':item.expanded ? 'true' : 'false',
-        'aria-controls':idPanel,
-        'id':idHeader
-      });
+      accordionHeader.ariaExpanded = item.expanded ? 'true' : 'false';
+      accordionHeader.id = idHeader;
+      accordionHeader.setAttribute('aria-controls',idPanel);
 
-      if(item.disabled){
-        accordionHeader.setAttribute('disabled','');
-      }
+      accordionHeader.disabled = !!item.disabled;
 
       /* header text */
       const accordionHeaderText = document.createTextNode(item.title ?? '');
 
       /* header expand icon */
       const accordionHeaderIcon = document.createElement('ui-icon');
-      this.setAttributes(accordionHeaderIcon,{
-        'icon':'arrow-down-small'
-      });
+      accordionHeaderIcon.setAttribute('icon','arrow-down-small');
 
       accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
   
       /* panel */
       const accordionPanel = document.createElement('div');
-      this.setAttributes(accordionPanel,{
-        'role':'region',
-        'id':idPanel,
-        'aria-labelledby':idHeader,
-        'aria-hidden':item.expanded ? 'false' : 'true',
-      });
+      accordionPanel.ariaHidden = item.expanded ? 'false' : 'true',
+      accordionPanel.role = 'region';
+      accordionPanel.id = idPanel;
+      accordionPanel.setAttribute('aria-labelledby',idHeader);
 
       accordionPanel.innerHTML = DOMPurify.sanitize(item.content ?? '');
       
       /* item */
       const accordionItem = document.createElement('div');
-      this.setAttributes(accordionItem,{
-        'data-index':index
-      });
+      accordionItem.dataset.index = index;
 
       accordionItem.append(accordionHeader,accordionPanel);
       fragment.append(accordionItem);
@@ -81,9 +71,9 @@ class UIAccordion extends UIBase{
   }
 
   #onAction = (button,panel) => {
-    const expanded = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded',String(!expanded));
-    if(panel) panel.ariaHidden = expanded;
+    const expanded = button.ariaExpanded === 'true';
+    button.ariaExpanded = String(!expanded);
+    if(panel) panel.ariaHidden = String(expanded);
   }
 
 }
