@@ -2,13 +2,14 @@ import {UIBase} from '../ui-base.js';
 import {uuid} from '../../utils/uuid.js';
 
 class UITabs extends UIBase{
-  #items = [];
+  #data = [];
   #activeIndex = 0;
 
-  get items(){return this.#items;}
-  set items(value){
-    if(!Array.isArray(value)) throw new Error('Items must be an array');
-    this.#items = value;
+  get data(){return this.#data;}
+  set data(value){
+    if(!Array.isArray(value)) throw new Error('Data must be an array');
+    if(this.#data === value) return;
+    this.#data = value;
     this.#render();
   }
 
@@ -29,7 +30,7 @@ class UITabs extends UIBase{
     const panelsContainer = document.createElement('div');
     panelsContainer.setAttribute('data-ui','tabs-panels');
 
-    this.#items.forEach((item,index) => {
+    this.#data.forEach((item,index) => {
       const id = uuid();
       const idControl = `id-controls-${id}`;
       const idTab = `id-tab-${id}`;
@@ -77,42 +78,42 @@ class UITabs extends UIBase{
 
     tabs.forEach((tab,idx) => {
       tab.setAttribute('aria-selected', idx === index ? 'true' : 'false');
-      tab.setAttribute('tabindex', idx === index && !this.#items[idx].disabled ? '0' : '-1');
+      tab.setAttribute('tabindex', idx === index && !this.#data[idx].disabled ? '0' : '-1');
     });
 
     panels.forEach((panel,idx) => {
-      panel.hidden = idx !== index || this.#items[idx].disabled;
+      panel.hidden = idx !== index || this.#data[idx].disabled;
     });
 
     this.#activeIndex = index;
   }
 
   #onKeyDown = (e,index) => {
-    const total = this.#items.length;
+    const total = this.#data.length;
     let newIndex = index;
 
     switch (e.key) {
       case 'ArrowRight':
         newIndex = (index + 1) % total;
-        while (this.#items[newIndex]?.disabled){
+        while (this.#data[newIndex]?.disabled){
           newIndex = (newIndex + 1) % total;
         }
         break;
       case 'ArrowLeft':
         newIndex = (index - 1 + total) % total;
-        while (this.#items[newIndex]?.disabled){
+        while (this.#data[newIndex]?.disabled){
           newIndex = (newIndex - 1 + total) % total;
         }
         break;
       case 'Home':
         newIndex = 0;
-        while (this.#items[newIndex]?.disabled){
+        while (this.#data[newIndex]?.disabled){
           newIndex = (newIndex + 1) % total;
         }
         break;
       case 'End':
         newIndex = total - 1;
-        while (this.#items[newIndex]?.disabled){
+        while (this.#data[newIndex]?.disabled){
           newIndex = (newIndex - 1 + total) % total;
         }
         break;

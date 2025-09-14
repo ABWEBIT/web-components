@@ -39,7 +39,7 @@ ui-button{
     width:var(--ui-button-size);}
 
   &[ui]{
-    transition-duration:var(--ui-transition-duration-x-fast);
+    transition-duration:var(--ui-transition-duration-default);
     transition-property:background-color,outline-color,color;}
 
   @media (hover: hover){

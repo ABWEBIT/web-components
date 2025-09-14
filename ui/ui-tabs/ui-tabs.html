@@ -30,64 +30,37 @@
     <div>Rounded shape with a disabled tab</div>
     <div class="example">
       <div class="preview">
-        <ui-tabs></ui-tabs>
+        <ui-tabs id="tabs"></ui-tabs>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
-        <code>
-          <div>&lt;ui-tabs&gt;&lt;/ui-tabs&gt;</div>
-          <br>
-          items = [{<br>
-          &nbsp;label:'What is Lorem?',<br>
-          &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
-          },{<br>
-          &nbsp;label:'Why use it?',<br>
-          &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
-          &nbsp;disabled:true<br>
-          },{<br>
-          &nbsp;label:'Where to use?',<br>
-          &nbsp;content:'Lorem ipsum dolor sit amet...'<br>
-          }];
-        </code>
-      </div>
-    </div>
-  </div>
 
-  <div class="content-item">
-    <div>Square shape with a disabled tab</div>
-    <div class="example">
-      <div class="preview">
-        <ui-tabs shape="square"></ui-tabs>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-        <code>
-          <div>&lt;ui-tabs shape="square"&gt;&lt;/ui-tabs&gt;</div>
-        </code>
+<pre><code>
+&lt;ui-tabs id="tabs"&gt;&lt;/ui-tabs&gt;
+
+tabs.data = [
+ {label:'What is Lorem?',content:'Lorem ipsum dolor sit amet...'},
+ {label:'Why use it?',content:'Lorem ipsum dolor sit amet...',disabled:true},
+ {label:'Where to use?',content:'Lorem ipsum dolor sit amet...'}
+];
+</code></pre>
+
       </div>
     </div>
   </div>
 
 </section>
 
-<script>
-items = [{
-  label:'What is Lorem?',
-  content:'Lorem <strong>ipsum</strong> dolor sit amet...',
-},{
-  label:'Why use it?',
-  content:'Lorem <strong>ipsum</strong> dolor sit...',
-  disabled:true
-},{
-  label:'Where to use?',
-  content:'Lorem <strong>ipsum</strong> dolor...'
-}];
+<script defer>
+(() => {
 
-document.querySelectorAll('ui-tabs').forEach(tab => {
-  tab.items = items;
-});
+  tabs.data = [
+    {label:'What is Lorem?',content:'Lorem <strong>ipsum</strong> dolor sit amet...'},
+    {label:'Why use it?',content:'Lorem <strong>ipsum</strong> dolor sit...',disabled:true},
+    {label:'Where to use?',content:'Lorem <strong>ipsum</strong> dolor...'}
+  ];
+
+})();
 </script>

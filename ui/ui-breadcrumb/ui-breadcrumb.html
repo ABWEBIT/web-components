@@ -21,29 +21,24 @@
     <div>Text only</div>
     <div class="example">
       <div class="preview">
-        <ui-breadcrumb id="ex1"></ui-breadcrumb>
+        <ui-breadcrumb id="breadcrumb00"></ui-breadcrumb>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
-        <code>
-          <div>&lt;ui-breadcrumb&gt;&lt;/ui-breadcrumb&gt;</div>
-          <br>
-          items = [{<br>
-          &nbsp;label:'Home',<br>
-          &nbsp;href:'#'<br>
-          },{<br>
-          &nbsp;label:'Settings',<br>
-          &nbsp;href:'#'<br>
-          },{<br>
-          &nbsp;label:'Notifications',<br>
-          &nbsp;href:'#'<br>
-          },{<br>
-          &nbsp;label:'Article',<br>
-          &nbsp;href:'#'<br>
-          }];
-        </code>
+
+<pre><code>
+&lt;ui-breadcrumb id="breadcrumb"&gt;&lt;/ui-breadcrumb&gt;
+
+breadcrumb.data = [
+ {label:'Home',href:'/'},
+ {label:'Settings',href:'/'},
+ {label:'Notifications',href:'/'},
+ {label:'Article',href:'/'}
+];
+</code></pre>
+
       </div>
     </div>
   </div>
@@ -52,33 +47,24 @@
     <div>Text with icons</div>
     <div class="example">
       <div class="preview">
-        <ui-breadcrumb id="ex2"></ui-breadcrumb>
+        <ui-breadcrumb id="breadcrumb01"></ui-breadcrumb>
       </div>
       <div class="toolbar">
         <span>HTML</span>
       </div>
       <div class="code">
-        <code>
-          <div>&lt;ui-breadcrumb&gt;&lt;/ui-breadcrumb&gt;</div>
-          <br>
-          items = [{<br>
-          &nbsp;icon:'home',<br>
-          &nbsp;label:'Home',<br>
-          &nbsp;href:'/'<br>
-          },{<br>
-          &nbsp;icon:'settings',<br>
-          &nbsp;label:'Settings',<br>
-          &nbsp;href:'/'<br>
-          },{<br>
-          &nbsp;icon:'notifications',<br>
-          &nbsp;label:'Notifications',<br>
-          &nbsp;href:'/'<br>
-          },{<br>
-          &nbsp;icon:'article',<br>
-          &nbsp;label:'Article',<br>
-          &nbsp;href:'/'<br>
-          }];
-        </code>
+
+<pre><code>
+&lt;ui-breadcrumb id="breadcrumb"&gt;&lt;/ui-breadcrumb&gt;
+
+breadcrumb.data = [
+ {icon:'home',label:'Home',href:'/'},
+ {icon:'settings',label:'Settings',href:'/'},
+ {icon:'notifications',label:'Notifications',href:'/'},
+ {icon:'article',label:'Article',href:'/'}
+];
+</code></pre>
+
       </div>
     </div>
   </div>
@@ -86,39 +72,17 @@
 </section>
 
 <script>
-items = [{
-  label:'Home',
-  href:'/',
-},{
-  label:'Settings',
-  href:'/'
-},{
-  label:'Notifications',
-  href:'/'
-},{
-  label:'Article',
-  href:'/'
-}];
+breadcrumb00.data = [
+  {label:'Home',href:'/'},
+  {label:'Settings',href:'/'},
+  {label:'Notifications',href:'/'},
+  {label:'Article',href:'/'}
+];
 
-document.getElementById('ex1').items = items;
-
-items = [{
-  icon:'home',
-  label:'Home',
-  href:'/',
-},{
-  icon:'settings',
-  label:'Settings',
-  href:'/'
-},{
-  icon:'notifications',
-  label:'Notifications',
-  href:'/'
-},{
-  icon:'article',
-  label:'Article',
-  href:'/'
-}];
-
-document.getElementById('ex2').items = items;
+breadcrumb01.data = [
+  {icon:'home',label:'Home',href:'/'},
+  {icon:'settings',label:'Settings',href:'/'},
+  {icon:'notifications',label:'Notifications',href:'/'},
+  {icon:'article',label:'Article',href:'/'}
+];
 </script>

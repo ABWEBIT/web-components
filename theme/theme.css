@@ -196,6 +196,10 @@ article{
   line-height:var(--ui-line-height-normal);
   background-color:var(--ui-color-gray-850);}
 
+.content-item > .example > .code code{
+  white-space:pre-wrap;
+  word-break:break-word;}
+
 .content-item > .example > .preview,
 .content-item > .example > .toolbar{
   border-bottom:1px solid var(--ui-color-gray-750);}

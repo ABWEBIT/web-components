@@ -1,15 +1,15 @@
 import {UIBase} from '../ui-base.js';
 
 class UIBreadcrumb extends UIBase{
-  #items = [];
+  #data = null;
   #iconSeparatorLTR = 'arrow-right-small';
   #iconSeparatorRTL = 'arrow-left-small';
 
-  get items(){return this.#items;}
-  set items(value){
-    if(!Array.isArray(value)) throw new TypeError('Items must be an array');
-    if(this.#items === value) return;
-    this.#items = value;
+  get data(){return this.#data;}
+  set data(value){
+    if(!Array.isArray(value)) throw new TypeError('Data must be an array');
+    if(this.#data === value) return;
+    this.#data = value;
     this.#render();
   }
 
@@ -40,7 +40,7 @@ class UIBreadcrumb extends UIBase{
       'icon': separatorIcon
     });
 
-    this.#items.forEach((item,index) => {
+    this.#data.forEach((item,index) => {
       if(!item.label && !item.icon){
         console.warn(`Breadcrumb item at index ${index} has no "label" or "icon".`);
       }
@@ -48,7 +48,7 @@ class UIBreadcrumb extends UIBase{
       const li = document.createElement('li');
       li.setAttribute('data-ui','breadcrumb-item');
 
-      const isLast = index === this.#items.length - 1;
+      const isLast = index === this.#data.length - 1;
       const itemContent = isLast ? document.createElement('span') : document.createElement('a');
 
       if(isLast){

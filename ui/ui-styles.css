@@ -202,13 +202,15 @@
   cursor:pointer;
   touch-action:manipulation;}
 
-[role="button"]{
+[role="button"],
+[role="switch"]{
   outline-offset:var(--ui-outline-offset);
   outline-width:var(--ui-outline-width);
   outline-style:var(--ui-outline-style);
   outline-color:var(--ui-outline-color-inactive);}
 
-[role="button"]:focus-visible:not([disabled]){
+[role="button"]:focus-visible:not([disabled]),
+[role="switch"]:focus-visible:not([disabled]){
   outline-color:var(--ui-outline-color-active);}
 
 [disabled]:not([loading]){
