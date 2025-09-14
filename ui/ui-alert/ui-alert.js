@@ -6,7 +6,7 @@ class UIAlert extends UIBase{
 
   get data(){return this.#data;}
   set data(value){
-    if(!Array.isArray(value)) throw new TypeError('Data must be an array');
+    if(typeof value !== 'object' || !value || Array.isArray(value)) throw new TypeError('Data must be an array');
     if(this.#data === value) return;
     this.#data = value;
     this.#render();
