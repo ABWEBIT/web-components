@@ -71,18 +71,22 @@ breadcrumb.data = [
 
 </section>
 
-<script>
-breadcrumb00.data = [
-  {label:'Home',href:'/'},
-  {label:'Settings',href:'/'},
-  {label:'Notifications',href:'/'},
-  {label:'Article',href:'/'}
-];
+<script defer>
+(() => {
 
-breadcrumb01.data = [
-  {icon:'home',label:'Home',href:'/'},
-  {icon:'settings',label:'Settings',href:'/'},
-  {icon:'notifications',label:'Notifications',href:'/'},
-  {icon:'article',label:'Article',href:'/'}
-];
+  breadcrumb00.data = [
+    {label:'Home',href:'/'},
+    {label:'Settings',href:'/'},
+    {label:'Notifications',href:'/'},
+    {label:'Article',href:'/'}
+  ];
+
+  breadcrumb01.data = [
+    {icon:'home',label:'Home',href:'/'},
+    {icon:'settings',label:'Settings',href:'/'},
+    {icon:'notifications',label:'Notifications',href:'/'},
+    {icon:'article',label:'Article',href:'/'}
+  ];
+
+})();
 </script>
