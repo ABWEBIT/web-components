@@ -45,6 +45,7 @@ export class UIBase extends HTMLElement{
     }
   }
 
+/*
   setAttributes(target,attributes){
     if (!target || typeof target.setAttribute !== 'function') return;
 
@@ -54,6 +55,7 @@ export class UIBase extends HTMLElement{
       else target.setAttribute(key,String(value));
     }
   }
+*/
 
   updateText(selector,text){
     queueMicrotask(()=>{

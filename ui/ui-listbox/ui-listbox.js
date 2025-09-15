@@ -47,14 +47,12 @@ class UIListbox extends UIBase{
 
       const id = `${this.id}--option-${index}`;
 
-      this.setAttributes(option,{
-        'role': 'option',
-        'tabindex': '-1',
-        'aria-disabled': disabled ? 'true' : 'false',
-        'aria-selected': selected ? 'true' : 'false',
-        'data-active': 'false',
-        'id': id
-      });
+      option.role = 'option';
+      option.tabIndex = '-1';
+      option.ariaDisabled = disabled ? 'true' : 'false';
+      option.ariaSelected = selected ? 'true' : 'false';
+      option.id = id;
+      option.dataset.active = 'false';
 
       option.dataset.value = value;
 

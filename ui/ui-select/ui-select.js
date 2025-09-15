@@ -65,10 +65,8 @@ class UISelect extends UIBase{
     this.#disabled = valueNew;
 
     this.reflect('disabled',this.#disabled);
-    this.setAttributes(this,{
-      'tabindex': this.#disabled ? '-1' : '0',
-      'aria-disabled': this.#disabled ? 'true' : 'false'
-    });
+    this.tabIndex = this.#disabled ? '-1' : '0';
+    this.ariaDisabled = this.#disabled ? 'true' : 'false';
   }
 
   get expanded(){return this.#expanded;}
@@ -78,9 +76,7 @@ class UISelect extends UIBase{
     this.#expanded = valueNew;
 
     this.reflect('expanded',this.#expanded);
-    this.setAttributes(this,{
-      'aria-expanded': this.#expanded ? 'true' : 'false'
-    });
+    this.ariaExpanded = this.#expanded ? 'true' : 'false';
 
     if(this.#expanded){
       this.#listboxCreate();
@@ -117,12 +113,11 @@ class UISelect extends UIBase{
     super.connectedCallback();
     this.role = 'combobox';
 
-    this.setAttributes(this,{
-      'tabindex': this.#disabled ? '-1' : '0',
-      'aria-haspopup': 'listbox',
-      'aria-expanded': this.#expanded ? 'true' : 'false',
-      'aria-controls': this.#listboxId
-    });
+    this.tabIndex = this.#disabled ? '-1' : '0';
+    this.ariaExpanded = this.#expanded ? 'true' : 'false';
+    this.ariaHasPopup = 'listbox';
+
+    this.setAttribute('aria-controls',this.#listboxId);
 
     const fragment = document.createDocumentFragment();
 
@@ -170,11 +165,8 @@ class UISelect extends UIBase{
 
   #listboxCreate = () =>{
     this.#listbox = document.createElement('ui-listbox');
-
-    this.setAttributes(this.#listbox,{
-      'tabindex': '-1',
-      'id': this.#listboxId
-    });
+    this.#listbox.tabIndex = '-1';
+    this.#listbox.id = this.#listboxId;
 
     const items = this.#items.map(item => ({
       ...item,

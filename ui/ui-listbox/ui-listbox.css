@@ -1,4 +1,14 @@
 ui-listbox{
+  --ui-select-icon-size:15px;
+  --ui-listbox-font-size:13px;
+  --ui-listbox-background-color:var(--ui-color-gray-800);
+  --ui-listbox-option-background-color-hover:var(--ui-color-gray-650);
+  --ui-listbox-option-background-color-selected:var(--ui-color-gray-700);
+  --ui-listbox-font-color:var(--ui-color-gray-150);
+  --ui-listbox-font-color-hover:var(--ui-color-white);
+  --ui-listbox-font-color-active:var(--ui-color-white);
+  --ui-listbox-outline-color:var(--ui-color-gray-500);
+
   position:absolute;
   display:inline-flex;
   flex-direction:column;
@@ -47,21 +57,6 @@ ui-listbox{
   & [role="option"][data-active="true"]{
     background-color:var(--ui-listbox-option-background-color-selected);
     color:var(--ui-listbox-font-color-active);}
-
-  /* theme */
-  &[theme="default"]{
-    --ui-listbox-background-color:var(--ui-color-gray-800);
-    --ui-listbox-option-background-color-hover:var(--ui-color-gray-650);
-    --ui-listbox-option-background-color-selected:var(--ui-color-gray-700);
-    --ui-listbox-font-color:var(--ui-color-gray-150);
-    --ui-listbox-font-color-hover:var(--ui-color-white);
-    --ui-listbox-font-color-active:var(--ui-color-white);
-    --ui-listbox-outline-color:var(--ui-color-gray-500);}
-
-  /* size */
-  &[size="default"]{
-    --ui-select-icon-size:15px;
-    --ui-listbox-font-size:13px;}
 }
 
 @keyframes fade-slide-in{
