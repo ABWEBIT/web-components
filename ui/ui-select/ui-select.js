@@ -115,12 +115,9 @@ class UISelect extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.shape();
-    this.size();
-    this.theme();
+    this.role = 'combobox';
 
     this.setAttributes(this,{
-      'role': 'combobox',
       'tabindex': this.#disabled ? '-1' : '0',
       'aria-haspopup': 'listbox',
       'aria-expanded': this.#expanded ? 'true' : 'false',

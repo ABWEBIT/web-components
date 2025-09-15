@@ -14,13 +14,7 @@ class UIListbox extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.shape();
-    this.size();
-    this.theme();
-
-    this.setAttributes(this,{
-      'role': 'listbox'
-    });
+    this.role = 'listbox';
 
     this.#listeners = new AbortController();
     const signal = this.#listeners.signal;

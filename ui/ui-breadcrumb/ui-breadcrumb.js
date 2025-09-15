@@ -15,8 +15,6 @@ class UIBreadcrumb extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.size();
-    this.theme();
   }
 
   #render(){

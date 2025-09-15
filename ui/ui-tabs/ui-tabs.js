@@ -15,9 +15,6 @@ class UITabs extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.shape();
-    this.size();
-    this.theme();
   }
 
   #render(){

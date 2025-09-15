@@ -11,7 +11,7 @@ class UISpinner extends UIBase{
 
     const svg = document.createElementNS(UISpinner.#xmlns,'svg');
     svg.setAttribute('viewBox',UISpinner.#viewBox);
-    svg.setAttribute('aria-hidden','true');
+    svg.ariaHidden = 'true';
 
     const data = icons?.[UISpinner.#icon];
     if(!Array.isArray(data) || data.length === 0) return;
@@ -20,7 +20,7 @@ class UISpinner extends UIBase{
     if(typeof content !== 'string') return;
 
     svg.innerHTML = content;
-    this.appendChild(svg);
+    this.append(svg);
   }
 }
 customElements.define('ui-spinner',UISpinner);
