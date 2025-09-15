@@ -1,91 +1,79 @@
 ui-tabs{
+  --ui-tabs-gap:10px;
+  --ui-tabs-tablist-gap:10px;
+
+  --ui-tabs-tab-border-radius:var(--ui-border-radius-default);
+  --ui-tabs-tab-font-size:var(--ui-font-size-default);
+  --ui-tabs-tab-padding-inline:20px;
+  --ui-tabs-tab-padding-block:12px;
+  --ui-tabs-tab-surface-color-default:var(--ui-surface-color-default);
+  --ui-tabs-tab-surface-color-hover:var(--ui-surface-color-hover);
+  --ui-tabs-tab-surface-color-active:var(--ui-surface-color-active);
+  --ui-tabs-tab-content-color-default:var(--ui-content-color-default);
+  --ui-tabs-tab-content-color-hover:var(--ui-content-color-hover);
+  --ui-tabs-tab-content-color-active:var(--ui-content-color-active);
+
+  --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-default);
+  --ui-tabs-tabpanel-font-size:var(--ui-font-size-default);
+  --ui-tabs-tabpanel-padding-inline:20px;
+  --ui-tabs-tabpanel-padding-block:16px;
+  --ui-tabs-tabpanel-surface-color:var(--ui-surface-color-default);
+  --ui-tabs-tabpanel-content-color:var(--ui-color-gray-200);
+  --ui-tabs-tabpanel-line-height:var(--ui-line-height-normal);
+
   display:flex;
   flex-direction:column;
   width:100%;
-  row-gap:var(--ui-tabs-row-gap);
-  border-radius:var(--ui-tabs-tab-border-radius);
+  gap:var(--ui-tabs-gap);
 
-  & [data-ui="tabs-list"]{
+  & > [role="tablist"]{
     display:flex;
     flex-wrap:wrap;
-    column-gap:var(--ui-tabs-tabs-list-column-gap);}
+    gap:var(--ui-tabs-tablist-gap);}
 
   & [role="tab"]{
-    position:relative;
-    background:none;
-
-    cursor:pointer;
+    display:flex;
+    background-color:var(--ui-tabs-tab-surface-color-default);
+    border-radius:var(--ui-tabs-tab-border-radius);
     padding-inline:var(--ui-tabs-tab-padding-inline);
     padding-block:var(--ui-tabs-tab-padding-block);
     font-size:var(--ui-tabs-tab-font-size);
-    color:var(--ui-tabs-tab-font-color);
-    outline-offset:var(--ui-outline-offset);
-    outline-width:var(--ui-outline-width);
-    outline-style:var(--ui-outline-style);
-    outline-color:transparent;}
-
-  &[ui] [role="tab"]{
-    transition-duration:var(--ui-transition-duration);
+    color:var(--ui-tabs-tab-content-color-default);
+    transition-duration:var(--ui-transition-duration-default);
     transition-property:background-color,outline-color,color;}
 
-  & [role="tab"]:focus-visible{
-    outline-color:var(--ui-outline-color);}
-
   @media (hover: hover){
-    & [role="tab"]:not([aria-selected="true"]):not([disabled]):hover::before{
-      background-color:var(--ui-tabs-tab-before-background-color-hover);
-    }
-
-    & [role="tab"]:not([aria-selected="true"]):not([disabled]):hover{
-      color:var(--ui-tabs-tab-font-color-hover);}
+    & [role="tab"]:not([aria-selected="true"]):not([aria-disabled="true"]):hover{
+      background-color:var(--ui-tabs-tab-surface-color-hover);
+      color:var(--ui-tabs-tab-content-color-hover);}
   }
 
-  & [role="tab"][aria-selected="true"]{
-    color:var(--ui-tabs-tab-font-color-active);}
+  & [role="tab"]:not([aria-selected="true"]):not([aria-disabled="true"]):active,
+  & [role="tab"][aria-selected="true"]:not([aria-disabled="true"]){
+    color:var(--ui-tabs-tab-content-color-active);
+    background-color:var(--ui-tabs-tab-surface-color-active);}
 
-  & [role="tab"][aria-selected="true"]::before{
-    background-color:var(--ui-tabs-tab-before-background-color-active);}
-
-  & [data-ui="tab-panel"]{
+  & [role="tabpanel"]{
     display:block;
     -webkit-user-select:text;
     user-select:text;
-    border-radius:var(--ui-tabs-tab-panel-border-radius);
-    padding-inline:var(--ui-tabs-tab-panel-padding-inline);
-    padding-block:var(--ui-tabs-tab-panel-padding-block);
-    font-size:var(--ui-tabs-tab-panel-font-size);
-    color:var(--ui-tabs-tab-panel-font-color);
-    line-height:var(--ui-line-height-normal);}
+    border-radius:var(--ui-tabs-tabpanel-border-radius);
+    padding-inline:var(--ui-tabs-tabpanel-padding-inline);
+    padding-block:var(--ui-tabs-tabpanel-padding-block);
+    font-size:var(--ui-tabs-tabpanel-font-size);
+    color:var(--ui-tabs-tabpanel-content-color);
+    background-color:var(--ui-tabs-tabpanel-surface-color);
+    line-height:var(--ui-tabs-tabpanel-line-height);}
 
-  & [data-ui="tab-panel"][hidden]{
+  & [role="tabpanel"][hidden]{
     display:none;}
 
   /* shape */
   &[shape="rounded"]{
     --ui-tabs-tab-border-radius:var(--ui-border-radius-rounded);
-    --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-rounded);}
+    --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-rounded);}
 
   &[shape="square"]{
     --ui-tabs-tab-border-radius:var(--ui-border-radius-square);
-    --ui-tabs-tab-panel-border-radius:var(--ui-border-radius-square);}
-
-  /* theme */
-  &[theme="default"]{
-    --ui-tabs-tab-before-background-color-hover:var(--ui-color-gray-700);
-    --ui-tabs-tab-before-background-color-active:var(--ui-color-gray-600);
-    --ui-tabs-tab-font-color:var(--ui-color-gray-150);
-    --ui-tabs-tab-font-color-hover:var(--ui-color-white);
-    --ui-tabs-tab-font-color-active:var(--ui-color-white);
-    --ui-tabs-tab-panel-font-color:var(--ui-color-gray-200);}
-
-  /* size */
-  &[size="default"]{
-    --ui-tabs-row-gap:10px;
-    --ui-tabs-tabs-list-column-gap:10px;
-    --ui-tabs-tab-font-size:16px;
-    --ui-tabs-tab-padding-inline:20px;
-    --ui-tabs-tab-padding-block:12px;
-    --ui-tabs-tab-panel-font-size:16px;
-    --ui-tabs-tab-panel-padding-inline:20px;
-    --ui-tabs-tab-panel-padding-block:16px;}
+    --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-square);}
 }

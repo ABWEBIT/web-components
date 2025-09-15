@@ -48,10 +48,6 @@ ui-button{
       background-color:var(--ui-button-surface-color-hover);}
   }
 
-  &:focus-visible:not([disabled]){
-    color:var(--ui-button-content-color-focus);
-    background-color:var(--ui-button-surface-color-focus);}
-
   &:active:not([disabled]){
     color:var(--ui-button-content-color-active);
     background-color:var(--ui-button-surface-color-active);}

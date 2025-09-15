@@ -66,12 +66,12 @@ class UITextarea extends UIBase{
     this.#listeners = null;
   }
 
-  #onInput = (e) => {
+  #onInput = (e) =>{
     if(this.#disabled) return;
     this.#onAction(e);
   }
 
-  #onAction = (e) => {
+  #onAction = (e) =>{
     console.log(e.type);
   }
 

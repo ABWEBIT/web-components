@@ -8,14 +8,6 @@
     <h2>Attributes</h2>
     <ul>
       <li>
-        size - static (optional). Default: default.<br>
-        Specifies the component's size (extendable via CSS).
-      </li>
-      <li>
-        theme - static (optional). Default: default.<br>
-        Specifies the component's color scheme (extendable via CSS).
-      </li>
-      <li>
         shape - static (optional). Default: rounded.<br>
         Available options: rounded, square.<br>
         Sets the corner style.
@@ -41,9 +33,9 @@
 &lt;ui-tabs id="tabs"&gt;&lt;/ui-tabs&gt;
 
 tabs.data = [
- {label:'What is Lorem?',content:'Lorem ipsum dolor sit amet...'},
- {label:'Why use it?',content:'Lorem ipsum dolor sit amet...',disabled:true},
- {label:'Where to use?',content:'Lorem ipsum dolor sit amet...'}
+ {label:'What is Lorem?',content:'Lorem ipsum...'},
+ {label:'Why use it?',content:'Lorem ipsum...',disabled:true},
+ {label:'Where to use?',content:'Lorem ipsum...'}
 ];
 </code></pre>
 
@@ -57,9 +49,9 @@ tabs.data = [
 (() => {
 
   tabs.data = [
-    {label:'What is Lorem?',content:'Lorem <strong>ipsum</strong> dolor sit amet...'},
-    {label:'Why use it?',content:'Lorem <strong>ipsum</strong> dolor sit...',disabled:true},
-    {label:'Where to use?',content:'Lorem <strong>ipsum</strong> dolor...'}
+    {label:'What is Lorem?',content:'Lorem <strong>ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
+    {label:'Why use it?',content:'Lorem <strong>ipsum</strong> dolor...',disabled:true},
+    {label:'Where to use?',content:'Lorem <strong>ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
   ];
 
 })();

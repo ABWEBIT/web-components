@@ -70,19 +70,4 @@ export class UIBase extends HTMLElement{
       obj.setAttribute('icon',icon);
     });
   }
-
-  shape(shape = 'rounded'){
-    if(this.hasAttribute('shape')) return;
-    this.setAttribute('shape',shape);
-  }
-
-  size(size = 'default'){
-    if(this.hasAttribute('size')) return;
-    this.setAttribute('size',size);
-  }
-
-  theme(theme = 'default'){
-    if(this.hasAttribute('theme')) return;
-    this.setAttribute('theme',theme);
-  }
 }

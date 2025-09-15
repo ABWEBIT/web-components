@@ -7,7 +7,8 @@ class UIAccordion extends UIBase{
 
   get data(){return this.#data;}
   set data(value){
-    if(!Array.isArray(value)) throw new Error('Items must be an array');
+    if(!Array.isArray(value)) throw new Error('Data must be an array');
+    if(this.#data === value) return;
     this.#data = value;
     this.#render();
   }

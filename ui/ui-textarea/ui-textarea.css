@@ -1,4 +1,15 @@
 ui-textarea{
+  --ui-textarea-border-radius:var(--ui-border-radius-default);
+  --ui-textarea-font-size:14px;
+  --ui-textarea-padding:10px 12px;
+  --ui-textarea-min-height:34px;
+  --ui-textarea-min-width:100px;
+  --ui-textarea-background-color:var(--ui-color-gray-800);
+  --ui-textarea-border-color:var(--ui-color-gray-500);
+  --ui-textarea-font-color:var(--ui-color-white);
+  --ui-textarea-disabled-placeholder-font-color:var(--ui-color-gray-400);
+  --ui-textarea-outline-color:var(--ui-color-gray-500);
+
   position:relative;
   display:inline-flex;
   height:fit-content;
@@ -6,15 +17,11 @@ ui-textarea{
   width:fit-content;
   min-width:var(--ui-textarea-min-width);
   max-width:100%;
-  outline-width:2px;
-  outline-offset:2px;
-  outline-style:solid;
-  outline-color:transparent;
   border-radius:var(--ui-textarea-border-radius);
   background-color:var(--ui-textarea-background-color);
 
   &[ui]{
-    transition-duration:var(--ui-transition-duration);
+    transition-duration:var(--ui-transition-duration-default);
     transition-property:outline-color;}
 
   &::before{
@@ -58,24 +65,6 @@ ui-textarea{
     width:100%!important;}
 
   /* shape */
-  &[shape="rounded"]{
-    --ui-textarea-border-radius:var(--ui-border-radius-rounded);}
-
-  &[shape="square"]{
-    --ui-textarea-border-radius:var(--ui-border-radius-square);}
-
-  /* theme */
-  &[theme="default"]{
-    --ui-textarea-background-color:var(--ui-color-gray-800);
-    --ui-textarea-border-color:var(--ui-color-gray-500);
-    --ui-textarea-font-color:var(--ui-color-white);
-    --ui-textarea-disabled-placeholder-font-color:var(--ui-color-gray-400);
-    --ui-textarea-outline-color:var(--ui-color-gray-500);}
-
-  /* size */
-  &[size="default"]{
-    --ui-textarea-font-size:14px;
-    --ui-textarea-padding:10px 12px;
-    --ui-textarea-min-height:34px;
-    --ui-textarea-min-width:100px;}
+  &[shape="rounded"]{--ui-textarea-border-radius:var(--ui-border-radius-rounded);}
+  &[shape="square"]{--ui-textarea-border-radius:var(--ui-border-radius-square);}
 }

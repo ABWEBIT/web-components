@@ -34,14 +34,6 @@
         Sets the corner style.
       </li>
       <li>
-        size - static (optional). Default: default.<br>
-        Specifies the component's size (extendable via CSS).
-      </li>
-      <li>
-        theme - static (optional). Default: default.<br>
-        Specifies the component's color scheme (extendable via CSS).
-      </li>
-      <li>
         width-mode="full" - static (optional).<br>
         Expands the component to take up 100% of the available width.
       </li>
@@ -56,6 +48,7 @@
     <div class="example">
       <div class="preview">
         <ui-textarea></ui-textarea>
+        <ui-textarea shape="square"></ui-textarea>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -64,6 +57,8 @@
 
 <pre><code>
 &lt;ui-textarea&gt;&lt;/ui-textarea&gt;
+
+&lt;ui-textarea shape="square"&gt;&lt;/ui-textarea&gt;
 </code></pre>
 
       </div>
@@ -83,28 +78,6 @@
 
 <pre><code>
 &lt;ui-textarea width-mode="full"&gt;&lt;/ui-textarea&gt;
-</code></pre>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Shape (default: rounded)</div>
-    <div class="example">
-      <div class="preview">
-        <ui-textarea></ui-textarea>
-        <ui-textarea shape="square"></ui-textarea>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-
-<pre><code>
-&lt;ui-textarea shape="rounded"&gt;&lt;/ui-textarea&gt;
-
-&lt;ui-textarea shape="square"&gt;&lt;/ui-textarea&gt;
 </code></pre>
 
       </div>

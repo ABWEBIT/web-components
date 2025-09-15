@@ -144,7 +144,6 @@
   --ui-transition-duration-default:var(--ui-transition-duration-x-fast);
 
 
-
   /***** dark theme *****/
   /* content (text/icons) colors */
   --ui-content-color-default:var(--ui-color-gray-150);
@@ -162,8 +161,7 @@
   --ui-outline-offset:2px;
   --ui-outline-width:2px;
   --ui-outline-style:solid;
-  --ui-outline-color-inactive:transparent;
-  --ui-outline-color-active:var(--ui-color-gray-500);
+  --ui-outline-color:var(--ui-color-gray-500);
 }
 
 @media (prefers-color-scheme: light){}
@@ -196,6 +194,7 @@
 [role="button"],
 [role="switch"],
 [role="checkbox"],
+[role="tab"],
 [role="combobox"],
 [role="option"]{
   appearance:none;
@@ -204,17 +203,20 @@
 
 [role="button"],
 [role="switch"],
-[role="checkbox"]{
+[role="checkbox"],
+[role="tab"]{
   outline-offset:var(--ui-outline-offset);
   outline-width:var(--ui-outline-width);
   outline-style:var(--ui-outline-style);
-  outline-color:var(--ui-outline-color-inactive);}
+  outline-color:transparent;}
 
 [role="button"]:focus-visible:not([disabled]),
 [role="switch"]:focus-visible:not([disabled]),
-[role="checkbox"]:focus-visible:not([disabled]){
-  outline-color:var(--ui-outline-color-active);}
+[role="checkbox"]:focus-visible:not([disabled]),
+[role="tab"]:focus-visible:not([aria-disabled="true"]){
+  outline-color:var(--ui-outline-color);}
 
+[aria-disabled="true"]:not([loading]),
 [disabled]:not([loading]){
   cursor:not-allowed;
   opacity:0.5;

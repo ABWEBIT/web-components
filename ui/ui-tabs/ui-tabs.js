@@ -1,8 +1,11 @@
 import {UIBase} from '../ui-base.js';
 import {uuid} from '../../utils/uuid.js';
+import DOMPurify from '../../utils/purify.es.mjs';
 
 class UITabs extends UIBase{
-  #data = [];
+  #data = null;
+  #tabs = null;
+  #panels = null;
   #activeIndex = 0;
 
   get data(){return this.#data;}
@@ -18,74 +21,86 @@ class UITabs extends UIBase{
   }
 
   #render(){
-    this.replaceChildren();
+    this.#tabs = [];
+    this.#panels = [];
 
     const tablist = document.createElement('div');
     tablist.role = 'tablist';
-    tablist.dataset.ui = 'tabs-list';
 
-    const panelsContainer = document.createElement('div');
-    panelsContainer.setAttribute('data-ui','tabs-panels');
+    const panels = document.createDocumentFragment();
 
     this.#data.forEach((item,index) => {
       const id = uuid();
-      const idControl = `id-controls-${id}`;
       const idTab = `id-tab-${id}`;
+      const idControl = `id-controls-${id}`;
 
-      const tab = document.createElement('ui-button');
-      this.setAttributes(tab,{
-        'data-ui': 'tab',
-        'role': 'tab',
-        'tabindex': index === this.#activeIndex && !item.disabled ? '0' : '-1',
-        'aria-selected': index === this.#activeIndex ? 'true' : 'false',
-        'id': idTab,
-        'aria-controls': idControl
-      });
-      tab.disabled = !!item.disabled
+      const isActive = index === this.#activeIndex && !item.disabled;
+
+      // tab
+      const tab = document.createElement('div');
+      tab.role = 'tab';
+      tab.tabIndex = isActive ? '0' : '-1';
+      tab.ariaSelected = isActive ? 'true' : 'false';
+      tab.ariaDisabled = item.disabled;
+      tab.id = idTab;
+      tab.setAttribute('aria-controls',idControl);
+      if(item.disabled) tab.setAttribute('disabled','');
+
       tab.textContent = item.label ?? '';
-      tab.addEventListener('click', () => {
-        if(!tab.disabled){
-          this.#activateTab(index);
-        }
+
+      tab.addEventListener('click',() =>{
+        if(item.disabled) return;
+        this.#activateTab(index);
       });
+
       tab.addEventListener('keydown',(e) => this.#onKeyDown(e,index));
 
-      tablist.appendChild(tab);
+      tablist.append(tab);
+      this.#tabs.push(tab);
 
-      // Panel
+      // panel
       const panel = document.createElement('div');
-      this.setAttributes(panel,{
-        'data-ui': 'tab-panel',
-        'role': 'tabpanel',
-        'id': idControl,
-        'aria-labelledby': idTab
-      });
-      panel.hidden = index !== this.#activeIndex || item.disabled;
-      panel.innerHTML = item.content ?? '';
+      panel.role = 'tabpanel';
+      panel.ariaHidden = !isActive;
+      panel.hidden = !isActive;
+      panel.id = idControl;
+      panel.setAttribute('aria-labelledby',idTab);
 
-      panelsContainer.appendChild(panel);
+      panel.innerHTML = DOMPurify.sanitize(item.content ?? '');
+
+      panels.append(panel);
+      this.#panels.push(panel);
     });
 
-    this.append(tablist,panelsContainer);
+    this.replaceChildren(tablist,panels);
   }
 
-  #activateTab = (index) => {
-    const tabs = this.querySelectorAll('[role="tab"]');
-    const panels = this.querySelectorAll('[role="tabpanel"]');
+  #activateTab = (newIndex) =>{
+    const oldIndex = this.#activeIndex;
+    if (newIndex === oldIndex) return;
 
-    tabs.forEach((tab,idx) => {
-      tab.setAttribute('aria-selected', idx === index ? 'true' : 'false');
-      tab.setAttribute('tabindex', idx === index && !this.#data[idx].disabled ? '0' : '-1');
-    });
+    const oldTab = this.#tabs[oldIndex];
+    const oldPanel = this.#panels[oldIndex];
+    if(oldTab && oldPanel){
+      oldTab.ariaSelected = 'false';
+      oldTab.tabIndex = -1;
+      oldPanel.hidden = true;
+      oldPanel.ariaHidden = 'true';
+    }
 
-    panels.forEach((panel,idx) => {
-      panel.hidden = idx !== index || this.#data[idx].disabled;
-    });
-
-    this.#activeIndex = index;
+    const newTab = this.#tabs[newIndex];
+    const newPanel = this.#panels[newIndex];
+    if(newTab && newPanel && !this.#data[newIndex].disabled){
+      newTab.ariaSelected = 'true';
+      newTab.tabIndex = 0;
+      newPanel.hidden = false;
+      newPanel.ariaHidden = 'false';
+      this.#activeIndex = newIndex;
+    }
   }
 
   #onKeyDown = (e,index) => {
+    e.preventDefault();
     const total = this.#data.length;
     let newIndex = index;
 
@@ -122,14 +137,7 @@ class UITabs extends UIBase{
         return;
     }
 
-    e.preventDefault();
-    this.#focusTab(newIndex);
-  }
-
-  #focusTab = (index) => {
-    const tabs = this.querySelectorAll('[role="tab"]');
-    tabs[index]?.focus();
+    this.#tabs[newIndex]?.focus();
   }
 }
-
 customElements.define('ui-tabs',UITabs);
