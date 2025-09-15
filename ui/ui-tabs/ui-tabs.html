@@ -14,6 +14,19 @@
       </li>
     </ul>
   </div>
+  <div class="info">
+    <h2>Object properties</h2>
+    <ul>
+      <li>
+        title - required.<br>
+        The text displayed in the tab.
+      </li>
+      <li>
+        content - required.<br>
+        The HTML or text content shown inside the panel.
+      </li>
+    </ul>
+  </div>
 </section>
 
 <section class="content">
@@ -33,9 +46,9 @@
 &lt;ui-tabs id="tabs"&gt;&lt;/ui-tabs&gt;
 
 tabs.data = [
- {label:'What is Lorem?',content:'Lorem ipsum...'},
- {label:'Why use it?',content:'Lorem ipsum...',disabled:true},
- {label:'Where to use?',content:'Lorem ipsum...'}
+ {title:'What is Lorem?',content:'Lorem ipsum...'},
+ {title:'Why use it?',content:'Lorem ipsum...',disabled:true},
+ {title:'Where to use?',content:'Lorem ipsum...'}
 ];
 </code></pre>
 
@@ -49,9 +62,9 @@ tabs.data = [
 (() => {
 
   tabs.data = [
-    {label:'What is Lorem?',content:'Lorem <strong>ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
-    {label:'Why use it?',content:'Lorem <strong>ipsum</strong> dolor...',disabled:true},
-    {label:'Where to use?',content:'Lorem <strong>ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+    {title:'What is Lorem?',content:'Lorem <strong>ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
+    {title:'Why use it?',content:'Lorem <strong>ipsum</strong> dolor...',disabled:true},
+    {title:'Where to use?',content:'Lorem <strong>ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
   ];
 
 })();

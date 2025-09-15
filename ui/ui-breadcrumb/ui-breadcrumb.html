@@ -5,11 +5,19 @@
 
 <section class="details">
   <div class="info">
-    <h2>Attributes</h2>
+    <h2>Object properties</h2>
     <ul>
       <li>
-        theme - static (optional). Default: default.<br>
-        Specifies the component's color scheme (extendable via CSS).
+        icon - optional.<br>
+        An icon that can be displayed before the text in a breadcrumb item.
+      </li>
+      <li>
+        title - required.<br>
+        The text displayed in the breadcrumb item.
+      </li>
+      <li>
+        href - required.<br>
+        The URL of the breadcrumb item.
       </li>
     </ul>
   </div>
@@ -32,10 +40,10 @@
 &lt;ui-breadcrumb id="breadcrumb"&gt;&lt;/ui-breadcrumb&gt;
 
 breadcrumb.data = [
- {label:'Home',href:'/'},
- {label:'Settings',href:'/'},
- {label:'Notifications',href:'/'},
- {label:'Article',href:'/'}
+ {title:'Home',href:'/'},
+ {title:'Settings',href:'/'},
+ {title:'Notifications',href:'/'},
+ {title:'Article',href:'/'}
 ];
 </code></pre>
 
@@ -58,10 +66,10 @@ breadcrumb.data = [
 &lt;ui-breadcrumb id="breadcrumb"&gt;&lt;/ui-breadcrumb&gt;
 
 breadcrumb.data = [
- {icon:'home',label:'Home',href:'/'},
- {icon:'settings',label:'Settings',href:'/'},
- {icon:'notifications',label:'Notifications',href:'/'},
- {icon:'article',label:'Article',href:'/'}
+ {icon:'home',title:'Home',href:'/'},
+ {icon:'settings',title:'Settings',href:'/'},
+ {icon:'notifications',title:'Notifications',href:'/'},
+ {icon:'article',title:'Article',href:'/'}
 ];
 </code></pre>
 
@@ -75,17 +83,17 @@ breadcrumb.data = [
 (() => {
 
   breadcrumb00.data = [
-    {label:'Home',href:'/'},
-    {label:'Settings',href:'/'},
-    {label:'Notifications',href:'/'},
-    {label:'Article',href:'/'}
+    {title:'Home',href:'/'},
+    {title:'Settings',href:'/'},
+    {title:'Notifications',href:'/'},
+    {title:'Article',href:'/'}
   ];
 
   breadcrumb01.data = [
-    {icon:'home',label:'Home',href:'/'},
-    {icon:'settings',label:'Settings',href:'/'},
-    {icon:'notifications',label:'Notifications',href:'/'},
-    {icon:'article',label:'Article',href:'/'}
+    {icon:'home',title:'Home',href:'/'},
+    {icon:'settings',title:'Settings',href:'/'},
+    {icon:'notifications',title:'Notifications',href:'/'},
+    {icon:'article',title:'Article',href:'/'}
   ];
 
 })();

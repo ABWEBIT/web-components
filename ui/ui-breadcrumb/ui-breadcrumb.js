@@ -15,6 +15,8 @@ class UIBreadcrumb extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
+    this.role = 'navigation';
+    this.ariaLabel = 'Breadcrumb';
   }
 
   #render(){
@@ -22,71 +24,54 @@ class UIBreadcrumb extends UIBase{
 
     const separatorIcon = isRTL ? this.#iconSeparatorRTL : this.#iconSeparatorLTR;
 
-    const breadcrumb = document.createElement('nav');
-    this.setAttributes(breadcrumb,{
-      'data-ui': 'breadcrumb',
-      'aria-label': 'Breadcrumb'
-    });
-
     const ol = document.createElement('ol');
-    ol.setAttribute('data-ui','breadcrumb-list');
+    ol.role = 'list';
 
     const separatorTemplate = document.createElement('ui-icon');
-    this.setAttributes(separatorTemplate,{
-      'data-ui': 'breadcrumb-separator',
-      'aria-hidden': 'true',
-      'icon': separatorIcon
-    });
+    separatorTemplate.role = 'presentation';
+    separatorTemplate.setAttribute('icon',separatorIcon);
 
     this.#data.forEach((item,index) => {
-      if(!item.label && !item.icon){
-        console.warn(`Breadcrumb item at index ${index} has no "label" or "icon".`);
+      if(!item.title && !item.icon){
+        console.warn(`Breadcrumb item at index ${index} has no "title" or "icon".`);
       }
 
       const li = document.createElement('li');
-      li.setAttribute('data-ui','breadcrumb-item');
+      li.role = 'listitem';
 
       const isLast = index === this.#data.length - 1;
       const itemContent = isLast ? document.createElement('span') : document.createElement('a');
 
       if(isLast){
-        this.setAttributes(itemContent,{
-          'data-ui': 'breadcrumb-current',
-          'aria-current': 'page'
-        });
+        itemContent.ariaCurrent = 'page';
       }
       else{
-        itemContent.setAttribute('data-ui','breadcrumb-link');
         itemContent.href = item.href || '';
       }
 
       if(item.icon){
         const iconContent = document.createElement('ui-icon');
-        this.setAttributes(iconContent,{
-          'data-ui': 'breadcrumb-icon',
-          'aria-hidden': 'true',
-          'icon': item.icon
-        });
-        itemContent.appendChild(iconContent);
+        iconContent.ariaHidden = 'true';
+        iconContent.setAttribute('icon',item.icon);
+        itemContent.append(iconContent);
       }
 
-      if(item.label){
+      if(item.title){
         const textContent = document.createElement('span');
-        textContent.textContent = item.label;
-        itemContent.appendChild(textContent);
+        textContent.textContent = item.title;
+        itemContent.append(textContent);
       }
 
-      li.appendChild(itemContent);
+      li.append(itemContent);
 
       if(!isLast){
-        li.appendChild(separatorTemplate.cloneNode(true));
+        li.append(separatorTemplate.cloneNode(true));
       }
 
-      ol.appendChild(li);
+      ol.append(li);
     });
 
-    breadcrumb.appendChild(ol);
-    this.replaceChildren(breadcrumb);
+    this.replaceChildren(ol);
   }
 }
 
