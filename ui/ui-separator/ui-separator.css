@@ -1,20 +1,14 @@
 ui-separator{
+  --ui-separator-height:1px;
+  --ui-separator-width:100%;
+  --ui-separator-surface-color:var(--ui-surface-color-default);
+
   display:block;
-  background-color:var(--ui-separator-background-color);
+  height:var(--ui-separator-height);
+  width:var(--ui-separator-width);
+  background-color:var(--ui-separator-surface-color);
 
-  &[orientation="horizontal"]{
-    height:var(--ui-separator-size);
-    width:100%;}
-
-  &[orientation="vertical"]{
-    height:100%;
-    width:var(--ui-separator-size);}
-
-  /* theme */
-  &[theme="default"]{
-    --ui-separator-background-color:var(--ui-color-gray-750);}
-
-  /* size */
-  &[size="default"]{
-    --ui-separator-size:1px;}
+  &[vertical]{
+    --ui-separator-height:100%;
+    --ui-separator-width:1px;}
 }

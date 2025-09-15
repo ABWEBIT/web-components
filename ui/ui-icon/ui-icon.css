@@ -1,6 +1,8 @@
 ui-icon{
   --ui-icon-height:24px;
   --ui-icon-width:24px;
+  --ui-icon-svg-height:100%;
+  --ui-icon-svg-width:100%;
 
   display:inline-flex;
   align-items:center;
@@ -11,6 +13,6 @@ ui-icon{
   width:var(--ui-icon-width);
 
   & > svg{
-    height:100%;
-    width:100%;}
+    height:var(--ui-icon-svg-height);
+    width:var(--ui-icon-svg-width);}
 }
