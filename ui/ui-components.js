@@ -8,7 +8,6 @@ import './ui-focus/ui-focus.js';
 import './ui-icon/ui-icon.js';
 import './ui-input/ui-input.js';
 import './ui-label/ui-label.js';
-import './ui-listbox/ui-listbox.js';
 import './ui-portal/ui-portal.js';
 import './ui-select/ui-select.js';
 import './ui-separator/ui-separator.js';

@@ -1,255 +1,285 @@
 import {UIBase} from '../ui-base.js';
 import {uuid} from '../../utils/uuid.js';
 
-class UISelect extends UIBase{
-  #listboxListenerController = null;
-  #componentListenerController = null;
-  #listbox = null;
-  #listboxId = `id-${uuid()}`;
-  #items = [];
+class UISelect extends UIBase {
+  #data = null;
   #text = '';
   #textDefault = '-';
   #iconExpand = 'arrow-down-small';
   #expanded = false;
   #disabled = false;
+  #listboxId = `id-${uuid()}`;
+  #indexActive = -1;
+  #indexCurrent = null;
+  #listbox = null;
+  #listboxListenerController = null;
 
   static properties = Object.freeze({
-    'text':{name:'text',type:String,reflect:true},
-    'expanded':{name:'expanded',type:Boolean,reflect:true},
-    'disabled':{name:'disabled',type:Boolean,reflect:true},
+    'text': {name: 'text', type: String, reflect: true},
+    'expanded': {name: 'expanded', type: Boolean, reflect: true},
+    'disabled': {name: 'disabled', type: Boolean, reflect: true},
   });
 
-  get items(){return this.#items;}
-  set items(value){
-    if(!Array.isArray(value)) throw new Error('Items must be an array');
+  get items() { return this.#data; }
+  set items(value) {
+    if (!Array.isArray(value)) throw new Error('Items must be an array');
+    this.#data = value.map((item, index) => ({
+      ...item,
+      id: `${this.#listboxId}--option-${index}`
+    }));
 
-    let selected = null;
+    this.#renderOptions();
 
-    this.#items = value.map((item, index) => {
-      const itemNew = {
-        ...item,
-        id: `${this.#listboxId}--option-${index}`
-      };
-      if(itemNew.selected){
-        if(selected) throw new Error('Only one item can be selected');
-        selected = itemNew;
-      }
-      return itemNew;
-    });
-
-    if(this.#listbox) this.#listbox.options = this.#items;
-
-    if(selected){
+    const selected = this.#data.find(i => i.selected);
+    if (selected) {
       this.text = selected.label;
-      this.setAttribute('aria-activedescendant',selected.id);
-    }
-    else{
+      this.setAttribute('aria-activedescendant', selected.id);
+    } else {
       this.text = this.getAttribute('placeholder') || this.#textDefault;
       this.removeAttribute('aria-activedescendant');
     }
   }
 
-  get text(){return this.#text;}
-  set text(value){
+  get text() { return this.#text; }
+  set text(value) {
     const valueNew = String(value || '');
-    if(this.#text === valueNew) return;
+    if (this.#text === valueNew) return;
     this.#text = valueNew;
-
-    this.updateText('[data-ui="select-text"]',this.#text);
+    this.updateText('[data-ui="select-text"]', this.#text);
   }
 
-  get disabled(){return this.#disabled;}
-  set disabled(value){
+  get disabled() { return this.#disabled; }
+  set disabled(value) {
     const valueNew = value === true;
-    if(this.#disabled === valueNew) return;
+    if (this.#disabled === valueNew) return;
     this.#disabled = valueNew;
-
-    this.reflect('disabled',this.#disabled);
+    this.reflect('disabled', this.#disabled);
     this.tabIndex = this.#disabled ? '-1' : '0';
     this.ariaDisabled = this.#disabled ? 'true' : 'false';
   }
 
-  get expanded(){return this.#expanded;}
-  set expanded(value){
+  get expanded() { return this.#expanded; }
+  set expanded(value) {
     const valueNew = value === true;
-    if(this.#expanded === valueNew) return;
+    if (this.#expanded === valueNew) return;
     this.#expanded = valueNew;
 
-    this.reflect('expanded',this.#expanded);
+    this.reflect('expanded', this.#expanded);
     this.ariaExpanded = this.#expanded ? 'true' : 'false';
 
-    if(this.#expanded){
-      this.#listboxCreate();
+    if (!this.#listbox) return;
+
+    if (this.#expanded) {
+      this.#listbox.hidden = false;
+      this.#positionListbox();
 
       this.#listboxListenerController = new AbortController();
+      const signal = this.#listboxListenerController.signal;
 
-      document.addEventListener('click',this.#onDocumentClick,{
-        capture: true,
-        signal: this.#listboxListenerController?.signal,
-      });
+      document.addEventListener('click', this.#onDocumentClick, { capture: true, signal });
+      document.addEventListener('keydown', this.#onDocumentKeydown, { capture: true, signal });
+      window.addEventListener('resize', this.#onWindowResize, { signal });
+      window.addEventListener('scroll', this.#onWindowResize, { capture: true, signal });
 
-      document.addEventListener('keydown',this.#onEscapeDocument,{
-        capture: true,
-        signal: this.#listboxListenerController?.signal,
-      });
-
-      window.addEventListener('resize',this.#listboxPosition,{
-        signal: this.#listboxListenerController?.signal,
-      });
-
-    }
-    else{
+      if (this.#indexActive >= 0) this.#highlight();
+    } else {
+      this.#listbox.hidden = true; // 👈 теперь всегда прячем!
       this.#listboxListenerController?.abort();
       this.#listboxListenerController = null;
-
-      if(this.#listbox){
-        this.#listbox.remove();
-        this.#listbox = null;
-      }
+      try { this.focus(); } catch {}
     }
   }
 
-  connectedCallback(){
+  connectedCallback() {
     super.connectedCallback();
-    this.role = 'combobox';
 
+    this.role = 'combobox';
     this.tabIndex = this.#disabled ? '-1' : '0';
     this.ariaExpanded = this.#expanded ? 'true' : 'false';
     this.ariaHasPopup = 'listbox';
-
-    this.setAttribute('aria-controls',this.#listboxId);
+    this.setAttribute('aria-controls', this.#listboxId);
 
     const fragment = document.createDocumentFragment();
 
     const selectText = document.createElement('div');
-    selectText.setAttribute('data-ui','select-text');
+    selectText.setAttribute('data-ui', 'select-text');
     selectText.textContent = this.getAttribute('placeholder') || this.#textDefault;
     fragment.appendChild(selectText);
 
     const selectIconExpand = document.createElement('div');
-    selectIconExpand.setAttribute('data-ui','select-icon-expand');
-
+    selectIconExpand.setAttribute('data-ui', 'select-icon-expand');
     const iconName = this.getAttribute('icon') || this.#iconExpand;
-
     const icon = document.createElement('ui-icon');
-    icon.setAttribute('icon',iconName);
+    icon.setAttribute('icon', iconName);
     selectIconExpand.appendChild(icon);
-
     fragment.appendChild(selectIconExpand);
     this.removeAttribute('icon');
 
+    this.#listbox = document.createElement('div');
+    this.#listbox.setAttribute('data-ui', 'listbox');
+    this.#listbox.setAttribute('role', 'listbox');
+    this.#listbox.id = this.#listboxId;
+    this.#listbox.hidden = true;
+    this.#listbox.style.position = 'absolute';
+
+    this.#listbox.style.zIndex = '9999';
+    document.body.appendChild(this.#listbox);
+
     this.appendChild(fragment);
 
-    this.#componentListenerController = new AbortController();
-    const signal = this.#componentListenerController.signal;
-
-    window.addEventListener('popstate',this.#onPopState,{signal});
-    this.addEventListener('click',this.#onClick,{signal});
-    this.addEventListener('keydown',this.#onKeyDown,{signal});
-/*
-    this.addEventListener('focusout',this.#onFocusOut,{signal});
-*/
+    this.addEventListener('click', this.#onClick);
+    this.addEventListener('keydown', this.#onKeyDown);
   }
 
-  disconnectedCallback(){
+  disconnectedCallback() {
+    super.disconnectedCallback();
+
     this.#listboxListenerController?.abort();
     this.#listboxListenerController = null;
-    this.#componentListenerController?.abort();
-    this.#componentListenerController = null;
-
-    if(this.#listbox){
+    if (this.#listbox) {
       this.#listbox.remove();
       this.#listbox = null;
     }
+
+    window.removeEventListener('resize', this.#onWindowResize);
+    window.removeEventListener('scroll', this.#onWindowResize, true);
   }
 
-  #listboxCreate = () =>{
-    this.#listbox = document.createElement('ui-listbox');
-    this.#listbox.tabIndex = '-1';
-    this.#listbox.id = this.#listboxId;
-
-    const items = this.#items.map(item => ({
-      ...item,
-      selected: item.label === this.#text
-    }));
-
-    this.#listbox.options = items;
-
-    this.#listbox.addEventListener('option-selected', e => {
-      this.text = e.detail.label;
-      this.setAttribute('aria-activedescendant',e.detail.id);
-      this.expanded = false;
-    });
-
-    this.#listbox.addEventListener('active-descendant-change', e => {
-      this.setAttribute('aria-activedescendant', e.detail.id || '');
-    });
-
-    document.body.appendChild(this.#listbox);
-    this.#listboxPosition();
-
-    return this.#listbox;
-  }
-
-  #listboxToggle = () => {
-    this.expanded = !this.expanded;
-  }
-
-  #listboxPosition = () => {
-    if(!this.#listbox) return;
+  #positionListbox() {
+    if (!this.#listbox) return;
     const rect = this.getBoundingClientRect();
 
     Object.assign(this.#listbox.style, {
-      top: `${rect.bottom + window.scrollY + 4}px`,
+      top: `${rect.bottom + window.scrollY}px`,
       left: `${rect.left + window.scrollX}px`,
-      width: `${rect.width}px`
+      minWidth: `${rect.width}px`
     });
+  }
+
+  #renderOptions() {
+    if (!this.#listbox) return;
+    this.#listbox.replaceChildren();
+    this.#indexActive = -1;
+    this.#indexCurrent = null;
+
+    this.#data.forEach((item, index) => {
+      const { title = item.label ?? '', value = item.value, selected = item.selected, disabled = item.disabled, id = item.id } = item;
+      const option = document.createElement('div');
+      option.setAttribute('role', 'option');
+      option.tabIndex = -1;
+      option.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+      option.setAttribute('aria-selected', selected ? 'true' : 'false');
+      option.id = id;
+      option.dataset.active = 'false';
+      if (value !== undefined) option.dataset.value = value;
+
+      const text = document.createElement('span');
+      text.textContent = title || String(item.label || '');
+      option.appendChild(text);
+
+      if (selected) {
+        const check = document.createElement('ui-icon');
+        check.setAttribute('icon', 'check');
+        option.appendChild(check);
+        if (!disabled) this.#indexActive = index;
+      }
+
+      option.addEventListener('click', (ev) => {
+        if (disabled) return;
+        this.#indexActive = index;
+        this.#highlight();
+        this.dispatchEvent(new CustomEvent('option-selected', {
+          detail: { label: item.label ?? item.title, value: item.value, id },
+          bubbles: true,
+          composed: true
+        }));
+        this.text = item.label ?? item.title;
+        this.setAttribute('aria-activedescendant', id);
+        this.expanded = false;
+        try { this.focus(); } catch (err) { /* ignore */ }
+      });
+
+      this.#listbox.appendChild(option);
+    });
+
+    this.#highlight();
+  }
+
+  #highlight(){
+    if(!this.#listbox) return;
+
+    const newActive = this.#listbox.children[this.#indexActive];
+    if(this.#indexCurrent !== newActive) {
+      this.#indexCurrent?.setAttribute('data-active','false');
+      newActive?.setAttribute('data-active','true');
+      this.#indexCurrent = newActive ?? null;
+    }
+  }
+
+  #onClick = (e) =>{
+    if(this.disabled) return;
+    e.preventDefault();
+    this.expanded = !this.expanded;
+  }
+
+  #onKeyDown = (e) => {
+    if (this.#disabled) return;
+    const indexMax = this.#data.length - 1;
+    const moveTo = (dir) => {
+      let index = this.#indexActive;
+      do {
+        index += dir;
+        if (index < 0 || index > indexMax) break;
+        if (!this.#data[index].disabled) {
+          this.#indexActive = index;
+          this.#highlight();
+          break;
+        }
+      } while (true);
+    };
+
+    if (!this.#expanded && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      this.expanded = true;
+    } else if (this.#expanded) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); moveTo(1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); moveTo(-1); }
+      else if (e.key === 'Escape') { e.preventDefault(); this.expanded = false; this.focus(); }
+      else if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const item = this.#data[this.#indexActive];
+        if (item && !item.disabled) {
+          this.dispatchEvent(new CustomEvent('option-selected', {
+            detail: { label: item.label ?? item.title, value: item.value, id: item.id },
+            bubbles: true, composed: true
+          }));
+          this.text = item.label ?? item.title;
+          this.setAttribute('aria-activedescendant', item.id);
+          this.expanded = false;
+          try { this.focus(); } catch (err) {}
+        }
+      }
+    }
   }
 
   #onDocumentClick = (e) => {
     const clickInside = this.contains(e.target) || this.#listbox?.contains(e.target);
-    if(!clickInside){
+    if (!clickInside) {
       this.expanded = false;
     }
   }
 
-  #onEscapeDocument = (e) => {
-    if(e.key === 'Escape'){
+  #onDocumentKeydown = (e) => {
+    if (e.key === 'Escape') {
       e.preventDefault();
       this.expanded = false;
+      try { this.focus(); } catch (err) {}
     }
   }
 
-  #onFocusOut = (e) => {
-    const related = e.relatedTarget;
-    const inside = this.contains(related) || this.#listbox?.contains(related);
-
-    if(!inside){
-      this.expanded = false;
-    }
+  #onWindowResize = () => {
+    if (this.#expanded) this.#positionListbox();
   }
-
-  #onPopState = () => {
-    this.expanded &&= false;
-  }
-
-  #onClick = (e) => {
-    if(this.disabled) return;
-    e.preventDefault();
-    this.#listboxToggle();
-  }
-
-  #onKeyDown = (e) => {
-    if(this.#disabled) return;
-
-    if(!this.#expanded && (e.key === 'Enter' || e.key === ' ')){
-      e.preventDefault();
-      this.#listboxToggle();
-    }
-    else if(this.#expanded && this.#listbox?.onKeyDownExternal){
-      this.#listbox.onKeyDownExternal(e);
-    }
-  }
-
 }
-customElements.define('ui-select',UISelect);
+
+customElements.define('ui-select', UISelect);

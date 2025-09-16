@@ -65,3 +65,91 @@ ui-select{
   &[shape="square"]{--ui-select-border-radius:var(--ui-border-radius-square);}
   &[shape="pill"]{--ui-select-border-radius:var(--ui-border-radius-pill);}
 }
+
+[role="listbox"]{
+  --ui-select-icon-size:15px;
+  --ui-listbox-font-size:13px;
+  --ui-listbox-background-color:var(--ui-color-gray-800);
+  --ui-listbox-option-background-color-hover:var(--ui-color-gray-650);
+  --ui-listbox-option-background-color-selected:var(--ui-color-gray-700);
+  --ui-listbox-font-color:var(--ui-color-gray-150);
+  --ui-listbox-font-color-hover:var(--ui-color-white);
+  --ui-listbox-font-color-active:var(--ui-color-white);
+  --ui-listbox-outline-color:var(--ui-color-gray-500);
+
+  position:absolute;
+  display:inline-flex;
+  flex-direction:column;
+  padding:6px;
+  outline:none;
+  color:var(--ui-listbox-font-color);
+  background-color:var(--ui-listbox-background-color);
+  z-index:9999;
+  animation:fade-slide-in 0.15s ease-out;
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity 0.15s ease-out, transform 0.15s ease-out;
+
+  & [role="option"]{
+    display:flex;
+    outline:none;
+    border-radius:inherit;
+    font-size:var(--ui-listbox-font-size);
+    padding:8px 12px;}
+
+  & [role="option"] > span{
+    display:block;
+    flex-grow:1;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;}
+
+  & [role="option"] > ui-icon{
+    height:100%;
+    width:var(--ui-select-icon-size);}
+
+  &[ui] [role="option"]{
+    transition-duration:var(--ui-transition-duration);
+    transition-property:background-color,color;}
+
+  &[ui] [role="option"][aria-disabled="true"]{
+    opacity:0.5;
+    cursor:default!important;}
+
+  @media (hover: hover){
+    &[ui] [role="option"]:hover:not([aria-disabled="true"]){
+      background-color:var(--ui-listbox-option-background-color-hover);
+      color:var(--ui-listbox-font-color-hover);}
+  }
+
+  & [role="option"][data-active="true"]{
+    background-color:var(--ui-listbox-option-background-color-selected);
+    color:var(--ui-listbox-font-color-active);}
+
+  &[hidden]{
+    animation:fade-slide-out 0.15s ease-out;
+    opacity:0;
+    transform:translateY(-4px);}
+}
+
+@keyframes fade-slide-in{
+  from{
+    opacity:0;
+    transform:translateY(-4px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fade-slide-out{
+  from{
+    opacity:1;
+    transform:translateY(0);
+  }
+  to{
+    opacity:0;
+    transform:translateY(-4px);
+  }
+}

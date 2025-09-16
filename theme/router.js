@@ -22,7 +22,6 @@
     { label: 'Textarea', link: './ui/ui-textarea/ui-textarea.html', category: 'forms' },
     { label: 'Field', link: './ui/ui-field/ui-field.html', category: 'forms' },
     { label: 'Select', link: './ui/ui-select/ui-select.html', category: 'forms' },
-    { label: 'Listbox', link: './ui/ui-listbox/ui-listbox.html', category: 'forms' },
 
     { label: 'Focus', link: './ui/ui-focus/ui-focus.html', category: 'utilities' },
     { label: 'Portal', link: './ui/ui-portal/ui-portal.html', category: 'utilities' },
