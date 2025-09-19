@@ -37,7 +37,7 @@ class UIAccordion extends UIBase{
       accordionHeader.disabled = !!item.disabled;
 
       /* header text */
-      const accordionHeaderText = document.createTextNode(item.title ?? '');
+      const accordionHeaderText = document.createTextNode(item.label ?? '');
 
       /* header expand icon */
       const accordionHeaderIcon = document.createElement('ui-icon');

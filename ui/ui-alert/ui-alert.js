@@ -29,12 +29,12 @@ class UIAlert extends UIBase{
       fragment.append(icon);
     }
 
-    if(d.title){
-      const title = document.createElement('div');
-      title.role = 'heading';
-      title.ariaLevel = "6";
-      title.textContent = d.title;
-      fragment.append(title);
+    if(d.label){
+      const label = document.createElement('div');
+      label.role = 'heading';
+      label.ariaLevel = "6";
+      label.textContent = d.label;
+      fragment.append(label);
     }
 
     if(d.content){

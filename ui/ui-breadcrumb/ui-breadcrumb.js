@@ -32,8 +32,8 @@ class UIBreadcrumb extends UIBase{
     separatorTemplate.setAttribute('icon',separatorIcon);
 
     this.#data.forEach((item,index) => {
-      if(!item.title && !item.icon){
-        console.warn(`Breadcrumb item at index ${index} has no "title" or "icon".`);
+      if(!item.label && !item.icon){
+        console.warn(`Breadcrumb item at index ${index} has no "label" or "icon".`);
       }
 
       const li = document.createElement('li');
@@ -56,9 +56,9 @@ class UIBreadcrumb extends UIBase{
         itemContent.append(iconContent);
       }
 
-      if(item.title){
+      if(item.label){
         const textContent = document.createElement('span');
-        textContent.textContent = item.title;
+        textContent.textContent = item.label;
         itemContent.append(textContent);
       }
 

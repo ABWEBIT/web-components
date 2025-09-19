@@ -12,50 +12,49 @@ class UISelect extends UIBase {
   #indexActive = -1;
   #indexCurrent = null;
   #listbox = null;
-  #listboxListenerController = null;
+  #listboxListeners = null;
 
   static properties = Object.freeze({
-    'text': {name: 'text', type: String, reflect: true},
-    'expanded': {name: 'expanded', type: Boolean, reflect: true},
-    'disabled': {name: 'disabled', type: Boolean, reflect: true},
+    'text':{name:'text',type:String,reflect:true},
+    'expanded':{name:'expanded',type:Boolean,reflect:true},
+    'disabled':{name:'disabled',type:Boolean,reflect:true},
   });
 
-  get items() { return this.#data; }
-  set items(value) {
-    if (!Array.isArray(value)) throw new Error('Items must be an array');
-    this.#data = value.map((item, index) => ({
+  get data(){return this.#data;}
+  set data(value){
+    if(!Array.isArray(value)) throw new Error('Data must be an array');
+    this.#data = value.map((item,index) =>({
       ...item,
-      id: `${this.#listboxId}--option-${index}`
+      id:`${this.#listboxId}--option-${index}`
     }));
 
-    this.#renderOptions();
+    this.#listboxRender();
 
     const selected = this.#data.find(i => i.selected);
-    if (selected) {
+    if(selected){
       this.text = selected.label;
-      this.setAttribute('aria-activedescendant', selected.id);
-    } else {
+      this.setAttribute('aria-activedescendant',selected.id);
+    }
+    else{
       this.text = this.getAttribute('placeholder') || this.#textDefault;
       this.removeAttribute('aria-activedescendant');
     }
   }
 
-  get text() { return this.#text; }
-  set text(value) {
+  get text(){return this.#text;}
+  set text(value){
     const valueNew = String(value || '');
-    if (this.#text === valueNew) return;
+    if(this.#text === valueNew) return;
     this.#text = valueNew;
-    this.updateText('[data-ui="select-text"]', this.#text);
+    this.updateText('[data-ui="select-text"]',this.#text);
   }
 
-  get disabled() { return this.#disabled; }
-  set disabled(value) {
-    const valueNew = value === true;
-    if (this.#disabled === valueNew) return;
-    this.#disabled = valueNew;
+  get disabled(){return this.#disabled;}
+  set disabled(value){
+    if(this.#disabled === (value === true)) return;
+    this.#disabled = value === true;
     this.reflect('disabled', this.#disabled);
-    this.tabIndex = this.#disabled ? '-1' : '0';
-    this.ariaDisabled = this.#disabled ? 'true' : 'false';
+    this.#syncDisabled();
   }
 
   get expanded() { return this.#expanded; }
@@ -71,10 +70,10 @@ class UISelect extends UIBase {
 
     if (this.#expanded) {
       this.#listbox.hidden = false;
-      this.#positionListbox();
+      this.#listboxPosition();
 
-      this.#listboxListenerController = new AbortController();
-      const signal = this.#listboxListenerController.signal;
+      this.#listboxListeners = new AbortController();
+      const signal = this.#listboxListeners.signal;
 
       document.addEventListener('click', this.#onDocumentClick, { capture: true, signal });
       document.addEventListener('keydown', this.#onDocumentKeydown, { capture: true, signal });
@@ -84,8 +83,8 @@ class UISelect extends UIBase {
       if (this.#indexActive >= 0) this.#highlight();
     } else {
       this.#listbox.hidden = true; // 👈 теперь всегда прячем!
-      this.#listboxListenerController?.abort();
-      this.#listboxListenerController = null;
+      this.#listboxListeners?.abort();
+      this.#listboxListeners = null;
       try { this.focus(); } catch {}
     }
   }
@@ -104,15 +103,15 @@ class UISelect extends UIBase {
     const selectText = document.createElement('div');
     selectText.setAttribute('data-ui', 'select-text');
     selectText.textContent = this.getAttribute('placeholder') || this.#textDefault;
-    fragment.appendChild(selectText);
+    fragment.append(selectText);
 
     const selectIconExpand = document.createElement('div');
     selectIconExpand.setAttribute('data-ui', 'select-icon-expand');
     const iconName = this.getAttribute('icon') || this.#iconExpand;
     const icon = document.createElement('ui-icon');
     icon.setAttribute('icon', iconName);
-    selectIconExpand.appendChild(icon);
-    fragment.appendChild(selectIconExpand);
+    selectIconExpand.append(icon);
+    fragment.append(selectIconExpand);
     this.removeAttribute('icon');
 
     this.#listbox = document.createElement('div');
@@ -123,9 +122,9 @@ class UISelect extends UIBase {
     this.#listbox.style.position = 'absolute';
 
     this.#listbox.style.zIndex = '9999';
-    document.body.appendChild(this.#listbox);
+    document.body.append(this.#listbox);
 
-    this.appendChild(fragment);
+    this.append(fragment);
 
     this.addEventListener('click', this.#onClick);
     this.addEventListener('keydown', this.#onKeyDown);
@@ -134,8 +133,8 @@ class UISelect extends UIBase {
   disconnectedCallback() {
     super.disconnectedCallback();
 
-    this.#listboxListenerController?.abort();
-    this.#listboxListenerController = null;
+    this.#listboxListeners?.abort();
+    this.#listboxListeners = null;
     if (this.#listbox) {
       this.#listbox.remove();
       this.#listbox = null;
@@ -145,25 +144,31 @@ class UISelect extends UIBase {
     window.removeEventListener('scroll', this.#onWindowResize, true);
   }
 
-  #positionListbox() {
+  #syncDisabled = () =>{
+    if(this.#disabled) this.ariaDisabled = true
+    else this.ariaDisabled = null;
+    this.tabIndex = this.#disabled ? -1 : 0;
+  }
+
+  #listboxPosition() {
     if (!this.#listbox) return;
     const rect = this.getBoundingClientRect();
 
-    Object.assign(this.#listbox.style, {
-      top: `${rect.bottom + window.scrollY}px`,
+    Object.assign(this.#listbox.style,{
+      top: `${rect.bottom + window.scrollY + 6}px`,
       left: `${rect.left + window.scrollX}px`,
-      minWidth: `${rect.width}px`
+      width: `${rect.width}px`
     });
   }
 
-  #renderOptions() {
+  #listboxRender() {
     if (!this.#listbox) return;
     this.#listbox.replaceChildren();
     this.#indexActive = -1;
     this.#indexCurrent = null;
 
     this.#data.forEach((item, index) => {
-      const { title = item.label ?? '', value = item.value, selected = item.selected, disabled = item.disabled, id = item.id } = item;
+      const {label = item.label ?? '', value = item.value, selected = item.selected, disabled = item.disabled, id = item.id } = item;
       const option = document.createElement('div');
       option.setAttribute('role', 'option');
       option.tabIndex = -1;
@@ -174,32 +179,31 @@ class UISelect extends UIBase {
       if (value !== undefined) option.dataset.value = value;
 
       const text = document.createElement('span');
-      text.textContent = title || String(item.label || '');
-      option.appendChild(text);
+      text.textContent = label || String(item.label || '');
+      option.append(text);
 
-      if (selected) {
+      if(selected){
         const check = document.createElement('ui-icon');
-        check.setAttribute('icon', 'check');
-        option.appendChild(check);
-        if (!disabled) this.#indexActive = index;
+        check.setAttribute('icon','check');
+        option.append(check);
+        if(!disabled) this.#indexActive = index;
       }
 
-      option.addEventListener('click', (ev) => {
+      option.addEventListener('click',(ev) =>{
         if (disabled) return;
         this.#indexActive = index;
         this.#highlight();
-        this.dispatchEvent(new CustomEvent('option-selected', {
-          detail: { label: item.label ?? item.title, value: item.value, id },
+        this.dispatchEvent(new CustomEvent('option-selected',{
+          detail: {label: item.label, value: item.value, id},
           bubbles: true,
           composed: true
         }));
-        this.text = item.label ?? item.title;
-        this.setAttribute('aria-activedescendant', id);
+        this.text = item.label;
+        this.setAttribute('aria-activedescendant',id);
         this.expanded = false;
-        try { this.focus(); } catch (err) { /* ignore */ }
       });
 
-      this.#listbox.appendChild(option);
+      this.#listbox.append(option);
     });
 
     this.#highlight();
@@ -222,63 +226,82 @@ class UISelect extends UIBase {
     this.expanded = !this.expanded;
   }
 
-  #onKeyDown = (e) => {
-    if (this.#disabled) return;
+  #onKeyDown = (e) =>{
+    if(this.#disabled) return;
+
     const indexMax = this.#data.length - 1;
-    const moveTo = (dir) => {
+    const moveTo = (dir) =>{
       let index = this.#indexActive;
-      do {
+      do{
         index += dir;
-        if (index < 0 || index > indexMax) break;
-        if (!this.#data[index].disabled) {
+        if(index < 0 || index > indexMax) break;
+        if(!this.#data[index].disabled){
           this.#indexActive = index;
           this.#highlight();
           break;
         }
-      } while (true);
+      }
+      while(true);
     };
 
-    if (!this.#expanded && (e.key === 'Enter' || e.key === ' ')) {
+    if(!this.#expanded && (e.key === 'Enter' || e.key === ' ')){
       e.preventDefault();
       this.expanded = true;
-    } else if (this.#expanded) {
-      if (e.key === 'ArrowDown') { e.preventDefault(); moveTo(1); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); moveTo(-1); }
-      else if (e.key === 'Escape') { e.preventDefault(); this.expanded = false; this.focus(); }
-      else if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
+    }
+    else if(this.#expanded){
+      const handleSelection = () =>{
         const item = this.#data[this.#indexActive];
         if (item && !item.disabled) {
-          this.dispatchEvent(new CustomEvent('option-selected', {
-            detail: { label: item.label ?? item.title, value: item.value, id: item.id },
-            bubbles: true, composed: true
-          }));
-          this.text = item.label ?? item.title;
-          this.setAttribute('aria-activedescendant', item.id);
+          this.value = item.value;
+          this.text = item.label;
+          this.setAttribute('aria-activedescendant',item.id);
           this.expanded = false;
-          try { this.focus(); } catch (err) {}
+
+          this.dispatchEvent(new Event('input',{bubbles:true,composed:true}));
+          this.dispatchEvent(new Event('change',{bubbles:true,composed:true}));
         }
+      };
+
+      switch(e.key){
+        case 'ArrowDown':
+          e.preventDefault();
+          moveTo(1);
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          moveTo(-1);
+          break;
+        case 'Escape':
+          e.preventDefault();
+          this.expanded = false;
+          break;
+        case 'Enter':
+        case ' ':
+          e.preventDefault();
+          handleSelection();
+          break;
+        default:
+          return;
       }
     }
   }
 
-  #onDocumentClick = (e) => {
+  #onDocumentClick = (e) =>{
     const clickInside = this.contains(e.target) || this.#listbox?.contains(e.target);
-    if (!clickInside) {
+    if(!clickInside){
       this.expanded = false;
     }
   }
 
-  #onDocumentKeydown = (e) => {
-    if (e.key === 'Escape') {
+  #onDocumentKeydown = (e) =>{
+    if(e.key === 'Escape'){
       e.preventDefault();
       this.expanded = false;
-      try { this.focus(); } catch (err) {}
     }
   }
 
   #onWindowResize = () => {
-    if (this.#expanded) this.#positionListbox();
+    if(this.#expanded) this.#listboxPosition();
   }
 }
 

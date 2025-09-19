@@ -5,9 +5,9 @@ ui-select{
   --ui-select-column-gap:6px;
   --ui-select-icon-size:20px;
   --ui-select-font-size:14px;
-  --ui-select-background-color:var(--ui-color-gray-800);
-  --ui-select-background-color-hover:var(--ui-color-gray-750);
-  --ui-select-background-color-active:var(--ui-color-gray-700);
+  --ui-select-surface-color:var(--ui-surface-color-default);
+  --ui-select-surface-color-hover:var(--ui-surface-color-hover);
+  --ui-select-surface-color-active:var(--ui-surface-color-active);
   --ui-select-font-color:var(--ui-color-white);
   --ui-select-outline-color:var(--ui-color-gray-500);
 
@@ -20,26 +20,22 @@ ui-select{
   padding-inline-end:calc(var(--ui-select-height) / 4 + 2px)!important;
   border:none;
   border-radius:var(--ui-select-border-radius);
-  outline-offset:2px;
-  outline-width:2px;
-  outline-style:solid;
-  outline-color:transparent;
   color:var(--ui-select-font-color);
-  background-color:var(--ui-select-background-color);
+  background-color:var(--ui-select-surface-color);
   overflow:hidden;
 
   &[ui]{
-    transition-duration:var(--ui-transition-duration);
+    transition-duration:var(--ui-transition-duration-default);
     transition-property:background-color,outline-color,color;}
 
   @media (hover: hover){
     &:hover:not([disabled]){
-      background-color:var(--ui-select-background-color-hover);}
+      background-color:var(--ui-select-surface-color-hover);}
   }
 
   &[expanded]:not([disabled]){
     color:var(--ui-color-white);
-    background-color:var(--ui-select-background-color-hover);}
+    background-color:var(--ui-select-surface-color-hover);}
 
   &:focus-visible:not([disabled]){
     outline-color:var(--ui-select-outline-color);}
@@ -54,7 +50,7 @@ ui-select{
 
   & [data-ui="select-icon-expand"] ui-icon{
     width:var(--ui-select-icon-size);
-    transition-duration:var(--ui-transition-duration);
+    transition-duration:var(--ui-transition-duration-default);
     transition-property:transform;}
 
   &[aria-expanded="true"] [data-ui="select-icon-expand"] ui-icon{
@@ -108,16 +104,16 @@ ui-select{
     height:100%;
     width:var(--ui-select-icon-size);}
 
-  &[ui] [role="option"]{
-    transition-duration:var(--ui-transition-duration);
+  & [role="option"]{
+    transition-duration:var(--ui-transition-duration-default);
     transition-property:background-color,color;}
 
-  &[ui] [role="option"][aria-disabled="true"]{
+  & [role="option"][aria-disabled="true"]{
     opacity:0.5;
     cursor:default!important;}
 
   @media (hover: hover){
-    &[ui] [role="option"]:hover:not([aria-disabled="true"]){
+    & [role="option"]:hover:not([aria-disabled="true"]){
       background-color:var(--ui-listbox-option-background-color-hover);
       color:var(--ui-listbox-font-color-hover);}
   }

@@ -43,6 +43,7 @@ class UIInput extends UIBase{
 
   get disabled(){return this.#disabled;}
   set disabled(value){
+    if(this.#disabled === (value === true)) return;
     this.#disabled = value === true;
     this.reflect('disabled',this.#disabled);
     if(this.#input) this.#input.disabled = this.#disabled;

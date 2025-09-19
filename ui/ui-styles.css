@@ -203,7 +203,8 @@
 [role="button"],
 [role="switch"],
 [role="checkbox"],
-[role="tab"]{
+[role="tab"],
+[role="combobox"]{
   outline-offset:var(--ui-outline-offset);
   outline-width:var(--ui-outline-width);
   outline-style:var(--ui-outline-style);
@@ -212,10 +213,10 @@
 [role="button"]:focus-visible:not([disabled]),
 [role="switch"]:focus-visible:not([disabled]),
 [role="checkbox"]:focus-visible:not([disabled]),
-[role="tab"]:focus-visible:not([aria-disabled="true"]){
+[role="tab"]:focus-visible:not([disabled]),
+[role="combobox"]:focus-visible:not([disabled]){
   outline-color:var(--ui-outline-color);}
 
-[aria-disabled="true"]:not([loading]),
 [disabled]:not([loading]){
   cursor:not-allowed;
   opacity:0.5;

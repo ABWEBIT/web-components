@@ -39,7 +39,7 @@ class UITabs extends UIBase{
       // tab
       const tab = document.createElement('div');
       tab.role = 'tab';
-      tab.tabIndex = isActive ? '0' : '-1';
+      tab.tabIndex = isActive ? 0 : -1;
       tab.ariaSelected = isActive ? 'true' : 'false';
       tab.ariaDisabled = item.disabled;
       tab.id = idTab;
@@ -104,7 +104,7 @@ class UITabs extends UIBase{
     const total = this.#data.length;
     let newIndex = index;
 
-    switch (e.key) {
+    switch(e.key){
       case 'ArrowRight':
         newIndex = (index + 1) % total;
         while (this.#data[newIndex]?.disabled){

@@ -12,7 +12,7 @@
         An icon that can be displayed before the text in a breadcrumb item.
       </li>
       <li>
-        title - required.<br>
+        label - required.<br>
         The text displayed in the breadcrumb item.
       </li>
       <li>
@@ -40,10 +40,10 @@
 &lt;ui-breadcrumb id="breadcrumb"&gt;&lt;/ui-breadcrumb&gt;
 
 breadcrumb.data = [
- {title:'Home',href:'/'},
- {title:'Settings',href:'/'},
- {title:'Notifications',href:'/'},
- {title:'Article',href:'/'}
+ {label:'Home',href:'/'},
+ {label:'Settings',href:'/'},
+ {label:'Notifications',href:'/'},
+ {label:'Article',href:'/'}
 ];
 </code></pre>
 
@@ -66,10 +66,10 @@ breadcrumb.data = [
 &lt;ui-breadcrumb id="breadcrumb"&gt;&lt;/ui-breadcrumb&gt;
 
 breadcrumb.data = [
- {icon:'home',title:'Home',href:'/'},
- {icon:'settings',title:'Settings',href:'/'},
- {icon:'notifications',title:'Notifications',href:'/'},
- {icon:'article',title:'Article',href:'/'}
+ {icon:'home',label:'Home',href:'/'},
+ {icon:'settings',label:'Settings',href:'/'},
+ {icon:'notifications',label:'Notifications',href:'/'},
+ {icon:'article',label:'Article',href:'/'}
 ];
 </code></pre>
 
@@ -83,17 +83,17 @@ breadcrumb.data = [
 (() => {
 
   breadcrumb00.data = [
-    {title:'Home',href:'/'},
-    {title:'Settings',href:'/'},
-    {title:'Notifications',href:'/'},
-    {title:'Article',href:'/'}
+    {label:'Home',href:'/'},
+    {label:'Settings',href:'/'},
+    {label:'Notifications',href:'/'},
+    {label:'Article',href:'/'}
   ];
 
   breadcrumb01.data = [
-    {icon:'home',title:'Home',href:'/'},
-    {icon:'settings',title:'Settings',href:'/'},
-    {icon:'notifications',title:'Notifications',href:'/'},
-    {icon:'article',title:'Article',href:'/'}
+    {icon:'home',label:'Home',href:'/'},
+    {icon:'settings',label:'Settings',href:'/'},
+    {icon:'notifications',label:'Notifications',href:'/'},
+    {icon:'article',label:'Article',href:'/'}
   ];
 
 })();

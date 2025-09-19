@@ -29,8 +29,7 @@ class UIButton extends UIBase{
   connectedCallback(){
     super.connectedCallback();
     this.role = 'button';
-
-    if(!this.hasAttribute('tabindex')) this.tabIndex = 0;
+    this.tabIndex = 0;
 
     this.#listeners = new AbortController();
     const signal = this.#listeners.signal;

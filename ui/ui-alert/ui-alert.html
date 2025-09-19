@@ -37,12 +37,12 @@
     <h2>Object properties</h2>
     <ul>
       <li>
-        title - optional.<br>
-        The main heading or title of the alert. Displayed prominently at the top of the alert box. Only plain text is allowed.
+        label - optional.<br>
+        Alert label displayed at the top. Plain text only.
       </li>
       <li>
         content - optional.<br>
-        Additional content of the alert, which can include plain text or sanitized HTML.
+        Additional alert content, which can include plain text or HTML markup.
       </li>
     </ul>
   </div>
@@ -74,7 +74,7 @@ alert.data = {
   </div>
 
   <div class="content-item">
-    <div>Alert with title and content</div>
+    <div>Alert with label and content</div>
     <div class="example">
       <div class="preview">
         <ui-alert id="alert01"></ui-alert>
@@ -88,7 +88,7 @@ alert.data = {
 &lt;ui-alert id="alert"&gt;&lt;/ui-alert&gt;
 
 alert.data = {
- title:'Update Complete',
+ label:'Update Complete',
  content:'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'
 };
 </code></pre>
@@ -98,7 +98,7 @@ alert.data = {
   </div>
 
   <div class="content-item">
-    <div>Alert with title, content, close button, and icon</div>
+    <div>Alert with label, content, close button, and icon</div>
     <div class="example">
       <div class="preview">
         <ui-alert id="alert02" icon="info"></ui-alert>
@@ -112,7 +112,7 @@ alert.data = {
 &lt;ui-alert id="alert" icon="info"&gt;&lt;/ui-alert&gt;
 
 alert.data = {
- title:'Update Complete',
+ label:'Update Complete',
  content:'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'
 };
 </code></pre>
@@ -131,12 +131,12 @@ alert.data = {
   };
 
   alert01.data = {
-    title:'Update Complete',
+    label:'Update Complete',
     content:'Your settings have been <strong>successfully</strong> saved.'
   };
 
   alert02.data = {
-    title:'Update Complete',
+    label:'Update Complete',
     content:'Your settings have been <strong>successfully</strong> saved.'
   };
 

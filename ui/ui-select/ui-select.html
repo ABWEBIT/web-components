@@ -33,7 +33,7 @@
     <div>Default</div>
     <div class="example">
       <div class="preview">
-        <ui-select id="id1"></ui-select>
+        <ui-select id="select00"></ui-select>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -52,9 +52,9 @@
     <div>Shape</div>
     <div class="example">
       <div class="preview">
-        <ui-select shape="rounded" id="id1"></ui-select>
-        <ui-select shape="square" id="id1"></ui-select>
-        <ui-select shape="pill" id="id1"></ui-select>
+        <ui-select shape="rounded"></ui-select>
+        <ui-select shape="square"></ui-select>
+        <ui-select shape="pill"></ui-select>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -73,7 +73,7 @@
     <div>With Placeholder and Disabled option</div>
     <div class="example">
       <div class="preview">
-        <ui-select placeholder="Select" id="id2"></ui-select>
+        <ui-select placeholder="Select" id="select01"></ui-select>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -109,16 +109,20 @@
 
 </section>
 
-<script>
-document.getElementById('id1').items = [
-  { value: '1', label: 'ID1_Option_111111111111111111111111', selected: true, disabled: false },
-  { value: '2', label: 'ID1 Option 2', selected: false, disabled: false },
-  { value: '3', label: 'ID1 Option 3', selected: false, disabled: false },
-];
+<script defer>
+(() => {
 
-document.getElementById('id2').items = [
-  { value: '1', label: 'ID2 Option 1', selected: false, disabled: false },
-  { value: '2', label: 'ID2 Option 2', selected: false, disabled: true },
-  { value: '3', label: 'ID2 Option 3', selected: false, disabled: false },
-];
+  select00.data = [
+    {value:'1',label:'ID1_Option_111111111111111111111111', selected: true, disabled: false },
+    {value:'2',label:'ID1 Option 2', selected: false, disabled: false },
+    {value:'3',label:'ID1 Option 3', selected: false, disabled: false },
+  ];
+
+  select01.data = [
+    {value:'1',label:'ID2 Option 1', selected: false, disabled: false },
+    {value:'2',label:'ID2 Option 2', selected: false, disabled: true },
+    {value:'3',label:'ID2 Option 3', selected: false, disabled: false },
+  ];
+
+})();
 </script>
