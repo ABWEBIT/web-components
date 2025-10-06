@@ -11,7 +11,8 @@ ui-breadcrumb{
     display:flex;
     list-style:none;
     padding:0;
-    margin:0;}
+    margin:0;
+  }
 
   & [role="listitem"]{
     display:flex;
@@ -22,7 +23,8 @@ ui-breadcrumb{
       color:var(--ui-breadcrumb-font-color);
       text-decoration:none;
       transition-duration:var(--ui-transition-duration);
-      transition-property:color;}
+      transition-property:color;
+    }
 
     @media (hover: hover){
       & > a:hover{color:var(--ui-breadcrumb-font-color-hover);}
@@ -32,12 +34,14 @@ ui-breadcrumb{
   & ui-icon[role="presentation"]{
     width:var(--ui-breadcrumb-separator-size);
     height:100%;
-    margin-inline:4px;}
+    margin-inline:4px;
+  }
 
   & ui-icon:not([role="presentation"]){
     width:var(--ui-breadcrumb-icon-size);
     height:100%;
     margin-top:-3px;
     margin-inline-start:-2px;
-    margin-inline-end:6px;}
+    margin-inline-end:6px;
+  }
 }

@@ -15,10 +15,6 @@ class UIField extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    const orientation = this.getAttribute('orientation');
-    if(!['horizontal','vertical'].includes(orientation)){
-      this.setAttribute('orientation','horizontal');
-    };
 
     if(this.hasAttribute('required')) this.#addRequired();
 

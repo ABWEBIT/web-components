@@ -42,11 +42,13 @@ ui-accordion{
       border-radius:inherit;
       padding-block:var(--ui-accordion-header-padding-block);
       font-size:var(--ui-accordion-header-font-size);
-      color:var(--ui-accordion-header-font-color);}
+      color:var(--ui-accordion-header-font-color);
+    }
 
     @media (hover: hover){
       & > ui-button[aria-controls]:not([disabled]):hover{
-        text-decoration:underline;}
+        text-decoration:underline;
+      }
     }
 
     & > ui-button[aria-controls]{
@@ -55,7 +57,8 @@ ui-accordion{
 
       &[aria-expanded] > ui-icon{
         transition-duration:var(--ui-transition-duration-default);
-        transition-property:transform;}
+        transition-property:transform;
+      }
 
       &[aria-expanded="false"] > ui-icon{transform:rotate(0deg);}
       &[aria-expanded="true"] > ui-icon{transform:rotate(180deg);}
@@ -72,10 +75,12 @@ ui-accordion{
       line-height:var(--ui-accordion-line-height);
 
       &[aria-hidden="false"]{
-        display:block;}
+        display:block;
+      }
 
       &[aria-hidden="true"]{
-        display:none;}
+        display:none;
+      }
     }
   }
 

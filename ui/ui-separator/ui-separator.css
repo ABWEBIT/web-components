@@ -10,5 +10,6 @@ ui-separator{
 
   &[vertical]{
     --ui-separator-height:100%;
-    --ui-separator-width:1px;}
+    --ui-separator-width:1px;
+  }
 }

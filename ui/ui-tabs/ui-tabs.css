@@ -29,7 +29,8 @@ ui-tabs{
   & > [role="tablist"]{
     display:flex;
     flex-wrap:wrap;
-    gap:var(--ui-tabs-tablist-gap);}
+    gap:var(--ui-tabs-tablist-gap);
+  }
 
   & [role="tab"]{
     display:flex;
@@ -40,18 +41,21 @@ ui-tabs{
     font-size:var(--ui-tabs-tab-font-size);
     color:var(--ui-tabs-tab-content-color-default);
     transition-duration:var(--ui-transition-duration-default);
-    transition-property:background-color,outline-color,color;}
+    transition-property:background-color,outline-color,color;
+  }
 
   @media (hover: hover){
     & [role="tab"]:not([aria-selected="true"]):not([aria-disabled="true"]):hover{
       background-color:var(--ui-tabs-tab-surface-color-hover);
-      color:var(--ui-tabs-tab-content-color-hover);}
+      color:var(--ui-tabs-tab-content-color-hover);
+    }
   }
 
   & [role="tab"]:not([aria-selected="true"]):not([aria-disabled="true"]):active,
   & [role="tab"][aria-selected="true"]:not([aria-disabled="true"]){
     color:var(--ui-tabs-tab-content-color-active);
-    background-color:var(--ui-tabs-tab-surface-color-active);}
+    background-color:var(--ui-tabs-tab-surface-color-active);
+  }
 
   & [role="tabpanel"]{
     display:block;
@@ -63,17 +67,21 @@ ui-tabs{
     font-size:var(--ui-tabs-tabpanel-font-size);
     color:var(--ui-tabs-tabpanel-content-color);
     background-color:var(--ui-tabs-tabpanel-surface-color);
-    line-height:var(--ui-tabs-tabpanel-line-height);}
+    line-height:var(--ui-tabs-tabpanel-line-height);
+  }
 
   & [role="tabpanel"][hidden]{
-    display:none;}
+    display:none;
+  }
 
   /* shape */
   &[shape="rounded"]{
     --ui-tabs-tab-border-radius:var(--ui-border-radius-rounded);
-    --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-rounded);}
+    --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-rounded);
+  }
 
   &[shape="square"]{
     --ui-tabs-tab-border-radius:var(--ui-border-radius-square);
-    --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-square);}
+    --ui-tabs-tabpanel-border-radius:var(--ui-border-radius-square);
+  }
 }

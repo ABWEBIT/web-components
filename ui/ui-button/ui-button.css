@@ -7,7 +7,6 @@ ui-button{
   --ui-button-column-gap:12px;
   --ui-button-icon-height:16px;
   --ui-button-icon-width:16px;
-  --ui-button-icon-margin-inline:-2px;
   --ui-button-spinner-icon-height:20px;
   --ui-button-spinner-icon-width:20px;
   --ui-button-spinner-surface-color:var(--ui-surface-color-active);
@@ -36,26 +35,36 @@ ui-button{
 
   &[icon-only]{
     padding-inline:0;
-    width:var(--ui-button-size);}
+    width:var(--ui-button-size);
+  }
 
   &[ui]{
     transition-duration:var(--ui-transition-duration-default);
-    transition-property:background-color,outline-color,color;}
+    transition-property:background-color,outline-color,color;
+  }
 
   @media (hover: hover){
     &:hover:not([disabled]){
       color:var(--ui-button-content-color-hover);
-      background-color:var(--ui-button-surface-color-hover);}
+      background-color:var(--ui-button-surface-color-hover);
+    }
   }
 
   &:active:not([disabled]){
     color:var(--ui-button-content-color-active);
-    background-color:var(--ui-button-surface-color-active);}
+    background-color:var(--ui-button-surface-color-active);
+  }
 
-  & > ui-icon{
+  & > ui-icon,
+  & > svg{
     --ui-icon-height:var(--ui-button-icon-height);
     --ui-icon-width:var(--ui-button-icon-width);
-    margin-inline:var(--ui-button-icon-margin-inline);}
+  }
+
+  & > svg{
+    height:var(--ui-icon-height);
+    width:var(--ui-icon-width);
+  }
 
   /* spinner */
   & > ui-spinner{
@@ -64,7 +73,8 @@ ui-button{
     position:absolute;
     border-radius:inherit;
     inset:0;
-    background-color:var(--ui-button-spinner-surface-color);}
+    background-color:var(--ui-button-spinner-surface-color);
+  }
 
   /* shape */
   &[shape="rounded"]{--ui-button-border-radius:var(--ui-border-radius-rounded);}

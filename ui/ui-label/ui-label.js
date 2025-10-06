@@ -1,14 +1,15 @@
 import {UIBase} from '../ui-base.js';
 
 class UILabel extends UIBase{
+  #indicator = '*';
+
   connectedCallback(){
     super.connectedCallback();
-    if(this.hasAttribute('required')){
-      const span = document.createElement('span');
-      const symbol = (this.getAttribute('symbol') || '*').trim().charAt(0);
-      span.textContent = symbol;
-      this.appendChild(span);
-    }
+    if(!this.hasAttribute('required')) return;
+
+    const indicator = document.createElement('span');
+    indicator.textContent = this.getAttribute('indicator') ?? this.#indicator;
+    this.append(indicator);
   }
 }
 customElements.define('ui-label',UILabel);

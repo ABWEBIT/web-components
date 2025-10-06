@@ -14,5 +14,6 @@ ui-icon{
 
   & > svg{
     height:var(--ui-icon-svg-height);
-    width:var(--ui-icon-svg-width);}
+    width:var(--ui-icon-svg-width);
+  }
 }

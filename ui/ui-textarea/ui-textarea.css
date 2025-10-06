@@ -22,7 +22,8 @@ ui-textarea{
 
   &[ui]{
     transition-duration:var(--ui-transition-duration-default);
-    transition-property:outline-color;}
+    transition-property:outline-color;
+  }
 
   &::before{
     content:'';
@@ -32,7 +33,8 @@ ui-textarea{
     border-width:1px;
     border-style:solid;
     border-color:var(--ui-textarea-border-color);
-    pointer-events:none;}
+    pointer-events:none;
+  }
 
   & textarea{
     direction:inherit;
@@ -45,24 +47,29 @@ ui-textarea{
     resize:vertical;
     font-size:var(--ui-textarea-font-size);
     color:var(--ui-textarea-font-color);
-    background-color:transparent;}
+    background-color:transparent;
+  }
 
   & textarea::placeholder,
   &[disabled] textarea{
-    color:var(--ui-textarea-disabled-placeholder-font-color);}
+    color:var(--ui-textarea-disabled-placeholder-font-color);
+  }
 
   @media (hover: hover){
     &:hover:not([disabled]){
-      outline-color:var(--ui-textarea-outline-color);}
+      outline-color:var(--ui-textarea-outline-color);
+    }
   }
 
   &:focus-within:not([disabled]){
-    outline-color:var(--ui-textarea-outline-color);}
+    outline-color:var(--ui-textarea-outline-color);
+  }
 
   /* width-mode */
   &[width-mode="full"],
   &[width-mode="full"] textarea{
-    width:100%!important;}
+    width:100%!important;
+  }
 
   /* shape */
   &[shape="rounded"]{--ui-textarea-border-radius:var(--ui-border-radius-rounded);}

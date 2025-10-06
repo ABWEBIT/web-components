@@ -11,13 +11,10 @@
         The component can contain text, icons, or both - in any order.
       </li>
       <li>
-        This component is designed to work with the <a href="#ui-icon">ui-icon</a> component for rendering icons, but it can easily be adapted to support raw SVGs or other elements if needed.
+        This component is designed to work with the <a href="#ui-icon">ui-icon</a> component or an SVG element for rendering icons.
       </li>
       <li>
-        Since the default icons have 2px of padding inside the SVG,  <code>--ui-button-icon-margin-inline:-2px</code> is applied to visually balance the button's horizontal spacing. This adjustment affects only the width, not the height. If your icons extend to the full SVG width, you should remove this adjustment or set it to 0px.
-      </li>
-      <li>
-        Action Event - This component dispatches a custom event "button-action" whenever it is activated via click or keyboard (Enter / Space).
+        This component dispatches a custom event "button-action" whenever it is activated via click or keyboard (Enter / Space).
         External scripts should listen to this event to handle button actions.<br><br>
         Example:<br>
         <code>

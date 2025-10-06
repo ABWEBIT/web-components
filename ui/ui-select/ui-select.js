@@ -4,7 +4,6 @@ import {uuid} from '../../utils/uuid.js';
 class UISelect extends UIBase {
   #data = null;
   #text = '';
-  #textDefault = '-';
   #iconExpand = 'arrow-down-small';
   #expanded = false;
   #disabled = false;
@@ -36,7 +35,7 @@ class UISelect extends UIBase {
       this.setAttribute('aria-activedescendant',selected.id);
     }
     else{
-      this.text = this.getAttribute('placeholder') || "";
+      this.text = this.getAttribute('placeholder') || '';
       this.removeAttribute('aria-activedescendant');
     }
   }
@@ -103,7 +102,8 @@ class UISelect extends UIBase {
     const text = document.createElement('div');
     text.role = 'textbox';
     text.ariaReadOnly = 'true';
-    text.textContent = this.getAttribute('placeholder') || "";
+    text.ariaLabel = text.textContent?.trim() || '';
+    text.textContent = this.getAttribute('placeholder') || '';
     fragment.append(text);
 
     const iconName = this.getAttribute('icon') || this.#iconExpand;

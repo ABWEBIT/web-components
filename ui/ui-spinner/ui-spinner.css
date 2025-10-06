@@ -9,5 +9,6 @@ ui-spinner{
   & > svg{
     height:var(--ui-spinner-icon-height);
     width:var(--ui-spinner-icon-width);
-    animation:rotate360 0.8s linear infinite;}
+    animation:rotate360 0.8s linear infinite;
+  }
 }

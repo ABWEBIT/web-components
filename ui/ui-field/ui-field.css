@@ -1,24 +1,22 @@
 ui-field{
   position:relative;
-  display:inline-flex;
+  display:flex;
+  align-items:center;
 
-  &[orientation="horizontal"]{
-    align-items:center;
-    flex-direction:row;}
+  & > ui-label:first-child{
+    padding-inline-end:10px;
+  }
 
-  &[orientation="horizontal"] ui-label{
-    padding-top:2px;}
+  & > ui-label:last-child{
+    padding-inline-start:10px;
+  }
 
-  &[orientation="horizontal"] > ui-label:first-child{
-    padding-inline-end:10px;}
+  &[vertical]{
+    align-items:flex-start;
+    flex-direction:column;
+  }
 
-  &[orientation="horizontal"] > ui-label:last-child{
-    padding-inline-start:10px;}
-
-  &[orientation="vertical"]{
-    flex-direction:column;}
-
-  &[orientation="vertical"] > ui-label:first-child{
-    padding-block-end:10px;}
-
+  &[vertical] > ui-label:first-child{
+    padding-block-end:10px;
+  }
 }

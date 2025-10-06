@@ -46,7 +46,7 @@ class UITabs extends UIBase{
       tab.setAttribute('aria-controls',idControl);
       if(item.disabled) tab.setAttribute('disabled','');
 
-      tab.textContent = item.title ?? '';
+      tab.textContent = item.label ?? '';
 
       tab.addEventListener('click',() =>{
         if(item.disabled) return;

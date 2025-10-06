@@ -24,16 +24,16 @@
     <h2>Attributes</h2>
     <ul>
       <li>
-        passive - static, optional.<br>
+        passive - static (optional).<br>
         Sets the cursor to default, giving the impression that the element is not interactive.
       </li>
       <li>
-        required - static, optional.<br>
+        required - static (optional).<br>
         Indicates whether the associated form control is required.
       </li>
       <li>
-        symbol - static, optional. Default: *.<br>
-        Overrides the default required symbol. Only a single character is allowed; if the string is longer than one character, only the first character will be used. The symbol is added only if the required attribute is present.
+        indicator - static (optional). Default: *.<br>
+        Overrides the default required indicator. The indicator is added only if the 'required' attribute is present. It can be either a single character or a string.
       </li>
     </ul>
   </div>
@@ -99,10 +99,11 @@
   </div>
 
   <div class="content-item">
-    <div>Override required symbol</div>
+    <div>Override required indicator</div>
     <div class="example">
       <div class="preview">
-        <ui-label symbol="•" required>Label</ui-label>
+        <ui-label indicator="•" required>Label</ui-label>
+        <ui-label indicator="(required)" required>Label</ui-label>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -110,7 +111,9 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-label symbol="•" required&gt;Label&lt;/ui-label&gt;
+&lt;ui-label indicator="•" required&gt;Label&lt;/ui-label&gt;
+
+&lt;ui-label indicator="(required)" required&gt;Label&lt;/ui-label&gt;
 </code></pre>
 
       </div>

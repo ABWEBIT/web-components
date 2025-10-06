@@ -180,7 +180,8 @@
     fill:currentColor;
     stroke:currentColor;
     pointer-events:none;
-    shape-rendering:geometricPrecision;}
+    shape-rendering:geometricPrecision;
+  }
 
   h1{font-size:var(--ui-h1-size);}
   h2{font-size:var(--ui-h2-size);}
@@ -198,7 +199,8 @@
 [role="option"]{
   appearance:none;
   cursor:pointer;
-  touch-action:manipulation;}
+  touch-action:manipulation;
+}
 
 [role="button"],
 [role="switch"],
@@ -208,22 +210,26 @@
   outline-offset:var(--ui-outline-offset);
   outline-width:var(--ui-outline-width);
   outline-style:var(--ui-outline-style);
-  outline-color:transparent;}
+  outline-color:transparent;
+}
 
 [role="button"]:focus-visible:not([disabled]),
 [role="switch"]:focus-visible:not([disabled]),
 [role="checkbox"]:focus-visible:not([disabled]),
 [role="tab"]:focus-visible:not([disabled]),
 [role="combobox"]:focus-visible:not([disabled]){
-  outline-color:var(--ui-outline-color);}
+  outline-color:var(--ui-outline-color);
+}
 
 [disabled]:not([loading]){
   cursor:not-allowed;
   opacity:0.5;
-  pointer-events:auto;}
+  pointer-events:auto;
+}
 
 [loading]{
-  cursor:default;}
+  cursor:default;
+}
 
 /* animations */
 @keyframes rotate360{

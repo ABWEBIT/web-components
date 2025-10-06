@@ -1,6 +1,12 @@
-ui-label > span{
-  padding-inline-start:6px;
-  color:rgb(230,60,60);
+ui-label{
+  cursor:pointer;
 
-  &:not([passive]){cursor:pointer;}
+  &[passive]{
+    cursor:default;
+  }
+
+  & > span{
+    padding-inline-start:6px;
+    color:var(--ui-color-red-500);
+  }
 }

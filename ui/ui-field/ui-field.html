@@ -26,8 +26,8 @@
         Defines the position of the ui-label relative to the form control. By default, the label is placed before the form control, so start doesn't need to be explicitly set. Use end to place the label after the control.
       </li>
       <li>
-        orientation - static (optional). Default: horizontal.<br>
-        Defines the layout direction of the label and the form control. horizontal | vertical
+        vertical - static (optional).<br>
+        Sets the orientation to vertical.
       </li>
       <li>
         required - static (optional).<br>
@@ -115,10 +115,10 @@
   </div>
 
   <div class="content-item">
-    <div>Required, orientation="vertical"</div>
+    <div>Required, vertical</div>
     <div class="example">
       <div class="preview">
-        <ui-field required orientation="vertical">
+        <ui-field required vertical>
           <ui-label>Label</ui-label>
           <ui-textarea height="200"></ui-textarea>
         </ui-field>
@@ -129,7 +129,7 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-field required orientation="vertical"&gt;
+&lt;ui-field required vertical&gt;
  &lt;ui-label&gt;Label&lt;/ui-label&gt;
  &lt;ui-textarea&gt;&lt;/ui-textarea&gt;
 &lt;/ui-field&gt;

@@ -13,7 +13,8 @@ ui-input{
 
   &[ui]{
     transition-duration:var(--ui-transition-duration);
-    transition-property:outline-color;}
+    transition-property:outline-color;
+  }
 
   &::before{
     content:'';
@@ -23,7 +24,8 @@ ui-input{
     border-width:1px;
     border-style:solid;
     border-color:var(--ui-input-border-color);
-    pointer-events:none;}
+    pointer-events:none;
+  }
 
   & input{
     direction:inherit;
@@ -34,17 +36,21 @@ ui-input{
     font-size:var(--ui-input-font-size);
     padding-inline:var(--ui-input-padding-inline);
     color:var(--ui-input-font-color);
-    background-color:transparent;}
+    background-color:transparent;
+  }
 
   & input::placeholder{
-    color:var(--ui-input-placeholder-color);}
+    color:var(--ui-input-placeholder-color);
+  }
 
   &[disabled] input,
   &[disabled] input::placeholder{
-    color:var(--ui-input-disabled-color);}
+    color:var(--ui-input-disabled-color);
+  }
 
   &[clearable] > input{
-    padding-inline-end:0;}
+    padding-inline-end:0;
+  }
 
   & > ui-icon{
     display:block;
@@ -54,29 +60,28 @@ ui-input{
     padding:var(--ui-input-icon-padding);
     stroke-width:0;
     cursor:pointer;
-    pointer-events:all!important;}
+    pointer-events:all!important;
+  }
 
 
   @media (hover:hover){
     &:hover:not([disabled]){
-      outline-color:var(--ui-input-outline-color);}
+      outline-color:var(--ui-input-outline-color);
+    }
 
     & > ui-icon:hover{
-      color:var(--ui-color-input-icons-active);}
+      color:var(--ui-color-input-icons-active);
+    }
   }
 
   &:focus-within:not([disabled]){
-    outline-color:var(--ui-input-outline-color);}
+    outline-color:var(--ui-input-outline-color);
+  }
 
   /* shape */
-  &[shape="rounded"]{
-    --ui-input-border-radius:var(--ui-border-radius-rounded);}
-
-  &[shape="square"]{
-    --ui-input-border-radius:var(--ui-border-radius-square);}
-
-  &[shape="pill"]{
-    --ui-input-border-radius:var(--ui-border-radius-pill);}
+  &[shape="rounded"]{--ui-input-border-radius:var(--ui-border-radius-rounded);}
+  &[shape="square"]{--ui-input-border-radius:var(--ui-border-radius-square);}
+  &[shape="pill"]{--ui-input-border-radius:var(--ui-border-radius-pill);}
 
   /* theme */
   &[theme="default"]{
@@ -87,7 +92,8 @@ ui-input{
     --ui-input-font-color:var(--ui-color-white);
     --ui-input-svg-color:var(--ui-color-gray-400);
     --ui-input-placeholder-color:var(--ui-color-gray-500);
-    --ui-input-disabled-color:var(--ui-color-gray-300);}
+    --ui-input-disabled-color:var(--ui-color-gray-300);
+  }
 
   /* size */
   &[size="default"]{
@@ -95,5 +101,6 @@ ui-input{
     --ui-input-size:32px;
     --ui-input-icon-size:28px;
     --ui-input-icon-padding:4px;
-    --ui-input-padding-inline:12px;}
+    --ui-input-padding-inline:12px;
+  }
 }
