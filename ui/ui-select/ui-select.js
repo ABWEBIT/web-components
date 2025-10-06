@@ -114,12 +114,10 @@ class UISelect extends UIBase {
 
     this.#listbox = document.createElement('div');
     this.#listbox.setAttribute('data-ui', 'listbox');
-    this.#listbox.setAttribute('role', 'listbox');
+    this.#listbox.role = 'listbox';
     this.#listbox.id = this.#listboxId;
     this.#listbox.hidden = true;
-    this.#listbox.style.position = 'absolute';
 
-    this.#listbox.style.zIndex = '9999';
     document.body.append(this.#listbox);
 
     this.append(fragment);
@@ -131,7 +129,7 @@ class UISelect extends UIBase {
   disconnectedCallback() {
     this.#listboxListeners?.abort();
     this.#listboxListeners = null;
-    if (this.#listbox) {
+    if(this.#listbox){
       this.#listbox.remove();
       this.#listbox = null;
     }
@@ -141,8 +139,7 @@ class UISelect extends UIBase {
   }
 
   #syncDisabled = () =>{
-    if(this.#disabled) this.ariaDisabled = true
-    else this.ariaDisabled = null;
+    this.ariaDisabled = this.#disabled ? true : null;
     this.tabIndex = this.#disabled ? -1 : 0;
   }
 

@@ -54,8 +54,7 @@ class UISwitch extends UIBase{
   }
 
   #syncDisabled = () =>{
-    if(this.#disabled) this.ariaDisabled = true
-    else this.ariaDisabled = null;
+    this.ariaDisabled = this.#disabled ? true : null;
     this.tabIndex = this.#disabled ? -1 : 0;
   }
 

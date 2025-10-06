@@ -50,13 +50,12 @@ class UICheckbox extends UIBase{
   }
 
   #syncDisabled = () =>{
-    if(this.#disabled) this.ariaDisabled = true
-    else this.ariaDisabled = null;
+    this.ariaDisabled = this.#disabled ? true : null;
     this.tabIndex = this.#disabled ? -1 : 0;
   }
 
   #syncChecked = () =>{
-    this.ariaChecked = this.#checked ? 'true' : 'false';
+    this.ariaChecked = this.#checked ? true : false;
   }
 
   #onClick = (e) =>{

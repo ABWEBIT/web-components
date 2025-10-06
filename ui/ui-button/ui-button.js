@@ -52,19 +52,17 @@ class UIButton extends UIBase{
     if(this.#loading && !spinner){
       this.append(document.createElement('ui-spinner'));
       this.disabled = true;
+      this.ariaBusy = true;
     }
     else if(!this.#loading && spinner){
-      spinner.remove();
+      spinner?.remove();
       this.disabled = false;
+      this.ariaBusy = null;
     }
-
-    if(this.#loading) this.ariaBusy = true
-    else this.ariaBusy = null;
   }
 
   #syncDisabled = () =>{
-    if(this.#disabled) this.ariaDisabled = true
-    else this.ariaDisabled = null;
+    this.ariaDisabled = this.#disabled ? true : null;
     this.tabIndex = this.#disabled ? -1 : 0;
   }
 
