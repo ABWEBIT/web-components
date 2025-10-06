@@ -99,7 +99,7 @@ class UITabs extends UIBase{
     }
   }
 
-  #onKeyDown = (e,index) => {
+  #onKeyDown = (e,index) =>{
     e.preventDefault();
     const total = this.#data.length;
     let newIndex = index;

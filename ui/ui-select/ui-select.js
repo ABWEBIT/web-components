@@ -36,7 +36,7 @@ class UISelect extends UIBase {
       this.setAttribute('aria-activedescendant',selected.id);
     }
     else{
-      this.text = this.getAttribute('placeholder') || this.#textDefault;
+      this.text = this.getAttribute('placeholder') || "";
       this.removeAttribute('aria-activedescendant');
     }
   }
@@ -46,7 +46,7 @@ class UISelect extends UIBase {
     const valueNew = String(value || '');
     if(this.#text === valueNew) return;
     this.#text = valueNew;
-    this.updateText('[data-ui="select-text"]',this.#text);
+    this.updateText('[role="textbox"]',this.#text);
   }
 
   get disabled(){return this.#disabled;}
@@ -57,18 +57,18 @@ class UISelect extends UIBase {
     this.#syncDisabled();
   }
 
-  get expanded() { return this.#expanded; }
-  set expanded(value) {
+  get expanded(){return this.#expanded;}
+  set expanded(value){
     const valueNew = value === true;
-    if (this.#expanded === valueNew) return;
+    if(this.#expanded === valueNew) return;
     this.#expanded = valueNew;
 
     this.reflect('expanded', this.#expanded);
     this.ariaExpanded = this.#expanded ? 'true' : 'false';
 
-    if (!this.#listbox) return;
+    if(!this.#listbox) return;
 
-    if (this.#expanded) {
+    if(this.#expanded){
       this.#listbox.hidden = false;
       this.#listboxPosition();
 
@@ -79,39 +79,37 @@ class UISelect extends UIBase {
       document.addEventListener('keydown', this.#onDocumentKeydown, { capture: true, signal });
       window.addEventListener('resize', this.#onWindowResize, { signal });
       window.addEventListener('scroll', this.#onWindowResize, { capture: true, signal });
-
-      if (this.#indexActive >= 0) this.#highlight();
-    } else {
-      this.#listbox.hidden = true; // 👈 теперь всегда прячем!
+      if(this.#indexActive >= 0) this.#highlight();
+    }
+    else{
+      this.#listbox.hidden = true;
       this.#listboxListeners?.abort();
       this.#listboxListeners = null;
-      try { this.focus(); } catch {}
+      try{this.focus();} catch {}
     }
   }
 
-  connectedCallback() {
+  connectedCallback(){
     super.connectedCallback();
 
     this.role = 'combobox';
     this.tabIndex = this.#disabled ? '-1' : '0';
     this.ariaExpanded = this.#expanded ? 'true' : 'false';
     this.ariaHasPopup = 'listbox';
-    this.setAttribute('aria-controls', this.#listboxId);
+    this.setAttribute('aria-controls',this.#listboxId);
 
     const fragment = document.createDocumentFragment();
 
-    const selectText = document.createElement('div');
-    selectText.setAttribute('data-ui', 'select-text');
-    selectText.textContent = this.getAttribute('placeholder') || this.#textDefault;
-    fragment.append(selectText);
+    const text = document.createElement('div');
+    text.role = 'textbox';
+    text.ariaReadOnly = 'true';
+    text.textContent = this.getAttribute('placeholder') || "";
+    fragment.append(text);
 
-    const selectIconExpand = document.createElement('div');
-    selectIconExpand.setAttribute('data-ui', 'select-icon-expand');
     const iconName = this.getAttribute('icon') || this.#iconExpand;
     const icon = document.createElement('ui-icon');
-    icon.setAttribute('icon', iconName);
-    selectIconExpand.append(icon);
-    fragment.append(selectIconExpand);
+    icon.setAttribute('icon',iconName);
+    fragment.append(icon);
     this.removeAttribute('icon');
 
     this.#listbox = document.createElement('div');
@@ -131,8 +129,6 @@ class UISelect extends UIBase {
   }
 
   disconnectedCallback() {
-    super.disconnectedCallback();
-
     this.#listboxListeners?.abort();
     this.#listboxListeners = null;
     if (this.#listbox) {
@@ -150,7 +146,7 @@ class UISelect extends UIBase {
     this.tabIndex = this.#disabled ? -1 : 0;
   }
 
-  #listboxPosition() {
+  #listboxPosition(){
     if (!this.#listbox) return;
     const rect = this.getBoundingClientRect();
 
@@ -161,8 +157,8 @@ class UISelect extends UIBase {
     });
   }
 
-  #listboxRender() {
-    if (!this.#listbox) return;
+  #listboxRender(){
+    if(!this.#listbox) return;
     this.#listbox.replaceChildren();
     this.#indexActive = -1;
     this.#indexCurrent = null;
@@ -300,7 +296,7 @@ class UISelect extends UIBase {
     }
   }
 
-  #onWindowResize = () => {
+  #onWindowResize = () =>{
     if(this.#expanded) this.#listboxPosition();
   }
 }
