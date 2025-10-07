@@ -13,6 +13,11 @@ ui-icon{
   width:var(--ui-icon-width);
 
   & > svg{
+    display:block;
+    fill:currentColor;
+    stroke:currentColor;
+    pointer-events:none;
+    shape-rendering:geometricPrecision;
     height:var(--ui-icon-svg-height);
     width:var(--ui-icon-svg-width);
   }

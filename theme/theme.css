@@ -31,7 +31,7 @@ body{
   font-family:var(--ui-font-family);
   font-size:var(--ui-font-size-large);
   color:var(--ui-color-white);
-  background-color:var(--ui-color-black);
+  background-color:var(--theme-background-color);
   overflow-y:scroll;
 }
 

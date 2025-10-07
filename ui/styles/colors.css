@@ -1,0 +1,68 @@
+:root{
+  /* black white */
+  --ui-color-black:oklch(0% 0 0);
+  --ui-color-white:oklch(100% 0 0);
+
+  /* gray */
+  --ui-color-gray-100:oklch(90% 0 0);
+  --ui-color-gray-150:oklch(85% 0 0);
+  --ui-color-gray-200:oklch(80% 0 0);
+  --ui-color-gray-250:oklch(75% 0 0);
+  --ui-color-gray-300:oklch(70% 0 0);
+  --ui-color-gray-350:oklch(65% 0 0);
+  --ui-color-gray-400:oklch(60% 0 0);
+  --ui-color-gray-450:oklch(55% 0 0);
+  --ui-color-gray-500:oklch(50% 0 0);
+  --ui-color-gray-550:oklch(45% 0 0);
+  --ui-color-gray-600:oklch(40% 0 0);
+  --ui-color-gray-650:oklch(35% 0 0);
+  --ui-color-gray-700:oklch(30% 0 0);
+  --ui-color-gray-750:oklch(25% 0 0);
+  --ui-color-gray-800:oklch(20% 0 0);
+  --ui-color-gray-850:oklch(15% 0 0);
+  --ui-color-gray-900:oklch(10% 0 0);
+
+  /* red */
+  --ui-color-red-100:oklch(95% 0.01 27);
+  --ui-color-red-200:oklch(88% 0.05 27);
+  --ui-color-red-300:oklch(78% 0.10 27);
+  --ui-color-red-400:oklch(68% 0.18 27);
+  --ui-color-red-500:oklch(60% 0.23 27);
+  --ui-color-red-600:oklch(52% 0.23 27);
+  --ui-color-red-700:oklch(45% 0.21 27);
+  --ui-color-red-800:oklch(38% 0.18 27);
+  --ui-color-red-900:oklch(30% 0.15 27);
+
+  /* green */
+  --ui-color-green-100:oklch(95% 0.01 148);
+  --ui-color-green-200:oklch(88% 0.05 148);
+  --ui-color-green-300:oklch(78% 0.10 148);
+  --ui-color-green-400:oklch(70% 0.16 148);
+  --ui-color-green-500:oklch(66% 0.19 148);
+  --ui-color-green-600:oklch(58% 0.19 148);
+  --ui-color-green-700:oklch(48% 0.17 148);
+  --ui-color-green-800:oklch(38% 0.14 148);
+  --ui-color-green-900:oklch(30% 0.12 148);
+
+  /* blue */
+  --ui-color-blue-100:oklch(95% 0.01 252);
+  --ui-color-blue-200:oklch(90% 0.04 252);
+  --ui-color-blue-300:oklch(80% 0.10 252);
+  --ui-color-blue-400:oklch(70% 0.15 252);
+  --ui-color-blue-500:oklch(63% 0.23 252);
+  --ui-color-blue-600:oklch(57% 0.25 252);
+  --ui-color-blue-700:oklch(50% 0.23 252);
+  --ui-color-blue-800:oklch(42% 0.22 252);
+  --ui-color-blue-900:oklch(28% 0.18 252);
+
+  /* yellow */
+  --ui-color-yellow-100:oklch(98% 0.01 83);
+  --ui-color-yellow-200:oklch(93% 0.04 83);
+  --ui-color-yellow-300:oklch(88% 0.08 83);
+  --ui-color-yellow-400:oklch(84% 0.13 83);
+  --ui-color-yellow-500:oklch(81% 0.17 83);
+  --ui-color-yellow-600:oklch(72% 0.17 83);
+  --ui-color-yellow-700:oklch(60% 0.15 83);
+  --ui-color-yellow-800:oklch(50% 0.13 83);
+  --ui-color-yellow-900:oklch(40% 0.10 83);
+}
