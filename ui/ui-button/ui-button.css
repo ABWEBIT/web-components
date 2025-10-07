@@ -1,6 +1,7 @@
 ui-button{
   --ui-button-border-radius:var(--ui-border-radius-default);
   --ui-button-size:var(--ui-size-default);
+  --ui-button-width:auto;
   --ui-button-line-height:var(--ui-line-height-x-small);
   --ui-button-font-size:var(--ui-font-size-default);
   --ui-button-padding-inline:16px;
@@ -19,12 +20,21 @@ ui-button{
   --ui-button-surface-color-focus:var(--ui-surface-color-focus);
   --ui-button-surface-color-active:var(--ui-surface-color-active);
 
+  appearance:none;
+  cursor:pointer;
+  touch-action:manipulation;
+  outline-offset:var(--ui-outline-offset);
+  outline-width:var(--ui-outline-width);
+  outline-style:var(--ui-outline-style);
+  outline-color:transparent;
+
   position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
   vertical-align:middle;
   height:var(--ui-button-size);
+  width:var(--ui-button-width);
   line-height:var(--ui-button-line-height);
   border-radius:var(--ui-button-border-radius);
   padding-inline:var(--ui-button-padding-inline);
@@ -33,14 +43,23 @@ ui-button{
   color:var(--ui-button-content-color-default);
   background-color:var(--ui-button-surface-color-default);
 
-  &[icon-only]{
-    padding-inline:0;
-    width:var(--ui-button-size);
-  }
-
   &[ui]{
     transition-duration:var(--ui-transition-duration-default);
     transition-property:background-color,outline-color,color;
+  }
+
+  &[disabled]:not([busy]){
+    cursor:not-allowed;
+    opacity:0.5;
+    pointer-events:auto;
+  }
+
+  &[busy]{
+    cursor:default;
+  }
+
+  &:focus-visible:not([disabled]){
+    outline-color:var(--ui-outline-color);
   }
 
   @media (hover: hover){
@@ -81,4 +100,9 @@ ui-button{
   &[shape="square"]{--ui-button-border-radius:var(--ui-border-radius-square);}
   &[shape="pill"]{--ui-button-border-radius:var(--ui-border-radius-pill);}
   &[shape="circle"]{--ui-button-border-radius:var(--ui-border-radius-circle);}
+
+  &[icon-only]{
+    --ui-button-padding-inline:0;
+    aspect-ratio:1;
+  }
 }

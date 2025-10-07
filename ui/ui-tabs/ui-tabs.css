@@ -26,13 +26,23 @@ ui-tabs{
   width:100%;
   gap:var(--ui-tabs-gap);
 
+  /* tablist */
   & > [role="tablist"]{
     display:flex;
     flex-wrap:wrap;
     gap:var(--ui-tabs-tablist-gap);
   }
 
-  & [role="tab"]{
+  /* tab */
+  & > [role="tablist"] > [role="tab"]{
+    appearance:none;
+    cursor:pointer;
+    touch-action:manipulation;
+    outline-offset:var(--ui-outline-offset);
+    outline-width:var(--ui-outline-width);
+    outline-style:var(--ui-outline-style);
+    outline-color:transparent;
+
     display:flex;
     background-color:var(--ui-tabs-tab-surface-color-default);
     border-radius:var(--ui-tabs-tab-border-radius);
@@ -42,22 +52,33 @@ ui-tabs{
     color:var(--ui-tabs-tab-content-color-default);
     transition-duration:var(--ui-transition-duration-default);
     transition-property:background-color,outline-color,color;
-  }
 
-  @media (hover: hover){
-    & [role="tab"]:not([aria-selected="true"]):not([aria-disabled="true"]):hover{
-      background-color:var(--ui-tabs-tab-surface-color-hover);
-      color:var(--ui-tabs-tab-content-color-hover);
+    &[disabled]{
+      cursor:not-allowed;
+      opacity:0.5;
+      pointer-events:auto;
+    }
+
+    &:focus-visible:not([disabled]){
+      outline-color:var(--ui-outline-color);
+    }
+
+    @media (hover: hover){
+      &:not([aria-selected="true"]):not([aria-disabled="true"]):hover{
+        background-color:var(--ui-tabs-tab-surface-color-hover);
+        color:var(--ui-tabs-tab-content-color-hover);
+      }
+    }
+
+    &:not([aria-selected="true"]):not([aria-disabled="true"]):active,
+    &[aria-selected="true"]:not([aria-disabled="true"]){
+      color:var(--ui-tabs-tab-content-color-active);
+      background-color:var(--ui-tabs-tab-surface-color-active);
     }
   }
 
-  & [role="tab"]:not([aria-selected="true"]):not([aria-disabled="true"]):active,
-  & [role="tab"][aria-selected="true"]:not([aria-disabled="true"]){
-    color:var(--ui-tabs-tab-content-color-active);
-    background-color:var(--ui-tabs-tab-surface-color-active);
-  }
-
-  & [role="tabpanel"]{
+  /* tabpanel */
+  & > [role="tabpanel"]{
     display:block;
     -webkit-user-select:text;
     user-select:text;
@@ -68,10 +89,10 @@ ui-tabs{
     color:var(--ui-tabs-tabpanel-content-color);
     background-color:var(--ui-tabs-tabpanel-surface-color);
     line-height:var(--ui-tabs-tabpanel-line-height);
-  }
 
-  & [role="tabpanel"][hidden]{
-    display:none;
+    &[hidden]{
+      display:none;
+    }
   }
 
   /* shape */

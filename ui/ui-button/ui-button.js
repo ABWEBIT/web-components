@@ -3,11 +3,11 @@ import {UIBase} from '../ui-base.js';
 class UIButton extends UIBase{
   #listeners = null;
   #disabled = false;
-  #loading = false;
+  #busy = false;
 
   static properties = Object.freeze({
     'disabled':{name:'disabled',type:Boolean,reflect:true},
-    'loading':{name:'loading',type:Boolean,reflect:true}
+    'busy':{name:'busy',type:Boolean,reflect:true}
   });
 
   get disabled(){return this.#disabled;}
@@ -18,12 +18,12 @@ class UIButton extends UIBase{
     this.#syncDisabled();
   }
 
-  get loading(){return this.#loading;}
-  set loading(value){
-    if(this.#loading === (value === true)) return;
-    this.#loading = value === true;
-    this.reflect('loading',this.#loading);
-    this.#syncLoading();
+  get busy(){return this.#busy;}
+  set busy(value){
+    if(this.#busy === (value === true)) return;
+    this.#busy = value === true;
+    this.reflect('busy',this.#busy);
+    this.#syncBusy();
   }
 
   connectedCallback(){
@@ -38,7 +38,7 @@ class UIButton extends UIBase{
     this.addEventListener('keydown',this.#onKeyDown,{signal});
 
     this.#syncDisabled();
-    this.#syncLoading();
+    this.#syncBusy();
   }
 
   disconnectedCallback(){
@@ -46,15 +46,15 @@ class UIButton extends UIBase{
     this.#listeners = null;
   }
 
-  #syncLoading = () =>{
+  #syncBusy = () =>{
     const spinner = this.querySelector('ui-spinner');
 
-    if(this.#loading && !spinner){
+    if(this.#busy && !spinner){
       this.append(document.createElement('ui-spinner'));
       this.disabled = true;
       this.ariaBusy = true;
     }
-    else if(!this.#loading && spinner){
+    else if(!this.#busy && spinner){
       spinner?.remove();
       this.disabled = false;
       this.ariaBusy = null;

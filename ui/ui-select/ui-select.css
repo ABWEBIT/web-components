@@ -1,6 +1,6 @@
 ui-select{
   --ui-select-border-radius:var(--ui-border-radius-default);
-  --ui-select-height:32px;
+  --ui-select-height:var(--ui-size-default);
   --ui-select-padding-inline:16px;
   --ui-select-column-gap:6px;
   --ui-select-icon-size:20px;
@@ -9,7 +9,14 @@ ui-select{
   --ui-select-surface-color-hover:var(--ui-surface-color-hover);
   --ui-select-surface-color-active:var(--ui-surface-color-active);
   --ui-select-font-color:var(--ui-color-white);
-  --ui-select-outline-color:var(--ui-color-gray-500);
+
+  appearance:none;
+  cursor:pointer;
+  touch-action:manipulation;
+  outline-offset:var(--ui-outline-offset);
+  outline-width:var(--ui-outline-width);
+  outline-style:var(--ui-outline-style);
+  outline-color:transparent;
 
   position:relative;
   display:inline-flex;
@@ -29,6 +36,16 @@ ui-select{
     transition-property:background-color,outline-color,color;
   }
 
+  &[disabled]{
+    cursor:not-allowed;
+    opacity:0.5;
+    pointer-events:auto;
+  }
+
+  &:focus-visible:not([disabled]){
+    outline-color:var(--ui-outline-color);
+  }
+
   @media (hover: hover){
     &:hover:not([disabled]){
       background-color:var(--ui-select-surface-color-hover);
@@ -38,10 +55,6 @@ ui-select{
   &[expanded]:not([disabled]){
     color:var(--ui-color-white);
     background-color:var(--ui-select-surface-color-hover);
-  }
-
-  &:focus-visible:not([disabled]){
-    outline-color:var(--ui-select-outline-color);
   }
 
   & [role="textbox"]{
@@ -95,35 +108,40 @@ ui-select{
   transform:translateY(0);
   transition:opacity 0.15s ease-out, transform 0.15s ease-out;
 
-  & [role="option"]{
+  /* option */
+  & > [role="option"]{
+    appearance:none;
+    cursor:pointer;
+    touch-action:manipulation;
+
     display:flex;
     outline:none;
     border-radius:inherit;
     font-size:var(--ui-listbox-font-size);
     padding:8px 12px;
-  }
-
-  & [role="option"] > span{
-    display:block;
-    flex-grow:1;
-    overflow:hidden;
-    white-space:nowrap;
-    text-overflow:ellipsis;
-  }
-
-  & [role="option"] > ui-icon{
-    height:100%;
-    width:var(--ui-listbox-icon-size);
-  }
-
-  & [role="option"]{
     transition-duration:var(--ui-transition-duration-default);
     transition-property:background-color,color;
+
+    & > span{
+      display:block;
+      flex-grow:1;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+
+    & > ui-icon{
+      height:100%;
+      width:var(--ui-listbox-icon-size);
+    }
+
   }
 
+
   & [role="option"][aria-disabled="true"]{
+    cursor:not-allowed;
     opacity:0.5;
-    cursor:default!important;
+    pointer-events:auto;
   }
 
   @media (hover: hover){

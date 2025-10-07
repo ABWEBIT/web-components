@@ -198,10 +198,10 @@
   </div>
 
   <div class="content-item">
-    <div>Loading state</div>
+    <div>Busy state</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="loading">Start Loading</ui-button>
+        <ui-button id="busy">Start</ui-button>
         <ui-button id="reset">Reset</ui-button>
       </div>
       <div class="toolbar">
@@ -210,17 +210,17 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-button&gt;Start Loading&lt;/ui-button&gt;
+&lt;ui-button&gt;Start&lt;/ui-button&gt;
 
-const buttonLoading = document.getElementById('loading');
+const buttonBusy = document.getElementById('busy');
 const buttonReset = document.getElementById('reset');
 
-buttonLoading.addEventListener('button-action',() =>{
- buttonLoading.loading = true;
+buttonBusy.addEventListener('button-action',() =>{
+ buttonBusy.busy = true;
 });
 
 buttonReset.addEventListener('button-action',() =>{
- buttonLoading.loading = false;
+ buttonBusy.busy = false;
 });
 </code></pre>
 
@@ -233,15 +233,15 @@ buttonReset.addEventListener('button-action',() =>{
 <script defer>
 (() => {
 
-  const buttonLoading = document.getElementById('loading');
+  const buttonBusy = document.getElementById('busy');
   const buttonReset = document.getElementById('reset');
 
-  buttonLoading.addEventListener('button-action',() =>{
-    buttonLoading.loading = true;
+  buttonBusy.addEventListener('button-action',() =>{
+    buttonBusy.busy = true;
   });
 
   buttonReset.addEventListener('button-action',() => {
-    buttonLoading.loading = false;
+    buttonBusy.busy = false;
   });
 
 })();

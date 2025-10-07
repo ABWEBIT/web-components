@@ -11,6 +11,14 @@ ui-switch{
   --ui-switch-thumb-position-end:20px;
   --ui-switch-thumb-surface-color:var(--ui-color-white);
 
+  appearance:none;
+  cursor:pointer;
+  touch-action:manipulation;
+  outline-offset:var(--ui-outline-offset);
+  outline-width:var(--ui-outline-width);
+  outline-style:var(--ui-outline-style);
+  outline-color:transparent;
+
   position:relative;
   display:inline-flex;
   align-items:center;
@@ -24,6 +32,16 @@ ui-switch{
   &[ui]{
     transition-duration:var(--ui-transition-duration-default);
     transition-property:background-color,outline-color,padding-inline-start;
+  }
+
+  &[disabled]{
+    cursor:not-allowed;
+    opacity:0.5;
+    pointer-events:auto;
+  }
+
+  &:focus-visible:not([disabled]){
+    outline-color:var(--ui-outline-color);
   }
 
   &::before{
