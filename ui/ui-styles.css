@@ -1,5 +1,6 @@
 @import './styles/colors.css';
-@import './styles/theme-dark.css';
+@import './styles/ui-dark.css';
+@import './styles/ui-light.css';
 
 @import './ui-accordion/ui-accordion.css';
 @import './ui-alert/ui-alert.css';
@@ -22,7 +23,6 @@
 :root{
   /* font family */
   --ui-font-family:Arial,Helvetica,sans-serif;
-  --ui-font-family-ui-monospace:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
 
   /* line height */
   --ui-line-height-x-small:1;
@@ -81,10 +81,6 @@
   box-sizing:border-box;
   -webkit-user-select:none;
   user-select:none;
-
-  :is(*,*::before,*::after){box-sizing:inherit;}
-  :is(input,textarea,button){font-family:var(--ui-font-family);}
-  input::-ms-reveal{display:none;}
 
   h1{font-size:var(--ui-h1-size);}
   h2{font-size:var(--ui-h2-size);}

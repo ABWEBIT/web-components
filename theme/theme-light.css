@@ -1,0 +1,13 @@
+:root[data-theme='light']{
+  /* body */
+  --theme-body-color:var(--ui-color-white);
+
+  /* scrollbar */
+  --theme-scrollbar-color:var(--ui-color-gray-700);
+
+  /* link */
+  --theme-link-color:var(--ui-color-black);
+
+  /* text */
+  --theme-text-color:var(--ui-color-black);
+}

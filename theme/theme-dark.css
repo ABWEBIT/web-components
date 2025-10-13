@@ -1,0 +1,13 @@
+:root[data-theme='dark']{
+  /* body */
+  --theme-body-color:var(--ui-color-black);
+
+  /* scrollbar */
+  --theme-scrollbar-color:var(--ui-color-gray-600);
+
+  /* link */
+  --theme-link-color:var(--ui-color-white);
+
+  /* text */
+  --theme-text-color:var(--ui-color-white);
+}

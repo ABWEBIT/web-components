@@ -1,7 +1,4 @@
 :root[data-theme='dark']{
-  /* theme */
-  --theme-background-color:var(--ui-color-black);
-
   /* surface colors */
   --ui-surface-color-default:var(--ui-color-gray-800);
   --ui-surface-color-hover:var(--ui-color-gray-750);
