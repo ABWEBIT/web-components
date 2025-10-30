@@ -1,1 +1,1 @@
-export const UIVersion = '0.3.06-alpha';
+export const UIVersion = '0.3.07-alpha';

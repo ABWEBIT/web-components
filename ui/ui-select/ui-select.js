@@ -1,5 +1,5 @@
 import {UIBase} from '../ui-base.js';
-import {uuid} from '../../utils/uuid.js';
+import {uuid,setText} from '../../utils/index.js';
 
 class UISelect extends UIBase {
   #data = null;
@@ -45,7 +45,7 @@ class UISelect extends UIBase {
     const valueNew = String(value || '');
     if(this.#text === valueNew) return;
     this.#text = valueNew;
-    this.updateText('[role="textbox"]',this.#text);
+    setText(this,'[role="textbox"]',this.#text);
   }
 
   get disabled(){return this.#disabled;}

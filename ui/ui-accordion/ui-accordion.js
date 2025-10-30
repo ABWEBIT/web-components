@@ -1,5 +1,5 @@
 import {UIBase} from '../ui-base.js';
-import {uuid} from '../../utils/uuid.js';
+import {uuid} from '../../utils/index.js';
 import DOMPurify from '../../utils/purify.es.mjs';
 
 class UIAccordion extends UIBase{
