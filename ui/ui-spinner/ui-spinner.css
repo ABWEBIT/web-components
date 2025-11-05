@@ -1,14 +1,25 @@
 ui-spinner{
-  --ui-spinner-icon-height:24px;
-  --ui-spinner-icon-width:24px;
+  --ui-spinner-height:auto;
+  --ui-spinner-width:auto;
+  --ui-spinner-svg-height:24px;
+  --ui-spinner-svg-width:24px;
+  --ui-spinner-color:var(--ui-content-color-default);
 
+  color:var(--ui-spinner-color);
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  height:var(--ui-spinner-height);
+  width:var(--ui-spinner-width);
 
   & > svg{
-    height:var(--ui-spinner-icon-height);
-    width:var(--ui-spinner-icon-width);
+    display:block;
+    fill:currentColor;
+    stroke:currentColor;
+    pointer-events:none;
+    shape-rendering:geometricPrecision;
+    height:var(--ui-spinner-svg-height);
+    width:var(--ui-spinner-svg-width);
     animation:rotate360 0.8s linear infinite;
   }
 }

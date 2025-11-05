@@ -22,7 +22,7 @@ class UIIcon extends UIBase{
 
   connectedCallback(){
     super.connectedCallback();
-    this.setAttribute('aria-hidden','true');
+    this.ariaHidden = 'true';
     this.#svg = document.createElementNS(UIIcon.#xmlns,'svg');
     this.#svg.setAttribute('viewBox',UIIcon.#viewBox);
     this.replaceChildren(this.#svg);
