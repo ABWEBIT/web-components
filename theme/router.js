@@ -1,31 +1,34 @@
-  const components = [
-    { label: 'Foundation', link: './pages/ui-foundation.html', category: 'essentials' },
+const compDir = '/ui/components/';
+const pageDir = '/pages/';
 
-    { label: 'Accordion', link: './ui/ui-accordion/ui-accordion.html', category: 'components' },
-    { label: 'Alert', link: './ui/ui-alert/ui-alert.html', category: 'components' },
-    { label: 'Tabs', link: './ui/ui-tabs/ui-tabs.html', category: 'components' },
-    { label: 'Breadcrumb', link: './ui/ui-breadcrumb/ui-breadcrumb.html', category: 'components' },
+const components = [
+  { label: 'Foundation', link: pageDir+'foundation.html', category: 'essentials' },
+
+  { label: 'Accordion', link: compDir+'accordion/accordion.html', category: 'components' },
+  { label: 'Alert', link: compDir+'alert/alert.html', category: 'components' },
+  { label: 'Tabs', link: compDir+'tabs/tabs.html', category: 'components' },
+  { label: 'Breadcrumb', link: compDir+'breadcrumb/breadcrumb.html', category: 'components' },
 
 
-    { label: 'Icons', link: './pages/ui-icons.html', category: 'theme' },
+  { label: 'Icons', link: pageDir+'icons.html', category: 'theme' },
 
-    { label: 'Icon', link: './ui/ui-icon/ui-icon.html', category: 'primitives' },
-    { label: 'Separator', link: './ui/ui-separator/ui-separator.html', category: 'primitives' },
-    { label: 'Text', link: './ui/ui-text/ui-text.html', category: 'primitives' },
-    { label: 'Spinner', link: './ui/ui-spinner/ui-spinner.html', category: 'primitives' },
+  { label: 'Icon', link: compDir+'icon/icon.html', category: 'primitives' },
+  { label: 'Separator', link: compDir+'separator/separator.html', category: 'primitives' },
+  { label: 'Text', link: compDir+'text/text.html', category: 'primitives' },
+  { label: 'Spinner', link: compDir+'spinner/spinner.html', category: 'primitives' },
 
-    { label: 'Button', link: './ui/ui-button/ui-button.html', category: 'forms' },
-    { label: 'Checkbox', link: './ui/ui-checkbox/ui-checkbox.html', category: 'forms' },
-    { label: 'Input', link: './ui/ui-input/ui-input.html', category: 'forms' },
-    { label: 'Label', link: './ui/ui-label/ui-label.html', category: 'forms' },
-    { label: 'Switch', link: './ui/ui-switch/ui-switch.html', category: 'forms' },
-    { label: 'Textarea', link: './ui/ui-textarea/ui-textarea.html', category: 'forms' },
-    { label: 'Field', link: './ui/ui-field/ui-field.html', category: 'forms' },
-    { label: 'Select', link: './ui/ui-select/ui-select.html', category: 'forms' },
+  { label: 'Button', link: compDir+'button/button.html', category: 'forms' },
+  { label: 'Checkbox', link: compDir+'checkbox/checkbox.html', category: 'forms' },
+  { label: 'Input', link: compDir+'input/input.html', category: 'forms' },
+  { label: 'Label', link: compDir+'label/label.html', category: 'forms' },
+  { label: 'Switch', link: compDir+'switch/switch.html', category: 'forms' },
+  { label: 'Textarea', link: compDir+'textarea/textarea.html', category: 'forms' },
+  { label: 'Field', link: compDir+'field/field.html', category: 'forms' },
+  { label: 'Select', link: compDir+'select/select.html', category: 'forms' },
 
-    { label: 'Focus', link: './ui/ui-focus/ui-focus.html', category: 'utilities' },
-    { label: 'Portal', link: './ui/ui-portal/ui-portal.html', category: 'utilities' },
-  ];
+  { label: 'Focus', link: compDir+'focus/focus.html', category: 'utilities' },
+  { label: 'Portal', link: compDir+'portal/portal.html', category: 'utilities' },
+];
 
 function generateNav(data) {
   const categories = ['essentials', 'theme', 'primitives', 'forms', 'components', 'utilities'];
@@ -41,7 +44,7 @@ function generateNav(data) {
     const fragment = document.createDocumentFragment();
 
     items.forEach(({ label, link }) => {
-      const pageId = link.match(/ui-[\w-]+(?=\.html)/)?.[0];
+      const pageId = link.match(/[\w-]+(?=\.html)/)?.[0];
 
       const wrapper = document.createElement('div');
       wrapper.className = 'menuItem';
@@ -68,7 +71,7 @@ function navigate(pageId) {
 }
 
 async function loadPage(hash) {
-  const pageId = hash ? hash.substring(1) : 'ui-foundation';
+  const pageId = hash ? hash.substring(1) : 'foundation';
 
   const component = components.find(item =>
     item.link.includes(pageId + '.html')

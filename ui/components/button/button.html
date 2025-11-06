@@ -1,0 +1,248 @@
+<section class="intro">
+  <h1>Button</h1>
+  <div class="description">Buttons are used to perform actions or submit forms.</div>
+</section>
+
+<section class="details">
+  <div class="info">
+    <h2>Usage</h2>
+    <ul>
+      <li>
+        The component can contain text, icons, or both - in any order.
+      </li>
+      <li>
+        This component is designed to work with the <a href="#icon">icon</a> component or an SVG element for rendering icons.
+      </li>
+      <li>
+        This component dispatches a custom event "button-action" whenever it is activated via click or keyboard (Enter / Space).
+        External scripts should listen to this event to handle button actions.<br><br>
+        Example:<br>
+        <code>
+        button.addEventListener('button-action',() =>{<br>
+        &nbsp;console.log('Button clicked');<br>
+        });
+        </code>
+      </li>
+    </ul>
+  </div>
+  <div class="info">
+    <h2>Attributes</h2>
+    <ul>
+      <li>
+        aria-label - static (required).<br>
+        Must be set manually for icon buttons.
+      </li>
+      <li>
+        disabled - reactive (optional).<br>
+        Controls the disabled state of the component.
+      </li>
+      <li>
+        loading - reactive (optional).<br>
+        Controls the loading state of the component.
+      </li>
+      <li>
+        icon-only - static (optional).<br>
+        Indicates that the button contains only an icon, without text.<br>
+        The button will be displayed as a square (with symmetrical sides).
+      </li>
+      <li>
+        shape - static (optional). Default: rounded.<br>
+        Available options: rounded, pill, square, circle.<br>
+        Sets the corner style.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="content">
+
+  <div class="content-item">
+    <div>Minimal</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button>Button</ui-button>
+        <ui-button aria-label="Button" icon-only>
+          <ui-icon icon="settings"></ui-icon>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button&gt;Button&lt;/ui-button&gt;
+
+&lt;ui-button aria-label="Button" icon-only&gt;
+  &lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;
+&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Text-Only, Different Shapes</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button>Button</ui-button>
+        <ui-button shape="pill">Button</ui-button>
+        <ui-button shape="square">Button</ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button&gt;Button&lt;/ui-button&gt;
+
+&lt;ui-button shape="pill"&gt;Button&lt;/ui-button&gt;
+
+&lt;ui-button shape="square"&gt;Button&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Icon-Only, Different Shapes</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button aria-label="Button" icon-only>
+          <ui-icon icon="article"></ui-icon>
+        </ui-button>
+        <ui-button aria-label="Button" shape="circle" icon-only>
+          <ui-icon icon="article"></ui-icon>
+        </ui-button>
+        <ui-button aria-label="Button" shape="square" icon-only>
+          <ui-icon icon="article"></ui-icon>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button aria-label="Button" icon-only&gt;
+&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button aria-label="Button" shape="circle" icon-only&gt;
+&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button aria-label="Button" shape="square" icon-only&gt;
+&nbsp;&lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;
+&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Text with an icon</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button>
+          <ui-icon icon="home"></ui-icon>
+          Button
+        </ui-button>
+        <ui-button>
+          Button
+          <ui-icon icon="article"></ui-icon>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button&gt;
+ &lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;
+ Button
+&lt;/ui-button&gt;
+
+&lt;ui-button&gt;
+ Button
+ &lt;ui-icon icon="name"&gt;&lt;/ui-icon&gt;
+&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Disabled</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button disabled>Button</ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button disabled&gt;Button&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Busy state</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button id="busy">Start</ui-button>
+        <ui-button id="reset">Reset</ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button&gt;Start&lt;/ui-button&gt;
+
+const buttonBusy = document.getElementById('busy');
+const buttonReset = document.getElementById('reset');
+
+buttonBusy.addEventListener('button-action',() =>{
+ buttonBusy.busy = true;
+});
+
+buttonReset.addEventListener('button-action',() =>{
+ buttonBusy.busy = false;
+});
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script defer>
+(() => {
+
+  const buttonBusy = document.getElementById('busy');
+  const buttonReset = document.getElementById('reset');
+
+  buttonBusy.addEventListener('button-action',() =>{
+    buttonBusy.busy = true;
+  });
+
+  buttonReset.addEventListener('button-action',() => {
+    buttonBusy.busy = false;
+  });
+
+})();
+</script>

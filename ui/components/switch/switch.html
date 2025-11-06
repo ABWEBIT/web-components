@@ -1,0 +1,116 @@
+<section class="intro">
+  <h1>Switch</h1>
+  <div class="description">Switches provide a simple and user-friendly way to toggle between two states.</div>
+</section>
+
+<section class="details">
+  <div class="info">
+    <h2>Attributes</h2>
+    <ul>
+      <li>
+        aria-label - static (required).<br>
+        If used outside of the <a href="#field">field</a> component, the aria-label must be set manually.
+      </li>
+      <li>
+        checked - reactive (required). Default: false.<br>
+        Controls the checked state of the component.
+      </li>
+      <li>
+        disabled - reactive (optional).<br>
+        Controls the disabled state of the component.
+      </li>
+      <li>
+        required - static (optional).<br>
+        Indicates whether the component is required.
+      </li>
+      <li>
+        shape - static (optional). Default: pill.<br>
+        Available options: pill, square.<br>
+        Sets the corner style.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="content">
+
+  <div class="content-item">
+    <div>Minimal</div>
+    <div class="example">
+      <div class="preview">
+        <ui-switch></ui-switch>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-switch&gt;&lt;/ui-switch&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Shapes</div>
+    <div class="example">
+      <div class="preview">
+        <ui-switch></ui-switch>
+        <ui-switch shape="square"></ui-switch>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-switch&gt;&lt;/ui-switch&gt;
+
+&lt;ui-switch shape="square"&gt;&lt;/ui-switch&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Checked</div>
+    <div class="example">
+      <div class="preview">
+        <ui-switch checked></ui-switch>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-switch checked&gt;&lt;/ui-switch&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Disabled</div>
+    <div class="example">
+      <div class="preview">
+        <ui-switch disabled></ui-switch>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-switch disabled&gt;&lt;/ui-switch&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+</section>

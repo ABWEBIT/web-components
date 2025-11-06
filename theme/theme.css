@@ -1,6 +1,5 @@
 :root{
   --theme-body-font-size:16px;
-
   --theme-border-radius:8px;
 }
 
@@ -109,7 +108,7 @@ nav .static{
   min-height:60px;
 }
 
-nav .ui-version{
+nav .version{
   color:var(--ui-color-gray-200);
   font-size:var(--ui-font-size-small);
 }

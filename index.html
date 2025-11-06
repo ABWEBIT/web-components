@@ -16,7 +16,7 @@
   document.getElementById('theme-style').href = `./theme/theme-${theme}.css`;
 </script>
 
-<link rel="stylesheet" href="./ui/ui-styles.css">
+<link rel="stylesheet" href="./ui/styles/core.css">
 <title>Web Components</title>
 </head>
 <body>
@@ -27,7 +27,7 @@
 <button id="toggle-theme">Theme</button>
     <nav>
       <div class="static">
-        <span class="ui-version"><span>
+        <span class="version"><span>
       </div>
       <div class="dynamic">
         <div class="nav-category" data-nav-category="essentials">
@@ -80,13 +80,13 @@
 
 <ui-portal></ui-portal>
 <script type="module">
-  import {UIVersion} from './ui/ui-version.js';
-  let version = document.querySelectorAll('.ui-version');
+  import {UIVersion} from './ui/version.js';
+  let version = document.querySelectorAll('.version');
   version.forEach(v => {
-    v.textContent = 'ui '+UIVersion;
+    v.textContent = UIVersion;
   });
 </script>
 <script type="module" src="./theme/router.js"></script>
-<script type="module" src="./ui/ui-components.js"></script>
+<script type="module" src="./ui/components.js"></script>
 </body>
 </html>

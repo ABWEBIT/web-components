@@ -1,0 +1,128 @@
+<section class="intro">
+  <h1>Select</h1>
+  <div class="description">A Select is a component that lets the user choose a single option from a list of multiple choices.</div>
+</section>
+
+<section class="details">
+  <div class="info">
+    <h2>Attributes</h2>
+    <ul>
+      <li>
+        aria-label - static (required).<br>
+        If used outside of the <a href="#field">field</a> component, the aria-label must be set manually.
+      </li>
+      <li>
+        placeholder - static (optional). Default: "-".<br>
+        Static text to display when no item is selected.
+      </li>
+      <li>
+        icon - static (init-only, optional). Default: arrow-down-small.
+      </li>
+      <li>
+        shape - static (optional). Default: rounded.<br>
+        Available options: rounded, pill, square.<br>
+        Sets the corner style.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="content">
+
+  <div class="content-item">
+    <div>Default</div>
+    <div class="example">
+      <div class="preview">
+        <ui-select id="select00"></ui-select>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-select&gt;&lt;/ui-select&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Shape</div>
+    <div class="example">
+      <div class="preview">
+        <ui-select shape="rounded"></ui-select>
+        <ui-select shape="square"></ui-select>
+        <ui-select shape="pill"></ui-select>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-select&gt;&lt;/ui-select&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>With Placeholder and Disabled option</div>
+    <div class="example">
+      <div class="preview">
+        <ui-select placeholder="Select" id="select01"></ui-select>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-select placeholder="Select"&gt;&lt;/ui-select&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Disabled</div>
+    <div class="example">
+      <div class="preview">
+        <ui-select disabled></ui-select>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-select disabled&gt;&lt;/ui-select&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script defer>
+(() => {
+
+  select00.data = [
+    {value:'1',label:'ID1_Option_111111111111111111111111', selected: true, disabled: false },
+    {value:'2',label:'ID1 Option 2', selected: false, disabled: false },
+    {value:'3',label:'ID1 Option 3', selected: false, disabled: false },
+  ];
+
+  select01.data = [
+    {value:'1',label:'ID2 Option 1', selected: false, disabled: false },
+    {value:'2',label:'ID2 Option 2', selected: false, disabled: true },
+    {value:'3',label:'ID2 Option 3', selected: false, disabled: false },
+  ];
+
+})();
+</script>
