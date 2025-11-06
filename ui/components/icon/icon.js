@@ -1,43 +1,48 @@
 import {UIBase} from '../../base.js';
-import {icons} from '../../icons/icons.js';
+import {camelCase} from '../../utils/camel-case.js';
 
 class UIIcon extends UIBase{
   #icon = '';
-  #svg = null;
-
-  static #viewBox = '0 0 24 24';
-  static #xmlns = 'http://www.w3.org/2000/svg';
 
   static properties = Object.freeze({
-    'icon':{name:'uiIcon',type:String,reflect:true}
+    'icon':{name:'icon',type:String,reflect:true}
   });
 
-  get uiIcon(){return this.#icon;}
-  set uiIcon(value){
+  get icon(){return this.#icon;}
+  set icon(value){
     const newValue = String(value || '');
     if(this.#icon === newValue) return;
     this.#icon = newValue;
-    queueMicrotask(() => this.#renderIcon());
+    queueMicrotask(() => this.#render());
   }
 
   connectedCallback(){
     super.connectedCallback();
     this.ariaHidden = 'true';
-    this.#svg = document.createElementNS(UIIcon.#xmlns,'svg');
-    this.#svg.setAttribute('viewBox',UIIcon.#viewBox);
-    this.replaceChildren(this.#svg);
   }
 
-  #renderIcon(){
-    const data = icons?.[this.#icon];
-    if(!Array.isArray(data) || data.length === 0) return;
+  async #render(){
+    const name = this.#icon;
+    if(!name) return;
 
-    const content = data[0];
-    if(typeof content !== 'string') return;
+    this.replaceChildren();
 
-    if(!this.#svg) return;
-    this.#svg.innerHTML = content;
-    this.reflect('icon',this.#icon);
+    try{
+      const module = await import(`../../icons/${name}.js`);
+      const svg = module[name];
+
+      if(typeof svg !== 'string'){
+        console.warn(`Icon "${name}" is not a valid SVG string.`);
+        return;
+      }
+
+      this.innerHTML = svg;
+      this.reflect('icon',this.#icon);
+    }
+    catch(e){
+      console.warn(`Icon "${name}" does not exist.`, e.message || e);
+    }
   }
+
 }
 customElements.define('ui-icon',UIIcon);
