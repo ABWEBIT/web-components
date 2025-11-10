@@ -1,8 +1,10 @@
 import {UIBase} from '../../base.js';
-import {camelCase} from '../../utils/camel-case.js';
+import {LRUCache} from '../../utils/lru-cache.js';
 
 class UIIcon extends UIBase{
   #icon = '';
+
+  static #ICON_CACHE = new LRUCache(100);
 
   static properties = Object.freeze({
     'icon':{name:'icon',type:String,reflect:true}
@@ -14,6 +16,7 @@ class UIIcon extends UIBase{
     if(this.#icon === newValue) return;
     this.#icon = newValue;
     queueMicrotask(() => this.#render());
+    this.reflect('icon',this.#icon);
   }
 
   connectedCallback(){
@@ -28,21 +31,23 @@ class UIIcon extends UIBase{
     this.replaceChildren();
 
     try{
-      const module = await import(`../../icons/${name}.js`);
-      const svg = module[name];
+      let svg = UIIcon.#ICON_CACHE.get(name);
 
-      if(typeof svg !== 'string'){
-        console.warn(`Icon "${name}" is not a valid SVG string.`);
-        return;
+      if(!svg){
+        const module = await import(`../../icons/${name}.js`);
+        svg = module.default;
+
+        if(typeof svg !== 'string'){
+          console.warn(`Icon "${name}" is not a valid SVG string.`);
+          return;
+        }
+        UIIcon.#ICON_CACHE.set(name,svg);
       }
-
       this.innerHTML = svg;
-      this.reflect('icon',this.#icon);
     }
     catch(e){
       console.warn(`Icon "${name}" does not exist.`, e.message || e);
     }
   }
-
 }
 customElements.define('ui-icon',UIIcon);
