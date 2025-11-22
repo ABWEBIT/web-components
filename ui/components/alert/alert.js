@@ -13,7 +13,6 @@ class UIAlert extends UIBase{
   }
 
   connectedCallback(){
-    super.connectedCallback();
     this.role = 'alert';
   }
 
@@ -51,7 +50,7 @@ class UIAlert extends UIBase{
       button.setAttribute('icon-only','');
 
       const uiIcon = document.createElement('ui-icon');
-      uiIcon.setAttribute('icon','close');
+      uiIcon.setAttribute('icon','cross');
       button.append(uiIcon);
 
       button.addEventListener('button-action',() => this.remove());

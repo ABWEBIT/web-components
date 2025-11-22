@@ -1,20 +1,28 @@
 ui-input{
+  --ui-input-size:var(--ui-size-default);
+  --ui-input-width:auto;
+  --ui-input-font-size:14px;
+  --ui-input-size:32px;
+  --ui-input-icon-size:28px;
+  --ui-input-icon-padding:4px;
+  --ui-input-padding-inline:12px;
+  --ui-input-background-color:var(--ui-color-gray-800);
+  --ui-input-border-color:var(--ui-color-gray-500);
+  --ui-input-border-color-hover:var(--ui-color-gray-100);
+  --ui-input-outline-color:var(--ui-color-gray-500);
+  --ui-input-font-color:var(--ui-color-white);
+  --ui-input-svg-color:var(--ui-color-gray-400);
+  --ui-input-placeholder-color:var(--ui-color-gray-500);
+  --ui-input-disabled-color:var(--ui-color-gray-300);
+
   position:relative;
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
   height:var(--ui-input-size);
   border-radius:var(--ui-input-border-radius);
-  outline-width:2px;
-  outline-offset:2px;
-  outline-style:solid;
-  outline-color:transparent;
   background-color:var(--ui-input-background-color);
-
-  &[ui]{
-    transition-duration:var(--ui-transition-duration);
-    transition-property:outline-color;
-  }
+  transition-property:outline-color;
 
   &::before{
     content:'';
@@ -58,7 +66,6 @@ ui-input{
     width:var(--ui-input-icon-size);
     color:var(--ui-input-svg-color);
     padding:var(--ui-input-icon-padding);
-    stroke-width:0;
     cursor:pointer;
     pointer-events:all!important;
   }
@@ -82,25 +89,4 @@ ui-input{
   &[shape="rounded"]{--ui-input-border-radius:var(--ui-border-radius-rounded);}
   &[shape="square"]{--ui-input-border-radius:var(--ui-border-radius-square);}
   &[shape="pill"]{--ui-input-border-radius:var(--ui-border-radius-pill);}
-
-  /* theme */
-  &[theme="default"]{
-    --ui-input-background-color:var(--ui-color-gray-800);
-    --ui-input-border-color:var(--ui-color-gray-500);
-    --ui-input-border-color-hover:var(--ui-color-gray-100);
-    --ui-input-outline-color:var(--ui-color-gray-500);
-    --ui-input-font-color:var(--ui-color-white);
-    --ui-input-svg-color:var(--ui-color-gray-400);
-    --ui-input-placeholder-color:var(--ui-color-gray-500);
-    --ui-input-disabled-color:var(--ui-color-gray-300);
-  }
-
-  /* size */
-  &[size="default"]{
-    --ui-input-font-size:14px;
-    --ui-input-size:32px;
-    --ui-input-icon-size:28px;
-    --ui-input-icon-padding:4px;
-    --ui-input-padding-inline:12px;
-  }
 }

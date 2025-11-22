@@ -27,7 +27,6 @@ class UIButton extends UIBase{
   }
 
   connectedCallback(){
-    super.connectedCallback();
     this.role = 'button';
     this.tabIndex = 0;
 

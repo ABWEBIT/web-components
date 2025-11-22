@@ -27,7 +27,6 @@ class UISwitch extends UIBase{
   }
 
   connectedCallback(){
-    super.connectedCallback();
     this.role = 'switch';
     this.replaceChildren();
 

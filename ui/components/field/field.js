@@ -14,8 +14,6 @@ class UIField extends UIBase{
   ];
 
   connectedCallback(){
-    super.connectedCallback();
-
     if(this.hasAttribute('required')) this.#addRequired();
 
     const label = this.querySelector('ui-label');

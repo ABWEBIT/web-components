@@ -2,8 +2,8 @@ import {UIBase} from '../../base.js';
 
 class UIBreadcrumb extends UIBase{
   #data = null;
-  #iconSeparatorLTR = 'arrow-right-small';
-  #iconSeparatorRTL = 'arrow-left-small';
+  #iconSeparatorLTR = 'keyboard-arrow-right';
+  #iconSeparatorRTL = 'keyboard-arrow-left';
 
   get data(){return this.#data;}
   set data(value){
@@ -14,7 +14,6 @@ class UIBreadcrumb extends UIBase{
   }
 
   connectedCallback(){
-    super.connectedCallback();
     this.role = 'navigation';
     this.ariaLabel = 'Breadcrumb';
   }

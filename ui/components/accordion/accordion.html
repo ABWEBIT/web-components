@@ -40,7 +40,7 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Minimal</div>
+    <div>Default</div>
     <div class="example">
       <div class="preview">
         <ui-accordion id="accordion"></ui-accordion>
@@ -58,6 +58,41 @@ accordion.data = [
  {label:'Why use it?',content:'Lorem ipsum dolor sit amet...',disabled:true},
  {label:'Where to use?',content:'Lorem ipsum dolor sit amet...'}
 ];
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Default</div>
+    <div class="example">
+      <div class="preview">
+        <ui-accordion>
+
+          <ui-accordion-item expanded>
+            <ui-accordion-header>
+              <ui-accordion-label>
+                What is Lorem?
+                <ui-icon name="chevron-down" data-chevron></ui-icon>
+              </ui-accordion-label>
+            </ui-accordion-header>
+
+            <ui-accordion-panel>
+              <p>Lorem ipsum dolor sit amet...</p>
+              <ui-button>Подробнее</ui-button>
+            </ui-accordion-panel>
+          </ui-accordion-item>
+
+        </ui-accordion>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-accordion id="accordion"&gt;&lt;/ui-accordion&gt;
 </code></pre>
 
       </div>

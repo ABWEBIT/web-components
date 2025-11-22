@@ -33,7 +33,7 @@ ui-breadcrumb{
 
   & ui-icon[role="presentation"]{
     width:var(--ui-breadcrumb-separator-size);
-    height:100%;
+    height:24px;
     margin-inline:4px;
   }
 

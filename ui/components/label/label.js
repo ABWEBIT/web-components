@@ -4,7 +4,6 @@ class UILabel extends UIBase{
   #indicator = '*';
 
   connectedCallback(){
-    super.connectedCallback();
     if(!this.hasAttribute('required')) return;
 
     const indicator = document.createElement('span');

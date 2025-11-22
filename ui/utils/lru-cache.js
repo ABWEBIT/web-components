@@ -8,7 +8,7 @@ export class LRUCache{
   }
 
   get(key){
-    if (!this.map.has(key)) return undefined;
+    if(!this.map.has(key)) return undefined;
     const value = this.map.get(key);
     this.map.delete(key);
     this.map.set(key,value);
@@ -24,7 +24,7 @@ export class LRUCache{
       this.map.delete(firstKey);
     }
 
-    this.map.set(key, value);
+    this.map.set(key,value);
     return this;
   }
 

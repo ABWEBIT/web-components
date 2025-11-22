@@ -5,49 +5,89 @@
 
 <section class="details">
   <div class="info">
-    <h2>Usage</h2>
-    <ul>
-      <li>
-        The library is designed to work best with SVG icons that use a viewBox="0 0 24 24" and include a 2px internal padding for consistent spacing.
-      </li>
-    </ul>
-  </div>
-  <div class="info">
-    <h2>Design Details</h2>
-    <ul>
-      <li>
-        Line thickness: 2px.
-      </li>
-      <li>
-        Corner radius: 2px.
-      </li>
-    </ul>
+    <h2>Info</h2>
+      <span>The library uses <a href="https://fonts.google.com/icons" target="_blank">Material Symbols</a> icons.</span>
+      <ul>
+        <li>Fill: Yes</li>
+        <li>Weight: 400</li>
+        <li>Grade: 0</li>
+        <li>Optical size: 24</li>
+        <li>Style: Rounded</li>
+      </ul>
   </div>
 </section>
 
 <section class="content">
   <div class="content-item">
-    <div>Size: 24 x 24</div>
-    <div class="icons"></div>
+    <div>General</div>
+    <div class="icons all"></div>
+  </div>
+  <div class="content-item">
+    <div>Chevrons & Arrows</div>
+    <div class="icons arrows"></div>
+  </div>
+  <div class="content-item">
+    <div>Loaders & Spinners</div>
+    <div class="icons">
+      <div class="icon-card">
+        <ui-icon icon="progress-activity"></ui-icon>
+        <div class="icon-name">progress-activity</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
   requestAnimationFrame(()=>{
-    const icons = [
-      'home','article','search','send','notifications','settings','check','close','spinner','arrow-down-small','arrow-up-small','arrow-left-small','arrow-right-small','add','info','warning','success','error'
+    function iconCard(name){
+      return `
+        <div class="icon-card">
+          <ui-icon icon="${name}"></ui-icon>
+          <div class="icon-name">${name}</div>
+        </div>
+      `;
+    }
+
+    const iconsAll = [
+      'home',
+      'search',
+      'send',
+      'article',
+      'delete',
+      'notifications',
+      'settings',
+      'add',
+      'add-circle',
+      'cross',
+      'cross-circle',
+      'check',
+      'check-circle',
+      'info',
+      'warning',
+      'danger'
     ];
 
-    const container = document.querySelector('.content .icons');
+    const iconsAllContainer = document.querySelector('.content .icons.all');
 
-    const html = icons.map(name => `
-      <div class="icon-card">
-        <ui-icon icon="${name}"></ui-icon>
-        <div class="icon-name">${name}</div>
-      </div>
-    `).join('');
+    const html = iconsAll.map(iconCard).join('');
 
-    container.insertAdjacentHTML('beforeend',html);
+    iconsAllContainer.insertAdjacentHTML('beforeend',html);
+
+    /**/
+    const iconsArrows = [
+      'keyboard-arrow-down',
+      'keyboard-arrow-up',
+      'keyboard-arrow-left',
+      'keyboard-arrow-right',
+    ];
+
+    const iconsArrowsContainer = document.querySelector('.content .icons.arrows');
+
+    const iconsArrowsHtml = iconsArrows.map(iconCard).join('');
+
+    iconsArrowsContainer.insertAdjacentHTML('beforeend',iconsArrowsHtml);
+
+
   });
 
 </script>

@@ -27,7 +27,6 @@ class UICheckbox extends UIBase{
   }
 
   connectedCallback(){
-    super.connectedCallback();
     this.role = 'checkbox';
 
     const icon = document.createElement('ui-icon');

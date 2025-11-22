@@ -20,7 +20,6 @@ class UIIcon extends UIBase{
   }
 
   connectedCallback(){
-    super.connectedCallback();
     this.ariaHidden = 'true';
   }
 

@@ -38,8 +38,6 @@ class UITextarea extends UIBase{
   }
 
   connectedCallback(){
-    super.connectedCallback();
-
     const value = this.getAttribute('value') ?? '';
     const placeholder = this.getAttribute('placeholder') ?? '';
     this.removeAttribute('value');

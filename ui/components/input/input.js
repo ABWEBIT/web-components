@@ -1,12 +1,11 @@
 import {UIBase} from '../../base.js';
 import {inputTypes} from '../../utils/index.js';
-import {icons} from '../../icons/icons.js';
 
 class UIInput extends UIBase{
   #listeners = null;
   #input = null;
   #clear = null;
-  #iconInput = 'close';
+  #iconInput = 'cross';
   #required = false;
   #disabled = false;
   #clearable = false;
@@ -50,8 +49,6 @@ class UIInput extends UIBase{
   }
 
   connectedCallback(){
-    super.connectedCallback();
-
     const value = this.getAttribute('value') ?? '';
     const placeholder = this.getAttribute('placeholder') ?? '';
     const type = this.getAttribute('type') || 'text';

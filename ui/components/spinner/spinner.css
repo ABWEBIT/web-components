@@ -12,12 +12,7 @@ ui-spinner{
   height:var(--ui-spinner-height);
   width:var(--ui-spinner-width);
 
-  & > svg{
-    display:block;
-    fill:currentColor;
-    stroke:currentColor;
-    pointer-events:none;
-    shape-rendering:geometricPrecision;
+  & svg{
     height:var(--ui-spinner-svg-height);
     width:var(--ui-spinner-svg-width);
     animation:rotate360 0.8s linear infinite;

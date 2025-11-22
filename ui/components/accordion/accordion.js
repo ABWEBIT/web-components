@@ -14,7 +14,6 @@ class UIAccordion extends UIBase{
   }
 
   connectedCallback(){
-    super.connectedCallback();
   }
 
   #render(){
@@ -41,7 +40,7 @@ class UIAccordion extends UIBase{
 
       /* header expand icon */
       const accordionHeaderIcon = document.createElement('ui-icon');
-      accordionHeaderIcon.setAttribute('icon','arrow-down-small');
+      accordionHeaderIcon.setAttribute('icon','keyboard-arrow-down');
 
       accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
   

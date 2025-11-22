@@ -4,7 +4,7 @@ import {uuid,setText} from '../../utils/index.js';
 class UISelect extends UIBase {
   #data = null;
   #text = '';
-  #iconExpand = 'arrow-down-small';
+  #iconExpand = 'keyboard-arrow-down';
   #expanded = false;
   #disabled = false;
   #listboxId = `id-${uuid()}`;
@@ -89,8 +89,6 @@ class UISelect extends UIBase {
   }
 
   connectedCallback(){
-    super.connectedCallback();
-
     this.role = 'combobox';
     this.tabIndex = this.#disabled ? '-1' : '0';
     this.ariaExpanded = this.#expanded ? 'true' : 'false';

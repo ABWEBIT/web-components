@@ -19,11 +19,7 @@ ui-textarea{
   max-width:100%;
   border-radius:var(--ui-textarea-border-radius);
   background-color:var(--ui-textarea-background-color);
-
-  &[ui]{
-    transition-duration:var(--ui-transition-duration-default);
-    transition-property:outline-color;
-  }
+  transition-property:outline-color;
 
   &::before{
     content:'';
