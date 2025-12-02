@@ -1,50 +1,44 @@
 <section class="intro">
   <h1>Textarea</h1>
-  <div class="description">Textarea allows users to enter and edit multiline text.</div>
+  <p>Textarea allows users to enter and edit multiline text.</p>
 </section>
 
 <section class="details">
-  <div class="info">
-    <h2>Usage</h2>
-    <ul>
-      <li>
-        Static init-only attributes are removed from the custom element itself immediately after initialization.<br>
-        To update these values dynamically, use the corresponding properties on the component instance.
-      </li>
-    </ul>
-  </div>
-  <div class="info">
-    <h2>Attributes</h2>
-    <ul>
-      <li>
-        placeholder - static (optional).<br>
-        Text displayed when the textarea is empty. Update via property: component.placeholder = 'Placeholder'.
-      </li>
-      <li>
-        required - static (optional).<br>
-        Defines whether the component is required.
-      </li>
-      <li>
-        disabled - reactive (optional).<br>
-        Controls the disabled state of the component.
-      </li>
-      <li>
-        shape - static (optional). Default: rounded.<br>
-        Available options: rounded, square.<br>
-        Sets the corner style.
-      </li>
-      <li>
-        width-mode="full" - static (optional).<br>
-        Expands the component to take up 100% of the available width.
-      </li>
-    </ul>
-  </div>
+  <h2>Usage</h2>
+  <p>Static init-only attributes are removed from the custom element itself immediately after initialization. To update these values dynamically, use the corresponding properties on the component instance.</p>
+</section>
+
+<section class="details">
+  <h2>Attributes</h2>
+  <p>placeholder — static (optional). Text displayed when the textarea is empty. Update via property: <code>component.placeholder = 'Placeholder'</code>.</p>
+  <p>required — static (optional). Defines whether the component is required.</p>
+  <p>disabled — reactive (optional). Controls the disabled state of the component.</p>
+  <p>shape — static (optional). Default: rounded. Available options: rounded, square. Sets the corner style.</p>
 </section>
 
 <section class="content">
 
   <div class="content-item">
     <div>Default</div>
+    <div class="example">
+      <div class="preview">
+        <ui-textarea></ui-textarea>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-textarea&gt;&lt;/ui-textarea&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Shape</div>
     <div class="example">
       <div class="preview">
         <ui-textarea></ui-textarea>
@@ -59,25 +53,6 @@
 &lt;ui-textarea&gt;&lt;/ui-textarea&gt;
 
 &lt;ui-textarea shape="square"&gt;&lt;/ui-textarea&gt;
-</code></pre>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Full Width</div>
-    <div class="example">
-      <div class="preview">
-        <ui-textarea width-mode="full"></ui-textarea>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-
-<pre><code>
-&lt;ui-textarea width-mode="full"&gt;&lt;/ui-textarea&gt;
 </code></pre>
 
       </div>

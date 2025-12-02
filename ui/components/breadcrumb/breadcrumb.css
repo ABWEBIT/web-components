@@ -1,6 +1,6 @@
 ui-breadcrumb{
   --ui-breadcrumb-font-size:var(--ui-font-size-default);
-  --ui-breadcrumb-icon-size:16px;
+  --ui-breadcrumb-icon-size:20px;
   --ui-breadcrumb-separator-size:20px;
   --ui-breadcrumb-font-color:var(--ui-color-gray-150);
   --ui-breadcrumb-font-color-hover:var(--ui-color-white);

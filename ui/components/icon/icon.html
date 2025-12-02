@@ -1,37 +1,16 @@
 <section class="intro">
   <h1>Icon</h1>
-  <div class="description">A component for displaying an icon.</div>
+  <p>A component for displaying an icon.</p>
 </section>
 
 <section class="details">
-  <div class="info">
-    <h2>Features</h2>
-    <ul>
-      <li>
-        The SVG uses currentColor for both fill and stroke.
-      </li>
-    </ul>
-  </div>
-  <div class="info">
-    <h2>Usage</h2>
-    <ul>
-      <li>
-        For filled icons, ensure &lt;path&gt; has stroke="none" to prevent unintended strokes from global CSS.
-      </li>
-      <li>
-        Line icons may require additional CSS for stroke settings.
-      </li>
-    </ul>
-  </div>
-  <div class="info">
-    <h2>Attributes</h2>
-    <ul>
-      <li>
-        icon - reactive (required).<br>
-        Specifies the name of the icon to display.
-      </li>
-    </ul>
-  </div>
+  <h2>Features</h2>
+  <p>The SVG uses currentColor.</p>
+</section>
+
+<section class="details">
+  <h2>Attributes</h2>
+  <p>name - reactive (required). Specifies the name of the icon to display.</p>
 </section>
 
 <section class="content">
@@ -39,8 +18,8 @@
     <div>Icon</div>
     <div class="example">
       <div class="preview">
-        <ui-icon icon="home"></ui-icon>
-        <ui-button size="slim" theme="transparent" onclick="changeIconName()">Reactivity Test</ui-button>
+        <ui-icon name="home" id="t"></ui-icon>
+        <ui-button onclick="changeIconName()">Reactivity Test</ui-button>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -48,7 +27,7 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-icon icon="home"&gt;&lt;/ui-icon&gt;
+&lt;ui-icon name="home"&gt;&lt;/ui-icon&gt;
 </code></pre>
 
       </div>
@@ -66,9 +45,9 @@
     const nextIndex = (currentIndex + 1) % values.length;
     const nextValue = values[nextIndex];
 
-    iconBlock.setAttribute(attribute, nextValue);
+    iconBlock.setAttribute(attribute,nextValue);
   }
 
   function changeIconName(){
-    changeIconAttribute('icon',['search','article','settings']);}
+    changeIconAttribute('name',['search','article','settings']);}
 </script>

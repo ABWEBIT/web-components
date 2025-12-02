@@ -1,22 +1,32 @@
-import {UIBase} from '../../base.js';
-import {LRUCache} from '../../utils/lru-cache.js';
+import {LRUCache} from '../../utils/index.js';
 
-class UIIcon extends UIBase{
-  #icon = '';
+class UIIcon extends HTMLElement{
+  #name = 'undefined';
 
-  static #ICON_CACHE = new LRUCache(100);
+  static #iconCache = new LRUCache(100);
 
-  static properties = Object.freeze({
-    'icon':{name:'icon',type:String,reflect:true}
-  });
+  static properties = {
+    name:{attribute:'name',type:String,reflect:true}
+  };
 
-  get icon(){return this.#icon;}
-  set icon(value){
-    const newValue = String(value || '');
-    if(this.#icon === newValue) return;
-    this.#icon = newValue;
-    queueMicrotask(() => this.#render());
-    this.reflect('icon',this.#icon);
+  static get observedAttributes(){
+    return ['name'];
+  }
+
+  attributeChangedCallback(attribute,oldValue,newValue){
+    if(oldValue === newValue) return;
+    if(attribute === 'name'){
+      this.name = newValue;
+    }
+  }
+
+  get name(){return this.#name;}
+  set name(value){
+    const newValue = String(value);
+    if(this.#name === newValue) return;
+    this.#name = newValue;
+    this.setAttribute('name',this.#name);
+    this.#render();
   }
 
   connectedCallback(){
@@ -24,28 +34,26 @@ class UIIcon extends UIBase{
   }
 
   async #render(){
-    const name = this.#icon;
-    if(!name) return;
-
+    if(!this.#name) return;
     this.replaceChildren();
 
     try{
-      let svg = UIIcon.#ICON_CACHE.get(name);
+      let svg = UIIcon.#iconCache.get(this.#name);
 
       if(!svg){
-        const module = await import(`../../icons/${name}.js`);
+        const module = await import(`../../icons/${this.#name}.js`);
         svg = module.default;
 
         if(typeof svg !== 'string'){
-          console.warn(`Icon "${name}" is not a valid SVG string.`);
+          console.warn(`Icon "${this.#name}" is not a valid SVG string.`);
           return;
         }
-        UIIcon.#ICON_CACHE.set(name,svg);
+        UIIcon.#iconCache.set(this.#name,svg);
       }
       this.innerHTML = svg;
     }
     catch(e){
-      console.warn(`Icon "${name}" does not exist.`, e.message || e);
+      console.warn(`Icon "${this.#name}" does not exist.`, e?.message || e);
     }
   }
 }

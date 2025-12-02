@@ -1,7 +1,6 @@
-import {UIBase} from '../../base.js';
 import {uuid,setText} from '../../utils/index.js';
 
-class UISelect extends UIBase {
+class UISelect extends HTMLElement{
   #data = null;
   #text = '';
   #iconExpand = 'keyboard-arrow-down';
@@ -14,10 +13,14 @@ class UISelect extends UIBase {
   #listboxListeners = null;
 
   static properties = Object.freeze({
-    'text':{name:'text',type:String,reflect:true},
-    'expanded':{name:'expanded',type:Boolean,reflect:true},
-    'disabled':{name:'disabled',type:Boolean,reflect:true},
+    text:{attribute:'text',type:String,reflect:true},
+    expanded:{attribute:'expanded',type:Boolean,reflect:true},
+    disabled:{attribute:'disabled',type:Boolean,reflect:true},
   });
+
+  static get observedAttributes(){
+    return ['text','expanded','disabled'];
+  }
 
   get data(){return this.#data;}
   set data(value){
@@ -52,7 +55,7 @@ class UISelect extends UIBase {
   set disabled(value){
     if(this.#disabled === (value === true)) return;
     this.#disabled = value === true;
-    this.reflect('disabled', this.#disabled);
+    //this.reflect('disabled', this.#disabled);
     this.#syncDisabled();
   }
 
@@ -62,7 +65,7 @@ class UISelect extends UIBase {
     if(this.#expanded === valueNew) return;
     this.#expanded = valueNew;
 
-    this.reflect('expanded', this.#expanded);
+    //this.reflect('expanded', this.#expanded);
     this.ariaExpanded = this.#expanded ? 'true' : 'false';
 
     if(!this.#listbox) return;

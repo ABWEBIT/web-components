@@ -1,15 +1,17 @@
-import {UIBase} from '../../base.js';
-
-class UITextarea extends UIBase{
+class UITextarea extends HTMLElement{
   #listeners = null;
   #textarea = null;
   #required = false;
   #disabled = false;
 
-  static properties = Object.freeze({
-    'required':{name:'required',type:Boolean,reflect:true},
-    'disabled':{name:'disabled',type:Boolean,reflect:true}
-  });
+  static properties = {
+    required:{attribute:'required',type:Boolean,reflect:true},
+    disabled:{attribute:'disabled',type:Boolean,reflect:true}
+  };
+
+  static get observedAttributes(){
+    return ['required','disabled'];
+  }
 
   get placeholder(){return this.#textarea?.placeholder ?? '';}
   set placeholder(value){
@@ -26,14 +28,12 @@ class UITextarea extends UIBase{
   get required(){return this.#required;}
   set required(value){
     this.#required = value === true;
-    this.reflect('required',this.#required);
     if(this.#textarea) this.#textarea.required = this.#required;
   }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
     this.#disabled = value === true;
-    this.reflect('disabled',this.#disabled);
     if(this.#textarea) this.#textarea.disabled = this.#disabled;
   }
 

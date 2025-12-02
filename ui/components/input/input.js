@@ -1,7 +1,6 @@
-import {UIBase} from '../../base.js';
 import {inputTypes} from '../../utils/index.js';
 
-class UIInput extends UIBase{
+class UIInput extends HTMLElement{
   #listeners = null;
   #input = null;
   #clear = null;
@@ -10,10 +9,14 @@ class UIInput extends UIBase{
   #disabled = false;
   #clearable = false;
 
-  static properties = Object.freeze({
-    'required':{name:'required',type:Boolean,reflect:true},
-    'disabled':{name:'disabled',type:Boolean,reflect:true}
-  });
+  static properties = {
+    required:{attribute:'required',type:Boolean,reflect:true},
+    disabled:{attribute:'disabled',type:Boolean,reflect:true}
+  };
+
+  static get observedAttributes(){
+    return ['required','disabled'];
+  }
 
   get placeholder(){return this.#input?.placeholder ?? '';}
   set placeholder(value){
@@ -36,7 +39,6 @@ class UIInput extends UIBase{
   get required(){return this.#required;}
   set required(value){
     this.#required = value === true;
-    this.reflect('required',this.#required);
     if(this.#input) this.#input.required = this.#required;
   }
 
@@ -44,7 +46,6 @@ class UIInput extends UIBase{
   set disabled(value){
     if(this.#disabled === (value === true)) return;
     this.#disabled = value === true;
-    this.reflect('disabled',this.#disabled);
     if(this.#input) this.#input.disabled = this.#disabled;
   }
 

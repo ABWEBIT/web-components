@@ -1,6 +1,4 @@
-import {UIBase} from '../../base.js';
-
-class UILabel extends UIBase{
+class UILabel extends HTMLElement{
   #indicator = '*';
 
   connectedCallback(){

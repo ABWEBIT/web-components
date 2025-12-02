@@ -1,13 +1,13 @@
 :root[data-theme='dark']{
   /* body */
-  --theme-body-color:var(--ui-color-black);
+  --theme-body-color:rgb(0,0,0);
 
   /* scrollbar */
   --theme-scrollbar-color:var(--ui-color-gray-600);
 
   /* link */
-  --theme-link-color:var(--ui-color-white);
+  --theme-link-color:rgb(255,255,255);
 
   /* text */
-  --theme-text-color:var(--ui-color-white);
+  --theme-text-color:rgb(255,255,255);
 }

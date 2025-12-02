@@ -1,8 +1,7 @@
-import {UIBase} from '../../base.js';
 import {uuid} from '../../utils/index.js';
 import DOMPurify from '../../utils/purify.es.mjs';
 
-class UIAccordion extends UIBase{
+class UIAccordion extends HTMLElement{
   #data = null;
 
   get data(){return this.#data;}
@@ -11,9 +10,6 @@ class UIAccordion extends UIBase{
     if(this.#data === value) return;
     this.#data = value;
     this.#render();
-  }
-
-  connectedCallback(){
   }
 
   #render(){
@@ -40,7 +36,7 @@ class UIAccordion extends UIBase{
 
       /* header expand icon */
       const accordionHeaderIcon = document.createElement('ui-icon');
-      accordionHeaderIcon.setAttribute('icon','keyboard-arrow-down');
+      accordionHeaderIcon.setAttribute('name','keyboard-arrow-down');
 
       accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
   

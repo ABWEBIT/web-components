@@ -1,20 +1,21 @@
-import {UIBase} from '../../base.js';
-
-class UISwitch extends UIBase{
+class UISwitch extends HTMLElement{
   #listeners = null;
   #disabled = false;
   #checked = false;
 
-  static properties = Object.freeze({
-    'disabled':{name:'disabled',type:Boolean,reflect:true},
-    'checked':{name:'checked',type:Boolean,reflect:true}
-  });
+  static properties = {
+    checked:{attribute:'checked',type:Boolean,reflect:true},
+    disabled:{attribute:'disabled',type:Boolean,reflect:true}
+  };
+
+  static get observedAttributes(){
+    return ['checked','disabled'];
+  }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
     if(this.#disabled === (value === true)) return;
     this.#disabled = value === true;
-    this.reflect('disabled',this.#disabled);
     this.#syncDisabled();
   }
 
@@ -22,7 +23,6 @@ class UISwitch extends UIBase{
   set checked(value){
     if(this.#checked === (value === true)) return;
     this.#checked = value === true;
-    this.reflect('checked',this.#checked);
     this.#syncChecked();
   }
 

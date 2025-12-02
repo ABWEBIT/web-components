@@ -1,36 +1,46 @@
-import {UIBase} from '../../base.js';
-
-class UICheckbox extends UIBase{
+class UICheckbox extends HTMLElement{
   #listeners = null;
   #disabled = false;
   #checked = false;
 
-  static properties = Object.freeze({
-    'checked':{name:'checked',type:Boolean,reflect:true},
-    'disabled':{name:'disabled',type:Boolean,reflect:true}
-  });
+  static properties = {
+    checked:{attribute:'checked',type:Boolean,reflect:true},
+    disabled:{attribute:'disabled',type:Boolean,reflect:true}
+  };
 
-  get disabled(){return this.#disabled;}
-  set disabled(value){
-    if(this.#disabled === (value === true)) return;
-    this.#disabled = value === true;
-    this.reflect('disabled',this.#disabled);
-    this.#syncDisabled();
+  static get observedAttributes(){
+    return ['checked','disabled'];
+  }
+
+  attributeChangedCallback(attribute,oldValue,newValue){
+    if(oldValue === newValue) return;
+    if(attribute === 'checked'){
+      this.checked = newValue;
+    }
+    if(attribute === 'disabled'){
+      this.disabled = newValue;
+    }
   }
 
   get checked(){return this.#checked;}
   set checked(value){
     if(this.#checked === (value === true)) return;
     this.#checked = value === true;
-    this.reflect('checked',this.#checked);
     this.#syncChecked();
+  }
+
+  get disabled(){return this.#disabled;}
+  set disabled(value){
+    if(this.#disabled === (value === true)) return;
+    this.#disabled = value === true;
+    this.#syncDisabled();
   }
 
   connectedCallback(){
     this.role = 'checkbox';
 
     const icon = document.createElement('ui-icon');
-    icon.setAttribute('icon','check');
+    icon.setAttribute('name','check');
     this.append(icon);
 
     this.#listeners = new AbortController();

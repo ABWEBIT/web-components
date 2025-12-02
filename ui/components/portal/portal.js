@@ -1,4 +1,2 @@
-import {UIBase} from '../../base.js';
-
-class UIPortal extends UIBase{}
+class UIPortal extends HTMLElement{}
 customElements.define('ui-portal',UIPortal);

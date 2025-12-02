@@ -1,7 +1,6 @@
-import {UIBase} from '../../base.js';
 import {uuid} from '../../utils/index.js';
 
-class UIField extends UIBase{
+class UIField extends HTMLElement{
   #uuid = uuid();
 
   static elements = [

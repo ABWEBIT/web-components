@@ -22,9 +22,8 @@
 <body>
 <ui-focus></ui-focus>
 <div id="app">
+  <div class="container">
 
-  <div role="navigation">
-<button id="toggle-theme">Theme</button>
     <nav>
       <div class="static">
         <span class="version"><span>
@@ -61,9 +60,18 @@
       </div>
       <div class="static"></div>
     </nav>
-  </div>
 
-  <article id="article"></article>
+    <main>
+      <header>
+          <button id="toggle-theme" style="width:fit-content">Theme</button>
+      </header>
+
+      <article id="article"></article>
+    </main>
+
+    <aside></aside>
+
+  </div>
 </div>
 <script>
   const btn = document.getElementById('toggle-theme');

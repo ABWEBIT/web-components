@@ -1,8 +1,7 @@
-import {UIBase} from '../../base.js';
 import {uuid} from '../../utils/index.js';
 import DOMPurify from '../../utils/purify.es.mjs';
 
-class UITabs extends UIBase{
+class UITabs extends HTMLElement{
   #data = null;
   #tabs = null;
   #panels = null;
@@ -14,9 +13,6 @@ class UITabs extends UIBase{
     if(this.#data === value) return;
     this.#data = value;
     this.#render();
-  }
-
-  connectedCallback(){
   }
 
   #render(){

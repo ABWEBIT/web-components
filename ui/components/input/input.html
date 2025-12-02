@@ -1,73 +1,29 @@
 <section class="intro">
   <h1>Input</h1>
-  <div class="description">Input allows users to enter and edit text.</div>
+  <p>Input allows users to enter and edit text.</p>
 </section>
 
 <section class="details">
-  <div class="info">
-    <h2>Usage</h2>
-    <ul>
-      <li>
-        Static init-only attributes are removed from the custom element itself immediately after initialization. This is done to prevent confusion and avoid conflicts between attributes and properties during the component lifecycle. Their values are still applied to the relevant internal elements, so the component's behavior remains consistent with the initial configuration.<br><br>
-        To update these values dynamically, use the corresponding properties on the component instance.
-      </li>
-    </ul>
-  </div>
-  <div class="info">
-    <h2>Features</h2>
-    <ul>
-      <li>
-        The clickable area of the Clear button is larger than the icon itself to make it easier to click or tap.
-      </li>
-    </ul>
-  </div>
-  <div class="info">
-    <h2>Attributes</h2>
-    <ul>
-      <li>
-        aria-label - static (required).<br>
-        If used outside of the <a href="#field">field</a> component, the aria-label must be set manually.
-      </li>
-      <li>
-        type - static (init-only, optional). Default: text.<br>
-        Specifies the input type. Update via property: component.type = 'email'.
-      </li>
-      <li>
-        value - static (init-only, optional).<br>
-        Sets the current value of the input. Update via property: component.value = 'Value'.
-      </li>
-      <li>
-        placeholder - static (init-only, optional).<br>
-        Text displayed when the input is empty. Update via property: component.placeholder = 'Placeholder'.
-      </li>
-      <li>
-        clearable - static (optional).<br>
-        Adds a clear button to the component.
-      </li>
-      <li>
-        required - reactive (optional).<br>
-        Indicates whether the component is required.
-      </li>
-      <li>
-        disabled - reactive (optional).<br>
-        Controls the disabled state of the component.
-      </li>
-      <li>
-        shape - static (optional). Default: rounded.<br>
-        Available options: rounded, pill, square.<br>
-        Sets the corner style.
-      </li>
-      <li>
-        size - static (optional). Default: default.<br>
-        Specifies the component's size (extendable via CSS).
-      </li>
-      <li>
-        theme - static (optional). Default: default.<br>
-        Specifies the component's color scheme (extendable via CSS).
-      </li>
-    </ul>
-  </div>
+  <h2>Info</h2>
+  <p>Static init-only attributes are removed from the custom element itself immediately after initialization. This prevents confusion and avoids conflicts between attributes and properties during the component lifecycle. Their values are still applied to the relevant internal elements, so the component's behavior remains consistent with the initial configuration.</p>
+  <p>To update these values dynamically, use the corresponding properties on the component instance.</p>
+  <p>The clickable area of the Clear button is larger than the icon itself to make it easier to click or tap.</p>
 </section>
+
+<section class="details">
+  <h2>Attributes</h2>
+  <p>aria-label — static (required). If used outside of the <a href="#field">field</a> component, the aria-label must be set manually.</p>
+  <p>type — static (init-only, optional). Default: text. Specifies the input type. Update via property: <code>component.type = 'email'</code>.</p>
+  <p>value — static (init-only, optional). Sets the current value of the input. Update via property: <code>component.value = 'Value'</code>.</p>
+  <p>placeholder — static (init-only, optional). Text displayed when the input is empty. Update via property: <code>component.placeholder = 'Placeholder'</code>.</p>
+  <p>clearable — static (optional). Adds a clear button to the component.</p>
+  <p>required — reactive (optional). Indicates whether the component is required.</p>
+  <p>disabled — reactive (optional). Controls the disabled state of the component.</p>
+  <p>shape — static (optional). Default: rounded. Available options: rounded, pill, square. Sets the corner style.</p>
+  <p>size — static (optional). Default: default. Specifies the component's size (extendable via CSS).</p>
+  <p>theme — static (optional). Default: default. Specifies the component's color scheme (extendable via CSS).</p>
+</section>
+
 
 <section class="content">
 

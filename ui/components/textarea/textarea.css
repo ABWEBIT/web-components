@@ -14,7 +14,7 @@ ui-textarea{
   display:inline-flex;
   height:fit-content;
   min-height:var(--ui-textarea-min-height);
-  width:fit-content;
+  width:100%;
   min-width:var(--ui-textarea-min-width);
   max-width:100%;
   border-radius:var(--ui-textarea-border-radius);
@@ -59,12 +59,6 @@ ui-textarea{
 
   &:focus-within:not([disabled]){
     outline-color:var(--ui-textarea-outline-color);
-  }
-
-  /* width-mode */
-  &[width-mode="full"],
-  &[width-mode="full"] textarea{
-    width:100%!important;
   }
 
   /* shape */

@@ -1,7 +1,6 @@
-import {UIBase} from '../../base.js';
 import DOMPurify from '../../utils/purify.es.mjs';
 
-class UIAlert extends UIBase{
+class UIAlert extends HTMLElement{
   #data = null;
 
   get data(){return this.#data;}

@@ -1,6 +1,4 @@
-import {UIBase} from '../../base.js';
-
-class UISeparator extends UIBase{
+class UISeparator extends HTMLElement{
   connectedCallback(){
     this.role = 'separator';
   }

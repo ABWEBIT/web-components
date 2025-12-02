@@ -1,5 +1,8 @@
 :root{
+  /* body */
   --theme-body-font-size:16px;
+
+  /* border */
   --theme-border-radius:8px;
 }
 
@@ -65,34 +68,71 @@ body{
   position:relative;
   margin:0;
   padding:0;
-  width:100%;
-  height:100%;
 }
 
 body{
   font-size:var(--theme-body-font-size);
   color:var(--theme-text-color);
   background-color:var(--theme-body-color);
+  line-height:var(--ui-line-height-normal);
+  min-height:100%;
+  height:100%;
   overflow-y:scroll;
 }
-
-
 
 #app{
   position:relative;
   display:flex;
-  width:1600px;
+  max-width:100%;
+}
+
+.container{
+  position: relative;
+  display:flex;
+  width:1920px;
   max-width:100%;
   margin:auto;
 }
 
-nav{
+header{
+  position:sticky;
+  top:0;
+  width:100%;
+  height:60px;
+  z-index:1;
+  background-color:var(--theme-body-color);
+  border-bottom:1px solid rgb(25,25,25);
+}
+
+main{
   position:relative;
   display:flex;
   flex-direction:column;
-  min-width:220px;
-  row-gap:1px;
-  padding:0 10px;
+  width:100%;
+}
+
+article{
+  display:flex;
+  flex-direction:column;
+  row-gap:50px;
+  padding:60px 50px;
+  flex-grow:1;
+}
+
+
+
+
+nav{
+  position:sticky;
+  display:flex;
+  flex-direction:column;
+  top:0;
+  bottom:0;
+  width:220px;
+  height:100vh;
+  padding-inline:10px;
+  overflow-y:scroll; 
+  overflow-x:hidden;
 }
 
 nav .dynamic{
@@ -147,58 +187,36 @@ nav .menuItem span.active{
   background-color:var(--ui-color-gray-800);
 }
 
-article{
-  display:flex;
-  flex-direction:column;
-  row-gap:50px;
-  padding:60px 10px;
-  flex-grow:1;
-}
+
+
 
 
 
 /* intro */
 .intro{
-  display:flex;
-  flex-direction:column;
-  row-gap:30px;
-  line-height:var(--ui-line-height-normal);
-
   > h1{
-    line-height:var(--ui-line-height-x-small);
-    color:var(--ui-color-white);
     font-size:var(--ui-h1-size);
+    padding-bottom:20px;
   }
 
-  > .description{
+  > p{
     color:var(--ui-color-gray-200);
+  }
+
+  > p:last-child{
+    margin-bottom:0;
   }
 }
 
 /* details */
 .details{
-  display:flex;
-  flex-direction:column;
-  row-gap:30px;
-  line-height:var(--ui-line-height-normal);
+  > h2{
+    font-size:var(--ui-h2-size);
+    padding-bottom:10px;
+  }
 
-  > .info{
-    display:flex;
-    flex-direction:column;
-    row-gap:20px;
-
-    > h2{
-      line-height:var(--ui-line-height-x-small);
-      color:var(--ui-color-white);
-      font-size:var(--ui-h2-size);
-    }
-
-    > ul{
-      display:flex;
-      flex-direction:column;
-      row-gap:16px;
-      margin:0;
-    }
+  > p:last-child{
+    margin-bottom:0;
   }
 }
 

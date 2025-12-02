@@ -1,26 +1,13 @@
 <section class="intro">
   <h1>Breadcrumb</h1>
-  <div class="description">Breadcrumbs show the current page's location within a navigational hierarchy and allow users to navigate to parent pages.</div>
+  <p>Breadcrumbs show the current page's location within a navigational hierarchy and allow users to navigate to parent pages.</p>
 </section>
 
 <section class="details">
-  <div class="info">
-    <h2>Object properties</h2>
-    <ul>
-      <li>
-        icon - optional.<br>
-        An icon that can be displayed before the text in a breadcrumb item.
-      </li>
-      <li>
-        label - required.<br>
-        The text displayed in the breadcrumb item.
-      </li>
-      <li>
-        href - required.<br>
-        The URL of the breadcrumb item.
-      </li>
-    </ul>
-  </div>
+  <h2>Object properties</h2>
+  <p>icon - optional. An icon that can be displayed before the text in a breadcrumb item.</p>
+  <p>label - required. The text displayed in the breadcrumb item.</p>
+  <p>href - required. The URL of the breadcrumb item.</p>
 </section>
 
 <section class="content">
@@ -66,10 +53,10 @@ breadcrumb.data = [
 &lt;ui-breadcrumb id="breadcrumb"&gt;&lt;/ui-breadcrumb&gt;
 
 breadcrumb.data = [
- {icon:'home',label:'Home',href:'/'},
- {icon:'settings',label:'Settings',href:'/'},
- {icon:'notifications',label:'Notifications',href:'/'},
- {icon:'article',label:'Article',href:'/'}
+ {name:'home',label:'Home',href:'/'},
+ {name:'settings',label:'Settings',href:'/'},
+ {name:'notifications',label:'Notifications',href:'/'},
+ {name:'article',label:'Article',href:'/'}
 ];
 </code></pre>
 
@@ -90,10 +77,10 @@ breadcrumb.data = [
   ];
 
   breadcrumb01.data = [
-    {icon:'home',label:'Home',href:'/'},
-    {icon:'settings',label:'Settings',href:'/'},
-    {icon:'notifications',label:'Notifications',href:'/'},
-    {icon:'article',label:'Article',href:'/'}
+    {name:'home',label:'Home',href:'/'},
+    {name:'settings',label:'Settings',href:'/'},
+    {name:'notifications',label:'Notifications',href:'/'},
+    {name:'article',label:'Article',href:'/'}
   ];
 
 })();

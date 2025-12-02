@@ -1,29 +1,44 @@
-import {UIBase} from '../../base.js';
-
-class UIButton extends UIBase{
+class UIButton extends HTMLElement{
   #listeners = null;
-  #disabled = false;
   #busy = false;
+  #disabled = false;
+  #spinner = null;
 
-  static properties = Object.freeze({
-    'disabled':{name:'disabled',type:Boolean,reflect:true},
-    'busy':{name:'busy',type:Boolean,reflect:true}
-  });
+  static properties = {
+    busy:{attribute:'busy',type:Boolean,reflect:true},
+    disabled:{attribute:'disabled',type:Boolean,reflect:true},
+  };
 
-  get disabled(){return this.#disabled;}
-  set disabled(value){
-    if(this.#disabled === (value === true)) return;
-    this.#disabled = value === true;
-    this.reflect('disabled',this.#disabled);
-    this.#syncDisabled();
+  static get observedAttributes(){
+    return ['busy','disabled'];
+  }
+
+  attributeChangedCallback(attribute,oldValue,newValue){
+    if(oldValue === newValue) return;
+    if(attribute === 'busy'){
+      if(this.#busy !== newValue) this.#busy = newValue;
+      this.#syncBusy();
+    }
+    if(attribute === 'disabled'){
+      if(this.#disabled !== newValue) this.#disabled = newValue;
+      this.#syncDisabled();
+    }
   }
 
   get busy(){return this.#busy;}
   set busy(value){
-    if(this.#busy === (value === true)) return;
-    this.#busy = value === true;
-    this.reflect('busy',this.#busy);
-    this.#syncBusy();
+    const newValue = !!value;
+    if(this.#busy === newValue) return;
+    this.#busy = newValue;
+    this.ariaBusy = newValue;
+  }
+
+  get disabled(){return this.#disabled;}
+  set disabled(value){
+    const newValue = !!value;
+    if(this.#disabled === newValue) return;
+    this.#disabled = newValue;
+    this.ariaDisabled = newValue;
   }
 
   connectedCallback(){
@@ -35,9 +50,6 @@ class UIButton extends UIBase{
 
     this.addEventListener('click',this.#onClick,{signal});
     this.addEventListener('keydown',this.#onKeyDown,{signal});
-
-    this.#syncDisabled();
-    this.#syncBusy();
   }
 
   disconnectedCallback(){
@@ -46,15 +58,15 @@ class UIButton extends UIBase{
   }
 
   #syncBusy = () =>{
-    const spinner = this.querySelector('ui-spinner');
-
-    if(this.#busy && !spinner){
-      this.append(document.createElement('ui-spinner'));
+    if(this.#busy && !this.#spinner){
+      this.#spinner = document.createElement('ui-spinner');
+      this.append(this.#spinner);
       this.disabled = true;
       this.ariaBusy = true;
     }
-    else if(!this.#busy && spinner){
-      spinner?.remove();
+    else if(!this.#busy && this.#spinner){
+      this.#spinner?.remove();
+      this.#spinner = null;
       this.disabled = false;
       this.ariaBusy = null;
     }

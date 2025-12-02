@@ -37,12 +37,11 @@
   --ui-size-medium:32px;
   --ui-size-large:40px;
   --ui-size-x-large:48px;
-  --ui-size-default:var(--ui-size-medium);
 
   /* h size */
-  --ui-h1-size:40px;
-  --ui-h2-size:32px;
-  --ui-h3-size:28px;
+  --ui-h1-size:48px;
+  --ui-h2-size:40px;
+  --ui-h3-size:32px;
   --ui-h4-size:24px;
   --ui-h5-size:20px;
   --ui-h6-size:18px;
@@ -53,14 +52,12 @@
   --ui-font-size-medium:14px;
   --ui-font-size-large:16px;
   --ui-font-size-x-large:18px;
-  --ui-font-size-default:var(--ui-font-size-medium);
 
   /*** border radius ***/
   --ui-border-radius-square:none;
   --ui-border-radius-rounded:8px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
-  --ui-border-radius-default:var(--ui-border-radius-rounded);
 
   /* text-align */
   --ui-text-align-center:center;
@@ -77,14 +74,16 @@
 
 /* base */
 ui-button,
-ui-checkbox{
+ui-checkbox,
+ui-switch{
   direction:inherit;
   box-sizing:border-box;
 }
 
 /* no-select */
 ui-button,
-ui-checkbox{
+ui-checkbox,
+ui-switch{
   -webkit-user-select:none;
   user-select:none;
 }
@@ -92,7 +91,7 @@ ui-checkbox{
 /* button-like */
 ui-button,
 ui-checkbox,
-ui-input{
+ui-switch{
   appearance:none;
   cursor:pointer;
   touch-action:manipulation;
@@ -101,8 +100,7 @@ ui-input{
 /* outline */
 ui-button,
 ui-checkbox,
-ui-input,
-ui-textarea{
+ui-switch{
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
@@ -116,8 +114,7 @@ ui-textarea{
 /* transition */
 ui-button,
 ui-checkbox,
-ui-input,
-ui-textarea{
+ui-switch{
   transition-duration:var(--ui-duration);
 }
 

@@ -36,6 +36,11 @@ ui-button{
   background-color:var(--ui-button-surface-color-default);
   transition-property:background-color,outline-color,color;
 
+  &[icon-only]{
+    padding-inline:0;
+    aspect-ratio:1;
+  }
+
   &[disabled]:not([busy]){
     cursor:not-allowed;
     opacity:0.5;
@@ -84,9 +89,4 @@ ui-button{
   &[shape="square"]{--ui-button-border-radius:var(--ui-border-radius-square);}
   &[shape="pill"]{--ui-button-border-radius:var(--ui-border-radius-pill);}
   &[shape="circle"]{--ui-button-border-radius:var(--ui-border-radius-circle);}
-
-  &[icon-only]{
-    --ui-button-padding-inline:0;
-    aspect-ratio:1;
-  }
 }

@@ -1,6 +1,4 @@
-import {UIBase} from '../../base.js';
-
-class UIBreadcrumb extends UIBase{
+class UIBreadcrumb extends HTMLElement{
   #data = null;
   #iconSeparatorLTR = 'keyboard-arrow-right';
   #iconSeparatorRTL = 'keyboard-arrow-left';
@@ -28,10 +26,10 @@ class UIBreadcrumb extends UIBase{
 
     const separatorTemplate = document.createElement('ui-icon');
     separatorTemplate.role = 'presentation';
-    separatorTemplate.setAttribute('icon',separatorIcon);
+    separatorTemplate.setAttribute('name',separatorIcon);
 
     this.#data.forEach((item,index) => {
-      if(!item.label && !item.icon){
+      if(!item.label && !item.name){
         console.warn(`Breadcrumb item at index ${index} has no "label" or "icon".`);
       }
 
@@ -48,10 +46,10 @@ class UIBreadcrumb extends UIBase{
         itemContent.href = item.href || '';
       }
 
-      if(item.icon){
+      if(item.name){
         const iconContent = document.createElement('ui-icon');
         iconContent.ariaHidden = 'true';
-        iconContent.setAttribute('icon',item.icon);
+        iconContent.setAttribute('name',item.name);
         itemContent.append(iconContent);
       }
 

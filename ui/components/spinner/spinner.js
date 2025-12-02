@@ -1,11 +1,7 @@
-import {UIBase} from '../../base.js';
-
-class UISpinner extends UIBase{
-
+class UISpinner extends HTMLElement{
   connectedCallback(){
     const svg = document.createElement('ui-icon');
-    svg.ariaHidden = 'true';
-    svg.setAttribute('icon','progress-activity');
+    svg.setAttribute('name','progress-activity');
     this.append(svg);
   }
 }
