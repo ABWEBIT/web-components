@@ -89,36 +89,15 @@ async function loadPage(hash) {
     const res = await fetch(link);
     const html = await res.text();
     article.innerHTML = html;
-    runInlineScripts(article);
     updateActiveMenuItem(link);
   } catch (e) {
     article.innerHTML = '<p>Load error</p>';
   }
 }
 
-
-let prevScripts = [];
-
 function updateActiveMenuItem(currentLink) {
   document.querySelectorAll('nav span[data-link]').forEach(span => {
     span.classList.toggle('active', span.getAttribute('data-link') === currentLink);
-  });
-}
-
-function runInlineScripts(container) {
-  prevScripts.forEach(script => script.remove());
-  prevScripts = [];
-
-  const scripts = container.querySelectorAll('script');
-  scripts.forEach(oldScript => {
-    const newScript = document.createElement('script');
-    if (oldScript.src) {
-      newScript.src = oldScript.src;
-    } else {
-      newScript.textContent = oldScript.textContent;
-    }
-    document.body.append(newScript);
-    prevScripts.push(newScript);
   });
 }
 
