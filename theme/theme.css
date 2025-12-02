@@ -119,9 +119,6 @@ article{
   flex-grow:1;
 }
 
-
-
-
 nav{
   position:sticky;
   display:flex;
