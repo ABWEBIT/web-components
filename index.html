@@ -73,27 +73,10 @@
 
   </div>
 </div>
-<script>
-  const btn = document.getElementById('toggle-theme');
-  const themeLink = document.getElementById('theme-style');
 
-  btn.addEventListener('click', () => {
-    const current = document.documentElement.dataset.theme;
-    const newTheme = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = newTheme;
-    localStorage.setItem('theme', newTheme);
-    themeLink.href = `./theme/theme-${newTheme}.css`;
-  });
-</script>
 
 <ui-portal></ui-portal>
-<script type="module">
-  import {UIVersion} from './ui/version.js';
-  let version = document.querySelectorAll('.version');
-  version.forEach(v => {
-    v.textContent = UIVersion;
-  });
-</script>
+
 <script type="module" src="./theme/router.js"></script>
 <script type="module" src="./ui/components.js"></script>
 </body>
