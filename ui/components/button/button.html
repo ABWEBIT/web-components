@@ -198,20 +198,3 @@ buttonReset.addEventListener('button-action',() =>{
   </div>
 
 </section>
-
-<script defer>
-(() => {
-
-  const buttonBusy = document.getElementById('busy');
-  const buttonReset = document.getElementById('reset');
-
-  buttonBusy.addEventListener('button-action',() =>{
-    buttonBusy.setAttribute('busy','');
-  });
-
-  buttonReset.addEventListener('button-action',() => {
-    buttonBusy.removeAttribute('busy');
-  });
-
-})();
-</script>

@@ -34,20 +34,3 @@
     </div>
   </div>
 </section>
-
-<script>
-  function changeIconAttribute(attribute,values){
-    const iconBlock = document.querySelector('ui-icon:first-child');
-    if(!iconBlock) return;
-
-    const currentValue = iconBlock.getAttribute(attribute);
-    const currentIndex = values.indexOf(currentValue);
-    const nextIndex = (currentIndex + 1) % values.length;
-    const nextValue = values[nextIndex];
-
-    iconBlock.setAttribute(attribute,nextValue);
-  }
-
-  function changeIconName(){
-    changeIconAttribute('name',['search','article','settings']);}
-</script>
