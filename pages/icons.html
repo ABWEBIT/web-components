@@ -9,18 +9,108 @@
   <p>Fill: Yes | Weight: 400 | Grade: 0 | Optical size: 24 | Style: Rounded</p>
 </section>
 
-<section class="content">
+<section class="content" data-icons>
   <div class="content-item">
     <div>General</div>
-    <div class="icons all"></div>
+    <div class="icons" data-icons-category="general">
+      <div class="icon-card">
+        <ui-icon name="home"></ui-icon>
+        <div class="icon-name">home</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="search"></ui-icon>
+        <div class="icon-name">search</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="send"></ui-icon>
+        <div class="icon-name">send</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="article"></ui-icon>
+        <div class="icon-name">article</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="delete"></ui-icon>
+        <div class="icon-name">delete</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="notifications"></ui-icon>
+        <div class="icon-name">notifications</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="settings"></ui-icon>
+        <div class="icon-name">settings</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="add-2"></ui-icon>
+        <div class="icon-name">add-2</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="add-circle"></ui-icon>
+        <div class="icon-name">add-circle</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="close"></ui-icon>
+        <div class="icon-name">close</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="cancel"></ui-icon>
+        <div class="icon-name">cancel</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="check"></ui-icon>
+        <div class="icon-name">check</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="check-circle"></ui-icon>
+        <div class="icon-name">check-circle</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="info"></ui-icon>
+        <div class="icon-name">info</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="warning"></ui-icon>
+        <div class="icon-name">warning</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="danger"></ui-icon>
+        <div class="icon-name">danger</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="light-mode"></ui-icon>
+        <div class="icon-name">light-mode</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="dark-mode"></ui-icon>
+        <div class="icon-name">dark-mode</div>
+      </div>
+    </div>
   </div>
   <div class="content-item">
-    <div>Chevrons & Arrows</div>
-    <div class="icons arrows"></div>
+    <div>Arrows</div>
+    <div class="icons" data-icons-category="arrows">
+      <div class="icon-card">
+        <ui-icon name="keyboard-arrow-down"></ui-icon>
+        <div class="icon-name">keyboard-arrow-down</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="keyboard-arrow-up"></ui-icon>
+        <div class="icon-name">keyboard-arrow-up</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="keyboard-arrow-left"></ui-icon>
+        <div class="icon-name">keyboard-arrow-left</div>
+      </div>
+      <div class="icon-card">
+        <ui-icon name="keyboard-arrow-right"></ui-icon>
+        <div class="icon-name">keyboard-arrow-right</div>
+      </div>
+    </div>
   </div>
   <div class="content-item">
-    <div>Loaders & Spinners</div>
-    <div class="icons">
+    <div>Spinners</div>
+    <div class="icons" data-icons-category="spinners">
       <div class="icon-card">
         <ui-icon name="progress-activity"></ui-icon>
         <div class="icon-name">progress-activity</div>
@@ -28,58 +118,3 @@
     </div>
   </div>
 </section>
-
-<script>
-  requestAnimationFrame(()=>{
-    function iconCard(name){
-      return `
-        <div class="icon-card">
-          <ui-icon name="${name}"></ui-icon>
-          <div class="icon-name">${name}</div>
-        </div>
-      `;
-    }
-
-    const iconsAll = [
-      'home',
-      'search',
-      'send',
-      'article',
-      'delete',
-      'notifications',
-      'settings',
-      'add-2',
-      'add-circle',
-      'close',
-      'cancel',
-      'check',
-      'check-circle',
-      'info',
-      'warning',
-      'danger'
-    ];
-
-    const iconsAllContainer = document.querySelector('.content .icons.all');
-
-    const html = iconsAll.map(iconCard).join('');
-
-    iconsAllContainer.insertAdjacentHTML('beforeend',html);
-
-    /**/
-    const iconsArrows = [
-      'keyboard-arrow-down',
-      'keyboard-arrow-up',
-      'keyboard-arrow-left',
-      'keyboard-arrow-right',
-    ];
-
-    const iconsArrowsContainer = document.querySelector('.content .icons.arrows');
-
-    const iconsArrowsHtml = iconsArrows.map(iconCard).join('');
-
-    iconsArrowsContainer.insertAdjacentHTML('beforeend',iconsArrowsHtml);
-
-
-  });
-
-</script>

@@ -1,17 +1,15 @@
-function changeIconAttribute(attribute,values){
-  const iconBlock = document.getElementById('example-icon');
-  if(!iconBlock) return;
-
-  const currentValue = iconBlock.getAttribute(attribute);
-  const currentIndex = values.indexOf(currentValue);
-  const nextIndex = (currentIndex + 1) % values.length;
-  const nextValue = values[nextIndex];
-
-  iconBlock.setAttribute(attribute,nextValue);
-}
-
 function changeIconName(){
-  changeIconAttribute('name',['article','settings']);
+  const attribute = 'name';
+  const values = ['article', 'settings'];
+  const elementId = 'example-icon';
+
+  const icon = document.getElementById(elementId);
+  if (!icon) return;
+
+  const current = icon.getAttribute(attribute);
+  const next = values[(values.indexOf(current) + 1) % values.length];
+
+  icon.setAttribute(attribute, next);
 }
 
 /*
