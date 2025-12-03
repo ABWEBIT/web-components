@@ -30,31 +30,31 @@
       </div>
       <div class="dynamic">
         <div class="nav-category" data-nav-category="essentials">
-          <div class="menuTitle">Essentials</div>
+          <div class="menu-title">Essentials</div>
         </div>
   <!-- variant, tone, elevation, radius -->
         <div class="nav-category" data-nav-category="theme">
-          <div class="menuTitle">Theme</div>
+          <div class="menu-title">Theme</div>
         </div>
   <!-- stack, grid, container, section, split -->
         <div class="nav-category" data-nav-category="layout">
-          <div class="menuTitle">Layout</div>
+          <div class="menu-title">Layout</div>
         </div>
   <!-- divider, icon, line, spacer, text -->
         <div class="nav-category" data-nav-category="primitives">
-          <div class="menuTitle">Primitives</div>
+          <div class="menu-title">Primitives</div>
         </div>
   <!-- button, input, select, modal, tooltip -->
         <div class="nav-category" data-nav-category="forms">
-          <div class="menuTitle">Forms</div>
+          <div class="menu-title">Forms</div>
         </div>
   <!-- accordion, tabs, breadcrumb,  -->
         <div class="nav-category" data-nav-category="components">
-          <div class="menuTitle">Components</div>
+          <div class="menu-title">Components</div>
         </div>
   <!-- portal, observer, resize-handler, mount-detector -->
         <div class="nav-category" data-nav-category="utilities">
-          <div class="menuTitle">Utilities</div>
+          <div class="menu-title">Utilities</div>
         </div>
   <!-- -->
       </div>
@@ -62,7 +62,11 @@
     </nav>
 
     <main>
-      <header></header>
+      <header>
+        <ui-button id="toggle-theme">
+          <ui-icon name=""></ui-icon>
+        </ui-button>
+      </header>
 
       <article id="article"></article>
 
@@ -74,6 +78,31 @@
   </div>
 </div>
 <ui-portal></ui-portal>
+
+<script>
+
+  const btn = document.getElementById('toggle-theme');
+  const themeLink = document.getElementById('theme-style');
+
+  if(btn){
+    const icon = btn.querySelector('ui-icon');
+    let currentTheme = document.documentElement.dataset.theme;
+
+    if(icon){
+      icon.setAttribute('name', currentTheme === 'dark' ? 'light-mode' : 'dark-mode');
+    }
+
+    btn.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = currentTheme;
+      localStorage.setItem('theme',currentTheme);
+      themeLink.href = `./theme/theme-${currentTheme}.css`;
+
+      if(themeLink) themeLink.href = `./theme/theme-${currentTheme}.css`;
+      if(icon) icon.setAttribute('name', currentTheme === 'dark' ? 'light-mode' : 'dark-mode');
+    });
+  }
+</script>
 <script type="module">
   import {UIVersion} from './ui/version.js';
   let version = document.querySelectorAll('.version');

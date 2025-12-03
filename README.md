@@ -9,4 +9,10 @@ Opera 106+\
 Firefox 117
 
 ECMAScript 2022 (ES13)\
-CSS Nesting
+CSS Nesting\
+
+Combobox\
+Fieldset\
+Listbox\
+Radio Group\
+Select

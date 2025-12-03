@@ -1,38 +1,39 @@
 const pageDir = './pages/';
+const compDir = './pages/components/';
 
 const components = [
+  // Pages
   { label: 'Foundation', link: pageDir+'foundation.html', category: 'essentials' },
-
-  { label: 'Accordion', link: pageDir+'accordion.html', category: 'components' },
-  { label: 'Alert', link: pageDir+'alert.html', category: 'components' },
-  { label: 'Tabs', link: pageDir+'tabs.html', category: 'components' },
-  { label: 'Breadcrumb', link: pageDir+'breadcrumb.html', category: 'components' },
-
-
   { label: 'Icons', link: pageDir+'icons.html', category: 'theme' },
 
-  { label: 'Icon', link: pageDir+'icon.html', category: 'primitives' },
-  { label: 'Separator', link: pageDir+'separator.html', category: 'primitives' },
-  { label: 'Text', link: pageDir+'text.html', category: 'primitives' },
-  { label: 'Spinner', link: pageDir+'spinner.html', category: 'primitives' },
+  // Components
+  { label: 'Accordion', link: compDir+'accordion.html', category: 'components' },
+  { label: 'Alert', link: compDir+'alert.html', category: 'components' },
+  { label: 'Tabs', link: compDir+'tabs.html', category: 'components' },
+  { label: 'Breadcrumb', link: compDir+'breadcrumb.html', category: 'components' },
 
-  { label: 'Button', link: pageDir+'button.html', category: 'forms' },
-  { label: 'Checkbox', link: pageDir+'checkbox.html', category: 'forms' },
-  { label: 'Input', link: pageDir+'input.html', category: 'forms' },
-  { label: 'Label', link: pageDir+'label.html', category: 'forms' },
-  { label: 'Switch', link: pageDir+'switch.html', category: 'forms' },
-  { label: 'Textarea', link: pageDir+'textarea.html', category: 'forms' },
-  { label: 'Field', link: pageDir+'field.html', category: 'forms' },
-  { label: 'Select', link: pageDir+'select.html', category: 'forms' },
+  { label: 'Icon', link: compDir+'icon.html', category: 'primitives' },
+  { label: 'Separator', link: compDir+'separator.html', category: 'primitives' },
+  { label: 'Text', link: compDir+'text.html', category: 'primitives' },
+  { label: 'Spinner', link: compDir+'spinner.html', category: 'primitives' },
 
-  { label: 'Focus', link: pageDir+'focus.html', category: 'utilities' },
-  { label: 'Portal', link: pageDir+'portal.html', category: 'utilities' },
+  { label: 'Button', link: compDir+'button.html', category: 'forms' },
+  { label: 'Checkbox', link: compDir+'checkbox.html', category: 'forms' },
+  { label: 'Input', link: compDir+'input.html', category: 'forms' },
+  { label: 'Label', link: compDir+'label.html', category: 'forms' },
+  { label: 'Switch', link: compDir+'switch.html', category: 'forms' },
+  { label: 'Textarea', link: compDir+'textarea.html', category: 'forms' },
+  { label: 'Field', link: compDir+'field.html', category: 'forms' },
+  { label: 'Select', link: compDir+'select.html', category: 'forms' },
+
+  { label: 'Focus', link: compDir+'focus.html', category: 'utilities' },
+  { label: 'Portal', link: compDir+'portal.html', category: 'utilities' },
 ];
 
-function generateNav(data) {
-  const categories = ['essentials', 'theme', 'primitives', 'forms', 'components', 'utilities'];
+function generateNav(data){
+  const categories = ['essentials','theme','primitives','forms','components','utilities'];
 
-  categories.forEach(category => {
+  categories.forEach(category =>{
     const container = document.querySelector(`[data-nav-category="${category}"]`);
     if (!container) return;
 
@@ -46,7 +47,7 @@ function generateNav(data) {
       const pageId = link.match(/[\w-]+(?=\.html)/)?.[0];
 
       const wrapper = document.createElement('div');
-      wrapper.className = 'menuItem';
+      wrapper.className = 'menu-item';
 
       const span = document.createElement('span');
       span.textContent = label;

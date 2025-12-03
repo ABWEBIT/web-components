@@ -1,7 +1,7 @@
 ui-button{
-  --ui-button-border-radius:var(--ui-border-radius-default);
-  --ui-button-size:var(--ui-size-default);
-  --ui-button-width:auto;
+  --ui-button-border-radius:var(--ui-border-radius-rounded);
+  --ui-button-size:var(--ui-size-medium);
+  --ui-button-width:fit-content;
   --ui-button-line-height:var(--ui-line-height-x-small);
   --ui-button-font-size:var(--ui-font-size-default);
   --ui-button-padding-inline:16px;

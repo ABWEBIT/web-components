@@ -150,18 +150,18 @@ nav .version{
   font-size:var(--ui-font-size-small);
 }
 
-nav .menuTitle{
+nav .menu-title{
   padding-bottom:6px;
 }
 
-nav .menuItem{
+nav .menu-item{
   display:block;
   cursor:pointer;
   font-size:var(--ui-font-size-medium);
   color:var(--ui-color-gray-200);
 }
 
-nav .menuItem span{
+nav .menu-item span{
   display:flex;
   align-items:center;
   column-gap:10px;
@@ -173,13 +173,13 @@ nav .menuItem span{
 }
 
 @media (hover:hover){
-  nav .menuItem span:hover{
+  nav .menu-item span:hover{
     color:var(--ui-color-white);
     background-color:var(--ui-color-gray-850);
   }
 }
 
-nav .menuItem span.active{
+nav .menu-item span.active{
   color:var(--ui-color-white);
   background-color:var(--ui-color-gray-800);
 }
