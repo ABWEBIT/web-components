@@ -3,7 +3,7 @@
 ## Basics
 
 The class name of a web component must start with a capital letter, like any regular JavaScript class. (example: WebComponent)\
-The class WebComponent must extend HTMLElement to become a custom element instead of a plain JavaScript class.
+The class "WebComponent" must extend HTMLElement to become a custom element instead of a plain JavaScript class.
 ```javascript
 class WebComponent extends HTMLElement{}
 ```
@@ -22,9 +22,10 @@ customElements.define('web-component',WebComponent);
 
 ## Shadow DOM
 
-Shadow DOM is a technique that allows encapsulation of a component's DOM and CSS, isolating it from the main document. It ensures that styles and markup inside the shadow root do not affect the rest of the page, and vice versa.\
+Shadow DOM is a technique that allows encapsulation of a component's DOM and CSS, isolating it from the main document. It ensures that styles and markup inside the shadow root do not affect the rest of the page, and vice versa.
 
-You can attach a Shadow DOM to the element with attachShadow.\
+You can attach a Shadow DOM to the element with attachShadow.
+
 The attachShadow method accepts an object with the mode option, which can be of two types:\
 open - The Shadow DOM is accessible from outside via the element.shadowRoot property.
 ```javascript
