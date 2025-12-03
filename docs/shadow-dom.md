@@ -4,39 +4,19 @@ Shadow DOM is a technique that allows encapsulation of a component's DOM and CSS
 
 You can attach a Shadow DOM to an element using attachShadow(). The method accepts an object with the "mode" option, which can be:
 
-open - The Shadow DOM is accessible from outside via the element.shadowRoot property.
+open - The Shadow DOM can be accessed via this.shadowRoot.
 ```javascript
 class WebComponent extends HTMLElement{
   constructor(){
     super();
     this.attachShadow({mode:'open'});
+    this.shadowRoot.innerHTML = `<p>Hello from Shadow DOM!</p>`;
   }
 }
 customElements.define('web-component',WebComponent);
 ```
 
-closed – The Shadow DOM is not accessible from outside. Attempting to access element.shadowRoot will return null.
-```javascript
-class WebComponent extends HTMLElement{
-  constructor(){
-    super();
-    this.attachShadow({mode:'closed'});
-  }
-}
-customElements.define('web-component',WebComponent);
-```
-
-```javascript
-class WebComponent extends HTMLElement{
-  constructor(){
-    super();
-    this.attachShadow({mode:'closed'});
-  }
-}
-customElements.define('web-component',WebComponent);
-```
-
-It is preferred to store a reference to the Shadow DOM in a variable to improve readability and avoid repeated lookups.
+closed - The Shadow DOM cannot be accessed via this.shadowRoot. To work with it, store the reference returned by attachShadow() in a variable.
 ```javascript
 class WebComponent extends HTMLElement{
   constructor(){
@@ -47,6 +27,8 @@ class WebComponent extends HTMLElement{
 }
 customElements.define('web-component',WebComponent);
 ```
+
+Storing a reference to the Shadow DOM in a variable is preferred in both open and closed modes, as it improves readability and avoids repeated lookups.
 
 ```
 Despite its advantages, Shadow DOM has some important drawbacks:
