@@ -1,6 +1,8 @@
 # Web Components
 
-The class name must always start with a capital letter. (example: WebComponent)\
+## Basics
+
+The class name of a web component must start with a capital letter, like any regular JavaScript class. (example: WebComponent)\
 The class "WebComponent" must extend HTMLElement.
 ```javascript
 class WebComponent extends HTMLElement{}
@@ -15,10 +17,13 @@ customElements.define('web-component',WebComponent);
 This is the simplest representation of a web component: it has a class that extends HTMLElement, and a tag with a hyphen.
 ```javascript
 class WebComponent extends HTMLElement{}
-customElements.define('web-component', WebComponent);
+customElements.define('web-component',WebComponent);
 ```
 
-You can save a reference to the Shadow DOM in a variable - it's not required, but recommended.\
+## Shadow DOM
+
+Shadow DOM is a technique that allows encapsulation of a component's DOM and CSS, isolating it from the main document. It ensures that styles and markup inside the shadow root do not affect the rest of the page, and vice versa.\
+
 You can access the Shadow DOM through shadowRoot.
 ```javascript
 class WebComponent extends HTMLElement{
