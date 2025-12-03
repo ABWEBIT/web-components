@@ -1,6 +1,7 @@
-ECMAScript 2022 (ES13)\
+ECMAScript 2022 (ES13)
 - Private Methods and Fields
-CSS\
+
+CSS
 - Nesting
 
 Chrome 120+\
