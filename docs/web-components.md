@@ -1,4 +1,4 @@
-# web-components
+# Web Components
 
 The class name must always start with a capital letter. (example: WebComponent)\
 The class "WebComponent" must extend HTMLElement.
