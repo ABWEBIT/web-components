@@ -1,4 +1,4 @@
-const pageDir = '/pages/';
+const pageDir = './pages/';
 
 const components = [
   { label: 'Foundation', link: pageDir+'foundation.html', category: 'essentials' },
@@ -87,7 +87,6 @@ async function loadPage(hash) {
   try {
     const res = await fetch(link);
     const html = await res.text();
-    console.log(html);
     article.innerHTML = html;
     updateActiveMenuItem(link);
   } catch (e) {
