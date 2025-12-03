@@ -4,7 +4,7 @@ ECMAScript 2022 (ES13)
 CSS
 - Nesting
 
-Borwser Support
+Browser Support
 - Chrome 120+
 - Edge 120+
 - Safari 17.2+
