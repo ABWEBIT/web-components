@@ -6,11 +6,12 @@ It is used to initialize the component's state, set up private properties, bind 
 
 IMPORTANT! You must call super() first in the constructor, otherwise "this" will be undefined.
 ```javascript
-class WebComponent extends HTMLElement {
+class WebComponent extends HTMLElement{
   constructor(){
     super();
   }
 }
+customElements.define('web-component',WebComponent);
 ```
 
 Components can be created without a constructor, which calls super() automatically. With a constructor, always call super() first to access "this".
