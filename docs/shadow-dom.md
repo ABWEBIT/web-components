@@ -4,7 +4,7 @@ Shadow DOM is a technique that allows encapsulation of a component's DOM and CSS
 
 You can attach a Shadow DOM to an element using attachShadow(). The method accepts an object with the mode option, which can be:
 
-open - The Shadow DOM is accessible from outside via the element.shadowRoot property (example below).
+open - The Shadow DOM is accessible from outside via the element.shadowRoot property.
 ```javascript
 class WebComponent extends HTMLElement{
   constructor(){
