@@ -64,6 +64,7 @@ customElements.define('web-component',WebComponent);
 
 ```
 Despite its advantages, Shadow DOM has some important drawbacks:
-= Styling and customization limitations – encapsulation restricts the use of global CSS and themes.
-- Performance concerns – creating and managing many Shadow DOMs can increase memory and CPU usage.
+
+- Styling and customization limitations - encapsulation restricts the use of global CSS and themes.
+- Performance concerns - creating and managing many Shadow DOMs can increase memory and CPU usage.
 ```
