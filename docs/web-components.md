@@ -8,7 +8,7 @@ The class "WebComponent" must extend HTMLElement to become a custom element inst
 class WebComponent extends HTMLElement{}
 ```
 
-The tag of a web component must contain a hyphen, and it cannot be the first or the last character (example: web-component).\
+The tag of a web component must contain at least one hyphen, which cannot be the first or last character (example: web-component).\
 Registration of a web component is done using the customElements.define() method, which links the tag to its class.
 ```javascript
 customElements.define('web-component',WebComponent);
@@ -24,7 +24,7 @@ customElements.define('web-component',WebComponent);
 
 Shadow DOM is a technique that allows encapsulation of a component's DOM and CSS, isolating it from the main document. It ensures that styles and markup inside the shadow root do not affect the rest of the page, and vice versa.
 
-You can attach a Shadow DOM to an element using attachShadow().The method accepts an object with the mode option, which can be:
+You can attach a Shadow DOM to an element using attachShadow(). The method accepts an object with the mode option, which can be:
 
 open - The Shadow DOM is accessible from outside via the element.shadowRoot property (example below).
 ```javascript
@@ -60,4 +60,10 @@ class WebComponent extends HTMLElement{
   }
 }
 customElements.define('web-component',WebComponent);
+```
+
+```
+Despite its advantages, Shadow DOM has some important drawbacks:
+= Styling and customization limitations – encapsulation restricts the use of global CSS and themes.
+- Performance concerns – creating and managing many Shadow DOMs can increase memory and CPU usage.
 ```
