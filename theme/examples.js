@@ -1,6 +1,6 @@
 function changeIconName(){
   const attribute = 'name';
-  const values = ['article', 'settings'];
+  const values = ['home','article', 'settings'];
   const elementId = 'example-icon';
 
   const icon = document.getElementById(elementId);
