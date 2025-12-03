@@ -1,33 +1,32 @@
-const compDir = '/ui/components/';
 const pageDir = '/pages/';
 
 const components = [
   { label: 'Foundation', link: pageDir+'foundation.html', category: 'essentials' },
 
-  { label: 'Accordion', link: compDir+'accordion/accordion.html', category: 'components' },
-  { label: 'Alert', link: compDir+'alert/alert.html', category: 'components' },
-  { label: 'Tabs', link: compDir+'tabs/tabs.html', category: 'components' },
-  { label: 'Breadcrumb', link: compDir+'breadcrumb/breadcrumb.html', category: 'components' },
+  { label: 'Accordion', link: pageDir+'accordion.html', category: 'components' },
+  { label: 'Alert', link: pageDir+'alert.html', category: 'components' },
+  { label: 'Tabs', link: pageDir+'tabs.html', category: 'components' },
+  { label: 'Breadcrumb', link: pageDir+'breadcrumb.html', category: 'components' },
 
 
   { label: 'Icons', link: pageDir+'icons.html', category: 'theme' },
 
-  { label: 'Icon', link: compDir+'icon/icon.html', category: 'primitives' },
-  { label: 'Separator', link: compDir+'separator/separator.html', category: 'primitives' },
-  { label: 'Text', link: compDir+'text/text.html', category: 'primitives' },
-  { label: 'Spinner', link: compDir+'spinner/spinner.html', category: 'primitives' },
+  { label: 'Icon', link: pageDir+'icon.html', category: 'primitives' },
+  { label: 'Separator', link: pageDir+'separator.html', category: 'primitives' },
+  { label: 'Text', link: pageDir+'text.html', category: 'primitives' },
+  { label: 'Spinner', link: pageDir+'spinner.html', category: 'primitives' },
 
-  { label: 'Button', link: compDir+'button/button.html', category: 'forms' },
-  { label: 'Checkbox', link: compDir+'checkbox/checkbox.html', category: 'forms' },
-  { label: 'Input', link: compDir+'input/input.html', category: 'forms' },
-  { label: 'Label', link: compDir+'label/label.html', category: 'forms' },
-  { label: 'Switch', link: compDir+'switch/switch.html', category: 'forms' },
-  { label: 'Textarea', link: compDir+'textarea/textarea.html', category: 'forms' },
-  { label: 'Field', link: compDir+'field/field.html', category: 'forms' },
-  { label: 'Select', link: compDir+'select/select.html', category: 'forms' },
+  { label: 'Button', link: pageDir+'button.html', category: 'forms' },
+  { label: 'Checkbox', link: pageDir+'checkbox.html', category: 'forms' },
+  { label: 'Input', link: pageDir+'input.html', category: 'forms' },
+  { label: 'Label', link: pageDir+'label.html', category: 'forms' },
+  { label: 'Switch', link: pageDir+'switch.html', category: 'forms' },
+  { label: 'Textarea', link: pageDir+'textarea.html', category: 'forms' },
+  { label: 'Field', link: pageDir+'field.html', category: 'forms' },
+  { label: 'Select', link: pageDir+'select.html', category: 'forms' },
 
-  { label: 'Focus', link: compDir+'focus/focus.html', category: 'utilities' },
-  { label: 'Portal', link: compDir+'portal/portal.html', category: 'utilities' },
+  { label: 'Focus', link: pageDir+'focus.html', category: 'utilities' },
+  { label: 'Portal', link: pageDir+'portal.html', category: 'utilities' },
 ];
 
 function generateNav(data) {
@@ -88,6 +87,7 @@ async function loadPage(hash) {
   try {
     const res = await fetch(link);
     const html = await res.text();
+    console.log(html);
     article.innerHTML = html;
     updateActiveMenuItem(link);
   } catch (e) {

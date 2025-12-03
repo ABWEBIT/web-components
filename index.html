@@ -4,8 +4,18 @@
 <meta charset="utf-8">
 <link rel="icon" href="data:,">
 <meta name="viewport" content="width=device-width">
+<script>
+  const theme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.dataset.theme = theme;
+</script>
+
 <link rel="stylesheet" href="./theme/theme.css">
 <link rel="stylesheet" href="" id="theme-style">
+
+<script>
+  document.getElementById('theme-style').href = `./theme/theme-${theme}.css`;
+</script>
+
 <link rel="stylesheet" href="./ui/styles/core.css">
 <title>Web Components</title>
 </head>
@@ -52,9 +62,7 @@
     </nav>
 
     <main>
-      <header>
-          <button id="toggle-theme" style="width:fit-content">Theme</button>
-      </header>
+      <header></header>
 
       <article id="article"></article>
     </main>
@@ -63,9 +71,14 @@
 
   </div>
 </div>
-
 <ui-portal></ui-portal>
-
+<script type="module">
+  import {UIVersion} from './ui/version.js';
+  let version = document.querySelectorAll('.version');
+  version.forEach(v => {
+    v.textContent = UIVersion;
+  });
+</script>
 <script type="module" src="./theme/router.js"></script>
 <script type="module" src="./ui/components.js"></script>
 </body>
