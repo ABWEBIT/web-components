@@ -5,10 +5,6 @@ class UIIcon extends HTMLElement{
 
   static #iconCache = new LRUCache(100);
 
-  static properties = {
-    name:{attribute:'name',type:String,reflect:true}
-  };
-
   static get observedAttributes(){
     return ['name'];
   }

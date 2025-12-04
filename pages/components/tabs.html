@@ -20,7 +20,17 @@
     <div>Rounded shape with a disabled tab</div>
     <div class="example">
       <div class="preview">
-        <ui-tabs id="tabs"></ui-tabs>
+        <ui-tabs>
+          <ui-tablist>
+            <ui-tab>What is Lorem?</ui-tab>
+            <ui-tab>Why use it?</ui-tab>
+            <ui-tab>Where to use?</ui-tab>
+          </ui-tablist>
+          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</ui-tabpanel>
+          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</ui-tabpanel>
+          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </ui-tabpanel>
+        </ui-tabs>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -28,13 +38,25 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-tabs id="tabs"&gt;&lt;/ui-tabs&gt;
+&lt;ui-tabs&gt;
+  &lt;ui-tablist&gt;
+    &lt;ui-tab&gt;What is Lorem?&lt;/ui-tab&gt;
+    &lt;ui-tab&gt;Why use it?&lt;/ui-tab&gt;
+    &lt;ui-tab&gt;Where to use?&lt;/ui-tab&gt;
+  &lt;/ui-tablist&gt;
 
-tabs.data = [
- {label:'What is Lorem?',content:'Lorem ipsum...'},
- {label:'Why use it?',content:'Lorem ipsum...',disabled:true},
- {label:'Where to use?',content:'Lorem ipsum...'}
-];
+  &lt;ui-tabpanel&gt;
+    Lorem Ipsum is simply dummy text.
+  &lt;/ui-tabpanel&gt;
+
+  &lt;ui-tabpanel&gt;
+    Lorem Ipsum is simply dummy text.
+  &lt;/ui-tabpanel&gt;
+
+  &lt;ui-tabpanel&gt;
+    Lorem Ipsum is simply dummy text.
+  &lt;/ui-tabpanel&gt;
+&lt;/ui-tabs&gt;
 </code></pre>
 
       </div>

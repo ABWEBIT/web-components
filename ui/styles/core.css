@@ -75,7 +75,8 @@
 /* base */
 ui-button,
 ui-checkbox,
-ui-switch{
+ui-switch,
+ui-tabs{
   direction:inherit;
   box-sizing:border-box;
 }
@@ -83,7 +84,8 @@ ui-switch{
 /* no-select */
 ui-button,
 ui-checkbox,
-ui-switch{
+ui-switch,
+ui-tab{
   -webkit-user-select:none;
   user-select:none;
 }
@@ -91,7 +93,8 @@ ui-switch{
 /* button-like */
 ui-button,
 ui-checkbox,
-ui-switch{
+ui-switch,
+ui-tab{
   appearance:none;
   cursor:pointer;
   touch-action:manipulation;
@@ -100,7 +103,8 @@ ui-switch{
 /* outline */
 ui-button,
 ui-checkbox,
-ui-switch{
+ui-switch,
+ui-tab{
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
@@ -114,7 +118,9 @@ ui-switch{
 /* transition */
 ui-button,
 ui-checkbox,
-ui-switch{
+ui-checkbox > ui-icon,
+ui-switch,
+ui-tab{
   transition-duration:var(--ui-duration);
 }
 

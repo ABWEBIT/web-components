@@ -1,60 +1,52 @@
 class UISwitch extends HTMLElement{
   #listeners = null;
-  #disabled = false;
   #checked = false;
-
-  static properties = {
-    checked:{attribute:'checked',type:Boolean,reflect:true},
-    disabled:{attribute:'disabled',type:Boolean,reflect:true}
-  };
+  #disabled = false;
 
   static get observedAttributes(){
     return ['checked','disabled'];
   }
 
-  get disabled(){return this.#disabled;}
-  set disabled(value){
-    if(this.#disabled === (value === true)) return;
-    this.#disabled = value === true;
-    this.#syncDisabled();
+  attributeChangedCallback(attribute,oldValue,newValue){
+    if(oldValue === newValue) return;
+    if(attribute === 'checked') this.checked = this.hasAttribute('checked');
+    if(attribute === 'disabled') this.disabled = this.hasAttribute('disabled');
   }
 
   get checked(){return this.#checked;}
   set checked(value){
-    if(this.#checked === (value === true)) return;
-    this.#checked = value === true;
-    this.#syncChecked();
+    const newValue = Boolean(value);
+    if(this.#checked === newValue || this.#disabled) return;
+    this.#checked = newValue;
+    this.#checked ? this.setAttribute('checked','') : this.removeAttribute('checked');
+    this.ariaChecked = this.#checked ? true : null;
+  }
+
+  get disabled(){return this.#disabled;}
+  set disabled(value){
+    const newValue = Boolean(value);
+    if(this.#disabled === newValue) return;
+    this.#disabled = newValue;
+    this.#disabled ? this.setAttribute('disabled','') : this.removeAttribute('disabled');
+    this.ariaDisabled = this.#disabled ? true : null;
+    this.tabIndex = this.#disabled ? -1 : 0;
   }
 
   connectedCallback(){
-    this.role = 'switch';
     this.replaceChildren();
-
-    this.checked = this.hasAttribute('checked');
-    this.disabled = this.hasAttribute('disabled');
+    this.role = 'switch';
+    this.tabIndex = this.#disabled ? -1 : 0;
 
     this.#listeners = new AbortController();
     const signal = this.#listeners.signal;
 
     this.addEventListener('click',this.#onClick,{signal});
     this.addEventListener('keydown',this.#onKeyDown,{signal});
-
-    this.#syncDisabled();
-    this.#syncChecked();
   }
 
   disconnectedCallback(){
     this.#listeners?.abort();
     this.#listeners = null;
-  }
-
-  #syncChecked = () =>{
-    this.ariaChecked = this.#checked ? 'true' : 'false'
-  }
-
-  #syncDisabled = () =>{
-    this.ariaDisabled = this.#disabled ? true : null;
-    this.tabIndex = this.#disabled ? -1 : 0;
   }
 
   #onClick = (e) =>{
@@ -75,6 +67,11 @@ class UISwitch extends HTMLElement{
 
   #onAction = (e) =>{
     this.checked = !this.#checked;
+    this.dispatchEvent(new CustomEvent('switch-action',{
+      detail:{originalEvent:e},
+      bubbles:true,
+      composed:true
+    }));
   }
 
 }

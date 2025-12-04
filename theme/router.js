@@ -1,33 +1,38 @@
-const pageDir = './pages/';
-const compDir = './pages/components/';
+const infoPageDir = './pages/';
+const compPageDir = './pages/components/';
 
 const components = [
-  // Pages
-  { label: 'Foundation', link: pageDir+'foundation.html', category: 'essentials' },
-  { label: 'Icons', link: pageDir+'icons.html', category: 'theme' },
+  // Info Pages
+  {label: 'Foundation', link: infoPageDir+'foundation.html', category: 'essentials' },
+  {label: 'Icons', link: infoPageDir+'icons.html', category: 'theme' },
+
+  // Components Pages
+
+  // Primitives
+  {label: 'Icon', link: compPageDir+'icon.html', category: 'primitives' },
+  {label: 'Separator', link: compPageDir+'separator.html', category: 'primitives' },
+  {label: 'Text', link: compPageDir+'text.html', category: 'primitives' },
+  {label: 'Spinner', link: compPageDir+'spinner.html', category: 'primitives' },
+
+  // Forms
+  {label: 'Button', link: compPageDir+'button.html', category: 'forms' },
+  {label: 'Checkbox', link: compPageDir+'checkbox.html', category: 'forms' },
+  {label: 'Input', link: compPageDir+'input.html', category: 'forms' },
+  {label: 'Label', link: compPageDir+'label.html', category: 'forms' },
+  {label: 'Switch', link: compPageDir+'switch.html', category: 'forms' },
+  {label: 'Textarea', link: compPageDir+'textarea.html', category: 'forms' },
+  {label: 'Field', link: compPageDir+'field.html', category: 'forms' },
+  {label: 'Select', link: compPageDir+'select.html', category: 'forms' },
 
   // Components
-  { label: 'Accordion', link: compDir+'accordion.html', category: 'components' },
-  { label: 'Alert', link: compDir+'alert.html', category: 'components' },
-  { label: 'Tabs', link: compDir+'tabs.html', category: 'components' },
-  { label: 'Breadcrumb', link: compDir+'breadcrumb.html', category: 'components' },
+  {label: 'Accordion', link: compPageDir+'accordion.html', category: 'components' },
+  {label: 'Alert', link: compPageDir+'alert.html', category: 'components' },
+  {label: 'Tabs', link: compPageDir+'tabs.html', category: 'components' },
+  {label: 'Breadcrumb', link: compPageDir+'breadcrumb.html', category: 'components' },
 
-  { label: 'Icon', link: compDir+'icon.html', category: 'primitives' },
-  { label: 'Separator', link: compDir+'separator.html', category: 'primitives' },
-  { label: 'Text', link: compDir+'text.html', category: 'primitives' },
-  { label: 'Spinner', link: compDir+'spinner.html', category: 'primitives' },
-
-  { label: 'Button', link: compDir+'button.html', category: 'forms' },
-  { label: 'Checkbox', link: compDir+'checkbox.html', category: 'forms' },
-  { label: 'Input', link: compDir+'input.html', category: 'forms' },
-  { label: 'Label', link: compDir+'label.html', category: 'forms' },
-  { label: 'Switch', link: compDir+'switch.html', category: 'forms' },
-  { label: 'Textarea', link: compDir+'textarea.html', category: 'forms' },
-  { label: 'Field', link: compDir+'field.html', category: 'forms' },
-  { label: 'Select', link: compDir+'select.html', category: 'forms' },
-
-  { label: 'Focus', link: compDir+'focus.html', category: 'utilities' },
-  { label: 'Portal', link: compDir+'portal.html', category: 'utilities' },
+  // Utilities
+  {label: 'Focus', link: compPageDir+'focus.html', category: 'utilities' },
+  {label: 'Portal', link: compPageDir+'portal.html', category: 'utilities' },
 ];
 
 function generateNav(data){
@@ -66,11 +71,11 @@ generateNav(components);
 
 const article = document.getElementById('article');
 
-function navigate(pageId) {
+function navigate(pageId){
   location.hash = pageId;
 }
 
-async function loadPage(hash) {
+async function loadPage(hash){
   const pageId = hash ? hash.substring(1) : 'foundation';
 
   const component = components.find(item =>
@@ -79,18 +84,19 @@ async function loadPage(hash) {
 
   const link = component?.link;
 
-  if (!link) {
+  if(!link){
     article.innerHTML = '<p>Not Found</p>';
     updateActiveMenuItem(null);
     return;
   }
 
-  try {
+  try{
     const res = await fetch(link);
     const html = await res.text();
     article.innerHTML = html;
     updateActiveMenuItem(link);
-  } catch (e) {
+  }
+  catch (e){
     article.innerHTML = '<p>Load error</p>';
   }
 }
@@ -101,7 +107,6 @@ function updateActiveMenuItem(currentLink) {
   });
 }
 
-
-window.addEventListener('hashchange', () => loadPage(location.hash));
-window.addEventListener('DOMContentLoaded', () => loadPage(location.hash));
+window.addEventListener('hashchange',() => loadPage(location.hash));
+window.addEventListener('DOMContentLoaded',() => loadPage(location.hash));
 window.navigate = navigate;

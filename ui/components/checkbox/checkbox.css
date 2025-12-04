@@ -1,5 +1,5 @@
 ui-checkbox{
-  --ui-checkbox-border-radius:var(--ui-border-radius-default);
+  --ui-checkbox-border-radius:var(--ui-border-radius-rounded);
   --ui-checkbox-height:24px;
   --ui-checkbox-width:24px;
   --ui-checkbox-surface-color:var(--ui-surface-color-default);
@@ -41,20 +41,11 @@ ui-checkbox{
     position:absolute;
     border-radius:inherit;
     opacity:0;
+    transition-property:opacity;
     background-color:var(--ui-checkbox-svg-surface-color);
   }
 
   &[checked] > ui-icon{
     opacity:1;
   }
-
-  &[ui] > ui-icon{
-    transition-duration:var(--ui-transition-duration-default);
-    transition-property:opacity;
-  }
-
-  /* shape */
-  &[shape="rounded"]{--ui-checkbox-border-radius:var(--ui-border-radius-rounded);}
-  &[shape="square"]{--ui-checkbox-border-radius:var(--ui-border-radius-square);}
-  &[shape="circle"]{--ui-checkbox-border-radius:var(--ui-border-radius-circle);}
 }

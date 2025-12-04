@@ -1,73 +1,73 @@
 import {uuid} from '../../utils/index.js';
-import DOMPurify from '../../utils/purify.es.mjs';
+
+class UITablist extends HTMLElement{}
+customElements.define('ui-tablist',UITablist);
+
+class UITab extends HTMLElement{}
+customElements.define('ui-tab',UITab);
+
+class UITabpanel extends HTMLElement{}
+customElements.define('ui-tabpanel',UITabpanel);
 
 class UITabs extends HTMLElement{
-  #data = null;
-  #tabs = null;
-  #panels = null;
+  #tablist = null;
+  #tabs = [];
+  #panels = [];
   #activeIndex = 0;
 
-  get data(){return this.#data;}
-  set data(value){
-    if(!Array.isArray(value)) throw new Error('Data must be an array');
-    if(this.#data === value) return;
-    this.#data = value;
-    this.#render();
-  }
+  connectedCallback(){
+    this.#tablist = this.querySelector('ui-tablist');
+    if(!this.#tablist){
+      throw new Error(`Error: <ui-tablist> element is missing.`);
+    }
+    this.#tablist.role = "tablist";
 
-  #render(){
-    this.#tabs = [];
-    this.#panels = [];
+    this.#tabs = this.querySelectorAll('ui-tab');
+    this.#panels = this.querySelectorAll('ui-tabpanel');
 
-    const tablist = document.createElement('div');
-    tablist.role = 'tablist';
+    if(this.#tabs.length !== this.#panels.length){
+      throw new Error(`Error: the number of tabs (${this.#tabs.length}) does not match the number of panels (${this.#panels.length}).`);
+    };
 
-    const panels = document.createDocumentFragment();
-
-    this.#data.forEach((item,index) => {
+    this.#tabs.forEach((tab,index) =>{
       const id = uuid();
       const idTab = `id-tab-${id}`;
-      const idControl = `id-controls-${id}`;
+      const idPanel = `id-panel-${id}`;
 
-      const isActive = index === this.#activeIndex && !item.disabled;
+      const panel = this.#panels[index];
+      const isSelected = index === this.#activeIndex;
+      const isDisabled = tab.hasAttribute('disabled');
 
-      // tab
-      const tab = document.createElement('div');
       tab.role = 'tab';
-      tab.tabIndex = isActive ? 0 : -1;
-      tab.ariaSelected = isActive ? 'true' : 'false';
-      tab.ariaDisabled = item.disabled;
-      tab.id = idTab;
-      tab.setAttribute('aria-controls',idControl);
-      if(item.disabled) tab.setAttribute('disabled','');
+      panel.role = 'tabpanel';
 
-      tab.textContent = item.label ?? '';
+      if(!tab.id) tab.id = idTab;
+      if(!panel.id) panel.id = idPanel;
 
-      tab.addEventListener('click',() =>{
-        if(item.disabled) return;
-        this.#activateTab(index);
-      });
+      tab.setAttribute('aria-controls',idPanel);
+      panel.setAttribute('aria-labelledby',idTab);
+
+      tab.tabIndex = isSelected ? 0 : -1;
+      tab.ariaSelected = isSelected ? 'true' : null;
+
+      if(isSelected){
+        tab.setAttribute('selected','');
+      }
+      else{
+        tab.removeAttribute('selected');
+      }
+
+      tab.ariaDisabled = isDisabled ? true : null;
+      panel.ariaHidden = !isSelected;
+      panel.hidden = !isSelected;
 
       tab.addEventListener('keydown',(e) => this.#onKeyDown(e,index));
 
-      tablist.append(tab);
-      this.#tabs.push(tab);
-
-      // panel
-      const panel = document.createElement('div');
-      panel.role = 'tabpanel';
-      panel.ariaHidden = !isActive;
-      panel.hidden = !isActive;
-      panel.id = idControl;
-      panel.setAttribute('aria-labelledby',idTab);
-
-      panel.innerHTML = DOMPurify.sanitize(item.content ?? '');
-
-      panels.append(panel);
-      this.#panels.push(panel);
+      tab.addEventListener('click',() =>{
+        if(isDisabled) return;
+        this.#activateTab(index);
+      });
     });
-
-    this.replaceChildren(tablist,panels);
   }
 
   #activateTab = (newIndex) =>{
@@ -77,7 +77,8 @@ class UITabs extends HTMLElement{
     const oldTab = this.#tabs[oldIndex];
     const oldPanel = this.#panels[oldIndex];
     if(oldTab && oldPanel){
-      oldTab.ariaSelected = 'false';
+      oldTab.ariaSelected = null;
+      oldTab.removeAttribute('selected');
       oldTab.tabIndex = -1;
       oldPanel.hidden = true;
       oldPanel.ariaHidden = 'true';
@@ -85,8 +86,9 @@ class UITabs extends HTMLElement{
 
     const newTab = this.#tabs[newIndex];
     const newPanel = this.#panels[newIndex];
-    if(newTab && newPanel && !this.#data[newIndex].disabled){
+    if(newTab && newPanel && !newTab.disabled){
       newTab.ariaSelected = 'true';
+      newTab.setAttribute('selected','');
       newTab.tabIndex = 0;
       newPanel.hidden = false;
       newPanel.ariaHidden = 'false';
@@ -96,37 +98,40 @@ class UITabs extends HTMLElement{
 
   #onKeyDown = (e,index) =>{
     e.preventDefault();
-    const total = this.#data.length;
+    const total = this.#tabs.length;
     let newIndex = index;
+
+    const isDisabled = i => this.#tabs[i]?.hasAttribute('disabled');
+    const isSkippable = i => isDisabled(i) && i !== index;
 
     switch(e.key){
       case 'ArrowRight':
         newIndex = (index + 1) % total;
-        while (this.#data[newIndex]?.disabled){
+        while (isSkippable(newIndex)){
           newIndex = (newIndex + 1) % total;
         }
         break;
       case 'ArrowLeft':
         newIndex = (index - 1 + total) % total;
-        while (this.#data[newIndex]?.disabled){
+        while (isSkippable(newIndex)){
           newIndex = (newIndex - 1 + total) % total;
         }
         break;
       case 'Home':
         newIndex = 0;
-        while (this.#data[newIndex]?.disabled){
+        while (isSkippable(newIndex)){
           newIndex = (newIndex + 1) % total;
         }
         break;
       case 'End':
         newIndex = total - 1;
-        while (this.#data[newIndex]?.disabled){
+        while (isSkippable(newIndex)){
           newIndex = (newIndex - 1 + total) % total;
         }
         break;
       case 'Enter':
       case ' ':
-        this.#activateTab(index);
+        if (!isDisabled(index)) this.#activateTab(index);
         return;
       default:
         return;

@@ -4,11 +4,6 @@ class UIButton extends HTMLElement{
   #disabled = false;
   #spinner = null;
 
-  static properties = {
-    busy:{attribute:'busy',type:Boolean,reflect:true},
-    disabled:{attribute:'disabled',type:Boolean,reflect:true},
-  };
-
   static get observedAttributes(){
     return ['busy','disabled'];
   }

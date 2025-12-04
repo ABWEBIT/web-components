@@ -1,12 +1,7 @@
 class UICheckbox extends HTMLElement{
   #listeners = null;
-  #disabled = false;
   #checked = false;
-
-  static properties = {
-    checked:{attribute:'checked',type:Boolean,reflect:true},
-    disabled:{attribute:'disabled',type:Boolean,reflect:true}
-  };
+  #disabled = false;
 
   static get observedAttributes(){
     return ['checked','disabled'];
@@ -14,30 +9,33 @@ class UICheckbox extends HTMLElement{
 
   attributeChangedCallback(attribute,oldValue,newValue){
     if(oldValue === newValue) return;
-    if(attribute === 'checked'){
-      this.checked = newValue;
-    }
-    if(attribute === 'disabled'){
-      this.disabled = newValue;
-    }
+    if(attribute === 'checked') this.checked = this.hasAttribute('checked');
+    if(attribute === 'disabled') this.disabled = this.hasAttribute('disabled');
   }
 
   get checked(){return this.#checked;}
   set checked(value){
-    if(this.#checked === (value === true)) return;
-    this.#checked = value === true;
-    this.#syncChecked();
+    const newValue = Boolean(value);
+    if(this.#checked === newValue || this.#disabled) return;
+    this.#checked = newValue;
+    this.#checked ? this.setAttribute('checked','') : this.removeAttribute('checked');
+    this.ariaChecked = this.#checked ? true : null;
   }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
-    if(this.#disabled === (value === true)) return;
-    this.#disabled = value === true;
-    this.#syncDisabled();
+    const newValue = Boolean(value);
+    if(this.#disabled === newValue) return;
+    this.#disabled = newValue;
+    this.#disabled ? this.setAttribute('disabled','') : this.removeAttribute('disabled');
+    this.ariaDisabled = this.#disabled ? true : null;
+    this.tabIndex = this.#disabled ? -1 : 0;
   }
 
   connectedCallback(){
+    this.replaceChildren();
     this.role = 'checkbox';
+    this.tabIndex = this.#disabled ? -1 : 0;
 
     const icon = document.createElement('ui-icon');
     icon.setAttribute('name','check');
@@ -48,9 +46,6 @@ class UICheckbox extends HTMLElement{
 
     this.addEventListener('click',this.#onClick,{signal});
     this.addEventListener('keydown',this.#onKeyDown,{signal});
-
-    this.#syncDisabled();
-    this.#syncChecked();
   }
 
   disconnectedCallback(){
@@ -58,17 +53,8 @@ class UICheckbox extends HTMLElement{
     this.#listeners = null;
   }
 
-  #syncDisabled = () =>{
-    this.ariaDisabled = this.#disabled ? true : null;
-    this.tabIndex = this.#disabled ? -1 : 0;
-  }
-
-  #syncChecked = () =>{
-    this.ariaChecked = this.#checked ? true : false;
-  }
-
   #onClick = (e) =>{
-    if(this.disabled) return;
+    if(this.#disabled) return;
     e.preventDefault();
     e.stopImmediatePropagation();
     this.#onAction(e);
@@ -85,6 +71,11 @@ class UICheckbox extends HTMLElement{
 
   #onAction = (e) =>{
     this.checked = !this.#checked;
+    this.dispatchEvent(new CustomEvent('checkbox-action',{
+      detail:{originalEvent:e},
+      bubbles:true,
+      composed:true
+    }));
   }
 
 }
