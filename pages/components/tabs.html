@@ -4,8 +4,18 @@
 </section>
 
 <section class="details">
+  <h2>Info</h2>
+  <p>The component also includes three mandatory subcomponents: ui-tablist, ui-tab, and ui-tabpanel.</p>
+  <p>IDs for tabs and tab panels are generated automatically and are dynamic (they change on page reload), but can be manually overridden with fixed names if needed.</p>
+  <p>The connection between a tab and its panel is handled automatically via aria-controls and aria-labelledby and should not be modified.</p>
+</section>
+
+<section class="details">
   <h2>Attributes</h2>
+  <h3>Tabs</h3>
   <p>vertical - static (optional). Sets the orientation of the tabs in the tablist to vertical.</p>
+  <h3>Tab</h3>
+  <p>disabled - static (optional). Controls whether the tab is disabled.</p>
 </section>
 
 <section class="content">
@@ -17,15 +27,15 @@
         <ui-tabs>
           <ui-tablist>
             <ui-tab>What is Lorem?</ui-tab>
-            <ui-tab>Why use it?</ui-tab>
+            <ui-tab disabled>Why use it?</ui-tab>
             <ui-tab>Where to use?</ui-tab>
             <ui-tab>Where?</ui-tab>
           </ui-tablist>
           <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</ui-tabpanel>
           <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</ui-tabpanel>
-          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br><br>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br><br>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </ui-tabpanel>
-          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br><br>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
           </ui-tabpanel>
         </ui-tabs>
       </div>
@@ -38,13 +48,8 @@
 &lt;ui-tabs&gt;
   &lt;ui-tablist&gt;
     &lt;ui-tab&gt;What is Lorem?&lt;/ui-tab&gt;
-    &lt;ui-tab&gt;Why use it?&lt;/ui-tab&gt;
-    &lt;ui-tab&gt;Where to use?&lt;/ui-tab&gt;
+    &lt;ui-tab disabled&gt;Why use it?&lt;/ui-tab&gt;
   &lt;/ui-tablist&gt;
-
-  &lt;ui-tabpanel&gt;
-    Lorem Ipsum is simply dummy text.
-  &lt;/ui-tabpanel&gt;
 
   &lt;ui-tabpanel&gt;
     Lorem Ipsum is simply dummy text.
@@ -67,15 +72,15 @@
         <ui-tabs vertical>
           <ui-tablist>
             <ui-tab>What is Lorem?</ui-tab>
-            <ui-tab>Why use it?</ui-tab>
+            <ui-tab disabled>Why use it?</ui-tab>
             <ui-tab>Where to use?</ui-tab>
             <ui-tab>Where?</ui-tab>
           </ui-tablist>
           <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</ui-tabpanel>
           <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</ui-tabpanel>
-          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br><br>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br><br>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </ui-tabpanel>
-          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+          <ui-tabpanel>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br><br>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
           </ui-tabpanel>
         </ui-tabs>
       </div>
@@ -88,13 +93,8 @@
 &lt;ui-tabs vertical&gt;
   &lt;ui-tablist&gt;
     &lt;ui-tab&gt;What is Lorem?&lt;/ui-tab&gt;
-    &lt;ui-tab&gt;Why use it?&lt;/ui-tab&gt;
-    &lt;ui-tab&gt;Where to use?&lt;/ui-tab&gt;
+    &lt;ui-tab disabled&gt;Why use it?&lt;/ui-tab&gt;
   &lt;/ui-tablist&gt;
-
-  &lt;ui-tabpanel&gt;
-    Lorem Ipsum is simply dummy text.
-  &lt;/ui-tabpanel&gt;
 
   &lt;ui-tabpanel&gt;
     Lorem Ipsum is simply dummy text.
