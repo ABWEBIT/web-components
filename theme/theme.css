@@ -249,6 +249,7 @@ nav .menu-item span.active{
   flex-wrap:wrap;
   justify-content:center;
   gap:20px;
+  overflow-x:auto;
 }
 
 .content-item > .example > .preview,

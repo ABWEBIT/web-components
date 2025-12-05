@@ -1,13 +1,7 @@
 import {uuid} from '../../utils/index.js';
-
-class UITablist extends HTMLElement{}
-customElements.define('ui-tablist',UITablist);
-
-class UITab extends HTMLElement{}
-customElements.define('ui-tab',UITab);
-
-class UITabpanel extends HTMLElement{}
-customElements.define('ui-tabpanel',UITabpanel);
+import './tablist.js';
+import './tab.js';
+import './tabpanel.js';
 
 class UITabs extends HTMLElement{
   #tablist = null;
@@ -20,7 +14,6 @@ class UITabs extends HTMLElement{
     if(!this.#tablist){
       throw new Error(`Error: <ui-tablist> element is missing.`);
     }
-    this.#tablist.role = "tablist";
 
     this.#tabs = this.querySelectorAll('ui-tab');
     this.#panels = this.querySelectorAll('ui-tabpanel');
@@ -36,19 +29,15 @@ class UITabs extends HTMLElement{
 
       const panel = this.#panels[index];
       const isSelected = index === this.#activeIndex;
-      const isDisabled = tab.hasAttribute('disabled');
 
-      tab.role = 'tab';
-      panel.role = 'tabpanel';
+      tab.id ||= idTab;
+      panel.id ||= idPanel;
 
-      if(!tab.id) tab.id = idTab;
-      if(!panel.id) panel.id = idPanel;
-
-      tab.setAttribute('aria-controls',idPanel);
-      panel.setAttribute('aria-labelledby',idTab);
+      tab.setAttribute('aria-controls',panel.id);
+      panel.setAttribute('aria-labelledby',tab.id);
 
       tab.tabIndex = isSelected ? 0 : -1;
-      tab.ariaSelected = isSelected ? 'true' : null;
+      tab.ariaSelected = isSelected ? 'true' : 'false';
 
       if(isSelected){
         tab.setAttribute('selected','');
@@ -57,14 +46,14 @@ class UITabs extends HTMLElement{
         tab.removeAttribute('selected');
       }
 
-      tab.ariaDisabled = isDisabled ? true : null;
+      //tab.ariaDisabled = isDisabled ? true : null;
       panel.ariaHidden = !isSelected;
       panel.hidden = !isSelected;
 
       tab.addEventListener('keydown',(e) => this.#onKeyDown(e,index));
 
       tab.addEventListener('click',() =>{
-        if(isDisabled) return;
+        if(tab.disabled === true) return;
         this.#activateTab(index);
       });
     });
@@ -97,11 +86,11 @@ class UITabs extends HTMLElement{
   }
 
   #onKeyDown = (e,index) =>{
-    e.preventDefault();
+    if(e.repeat) return;
     const total = this.#tabs.length;
     let newIndex = index;
 
-    const isDisabled = i => this.#tabs[i]?.hasAttribute('disabled');
+    const isDisabled = i => this.#tabs[i]?.disabled;
     const isSkippable = i => isDisabled(i) && i !== index;
 
     switch(e.key){
@@ -118,12 +107,14 @@ class UITabs extends HTMLElement{
         }
         break;
       case 'Home':
+        e.preventDefault();
         newIndex = 0;
         while (isSkippable(newIndex)){
           newIndex = (newIndex + 1) % total;
         }
         break;
       case 'End':
+        e.preventDefault();
         newIndex = total - 1;
         while (isSkippable(newIndex)){
           newIndex = (newIndex - 1 + total) % total;
@@ -131,6 +122,7 @@ class UITabs extends HTMLElement{
         break;
       case 'Enter':
       case ' ':
+        e.preventDefault();
         if (!isDisabled(index)) this.#activateTab(index);
         return;
       default:

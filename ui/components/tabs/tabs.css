@@ -1,9 +1,7 @@
 ui-tabs{
   --ui-tabs-gap:10px;
-  --ui-tabs-tablist-gap:10px;
   --ui-tabs-border-radius:var(--ui-border-radius-rounded);
 
-  --ui-tabs-tab-font-size:var(--ui-font-size-default);
   --ui-tabs-tab-padding-inline:20px;
   --ui-tabs-tab-padding-block:12px;
   --ui-tabs-tab-surface-color-default:var(--ui-surface-color-default);
@@ -13,23 +11,33 @@ ui-tabs{
   --ui-tabs-tab-content-color-hover:var(--ui-content-color-hover);
   --ui-tabs-tab-content-color-active:var(--ui-content-color-active);
 
-  --ui-tabs-tabpanel-font-size:var(--ui-font-size-default);
   --ui-tabs-tabpanel-padding-inline:20px;
-  --ui-tabs-tabpanel-padding-block:16px;
+  --ui-tabs-tabpanel-padding-block:12px;
   --ui-tabs-tabpanel-surface-color:var(--ui-surface-color-default);
-  --ui-tabs-tabpanel-content-color:var(--ui-color-gray-200);
-  --ui-tabs-tabpanel-line-height:var(--ui-line-height-normal);
+  --ui-tabs-tabpanel-content-color:var(--ui-content-color-default);
 
   display:flex;
-  flex-direction:column;
   width:100%;
   gap:var(--ui-tabs-gap);
+
+  &:not([vertical]){
+    flex-direction:column;
+  }
 
   /* tablist */
   & > ui-tablist{
     display:flex;
     flex-wrap:wrap;
-    gap:var(--ui-tabs-tablist-gap);
+    gap:var(--ui-tabs-gap);
+  }
+
+  &:not([vertical]) > ui-tablist{
+    flex-wrap:wrap;
+  }
+
+  &[vertical] > ui-tablist{
+    flex-direction:column;
+    flex-shrink:0;
   }
 
   /* tab */
@@ -39,7 +47,6 @@ ui-tabs{
     border-radius:var(--ui-tabs-border-radius);
     padding-inline:var(--ui-tabs-tab-padding-inline);
     padding-block:var(--ui-tabs-tab-padding-block);
-    font-size:var(--ui-tabs-tab-font-size);
     color:var(--ui-tabs-tab-content-color-default);
     transition-property:background-color,outline-color,color;
 
@@ -47,10 +54,6 @@ ui-tabs{
       cursor:not-allowed;
       opacity:0.5;
       pointer-events:auto;
-    }
-
-    &:focus-visible:not([disabled]){
-      outline-color:var(--ui-outline-color);
     }
 
     @media (hover: hover){
@@ -70,18 +73,20 @@ ui-tabs{
   /* tabpanel */
   & > ui-tabpanel{
     display:block;
-    -webkit-user-select:text;
-    user-select:text;
     border-radius:var(--ui-tabs-border-radius);
     padding-inline:var(--ui-tabs-tabpanel-padding-inline);
     padding-block:var(--ui-tabs-tabpanel-padding-block);
-    font-size:var(--ui-tabs-tabpanel-font-size);
     color:var(--ui-tabs-tabpanel-content-color);
     background-color:var(--ui-tabs-tabpanel-surface-color);
-    line-height:var(--ui-tabs-tabpanel-line-height);
 
     &[hidden]{
       display:none;
     }
   }
+
+  &[vertical] > ui-tabpanel{
+
+    flex-grow:1;
+  }
+
 }
