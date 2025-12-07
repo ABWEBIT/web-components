@@ -1,20 +1,17 @@
 ui-breadcrumb{
-  --ui-breadcrumb-font-size:var(--ui-font-size-default);
   --ui-breadcrumb-icon-size:20px;
   --ui-breadcrumb-separator-size:20px;
   --ui-breadcrumb-font-color:var(--ui-color-gray-150);
   --ui-breadcrumb-font-color-hover:var(--ui-color-white);
 
-  font-size:var(--ui-breadcrumb-font-size);
-
-  & [role="list"]{
+  & > ol{
     display:flex;
     list-style:none;
     padding:0;
     margin:0;
   }
 
-  & [role="listitem"]{
+  & > ol > li{
     display:flex;
     white-space:nowrap;
     align-items:center;
@@ -40,8 +37,5 @@ ui-breadcrumb{
   & ui-icon:not([role="presentation"]){
     width:var(--ui-breadcrumb-icon-size);
     height:100%;
-    margin-top:-3px;
-    margin-inline-start:-2px;
-    margin-inline-end:6px;
   }
 }

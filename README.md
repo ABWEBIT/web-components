@@ -7,6 +7,6 @@ CSS
 Browser Support
 - Chrome 120+
 - Edge 120+
+- Firefox 119+
 - Safari 17.2+
 - Opera 106+
-- Firefox 117+

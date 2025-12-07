@@ -12,7 +12,7 @@ ui-tabs{
   --ui-tabs-tab-content-color-active:var(--ui-content-color-active);
 
   --ui-tabs-tabpanel-padding-inline:20px;
-  --ui-tabs-tabpanel-padding-block:12px;
+  --ui-tabs-tabpanel-padding-block:16px;
   --ui-tabs-tabpanel-surface-color:var(--ui-surface-color-default);
   --ui-tabs-tabpanel-content-color:var(--ui-content-color-default);
 
@@ -73,6 +73,7 @@ ui-tabs{
   /* tabpanel */
   & > ui-tabpanel{
     display:block;
+    height:fit-content;
     border-radius:var(--ui-tabs-border-radius);
     padding-inline:var(--ui-tabs-tabpanel-padding-inline);
     padding-block:var(--ui-tabs-tabpanel-padding-block);

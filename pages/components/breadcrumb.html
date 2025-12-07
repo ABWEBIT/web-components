@@ -3,20 +3,20 @@
   <p>Breadcrumbs show the current page's location within a navigational hierarchy and allow users to navigate to parent pages.</p>
 </section>
 
-<section class="details">
-  <h2>Object properties</h2>
-  <p>icon - optional. An icon that can be displayed before the text in a breadcrumb item.</p>
-  <p>label - required. The text displayed in the breadcrumb item.</p>
-  <p>href - required. The URL of the breadcrumb item.</p>
-</section>
-
 <section class="content">
 
   <div class="content-item">
     <div>Text only</div>
     <div class="example">
       <div class="preview">
-        <ui-breadcrumb id="breadcrumb00"></ui-breadcrumb>
+        <ui-breadcrumb>
+          <ol>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li>Article</li>
+          </ol>
+        </ui-breadcrumb>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -24,40 +24,14 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-breadcrumb id="breadcrumb"&gt;&lt;/ui-breadcrumb&gt;
-
-breadcrumb.data = [
- {label:'Home',href:'/'},
- {label:'Settings',href:'/'},
- {label:'Notifications',href:'/'},
- {label:'Article',href:'/'}
-];
-</code></pre>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Text with icons</div>
-    <div class="example">
-      <div class="preview">
-        <ui-breadcrumb id="breadcrumb01"></ui-breadcrumb>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-
-<pre><code>
-&lt;ui-breadcrumb id="breadcrumb"&gt;&lt;/ui-breadcrumb&gt;
-
-breadcrumb.data = [
- {name:'home',label:'Home',href:'/'},
- {name:'settings',label:'Settings',href:'/'},
- {name:'notifications',label:'Notifications',href:'/'},
- {name:'article',label:'Article',href:'/'}
-];
+&lt;ui-breadcrumb&gt;
+ &lt;ol&gt;
+  &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;Notifications&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Article&lt;/li&gt;
+ &lt;/ol&gt;
+&lt;/ui-breadcrumb&gt;
 </code></pre>
 
       </div>

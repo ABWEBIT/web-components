@@ -1,24 +1,29 @@
 const BASE_PATH = './components/';
 
 const components = [
-  'accordion/accordion.js',
-  'alert/alert.js',
-  'breadcrumb/breadcrumb.js',
+  // primitives
+  'heading/heading.js',
+  'icon/icon.js',
+  'separator/separator.js',
+  'spinner/spinner.js',
+  'text/text.js',
+  // forms
   'button/button.js',
   'checkbox/checkbox.js',
   'field/field.js',
-  'focus/focus.js',
-  'icon/icon.js',
   'input/input.js',
   'label/label.js',
-  'portal/portal.js',
   'select/select.js',
-  'separator/separator.js',
-  'spinner/spinner.js',
   'switch/switch.js',
-  'tabs/tabs.js',
-  'text/text.js',
   'textarea/textarea.js',
+  // components
+  'accordion/accordion.js',
+  'alert/alert.js',
+  'breadcrumb/breadcrumb.js',
+  'tabs/tabs.js',
+  // utilities
+  'focus/focus.js',
+  'portal/portal.js',
 ];
 
 components.forEach(path =>{

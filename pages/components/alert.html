@@ -5,29 +5,28 @@
 
 <section class="details">
   <h2>Info</h2>
-  <p>Neither element is mandatory; however, either a title or a content is required to display a meaningful message.</p>
-  <p>This component is designed to work with the <a href="#icon">icon</a> component for rendering icons.</p>
+  <p>A label or text is required to display a meaningful message.</p>
 </section>
 
 <section class="details">
-  <h2>Object properties</h2>
-  <p>label - optional. Alert label displayed at the top. Plain text only.</p>
-  <p>content - optional. Additional alert content, which can include plain text or HTML markup.</p>
+  <h2>Dependencies</h2>
+  <p>This component depends on the <a href="#label">label</a>, <a href="#text">text</a>, and <a href="#icon">icon</a> components, which are required parts of its functionality.</p>
 </section>
 
 <section class="details">
   <h2>Attributes</h2>
   <p>non-closable - static (optional, boolean). Hides the close button when the attribute is present.</p>
-  <p>icon - static (optional). Adds an icon by specifying its name in the attribute, e.g., <code>icon="name"</code>.</p>
 </section>
 
 <section class="content">
 
   <div class="content-item">
-    <div>Alert with content, without a close button</div>
+    <div>Alert with description (no close button)</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="alert00" non-closable></ui-alert>
+        <ui-alert non-closable>
+          <div>Your settings have been successfully saved.</div>
+        </ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -35,11 +34,9 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-alert id="alert" non-closable&gt;&lt;/ui-alert&gt;
-
-alert.data = {
- content:'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'
-};
+&lt;ui-alert non-closable&gt;
+  &lt;div&gt;Your settings have been successfully saved.&lt;/div&gt;
+&lt;/ui-alert&gt;
 </code></pre>
 
       </div>
@@ -47,10 +44,13 @@ alert.data = {
   </div>
 
   <div class="content-item">
-    <div>Alert with label and content</div>
+    <div>Alert with label and description</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="alert01"></ui-alert>
+        <ui-alert>
+          <h6>Update Complete</h6>
+          <div>Your settings have been successfully saved.</div>
+        </ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -58,12 +58,10 @@ alert.data = {
       <div class="code">
 
 <pre><code>
-&lt;ui-alert id="alert"&gt;&lt;/ui-alert&gt;
-
-alert.data = {
- label:'Update Complete',
- content:'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'
-};
+&lt;ui-alert&gt;
+  &lt;h6&gt;Update Complete&lt;/h6&gt;
+  &lt;div&gt;Your settings have been successfully saved.&lt;/div&gt;
+&lt;/ui-alert&gt;
 </code></pre>
 
       </div>
@@ -71,10 +69,23 @@ alert.data = {
   </div>
 
   <div class="content-item">
-    <div>Alert with label, content, close button, and icon</div>
+    <div>Alert with label, description, and icon</div>
     <div class="example">
       <div class="preview">
-        <ui-alert id="alert02" icon="info"></ui-alert>
+        <ui-alert>
+          <ui-icon name="info"></ui-icon>
+          <h6>Update Complete</h6>
+          <div>Your settings have been successfully saved.
+  <ul>
+    <li>Your settings have</li>
+    <li>Your settings have</li>
+  </ul>
+  <ul>
+    <li>Your settings have</li>
+    <li>Your settings have</li>
+  </ul>
+          </div>
+        </ui-alert>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -82,12 +93,11 @@ alert.data = {
       <div class="code">
 
 <pre><code>
-&lt;ui-alert id="alert" icon="info"&gt;&lt;/ui-alert&gt;
-
-alert.data = {
- label:'Update Complete',
- content:'Your settings have been &lt;strong&gt;successfully&lt;/strong&gt; saved.'
-};
+&lt;ui-alert&gt;
+  &lt;ui-icon name="info"&gt;&lt;/ui-icon&gt;
+  &lt;h6&gt;Update Complete&lt;/h6&gt;
+  &lt;div&gt;Your settings have been successfully saved.&lt;/div&gt;
+&lt;/ui-alert&gt;
 </code></pre>
 
       </div>

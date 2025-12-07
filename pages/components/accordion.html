@@ -22,7 +22,35 @@
     <div>Default</div>
     <div class="example">
       <div class="preview">
-        <ui-accordion id="accordion"></ui-accordion>
+        <ui-accordion>
+
+          <ui-accordion-item expanded>
+            <ui-label>
+              <ui-button>
+                What is Lorem?
+                <ui-icon name="keyboard-arrow-down"></ui-icon>
+              </ui-button>
+            </ui-label>
+
+            <ui-text>
+              Lorem ipsum dolor sit amet...
+            </ui-text>
+          </ui-accordion-item>
+
+          <ui-accordion-item>
+            <ui-label>
+              <ui-button>
+                What is Lorem?
+                <ui-icon name="keyboard-arrow-down"></ui-icon>
+              </ui-button>
+            </ui-label>
+
+            <ui-text>
+              Lorem ipsum dolor sit amet...
+            </ui-text>
+          </ui-accordion-item>
+
+        </ui-accordion>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -30,13 +58,8 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-accordion id="accordion"&gt;&lt;/ui-accordion&gt;
-
-accordion.data = [
- {label:'What is Lorem?',content:'Lorem ipsum dolor sit amet...',expanded:true},
- {label:'Why use it?',content:'Lorem ipsum dolor sit amet...',disabled:true},
- {label:'Where to use?',content:'Lorem ipsum dolor sit amet...'}
-];
+&lt;ui-accordion&gt;
+&lt;/ui-accordion&gt;
 </code></pre>
 
       </div>

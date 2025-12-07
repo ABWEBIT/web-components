@@ -1,19 +1,34 @@
 import {uuid} from '../../utils/index.js';
-import DOMPurify from '../../utils/purify.es.mjs';
 
 class UIAccordion extends HTMLElement{
-  #data = null;
+  #items = null;
+  #labels = null;
+  connectedCallback(){
 
-  get data(){return this.#data;}
-  set data(value){
-    if(!Array.isArray(value)) throw new Error('Data must be an array');
-    if(this.#data === value) return;
-    this.#data = value;
-    this.#render();
+    this.#items = this.querySelectorAll('ui-accordion-item');
+    this.#labels = this.querySelectorAll('ui-label');
+
+    this.#items.forEach(item =>{
+      const label = item.querySelector('ui-label');
+      if(!label){
+        throw new Error('ui-label not found in item');
+      }
+      label.role = 'heading';
+      label.ariaLevel = "6";
+
+      const panel = item.querySelector('ui-label');
+      if(!label){
+        throw new Error('ui-label not found in item');
+      }
+
+
+    });
+
+
   }
 
+
   #render(){
-    const d = this.#data;
     if(!d) return;
 
     const fragment = document.createDocumentFragment();
@@ -47,8 +62,6 @@ class UIAccordion extends HTMLElement{
       accordionPanel.id = idPanel;
       accordionPanel.setAttribute('aria-labelledby',idHeader);
 
-      accordionPanel.innerHTML = DOMPurify.sanitize(item.content ?? '');
-      
       /* item */
       const accordionItem = document.createElement('div');
       accordionItem.dataset.index = index;

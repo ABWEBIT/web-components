@@ -170,7 +170,7 @@
     <div>Busy state</div>
     <div class="example">
       <div class="preview">
-        <ui-button id="busy">Start</ui-button>
+        <ui-button busy>Busy</ui-button>
         <ui-button id="reset">Reset</ui-button>
       </div>
       <div class="toolbar">
@@ -179,18 +179,7 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-button&gt;Start&lt;/ui-button&gt;
-
-const buttonBusy = document.getElementById('busy');
-const buttonReset = document.getElementById('reset');
-
-buttonBusy.addEventListener('button-action',() =>{
- buttonBusy.busy = true;
-});
-
-buttonReset.addEventListener('button-action',() =>{
- buttonBusy.busy = false;
-});
+&lt;ui-button busy&gt;Busy&lt;/ui-button&gt;
 </code></pre>
 
       </div>
