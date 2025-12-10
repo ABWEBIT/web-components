@@ -4,23 +4,46 @@
   --ui-color-white:oklch(100% 0 0);
 
   /* gray */
-  --ui-color-gray-100:oklch(90% 0 0);
-  --ui-color-gray-150:oklch(85% 0 0);
-  --ui-color-gray-200:oklch(80% 0 0);
-  --ui-color-gray-250:oklch(75% 0 0);
-  --ui-color-gray-300:oklch(70% 0 0);
-  --ui-color-gray-350:oklch(65% 0 0);
-  --ui-color-gray-400:oklch(60% 0 0);
-  --ui-color-gray-450:oklch(55% 0 0);
-  --ui-color-gray-500:oklch(50% 0 0);
-  --ui-color-gray-550:oklch(45% 0 0);
-  --ui-color-gray-600:oklch(40% 0 0);
-  --ui-color-gray-650:oklch(35% 0 0);
-  --ui-color-gray-700:oklch(30% 0 0);
-  --ui-color-gray-750:oklch(25% 0 0);
-  --ui-color-gray-800:oklch(20% 0 0);
-  --ui-color-gray-850:oklch(15% 0 0);
-  --ui-color-gray-900:oklch(10% 0 0);
+  --ui-color-gray-10:oklch(10% 0 0);
+  --ui-color-gray-15:oklch(15% 0 0);
+  --ui-color-gray-20:oklch(20% 0 0);
+  --ui-color-gray-25:oklch(25% 0 0);
+  --ui-color-gray-30:oklch(30% 0 0);
+  --ui-color-gray-35:oklch(35% 0 0);
+  --ui-color-gray-40:oklch(40% 0 0);
+  --ui-color-gray-45:oklch(45% 0 0);
+  --ui-color-gray-50:oklch(50% 0 0);
+  --ui-color-gray-55:oklch(55% 0 0);
+  --ui-color-gray-60:oklch(60% 0 0);
+  --ui-color-gray-65:oklch(65% 0 0);
+  --ui-color-gray-70:oklch(70% 0 0);
+  --ui-color-gray-75:oklch(75% 0 0);
+  --ui-color-gray-80:oklch(80% 0 0);
+  --ui-color-gray-85:oklch(85% 0 0);
+  --ui-color-gray-90:oklch(90% 0 0);
+
+
+  --ui-color-gray-10:oklch(12% 0 0);
+  --ui-color-gray-20:oklch(22% 0 0);
+  --ui-color-gray-30:oklch(32% 0 0);
+  --ui-color-gray-40:oklch(42% 0 0);
+  --ui-color-gray-50:oklch(52% 0 0);
+  --ui-color-gray-60:oklch(62% 0 0);
+  --ui-color-gray-70:oklch(72% 0 0);
+  --ui-color-gray-80:oklch(82% 0 0);
+  --ui-color-gray-90:oklch(92% 0 0);
+
+  --color-gray-50: oklch(0.985 0.002 247.839);
+  --color-gray-100: oklch(0.967 0.003 264.542);
+  --color-gray-200: oklch(0.928 0.006 264.531);
+  --color-gray-300: oklch(0.872 0.01 258.338);
+  --color-gray-400: oklch(0.707 0.022 261.325);
+  --color-gray-500: oklch(0.551 0.027 264.364);
+  --color-gray-600: oklch(0.446 0.03 256.802);
+  --color-gray-700: oklch(0.373 0.034 259.733);
+  --color-gray-800: oklch(0.278 0.033 256.848);
+  --color-gray-900: oklch(0.21 0.034 264.665);
+  --color-gray-950: oklch(0.13 0.028 261.692);
 
   /* red */
   --ui-color-red-100:oklch(95% 0.01 27);

@@ -38,14 +38,6 @@
   --ui-size-large:40px;
   --ui-size-x-large:48px;
 
-  /* h size */
-  --ui-h1-size:40px;
-  --ui-h2-size:32px;
-  --ui-h3-size:24px;
-  --ui-h4-size:22px;
-  --ui-h5-size:20px;
-  --ui-h6-size:18px;
-
   /* font size */
   --ui-font-size-x-small:11px;
   --ui-font-size-small:12px;
@@ -54,7 +46,7 @@
   --ui-font-size-x-large:18px;
 
   /*** border radius ***/
-  --ui-border-radius-square:none;
+  --ui-border-radius-square:0px;
   --ui-border-radius-rounded:8px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
@@ -94,17 +86,25 @@ ui-tab{
 ui-button,
 ui-checkbox,
 ui-switch,
-ui-tab{
+ui-tab,
+button{
   appearance:none;
   cursor:pointer;
   touch-action:manipulation;
+}
+
+button[disabled]{
+  cursor:not-allowed;
+  opacity:0.5;
+  pointer-events:auto;
 }
 
 /* outline */
 ui-button,
 ui-checkbox,
 ui-switch,
-ui-tab{
+ui-tab,
+button{
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
@@ -120,15 +120,8 @@ ui-button,
 ui-checkbox,
 ui-checkbox > ui-icon,
 ui-switch,
-ui-tab{
+ui-tab,
+button{
   transition-duration:var(--ui-duration);
 }
-
-h1{font-size:var(--ui-h1-size);}
-h2{font-size:var(--ui-h2-size);}
-h3{font-size:var(--ui-h3-size);}
-h4{font-size:var(--ui-h4-size);}
-h5{font-size:var(--ui-h5-size);}
-h6{font-size:var(--ui-h6-size);}
-
 /* accent warning danger success */

@@ -2,87 +2,62 @@ import {uuid} from '../../utils/index.js';
 
 class UIAccordion extends HTMLElement{
   #items = null;
-  #labels = null;
   connectedCallback(){
 
-    this.#items = this.querySelectorAll('ui-accordion-item');
-    this.#labels = this.querySelectorAll('ui-label');
+    this.#items = this.querySelectorAll(':scope > div');
 
     this.#items.forEach(item =>{
-      const label = item.querySelector('ui-label');
-      if(!label){
-        throw new Error('ui-label not found in item');
-      }
-      label.role = 'heading';
-      label.ariaLevel = "6";
-
-      const panel = item.querySelector('ui-label');
-      if(!label){
-        throw new Error('ui-label not found in item');
-      }
-
-
-    });
-
-
-  }
-
-
-  #render(){
-    if(!d) return;
-
-    const fragment = document.createDocumentFragment();
-
-    d.forEach((item,index) => {
       const id = uuid();
-      const idHeader = `id-header-${id}`;
-      const idPanel = `id-panel-${id}`;
+      const idButton = `button-${id}`;
+      const idPanel = `panel-${id}`;
 
-      /* header */
-      const accordionHeader = document.createElement('ui-button');
-      accordionHeader.ariaExpanded = item.expanded ? 'true' : 'false';
-      accordionHeader.id = idHeader;
-      accordionHeader.setAttribute('aria-controls',idPanel);
+      const label = item.querySelector(':scope > :is(h2,h3,h4,h5,h6):first-child');
+      if(!label){
+        throw new Error('Accordion Label (h2-H6) not found');
+      }
 
-      accordionHeader.disabled = !!item.disabled;
+      const button = label.querySelector(':scope > button');
+      if(!button){
+        throw new Error('Accordion Button (button) not found');
+      }
 
-      /* header text */
-      const accordionHeaderText = document.createTextNode(item.label ?? '');
+      const panel = item.querySelector(':scope > div');
+      if(!panel){
+        throw new Error('Accordion Panel (div) not found in item');
+      }
+      panel.role = 'region';
 
-      /* header expand icon */
-      const accordionHeaderIcon = document.createElement('ui-icon');
-      accordionHeaderIcon.setAttribute('name','keyboard-arrow-down');
+      button.id ||= idButton;
+      panel.id ||= idPanel;
 
-      accordionHeader.append(accordionHeaderText,accordionHeaderIcon);
-  
-      /* panel */
-      const accordionPanel = document.createElement('div');
-      accordionPanel.ariaHidden = item.expanded ? 'false' : 'true',
-      accordionPanel.role = 'region';
-      accordionPanel.id = idPanel;
-      accordionPanel.setAttribute('aria-labelledby',idHeader);
+      button.setAttribute('aria-controls',panel.id);
+      panel.setAttribute('aria-labelledby',button.id);
 
-      /* item */
-      const accordionItem = document.createElement('div');
-      accordionItem.dataset.index = index;
+      let expanded = button.getAttribute('aria-expanded');
 
-      accordionItem.append(accordionHeader,accordionPanel);
-      fragment.append(accordionItem);
+      if(expanded !== 'true' && expanded !== 'false'){
+        button.setAttribute('aria-expanded','false');
+        expanded = 'false';
+      }
 
-      /* events */
-      accordionHeader.addEventListener('button-action',() =>{
-        if(!item.disabled){
-          this.#onAction(accordionHeader,accordionPanel);
-        }
-      });
+      panel.hidden = (expanded === 'false');
+      panel.ariaHidden = String(expanded === 'false');
+
+      button.addEventListener('click',() => this.#onAction(button,panel));
+
+      const icon = document.createElement('ui-icon');
+      icon.setAttribute('name','keyboard-arrow-down');
+      icon.setAttribute('ui-accordion-expand-icon','');
+      button.append(icon);
     });
-    this.replaceChildren(fragment);
+
   }
 
   #onAction = (button,panel) => {
     const expanded = button.ariaExpanded === 'true';
     button.ariaExpanded = String(!expanded);
-    if(panel) panel.ariaHidden = String(expanded);
+    panel.ariaHidden = String(expanded);
+    panel.hidden = expanded;
   }
 
 }

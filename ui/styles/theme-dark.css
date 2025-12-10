@@ -6,7 +6,7 @@
   --ui-surface-color-active:var(--ui-color-gray-700);
 
   /* content (text/icons) */
-  --ui-content-color-default:var(--ui-color-gray-150);
+  --ui-content-color-default:var(--ui-color-white);
   --ui-content-color-hover:var(--ui-color-white);
   --ui-content-color-focus:var(--ui-color-white);
   --ui-content-color-active:var(--ui-color-white);

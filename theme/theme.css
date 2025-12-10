@@ -1,4 +1,12 @@
 :root{
+  /* heading */
+  --ui-h1-size:40px;
+  --ui-h2-size:32px;
+  --ui-h3-size:24px;
+  --ui-h4-size:22px;
+  --ui-h5-size:20px;
+  --ui-h6-size:18px;
+
   /* body */
   --theme-body-font-size:16px;
 
@@ -35,6 +43,12 @@ a{color:var(--theme-link-color);}
 
 /* headings */
 :is(h1,h2,h3,h4,h5,h6){margin:0;}
+h1{font-size:var(--ui-h1-size);}
+h2{font-size:var(--ui-h2-size);}
+h3{font-size:var(--ui-h3-size);}
+h4{font-size:var(--ui-h4-size);}
+h5{font-size:var(--ui-h5-size);}
+h6{font-size:var(--ui-h6-size);}
 
 /* forms */
 input::-ms-reveal{display:none;}
@@ -192,7 +206,6 @@ nav .menu-item span.active{
 .intro{
   > h1{
     font-size:var(--ui-h1-size);
-    padding-bottom:20px;
   }
 
   > p{
@@ -208,7 +221,6 @@ nav .menu-item span.active{
 .details{
   > h2{
     font-size:var(--ui-h2-size);
-    padding-bottom:10px;
   }
 
   > p:last-child{
@@ -254,7 +266,7 @@ nav .menu-item span.active{
 
 .content-item > .example > .preview,
 .content-item > .example > .code{
-  padding:25px 15px;
+  padding:20px;
 }
 
 .content-item > .example > .code{
