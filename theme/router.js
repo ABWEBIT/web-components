@@ -9,10 +9,8 @@ const components = [
   // Components Pages
 
   // Primitives
-  {label: 'Heading', link: compPageDir+'heading.html', category: 'primitives' },
   {label: 'Icon', link: compPageDir+'icon.html', category: 'primitives' },
   {label: 'Separator', link: compPageDir+'separator.html', category: 'primitives' },
-  {label: 'Text', link: compPageDir+'text.html', category: 'primitives' },
   {label: 'Spinner', link: compPageDir+'spinner.html', category: 'primitives' },
 
   // Forms

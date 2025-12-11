@@ -1,33 +1,34 @@
 import {uuid} from '../../utils/index.js';
-import './tablist.js';
-import './tab.js';
-import './tabpanel.js';
 
 class UITabs extends HTMLElement{
-  #tablist = null;
   #tabs = [];
   #panels = [];
   #activeIndex = 0;
 
   connectedCallback(){
-    this.#tablist = this.querySelector('ui-tablist');
-    if(!this.#tablist){
-      throw new Error(`Error: <ui-tablist> element is missing.`);
+    const tablist = this.querySelector(':scope > div');
+    if(!tablist){
+      throw new Error('Error: "tablist" element is missing.');
     }
+    tablist.role = 'tablist';
 
-    this.#tabs = this.querySelectorAll('ui-tab');
-    this.#panels = this.querySelectorAll('ui-tabpanel');
+    this.#tabs = tablist.querySelectorAll('button');
+    this.#panels = this.querySelectorAll(':scope > div + div');
 
     if(this.#tabs.length !== this.#panels.length){
       throw new Error(`Error: the number of tabs (${this.#tabs.length}) does not match the number of panels (${this.#panels.length}).`);
     };
 
     this.#tabs.forEach((tab,index) =>{
+      tab.role = 'tab';
+
       const id = uuid();
       const idTab = `id-tab-${id}`;
       const idPanel = `id-panel-${id}`;
 
       const panel = this.#panels[index];
+      panel.role = 'tabpanel';
+
       const isSelected = index === this.#activeIndex;
 
       tab.id ||= idTab;
@@ -40,10 +41,10 @@ class UITabs extends HTMLElement{
       tab.ariaSelected = isSelected ? 'true' : 'false';
 
       if(isSelected){
-        tab.setAttribute('selected','');
+        tab.setAttribute('data-selected','');
       }
       else{
-        tab.removeAttribute('selected');
+        tab.removeAttribute('data-selected');
       }
 
       //tab.ariaDisabled = isDisabled ? true : null;
@@ -59,28 +60,28 @@ class UITabs extends HTMLElement{
     });
   }
 
+  #updateTabState = (tab,panel,isActive) =>{
+    if(!tab || !panel) return;
+
+    tab.ariaSelected = isActive ? 'true' : 'false';
+    tab.tabIndex = isActive ? 0 : -1;
+
+    if(isActive) tab.setAttribute('data-selected','');
+    else tab.removeAttribute('data-selected');
+
+    panel.hidden = !isActive;
+    panel.ariaHidden = isActive ? 'false' : 'true';
+  }
+
   #activateTab = (newIndex) =>{
     const oldIndex = this.#activeIndex;
-    if (newIndex === oldIndex) return;
+    if(newIndex === oldIndex) return;
 
-    const oldTab = this.#tabs[oldIndex];
-    const oldPanel = this.#panels[oldIndex];
-    if(oldTab && oldPanel){
-      oldTab.ariaSelected = null;
-      oldTab.removeAttribute('selected');
-      oldTab.tabIndex = -1;
-      oldPanel.hidden = true;
-      oldPanel.ariaHidden = 'true';
-    }
+    this.#updateTabState(this.#tabs[oldIndex],this.#panels[oldIndex],false);
 
     const newTab = this.#tabs[newIndex];
-    const newPanel = this.#panels[newIndex];
-    if(newTab && newPanel && !newTab.disabled){
-      newTab.ariaSelected = 'true';
-      newTab.setAttribute('selected','');
-      newTab.tabIndex = 0;
-      newPanel.hidden = false;
-      newPanel.ariaHidden = 'false';
+    if(newTab && !newTab.disabled){
+      this.#updateTabState(newTab,this.#panels[newIndex],true);
       this.#activeIndex = newIndex;
     }
   }

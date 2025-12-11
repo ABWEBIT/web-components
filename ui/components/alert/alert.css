@@ -60,10 +60,8 @@ ui-alert{
     grid-column:2 / 3;
     grid-row:2 / 3;
 
-    & > ul:last-child,
-    & > ol:last-child,
-    & > p:last-child{margin-bottom:0;}
-    & > ul,& > ol{padding-inline-start:20px;}
+    & > :is(ul,ol,p):last-child{margin-bottom:0;}
+    & > :is(ul,ol){padding-inline-start:20px;}
   }
 
   /* close button */

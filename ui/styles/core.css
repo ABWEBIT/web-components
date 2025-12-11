@@ -24,12 +24,25 @@
   /* font family */
   --ui-font-family:Arial,Helvetica,sans-serif;
 
+  /* font size */
+  font-size:16px;
+  --ui-font-size-x-small:0.75rem;
+  --ui-font-size-small:0.875rem;
+  --ui-font-size-medium:1rem;
+  --ui-font-size-large:1.125rem;
+  --ui-font-size-x-large:1.25rem;
+
   /* line height */
   --ui-line-height-x-small:1;
   --ui-line-height-small:1.2;
   --ui-line-height-normal:1.5;
   --ui-line-height-large:1.7;
   --ui-line-height-x-large:2;
+
+  /* text-align */
+  --ui-text-align-center:center;
+  --ui-text-align-start:start;
+  --ui-text-align-end:end;
 
   /* ui size */
   --ui-size-x-small:16px;
@@ -38,23 +51,11 @@
   --ui-size-large:40px;
   --ui-size-x-large:48px;
 
-  /* font size */
-  --ui-font-size-x-small:11px;
-  --ui-font-size-small:12px;
-  --ui-font-size-medium:14px;
-  --ui-font-size-large:16px;
-  --ui-font-size-x-large:18px;
-
-  /*** border radius ***/
+  /* border radius */
   --ui-border-radius-square:0px;
   --ui-border-radius-rounded:8px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
-
-  /* text-align */
-  --ui-text-align-center:center;
-  --ui-text-align-start:start;
-  --ui-text-align-end:end;
 
   /* duration */
   --ui-duration-x-fast:0.075s;
@@ -62,6 +63,9 @@
   --ui-duration:0.25s;
   --ui-duration-slow:0.4s;
   --ui-duration-x-slow:0.6s;
+
+  /* padding */
+  --ui-padding-inline:20px;
 }
 
 /* base */
@@ -93,6 +97,11 @@ button{
   touch-action:manipulation;
 }
 
+button{
+  font-size:1rem;
+  border:none;
+}
+
 button[disabled]{
   cursor:not-allowed;
   opacity:0.5;
@@ -105,7 +114,7 @@ ui-checkbox,
 ui-switch,
 ui-tab,
 button{
-  outline-offset:2px;
+  outline-offset:1px;
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;

@@ -2,11 +2,9 @@ const BASE_PATH = './components/';
 
 const components = [
   // primitives
-  'heading/heading.js',
   'icon/icon.js',
   'separator/separator.js',
   'spinner/spinner.js',
-  'text/text.js',
   // forms
   'button/button.js',
   'checkbox/checkbox.js',

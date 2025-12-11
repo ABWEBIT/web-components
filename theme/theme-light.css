@@ -1,13 +1,28 @@
 :root[data-theme='light']{
-  /* body */
-  --theme-body-color:rgb(255,255,255);
+  /* background */
+  --theme-background-color:var(--ui-color-gray-95);
+
+  /* surface */
+  --theme-surface-color:var(--ui-color-gray-90);
+  --theme-surface-secondary-color:var(--ui-color-gray-85);
 
   /* scrollbar */
-  --theme-scrollbar-color:var(--ui-color-gray-300);
+  --theme-scrollbar-color:var(--ui-color-gray-70);
 
-  /* link */
-  --theme-link-color:rgb(0,0,0);
+  /* heading */
+  --theme-heading-text-color:var(--ui-color-black);
 
   /* text */
-  --theme-text-color:rgb(0,0,0);
+  --theme-text-color:var(--ui-color-gray-10);
+
+  /* text secondary */
+  --theme-text-secondary-color:var(--ui-color-gray-30);
+
+  /* link */
+  --theme-link-color:var(--ui-color-gray-40);
+  --theme-link-color-hover:var(--ui-color-gray-10);
+  --theme-link-color-active:var(--ui-color-gray-10);
+
+  /* border */
+  --theme-border-color:var(--ui-color-gray-80);
 }

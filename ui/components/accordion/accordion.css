@@ -1,8 +1,8 @@
 ui-accordion{
   --ui-accordion-border-radius:var(--ui-border-radius-rounded);
+  --ui-accordion-padding-inline:var(--ui-padding-inline);  
   --ui-accordion-padding-block:20px;
-  --ui-accordion-padding-inline:20px;
-
+  
   --ui-accordion-header-padding-inline:20px 46px;
   --ui-accordion-surface-color:var(--ui-surface-color-default);
 
@@ -17,11 +17,11 @@ ui-accordion{
     background-color:var(--ui-accordion-surface-color);
   }
 
-  & > div > :is(h2,h3,h4,h5,h6):first-child{
+  & > div > :is(h1,h2,h3,h4,h5,h6):first-child{
     font-size:100%;
   }
 
-  & > div > :is(h2,h3,h4,h5,h6):first-child > button{
+  & > div > :is(h1,h2,h3,h4,h5,h6):first-child > button{
     position:relative;
     display:flex;
     align-items:center;

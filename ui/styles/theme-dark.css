@@ -1,12 +1,12 @@
 :root[data-theme='dark']{
-  /* surface (background) */
-  --ui-surface-color-default:var(--ui-color-gray-800);
-  --ui-surface-color-hover:var(--ui-color-gray-750);
-  --ui-surface-color-focus:var(--ui-color-gray-750);
-  --ui-surface-color-active:var(--ui-color-gray-700);
+  /* surface */
+  --ui-surface-color-default:var(--ui-color-gray-20);
+  --ui-surface-color-hover:var(--ui-color-gray-25);
+  --ui-surface-color-focus:var(--ui-color-gray-20);
+  --ui-surface-color-active:var(--ui-color-gray-30);
 
-  /* content (text/icons) */
-  --ui-content-color-default:var(--ui-color-white);
+  /* content */
+  --ui-content-color-default:var(--ui-color-gray-80);
   --ui-content-color-hover:var(--ui-color-white);
   --ui-content-color-focus:var(--ui-color-white);
   --ui-content-color-active:var(--ui-color-white);
@@ -15,5 +15,5 @@
   --ui-outline-color:var(--ui-color-gray-500);
 
   /* scrollbar */
-  --ui-scrollbar-color:var(--ui-color-gray-600);
+  --theme-scrollbar-color:var(--ui-color-gray-35);
 }
