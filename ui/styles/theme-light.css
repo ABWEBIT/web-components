@@ -1,18 +1,19 @@
 :root[data-theme='light']{
-  /* surface (background) */
+  /* surface */
   --ui-surface-color-default:var(--ui-color-gray-90);
+  --ui-surface-color-secondary:var(--ui-color-gray-80);
   --ui-surface-color-hover:var(--ui-color-gray-85);
   --ui-surface-color-focus:var(--ui-color-gray-85);
   --ui-surface-color-active:var(--ui-color-gray-80);
 
-  /* content (text/icons) */
+  /* content */
   --ui-content-color-default:var(--ui-color-black);
   --ui-content-color-hover:var(--ui-color-black);
   --ui-content-color-focus:var(--ui-color-black);
   --ui-content-color-active:var(--ui-color-black);
 
   /* outline */
-  --ui-outline-color:var(--ui-color-gray-50);
+  --ui-outline-color:var(--ui-color-blue-50);
 
   /* scrollbar */
   --ui-scrollbar-color:var(--ui-color-black);
