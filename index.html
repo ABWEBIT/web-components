@@ -2,26 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="icon" href="data:,">
 <meta name="viewport" content="width=device-width">
 <script>
-  const theme = localStorage.getItem('theme') || 'dark';
-  document.documentElement.dataset.theme = theme;
+  window.theme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.dataset.theme = window.theme;
 </script>
-
-<link rel="stylesheet" href="./theme/theme.css">
+<link rel="stylesheet" href="./styles/core/reset.css">
+<link rel="stylesheet" href="./styles/core/base.css">
+<link rel="stylesheet" href="./styles/core/typography.css">
+<link rel="stylesheet" href="./styles/core/layout.css">
 <link rel="stylesheet" href="" id="theme-style">
-
 <script>
-  document.getElementById('theme-style').href = `./theme/theme-${theme}.css`;
+  document.getElementById('theme-style').href = `./styles/themes/${window.theme}.css`;
 </script>
-
+<link rel="stylesheet" href="./styles/core/app.css">
 <link rel="stylesheet" href="./ui/styles/core.css">
+<link rel="icon" href="data:,">
 <title>Web Components</title>
 </head>
 <body>
 <ui-focus></ui-focus>
-<div id="app">
+<ui-app>
   <div class="container">
 
     <nav>
@@ -65,22 +66,19 @@
       </div>
     </nav>
 
+
     <main>
-      <header></header>
-
       <article id="article"></article>
-
-      <footer></footer>
     </main>
-
+    <header></header>
     <aside></aside>
+    <footer></footer>
 
   </div>
-</div>
+</ui-app>
 <ui-portal></ui-portal>
 
 <script>
-
   const btn = document.getElementById('toggle-theme');
   const themeLink = document.getElementById('theme-style');
 
@@ -96,9 +94,9 @@
       currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = currentTheme;
       localStorage.setItem('theme',currentTheme);
-      themeLink.href = `./theme/theme-${currentTheme}.css`;
+      themeLink.href = `./styles/themes/${currentTheme}.css`;
 
-      if(themeLink) themeLink.href = `./theme/theme-${currentTheme}.css`;
+      if(themeLink) themeLink.href = `./styles/themes/${currentTheme}.css`;
       if(icon) icon.setAttribute('name', currentTheme === 'dark' ? 'light-mode' : 'dark-mode');
     });
   }

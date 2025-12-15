@@ -21,11 +21,7 @@
 @import '../components/textarea/textarea.css';
 
 :root{
-  /* font family */
-  --ui-font-family:Arial,Helvetica,sans-serif;
-
   /* font size */
-  font-size:16px;
   --ui-font-size-x-small:0.75rem;
   --ui-font-size-small:0.875rem;
   --ui-font-size-medium:1rem;
@@ -53,9 +49,9 @@
 
   /* border radius */
   --ui-border-radius-square:0px;
-  --ui-border-radius-rounded:8px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
+  --ui-border-radius-rounded:8px;
 
   /* duration */
   --ui-duration-x-fast:0.075s;
@@ -65,7 +61,18 @@
   --ui-duration-x-slow:0.6s;
 
   /* padding */
-  --ui-padding-inline:20px;
+  --ui-padding-inline:1.25rem;
+}
+
+button{
+  background:none;
+  border:none;
+  padding:0;
+}
+
+button::-moz-focus-inner{
+  border:0;
+  padding:0;
 }
 
 /* base */
@@ -74,7 +81,6 @@ ui-checkbox,
 ui-switch,
 ui-tabs{
   direction:inherit;
-  box-sizing:border-box;
 }
 
 /* no-select */

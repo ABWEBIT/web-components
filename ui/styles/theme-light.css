@@ -1,10 +1,9 @@
 :root[data-theme='light']{
   /* surface */
-  --ui-surface-color-default:var(--ui-color-gray-90);
-  --ui-surface-color-secondary:var(--ui-color-gray-80);
-  --ui-surface-color-hover:var(--ui-color-gray-85);
-  --ui-surface-color-focus:var(--ui-color-gray-85);
-  --ui-surface-color-active:var(--ui-color-gray-80);
+  --ui-surface-color-default:var(--ui-color-neutral-90);
+  --ui-surface-color-secondary:var(--ui-color-neutral-80);
+  --ui-surface-color-hover:var(--ui-color-neutral-85);
+  --ui-surface-color-active:var(--ui-color-neutral-80);
 
   /* content */
   --ui-content-color-default:var(--ui-color-black);

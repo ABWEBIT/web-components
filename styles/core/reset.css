@@ -1,0 +1,31 @@
+/* reset default spacing */
+html,body{
+  margin:0;
+  padding:0;
+}
+
+/* set consistent box-sizing */
+*,*::before,*::after{
+  box-sizing:border-box;
+}
+
+/* normalize media elements */
+img,video,picture,iframe,embed,object{
+  display:block;
+  border:none;
+}
+
+/* remove tap highlight on interactive elements (mobile) */
+a,button,input,select,textarea,
+[role="button"],
+[role="switch"],
+[role="checkbox"],
+[role="radio"],
+[role="link"],
+[role="tab"],
+[role="option"],
+[role="menuitem"],
+[role="menuitemcheckbox"],
+[role="menuitemradio"]{
+  -webkit-tap-highlight-color:transparent;
+}
