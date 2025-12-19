@@ -14,35 +14,50 @@ a{
 }
 a:hover{color:var(--theme-link-color-hover);}
 
-main{
-  position:relative;
+header{
+  position:sticky;
   display:flex;
-  flex-direction:column;
-  width:100%;
-  padding-inline:40px;
+  align-items:center;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1;
+  padding-block:10px;
+  background-color:var(--ui-color-neutral-15);
+}
+
+footer{
+  align-items:end;
+  height:150px;
+  background-color:var(--ui-color-neutral-15);
 }
 
 article{
   display:flex;
   flex-direction:column;
   row-gap:50px;
-  padding-block:60px;
-  flex-grow:1;
+  padding-block:30px;
+}
+
+main{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+
 }
 
 /* nav */
 nav{
-  /* position:sticky; */
   position:sticky;
   display:flex;
   flex-direction:column;
   top:0;
-  bottom:0;
-  width:100%;
-  height:100vh;
+  width:260px;
+  height:100svh;
   padding-inline:20px;
   overflow-y:scroll; 
   overflow-x:hidden;
+  overscroll-behavior:contain;
 }
 
 nav .dynamic{

@@ -1,4 +1,4 @@
-import {uuid,setText} from '../../utils/index.js';
+import {uuid,setText} from '../../utilities/index.js';
 
 class UISelect extends HTMLElement{
   #data = null;

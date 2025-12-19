@@ -1,4 +1,4 @@
-import {inputTypes} from '../../utils/index.js';
+import {inputTypes} from '../../utilities/index.js';
 
 class UIInput extends HTMLElement{
   #listeners = null;

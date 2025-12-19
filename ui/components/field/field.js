@@ -1,4 +1,4 @@
-import {uuid} from '../../utils/index.js';
+import {uuid} from '../../utilities/index.js';
 
 class UIField extends HTMLElement{
   #uuid = uuid();

@@ -1,4 +1,4 @@
-import {uuid} from '../../utils/index.js';
+import {uuid} from '../../utilities/index.js';
 
 class UITabs extends HTMLElement{
   #tabs = [];

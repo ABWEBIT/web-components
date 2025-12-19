@@ -1,22 +1,45 @@
 /* reset default spacing */
-html,body{
+html,
+body{
   margin:0;
   padding:0;
 }
 
 /* set consistent box-sizing */
-*,*::before,*::after{
+*,
+*::before,
+*::after{
   box-sizing:border-box;
 }
 
 /* normalize media elements */
-img,video,picture,iframe,embed,object{
+img,
+picture,
+video,
+iframe,
+embed,
+object{
+  max-width:100%;
   display:block;
   border:none;
 }
 
+img,
+picture,
+video{
+  height:auto;
+}
+
+iframe{
+  width:100%;
+}
+
 /* remove tap highlight on interactive elements (mobile) */
-a,button,input,select,textarea,
+a,
+button,
+input,
+select,
+textarea,
 [role="button"],
 [role="switch"],
 [role="checkbox"],

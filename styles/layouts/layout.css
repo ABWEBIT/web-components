@@ -1,0 +1,36 @@
+ui-app{
+  position:relative;
+  display:flex;
+  width:100%;
+    max-width:1600px;
+    margin-inline:auto;
+
+
+  ui-wrapper{
+    max-width:1600px;
+    margin-inline:auto;
+  }
+
+  &[vertical]{
+    flex-direction:column;
+  }
+
+  &[horizontal]{
+    flex-direction:row;
+  }
+
+  & ui-sidebar{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+
+  & ui-content{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    padding-inline:40px;
+  }
+
+}

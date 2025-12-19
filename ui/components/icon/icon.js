@@ -1,4 +1,4 @@
-import {LRUCache} from '../../utils/index.js';
+import {LRUCache} from '../../utilities/index.js';
 
 class UIIcon extends HTMLElement{
   #name = 'undefined';

@@ -22,6 +22,9 @@ const components = [
   // utilities
   'focus/focus.js',
   'portal/portal.js',
+  // template
+  'app/app.js',
+  'wrapper/wrapper.js',
 ];
 
 components.forEach(path =>{
