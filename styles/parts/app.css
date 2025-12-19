@@ -23,13 +23,12 @@ header{
   right:0;
   z-index:1;
   padding-block:10px;
-  background-color:var(--ui-color-neutral-15);
+  background-color:var(--theme-background-color);
+  border-bottom:1px solid var(--theme-border-color);
 }
 
 footer{
-  align-items:end;
-  height:150px;
-  background-color:var(--ui-color-neutral-15);
+
 }
 
 article{
@@ -43,28 +42,32 @@ main{
   position:relative;
   display:flex;
   flex-direction:column;
-
 }
 
 /* nav */
-nav{
+ui-sidebar{
   position:sticky;
   display:flex;
   flex-direction:column;
+  flex-shrink:0;
+  row-gap:20px;
   top:0;
-  width:260px;
-  height:100svh;
-  padding-inline:20px;
   overflow-y:scroll; 
   overflow-x:hidden;
   overscroll-behavior:contain;
+  height:100svh;
+  width:260px;
+  padding-block:20px;
+  padding-inline:20px;
 }
 
-nav .dynamic{
+nav{
+  position:relative;
   display:flex;
   flex-direction:column;
   row-gap:20px;
 }
+
 
 nav .static{
   display:flex;

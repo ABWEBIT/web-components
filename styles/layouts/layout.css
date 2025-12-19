@@ -19,18 +19,12 @@ ui-app{
     flex-direction:row;
   }
 
-  & ui-sidebar{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-  }
-
   & ui-content{
     position:relative;
     display:flex;
     flex-direction:column;
     width:100%;
-    padding-inline:40px;
+    padding-inline:20px;
   }
 
 }
