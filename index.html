@@ -7,16 +7,16 @@
   window.theme = localStorage.getItem('theme') || 'dark';
   document.documentElement.dataset.theme = window.theme;
 </script>
-<link rel="stylesheet" href="./styles/core/reset.css">
-<link rel="stylesheet" href="./styles/core/base.css">
-<link rel="stylesheet" href="./styles/core/typography.css">
-<!--<link rel="stylesheet" href="./styles/core/layout.css">-->
-<link rel="stylesheet" href="./styles/layouts/layout.css">
+<link rel="stylesheet" href="./assets/styles/core/reset.css">
+<link rel="stylesheet" href="./assets/styles/core/base.css">
+<link rel="stylesheet" href="./assets/styles/core/typography.css">
+<!--<link rel="stylesheet" href="./assets/styles/core/layout.css">-->
+<link rel="stylesheet" href="./assets/styles/layouts/layout.css">
 <link rel="stylesheet" href="" id="theme-style">
 <script>
-  document.getElementById('theme-style').href = `./styles/themes/${window.theme}.css`;
+  document.getElementById('theme-style').href = `./assets/styles/themes/${window.theme}.css`;
 </script>
-<link rel="stylesheet" href="./styles/parts/app.css">
+<link rel="stylesheet" href="./assets/styles/parts/app.css">
 <link rel="stylesheet" href="./ui/styles/core.css">
 <link rel="icon" href="data:,">
 <title>Web Components</title>
@@ -93,23 +93,23 @@
       currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = currentTheme;
       localStorage.setItem('theme',currentTheme);
-      themeLink.href = `./styles/themes/${currentTheme}.css`;
+      themeLink.href = `./assets/styles/themes/${currentTheme}.css`;
 
-      if(themeLink) themeLink.href = `./styles/themes/${currentTheme}.css`;
+      if(themeLink) themeLink.href = `./assets/styles/themes/${currentTheme}.css`;
       if(icon) icon.setAttribute('name', currentTheme === 'dark' ? 'light-mode' : 'dark-mode');
     });
   }
 </script>
 <script type="module">
-  import {UIVersion} from './ui/version.js';
-  let version = document.querySelectorAll('.version');
-  version.forEach(v => {
-    v.textContent = UIVersion;
+  import {getVersion} from './assets/version.js';
+
+  getVersion().then(version => {
+    document.querySelectorAll('.version').forEach(v => v.textContent = version);
+    document.documentElement.dataset.version = version;
   });
-  document.documentElement.dataset.version = UIVersion;
 </script>
-<script type="module" src="./theme/router.js"></script>
+<script type="module" src="./assets/router.js"></script>
 <script type="module" src="./ui/components.js"></script>
-<script src="./theme/examples.js"></script>
+<script src="./assets/examples.js"></script>
 </body>
 </html>

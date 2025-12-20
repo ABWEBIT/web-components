@@ -1,12 +1,12 @@
-const infoPageDir = './pages/';
-const compPageDir = './pages/components/';
+const infoPageDir = './docs/';
+const compPageDir = './docs/components/';
 
 const components = [
-  // Info Pages
+  // Info Docs
   {label: 'Foundation', link: infoPageDir+'foundation.html', category: 'essentials' },
   {label: 'Icons', link: infoPageDir+'icons.html', category: 'theme' },
 
-  // Components Pages
+  // Components Docs
 
   // Primitives
   {label: 'Icon', link: compPageDir+'icon.html', category: 'primitives' },
