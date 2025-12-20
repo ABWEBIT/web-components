@@ -1,32 +1,39 @@
+/* base document settings */
 html{
   font-size:16px;
   tab-size:4;
 }
 
+/* root layout behavior */
 body{
   height:100svh;
   overflow-y:scroll;
   overflow-x:auto;
 }
 
+/* hide scrollbar corner and buttons */
 ::-webkit-scrollbar-corner,
 ::-webkit-scrollbar-button{
   display:none;
 }
 
+/* normalize scrollbar cursor */
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-track{
   cursor:default;
 }
 
+/* rounded scrollbar thumb */
 ::-webkit-scrollbar-thumb{
   border-radius:9999px;
 }
 
+/* transparent scrollbar track */
 ::-webkit-scrollbar-track{
   background-color:transparent;
 }
 
+/* custom scrollbar size */
 ::-webkit-scrollbar{
   width:0.5rem;
   height:0.5rem;

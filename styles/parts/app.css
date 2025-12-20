@@ -27,10 +27,6 @@ header{
   border-bottom:1px solid var(--theme-border-color);
 }
 
-footer{
-
-}
-
 article{
   display:flex;
   flex-direction:column;
@@ -65,9 +61,18 @@ nav{
   position:relative;
   display:flex;
   flex-direction:column;
-  row-gap:20px;
+  flex-grow:1;
 }
 
+nav > ul{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  list-style:none;
+  margin:0;
+  padding:0;
+  row-gap:20px;
+}
 
 nav .static{
   display:flex;
@@ -113,10 +118,6 @@ nav .menu-item span.active{
   > p{
     color:var(--theme-text-secondary-color);
   }
-}
-
-/* details */
-.details{
 }
 
 /* content */
