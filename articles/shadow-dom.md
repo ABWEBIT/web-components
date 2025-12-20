@@ -30,11 +30,9 @@ customElements.define('web-component',WebComponent);
 
 Storing a reference to the Shadow DOM in a variable is preferred in both open and closed modes, as it improves readability and avoids repeated lookups.
 
-```
 Despite its advantages, Shadow DOM has some important drawbacks:
 
 - Styling and customization limitations - encapsulation restricts the use of global CSS and themes.
 - Performance concerns - creating and managing many Shadow DOMs can increase memory and CPU usage.
-```
 
 Use Shadow DOM only where it is needed.
