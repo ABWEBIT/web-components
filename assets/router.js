@@ -68,7 +68,7 @@ function generateNav(data){
 
 generateNav(components);
 
-const article = document.getElementById('article');
+const article = document.querySelector('main > article');
 
 function navigate(pageId){
   location.hash = pageId;

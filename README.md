@@ -3,10 +3,11 @@ ECMAScript 2022 (ES13)
 
 CSS
 - Nesting
+- :has
 
 Browser Support
 - Chrome 120+
 - Edge 120+
-- Firefox 119+
+- Firefox 121+
 - Safari 17.2+
 - Opera 106+

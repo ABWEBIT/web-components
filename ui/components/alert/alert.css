@@ -9,8 +9,8 @@ ui-alert{
   --ui-alert-icon-width:24px;
   --ui-alert-row-gap:8px;
   --ui-alert-surface-color-default:var(--ui-surface-color-default);
-  --ui-alert-icon-color:var(--ui-color-white);
-  --ui-alert-title-color:var(--ui-color-white);
+  --ui-alert-icon-color:currentColor;
+  --ui-alert-title-color:currentColor;
   --ui-alert-content-color:var(--ui-color-gray-200);
 
   position:relative;
@@ -55,7 +55,6 @@ ui-alert{
 
   /* content */
   & > div{
-    font-size:var(--ui-alert-content-font-size);
     color:var(--ui-alert-content-color);
     grid-column:2 / 3;
     grid-row:2 / 3;

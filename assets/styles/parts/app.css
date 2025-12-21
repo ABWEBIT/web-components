@@ -27,18 +27,7 @@ header{
   border-bottom:1px solid var(--theme-border-color);
 }
 
-article{
-  display:flex;
-  flex-direction:column;
-  row-gap:50px;
-  padding-block:30px;
-}
 
-main{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-}
 
 /* nav */
 ui-sidebar{
@@ -113,12 +102,22 @@ nav .menu-item span.active{
   background-color:var(--theme-surface-secondary-color);
 }
 
-/* intro */
-.intro{
-  > p{
-    color:var(--theme-text-secondary-color);
+/* main */
+main{
+  position:relative;
+
+  & > article{
+    display:flex;
+    flex-direction:column;
+    row-gap:50px;
+    padding-block:30px;
+
+    & > :first-child > h1 + p{
+      color:var(--theme-text-secondary-color);
+    }
   }
 }
+
 
 /* content */
 .content,
