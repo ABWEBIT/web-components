@@ -36,18 +36,19 @@ ui-alert{
     margin-inline-end:20px;
   }
 
-  &:has(h6):has(div){
+  &:has(:is(h2,h3,h4,h5,h6)):has(div){
     row-gap:var(--ui-alert-row-gap);
   }
 
-  &:has(h6) > h6,
-  &:not(:has(h6)) > div{
+  &:has(:is(h2,h3,h4,h5,h6)) > :is(h2,h3,h4,h5,h6),
+  &:not(:has(:is(h2,h3,h4,h5,h6))) > div{
     padding-inline-end:24px;
   }
 
   /* title */
-  & > h6{
+  & > :is(h2,h3,h4,h5,h6){
     flex-grow:1;
+    font-size:1.25rem;
     color:var(--ui-alert-title-color);
     grid-column:2 / 3;
     grid-row:1 / 2;

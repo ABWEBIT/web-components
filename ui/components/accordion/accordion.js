@@ -40,10 +40,11 @@ class UIAccordion extends HTMLElement{
         expanded = 'false';
       }
 
-      panel.hidden = (expanded === 'false');
       panel.ariaHidden = String(expanded === 'false');
+      item.dataset.expanded = String(expanded === 'true');
+      //panel.hidden = (expanded === 'false');
 
-      button.addEventListener('click',() => this.#onAction(button,panel));
+      button.addEventListener('click',() => this.#onAction(item,button,panel));
 
       const icon = document.createElement('ui-icon');
       icon.setAttribute('name','keyboard-arrow-down');
@@ -53,11 +54,12 @@ class UIAccordion extends HTMLElement{
 
   }
 
-  #onAction = (button,panel) => {
+  #onAction = (item,button,panel) => {
     const expanded = button.ariaExpanded === 'true';
+    item.dataset.expanded = String(!expanded);
     button.ariaExpanded = String(!expanded);
     panel.ariaHidden = String(expanded);
-    panel.hidden = expanded;
+    //panel.hidden = expanded;
   }
 
 }

@@ -12,16 +12,40 @@ ui-accordion{
   width:100%;
 
   & > div{
-    width:100%;
+    position:relative;
+    display:grid;
+    overflow:hidden;
     border-radius:var(--ui-accordion-border-radius);
     background-color:var(--ui-accordion-surface-color);
+    transition-property:grid-template-rows;
+    transition-duration:var(--ui-duration);
   }
 
-  & > div > :is(h1,h2,h3,h4,h5,h6):first-child{
-    font-size:100%;
+  & > div:has(> div[role="region"][aria-hidden="true"]){
+    grid-template-rows:max-content 0fr;
   }
 
-  & > div > :is(h1,h2,h3,h4,h5,h6):first-child > button{
+  & > div:has(> div[role="region"][aria-hidden="false"]){
+    grid-template-rows:max-content 1fr;
+  }
+
+  & > div > div[role="region"]{
+    overflow:hidden;
+    padding-inline:var(--ui-accordion-padding-inline);
+  }
+
+  & > div > div[role="region"]::after{
+    content:'';
+    position:relative;
+    display:block;
+    height:var(--ui-accordion-padding-block);
+  }
+
+  & > div > :is(h2,h3,h4,h5,h6):first-child{
+    font-size:1rem;
+  }
+
+  & > div > :is(h2,h3,h4,h5,h6):first-child > button{
     position:relative;
     display:flex;
     align-items:center;
@@ -55,8 +79,4 @@ ui-accordion{
     &[aria-expanded="true"] > ui-icon[ui-accordion-expand-icon]{transform:rotate(180deg);}
   }
 
-  & > div > div[role="region"]{
-    padding-inline:var(--ui-accordion-padding-inline);
-    padding-block-end:calc(var(--ui-accordion-padding-block) - 4px);
-  }
 }
