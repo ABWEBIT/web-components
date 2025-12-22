@@ -11,9 +11,9 @@ class UIAccordion extends HTMLElement{
       const idButton = `button-${id}`;
       const idPanel = `panel-${id}`;
 
-      const label = item.querySelector(':scope > :is(h1,h2,h3,h4,h5,h6):first-child');
+      const label = item.querySelector(':scope > :is(h2,h3,h4,h5,h6):first-child');
       if(!label){
-        throw new Error('Accordion Label (h1-H6) not found');
+        throw new Error('Accordion Label (h2-H6) not found');
       }
 
       const button = label.querySelector(':scope > button');
@@ -42,7 +42,6 @@ class UIAccordion extends HTMLElement{
 
       panel.ariaHidden = String(expanded === 'false');
       item.dataset.expanded = String(expanded === 'true');
-      //panel.hidden = (expanded === 'false');
 
       button.addEventListener('click',() => this.#onAction(item,button,panel));
 
@@ -59,7 +58,6 @@ class UIAccordion extends HTMLElement{
     item.dataset.expanded = String(!expanded);
     button.ariaExpanded = String(!expanded);
     panel.ariaHidden = String(expanded);
-    //panel.hidden = expanded;
   }
 
 }

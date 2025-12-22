@@ -19,14 +19,15 @@ ui-accordion{
     background-color:var(--ui-accordion-surface-color);
     transition-property:grid-template-rows;
     transition-duration:var(--ui-duration);
+    transition-timing-function:ease-out;
   }
 
-  & > div:has(> div[role="region"][aria-hidden="true"]){
-    grid-template-rows:max-content 0fr;
-  }
-
-  & > div:has(> div[role="region"][aria-hidden="false"]){
+  & > div[data-expanded="true"]{
     grid-template-rows:max-content 1fr;
+  }
+
+  & > div[data-expanded="false"]{
+    grid-template-rows:max-content 0fr;
   }
 
   & > div > div[role="region"]{
