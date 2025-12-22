@@ -24,7 +24,7 @@ const components = [
   'portal/portal.js',
   // template
   'app/app.js',
-  'wrapper/wrapper.js',
+  'layout/layout.js',
 ];
 
 components.forEach(path =>{

@@ -1,16 +1,29 @@
+/* app shell */
+html,
+body{
+  height:100%;
+}
+
+body{
+  height:100svh;
+  overflow:hidden;
+}
+
+/* root app container */
 ui-app{
+  position:fixed;
+  display:block;
+  width:100%;
+  height:100svh;
+  overflow-y:scroll;
+  overflow-x:auto;
+}
+
+/* page layout */
+ui-layout{
   position:relative;
   display:flex;
   width:100%;
   max-width:1600px;
   margin-inline:auto;
-
-  & ui-content{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    padding-inline:20px;
-  }
-
 }

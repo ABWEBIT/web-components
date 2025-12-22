@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="./assets/styles/core/reset.css">
 <link rel="stylesheet" href="./assets/styles/core/base.css">
 <link rel="stylesheet" href="./assets/styles/core/typography.css">
-<!--<link rel="stylesheet" href="./assets/styles/core/layout.css">-->
 <link rel="stylesheet" href="./assets/styles/layouts/layout.css">
 <link rel="stylesheet" href="" id="theme-style">
 <script>
@@ -24,56 +23,58 @@
 <body>
 <ui-focus></ui-focus>
 <ui-app>
+  <ui-layout>
 
-  <ui-sidebar>
-    <div>
-      <span class="version"></span>
-    </div>
-    <nav>
-      <ul>
-        <li class="nav-category" data-nav-category="essentials">
-          <div class="menu-title">Essentials</div>
-        </li>
-  <!-- variant, tone, elevation, radius -->
-        <li class="nav-category" data-nav-category="theme">
-          <div class="menu-title">Theme</div>
-        </li>
-  <!-- stack, grid, container, section, split -->
-        <li class="nav-category" data-nav-category="layout">
-          <div class="menu-title">Layout</div>
-        </li>
-  <!-- divider, icon, line, spacer, text -->
-        <li class="nav-category" data-nav-category="primitives">
-          <div class="menu-title">Primitives</div>
-        </li>
-  <!-- button, input, select, modal, tooltip -->
-        <li class="nav-category" data-nav-category="forms">
-          <div class="menu-title">Forms</div>
-        </li>
-  <!-- accordion, tabs, breadcrumb,  -->
-        <li class="nav-category" data-nav-category="components">
-          <div class="menu-title">Components</div>
-        </li>
-  <!-- portal, focus, observer, resize-handler -->
-        <li class="nav-category" data-nav-category="utilities">
-          <div class="menu-title">Utilities</div>
-        </li>
-      </ul>
-    </nav>
-  </ui-sidebar>
+    <ui-sidebar>
+      <div>
+        <span class="version"></span>
+      </div>
+      <nav>
+        <ul>
+          <li class="nav-category" data-nav-category="essentials">
+            <div class="menu-title">Essentials</div>
+          </li>
+    <!-- variant, tone, elevation, radius -->
+          <li class="nav-category" data-nav-category="theme">
+            <div class="menu-title">Theme</div>
+          </li>
+    <!-- stack, grid, container, section, split -->
+          <li class="nav-category" data-nav-category="layout">
+            <div class="menu-title">Layout</div>
+          </li>
+    <!-- divider, icon, line, spacer, text -->
+          <li class="nav-category" data-nav-category="primitives">
+            <div class="menu-title">Primitives</div>
+          </li>
+    <!-- button, input, select, modal, tooltip -->
+          <li class="nav-category" data-nav-category="forms">
+            <div class="menu-title">Forms</div>
+          </li>
+    <!-- accordion, tabs, breadcrumb,  -->
+          <li class="nav-category" data-nav-category="components">
+            <div class="menu-title">Components</div>
+          </li>
+    <!-- portal, focus, observer, resize-handler -->
+          <li class="nav-category" data-nav-category="utilities">
+            <div class="menu-title">Utilities</div>
+          </li>
+        </ul>
+      </nav>
+    </ui-sidebar>
 
-  <ui-content>
-    <header>
-      <ui-button id="toggle-theme">
-        <ui-icon name=""></ui-icon>
-      </ui-button>
-    </header>
-    <main>
-      <article></article>
-    </main>
-    <footer></footer>
-  </ui-content>
+    <ui-main>
+      <header>
+        <ui-button id="toggle-theme">
+          <ui-icon name=""></ui-icon>
+        </ui-button>
+      </header>
+      <main>
+        <article></article>
+      </main>
+      <footer></footer>
+    </ui-main>
 
+  </ui-layout>
 </ui-app>
 <ui-portal></ui-portal>
 

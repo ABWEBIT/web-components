@@ -4,13 +4,6 @@ html{
   tab-size:4;
 }
 
-/* root layout behavior */
-body{
-  height:100svh;
-  overflow-y:scroll;
-  overflow-x:auto;
-}
-
 /* hide scrollbar corner and buttons */
 ::-webkit-scrollbar-corner,
 ::-webkit-scrollbar-button{
