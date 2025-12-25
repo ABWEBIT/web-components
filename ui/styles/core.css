@@ -1,6 +1,4 @@
 @import './colors.css';
-@import './theme-dark.css';
-@import './theme-light.css';
 
 @import '../components/accordion/accordion.css';
 @import '../components/alert/alert.css';
@@ -29,6 +27,7 @@
   --ui-font-size-x-large:1.25rem;
 
   /* line height */
+  --ui-line-height-none:1;
   --ui-line-height-x-small:1;
   --ui-line-height-small:1.2;
   --ui-line-height-normal:1.5;
@@ -48,10 +47,10 @@
   --ui-size-x-large:48px;
 
   /* border radius */
+  --ui-border-radius-rounded:8px;
   --ui-border-radius-square:0px;
   --ui-border-radius-pill:9999px;
   --ui-border-radius-circle:50%;
-  --ui-border-radius-rounded:8px;
 
   /* duration */
   --ui-duration-x-fast:0.075s;
@@ -90,10 +89,6 @@ button{
   appearance:none;
   cursor:pointer;
   touch-action:manipulation;
-}
-
-button{
-  font-size:1rem;
 }
 
 ui-switch[disabled],

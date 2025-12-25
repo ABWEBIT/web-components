@@ -2,14 +2,14 @@ ui-switch{
   --ui-switch-track-border-radius:var(--ui-border-radius-pill);
   --ui-switch-track-height:24px;
   --ui-switch-track-width:40px;
-  --ui-switch-track-surface-color:var(--ui-surface-color-secondary);
-  --ui-switch-track-checked-surface-color:var(--ui-color-blue-50);
+  --ui-switch-track-surface-color:var(--ui-surface-color-default);
+  --ui-switch-track-checked-surface-color:var(--color-blue-500);
   --ui-switch-thumb-border-radius:var(--ui-border-radius-circle);
   --ui-switch-thumb-height:16px;
   --ui-switch-thumb-width:16px;
   --ui-switch-thumb-position-start:4px;
   --ui-switch-thumb-position-end:20px;
-  --ui-switch-thumb-surface-color:var(--ui-color-white);
+  --ui-switch-thumb-surface-color:var(--color-white);
 
   position:relative;
   display:inline-flex;

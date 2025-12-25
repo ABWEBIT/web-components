@@ -1,0 +1,45 @@
+:root[data-theme='light']{
+  /* background */
+  --ui-background-color:var(--color-neutral-50);
+
+  /* surface neutral */
+  --ui-surface-color-default:var(--color-neutral-300);
+  --ui-surface-color-hover:color-mix(
+    in oklch,
+    var(--color-neutral-300),
+    var(--color-neutral-200) 50%
+  );
+  --ui-surface-color-active:color-mix(
+    in oklch,
+    var(--color-neutral-300),
+    var(--color-neutral-400) 20%
+  );
+
+  /* panel */
+  --ui-panel-color-default:var(--color-neutral-200);
+
+  /* menu */
+  --ui-menu-background-color-hover:var(--color-neutral-200);
+  --ui-menu-background-color-active:var(--color-neutral-300);
+
+  /* heading */
+  --ui-heading-color-default:var(--color-neutral-950);
+
+  /* text */
+  --ui-text-color-default:var(--color-neutral-950);
+  --ui-text-color-secondary:var(--color-neutral-600);
+
+  /* link */
+  --ui-link-color-default:var(--color-neutral-700);
+  --ui-link-color-hover:var(--color-neutral-800);
+  --ui-link-color-active:var(--color-neutral-950);
+
+  /* border */
+  --ui-border-color:var(--color-neutral-300);
+
+  /* outline */
+  --ui-outline-color:var(--color-blue-500);
+
+  /* scrollbar */
+  --ui-scrollbar-color:var(--color-neutral-400);
+}

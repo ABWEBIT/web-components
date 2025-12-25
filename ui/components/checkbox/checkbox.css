@@ -3,9 +3,9 @@ ui-checkbox{
   --ui-checkbox-height:24px;
   --ui-checkbox-width:24px;
   --ui-checkbox-surface-color:var(--ui-surface-color-default);
-  --ui-checkbox-content-color:var(--ui-color-white);
-  --ui-checkbox-border-color:var(--ui-color-gray-500);
-  --ui-checkbox-svg-surface-color:var(--ui-color-blue-500);
+  --ui-checkbox-content-color:var(--color-white);
+  --ui-checkbox-border-color:var(--color-neutral-500);
+  --ui-checkbox-svg-surface-color:var(--color-blue-500);
 
   position:relative;
   display:inline-flex;

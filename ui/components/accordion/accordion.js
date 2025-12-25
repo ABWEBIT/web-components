@@ -46,8 +46,8 @@ class UIAccordion extends HTMLElement{
       button.addEventListener('click',() => this.#onAction(item,button,panel));
 
       const icon = document.createElement('ui-icon');
-      icon.setAttribute('name','keyboard-arrow-down');
-      icon.setAttribute('ui-accordion-expand-icon','');
+      icon.setAttribute('name','arrow-down');
+      icon.setAttribute('expand-icon','');
       button.append(icon);
     });
 

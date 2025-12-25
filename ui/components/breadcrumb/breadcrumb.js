@@ -1,7 +1,7 @@
 class UIBreadcrumb extends HTMLElement{
   #items = [];
-  #separatorLTR = 'keyboard-arrow-right';
-  #separatorRTL = 'keyboard-arrow-left';
+  #separatorLTR = 'arrow-right';
+  #separatorRTL = 'arrow-left';
 
   connectedCallback(){
     this.role = 'navigation';

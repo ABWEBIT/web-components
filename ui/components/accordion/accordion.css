@@ -14,9 +14,9 @@ ui-accordion{
   & > div{
     position:relative;
     display:grid;
-    overflow:hidden;
+
     border-radius:var(--ui-accordion-border-radius);
-    background-color:var(--ui-accordion-surface-color);
+    background-color:var(--ui-panel-color-default);
     transition-property:grid-template-rows;
     transition-duration:var(--ui-duration);
     transition-timing-function:ease-out;
@@ -43,7 +43,7 @@ ui-accordion{
   }
 
   & > div > :is(h2,h3,h4,h5,h6):first-child{
-    font-size:1rem;
+    font-size:var(--ui-font-size-large);
   }
 
   & > div > :is(h2,h3,h4,h5,h6):first-child > button{
@@ -59,7 +59,7 @@ ui-accordion{
 
     padding-inline:var(--ui-accordion-padding-inline);
     padding-block:var(--ui-accordion-padding-block);
-    font-size:110%;
+    font-size:inherit;
     color:inherit;
     transition-property:outline-color;
 
@@ -69,15 +69,15 @@ ui-accordion{
       }
     }
 
-    & > ui-icon[ui-accordion-expand-icon]{
+    & > ui-icon[expand-icon]{
       position:absolute;
       inset-inline-end:14px;
       transition-duration:var(--ui-duration);
       transition-property:transform;
     }
 
-    &[aria-expanded="false"] > ui-icon[ui-accordion-expand-icon]{transform:rotate(0deg);}
-    &[aria-expanded="true"] > ui-icon[ui-accordion-expand-icon]{transform:rotate(180deg);}
+    &[aria-expanded="false"] > ui-icon[expand-icon]{transform:rotate(0deg);}
+    &[aria-expanded="true"] > ui-icon[expand-icon]{transform:rotate(180deg);}
   }
 
 }

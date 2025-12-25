@@ -1,4 +1,6 @@
 ui-alert{
+  --ui-alert-background-color:var(--ui-panel-color-default);
+
   --ui-alert-border-radius:var(--ui-border-radius-rounded);
   --ui-alert-max-width:100%;
   --ui-alert-padding-block:16px;
@@ -8,9 +10,7 @@ ui-alert{
   --ui-alert-icon-height:24px;
   --ui-alert-icon-width:24px;
   --ui-alert-row-gap:8px;
-  --ui-alert-surface-color-default:var(--ui-surface-color-default);
   --ui-alert-icon-color:currentColor;
-  --ui-alert-title-color:currentColor;
   --ui-alert-content-color:var(--ui-color-gray-200);
 
   position:relative;
@@ -22,7 +22,7 @@ ui-alert{
   padding-block:var(--ui-alert-padding-block);
   padding-inline:var(--ui-alert-padding-inline);
   border-radius:var(--ui-alert-border-radius);
-  background-color:var(--ui-alert-surface-color-default);
+  background-color:var(--ui-alert-background-color);
   max-width:var(--ui-alert-max-width);
 
   /* icon */
@@ -48,8 +48,8 @@ ui-alert{
   /* title */
   & > :is(h2,h3,h4,h5,h6){
     flex-grow:1;
-    font-size:1.25rem;
-    color:var(--ui-alert-title-color);
+    font-weight:initial;
+    font-size:var(--ui-font-size-large);
     grid-column:2 / 3;
     grid-row:1 / 2;
   }

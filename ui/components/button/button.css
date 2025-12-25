@@ -11,13 +11,13 @@ ui-button{
   --ui-button-spinner-icon-height:20px;
   --ui-button-spinner-icon-width:20px;
   --ui-button-spinner-surface-color:var(--ui-surface-color-active);
-  --ui-button-content-color-default:var(--ui-content-color-default);
+
+  --ui-button-content-color-default:var(--ui-text-color-tertiary);
   --ui-button-content-color-hover:var(--ui-content-color-hover);
-  --ui-button-content-color-focus:var(--ui-content-color-focus);
   --ui-button-content-color-active:var(--ui-content-color-active);
+
   --ui-button-surface-color-default:var(--ui-surface-color-default);
   --ui-button-surface-color-hover:var(--ui-surface-color-hover);
-  --ui-button-surface-color-focus:var(--ui-surface-color-focus);
   --ui-button-surface-color-active:var(--ui-surface-color-active);
 
   position:relative;

@@ -7,15 +7,15 @@
   window.theme = localStorage.getItem('theme') || 'dark';
   document.documentElement.dataset.theme = window.theme;
 </script>
-<link rel="stylesheet" href="./assets/styles/core/reset.css">
-<link rel="stylesheet" href="./assets/styles/core/base.css">
-<link rel="stylesheet" href="./assets/styles/core/typography.css">
-<link rel="stylesheet" href="./assets/styles/layouts/layout.css">
+<link rel="stylesheet" href="./ui/styles/core/reset.css">
+<link rel="stylesheet" href="./ui/styles/core/base.css">
+<link rel="stylesheet" href="./ui/styles/core/typography.css">
+<link rel="stylesheet" href="./ui/styles/layouts/layout.css">
 <link rel="stylesheet" href="" id="theme-style">
 <script>
-  document.getElementById('theme-style').href = `./assets/styles/themes/${window.theme}.css`;
+  document.getElementById('theme-style').href = `./ui/styles/themes/${window.theme}.css`;
 </script>
-<link rel="stylesheet" href="./assets/styles/parts/app.css">
+<link rel="stylesheet" href="./assets/app.css">
 <link rel="stylesheet" href="./ui/styles/core.css">
 <link rel="icon" href="data:,">
 <title>Web Components</title>
@@ -94,9 +94,9 @@
       currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = currentTheme;
       localStorage.setItem('theme',currentTheme);
-      themeLink.href = `./assets/styles/themes/${currentTheme}.css`;
+      themeLink.href = `./ui/styles/themes/${currentTheme}.css`;
 
-      if(themeLink) themeLink.href = `./assets/styles/themes/${currentTheme}.css`;
+      if(themeLink) themeLink.href = `./ui/styles/themes/${currentTheme}.css`;
       if(icon) icon.setAttribute('name', currentTheme === 'dark' ? 'light-mode' : 'dark-mode');
     });
   }

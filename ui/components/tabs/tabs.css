@@ -7,13 +7,15 @@ ui-tabs{
   --ui-tabs-tab-surface-color-default:var(--ui-surface-color-default);
   --ui-tabs-tab-surface-color-hover:var(--ui-surface-color-hover);
   --ui-tabs-tab-surface-color-active:var(--ui-surface-color-active);
+
   --ui-tabs-tab-content-color-default:var(--ui-content-color-default);
   --ui-tabs-tab-content-color-hover:var(--ui-content-color-hover);
   --ui-tabs-tab-content-color-active:var(--ui-content-color-active);
 
   --ui-tabs-tabpanel-padding-inline:20px;
   --ui-tabs-tabpanel-padding-block:16px;
-  --ui-tabs-tabpanel-surface-color:var(--ui-surface-color-default);
+
+  --ui-tabs-tabpanel-surface-color:var(--ui-surface-color-secondary);
   --ui-tabs-tabpanel-content-color:var(--ui-content-color-default);
 
   display:flex;
@@ -48,6 +50,7 @@ ui-tabs{
     padding-inline:var(--ui-tabs-tab-padding-inline);
     padding-block:var(--ui-tabs-tab-padding-block);
     color:var(--ui-tabs-tab-content-color-default);
+    font-size:var(--ui-font-size-large);
     transition-property:background-color,outline-color,color;
 
     &[disabled]{
