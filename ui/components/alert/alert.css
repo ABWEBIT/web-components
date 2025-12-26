@@ -48,7 +48,6 @@ ui-alert{
   /* title */
   & > :is(h2,h3,h4,h5,h6){
     flex-grow:1;
-    font-weight:initial;
     font-size:var(--ui-font-size-large);
     grid-column:2 / 3;
     grid-row:1 / 2;
