@@ -17,9 +17,8 @@ ui-breadcrumb{
     align-items:center;
 
     & > a{
-      color:var(--ui-breadcrumb-font-color);
       text-decoration:none;
-      transition-duration:var(--ui-transition-duration);
+      transition-duration:var(--ui-duration);
       transition-property:color;
     }
 

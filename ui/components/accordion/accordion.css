@@ -1,10 +1,12 @@
 ui-accordion{
-  --ui-accordion-border-radius:var(--ui-border-radius-rounded);
-  --ui-accordion-padding-inline:var(--ui-padding-inline);  
+  --ui-accordion-border-radius:var(--ui-border-radius-default);
+  --ui-accordion-background-color:var(--ui-panel-color-default);
+
+  --ui-accordion-padding-inline:20px;  
   --ui-accordion-padding-block:20px;
   
   --ui-accordion-header-padding-inline:20px 46px;
-  --ui-accordion-surface-color:var(--ui-surface-color-default);
+
 
   display:flex;
   flex-direction:column;
@@ -16,7 +18,7 @@ ui-accordion{
     display:grid;
 
     border-radius:var(--ui-accordion-border-radius);
-    background-color:var(--ui-panel-color-default);
+    background-color:var(--ui-accordion-background-color);
     transition-property:grid-template-rows;
     transition-duration:var(--ui-duration);
     transition-timing-function:ease-out;

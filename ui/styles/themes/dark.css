@@ -17,14 +17,10 @@
 
   /* panel */
   --ui-panel-color-default:var(--color-neutral-900);
-  --ui-surface-color-secondary:var(--color-neutral-900);
 
   /* menu */
   --ui-menu-background-color-hover:var(--color-neutral-900);
   --ui-menu-background-color-active:var(--color-neutral-800);
-
-  /* heading */
-  --ui-heading-color-default:var(--color-neutral-100);
 
   /* text */
   --ui-text-color-default:var(--color-neutral-50);
@@ -44,3 +40,4 @@
   /* scrollbar */
   --ui-scrollbar-color:var(--color-neutral-700);
 }
+/* accent warning danger success */

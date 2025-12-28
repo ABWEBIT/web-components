@@ -1,5 +1,6 @@
 ui-checkbox{
-  --ui-checkbox-border-radius:var(--ui-border-radius-rounded);
+  --ui-checkbox-border-radius:var(--ui-border-radius-default);
+
   --ui-checkbox-height:24px;
   --ui-checkbox-width:24px;
   --ui-checkbox-surface-color:var(--ui-surface-color-default);

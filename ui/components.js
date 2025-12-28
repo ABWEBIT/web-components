@@ -10,7 +10,6 @@ const components = [
   'checkbox/checkbox.js',
   'field/field.js',
   'input/input.js',
-  'label/label.js',
   'select/select.js',
   'switch/switch.js',
   'textarea/textarea.js',

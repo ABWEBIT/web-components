@@ -1,10 +1,7 @@
 import {uuid} from '../../utilities/index.js';
 
 class UIField extends HTMLElement{
-  #uuid = uuid();
-
   static elements = [
-    'ui-label',
     'ui-checkbox',
     'ui-input',
     'ui-select',
@@ -13,19 +10,15 @@ class UIField extends HTMLElement{
   ];
 
   connectedCallback(){
+    const id = uuid();
+    const idLabel = `label-${id}`;
+    const idControl = `control-${id}`;
+
     if(this.hasAttribute('required')) this.#addRequired();
 
-    const label = this.querySelector('ui-label');
+    const label = this.querySelector('div');
 
-    const labelPosition = this.getAttribute('label-position');
-    if(!['start','end'].includes(labelPosition)){
-      this.setAttribute('label-position','start');
-    };
-
-    if(labelPosition === 'start') this.prepend(label);
-    else if(labelPosition === 'end') this.append(label);
-
-    const controls = UIField.elements.filter(tag => tag !== 'ui-label');
+    const controls = UIField.elements.filter(tag => tag);
     const control = this.querySelector(controls.join(','));
 
     if(!control || !label){
@@ -35,8 +28,8 @@ class UIField extends HTMLElement{
       return;
     }
 
-    if(!label.id) label.id = this.#uuid;
-    control.setAttribute('aria-labelledby',label.id);
+    if(!label.id) label.id = idLabel;
+    control.setAttribute('aria-labelledby',idLabel);
 
     if(!label.hasAttribute('passive')){
       label.addEventListener('click',() => {

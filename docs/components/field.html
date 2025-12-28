@@ -1,17 +1,16 @@
 <div>
   <h1>Field</h1>
-  <p>The Field component groups a label with a form control.</p>
+  <p>The Field component groups a div with a form control.</p>
 </div>
 
 <div>
   <h2>Info</h2>
-  <p>Only two components are allowed inside: a ui-label and a form control.</p>
-  <p>Automatic association between the label and the form control by adding a unique UUID to the label's id attribute and assigning this UUID to the form control's aria-labelledby attribute. You can override the unique UUID by adding a custom id attribute to the ui-label component.</p>
+  <p>Allows only one div and one form control inside.</p>
+  <p>Automatic association between the div and the form control by adding a unique UUID to the div's id attribute and assigning this UUID to the form control's aria-labelledby attribute. You can override the unique UUID by adding a custom id attribute to the div component.</p>
 </div>
 
 <div>
   <h2>Attributes</h2>
-  <p>label-position - static (optional). Default: start. Defines the position of the ui-label relative to the form control.</p>
   <p>vertical - static (optional). Sets the orientation to vertical.</p>
   <p>required - static (optional). Adds the required attribute to all child elements.</p>
 </div>
@@ -23,7 +22,7 @@
     <div class="example">
       <div class="preview">
         <ui-field>
-          <ui-label>Label</ui-label>
+          <div>Label</div>
           <ui-checkbox></ui-checkbox>
         </ui-field>
       </div>
@@ -34,7 +33,7 @@
 
 <pre><code>
 &lt;ui-field&gt;
- &lt;ui-label&gt;Label&lt;/ui-label&gt;
+ &lt;div&gt;Label&lt;/div&gt;
  &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
 &lt;/ui-field&gt;
 </code></pre>
@@ -44,11 +43,11 @@
   </div>
 
   <div class="content-item">
-    <div>label-position="end"</div>
+    <div>div-position="end"</div>
     <div class="example">
       <div class="preview">
-        <ui-field label-position="end">
-          <ui-label>Label</ui-label>
+        <ui-field div-position="end">
+          <div>Label</div>
           <ui-switch></ui-switch>
         </ui-field>
       </div>
@@ -58,8 +57,8 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-field label-position="end"&gt;
- &lt;ui-label&gt;Label&lt;/ui-label&gt;
+&lt;ui-field div-position="end"&gt;
+ &lt;div&gt;Label&lt;/div&gt;
  &lt;ui-switch&gt;&lt;/ui-switch&gt;
 &lt;/ui-field&gt;
 </code></pre>
@@ -69,11 +68,11 @@
   </div>
 
   <div class="content-item">
-    <div>Passive, non-clickable label</div>
+    <div>Passive, non-clickable div</div>
     <div class="example">
       <div class="preview">
         <ui-field>
-          <ui-label passive>Label</ui-label>
+          <div>Label</div>
           <ui-switch></ui-switch>
         </ui-field>
       </div>
@@ -84,7 +83,7 @@
 
 <pre><code>
 &lt;ui-field&gt;
- &lt;ui-label passive&gt;Label&lt;/ui-label&gt;
+ &lt;div&gt;Label&lt;/div&gt;
  &lt;ui-switch&gt;&lt;/ui-switch&gt;
 &lt;/ui-field&gt;
 </code></pre>
@@ -98,7 +97,7 @@
     <div class="example">
       <div class="preview">
         <ui-field required vertical>
-          <ui-label>Label</ui-label>
+          <div>Label</div>
           <ui-textarea height="200"></ui-textarea>
         </ui-field>
       </div>
@@ -109,7 +108,7 @@
 
 <pre><code>
 &lt;ui-field required vertical&gt;
- &lt;ui-label&gt;Label&lt;/ui-label&gt;
+ &lt;div&gt;Label&lt;/div&gt;
  &lt;ui-textarea&gt;&lt;/ui-textarea&gt;
 &lt;/ui-field&gt;
 </code></pre>

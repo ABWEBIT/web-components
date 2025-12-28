@@ -22,9 +22,6 @@
   --ui-menu-background-color-hover:var(--color-neutral-200);
   --ui-menu-background-color-active:var(--color-neutral-300);
 
-  /* heading */
-  --ui-heading-color-default:var(--color-neutral-950);
-
   /* text */
   --ui-text-color-default:var(--color-neutral-950);
   --ui-text-color-secondary:var(--color-neutral-600);
@@ -43,3 +40,4 @@
   /* scrollbar */
   --ui-scrollbar-color:var(--color-neutral-400);
 }
+/* accent warning danger success */

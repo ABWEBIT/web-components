@@ -1,15 +1,18 @@
 ui-switch{
+  --ui-switch-track-background-color:var(--ui-surface-color-default);
+
   --ui-switch-track-border-radius:var(--ui-border-radius-pill);
   --ui-switch-track-height:24px;
   --ui-switch-track-width:40px;
-  --ui-switch-track-surface-color:var(--ui-surface-color-default);
-  --ui-switch-track-checked-surface-color:var(--color-blue-500);
+
+  --ui-switch-track-checked-background-color:var(--color-blue-500);
+
   --ui-switch-thumb-border-radius:var(--ui-border-radius-circle);
   --ui-switch-thumb-height:16px;
   --ui-switch-thumb-width:16px;
   --ui-switch-thumb-position-start:4px;
   --ui-switch-thumb-position-end:20px;
-  --ui-switch-thumb-surface-color:var(--color-white);
+  --ui-switch-thumb-background-color:var(--color-white);
 
   position:relative;
   display:inline-flex;
@@ -19,7 +22,7 @@ ui-switch{
   width:var(--ui-switch-track-width);
   padding-inline-start:var(--ui-switch-thumb-position-start);
   border-radius:var(--ui-switch-track-border-radius);
-  background-color:var(--ui-switch-track-surface-color);
+  background-color:var(--ui-switch-track-background-color);
   transition-property:background-color,outline-color,padding-inline-start;
 
   &::before{
@@ -27,11 +30,11 @@ ui-switch{
     height:var(--ui-switch-thumb-height);
     width:var(--ui-switch-thumb-width);
     border-radius:var(--ui-switch-thumb-border-radius);
-    background-color:var(--ui-switch-thumb-surface-color);
+    background-color:var(--ui-switch-thumb-background-color);
   }
 
   &[checked]{
     padding-inline-start:var(--ui-switch-thumb-position-end);
-    background-color:var(--ui-switch-track-checked-surface-color);
+    background-color:var(--ui-switch-track-checked-background-color);
   }
 }

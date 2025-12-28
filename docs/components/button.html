@@ -19,7 +19,7 @@
   <h2>Attributes</h2>
   <p>aria-label - static (required). Must be set manually for icon buttons.</p>
   <p>disabled - reactive (optional). Controls the disabled state of the component.</p>
-  <p>loading - reactive (optional). Controls the loading state of the component.</p>
+  <p>busy - reactive (optional). Controls the busy state of the component.</p>
   <p>shape - static (optional). Default: rounded. Available options: rounded, pill, square, circle. Sets the corner style.</p>
 </div>
 
@@ -30,7 +30,7 @@
     <div class="example">
       <div class="preview">
         <ui-button>Button</ui-button>
-        <ui-button aria-label="Button" icon-only>
+        <ui-button icon-only aria-label="Button">
           <ui-icon name="settings"></ui-icon>
         </ui-button>
       </div>
@@ -42,7 +42,7 @@
 <pre><code>
 &lt;ui-button&gt;Button&lt;/ui-button&gt;
 
-&lt;ui-button aria-label="Button" icon-only&gt;
+&lt;ui-button icon-only aria-label="Button"&gt;
   &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
 &lt;/ui-button&gt;
 </code></pre>
@@ -55,7 +55,7 @@
     <div>Text-Only, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button>Button</ui-button>
+        <ui-button shape="rounded">Button</ui-button>
         <ui-button shape="pill">Button</ui-button>
         <ui-button shape="square">Button</ui-button>
       </div>
@@ -65,7 +65,7 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-button&gt;Button&lt;/ui-button&gt;
+&lt;ui-button shape="rounded"&gt;Button&lt;/ui-button&gt;
 
 &lt;ui-button shape="pill"&gt;Button&lt;/ui-button&gt;
 
@@ -80,7 +80,7 @@
     <div>Icon-Only, Different Shapes</div>
     <div class="example">
       <div class="preview">
-        <ui-button aria-label="Button" icon-only>
+        <ui-button aria-label="Button" shape="rounded" icon-only>
           <ui-icon name="article"></ui-icon>
         </ui-button>
         <ui-button aria-label="Button" shape="circle" icon-only>
@@ -96,15 +96,15 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-button aria-label="Button" icon-only&gt;
+&lt;ui-button shape="rounded" icon-only aria-label="Button"&gt;
 &nbsp;&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
 &lt;/ui-button&gt;
 
-&lt;ui-button aria-label="Button" shape="circle" icon-only&gt;
+&lt;ui-button shape="circle" icon-only aria-label="Button"&gt;
 &nbsp;&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
 &lt;/ui-button&gt;
 
-&lt;ui-button aria-label="Button" shape="square" icon-only&gt;
+&lt;ui-button shape="square" icon-only aria-label="Button"&gt;
 &nbsp;&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
 &lt;/ui-button&gt;
 </code></pre>

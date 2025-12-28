@@ -1,12 +1,16 @@
 ui-input{
-  --ui-input-size:var(--ui-size-default);
+  --ui-input-border-radius:var(--ui-border-radius-default);
+  --ui-input-height:var(--ui-control-height-default);
+
+
+  --ui-input-background-color:var(--ui-color-gray-800);
+
+
   --ui-input-width:auto;
   --ui-input-font-size:14px;
-  --ui-input-size:32px;
   --ui-input-icon-size:28px;
   --ui-input-icon-padding:4px;
   --ui-input-padding-inline:12px;
-  --ui-input-background-color:var(--ui-color-gray-800);
   --ui-input-border-color:var(--ui-color-gray-500);
   --ui-input-border-color-hover:var(--ui-color-gray-100);
   --ui-input-outline-color:var(--ui-color-gray-500);
@@ -19,7 +23,7 @@ ui-input{
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  height:var(--ui-input-size);
+  height:var(--ui-input-height);
   border-radius:var(--ui-input-border-radius);
   background-color:var(--ui-input-background-color);
   transition-property:outline-color;

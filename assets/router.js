@@ -17,7 +17,6 @@ const components = [
   {label: 'Button', link: compPageDir+'button.html', category: 'forms' },
   {label: 'Checkbox', link: compPageDir+'checkbox.html', category: 'forms' },
   {label: 'Input', link: compPageDir+'input.html', category: 'forms' },
-  {label: 'Label', link: compPageDir+'label.html', category: 'forms' },
   {label: 'Switch', link: compPageDir+'switch.html', category: 'forms' },
   {label: 'Textarea', link: compPageDir+'textarea.html', category: 'forms' },
   {label: 'Field', link: compPageDir+'field.html', category: 'forms' },

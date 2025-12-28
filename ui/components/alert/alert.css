@@ -1,7 +1,7 @@
 ui-alert{
+  --ui-alert-border-radius:var(--ui-border-radius-default);
   --ui-alert-background-color:var(--ui-panel-color-default);
 
-  --ui-alert-border-radius:var(--ui-border-radius-rounded);
   --ui-alert-max-width:100%;
   --ui-alert-padding-block:16px;
   --ui-alert-padding-inline:20px;

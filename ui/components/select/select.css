@@ -1,6 +1,7 @@
 ui-select{
   --ui-select-border-radius:var(--ui-border-radius-default);
-  --ui-select-height:var(--ui-size-default);
+  --ui-select-height:var(--ui-control-height-default);
+
   --ui-select-padding-inline:16px;
   --ui-select-column-gap:6px;
   --ui-select-icon-size:20px;
