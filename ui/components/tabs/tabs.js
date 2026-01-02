@@ -23,8 +23,8 @@ class UITabs extends HTMLElement{
       tab.role = 'tab';
 
       const id = uuid();
-      const idTab = `id-tab-${id}`;
-      const idPanel = `id-panel-${id}`;
+      const idTab = `tab-${id}`;
+      const idPanel = `panel-${id}`;
 
       const panel = this.#panels[index];
       panel.role = 'tabpanel';

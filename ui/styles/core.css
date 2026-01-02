@@ -24,39 +24,37 @@
   --ui-font-size-medium:1rem;
   --ui-font-size-large:1.125rem;
   --ui-font-size-x-large:1.25rem;
+  --ui-font-size-default:var(--ui-font-size-medium);
 
   /* line height */
   --ui-line-height-none:1;
   --ui-line-height-x-small:1.2;
   --ui-line-height-small:1.3;
-  --ui-line-height-normal:1.5;
+  --ui-line-height-medium:1.5;
   --ui-line-height-large:1.7;
   --ui-line-height-x-large:2;
 
-  /* control heights */
-  --ui-control-height-x-small:16px;
-  --ui-control-height-small:24px;
-  --ui-control-height-medium:32px;
-  --ui-control-height-large:40px;
-  --ui-control-height-x-large:48px;
+  /* control min-heights */
+  --ui-control-height-x-small:1rem;
+  --ui-control-height-small:1.5rem;
+  --ui-control-height-medium:2rem;
+  --ui-control-height-large:2.5rem;
+  --ui-control-height-x-large:3rem;
   --ui-control-height-default:var(--ui-control-height-medium);
 
   /* border radius */
-  --ui-border-radius-rounded:8px;
-  --ui-border-radius-square:0px;
-  --ui-border-radius-pill:9999px;
-  --ui-border-radius-circle:50%;
+  --ui-border-radius-none:0;
+  --ui-border-radius-full:50vmax;
+  --ui-border-radius-rounded:calc(var(--ui-control-height-default) / 4);
   --ui-border-radius-default:var(--ui-border-radius-rounded);
 
-  /* duration */
-  --ui-duration-x-fast:0.075s;
-  --ui-duration-fast:0.15s;
-  --ui-duration:0.25s;
-  --ui-duration-slow:0.4s;
-  --ui-duration-x-slow:0.6s;
-
-  /* padding */
-  --ui-padding-inline:1.25rem;
+  /* transition duration */
+  --ui-transition-duration-x-fast:0.075s;
+  --ui-transition-duration-fast:0.15s;
+  --ui-transition-duration-normal:0.25s;
+  --ui-transition-duration-slow:0.4s;
+  --ui-transition-duration-x-slow:0.6s;
+  --ui-transition-duration-default:var(--ui-transition-duration-normal);
 }
 
 /* base */
@@ -117,5 +115,15 @@ ui-checkbox > ui-icon,
 ui-switch,
 ui-tab,
 button{
-  transition-duration:var(--ui-duration);
+  transition-duration:var(--ui-transition-duration-default);
+}
+
+/* link */
+a{
+  color:var(--ui-link-color-default);
+  transition-property:color;
+  transition-duration:var(--ui-transition-duration-default);
+
+  &:hover{color:var(--ui-link-color-hover);}
+  &:active{color:var(--ui-link-color-active);}
 }

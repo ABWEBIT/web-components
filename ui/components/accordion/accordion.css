@@ -20,7 +20,7 @@ ui-accordion{
     border-radius:var(--ui-accordion-border-radius);
     background-color:var(--ui-accordion-background-color);
     transition-property:grid-template-rows;
-    transition-duration:var(--ui-duration);
+    transition-duration:var(--ui-transition-duration-default);
     transition-timing-function:ease-out;
   }
 
@@ -74,7 +74,7 @@ ui-accordion{
     & > ui-icon[expand-icon]{
       position:absolute;
       inset-inline-end:14px;
-      transition-duration:var(--ui-duration);
+      transition-duration:var(--ui-transition-duration-default);
       transition-property:transform;
     }
 

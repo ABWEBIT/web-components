@@ -15,17 +15,6 @@ ui-main{
   background-color:var(--ui-scrollbar-color);
 }
 
-
-a{
-  color:var(--ui-link-color-default);
-  transition-property:color;
-  transition-duration:var(--ui-duration);
-
-  &:hover{color:var(--ui-link-color-hover);}
-  &:active{color:var(--ui-link-color-active);}
-}
-
-
 header{
   position:sticky;
   display:flex;
@@ -38,8 +27,6 @@ header{
   background-color:var(--ui-background-color);
   border-bottom:1px solid var(--ui-border-color);
 }
-
-
 
 /* nav */
 ui-sidebar{

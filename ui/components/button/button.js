@@ -10,41 +10,49 @@ class UIButton extends HTMLElement{
 
   attributeChangedCallback(attribute,oldValue,newValue){
     if(oldValue === newValue) return;
-    if(attribute === 'busy'){
-      if(this.#busy !== newValue) this.#busy = newValue;
-      this.#syncBusy();
-    }
-    if(attribute === 'disabled'){
-      if(this.#disabled !== newValue) this.#disabled = newValue;
-      this.#syncDisabled();
-    }
+    if(attribute === 'busy') this.busy = newValue !== null;
+    if(attribute === 'disabled') this.disabled = newValue !== null;
   }
 
   get busy(){return this.#busy;}
   set busy(value){
-    const newValue = !!value;
+    const newValue = Boolean(value);
     if(this.#busy === newValue) return;
     this.#busy = newValue;
-    this.ariaBusy = newValue;
+    this.tabIndex = this.#busy ? -1 : 0;
+    this.ariaBusy = this.#busy || null;
+    this.toggleAttribute('busy',this.#busy);
+
+    if(this.#busy && !this.#spinner){
+      this.#spinner = document.createElement('ui-spinner');
+      this.append(this.#spinner);
+    }
+    else{
+      this.#spinner?.remove();
+      this.#spinner = null;
+    }
   }
 
   get disabled(){return this.#disabled;}
   set disabled(value){
-    const newValue = !!value;
+    const newValue = Boolean(value);
     if(this.#disabled === newValue) return;
     this.#disabled = newValue;
-    this.ariaDisabled = newValue;
+    this.tabIndex = this.#disabled ? -1 : 0;
+    this.ariaDisabled = this.#disabled || null;
+    this.toggleAttribute('disabled',this.#disabled);
   }
 
   connectedCallback(){
     this.role = 'button';
-    this.tabIndex = 0;
+    this.tabIndex = this.#disabled || this.#busy ? -1 : 0;
 
     this.#listeners = new AbortController();
     const signal = this.#listeners.signal;
 
     this.addEventListener('click',this.#onClick,{signal});
     this.addEventListener('keydown',this.#onKeyDown,{signal});
+    this.addEventListener('keyup',this.#onKeyUp,{signal});
   }
 
   disconnectedCallback(){
@@ -52,38 +60,28 @@ class UIButton extends HTMLElement{
     this.#listeners = null;
   }
 
-  #syncBusy = () =>{
-    if(this.#busy && !this.#spinner){
-      this.#spinner = document.createElement('ui-spinner');
-      this.append(this.#spinner);
-      this.disabled = true;
-      this.ariaBusy = true;
-    }
-    else if(!this.#busy && this.#spinner){
-      this.#spinner?.remove();
-      this.#spinner = null;
-      this.disabled = false;
-      this.ariaBusy = null;
-    }
-  }
-
-  #syncDisabled = () =>{
-    this.ariaDisabled = this.#disabled ? true : null;
-    this.tabIndex = this.#disabled ? -1 : 0;
-  }
-
   #onClick = (e) =>{
-    if(this.#disabled) return;
-    e.preventDefault();
-    e.stopImmediatePropagation();
+    if(this.#disabled || this.#busy) return;
     this.#onAction(e);
   }
 
   #onKeyDown = (e) =>{
-    if(this.#disabled) return;
-    if(e.key === 'Enter' || e.key === ' '){
+    if(this.#disabled || this.#busy) return;
+
+    if(e.key === ' '){
       e.preventDefault();
-      if(e.repeat) return;
+    }
+
+    if(e.key === 'Enter' && !e.repeat){
+      this.#onAction(e);
+    }
+  }
+
+  #onKeyUp = (e) =>{
+    if(this.#disabled || this.#busy) return;
+
+    if(e.key === ' '){
+      e.preventDefault();
       this.#onAction(e);
     }
   }

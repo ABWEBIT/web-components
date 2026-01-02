@@ -9,8 +9,8 @@ class UICheckbox extends HTMLElement{
 
   attributeChangedCallback(attribute,oldValue,newValue){
     if(oldValue === newValue) return;
-    if(attribute === 'checked') this.checked = this.hasAttribute('checked');
-    if(attribute === 'disabled') this.disabled = this.hasAttribute('disabled');
+    if(attribute === 'checked') this.checked = newValue !== null;
+    if(attribute === 'disabled') this.disabled = newValue !== null;
   }
 
   get checked(){return this.#checked;}
@@ -18,8 +18,8 @@ class UICheckbox extends HTMLElement{
     const newValue = Boolean(value);
     if(this.#checked === newValue || this.#disabled) return;
     this.#checked = newValue;
-    this.#checked ? this.setAttribute('checked','') : this.removeAttribute('checked');
     this.ariaChecked = this.#checked ? true : null;
+    this.toggleAttribute('checked',this.#checked);
   }
 
   get disabled(){return this.#disabled;}
@@ -27,9 +27,9 @@ class UICheckbox extends HTMLElement{
     const newValue = Boolean(value);
     if(this.#disabled === newValue) return;
     this.#disabled = newValue;
-    this.#disabled ? this.setAttribute('disabled','') : this.removeAttribute('disabled');
-    this.ariaDisabled = this.#disabled ? true : null;
     this.tabIndex = this.#disabled ? -1 : 0;
+    this.ariaDisabled = this.#disabled ? true : null;
+    this.toggleAttribute('disabled',this.#disabled);
   }
 
   connectedCallback(){

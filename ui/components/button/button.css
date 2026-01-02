@@ -1,28 +1,21 @@
 ui-button{
-  --ui-button-border-radius:var(--ui-border-radius-default);
   --ui-button-height:var(--ui-control-height-default);
+  --ui-button-border-radius:calc(var(--ui-button-height) / 4);
+  --ui-button-font-size:var(--ui-font-size-default);
 
   --ui-button-width:fit-content;
-
-  --ui-button-font-size:var(--ui-font-size-default);
-  --ui-button-padding-inline:16px;
-  --ui-button-column-gap:12px;
-  --ui-button-icon-height:16px;
-  --ui-button-icon-width:16px;
-  --ui-button-spinner-icon-height:20px;
-  --ui-button-spinner-icon-width:20px;
-  --ui-button-spinner-surface-color:var(--ui-surface-color-active);
-
-  --ui-button-content-color-default:var(--ui-text-color-tertiary);
-  --ui-button-content-color-hover:var(--ui-content-color-hover);
-  --ui-button-content-color-active:var(--ui-content-color-active);
+  --ui-button-padding-inline:calc(var(--ui-button-height) / 2);
+  --ui-button-column-gap:clamp(
+    0.3rem,
+    calc(var(--ui-button-height) / 3),
+    0.75rem);
 
   --ui-button-surface-color-default:var(--ui-surface-color-default);
   --ui-button-surface-color-hover:var(--ui-surface-color-hover);
   --ui-button-surface-color-active:var(--ui-surface-color-active);
 
   position:relative;
-  display:flex;
+  display:inline-flex;
   align-items:center;
   justify-content:center;
   vertical-align:middle;
@@ -33,14 +26,9 @@ ui-button{
   padding-inline:var(--ui-button-padding-inline);
   column-gap:var(--ui-button-column-gap);
   font-size:var(--ui-button-font-size);
-  color:var(--ui-button-content-color-default);
+  color:var(--ui-text-color-default);
   background-color:var(--ui-button-surface-color-default);
   transition-property:background-color,outline-color,color;
-
-  &[icon-only]{
-    padding-inline:0;
-    aspect-ratio:1;
-  }
 
   &[disabled]:not([busy]){
     cursor:not-allowed;
@@ -49,45 +37,80 @@ ui-button{
   }
 
   &[busy]{
-    cursor:default;
+    cursor:wait;
   }
 
   @media (hover: hover){
     &:hover:not([disabled]){
-      color:var(--ui-button-content-color-hover);
       background-color:var(--ui-button-surface-color-hover);
     }
   }
 
   &:active:not([disabled]){
-    color:var(--ui-button-content-color-active);
     background-color:var(--ui-button-surface-color-active);
   }
 
-  & > ui-icon,
-  & > svg{
-    --ui-icon-height:var(--ui-button-icon-height);
-    --ui-icon-width:var(--ui-button-icon-width);
+  & > ui-icon{
+    margin-inline:calc(-1 * (var(--ui-button-height) / 10));
   }
 
-  & > svg{
-    height:var(--ui-icon-height);
-    width:var(--ui-icon-width);
+
+  & ui-icon{
+    --ui-icon-height:clamp(
+    0.75rem,
+    calc(var(--ui-button-height) / 1.8),
+    1.5rem);
+
+    --ui-icon-width:clamp(
+    0.75rem,
+    calc(var(--ui-button-height) / 1.8),
+    1.5rem);
   }
 
   /* spinner */
   & > ui-spinner{
-    --ui-spinner-icon-height:var(--ui-button-spinner-icon-height);
-    --ui-spinner-icon-width:var(--ui-button-spinner-icon-width);
     position:absolute;
     border-radius:inherit;
     inset:0;
-    background-color:var(--ui-button-spinner-surface-color);
+    background-color:var(--ui-button-surface-color-active);
   }
 
   /* shape */
-  &[shape="rounded"]{--ui-button-border-radius:var(--ui-border-radius-rounded);}
-  &[shape="square"]{--ui-button-border-radius:var(--ui-border-radius-square);}
-  &[shape="pill"]{--ui-button-border-radius:var(--ui-border-radius-pill);}
-  &[shape="circle"]{--ui-button-border-radius:var(--ui-border-radius-circle);}
+  &[shape="pill"],
+  &[shape="circle"]{
+    --ui-button-border-radius:var(--ui-border-radius-full);
+  }
+
+  &[shape="circle"],
+  &[shape="square"]{
+    aspect-ratio:1;
+    padding-inline:0;
+    padding-block:0;
+  }
+
+  /* size */
+  &[size="x-small"]{
+    --ui-button-height:var(--ui-control-height-x-small);
+    --ui-button-font-size:var(--ui-font-size-x-small);
+  }
+
+  &[size="small"]{
+    --ui-button-height:var(--ui-control-height-small);
+    --ui-button-font-size:var(--ui-font-size-small);
+  }
+
+  &[size="medium"]{
+    --ui-button-height:var(--ui-control-height-medium);
+    --ui-button-font-size:var(--ui-font-size-medium);
+  }
+
+  &[size="large"]{
+    --ui-button-height:var(--ui-control-height-large);
+    --ui-button-font-size:var(--ui-font-size-large);
+  }
+
+  &[size="x-large"]{
+    --ui-button-height:var(--ui-control-height-x-large);
+    --ui-button-font-size:var(--ui-font-size-x-large);
+  }
 }

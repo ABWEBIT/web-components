@@ -3,7 +3,7 @@ import {uuid,setText} from '../../utilities/index.js';
 class UISelect extends HTMLElement{
   #data = null;
   #text = '';
-  #iconExpand = 'keyboard-arrow-down';
+  #iconExpand = 'arrow-down';
   #expanded = false;
   #disabled = false;
   #listboxId = `id-${uuid()}`;

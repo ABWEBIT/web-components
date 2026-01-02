@@ -18,7 +18,7 @@ html{
 
 /* rounded scrollbar thumb */
 ::-webkit-scrollbar-thumb{
-  border-radius:9999px;
+  border-radius:50vmax;
 }
 
 /* transparent scrollbar track */

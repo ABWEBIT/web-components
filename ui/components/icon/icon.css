@@ -1,6 +1,6 @@
 ui-icon{
-  --ui-icon-height:auto;
-  --ui-icon-width:auto;
+  --ui-icon-height:1.5rem;
+  --ui-icon-width:1.5rem;
 
   display:inline-flex;
   align-items:center;
@@ -12,6 +12,8 @@ ui-icon{
 
   & > svg{
     display:block;
+    height:100%;
+    width:100%;
     fill:currentColor;
     stroke:currentColor;
     pointer-events:none;
