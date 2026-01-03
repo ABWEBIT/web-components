@@ -159,10 +159,6 @@ main{
   padding:20px;
 }
 
-.content-item > .example > .code{
-  line-height:var(--ui-line-height-normal);
-}
-
 .content-item > .example > .code code{
   white-space:pre-wrap;
   word-break:break-word;
@@ -197,13 +193,14 @@ main{
 .content-item > .icons > .icon-card{
   display:flex;
   flex-direction:column;
+  line-height:1;
   min-width:140px;
   row-gap:12px;
   padding:12px 10px 10px;
   align-items:center;
   background-color:var(--ui-panel-color-default);
   border-radius:var(--ui-border-radius-rounded);
-  line-height:var(--ui-line-height-none);
+
 
   & > :not(ui-icon){
     font-size:var(--ui-font-size-small);

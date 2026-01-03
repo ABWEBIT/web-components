@@ -27,19 +27,14 @@
   --ui-font-size-default:var(--ui-font-size-medium);
 
   /* line height */
-  --ui-line-height-none:1;
-  --ui-line-height-x-small:1.2;
-  --ui-line-height-small:1.3;
-  --ui-line-height-medium:1.5;
-  --ui-line-height-large:1.7;
-  --ui-line-height-x-large:2;
+  --ui-line-height-condensed:1.2;
+  --ui-line-height-normal:1.5;
+  --ui-line-height-expanded:2;
 
-  /* control min-heights */
-  --ui-control-height-x-small:1rem;
-  --ui-control-height-small:1.5rem;
-  --ui-control-height-medium:2rem;
-  --ui-control-height-large:2.5rem;
-  --ui-control-height-x-large:3rem;
+  /* control heights */
+  --ui-control-height-small:2rem;
+  --ui-control-height-medium:2.5rem;
+  --ui-control-height-large:3rem;
   --ui-control-height-default:var(--ui-control-height-medium);
 
   /* spacing */

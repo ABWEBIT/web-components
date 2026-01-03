@@ -6,6 +6,7 @@ class UIAlert extends HTMLElement{
     if(!this.hasAttribute('non-closable')){
       const button = document.createElement('ui-button');
       button.setAttribute('shape','circle');
+      button.setAttribute('size','small');
 
       const uiIcon = document.createElement('ui-icon');
       uiIcon.setAttribute('name','close');
