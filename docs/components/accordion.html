@@ -20,8 +20,9 @@
 
 <div>
   <h2>Attributes</h2>
+  <p><strong>Item:</strong></p>
+  <p>data-expanded="true" - static (optional). The associated panel is expanded.</p>
   <p><strong>Button:</strong></p>
-  <p>aria-expanded="true" - static (optional). The associated panel is expanded.</p>
   <p>disabled - static (optional). Determines whether the heading button is disabled.</p>
 </div>
 
@@ -33,9 +34,9 @@
       <div class="preview">
         <ui-accordion>
 
-          <div>
+          <div data-expanded="true">
             <h3>
-              <button aria-expanded="true">
+              <button>
                 What is Lorem? (expanded)
               </button>
             </h3>
@@ -79,9 +80,9 @@
 
 <pre><code>
 &lt;ui-accordion&gt;
-  &lt;div&gt; &lt;!-- item --&gt;
+  &lt;div data-expanded="true"&gt; &lt;!-- item --&gt;
     &lt;h3&gt; &lt;!-- heading --&gt;
-      &lt;button aria-expanded="true"&gt;
+      &lt;button&gt;
         What is Lorem?
       &lt;/button&gt;
     &lt;/h3&gt;

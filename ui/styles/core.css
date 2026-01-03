@@ -42,18 +42,27 @@
   --ui-control-height-x-large:3rem;
   --ui-control-height-default:var(--ui-control-height-medium);
 
-  /* border radius */
+  /* spacing */
+  --ui-spacing-none:0;
+  --ui-spacing-base:1.25rem;
+  --ui-spacing-default:var(--ui-spacing-base);
+
+  --ui-panel-padding-inline-base:1.25rem;
+  --ui-panel-padding-block-base:1rem;
+
+  /* border */
+  --ui-border-style:solid;
+  --ui-border-width:1px;
+
   --ui-border-radius-none:0;
   --ui-border-radius-full:50vmax;
   --ui-border-radius-rounded:calc(var(--ui-control-height-default) / 4);
   --ui-border-radius-default:var(--ui-border-radius-rounded);
 
   /* transition duration */
-  --ui-transition-duration-x-fast:0.075s;
-  --ui-transition-duration-fast:0.15s;
-  --ui-transition-duration-normal:0.25s;
-  --ui-transition-duration-slow:0.4s;
-  --ui-transition-duration-x-slow:0.6s;
+  --ui-transition-duration-fast:0.075s;
+  --ui-transition-duration-normal:0.15s;
+  --ui-transition-duration-slow:0.25s;
   --ui-transition-duration-default:var(--ui-transition-duration-normal);
 }
 

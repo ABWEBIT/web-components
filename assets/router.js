@@ -5,8 +5,9 @@ const components = [
   // Info Docs
   {label: 'Foundation', link: infoPageDir+'foundation.html', category: 'essentials' },
   {label: 'Icons', link: infoPageDir+'icons.html', category: 'theme' },
-
-  // Components Docs
+  
+  // Design Tokens
+  {label: 'Borders', link: infoPageDir+'borders.html', category: 'tokens' },
 
   // Primitives
   {label: 'Icon', link: compPageDir+'icon.html', category: 'primitives' },
@@ -33,38 +34,36 @@ const components = [
   {label: 'Portal', link: compPageDir+'portal.html', category: 'utilities' },
 ];
 
-function generateNav(data){
-  const categories = ['essentials','theme','primitives','forms','components','utilities'];
-
-  categories.forEach(category =>{
+function generateNav(components){
+  components.forEach(({label,link,category}) => {
     const container = document.querySelector(`[data-nav-category="${category}"]`);
-    if (!container) return;
+    if(!container) return;
 
-    const items = data
-      .filter(item => item.category === category)
-      .sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }));
+    const pageId = link.match(/[\w-]+(?=\.html)/)?.[0];
 
-    const fragment = document.createDocumentFragment();
+    const wrapper = document.createElement('div');
+    wrapper.className = 'menu-item';
 
-    items.forEach(({ label, link }) => {
-      const pageId = link.match(/[\w-]+(?=\.html)/)?.[0];
+    const span = document.createElement('span');
+    span.textContent = label;
+    span.setAttribute('data-link',link);
+    span.onclick = () => navigate(pageId);
 
-      const wrapper = document.createElement('div');
-      wrapper.className = 'menu-item';
+    wrapper.append(span);
+    container.append(wrapper);
+  });
 
-      const span = document.createElement('span');
-      span.textContent = label;
-      span.setAttribute('data-link', link);
-      span.onclick = () => navigate(pageId);
-
-      wrapper.append(span);
-      fragment.append(wrapper);
+  const containers = document.querySelectorAll('[data-nav-category]');
+  containers.forEach(container => {
+    const items = Array.from(container.children);
+    items.sort((a, b) => {
+      const labelA = a.querySelector('span')?.textContent || '';
+      const labelB = b.querySelector('span')?.textContent || '';
+      return labelA.localeCompare(labelB, undefined, { sensitivity: 'base' });
     });
-
-    container.append(fragment);
+    items.forEach(item => container.appendChild(item));
   });
 }
-
 generateNav(components);
 
 const article = document.querySelector('main > article');

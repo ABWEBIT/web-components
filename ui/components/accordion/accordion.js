@@ -33,14 +33,11 @@ class UIAccordion extends HTMLElement{
       button.setAttribute('aria-controls',panel.id);
       panel.setAttribute('aria-labelledby',button.id);
 
-      let expanded = button.getAttribute('aria-expanded');
+      let expanded = String(item.dataset.expanded === 'true');
 
-      if(expanded !== 'true' && expanded !== 'false'){
-        button.setAttribute('aria-expanded','false');
-        expanded = 'false';
-      }
-
+      button.ariaExpanded = expanded;
       panel.ariaHidden = String(expanded === 'false');
+      panel.inert = expanded === 'false';
       item.dataset.expanded = String(expanded === 'true');
 
       button.addEventListener('click',() => this.#onAction(item,button,panel));
@@ -58,6 +55,7 @@ class UIAccordion extends HTMLElement{
     item.dataset.expanded = String(!expanded);
     button.ariaExpanded = String(!expanded);
     panel.ariaHidden = String(expanded);
+    panel.inert = expanded;
   }
 
 }
