@@ -1,15 +1,16 @@
 ui-separator{
-  --ui-separator-height:1px;
-  --ui-separator-width:100%;
-  --ui-separator-surface-color:var(--ui-surface-color-default);
-
+  --ui-thickness:1px;
+  --ui-color:var(--ui-border-color);
   display:block;
-  height:var(--ui-separator-height);
-  width:var(--ui-separator-width);
-  background-color:var(--ui-separator-surface-color);
+  background-color:var(--ui-color);
 
-  &[vertical]{
-    --ui-separator-height:100%;
-    --ui-separator-width:1px;
+  &[orientation='horizontal']{
+    width:100%;
+    height:var(--ui-thickness);
+  }
+
+  &[orientation='vertical']{
+    width:var(--ui-thickness);
+    align-self:stretch;
   }
 }

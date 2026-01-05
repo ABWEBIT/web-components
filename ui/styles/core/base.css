@@ -4,7 +4,54 @@ html{
   tab-size:4;
 }
 
-/* hide scrollbar corner and buttons */
+body{
+  font-size:1rem;
+}
+
+/* reset default spacing */
+html,body{
+  margin:0;
+  padding:0;
+}
+
+/* set consistent box-sizing */
+*,*::before,*::after{
+  box-sizing:border-box;
+}
+
+/* normalize media elements */
+img,picture,video,iframe,embed,object{
+  max-width:100%;
+  display:block;
+  border:none;
+}
+
+img,picture,video{
+  height:auto;
+}
+
+iframe{
+  width:100%;
+}
+
+/* disable default tap highlight on touch devices */
+a,button,input,select,textarea{
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* normalize button appearance */
+button{
+  background:none;
+  border:none;
+  padding:0;
+}
+
+button::-moz-focus-inner{
+  border:0;
+  padding:0;
+}
+
+/* hide scrollbar corners and buttons */
 ::-webkit-scrollbar-corner,
 ::-webkit-scrollbar-button{
   display:none;
@@ -26,7 +73,7 @@ html{
   background-color:transparent;
 }
 
-/* custom scrollbar size */
+/* scrollbar size */
 ::-webkit-scrollbar{
   width:0.5rem;
   height:0.5rem;

@@ -1,23 +1,56 @@
-/* base text rendering */
+:root{
+  /* font family */
+  --ui-font-family-body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --ui-font-family-heading:var(--ui-font-family-body);
+  --ui-font-family-code:ui-monospace,Menlo,Consolas,monospace;
+
+  /* font weight */
+  --ui-font-weight-regular:400;
+  --ui-font-weight-medium:500;
+  --ui-font-weight-bold:600;
+
+  /* font size */
+  --ui-font-size-x-small:0.75rem;
+  --ui-font-size-small:0.875rem;
+  --ui-font-size-medium:1rem;
+  --ui-font-size-large:1.125rem;
+  --ui-font-size-x-large:1.25rem;
+  --ui-font-size-default:var(--ui-font-size-medium);
+
+  /* heading */
+  --ui-font-size-h1:2.5rem;
+  --ui-font-size-h2:2rem;
+  --ui-font-size-h3:1.75rem;
+  --ui-font-size-h4:1.5rem;
+  --ui-font-size-h5:1.25rem;
+  --ui-font-size-h6:1.125rem;
+
+  /* line height */
+  --ui-line-height-condensed:1.2;
+  --ui-line-height-normal:1.5;
+  --ui-line-height-expanded:2;
+}
+
+/* body */
 body{
-  line-height:1.5;
+  line-height:var(--ui-line-height-normal);
+  font-family:var(--ui-font-family-body);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
 
-/* base font family */
-body,
+/* form font */
 button,
 input,
 select,
 textarea{
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-family:var(--ui-font-family-body);
 }
 
-/* monospace font stack */
+/* code font */
 pre,
 code{
-  font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-family:var(--ui-font-family-code)
 }
 
 /* reset pre spacing */
@@ -29,8 +62,8 @@ pre{
 a{
   text-decoration-line:underline;
   text-decoration-style:dotted;
-  text-underline-offset:0.2em;
-  text-decoration-thickness:0.15em;
+  text-underline-offset:0.2rem;
+  text-decoration-thickness:0.15rem;
 }
 
 /* normalize list spacing */
@@ -46,22 +79,32 @@ p:last-child{
   margin-block-end:0;
 }
 
-/* reset heading spacing */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
+/* heading */
+h1,h2,h3,h4,h5,h6{
+  font-family:var(--ui-font-family-heading);
   margin:0;
   padding:0;
-  line-height:1.2;
 }
 
-/* heading scale */
-h1{font-size:2.5rem;}
-h2{font-size:2rem;}
-h3{font-size:1.75rem;}
-h4{font-size:1.5rem;}
-h5{font-size:1.25rem;}
-h6{font-size:1rem;}
+h1,h2,h3{
+  font-weight:var(--ui-font-weight-bold);
+}
+
+h4,h5,h6{
+  font-weight:var(--ui-font-weight-medium);
+}
+
+h1,h2,h3{
+  line-height:var(--ui-line-height-condensed);
+}
+
+h4,h5,h6{
+  line-height:var(--ui-line-height-condensed);
+}
+
+h1{font-size:var(--ui-font-size-h1);}
+h2{font-size:var(--ui-font-size-h2);}
+h3{font-size:var(--ui-font-size-h3);}
+h4{font-size:var(--ui-font-size-h4);}
+h5{font-size:var(--ui-font-size-h5);}
+h6{font-size:var(--ui-font-size-h6);}

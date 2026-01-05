@@ -18,19 +18,6 @@
 @import '../components/textarea/textarea.css';
 
 :root{
-  /* font size */
-  --ui-font-size-x-small:0.75rem;
-  --ui-font-size-small:0.875rem;
-  --ui-font-size-medium:1rem;
-  --ui-font-size-large:1.125rem;
-  --ui-font-size-x-large:1.25rem;
-  --ui-font-size-default:var(--ui-font-size-medium);
-
-  /* line height */
-  --ui-line-height-condensed:1.2;
-  --ui-line-height-normal:1.5;
-  --ui-line-height-expanded:2;
-
   /* control heights */
   --ui-control-height-small:2rem;
   --ui-control-height-medium:2.5rem;
@@ -47,7 +34,7 @@
 
   /* border */
   --ui-border-style:solid;
-  --ui-border-width:1px;
+  --ui-border-width-small:1px;
 
   --ui-border-radius-none:0;
   --ui-border-radius-full:50vmax;

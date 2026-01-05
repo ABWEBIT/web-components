@@ -118,6 +118,11 @@ main{
 }
 
 
+.visual-block{
+  background-color:var(--color-neutral-500);
+}
+
+
 /* content */
 .content,
 .content > .content-item{
@@ -150,6 +155,7 @@ main{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
+  align-items:center;
   gap:20px;
   overflow-x:auto;
 }

@@ -5,19 +5,20 @@
 
 <div>
   <h2>Info</h2>
+  <p>The separator stretches along its axis according to the size of its parent element.</p>
   <p>This component will become obsolete once <a href="https://www.w3.org/TR/css-gaps-1/" target="_blank">CSS Gaps Decorations Module Level 1</a> is fully implemented across all major browsers.</p>
-  <p>Separators default to 100% size along their orientation axis.</p>
+  <p>Separators default size along their orientation axis.</p>
 </div>
 
 <div>
   <h2>Attributes</h2>
-  <p>vertical - static. Sets the separator orientation to vertical.</p>
+  <p>orientation - static. Sets the separator orientation. Available options: horizontal, vertical. Default: horizontal</p>
 </div>
 
 <section class="content">
 
   <div class="content-item">
-    <div>Horizontal separator</div>
+    <div>Horizontal</div>
     <div class="example">
       <div class="preview">
         <ui-separator></ui-separator>
@@ -36,10 +37,12 @@
   </div>
 
   <div class="content-item">
-    <div>Vertical separator</div>
+    <div>Vertical</div>
     <div class="example">
-      <div class="preview" style="height:200px;">
-        <ui-separator vertical></ui-separator>
+      <div class="preview">
+        <div class="visual-block" style="width:30px;height:60px;"></div>
+        <ui-separator orientation="vertical"></ui-separator>
+        <div class="visual-block" style="width:30px;height:30px;"></div>
       </div>
       <div class="toolbar">
         <span>HTML</span>

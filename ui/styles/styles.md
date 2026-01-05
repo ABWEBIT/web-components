@@ -1,1 +1,1 @@
-reset -> base -> typography -> layout -> theme -> parts
+base -> typography -> layout -> colors -> theme -> parts
