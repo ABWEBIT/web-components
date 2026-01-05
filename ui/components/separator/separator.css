@@ -1,16 +1,19 @@
 ui-separator{
-  --ui-thickness:1px;
-  --ui-color:var(--ui-border-color);
+  --thickness:1px;
+  --spacing:20px;
+  --color:var(--ui-border-color);
   display:block;
-  background-color:var(--ui-color);
+  background-color:var(--color);
 
   &[orientation='horizontal']{
     width:100%;
-    height:var(--ui-thickness);
+    height:var(--thickness);
+    margin-block:var(--spacing);
   }
 
   &[orientation='vertical']{
-    width:var(--ui-thickness);
+    width:var(--thickness);
     align-self:stretch;
+    margin-inline:var(--spacing);
   }
 }
