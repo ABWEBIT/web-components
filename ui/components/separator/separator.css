@@ -1,6 +1,6 @@
 ui-separator{
   --thickness:1px;
-  --spacing:20px;
+  --spacing:0;
   --color:var(--ui-border-color);
   display:block;
   background-color:var(--color);
@@ -12,8 +12,8 @@ ui-separator{
   }
 
   &[orientation='vertical']{
-    width:var(--thickness);
     align-self:stretch;
+    width:var(--thickness);
     margin-inline:var(--spacing);
   }
 }
