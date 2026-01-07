@@ -6,6 +6,10 @@ class UITabs extends HTMLElement{
   #activeIndex = 0;
 
   connectedCallback(){
+    const orientation = this.getAttribute('orientation') || 'horizontal';
+    this.setAttribute('orientation',orientation);
+    this.ariaOrientation = orientation;
+
     const tablist = this.querySelector(':scope > div');
     if(!tablist){
       throw new Error('Error: "tablist" element is missing.');

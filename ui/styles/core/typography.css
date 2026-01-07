@@ -5,9 +5,12 @@
   --ui-font-family-code:ui-monospace,Menlo,Consolas,monospace;
 
   /* font weight */
-  --ui-font-weight-regular:400;
-  --ui-font-weight-medium:500;
+  --ui-font-weight-normal:400;
+  --ui-font-weight-semibold:500;
   --ui-font-weight-bold:600;
+
+  /* font scale */
+  --ui-font-scale:1;
 
   /* font size */
   --ui-font-size-x-small:0.75rem;
@@ -16,6 +19,9 @@
   --ui-font-size-large:1.125rem;
   --ui-font-size-x-large:1.25rem;
   --ui-font-size-default:var(--ui-font-size-medium);
+
+  /* body */
+  --ui-font-size-body:var(--ui-font-size-default);
 
   /* heading */
   --ui-font-size-h1:2.5rem;
@@ -91,7 +97,7 @@ h1,h2,h3{
 }
 
 h4,h5,h6{
-  font-weight:var(--ui-font-weight-medium);
+  font-weight:var(--ui-font-weight-semibold);
 }
 
 h1,h2,h3{

@@ -38,7 +38,7 @@
 
   --ui-border-radius-none:0;
   --ui-border-radius-full:50vmax;
-  --ui-border-radius-rounded:calc(var(--ui-control-height-default) / 4);
+  --ui-border-radius-rounded:calc(1rem / 2);
   --ui-border-radius-default:var(--ui-border-radius-rounded);
 
   /* transition duration */

@@ -23,7 +23,7 @@ ui-tabs{
   width:100%;
   gap:var(--ui-tabs-gap);
 
-  &[vertical]{
+  &[orientation="vertical"]{
     flex-direction:row;
   }
 
@@ -34,7 +34,7 @@ ui-tabs{
     gap:var(--ui-tabs-gap);
   }
 
-  &[vertical] > div[role="tablist"]{
+  &[orientation="vertical"] > div[role="tablist"]{
     flex-direction:column;
     flex-shrink:0;
   }
@@ -84,7 +84,7 @@ ui-tabs{
     & > :is(ul,ol){padding-inline-start:20px;}
   }
 
-  &[vertical] > div[role="tabpanel"]{
+  &[orientation="vertical"] > div[role="tabpanel"]{
     flex-grow:1;
   }
 }

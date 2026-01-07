@@ -7,6 +7,7 @@ const components = [
   {label: 'Icons', link: infoPageDir+'icons.html', category: 'theme' },
   
   // Design Tokens
+  {label: 'Typography', link: infoPageDir+'typography.html', category: 'tokens' },
   {label: 'Borders', link: infoPageDir+'borders.html', category: 'tokens' },
 
   // Primitives

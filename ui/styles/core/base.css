@@ -4,6 +4,7 @@ html{
   tab-size:4;
 }
 
+/* ensure body uses the root font size */
 body{
   font-size:1rem;
 }
