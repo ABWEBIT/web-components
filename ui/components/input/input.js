@@ -18,18 +18,6 @@ class UIInput extends HTMLElement{
     return ['required','disabled'];
   }
 
-  get placeholder(){return this.#input?.placeholder ?? '';}
-  set placeholder(value){
-    if(!this.#input) return;
-    this.#input.placeholder = String(value ?? '');
-  }
-
-  get type(){return this.#input?.type ?? 'text';}
-  set type(value){
-    if(!this.#input) return;
-    this.#input.type = inputTypes(value) ? value : 'text';
-  }
-
   get value(){return this.#input?.value ?? '';}
   set value(value){
     if(!this.#input) return;
@@ -50,36 +38,27 @@ class UIInput extends HTMLElement{
   }
 
   connectedCallback(){
-    const value = this.getAttribute('value') ?? '';
-    const placeholder = this.getAttribute('placeholder') ?? '';
-    const type = this.getAttribute('type') || 'text';
-    this.removeAttribute('value');
-    this.removeAttribute('placeholder');
-    this.removeAttribute('type');
-
     const fragment = document.createDocumentFragment();
-    this.#listeners = new AbortController();
-    const signal = this.#listeners.signal;
 
-    this.#input = document.createElement('input');
-    if(value) this.value = value;
-    if(placeholder) this.placeholder = placeholder;
-    this.#input.type = inputTypes(type) ? type : 'text';
-
-    fragment.appendChild(this.#input);
+    this.#input = this.querySelector('input');
+    if(!this.#input.hasAttribute('type')){
+      this.#input.setAttribute('type','text');
+    }
 
     this.#clearable = this.hasAttribute('clearable');
     if(this.#clearable){
       this.#clear = document.createElement('ui-icon');
       this.#clear.setAttribute('icon',this.#iconInput);
-
-      this.#clear.addEventListener('click',this.#onClear,{signal});
       fragment.appendChild(this.#clear);
     }
 
     this.appendChild(fragment);
 
-    this.#input.addEventListener('input',this.#onInput,{signal});
+    this.#listeners = new AbortController();
+    const signal = this.#listeners.signal;
+
+    if(this.#clear) this.#clear.addEventListener('click',this.#onClear,{signal});
+    if(this.#input) this.#input.addEventListener('input',this.#onInput,{signal});
   }
 
   disconnectedCallback(){
@@ -92,15 +71,14 @@ class UIInput extends HTMLElement{
     this.#onAction(e);
   }
 
-  #onAction = (e) =>{
-    console.log(e.type);
-  }
-
   #onClear = (e) =>{
     if(!this.#input) return;
     this.#input.value = '';
     //this.#input.focus();
   }
 
+  #onAction = (e) =>{
+    console.log(e.type);
+  }
 }
 customElements.define('ui-input',UIInput);

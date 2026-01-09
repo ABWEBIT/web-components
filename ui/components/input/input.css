@@ -2,17 +2,17 @@ ui-input{
   --ui-input-border-radius:var(--ui-border-radius-default);
   --ui-input-height:var(--ui-control-height-default);
 
-
   --ui-input-background-color:var(--ui-color-gray-800);
-
 
   --ui-input-width:auto;
   --ui-input-font-size:14px;
   --ui-input-icon-size:28px;
   --ui-input-icon-padding:4px;
   --ui-input-padding-inline:12px;
-  --ui-input-border-color:var(--ui-color-gray-500);
+
+  --ui-input-border-color:var(--ui-border-color);
   --ui-input-border-color-hover:var(--ui-color-gray-100);
+
   --ui-input-outline-color:var(--ui-color-gray-500);
   --ui-input-font-color:var(--ui-color-white);
   --ui-input-svg-color:var(--ui-color-gray-400);
@@ -28,17 +28,6 @@ ui-input{
   background-color:var(--ui-input-background-color);
   transition-property:outline-color;
 
-  &::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    border-radius:inherit;
-    border-width:1px;
-    border-style:solid;
-    border-color:var(--ui-input-border-color);
-    pointer-events:none;
-  }
-
   & input{
     direction:inherit;
     border:none;
@@ -49,6 +38,17 @@ ui-input{
     padding-inline:var(--ui-input-padding-inline);
     color:var(--ui-input-font-color);
     background-color:transparent;
+    border-radius:inherit;
+    border-width:1px;
+    border-style:solid;
+    border-color:var(--ui-input-border-color);
+  }
+
+  & input[disabled]{
+    cursor:not-allowed;
+    opacity:0.5;
+    pointer-events:auto;
+    user-select:none;
   }
 
   & input::placeholder{
@@ -65,7 +65,6 @@ ui-input{
   }
 
   & > ui-icon{
-    display:block;
     height:100%;
     width:var(--ui-input-icon-size);
     color:var(--ui-input-svg-color);
@@ -90,7 +89,15 @@ ui-input{
   }
 
   /* shape */
-  &[shape="rounded"]{--ui-input-border-radius:var(--ui-border-radius-rounded);}
-  &[shape="square"]{--ui-input-border-radius:var(--ui-border-radius-square);}
-  &[shape="pill"]{--ui-input-border-radius:var(--ui-border-radius-pill);}
+  &[shape="rounded"]{
+    --ui-input-border-radius:var(--ui-border-radius-rounded);
+  }
+
+  &[shape="square"]{
+    --ui-input-border-radius:var(--ui-border-radius-none);
+  }
+
+  &[shape="pill"]{
+    --ui-input-border-radius:var(--ui-border-radius-full);
+  }
 }
