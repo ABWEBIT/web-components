@@ -1,18 +1,19 @@
 ui-button{
-  --ui-button-height:var(--ui-control-height-default);
-  --ui-button-border-radius:calc(var(--ui-button-height) / 4);
-  --ui-button-font-size:var(--ui-font-size-default);
+  --button-height:var(--ui-control-height-default);
+  --button-width:fit-content;
+  --button-border-radius:calc(var(--button-height) / 4);
+  --button-font-size:var(--ui-font-size-default);
 
-  --ui-button-width:fit-content;
-  --ui-button-padding-inline:calc(var(--ui-button-height) / 2);
-  --ui-button-column-gap:clamp(
+  --button-padding-inline:calc(var(--button-height) / 2);
+  --button-column-gap:clamp(
     0.3rem,
-    calc(var(--ui-button-height) / 3),
+    calc(var(--button-height) / 3),
     0.75rem);
 
-  --ui-button-surface-color-default:var(--ui-surface-color-default);
-  --ui-button-surface-color-hover:var(--ui-surface-color-hover);
-  --ui-button-surface-color-active:var(--ui-surface-color-active);
+  --button-text-color:var(--ui-text-color-default);
+  --button-color:var(--ui-surface-color-default);
+  --button-color-hover:var(--ui-surface-color-hover);
+  --button-color-active:var(--ui-surface-color-active);
 
   position:relative;
   display:inline-flex;
@@ -20,14 +21,14 @@ ui-button{
   justify-content:center;
   vertical-align:middle;
   line-height:1;
-  height:var(--ui-button-height);
-  width:var(--ui-button-width);
-  border-radius:var(--ui-button-border-radius);
-  padding-inline:var(--ui-button-padding-inline);
-  column-gap:var(--ui-button-column-gap);
-  font-size:var(--ui-button-font-size);
-  color:var(--ui-text-color-default);
-  background-color:var(--ui-button-surface-color-default);
+  height:var(--button-height);
+  width:var(--button-width);
+  border-radius:var(--button-border-radius);
+  padding-inline:var(--button-padding-inline);
+  column-gap:var(--button-column-gap);
+  font-size:var(--button-font-size);
+  color:var(--button-text-color);
+  background-color:var(--button-color);
   transition-property:background-color,outline-color,color;
 
   &[disabled]:not([busy]){
@@ -42,28 +43,28 @@ ui-button{
 
   @media (hover: hover){
     &:hover:not([disabled]){
-      background-color:var(--ui-button-surface-color-hover);
+      background-color:var(--button-color-hover);
     }
   }
 
   &:active:not([disabled]){
-    background-color:var(--ui-button-surface-color-active);
+    background-color:var(--button-color-active);
   }
 
   & > ui-icon{
-    margin-inline:calc(-1 * (var(--ui-button-height) / 10));
+    margin-inline:calc(-1 * (var(--button-height) / 10));
   }
 
 
   & ui-icon{
     --ui-icon-height:clamp(
     0.75rem,
-    calc(var(--ui-button-height) / 1.8),
+    calc(var(--button-height) / 1.8),
     1.5rem);
 
     --ui-icon-width:clamp(
     0.75rem,
-    calc(var(--ui-button-height) / 1.8),
+    calc(var(--button-height) / 1.8),
     1.5rem);
   }
 
@@ -72,13 +73,13 @@ ui-button{
     position:absolute;
     border-radius:inherit;
     inset:0;
-    background-color:var(--ui-button-surface-color-active);
+    background-color:var(--button-color-active);
   }
 
   /* shape */
   &[shape="pill"],
   &[shape="circle"]{
-    --ui-button-border-radius:var(--ui-border-radius-full);
+    --button-border-radius:var(--ui-border-radius-full);
   }
 
   &[shape="circle"],
@@ -90,17 +91,21 @@ ui-button{
 
   /* size */
   &[size="small"]{
-    --ui-button-height:var(--ui-control-height-small);
-    --ui-button-font-size:var(--ui-font-size-small);
+    --button-height:var(--ui-control-height-small);
+    --button-font-size:var(--ui-font-size-small);
   }
 
   &[size="medium"]{
-    --ui-button-height:var(--ui-control-height-medium);
-    --ui-button-font-size:var(--ui-font-size-medium);
+    --button-height:var(--ui-control-height-medium);
+    --button-font-size:var(--ui-font-size-medium);
   }
 
   &[size="large"]{
-    --ui-button-height:var(--ui-control-height-large);
-    --ui-button-font-size:var(--ui-font-size-large);
+    --button-height:var(--ui-control-height-large);
+    --button-font-size:var(--ui-font-size-large);
+  }
+
+  &[varian="ghost"]{
+    --button-color:transparent;
   }
 }

@@ -7,10 +7,11 @@ class UIAlert extends HTMLElement{
       const button = document.createElement('ui-button');
       button.setAttribute('shape','circle');
       button.setAttribute('size','small');
+      button.setAttribute('varian','ghost');
 
-      const uiIcon = document.createElement('ui-icon');
-      uiIcon.setAttribute('name','close');
-      button.append(uiIcon);
+      const icon = document.createElement('ui-icon');
+      icon.setAttribute('name','close');
+      button.append(icon);
 
       button.addEventListener('button-action',() => this.remove());
 

@@ -1,1 +1,1 @@
-base -> typography -> layout -> colors -> theme -> parts
+base -> typography -> layout -> colors -> theme -> app -> components

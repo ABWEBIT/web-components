@@ -14,6 +14,10 @@
     var(--color-neutral-300),
     var(--color-neutral-400) 20%
   );
+  --ui-surface-color-secondary:var(--color-neutral-300);
+
+  /* border */
+  --ui-border-color:var(--color-neutral-300);
 
   /* panel */
   --ui-panel-color-default:var(--color-neutral-200);
@@ -30,9 +34,6 @@
   --ui-link-color-default:var(--color-neutral-700);
   --ui-link-color-hover:var(--color-neutral-800);
   --ui-link-color-active:var(--color-neutral-950);
-
-  /* border */
-  --ui-border-color:var(--color-neutral-300);
 
   /* outline */
   --ui-outline-color:var(--color-blue-500);
