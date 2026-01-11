@@ -1,6 +1,8 @@
 import {uuid} from '../../utilities/index.js';
 
 class UIField extends HTMLElement{
+  #requiredIndicator = '*';
+
   static elements = [
     'ui-checkbox',
     'ui-input',
@@ -16,7 +18,7 @@ class UIField extends HTMLElement{
 
     if(this.hasAttribute('required')) this.#addRequired();
 
-    const label = this.querySelector('div');
+    const label = this.querySelector('label');
 
     const controls = UIField.elements.filter(tag => tag);
     const control = this.querySelector(controls.join(','));
@@ -42,6 +44,12 @@ class UIField extends HTMLElement{
           control.focus?.();
         }
       });
+    }
+
+    if(label.hasAttribute('required')){
+      const indicator = document.createElement('span');
+      indicator.textContent = this.getAttribute('indicator') ?? this.#requiredIndicator;
+      this.append(indicator);
     }
   }
 

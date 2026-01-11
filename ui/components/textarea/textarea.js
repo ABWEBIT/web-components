@@ -13,18 +13,6 @@ class UITextarea extends HTMLElement{
     return ['required','disabled'];
   }
 
-  get placeholder(){return this.#textarea?.placeholder ?? '';}
-  set placeholder(value){
-    if(!this.#textarea) return;
-    this.#textarea.placeholder = String(value ?? '');
-  }
-
-  get value(){return this.#textarea?.value ?? '';}
-  set value(value){
-    if(!this.#textarea) return;
-    this.#textarea.value = String(value ?? '');
-  }
-
   get required(){return this.#required;}
   set required(value){
     this.#required = value === true;
@@ -38,20 +26,7 @@ class UITextarea extends HTMLElement{
   }
 
   connectedCallback(){
-    const value = this.getAttribute('value') ?? '';
-    const placeholder = this.getAttribute('placeholder') ?? '';
-    this.removeAttribute('value');
-    this.removeAttribute('placeholder');
 
-    const fragment = document.createDocumentFragment();
-
-    this.#textarea = document.createElement('textarea');
-    if(value) this.value = value;
-    if(placeholder) this.placeholder = placeholder;
-
-    fragment.appendChild(this.#textarea);
-
-    this.appendChild(fragment);
 
     this.#listeners = new AbortController();
     const signal = this.#listeners.signal;

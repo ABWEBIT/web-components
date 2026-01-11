@@ -3,12 +3,14 @@ ui-field{
   display:flex;
   align-items:center;
 
-  & > ui-label:first-child{
+  & > label{
     padding-inline-end:10px;
-  }
+    cursor:pointer;
 
-  & > ui-label:last-child{
-    padding-inline-start:10px;
+    & > span{
+      padding-inline-start:6px;
+      color:var(--ui-color-red-500);
+    }
   }
 
   &[vertical]{
@@ -16,7 +18,7 @@ ui-field{
     flex-direction:column;
   }
 
-  &[vertical] > ui-label:first-child{
+  &[vertical] > label:first-child{
     padding-block-end:10px;
   }
 }
