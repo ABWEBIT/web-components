@@ -17,13 +17,13 @@
   --font-size-x-large:1.25rem;
   --font-size-default:var(--font-size-normal);
 
-  /* heading */
-  --font-size-h1:2.5rem;
-  --font-size-h2:2rem;
-  --font-size-h3:1.75rem;
-  --font-size-h4:1.5rem;
-  --font-size-h5:1.25rem;
-  --font-size-h6:1.125rem;
+  /* heading font size */
+  --heading-font-size-hero:2.5rem;
+  --heading-font-size-display:2rem;
+  --heading-font-size-headline:1.75rem;
+  --heading-font-size-title:1.5rem;
+  --heading-font-size-label:1.25rem;
+  --heading-font-size-caption:1.125rem;
 
   /* line height */
   --line-height-condensed:1.2;
@@ -96,9 +96,9 @@ h4,h5,h6{
   font-weight:var(--font-weight-semibold);
 }
 
-h1{font-size:var(--font-size-h1);}
-h2{font-size:var(--font-size-h2);}
-h3{font-size:var(--font-size-h3);}
-h4{font-size:var(--font-size-h4);}
-h5{font-size:var(--font-size-h5);}
-h6{font-size:var(--font-size-h6);}
+h1{font-size:var(--heading-font-size-hero);}
+h2{font-size:var(--heading-font-size-display);}
+h3{font-size:var(--heading-font-size-headline);}
+h4{font-size:var(--heading-font-size-title);}
+h5{font-size:var(--heading-font-size-label);}
+h6{font-size:var(--heading-font-size-caption);}
