@@ -1,39 +1,39 @@
 ui-select{
-  --ui-select-border-radius:var(--ui-border-radius-default);
-  --ui-select-height:var(--ui-control-height-default);
+  --select-border-radius:var(--border-radius-default);
+  --select-height:var(--control-height-default);
 
-  --ui-select-padding-inline:16px;
-  --ui-select-column-gap:6px;
-  --ui-select-icon-size:20px;
-  --ui-select-font-size:14px;
-  --ui-select-surface-color:var(--ui-surface-color-default);
-  --ui-select-surface-color-hover:var(--ui-surface-color-hover);
-  --ui-select-surface-color-active:var(--ui-surface-color-active);
-  --ui-select-font-color:var(--ui-color-white);
+  --select-padding-inline:16px;
+  --select-column-gap:6px;
+  --select-icon-size:20px;
+  --select-font-size:14px;
+  --select-surface-color:var(--surface-color-default);
+  --select-surface-color-hover:var(--surface-color-hover);
+  --select-surface-color-active:var(--surface-color-active);
+  --select-font-color:var(--color-white);
 
   appearance:none;
   cursor:pointer;
   touch-action:manipulation;
-  outline-offset:var(--ui-outline-offset);
-  outline-width:var(--ui-outline-width);
-  outline-style:var(--ui-outline-style);
+  outline-offset:var(--outline-offset);
+  outline-width:var(--outline-width);
+  outline-style:var(--outline-style);
   outline-color:transparent;
 
   position:relative;
   display:inline-flex;
   align-items:center;
-  height:var(--ui-select-height);
+  height:var(--select-height);
   width:200px;
-  padding-inline-start:calc(var(--ui-select-height) / 2)!important;
-  padding-inline-end:calc(var(--ui-select-height) / 4 + 2px)!important;
+  padding-inline-start:calc(var(--select-height) / 2)!important;
+  padding-inline-end:calc(var(--select-height) / 4 + 2px)!important;
   border:none;
-  border-radius:var(--ui-select-border-radius);
-  color:var(--ui-select-font-color);
-  background-color:var(--ui-select-surface-color);
+  border-radius:var(--select-border-radius);
+  color:var(--select-font-color);
+  background-color:var(--select-surface-color);
   overflow:hidden;
 
   &[ui]{
-    transition-duration:var(--ui-transition-duration-default);
+    transition-duration:var(--transition-duration-default);
     transition-property:background-color,outline-color,color;
   }
 
@@ -44,32 +44,32 @@ ui-select{
   }
 
   &:focus-visible:not([disabled]){
-    outline-color:var(--ui-outline-color);
+    outline-color:var(--outline-color);
   }
 
   @media (hover: hover){
     &:hover:not([disabled]){
-      background-color:var(--ui-select-surface-color-hover);
+      background-color:var(--select-surface-color-hover);
     }
   }
 
   &[expanded]:not([disabled]){
-    color:var(--ui-color-white);
-    background-color:var(--ui-select-surface-color-hover);
+    color:var(--color-white);
+    background-color:var(--select-surface-color-hover);
   }
 
   & [role="textbox"]{
     flex-grow:1;
     padding-inline-end:6px;
-    font-size:var(--ui-select-font-size);
+    font-size:var(--select-font-size);
     overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis;
   }
 
   & ui-icon{
-    width:var(--ui-select-icon-size);
-    transition-duration:var(--ui-transition-duration-default);
+    width:var(--select-icon-size);
+    transition-duration:var(--transition-duration-default);
     transition-property:transform;
   }
 
@@ -78,31 +78,31 @@ ui-select{
   }
 
   /* shape */
-  &[shape="rounded"]{--ui-select-border-radius:var(--ui-border-radius-rounded);}
-  &[shape="square"]{--ui-select-border-radius:var(--ui-border-radius-square);}
-  &[shape="pill"]{--ui-select-border-radius:var(--ui-border-radius-pill);}
+  &[shape="rounded"]{--select-border-radius:var(--border-radius-rounded);}
+  &[shape="square"]{--select-border-radius:var(--border-radius-square);}
+  &[shape="pill"]{--select-border-radius:var(--border-radius-pill);}
 }
 
 [role="listbox"]{
-  --ui-listbox-border-radius:var(--ui-border-radius-default);
-  --ui-listbox-icon-size:15px;
-  --ui-listbox-font-size:13px;
-  --ui-listbox-background-color:var(--ui-color-gray-800);
-  --ui-listbox-option-background-color-hover:var(--ui-color-gray-650);
-  --ui-listbox-option-background-color-selected:var(--ui-color-gray-700);
-  --ui-listbox-font-color:var(--ui-color-gray-150);
-  --ui-listbox-font-color-hover:var(--ui-color-white);
-  --ui-listbox-font-color-active:var(--ui-color-white);
-  --ui-listbox-outline-color:var(--ui-color-gray-500);
+  --listbox-border-radius:var(--border-radius-default);
+  --listbox-icon-size:15px;
+  --listbox-font-size:13px;
+  --listbox-background-color:var(--color-gray-800);
+  --listbox-option-background-color-hover:var(--color-gray-650);
+  --listbox-option-background-color-selected:var(--color-gray-700);
+  --listbox-font-color:var(--color-gray-150);
+  --listbox-font-color-hover:var(--color-white);
+  --listbox-font-color-active:var(--color-white);
+  --listbox-outline-color:var(--color-gray-500);
 
   position:absolute;
   display:inline-flex;
   flex-direction:column;
   padding:6px;
   border:none;
-  border-radius:var(--ui-listbox-border-radius);
-  color:var(--ui-listbox-font-color);
-  background-color:var(--ui-listbox-background-color);
+  border-radius:var(--listbox-border-radius);
+  color:var(--listbox-font-color);
+  background-color:var(--listbox-background-color);
   z-index:9999;
   animation:fade-slide-in 0.15s ease-out;
   opacity:1;
@@ -118,9 +118,9 @@ ui-select{
     display:flex;
     outline:none;
     border-radius:inherit;
-    font-size:var(--ui-listbox-font-size);
+    font-size:var(--listbox-font-size);
     padding:8px 12px;
-    transition-duration:var(--ui-transition-duration-default);
+    transition-duration:var(--transition-duration-default);
     transition-property:background-color,color;
 
     & > span{
@@ -133,7 +133,7 @@ ui-select{
 
     & > ui-icon{
       height:100%;
-      width:var(--ui-listbox-icon-size);
+      width:var(--listbox-icon-size);
     }
 
   }
@@ -147,14 +147,14 @@ ui-select{
 
   @media (hover: hover){
     & [role="option"]:hover:not([aria-disabled="true"]){
-      background-color:var(--ui-listbox-option-background-color-hover);
-      color:var(--ui-listbox-font-color-hover);
+      background-color:var(--listbox-option-background-color-hover);
+      color:var(--listbox-font-color-hover);
     }
   }
 
   & [role="option"][data-active="true"]{
-    background-color:var(--ui-listbox-option-background-color-selected);
-    color:var(--ui-listbox-font-color-active);
+    background-color:var(--listbox-option-background-color-selected);
+    color:var(--listbox-font-color-active);
   }
 
   &[hidden]{

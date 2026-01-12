@@ -1,7 +1,7 @@
 ui-separator{
   --separator-thickness:1px;
   --separator-spacing:0;
-  --separator-color:var(--ui-surface-color-secondary);
+  --separator-color:var(--surface-color-secondary);
   display:block;
   background-color:var(--separator-color);
 

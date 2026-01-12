@@ -9,7 +9,7 @@ ui-field{
 
     & > span{
       padding-inline-start:6px;
-      color:var(--ui-color-red-500);
+      color:var(--color-red-500);
     }
   }
 

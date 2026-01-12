@@ -1,31 +1,31 @@
 ui-input{
-  --ui-input-border-radius:var(--ui-border-radius-default);
-  --ui-input-height:var(--ui-control-height-default);
+  --input-border-radius:var(--border-radius-default);
+  --input-height:var(--control-height-default);
 
-  --ui-input-background-color:var(--ui-color-gray-800);
+  --input-background-color:var(--color-gray-800);
 
-  --ui-input-width:auto;
-  --ui-input-font-size:14px;
-  --ui-input-icon-size:28px;
-  --ui-input-icon-padding:4px;
-  --ui-input-padding-inline:12px;
+  --input-width:auto;
+  --input-font-size:14px;
+  --input-icon-size:28px;
+  --input-icon-padding:4px;
+  --input-padding-inline:12px;
 
-  --ui-input-border-color:var(--ui-border-color);
-  --ui-input-border-color-hover:var(--ui-color-gray-100);
+  --input-border-color:var(--border-color);
+  --input-border-color-hover:var(--color-gray-100);
 
-  --ui-input-outline-color:var(--ui-color-gray-500);
-  --ui-input-font-color:var(--ui-color-white);
-  --ui-input-svg-color:var(--ui-color-gray-400);
-  --ui-input-placeholder-color:var(--ui-color-gray-500);
-  --ui-input-disabled-color:var(--ui-color-gray-300);
+  --input-outline-color:var(--color-gray-500);
+  --input-font-color:var(--color-white);
+  --input-svg-color:var(--color-gray-400);
+  --input-placeholder-color:var(--color-gray-500);
+  --input-disabled-color:var(--color-gray-300);
 
   position:relative;
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  height:var(--ui-input-height);
-  border-radius:var(--ui-input-border-radius);
-  background-color:var(--ui-input-background-color);
+  height:var(--input-height);
+  border-radius:var(--input-border-radius);
+  background-color:var(--input-background-color);
   transition-property:outline-color;
 
   & input{
@@ -34,14 +34,14 @@ ui-input{
     outline:none;
     padding:0;
     height:100%;
-    font-size:var(--ui-input-font-size);
-    padding-inline:var(--ui-input-padding-inline);
-    color:var(--ui-input-font-color);
+    font-size:var(--input-font-size);
+    padding-inline:var(--input-padding-inline);
+    color:var(--input-font-color);
     background-color:transparent;
     border-radius:inherit;
     border-width:1px;
     border-style:solid;
-    border-color:var(--ui-input-border-color);
+    border-color:var(--input-border-color);
   }
 
   & input[disabled]{
@@ -52,12 +52,12 @@ ui-input{
   }
 
   & input::placeholder{
-    color:var(--ui-input-placeholder-color);
+    color:var(--input-placeholder-color);
   }
 
   &[disabled] input,
   &[disabled] input::placeholder{
-    color:var(--ui-input-disabled-color);
+    color:var(--input-disabled-color);
   }
 
   &[clearable] > input{
@@ -66,9 +66,9 @@ ui-input{
 
   & > ui-icon{
     height:100%;
-    width:var(--ui-input-icon-size);
-    color:var(--ui-input-svg-color);
-    padding:var(--ui-input-icon-padding);
+    width:var(--input-icon-size);
+    color:var(--input-svg-color);
+    padding:var(--input-icon-padding);
     cursor:pointer;
     pointer-events:all!important;
   }
@@ -76,28 +76,28 @@ ui-input{
 
   @media (hover:hover){
     &:hover:not([disabled]){
-      outline-color:var(--ui-input-outline-color);
+      outline-color:var(--input-outline-color);
     }
 
     & > ui-icon:hover{
-      color:var(--ui-color-input-icons-active);
+      color:var(--color-input-icons-active);
     }
   }
 
   &:focus-within:not([disabled]){
-    outline-color:var(--ui-input-outline-color);
+    outline-color:var(--input-outline-color);
   }
 
   /* shape */
   &[shape="rounded"]{
-    --ui-input-border-radius:var(--ui-border-radius-rounded);
+    --input-border-radius:var(--border-radius-rounded);
   }
 
   &[shape="square"]{
-    --ui-input-border-radius:var(--ui-border-radius-none);
+    --input-border-radius:var(--border-radius-none);
   }
 
   &[shape="pill"]{
-    --ui-input-border-radius:var(--ui-border-radius-full);
+    --input-border-radius:var(--border-radius-full);
   }
 }

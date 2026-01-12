@@ -1,67 +1,29 @@
 ui-textarea{
-  --ui-textarea-border-radius:var(--ui-border-radius-default);
-  --ui-textarea-font-size:14px;
-  --ui-textarea-padding:10px 12px;
-  --ui-textarea-min-height:34px;
-  --ui-textarea-min-width:100px;
-  --ui-textarea-background-color:var(--ui-color-gray-800);
-  --ui-textarea-border-color:var(--ui-color-gray-500);
-  --ui-textarea-font-color:var(--ui-color-white);
-  --ui-textarea-disabled-placeholder-font-color:var(--ui-color-gray-400);
-  --ui-textarea-outline-color:var(--ui-color-gray-500);
+  --textarea-border-radius:var(--border-radius-default);
+  --textarea-padding:10px 12px;
+  --textarea-border-color:var(--border-color);
 
   position:relative;
   display:inline-flex;
   height:fit-content;
-  min-height:var(--ui-textarea-min-height);
   width:100%;
-  min-width:var(--ui-textarea-min-width);
-  max-width:100%;
-  border-radius:var(--ui-textarea-border-radius);
-  background-color:var(--ui-textarea-background-color);
-  transition-property:outline-color;
+  background-color:var(--textarea-background-color);
 
-  &::before{
-    content:'';
-    position:absolute;
-    inset:0;
+  & > textarea{
+    direction:inherit;
+    min-height:var(--textarea-min-height);
+    width:100%;
+    padding:var(--textarea-padding);
+    resize:vertical;
+    color:var(--textarea-font-color);
     border-radius:inherit;
     border-width:1px;
     border-style:solid;
-    border-color:var(--ui-textarea-border-color);
-    pointer-events:none;
-  }
-
-  & textarea{
-    direction:inherit;
-    border:none;
-    outline:none;
-    min-height:var(--ui-textarea-min-height);
-    width:100%;
-    min-width:var(--ui-textarea-min-width);
-    padding:var(--ui-textarea-padding);
-    resize:vertical;
-    font-size:var(--ui-textarea-font-size);
-    color:var(--ui-textarea-font-color);
+    border-color:var(--textarea-border-color);
     background-color:transparent;
   }
 
-  & textarea::placeholder,
-  &[disabled] textarea{
-    color:var(--ui-textarea-disabled-placeholder-font-color);
-  }
-
-  @media (hover: hover){
-    &:hover:not([disabled]){
-      outline-color:var(--ui-textarea-outline-color);
-    }
-  }
-
-  &:focus-within:not([disabled]){
-    outline-color:var(--ui-textarea-outline-color);
-  }
-
   /* shape */
-  &[shape="rounded"]{--ui-textarea-border-radius:var(--ui-border-radius-rounded);}
-  &[shape="square"]{--ui-textarea-border-radius:var(--ui-border-radius-square);}
+  &[shape="rounded"]{--textarea-border-radius:var(--border-radius-rounded);}
+  &[shape="square"]{--textarea-border-radius:var(--border-radius-square);}
 }

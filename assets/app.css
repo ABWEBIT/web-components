@@ -1,6 +1,6 @@
 body{
-  background-color:var(--ui-background-color);
-  color:var(--ui-text-color-default);
+  background-color:var(--body-background-color);
+  color:var(--text-color-default);
 }
 
 ui-main{
@@ -12,7 +12,7 @@ ui-main{
 }
 
 ::-webkit-scrollbar-thumb{
-  background-color:var(--ui-scrollbar-color);
+  background-color:var(--scrollbar-color);
 }
 
 header{
@@ -24,8 +24,8 @@ header{
   right:0;
   z-index:1;
   padding-block:10px;
-  background-color:var(--ui-background-color);
-  border-bottom:1px solid var(--ui-border-color);
+  background-color:var(--header-background-color);
+  border-bottom:1px solid var(--border-color);
 }
 
 /* nav */
@@ -76,7 +76,7 @@ nav .menu-title{
 nav .menu-item{
   display:block;
   cursor:pointer;
-  color:var(--ui-link-color-default);
+  color:var(--link-color-default);
 }
 
 nav .menu-item span{
@@ -84,21 +84,21 @@ nav .menu-item span{
   align-items:center;
   column-gap:10px;
   padding:5px 10px;
-  border-radius:var(--ui-border-radius-rounded);
-  transition-duration:var(--ui-duration);
+  border-radius:var(--border-radius-rounded);
+  transition-duration:var(--duration);
   transition-property:background-color,color;
 }
 
 @media (hover:hover){
   nav .menu-item span:hover{
-    color:var(--ui-link-color-hover);
-    background-color:var(--ui-menu-background-color-hover);
+    color:var(--link-color-hover);
+    background-color:var(--menu-background-color-hover);
   }
 }
 
 nav .menu-item span.active{
-  color:var(--ui-link-color-active);
-  background-color:var(--ui-menu-background-color-active);
+  color:var(--link-color-active);
+  background-color:var(--menu-background-color-active);
 }
 
 /* main */
@@ -112,14 +112,14 @@ main{
     padding-block:30px;
 
     & > :first-child > h1 + p{
-      color:var(--ui-text-color-secondary);
+      color:var(--text-color-secondary);
     }
   }
 }
 
 
 .visual-block{
-  background-color:var(--ui-surface-color-default);
+  background-color:var(--surface-color-default);
 }
 
 
@@ -140,8 +140,8 @@ main{
 
 .content-item > .example{
   overflow:hidden;
-  border:1px solid var(--ui-border-color);
-  border-radius:var(--ui-border-radius-rounded);
+  border:1px solid var(--border-color);
+  border-radius:var(--border-radius-rounded);
 }
 
 .content-item > .example > .preview,
@@ -172,7 +172,7 @@ main{
 
 .content-item > .example > .preview,
 .content-item > .example > .toolbar{
-  border-bottom:1px solid var(--ui-border-color);
+  border-bottom:1px solid var(--border-color);
 }
 
 .content-item > .example > .toolbar{
@@ -204,12 +204,12 @@ main{
   row-gap:12px;
   padding:12px 10px 10px;
   align-items:center;
-  background-color:var(--ui-panel-color-default);
-  border-radius:var(--ui-border-radius-rounded);
+  background-color:var(--panel-color-default);
+  border-radius:var(--border-radius-rounded);
 
 
   & > :not(ui-icon){
-    font-size:var(--ui-font-size-small);
-    color:var(--ui-text-color-secondary);
+    font-size:var(--font-size-small);
+    color:var(--text-color-secondary);
   }
 }

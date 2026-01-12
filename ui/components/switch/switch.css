@@ -1,41 +1,41 @@
 ui-switch{
-  --ui-switch-track-background-color:var(--ui-surface-color-default);
+  --switch-track-background-color:var(--surface-color-default);
 
-  --ui-switch-border-radius:var(--ui-border-radius-full);
+  --switch-border-radius:var(--border-radius-full);
 
-  --ui-switch-track-height:24px;
-  --ui-switch-track-width:40px;
+  --switch-track-height:24px;
+  --switch-track-width:40px;
 
-  --ui-switch-track-checked-background-color:var(--color-blue-500);
+  --switch-track-checked-background-color:var(--color-blue-500);
 
 
-  --ui-switch-thumb-height:16px;
-  --ui-switch-thumb-width:16px;
-  --ui-switch-thumb-position-start:4px;
-  --ui-switch-thumb-position-end:20px;
-  --ui-switch-thumb-background-color:var(--color-white);
+  --switch-thumb-height:16px;
+  --switch-thumb-width:16px;
+  --switch-thumb-position-start:4px;
+  --switch-thumb-position-end:20px;
+  --switch-thumb-background-color:var(--color-white);
 
   position:relative;
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  height:var(--ui-switch-track-height);
-  width:var(--ui-switch-track-width);
-  padding-inline-start:var(--ui-switch-thumb-position-start);
-  border-radius:var(--ui-switch-border-radius);
-  background-color:var(--ui-switch-track-background-color);
+  height:var(--switch-track-height);
+  width:var(--switch-track-width);
+  padding-inline-start:var(--switch-thumb-position-start);
+  border-radius:var(--switch-border-radius);
+  background-color:var(--switch-track-background-color);
   transition-property:background-color,outline-color,padding-inline-start;
 
   &::before{
     content:'';
-    height:var(--ui-switch-thumb-height);
-    width:var(--ui-switch-thumb-width);
+    height:var(--switch-thumb-height);
+    width:var(--switch-thumb-width);
     border-radius:inherit;
-    background-color:var(--ui-switch-thumb-background-color);
+    background-color:var(--switch-thumb-background-color);
   }
 
   &[checked]{
-    padding-inline-start:var(--ui-switch-thumb-position-end);
-    background-color:var(--ui-switch-track-checked-background-color);
+    padding-inline-start:var(--switch-thumb-position-end);
+    background-color:var(--switch-track-checked-background-color);
   }
 }

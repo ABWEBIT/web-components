@@ -1,27 +1,27 @@
 ui-tabs{
-  --ui-tabs-border-radius:var(--ui-border-radius-default);
-  --ui-tabs-gap:10px;
+  --tabs-border-radius:var(--border-radius-default);
+  --tabs-gap:10px;
 
-  --ui-tabs-tab-padding-inline:20px;
-  --ui-tabs-tab-padding-block:12px;
-  --ui-tabs-tab-surface-color-default:var(--ui-surface-color-default);
-  --ui-tabs-tab-surface-color-hover:var(--ui-surface-color-hover);
-  --ui-tabs-tab-surface-color-active:var(--ui-surface-color-active);
+  --tabs-tab-padding-inline:20px;
+  --tabs-tab-padding-block:12px;
+  --tabs-tab-surface-color-default:var(--surface-color-default);
+  --tabs-tab-surface-color-hover:var(--surface-color-hover);
+  --tabs-tab-surface-color-active:var(--surface-color-active);
 
-  --ui-tabs-tab-content-color-default:var(--ui-content-color-default);
-  --ui-tabs-tab-content-color-hover:var(--ui-content-color-hover);
-  --ui-tabs-tab-content-color-active:var(--ui-content-color-active);
+  --tabs-tab-content-color-default:var(--content-color-default);
+  --tabs-tab-content-color-hover:var(--content-color-hover);
+  --tabs-tab-content-color-active:var(--content-color-active);
 
-  --ui-tabs-tabpanel-padding-inline:20px;
-  --ui-tabs-tabpanel-padding-block:16px;
+  --tabs-tabpanel-padding-inline:20px;
+  --tabs-tabpanel-padding-block:16px;
 
-  --ui-tabs-tabpanel-surface-color:var(--ui-panel-color-default);
-  --ui-tabs-tabpanel-content-color:var(--ui-content-color-default);
+  --tabs-tabpanel-surface-color:var(--panel-color-default);
+  --tabs-tabpanel-content-color:var(--content-color-default);
 
   display:flex;
   flex-direction:column;
   width:100%;
-  gap:var(--ui-tabs-gap);
+  gap:var(--tabs-gap);
 
   &[orientation="vertical"]{
     flex-direction:row;
@@ -31,7 +31,7 @@ ui-tabs{
   & > div[role="tablist"]{
     display:flex;
     flex-wrap:wrap;
-    gap:var(--ui-tabs-gap);
+    gap:var(--tabs-gap);
   }
 
   &[orientation="vertical"] > div[role="tablist"]{
@@ -42,12 +42,12 @@ ui-tabs{
   /* tab */
   & > div[role="tablist"] > button[role="tab"]{
     display:flex;
-    background-color:var(--ui-tabs-tab-surface-color-default);
-    border-radius:var(--ui-tabs-border-radius);
-    padding-inline:var(--ui-tabs-tab-padding-inline);
-    padding-block:var(--ui-tabs-tab-padding-block);
-    color:var(--ui-tabs-tab-content-color-default);
-    font-size:var(--ui-font-size-large);
+    background-color:var(--tabs-tab-surface-color-default);
+    border-radius:var(--tabs-border-radius);
+    padding-inline:var(--tabs-tab-padding-inline);
+    padding-block:var(--tabs-tab-padding-block);
+    color:var(--tabs-tab-content-color-default);
+    font-size:var(--font-size-large);
     transition-property:background-color,outline-color,color;
 
     &[disabled]{
@@ -58,26 +58,26 @@ ui-tabs{
 
     @media (hover: hover){
       &:not([data-selected]):not([disabled]):hover{
-        background-color:var(--ui-tabs-tab-surface-color-hover);
-        color:var(--ui-tabs-tab-content-color-hover);
+        background-color:var(--tabs-tab-surface-color-hover);
+        color:var(--tabs-tab-content-color-hover);
       }
     }
 
     &:not([data-selected]):not([disabled]):active,
     &[data-selected]:not([disabled]){
-      color:var(--ui-tabs-tab-content-color-active);
-      background-color:var(--ui-tabs-tab-surface-color-active);
+      color:var(--tabs-tab-content-color-active);
+      background-color:var(--tabs-tab-surface-color-active);
     }
   }
 
   /* tabpanel */
   & > div[role="tabpanel"]{
     height:fit-content;
-    border-radius:var(--ui-tabs-border-radius);
-    padding-inline:var(--ui-tabs-tabpanel-padding-inline);
-    padding-block:var(--ui-tabs-tabpanel-padding-block);
-    color:var(--ui-tabs-tabpanel-content-color);
-    background-color:var(--ui-tabs-tabpanel-surface-color);
+    border-radius:var(--tabs-border-radius);
+    padding-inline:var(--tabs-tabpanel-padding-inline);
+    padding-block:var(--tabs-tabpanel-padding-block);
+    color:var(--tabs-tabpanel-content-color);
+    background-color:var(--tabs-tabpanel-surface-color);
 
     & > :is(ul,ol,p):first-child{margin-top:0;}
     & > :is(ul,ol,p):last-child{margin-bottom:0;}

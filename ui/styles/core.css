@@ -1,34 +1,32 @@
-@import './colors.css';
-
 :root{
   /* control heights */
-  --ui-control-height-small:2rem;
-  --ui-control-height-medium:2.5rem;
-  --ui-control-height-large:3rem;
-  --ui-control-height-default:var(--ui-control-height-medium);
+  --control-height-small:2rem;
+  --control-height-medium:2.5rem;
+  --control-height-large:3rem;
+  --control-height-default:var(--control-height-medium);
 
   /* spacing */
-  --ui-spacing-none:0;
-  --ui-spacing-base:1.25rem;
-  --ui-spacing-default:var(--ui-spacing-base);
+  --spacing-none:0;
+  --spacing-base:1.25rem;
+  --spacing-default:var(--spacing-base);
 
-  --ui-panel-padding-inline-base:1.25rem;
-  --ui-panel-padding-block-base:1rem;
+  --panel-padding-inline-base:1.25rem;
+  --panel-padding-block-base:1rem;
 
   /* border */
-  --ui-border-style:solid;
-  --ui-border-width-small:1px;
+  --border-style:solid;
+  --border-width-small:1px;
 
-  --ui-border-radius-none:0;
-  --ui-border-radius-full:50vmax;
-  --ui-border-radius-rounded:calc(1rem / 2);
-  --ui-border-radius-default:var(--ui-border-radius-rounded);
+  --border-radius-none:0;
+  --border-radius-full:50vmax;
+  --border-radius-rounded:calc(1rem / 2);
+  --border-radius-default:var(--border-radius-rounded);
 
   /* transition duration */
-  --ui-transition-duration-fast:0.075s;
-  --ui-transition-duration-normal:0.15s;
-  --ui-transition-duration-slow:0.25s;
-  --ui-transition-duration-default:var(--ui-transition-duration-normal);
+  --transition-duration-fast:0.075s;
+  --transition-duration-normal:0.15s;
+  --transition-duration-slow:0.25s;
+  --transition-duration-default:var(--transition-duration-normal);
 }
 
 /* base */
@@ -60,7 +58,8 @@ button{
 }
 
 ui-switch[disabled],
-button[disabled]{
+button[disabled],
+textarea[disabled]{
   cursor:not-allowed;
   opacity:0.5;
   pointer-events:auto;
@@ -71,14 +70,15 @@ ui-button,
 ui-checkbox,
 ui-switch,
 ui-tab,
-button{
+button,
+textarea{
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
   outline-color:transparent;
 
   &:focus-visible:not([disabled]){
-    outline-color:var(--ui-outline-color);
+    outline-color:var(--outline-color);
   }
 }
 
@@ -89,15 +89,15 @@ ui-checkbox > ui-icon,
 ui-switch,
 ui-tab,
 button{
-  transition-duration:var(--ui-transition-duration-default);
+  transition-duration:var(--transition-duration-default);
 }
 
 /* link */
 a{
-  color:var(--ui-link-color-default);
+  color:var(--link-color-default);
   transition-property:color;
-  transition-duration:var(--ui-transition-duration-default);
+  transition-duration:var(--transition-duration-default);
 
-  &:hover{color:var(--ui-link-color-hover);}
-  &:active{color:var(--ui-link-color-active);}
+  &:hover{color:var(--link-color-hover);}
+  &:active{color:var(--link-color-active);}
 }

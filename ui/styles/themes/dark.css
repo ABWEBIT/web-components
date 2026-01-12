@@ -1,44 +1,45 @@
 :root[data-theme='dark']{
-  /* background */
-  --ui-background-color:var(--color-neutral-950);
+  /* backgrounds */
+  --body-background-color:var(--color-neutral-950);
+  --header-background-color:var(--color-neutral-950);
 
   /* surface neutral */
-  --ui-surface-color-default:var(--color-neutral-700);
-  --ui-surface-color-hover:color-mix(
+  --surface-color-default:var(--color-neutral-700);
+  --surface-color-hover:color-mix(
     in oklch,
     var(--color-neutral-700),
     var(--color-neutral-600) 40%
   );
-  --ui-surface-color-active:color-mix(
+  --surface-color-active:color-mix(
     in oklch,
     var(--color-neutral-700),
     var(--color-neutral-800) 50%
   );
-  --ui-surface-color-secondary:var(--color-neutral-800);
+  --surface-color-secondary:var(--color-neutral-800);
 
   /* border */
-  --ui-border-color:var(--color-neutral-800);
+  --border-color:var(--color-neutral-800);
 
   /* panel */
-  --ui-panel-color-default:var(--color-neutral-900);
+  --panel-color-default:var(--color-neutral-900);
 
   /* menu */
-  --ui-menu-background-color-hover:var(--color-neutral-900);
-  --ui-menu-background-color-active:var(--color-neutral-800);
+  --menu-background-color-hover:var(--color-neutral-900);
+  --menu-background-color-active:var(--color-neutral-800);
 
   /* text */
-  --ui-text-color-default:var(--color-neutral-50);
-  --ui-text-color-secondary:var(--color-neutral-400);
+  --text-color-default:var(--color-neutral-50);
+  --text-color-secondary:var(--color-neutral-400);
 
   /* link */
-  --ui-link-color-default:var(--color-neutral-300);
-  --ui-link-color-hover:var(--color-neutral-200);
-  --ui-link-color-active:var(--color-neutral-50);
+  --link-color-default:var(--color-neutral-300);
+  --link-color-hover:var(--color-neutral-200);
+  --link-color-active:var(--color-neutral-50);
 
   /* outline */
-  --ui-outline-color:var(--color-blue-500);
+  --outline-color:var(--color-blue-500);
 
   /* scrollbar */
-  --ui-scrollbar-color:var(--color-neutral-700);
+  --scrollbar-color:var(--color-neutral-700);
 }
 /* accent warning danger success */

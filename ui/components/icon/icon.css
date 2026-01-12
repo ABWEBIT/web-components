@@ -1,14 +1,14 @@
 ui-icon{
-  --ui-icon-height:1.5rem;
-  --ui-icon-width:1.5rem;
+  --icon-height:1.5rem;
+  --icon-width:1.5rem;
 
   display:inline-flex;
   align-items:center;
   justify-content:center;
   vertical-align:middle;
   flex-shrink:0;
-  height:var(--ui-icon-height);
-  width:var(--ui-icon-width);
+  height:var(--icon-height);
+  width:var(--icon-width);
 
   & > svg{
     display:block;

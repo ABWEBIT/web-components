@@ -58,12 +58,6 @@ button::-moz-focus-inner{
   display:none;
 }
 
-/* normalize scrollbar cursor */
-::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-track{
-  cursor:default;
-}
-
 /* rounded scrollbar thumb */
 ::-webkit-scrollbar-thumb{
   border-radius:50vmax;

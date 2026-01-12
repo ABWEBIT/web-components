@@ -1,8 +1,8 @@
 ui-button{
-  --button-height:var(--ui-control-height-default);
+  --button-height:var(--control-height-default);
   --button-width:fit-content;
   --button-border-radius:calc(var(--button-height) / 4);
-  --button-font-size:var(--ui-font-size-default);
+  --button-font-size:var(--font-size-default);
 
   --button-padding-inline:calc(var(--button-height) / 2);
   --button-column-gap:clamp(
@@ -10,10 +10,10 @@ ui-button{
     calc(var(--button-height) / 3),
     0.75rem);
 
-  --button-text-color:var(--ui-text-color-default);
-  --button-color:var(--ui-surface-color-default);
-  --button-color-hover:var(--ui-surface-color-hover);
-  --button-color-active:var(--ui-surface-color-active);
+  --button-text-color:var(--text-color-default);
+  --button-color:var(--surface-color-default);
+  --button-color-hover:var(--surface-color-hover);
+  --button-color-active:var(--surface-color-active);
 
   position:relative;
   display:inline-flex;
@@ -57,12 +57,12 @@ ui-button{
 
 
   & ui-icon{
-    --ui-icon-height:clamp(
+    --icon-height:clamp(
     0.75rem,
     calc(var(--button-height) / 1.8),
     1.5rem);
 
-    --ui-icon-width:clamp(
+    --icon-width:clamp(
     0.75rem,
     calc(var(--button-height) / 1.8),
     1.5rem);
@@ -79,7 +79,7 @@ ui-button{
   /* shape */
   &[shape="pill"],
   &[shape="circle"]{
-    --button-border-radius:var(--ui-border-radius-full);
+    --button-border-radius:var(--border-radius-full);
   }
 
   &[shape="circle"],
@@ -91,18 +91,18 @@ ui-button{
 
   /* size */
   &[size="small"]{
-    --button-height:var(--ui-control-height-small);
-    --button-font-size:var(--ui-font-size-small);
+    --button-height:var(--control-height-small);
+    --button-font-size:var(--font-size-small);
   }
 
   &[size="medium"]{
-    --button-height:var(--ui-control-height-medium);
-    --button-font-size:var(--ui-font-size-medium);
+    --button-height:var(--control-height-medium);
+    --button-font-size:var(--font-size-medium);
   }
 
   &[size="large"]{
-    --button-height:var(--ui-control-height-large);
-    --button-font-size:var(--ui-font-size-large);
+    --button-height:var(--control-height-large);
+    --button-font-size:var(--font-size-large);
   }
 
   &[varian="ghost"]{

@@ -27,7 +27,7 @@ ui-breadcrumb{
   }
 
   & ui-icon:not([role="presentation"]){
-    width:var(--ui-breadcrumb-icon-size);
+    width:var(--breadcrumb-icon-size);
     height:100%;
   }
 }

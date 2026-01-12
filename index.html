@@ -7,9 +7,10 @@
   window.theme = localStorage.getItem('theme') || 'dark';
   document.documentElement.dataset.theme = window.theme;
 </script>
-<link rel="stylesheet" href="./ui/styles/core/base.css">
-<link rel="stylesheet" href="./ui/styles/core/typography.css">
+<link rel="stylesheet" href="./ui/styles/base.css">
+<link rel="stylesheet" href="./ui/styles/typography.css">
 <link rel="stylesheet" href="./ui/styles/layouts/layout.css">
+<link rel="stylesheet" href="./ui/styles/colors.css">
 <link rel="stylesheet" href="" id="theme-style">
 <script>
   document.getElementById('theme-style').href = `./ui/styles/themes/${window.theme}.css`;
