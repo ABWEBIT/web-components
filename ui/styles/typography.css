@@ -6,8 +6,9 @@
 
   /* font weight */
   --font-weight-normal:400;
-  --font-weight-semibold:500;
-  --font-weight-bold:600;
+  --font-weight-medium:500;
+  --font-weight-semibold:600;
+  --font-weight-bold:700;
 
   /* font size */
   --font-size-x-small:0.75rem;
@@ -18,12 +19,12 @@
   --font-size-default:var(--font-size-normal);
 
   /* heading font size */
-  --heading-font-size-hero:2.5rem;
-  --heading-font-size-display:2rem;
-  --heading-font-size-headline:1.75rem;
-  --heading-font-size-title:1.5rem;
-  --heading-font-size-label:1.25rem;
-  --heading-font-size-caption:1.125rem;
+  --font-size-display-large:3rem;
+  --font-size-display-medium:2.5rem;
+  --font-size-display-small:2rem;
+  --font-size-headline-large:1.5rem;
+  --font-size-headline-medium:1.25rem;
+  --font-size-headline-small:1.125rem;
 
   /* line height */
   --line-height-condensed:1.2;
@@ -67,7 +68,7 @@ a{
   text-decoration-thickness:0.15rem;
 }
 
-/* normalize list spacing */
+/* normalize lists */
 ul,
 ol{
   margin:0;
@@ -89,16 +90,16 @@ h1,h2,h3,h4,h5,h6{
 }
 
 h1,h2,h3{
-  font-weight:var(--font-weight-bold);
-}
-
-h4,h5,h6{
   font-weight:var(--font-weight-semibold);
 }
 
-h1{font-size:var(--heading-font-size-hero);}
-h2{font-size:var(--heading-font-size-display);}
-h3{font-size:var(--heading-font-size-headline);}
-h4{font-size:var(--heading-font-size-title);}
-h5{font-size:var(--heading-font-size-label);}
-h6{font-size:var(--heading-font-size-caption);}
+h4,h5,h6{
+  font-weight:var(--font-weight-medium);
+}
+
+h1{font-size:var(--font-size-display-large);}
+h2{font-size:var(--font-size-display-medium);}
+h3{font-size:var(--font-size-display-small);}
+h4{font-size:var(--font-size-headline-large);}
+h5{font-size:var(--font-size-headline-medium);}
+h6{font-size:var(--font-size-headline-small);}
