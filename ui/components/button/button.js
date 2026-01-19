@@ -2,6 +2,7 @@ class UIButton extends HTMLElement{
   #listeners = null;
   #busy = false;
   #disabled = false;
+  #button = null;
   #spinner = null;
 
   static get observedAttributes(){
@@ -19,7 +20,6 @@ class UIButton extends HTMLElement{
     const newValue = Boolean(value);
     if(this.#busy === newValue) return;
     this.#busy = newValue;
-    this.tabIndex = this.#busy ? -1 : 0;
     this.ariaBusy = this.#busy || null;
     this.toggleAttribute('busy',this.#busy);
 
@@ -38,14 +38,15 @@ class UIButton extends HTMLElement{
     const newValue = Boolean(value);
     if(this.#disabled === newValue) return;
     this.#disabled = newValue;
-    this.tabIndex = this.#disabled ? -1 : 0;
-    this.ariaDisabled = this.#disabled || null;
     this.toggleAttribute('disabled',this.#disabled);
   }
 
   connectedCallback(){
-    this.role = 'button';
-    this.tabIndex = this.#disabled || this.#busy ? -1 : 0;
+    this.#button = this.querySelector('button');
+
+    if(!this.#button){
+      throw new Error('Not found <button>');
+    }
 
     this.#listeners = new AbortController();
     const signal = this.#listeners.signal;

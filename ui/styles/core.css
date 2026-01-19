@@ -47,7 +47,6 @@ ui-tab{
 }
 
 /* button-like */
-ui-button,
 ui-checkbox,
 ui-switch,
 ui-tab,
@@ -66,7 +65,6 @@ textarea[disabled]{
 }
 
 /* outline */
-ui-button,
 ui-checkbox,
 ui-switch,
 ui-tab,
@@ -83,7 +81,6 @@ textarea{
 }
 
 /* transition */
-ui-button,
 ui-checkbox,
 ui-checkbox > ui-icon,
 ui-switch,

@@ -26,7 +26,7 @@ class UITextarea extends HTMLElement{
   }
 
   connectedCallback(){
-
+    this.#textarea = this.querySelector('textarea');
 
     this.#listeners = new AbortController();
     const signal = this.#listeners.signal;
