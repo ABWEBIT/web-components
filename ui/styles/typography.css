@@ -34,8 +34,9 @@
 
 /* body */
 body{
-  line-height:var(--line-height-normal);
   font-family:var(--font-family-body);
+  font-size:var(--font-size-default);
+  line-height:var(--line-height-normal);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
