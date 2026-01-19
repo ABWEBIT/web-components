@@ -4,13 +4,7 @@
 </div>
 
 <div>
-  <h2>Info</h2>
-  <p>Static init-only attributes are removed from the custom element itself immediately after initialization. To update these values dynamically, use the corresponding properties on the component instance.</p>
-</div>
-
-<div>
   <h2>Attributes</h2>
-  <p>placeholder - static (optional). Text displayed when the textarea is empty. Update via property: <code>component.placeholder = 'Placeholder'</code>.</p>
   <p>required - static (optional). Defines whether the component is required.</p>
   <p>disabled - reactive (optional). Controls the disabled state of the component.</p>
   <p>shape - static (optional). Default: rounded. Available options: rounded, square. Sets the corner style.</p>
@@ -121,7 +115,9 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-textarea placeholder="Disabled" disabled&gt;&lt;/ui-textarea&gt;
+&lt;ui-textarea placeholder="Disabled"&gt;
+  &lt;textarea disabled&gt;Disabled&lt;/textarea&gt;
+&lt;/ui-textarea&gt;
 </code></pre>
 
       </div>
@@ -133,7 +129,7 @@
     <div class="example">
       <div class="preview">
         <ui-textarea>
-          <textarea disabled></textarea>
+          <textarea disabled>Disabled</textarea>
         </ui-textarea>
       </div>
       <div class="toolbar">
@@ -142,7 +138,9 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-textarea value="Disabled" disabled&gt;&lt;/ui-textarea&gt;
+&lt;ui-textarea&gt;
+  &lt;textarea disabled&gt;Disabled&lt;/textarea&gt;
+&lt;/ui-textarea&gt;
 </code></pre>
 
       </div>

@@ -1,17 +1,16 @@
 ui-textarea{
+  --textarea-height:auto;
+  --textarea-width:100%;
+
   --textarea-border-radius:var(--border-radius-default);
   --textarea-padding:10px 12px;
   --textarea-border-color:var(--border-color);
 
-  position:relative;
-  display:inline-flex;
-  height:fit-content;
-  width:100%;
-  background-color:var(--textarea-background-color);
+  width:var(--textarea-width);
 
   & > textarea{
     direction:inherit;
-    min-height:var(--textarea-min-height);
+    min-height:2lh;
     width:100%;
     padding:var(--textarea-padding);
     resize:vertical;
