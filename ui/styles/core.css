@@ -1,5 +1,6 @@
 :root{
   /* control heights */
+  --control-height-x-small:1.5rem;
   --control-height-small:2rem;
   --control-height-medium:2.5rem;
   --control-height-large:3rem;
@@ -19,7 +20,11 @@
 
   --border-radius-none:0;
   --border-radius-full:50vmax;
-  --border-radius-rounded:calc(1rem / 2);
+  --border-radius-rounded-small:0.25rem;
+  --border-radius-rounded-medium:0.5rem;
+  --border-radius-rounded-large:0.75rem;
+
+  --border-radius-rounded:0.5rem;
   --border-radius-default:var(--border-radius-rounded);
 
   /* transition duration */
@@ -29,11 +34,24 @@
   --transition-duration-default:var(--transition-duration-normal);
 }
 
+/* normalize button appearance */
+button{
+  background:none;
+  border:none;
+  padding:0;
+}
+
+button::-moz-focus-inner{
+  border:0;
+  padding:0;
+}
+
 /* base */
 ui-button,
 ui-checkbox,
 ui-switch,
-ui-tabs{
+ui-tabs,
+input{
   direction:inherit;
 }
 
@@ -58,7 +76,8 @@ button{
 
 ui-switch[disabled],
 button[disabled],
-textarea[disabled]{
+textarea[disabled],
+input[disabled]{
   cursor:not-allowed;
   opacity:0.5;
   pointer-events:auto;
@@ -69,6 +88,7 @@ ui-checkbox,
 ui-switch,
 ui-tab,
 button,
+input,
 textarea{
   outline-offset:2px;
   outline-width:2px;
@@ -80,12 +100,15 @@ textarea{
   }
 }
 
+
+
 /* transition */
 ui-checkbox,
 ui-checkbox > ui-icon,
 ui-switch,
 ui-tab,
-button{
+button,
+input{
   transition-duration:var(--transition-duration-default);
 }
 

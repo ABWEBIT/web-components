@@ -4,7 +4,7 @@
   --header-background-color:var(--color-neutral-950);
 
   /* surface neutral */
-  --surface-color-default:var(--color-neutral-700);
+  --surface-color-primary:var(--color-neutral-700);
   --surface-color-hover:color-mix(
     in oklch,
     var(--color-neutral-700),
@@ -16,6 +16,8 @@
     var(--color-neutral-800) 50%
   );
   --surface-color-secondary:var(--color-neutral-800);
+  --surface-color-tertiary:var(--color-neutral-900);
+  --surface-color-default:var(--surface-color-primary);
 
   /* border */
   --border-color:var(--color-neutral-800);

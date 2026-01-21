@@ -1,14 +1,11 @@
 ui-button{
   --button-height:var(--control-height-default);
-  --button-width:fit-content;
+  --button-width:auto;
+  --button-padding-inline:1rem;
+  --button-column-gap:0.6rem;
+
   --button-border-radius:calc(var(--button-height) / 4);
   --button-font-size:var(--font-size-default);
-
-  --button-padding-inline:calc(var(--button-height) / 2);
-  --button-column-gap:clamp(
-    0.3rem,
-    calc(var(--button-height) / 3),
-    0.75rem);
 
   --button-text-color:var(--text-color-default);
   --button-color:var(--surface-color-default);
@@ -18,7 +15,6 @@ ui-button{
   position:relative;
 
   & > button{
-    position:relative;
     display:inline-flex;
     align-items:center;
     justify-content:center;
@@ -32,13 +28,7 @@ ui-button{
     font-size:var(--button-font-size);
     color:var(--button-text-color);
     background-color:var(--button-color);
-    transition-property:background-color,outline-color,color;
-  }
-
-  &:not([busy]) > button[disabled]{
-    cursor:not-allowed;
-    opacity:0.5;
-    pointer-events:auto;
+    transition-property:background-color,outline-color;
   }
 
   &[busy]{
@@ -55,28 +45,15 @@ ui-button{
     background-color:var(--button-color-active);
   }
 
-  & > ui-icon{
-    margin-inline:calc(-1 * (var(--button-height) / 10));
-  }
-
-
-  & ui-icon{
-    --icon-height:clamp(
-    0.75rem,
-    calc(var(--button-height) / 1.8),
-    1.5rem);
-
-    --icon-width:clamp(
-    0.75rem,
-    calc(var(--button-height) / 1.8),
-    1.5rem);
+  & > button > ui-icon{
+    margin-inline:-2px;
   }
 
   /* spinner */
   & > ui-spinner{
     position:absolute;
-    border-radius:var(--button-border-radius);
     inset:0;
+    border-radius:var(--button-border-radius);
     background-color:var(--button-color-active);
   }
 
@@ -90,28 +67,49 @@ ui-button{
   &[shape="square"] > button{
     aspect-ratio:1;
     padding-inline:0;
-    padding-block:0;
   }
 
   /* size */
   &[size="small"] > button{
     --button-height:var(--control-height-small);
     --button-font-size:var(--font-size-small);
-    --button-padding-inline:calc(var(--button-height) / 2);
+    --button-border-radius:calc(var(--button-height) / 4);
+    --button-padding-inline:0.8rem;
+    --button-column-gap:0.5rem;
+  }
+
+  &[size="small"] > button > ui-icon{
+    --icon-height:1.2rem;
+    --icon-width:1.2rem;
   }
 
   &[size="medium"] > button{
     --button-height:var(--control-height-medium);
-    --button-font-size:var(--font-size-medium);
-    --button-padding-inline:calc(var(--button-height) / 2);
+    --button-font-size:var(--font-size-normal);
+    --button-border-radius:calc(var(--button-height) / 4);
+    --button-padding-inline:1rem;
+    --button-column-gap:0.6rem;
+  }
+
+  &[size="medium"] > button > ui-icon{
+    --icon-height:1.4rem;
+    --icon-width:1.4rem;
   }
 
   &[size="large"] > button{
     --button-height:var(--control-height-large);
     --button-font-size:var(--font-size-large);
-    --button-padding-inline:calc(var(--button-height) / 2);
+    --button-border-radius:calc(var(--button-height) / 4);
+    --button-padding-inline:1.2rem;
+    --button-column-gap:0.7rem;
   }
 
+  &[size="large"] > button > ui-icon{
+    --icon-height:1.6rem;
+    --icon-width:1.6rem;
+  }
+
+  /* varian */
   &[varian="ghost"] > button{
     --button-color:transparent;
   }

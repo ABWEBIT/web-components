@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "0.6.5-alpha",
+  "version": "0.6.6-alpha",
   "description": "Native Web Components Library",
   "main": "ui/components.js",
   "author": "ABWEBIT",

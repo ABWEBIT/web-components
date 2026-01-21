@@ -1,10 +1,10 @@
 :root[data-theme='light']{
-  /* background */
+  /* backgrounds */
   --body-background-color:var(--color-neutral-50);
   --header-background-color:var(--color-neutral-50);
 
   /* surface neutral */
-  --surface-color-default:var(--color-neutral-300);
+  --surface-color-primary:var(--color-neutral-300);
   --surface-color-hover:color-mix(
     in oklch,
     var(--color-neutral-300),
@@ -15,7 +15,9 @@
     var(--color-neutral-300),
     var(--color-neutral-400) 20%
   );
-  --surface-color-secondary:var(--color-neutral-300);
+  --surface-color-secondary:var(--color-neutral-200);
+  --surface-color-tertiary:var(--color-neutral-100);
+  --surface-color-default:var(--surface-color-primary);
 
   /* border */
   --border-color:var(--color-neutral-300);

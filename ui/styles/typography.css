@@ -10,21 +10,20 @@
   --font-weight-semibold:600;
   --font-weight-bold:700;
 
-  /* font size */
+  /* body font sizes */
   --font-size-x-small:0.75rem;
   --font-size-small:0.875rem;
   --font-size-normal:1rem;
   --font-size-large:1.125rem;
   --font-size-x-large:1.25rem;
-  --font-size-default:var(--font-size-normal);
 
-  /* heading font size */
-  --font-size-display-large:3rem;
-  --font-size-display-medium:2.5rem;
-  --font-size-display-small:2rem;
-  --font-size-headline-large:1.5rem;
-  --font-size-headline-medium:1.25rem;
-  --font-size-headline-small:1.125rem;
+  /* heading font sizes */
+  --h1-font-size:3rem;
+  --h2-font-size:2.5rem;
+  --h3-font-size:2rem;
+  --h4-font-size:1.5rem;
+  --h5-font-size:1.375rem;
+  --h6-font-size:1.25rem;
 
   /* line height */
   --line-height-condensed:1.2;
@@ -35,7 +34,7 @@
 /* body */
 body{
   font-family:var(--font-family-body);
-  font-size:var(--font-size-default);
+  font-size:var(--font-size-normal);
   line-height:var(--line-height-normal);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -46,7 +45,7 @@ button,
 input,
 select,
 textarea{
-  font-size:var(--font-size-default);
+  font-size:var(--font-size-normal);
   font-family:var(--font-family-body);
 }
 
@@ -98,9 +97,9 @@ h4,h5,h6{
   font-weight:var(--font-weight-medium);
 }
 
-h1{font-size:var(--font-size-display-large);}
-h2{font-size:var(--font-size-display-medium);}
-h3{font-size:var(--font-size-display-small);}
-h4{font-size:var(--font-size-headline-large);}
-h5{font-size:var(--font-size-headline-medium);}
-h6{font-size:var(--font-size-headline-small);}
+h1{font-size:var(--h1-font-size);}
+h2{font-size:var(--h2-font-size);}
+h3{font-size:var(--h3-font-size);}
+h4{font-size:var(--h4-font-size);}
+h5{font-size:var(--h5-font-size);}
+h6{font-size:var(--h6-font-size);}

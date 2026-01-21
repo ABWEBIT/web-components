@@ -2,7 +2,7 @@ ui-input{
   --input-border-radius:var(--border-radius-default);
   --input-height:var(--control-height-default);
 
-  --input-background-color:var(--color-gray-800);
+  --input-background-color:var(--surface-color-tertiary);
 
   --input-width:auto;
   --input-font-size:14px;
@@ -14,7 +14,7 @@ ui-input{
   --input-border-color-hover:var(--color-gray-100);
 
   --input-outline-color:var(--color-gray-500);
-  --input-font-color:var(--color-white);
+  --input-font-color:var(--text-color-default);
   --input-svg-color:var(--color-gray-400);
   --input-placeholder-color:var(--color-gray-500);
   --input-disabled-color:var(--color-gray-300);
@@ -26,37 +26,36 @@ ui-input{
   height:var(--input-height);
   border-radius:var(--input-border-radius);
   background-color:var(--input-background-color);
-  transition-property:outline-color;
 
-  & input{
-    direction:inherit;
-    border:none;
-    outline:none;
-    padding:0;
-    height:100%;
-    font-size:var(--input-font-size);
-    padding-inline:var(--input-padding-inline);
-    color:var(--input-font-color);
-    background-color:transparent;
+
+  &::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    pointer-events:none;
     border-radius:inherit;
     border-width:1px;
     border-style:solid;
     border-color:var(--input-border-color);
   }
 
-  & input[disabled]{
-    cursor:not-allowed;
-    opacity:0.5;
-    pointer-events:auto;
-    user-select:none;
+  & > input{
+    border:none;
+    border-radius:inherit;
+    padding:0;
+    height:100%;
+    padding-inline:var(--input-padding-inline);
+    color:var(--input-font-color);
+    background-color:transparent;
+    transition-property:outline-color;
   }
 
   & input::placeholder{
-    color:var(--input-placeholder-color);
+    color:var(--text-color-secondary);
   }
 
-  &[disabled] input,
-  &[disabled] input::placeholder{
+  & input[disabled],
+  & input[disabled]::placeholder{
     color:var(--input-disabled-color);
   }
 

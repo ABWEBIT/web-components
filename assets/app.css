@@ -3,6 +3,11 @@ body{
   color:var(--text-color-default);
 }
 
+ui-layout{
+  max-width:1920px;
+  margin-inline:auto;
+}
+
 ui-main{
   position:relative;
   display:flex;
