@@ -7,6 +7,22 @@
   --control-height-x-large:3.5rem;
   --control-height-default:var(--control-height-medium);
 
+  /* control padding inline */
+  --control-padding-inline-x-small:0.5rem;
+  --control-padding-inline-small:0.75rem;
+  --control-padding-inline-medium:1rem;
+  --control-padding-inline-large:1.25rem;
+  --control-padding-inline-x-large:1.5rem;
+  --control-padding-inline-default:var(--control-padding-inline-medium);
+
+  /* icon sizes */
+  --icon-x-small:1rem;
+  --icon-small:1.125rem;
+  --icon-medium:1.25rem;
+  --icon-large:1.375rem;
+  --icon-x-large:1.5rem;
+  --icon-size-default:var(--icon-medium);
+
   /* spacing */
   --spacing-none:0;
   --spacing-base:1.25rem;
@@ -47,6 +63,20 @@ button::-moz-focus-inner{
   padding:0;
 }
 
+ui-switch[disabled],
+button[disabled],
+textarea[disabled],
+input[disabled]{
+  cursor:not-allowed;
+  opacity:0.5;
+  pointer-events:auto;
+}
+
+[busy]{
+  cursor:wait;
+}
+
+
 /* base */
 ui-button,
 ui-checkbox,
@@ -75,14 +105,7 @@ button{
   touch-action:manipulation;
 }
 
-ui-switch[disabled],
-button[disabled],
-textarea[disabled],
-input[disabled]{
-  cursor:not-allowed;
-  opacity:0.5;
-  pointer-events:auto;
-}
+
 
 /* outline */
 ui-checkbox,

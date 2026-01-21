@@ -1,11 +1,5 @@
 ui-button{
   --button-height:var(--control-height-default);
-  --button-width:auto;
-  --button-padding-inline:1rem;
-  --button-column-gap:0.6rem;
-
-  --button-border-radius:calc(var(--button-height) / 4);
-  --button-font-size:var(--font-size-default);
 
   --button-text-color:var(--text-color-default);
   --button-color:var(--surface-color-default);
@@ -22,18 +16,13 @@ ui-button{
     vertical-align:middle;
     line-height:1;
     height:var(--button-height);
-    width:var(--button-width);
-    border-radius:var(--button-border-radius);
-    padding-inline:var(--button-padding-inline);
-    column-gap:var(--button-column-gap);
+    padding-inline:var(--button-padding-inline, var(--control-padding-inline-default));
+    border-radius:calc(var(--button-height) / 4);
+    column-gap:calc(var(--button-height) / 6);
     font-size:var(--button-font-size);
     color:var(--button-text-color);
     background-color:var(--button-color);
     transition-property:background-color,outline-color;
-  }
-
-  &[busy]{
-    cursor:wait;
   }
 
   @media (hover: hover){
@@ -47,7 +36,8 @@ ui-button{
   }
 
   & > button > ui-icon{
-    margin-inline:-2px;
+    --icon-height:var(--icon-size-default);
+    --icon-width:var(--icon-size-default);
   }
 
   /* spinner */
@@ -74,66 +64,56 @@ ui-button{
   &[size="x-small"] > button{
     --button-height:var(--control-height-x-small);
     --button-font-size:var(--font-size-x-small);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-padding-inline:0.6rem;
-    --button-column-gap:0.4rem;
+    --button-padding-inline:var(--control-padding-inline-x-small);
   }
 
   &[size="x-small"] > button > ui-icon{
-    --icon-height:1rem;
-    --icon-width:1rem;
+    --icon-height:var(--icon-x-small);
+    --icon-width:var(--icon-x-small);
   }
 
   &[size="small"] > button{
     --button-height:var(--control-height-small);
     --button-font-size:var(--font-size-small);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-padding-inline:0.8rem;
-    --button-column-gap:0.5rem;
+    --button-padding-inline:var(--control-padding-inline-small);
   }
 
   &[size="small"] > button > ui-icon{
-    --icon-height:1.2rem;
-    --icon-width:1.2rem;
+    --icon-height:var(--icon-small);
+    --icon-width:var(--icon-small);
   }
 
   &[size="medium"] > button{
     --button-height:var(--control-height-medium);
     --button-font-size:var(--font-size-normal);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-padding-inline:1rem;
-    --button-column-gap:0.6rem;
+    --button-padding-inline:var(--control-padding-inline-medium);
   }
 
   &[size="medium"] > button > ui-icon{
-    --icon-height:1.4rem;
-    --icon-width:1.4rem;
+    --icon-height:var(--icon-medium);
+    --icon-width:var(--icon-medium);
   }
 
   &[size="large"] > button{
     --button-height:var(--control-height-large);
     --button-font-size:var(--font-size-large);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-padding-inline:1.2rem;
-    --button-column-gap:0.7rem;
+    --button-padding-inline:var(--control-padding-inline-large);
   }
 
   &[size="large"] > button > ui-icon{
-    --icon-height:1.6rem;
-    --icon-width:1.6rem;
+    --icon-height:var(--icon-large);
+    --icon-width:var(--icon-large);
   }
 
   &[size="x-large"] > button{
     --button-height:var(--control-height-x-large);
     --button-font-size:var(--font-size-x-large);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-padding-inline:1.4rem;
-    --button-column-gap:0.8rem;
+    --button-padding-inline:var(--control-padding-inline-x-large);
   }
 
   &[size="x-large"] > button > ui-icon{
-    --icon-height:1.8rem;
-    --icon-width:1.8rem;
+    --icon-height:var(--icon-x-large);
+    --icon-width:var(--icon-x-large);
   }
 
   /* varian */
