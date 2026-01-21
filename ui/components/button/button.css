@@ -13,6 +13,7 @@ ui-button{
   --button-color-active:var(--surface-color-active);
 
   position:relative;
+  line-height:0;
 
   & > button{
     display:inline-flex;
@@ -70,6 +71,19 @@ ui-button{
   }
 
   /* size */
+  &[size="x-small"] > button{
+    --button-height:var(--control-height-x-small);
+    --button-font-size:var(--font-size-x-small);
+    --button-border-radius:calc(var(--button-height) / 4);
+    --button-padding-inline:0.6rem;
+    --button-column-gap:0.4rem;
+  }
+
+  &[size="x-small"] > button > ui-icon{
+    --icon-height:1rem;
+    --icon-width:1rem;
+  }
+
   &[size="small"] > button{
     --button-height:var(--control-height-small);
     --button-font-size:var(--font-size-small);
@@ -107,6 +121,19 @@ ui-button{
   &[size="large"] > button > ui-icon{
     --icon-height:1.6rem;
     --icon-width:1.6rem;
+  }
+
+  &[size="x-large"] > button{
+    --button-height:var(--control-height-x-large);
+    --button-font-size:var(--font-size-x-large);
+    --button-border-radius:calc(var(--button-height) / 4);
+    --button-padding-inline:1.4rem;
+    --button-column-gap:0.8rem;
+  }
+
+  &[size="x-large"] > button > ui-icon{
+    --icon-height:1.8rem;
+    --icon-width:1.8rem;
   }
 
   /* varian */

@@ -102,27 +102,23 @@
   </div>
 
   <div class="content-item">
-    <div>Sizes: small, medium, large. Default: medium</div>
+    <div>Sizes: x-small, small, medium, large, x-large. Default: medium</div>
     <div class="example">
       <div class="preview">
+        <ui-button size="x-small">
+          <button><ui-icon name="settings"></ui-icon>Button</button>
+        </ui-button>
         <ui-button size="small">
-          <button><ui-icon name="home"></ui-icon>Button</button>
+          <button><ui-icon name="settings"></ui-icon>Button</button>
         </ui-button>
         <ui-button size="medium">
-          <button><ui-icon name="home"></ui-icon>Button</button>
+          <button><ui-icon name="settings"></ui-icon>Button</button>
         </ui-button>
         <ui-button size="large">
-          <button><ui-icon name="home"></ui-icon>Button</button>
+          <button><ui-icon name="settings"></ui-icon>Button</button>
         </ui-button>
-
-        <ui-button shape="square" size="small">
-          <button><ui-icon name="home"></ui-icon></button>
-        </ui-button>
-        <ui-button shape="square" size="medium">
-          <button><ui-icon name="home"></ui-icon></button>
-        </ui-button>
-        <ui-button shape="square" size="large">
-          <button><ui-icon name="home"></ui-icon></button>
+        <ui-button size="x-large">
+          <button><ui-icon name="settings"></ui-icon>Button</button>
         </ui-button>
       </div>
       <div class="toolbar">
@@ -131,6 +127,10 @@
       <div class="code">
 
 <pre><code>
+&lt;ui-button size="x-small"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+
 &lt;ui-button size="small"&gt;
   &lt;button&gt;Button&lt;/button&gt;
 &lt;/ui-button&gt;
@@ -140,6 +140,10 @@
 &lt;/ui-button&gt;
 
 &lt;ui-button size="large"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button size="x-large"&gt;
   &lt;button&gt;Button&lt;/button&gt;
 &lt;/ui-button&gt;
 </code></pre>

@@ -4,6 +4,7 @@
   --control-height-small:2rem;
   --control-height-medium:2.5rem;
   --control-height-large:3rem;
+  --control-height-x-large:3.5rem;
   --control-height-default:var(--control-height-medium);
 
   /* spacing */
