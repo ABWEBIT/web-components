@@ -15,13 +15,13 @@
   --control-padding-inline-x-large:1.5rem;
   --control-padding-inline-default:var(--control-padding-inline-medium);
 
-  /* icon sizes */
-  --icon-x-small:1rem;
-  --icon-small:1.125rem;
-  --icon-medium:1.25rem;
-  --icon-large:1.375rem;
-  --icon-x-large:1.5rem;
-  --icon-size-default:var(--icon-medium);
+  /* control icon sizes */
+  --control-icon-size-x-small:1rem;
+  --control-icon-size-small:1.125rem;
+  --control-icon-size-medium:1.25rem;
+  --control-icon-size-large:1.375rem;
+  --control-icon-size-x-large:1.5rem;
+  --control-icon-size-default:var(--control-icon-size-medium);
 
   /* spacing */
   --spacing-none:0;
@@ -46,9 +46,6 @@
   --border-radius-rounded-large:0.75rem;
   --border-radius-rounded-x-large:0.875rem;
   --border-radius-rounded-default:var(--border-radius-rounded-medium);
-
-  --border-radius-rounded:0.5rem;
-  --border-radius-default:var(--border-radius-rounded);
 
   /* transition duration */
   --transition-duration-fast:0.075s;

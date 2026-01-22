@@ -1,21 +1,23 @@
 ui-button{
-  --button-height:var(--control-height-default);
-
   position:relative;
   line-height:0;
-  height:var(--button-height, var(--control-height-default));
-  border-radius:var(--button-border-radius, var(--border-radius-rounded-default));
 
   & > button{
     display:inline-flex;
     align-items:center;
     justify-content:center;
     vertical-align:middle;
-    border-radius:inherit;
-    height:inherit;
     line-height:1;
-    padding-inline:var(--button-padding-inline, var(--control-padding-inline-default));
-    column-gap:calc(var(--button-height) / 6);
+    height:var(--button-height, var(--control-height-default));
+    padding-inline:var(
+      --button-padding-inline-shape,
+      var(--button-padding-inline, var(--control-padding-inline-default))
+    );
+    border-radius:var(
+      --button-border-radius-shape,
+      var(--button-border-radius, var(--border-radius-rounded-default))
+    );
+    column-gap:var(--button-column-gap, 0.5rem);
     font-size:var(--button-font-size);
 
     color:var(--button-text-color, var(--text-color-default));
@@ -33,29 +35,45 @@ ui-button{
     background-color:var(--button-color-active, var(--surface-color-active));
   }
 
+  & > button > ui-icon {
+    --icon-height: var(--button-icon-height, var(--control-icon-size-default));
+    --icon-width: var(--button-icon-width, var(--control-icon-size-default));
+  }
+
   & > button > ui-icon{
-    --icon-height:var(--icon-size-default);
-    --icon-width:var(--icon-size-default);
+    margin-inline:-2px;
   }
 
   /* spinner */
   & > ui-spinner{
     position:absolute;
     inset:0;
-    border-radius:inherit;
+    border-radius:var(
+      --button-border-radius-shape,
+      var(--button-border-radius, var(--border-radius-rounded-default))
+    );
     background-color:var(--button-color, var(--surface-color-default));
+  }
+
+  & > ui-spinner > ui-icon {
+    --icon-height:calc(var(--button-icon-height, var(--control-icon-size-default)) * 1.2);
+    --icon-width:calc(var(--button-icon-width, var(--control-icon-size-default)) * 1.2);
   }
 
   /* shape */
   &[shape="pill"],
   &[shape="circle"]{
-    --button-border-radius:var(--border-radius-full);
+    --button-border-radius-shape:var(--border-radius-full);
+  }
+
+  &[shape="circle"],
+  &[shape="square"]{
+    --button-padding-inline-shape:0;
   }
 
   &[shape="circle"] > button,
   &[shape="square"] > button{
     aspect-ratio:1;
-    --button-padding-inline:0;
   }
 
   /* size */
@@ -64,11 +82,9 @@ ui-button{
     --button-font-size:var(--font-size-x-small);
     --button-padding-inline:var(--control-padding-inline-x-small);
     --button-border-radius:var(--border-radius-rounded-x-small);
-  }
-
-  &[size="x-small"] > button > ui-icon{
-    --icon-height:var(--icon-x-small);
-    --icon-width:var(--icon-x-small);
+    --button-column-gap:max(5px, 0.25rem);
+    --button-icon-height:var(--control-icon-size-x-small);
+    --button-icon-width:var(--control-icon-size-x-small);
   }
 
   &[size="small"]{
@@ -76,11 +92,9 @@ ui-button{
     --button-font-size:var(--font-size-small);
     --button-padding-inline:var(--control-padding-inline-small);
     --button-border-radius:var(--border-radius-rounded-small);
-  }
-
-  &[size="small"] > button > ui-icon{
-    --icon-height:var(--icon-small);
-    --icon-width:var(--icon-small);
+    --button-column-gap:0.375rem;
+    --button-icon-height:var(--control-icon-size-small);
+    --button-icon-width:var(--control-icon-size-small);
   }
 
   &[size="medium"]{
@@ -88,11 +102,9 @@ ui-button{
     --button-font-size:var(--font-size-normal);
     --button-padding-inline:var(--control-padding-inline-medium);
     --button-border-radius:var(--border-radius-rounded-medium);
-  }
-
-  &[size="medium"] > button > ui-icon{
-    --icon-height:var(--icon-medium);
-    --icon-width:var(--icon-medium);
+    --button-column-gap:0.5rem;
+    --button-icon-height:var(--control-icon-size-medium);
+    --button-icon-width:var(--control-icon-size-medium);
   }
 
   &[size="large"]{
@@ -100,11 +112,9 @@ ui-button{
     --button-font-size:var(--font-size-large);
     --button-padding-inline:var(--control-padding-inline-large);
     --button-border-radius:var(--border-radius-rounded-large);
-  }
-
-  &[size="large"] > button > ui-icon{
-    --icon-height:var(--icon-large);
-    --icon-width:var(--icon-large);
+    --button-column-gap:0.625rem;
+    --button-icon-height:var(--control-icon-size-large);
+    --button-icon-width:var(--control-icon-size-large);
   }
 
   &[size="x-large"]{
@@ -112,11 +122,9 @@ ui-button{
     --button-font-size:var(--font-size-x-large);
     --button-padding-inline:var(--control-padding-inline-x-large);
     --button-border-radius:var(--border-radius-rounded-x-large);
-  }
-
-  &[size="x-large"] > button > ui-icon{
-    --icon-height:var(--icon-x-large);
-    --icon-width:var(--icon-x-large);
+    --button-column-gap:0.75rem;
+    --button-icon-height:var(--control-icon-size-x-large);
+    --button-icon-width:var(--control-icon-size-x-large);
   }
 
   /* variant */

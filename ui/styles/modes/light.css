@@ -1,4 +1,4 @@
-:root[data-theme='light']{
+:root[data-mode='light']{
   /* backgrounds */
   --body-background-color:var(--color-neutral-50);
   --header-background-color:var(--color-neutral-50);

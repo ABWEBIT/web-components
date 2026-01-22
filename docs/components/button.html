@@ -13,7 +13,7 @@
 
 <div>
   <h2>Info</h2>
-  <p>The component can contain text, icons, or both - in any order.</p>
+  <p>The button can contain text, icons, or both - in any order.</p>
   <p>This component dispatches a custom event "button-action" whenever it is activated via click or keyboard (Enter / Space). External scripts should listen to this event to handle button actions.</p>
   <p><code>
   button.addEventListener('button-action',() =>{<br>
@@ -34,14 +34,11 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Default</div>
+    <div>Default, Text Only</div>
     <div class="example">
       <div class="preview">
         <ui-button>
-          <button><ui-icon name="settings"></ui-icon>Button</button>
-        </ui-button>
-        <ui-button size="medium">
-          <button><ui-icon name="settings"></ui-icon>Button</button>
+          <button>Button</button>
         </ui-button>
       </div>
       <div class="toolbar">
@@ -60,13 +57,55 @@
   </div>
 
   <div class="content-item">
+    <div>Text with Icon</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button>
+          <button>
+            <ui-icon name="settings"></ui-icon>
+            Button
+          </button>
+        </ui-button>
+        <ui-button>
+          <button>
+            Button
+            <ui-icon name="settings"></ui-icon>
+          </button>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button&gt;
+  &lt;button&gt;
+    &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+    Button
+  &lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button&gt;
+  &lt;button&gt;
+    Button
+    &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+  &lt;/button&gt;
+&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
     <div>Shapes: pill, circle, square</div>
     <div class="example">
       <div class="preview">
         <ui-button shape="pill">
           <button>Button</button>
         </ui-button>
-        <ui-button shape="circle" size="small">
+        <ui-button shape="circle">
           <button aria-label="Button">
             <ui-icon name="settings"></ui-icon>
           </button>
@@ -131,53 +170,37 @@
 
 <pre><code>
 &lt;ui-button size="x-small"&gt;
-  &lt;button&gt;Button&lt;/button&gt;
-&lt;/ui-button&gt;
-
-&lt;ui-button size="small"&gt;
-  &lt;button&gt;Button&lt;/button&gt;
-&lt;/ui-button&gt;
-
-&lt;ui-button size="medium"&gt;
-  &lt;button&gt;Button&lt;/button&gt;
-&lt;/ui-button&gt;
-
-&lt;ui-button size="large"&gt;
-  &lt;button&gt;Button&lt;/button&gt;
-&lt;/ui-button&gt;
-
-&lt;ui-button size="x-large"&gt;
-  &lt;button&gt;Button&lt;/button&gt;
-&lt;/ui-button&gt;
-</code></pre>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Text with icons</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button>
-          <button>
-            <ui-icon name="home"></ui-icon>
-            Button
-            <ui-icon name="settings"></ui-icon>
-          </button>
-        </ui-button>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-
-<pre><code>
-&lt;ui-button&gt;
   &lt;button&gt;
     &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
     Button
+  &lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button size="small"&gt;
+  &lt;button&gt;
     &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+    Button
+  &lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button size="medium"&gt;
+  &lt;button&gt;
+    &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+    Button
+  &lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button size="large"&gt;
+  &lt;button&gt;
+    &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+    Button
+  &lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button size="x-large"&gt;
+  &lt;button&gt;
+    &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+    Button
   &lt;/button&gt;
 &lt;/ui-button&gt;
 </code></pre>

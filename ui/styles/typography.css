@@ -41,17 +41,13 @@ body{
 }
 
 /* form font */
-button,
-input,
-select,
-textarea{
+button,input,select,textarea{
   font-family:var(--font-family-body);
   font-size:var(--font-size-normal);
 }
 
 /* code font */
-pre,
-code{
+pre,code{
   font-family:var(--font-family-code)
 }
 
@@ -69,8 +65,7 @@ a{
 }
 
 /* normalize lists */
-ul,
-ol{
+ul,ol{
   margin:0;
   padding:0;
   padding-inline-start:2rem;

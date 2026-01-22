@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <script>
-  window.theme = localStorage.getItem('theme') || 'dark';
-  document.documentElement.dataset.theme = window.theme;
+  window.mode = localStorage.getItem('mode') || 'dark';
+  document.documentElement.dataset.mode = window.mode;
 </script>
 <link rel="stylesheet" href="./ui/styles/base.css">
 <link rel="stylesheet" href="./ui/styles/typography.css">
 <link rel="stylesheet" href="./ui/styles/layouts/columns.css">
 <link rel="stylesheet" href="./ui/styles/colors.css">
-<link rel="stylesheet" href="" id="theme-style">
+<link rel="stylesheet" href="" id="mode-style">
 <script>
-  document.getElementById('theme-style').href = `./ui/styles/themes/${window.theme}.css`;
+  document.getElementById('mode-style').href = `./ui/styles/modes/${window.mode}.css`;
 </script>
 <link rel="stylesheet" href="./ui/styles/core.css">
 <link rel="stylesheet" href="./assets/app.css">
@@ -70,7 +70,7 @@
 
     <ui-main>
       <header>
-        <ui-button id="toggle-theme" shape="square" size="small">
+        <ui-button id="toggle-mode" shape="square" size="small">
           <button>
             <ui-icon name=""></ui-icon>
           </button>
@@ -87,25 +87,25 @@
 <ui-portal></ui-portal>
 
 <script>
-  const btn = document.getElementById('toggle-theme');
-  const themeLink = document.getElementById('theme-style');
+  const btn = document.getElementById('toggle-mode');
+  const themeLink = document.getElementById('mode-style');
 
   if(btn){
     const icon = btn.querySelector('ui-icon');
-    let currentTheme = document.documentElement.dataset.theme;
+    let currentMode = document.documentElement.dataset.mode;
 
     if(icon){
-      icon.setAttribute('name', currentTheme === 'dark' ? 'light-mode' : 'dark-mode');
+      icon.setAttribute('name', currentMode === 'dark' ? 'light-mode' : 'dark-mode');
     }
 
     btn.addEventListener('click', () => {
-      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.dataset.theme = currentTheme;
-      localStorage.setItem('theme',currentTheme);
-      themeLink.href = `./ui/styles/themes/${currentTheme}.css`;
+      currentMode = currentMode === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.mode = currentMode;
+      localStorage.setItem('mode',currentMode);
+      themeLink.href = `./ui/styles/modes/${currentMode}.css`;
 
-      if(themeLink) themeLink.href = `./ui/styles/themes/${currentTheme}.css`;
-      if(icon) icon.setAttribute('name', currentTheme === 'dark' ? 'light-mode' : 'dark-mode');
+      if(themeLink) themeLink.href = `./ui/styles/modes/${currentMode}.css`;
+      if(icon) icon.setAttribute('name', currentMode === 'dark' ? 'light-mode' : 'dark-mode');
     });
   }
 </script>

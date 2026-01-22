@@ -1,4 +1,4 @@
-:root[data-theme='dark']{
+:root[data-mode='dark']{
   /* backgrounds */
   --body-background-color:var(--color-neutral-950);
   --header-background-color:var(--color-neutral-950);

@@ -89,7 +89,7 @@ nav .menu-item span{
   align-items:center;
   column-gap:10px;
   padding:5px 10px;
-  border-radius:var(--border-radius-rounded);
+  border-radius:var(--border-radius-rounded-default);
   transition-duration:var(--duration);
   transition-property:background-color,color;
 }
@@ -146,7 +146,7 @@ main{
 .content-item > .example{
   overflow:hidden;
   border:1px solid var(--border-color);
-  border-radius:var(--border-radius-rounded);
+  border-radius:var(--border-radius-rounded-default);
 }
 
 .content-item > .example > .preview,
@@ -210,7 +210,7 @@ main{
   padding:12px 10px 10px;
   align-items:center;
   background-color:var(--panel-color-default);
-  border-radius:var(--border-radius-rounded);
+  border-radius:var(--border-radius-rounded-default);
 
 
   & > :not(ui-icon){
