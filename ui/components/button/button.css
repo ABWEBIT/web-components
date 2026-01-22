@@ -1,38 +1,36 @@
 ui-button{
   --button-height:var(--control-height-default);
 
-  --button-text-color:var(--text-color-default);
-  --button-color:var(--surface-color-default);
-  --button-color-hover:var(--surface-color-hover);
-  --button-color-active:var(--surface-color-active);
-
   position:relative;
   line-height:0;
+  height:var(--button-height, var(--control-height-default));
+  border-radius:var(--button-border-radius, var(--border-radius-rounded-default));
 
   & > button{
     display:inline-flex;
     align-items:center;
     justify-content:center;
     vertical-align:middle;
+    border-radius:inherit;
+    height:inherit;
     line-height:1;
-    height:var(--button-height);
     padding-inline:var(--button-padding-inline, var(--control-padding-inline-default));
-    border-radius:calc(var(--button-height) / 4);
     column-gap:calc(var(--button-height) / 6);
     font-size:var(--button-font-size);
-    color:var(--button-text-color);
-    background-color:var(--button-color);
+
+    color:var(--button-text-color, var(--text-color-default));
+    background-color:var(--button-color, var(--surface-color-default));
     transition-property:background-color,outline-color;
   }
 
   @media (hover: hover){
     & > button:hover:not([disabled]){
-      background-color:var(--button-color-hover);
+      background-color:var(--button-color-hover, var(--surface-color-hover));
     }
   }
 
   & > button:active:not([disabled]){
-    background-color:var(--button-color-active);
+    background-color:var(--button-color-active, var(--surface-color-active));
   }
 
   & > button > ui-icon{
@@ -44,27 +42,28 @@ ui-button{
   & > ui-spinner{
     position:absolute;
     inset:0;
-    border-radius:var(--button-border-radius);
-    background-color:var(--button-color-active);
+    border-radius:inherit;
+    background-color:var(--button-color, var(--surface-color-default));
   }
 
   /* shape */
-  &[shape="pill"] > button,
-  &[shape="circle"] > button{
+  &[shape="pill"],
+  &[shape="circle"]{
     --button-border-radius:var(--border-radius-full);
   }
 
   &[shape="circle"] > button,
   &[shape="square"] > button{
     aspect-ratio:1;
-    padding-inline:0;
+    --button-padding-inline:0;
   }
 
   /* size */
-  &[size="x-small"] > button{
+  &[size="x-small"]{
     --button-height:var(--control-height-x-small);
     --button-font-size:var(--font-size-x-small);
     --button-padding-inline:var(--control-padding-inline-x-small);
+    --button-border-radius:var(--border-radius-rounded-x-small);
   }
 
   &[size="x-small"] > button > ui-icon{
@@ -72,10 +71,11 @@ ui-button{
     --icon-width:var(--icon-x-small);
   }
 
-  &[size="small"] > button{
+  &[size="small"]{
     --button-height:var(--control-height-small);
     --button-font-size:var(--font-size-small);
     --button-padding-inline:var(--control-padding-inline-small);
+    --button-border-radius:var(--border-radius-rounded-small);
   }
 
   &[size="small"] > button > ui-icon{
@@ -83,10 +83,11 @@ ui-button{
     --icon-width:var(--icon-small);
   }
 
-  &[size="medium"] > button{
+  &[size="medium"]{
     --button-height:var(--control-height-medium);
     --button-font-size:var(--font-size-normal);
     --button-padding-inline:var(--control-padding-inline-medium);
+    --button-border-radius:var(--border-radius-rounded-medium);
   }
 
   &[size="medium"] > button > ui-icon{
@@ -94,10 +95,11 @@ ui-button{
     --icon-width:var(--icon-medium);
   }
 
-  &[size="large"] > button{
+  &[size="large"]{
     --button-height:var(--control-height-large);
     --button-font-size:var(--font-size-large);
     --button-padding-inline:var(--control-padding-inline-large);
+    --button-border-radius:var(--border-radius-rounded-large);
   }
 
   &[size="large"] > button > ui-icon{
@@ -105,10 +107,11 @@ ui-button{
     --icon-width:var(--icon-large);
   }
 
-  &[size="x-large"] > button{
+  &[size="x-large"]{
     --button-height:var(--control-height-x-large);
     --button-font-size:var(--font-size-x-large);
     --button-padding-inline:var(--control-padding-inline-x-large);
+    --button-border-radius:var(--border-radius-rounded-x-large);
   }
 
   &[size="x-large"] > button > ui-icon{
@@ -116,8 +119,8 @@ ui-button{
     --icon-width:var(--icon-x-large);
   }
 
-  /* varian */
-  &[varian="ghost"] > button{
+  /* variant */
+  &[variant="ghost"] > button{
     --button-color:transparent;
   }
 }

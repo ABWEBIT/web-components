@@ -7,7 +7,7 @@ class UIAlert extends HTMLElement{
       const _button = document.createElement('ui-button');
       _button.setAttribute('shape','circle');
       _button.setAttribute('size','small');
-      _button.setAttribute('varian','ghost');
+      _button.setAttribute('variant','ghost');
       const button = document.createElement('button');
 
       const icon = document.createElement('ui-icon');

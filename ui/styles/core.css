@@ -31,15 +31,21 @@
   --panel-padding-inline-base:1.25rem;
   --panel-padding-block-base:1rem;
 
-  /* border */
-  --border-style:solid;
-  --border-width-small:1px;
+  /* borders */
+  --border-style-solid:solid;
+  --border-style-dotted:dotted;
+  --border-width-default:1px;
+  --border-width-medium:2px;
+  --border-width-large:3px;
 
   --border-radius-none:0;
   --border-radius-full:50vmax;
-  --border-radius-rounded-small:0.25rem;
-  --border-radius-rounded-medium:0.5rem;
+  --border-radius-rounded-x-small:0.375rem;
+  --border-radius-rounded-small:0.5rem;
+  --border-radius-rounded-medium:0.625rem;
   --border-radius-rounded-large:0.75rem;
+  --border-radius-rounded-x-large:0.875rem;
+  --border-radius-rounded-default:var(--border-radius-rounded-medium);
 
   --border-radius-rounded:0.5rem;
   --border-radius-default:var(--border-radius-rounded);
