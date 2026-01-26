@@ -42,15 +42,18 @@ function generateNav(components){
 
     const pageId = link.match(/[\w-]+(?=\.html)/)?.[0];
 
-    const wrapper = document.createElement('div');
+    const wrapper = document.createElement('ui-button');
+
+    wrapper.setAttribute('justify','start');
+    wrapper.setAttribute('variant','ghost');
     wrapper.className = 'menu-item';
 
-    const span = document.createElement('span');
-    span.textContent = label;
-    span.setAttribute('data-link',link);
-    span.onclick = () => navigate(pageId);
+    const button = document.createElement('button');
+    button.textContent = label;
+    button.setAttribute('data-link',link);
+    button.onclick = () => navigate(pageId);
 
-    wrapper.append(span);
+    wrapper.append(button);
     container.append(wrapper);
   });
 
@@ -58,8 +61,8 @@ function generateNav(components){
   containers.forEach(container => {
     const items = Array.from(container.children);
     items.sort((a, b) => {
-      const labelA = a.querySelector('span')?.textContent || '';
-      const labelB = b.querySelector('span')?.textContent || '';
+      const labelA = a.querySelector('button')?.textContent || '';
+      const labelB = b.querySelector('button')?.textContent || '';
       return labelA.localeCompare(labelB, undefined, { sensitivity: 'base' });
     });
     items.forEach(item => container.appendChild(item));
@@ -100,8 +103,8 @@ async function loadPage(hash){
 }
 
 function updateActiveMenuItem(currentLink) {
-  document.querySelectorAll('nav span[data-link]').forEach(span => {
-    span.classList.toggle('active', span.getAttribute('data-link') === currentLink);
+  document.querySelectorAll('nav button[data-link]').forEach(button => {
+    button.classList.toggle('active', button.getAttribute('data-link') === currentLink);
   });
 }
 

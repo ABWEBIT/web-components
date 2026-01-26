@@ -1,6 +1,6 @@
 body{
-  background-color:var(--body-background-color);
-  color:var(--text-color-default);
+  background-color:var(--bg-base);
+  color:var(--fg-base);
 }
 
 ui-layout{
@@ -16,10 +16,6 @@ ui-main{
   padding-inline:20px;
 }
 
-::-webkit-scrollbar-thumb{
-  background-color:var(--scrollbar-color);
-}
-
 header{
   position:sticky;
   display:flex;
@@ -29,8 +25,12 @@ header{
   right:0;
   z-index:1;
   padding-block:10px;
-  background-color:var(--header-background-color);
-  border-bottom:1px solid var(--border-color);
+  background-color:var(--bg-base);
+  border-bottom:1px solid var(--line-color);
+}
+
+footer{
+  background-color:var(--bg-base);
 }
 
 /* nav */
@@ -79,32 +79,14 @@ nav .menu-title{
 }
 
 nav .menu-item{
-  display:block;
-  cursor:pointer;
-  color:var(--link-color-default);
-}
-
-nav .menu-item span{
   display:flex;
-  align-items:center;
-  column-gap:10px;
-  padding:5px 10px;
-  border-radius:var(--border-radius-rounded-default);
-  transition-duration:var(--duration);
-  transition-property:background-color,color;
 }
 
-@media (hover:hover){
-  nav .menu-item span:hover{
-    color:var(--link-color-hover);
-    background-color:var(--menu-background-color-hover);
-  }
+nav .menu-item button{
+  width:100%;
+  color:var(--link-color);
 }
 
-nav .menu-item span.active{
-  color:var(--link-color-active);
-  background-color:var(--menu-background-color-active);
-}
 
 /* main */
 main{
@@ -117,7 +99,7 @@ main{
     padding-block:30px;
 
     & > :first-child > h1 + p{
-      color:var(--text-color-secondary);
+      color:var(--fg-muted);
     }
   }
 }
@@ -145,8 +127,8 @@ main{
 
 .content-item > .example{
   overflow:hidden;
-  border:1px solid var(--border-color);
-  border-radius:var(--border-radius-rounded-default);
+  border:1px solid var(--line-color);
+  border-radius:var(--border-radius-default);
 }
 
 .content-item > .example > .preview,
@@ -177,7 +159,7 @@ main{
 
 .content-item > .example > .preview,
 .content-item > .example > .toolbar{
-  border-bottom:1px solid var(--border-color);
+  border-bottom:1px solid var(--line-color);
 }
 
 .content-item > .example > .toolbar{
@@ -209,12 +191,12 @@ main{
   row-gap:12px;
   padding:12px 10px 10px;
   align-items:center;
-  background-color:var(--panel-color-default);
-  border-radius:var(--border-radius-rounded-default);
+  background-color:var(--surface-bg);
+  border-radius:var(--border-radius-default);
 
 
   & > :not(ui-icon){
     font-size:var(--font-size-small);
-    color:var(--text-color-secondary);
+    color:var(--fg-muted);
   }
 }

@@ -15,6 +15,18 @@ html,body{
   box-sizing:border-box;
 }
 
+/* normalize button appearance */
+button{
+  background:none;
+  border:none;
+  padding:0;
+}
+
+button::-moz-focus-inner{
+  border:0;
+  padding:0;
+}
+
 /* normalize media elements */
 img,picture,video,iframe,embed,object{
   max-width:100%;

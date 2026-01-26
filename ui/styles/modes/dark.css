@@ -1,47 +1,36 @@
 :root[data-mode='dark']{
   /* backgrounds */
-  --body-background-color:var(--color-neutral-950);
-  --header-background-color:var(--color-neutral-950);
+  --bg-base:oklch(15% 0 0);
 
-  /* surface neutral */
-  --surface-color-primary:var(--color-neutral-700);
-  --surface-color-hover:color-mix(
-    in oklch,
-    var(--color-neutral-700),
-    var(--color-neutral-600) 40%
-  );
-  --surface-color-active:color-mix(
-    in oklch,
-    var(--color-neutral-700),
-    var(--color-neutral-800) 50%
-  );
-  --surface-color-secondary:var(--color-neutral-800);
-  --surface-color-tertiary:var(--color-neutral-900);
-  --surface-color-default:var(--surface-color-primary);
-
-  /* border */
-  --border-color:var(--color-neutral-800);
-
-  /* panel */
-  --panel-color-default:var(--color-neutral-900);
-
-  /* menu */
-  --menu-background-color-hover:var(--color-neutral-900);
-  --menu-background-color-active:var(--color-neutral-800);
-
-  /* text */
-  --text-color-default:var(--color-neutral-50);
-  --text-color-secondary:var(--color-neutral-400);
+  /* foregrounds */
+  --fg-base:var(--color-white);
+  --fg-muted:oklch(70% 0 0);
 
   /* link */
-  --link-color-default:var(--color-neutral-300);
-  --link-color-hover:var(--color-neutral-200);
-  --link-color-active:var(--color-neutral-50);
+  --link-color:oklch(85% 0 0);
+  --link-color-hover:var(--color-white);
+  --link-color-active:oklch(80% 0 0);
+
+  /* surface */
+  --surface-bg:var(--color-gray-10);
+
+  /* control */
+  --control-color-default:var(--color-gray-40);
+  --control-color-info:var(--color-blue-40);
+  --control-color-success:var(--color-green-40);
+  --control-color-warning:var(--color-yellow-40);
+  --control-color-danger:var(--color-red-40);
+
+  --control-state:oklch(1 0 0 / 0);
+  --control-state-hover:oklch(1 0 0 / 0.08);
+  --control-state-active:oklch(0 0 0 / 0.12);
+
+  /* lines */
+  --line-color:oklch(30% 0 0);
 
   /* outline */
-  --outline-color:var(--color-blue-500);
+  --outline-color:oklch(60% 0.22 255);
 
   /* scrollbar */
-  --scrollbar-color:var(--color-neutral-700);
+  --scrollbar-color:oklch(30% 0 0);
 }
-/* accent warning danger success */

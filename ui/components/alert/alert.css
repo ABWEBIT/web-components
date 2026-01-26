@@ -1,6 +1,6 @@
 ui-alert{
   --alert-border-radius:var(--border-radius-default);
-  --alert-background-color:var(--panel-color-default);
+  --alert-background-color:var(--surface-bg);
 
   --alert-max-width:100%;
   --alert-padding-block:16px;

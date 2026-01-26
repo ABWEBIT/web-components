@@ -35,35 +35,20 @@
   --border-style-solid:solid;
   --border-style-dotted:dotted;
   --border-width-default:1px;
-  --border-width-medium:2px;
-  --border-width-large:3px;
 
   --border-radius-none:0;
+  --border-radius-default:0.5rem;
   --border-radius-full:50vmax;
-  --border-radius-rounded-x-small:0.375rem;
-  --border-radius-rounded-small:0.5rem;
-  --border-radius-rounded-medium:0.625rem;
-  --border-radius-rounded-large:0.75rem;
-  --border-radius-rounded-x-large:0.875rem;
-  --border-radius-rounded-default:var(--border-radius-rounded-medium);
 
   /* transition duration */
   --transition-duration-fast:0.075s;
   --transition-duration-normal:0.15s;
   --transition-duration-slow:0.25s;
   --transition-duration-default:var(--transition-duration-normal);
-}
 
-/* normalize button appearance */
-button{
-  background:none;
-  border:none;
-  padding:0;
-}
-
-button::-moz-focus-inner{
-  border:0;
-  padding:0;
+  --outline-offset:2px;
+  --outline-width:2px;
+  --outline-style:solid;
 }
 
 ui-switch[disabled],
@@ -74,11 +59,6 @@ input[disabled]{
   opacity:0.5;
   pointer-events:auto;
 }
-
-[busy]{
-  cursor:wait;
-}
-
 
 /* base */
 ui-button,
@@ -108,15 +88,14 @@ button{
   touch-action:manipulation;
 }
 
-
-
 /* outline */
 ui-checkbox,
 ui-switch,
 ui-tab,
 button,
 input,
-textarea{
+textarea,
+a{
   outline-offset:2px;
   outline-width:2px;
   outline-style:solid;
@@ -127,24 +106,25 @@ textarea{
   }
 }
 
-
-
 /* transition */
 ui-checkbox,
 ui-checkbox > ui-icon,
 ui-switch,
 ui-tab,
-button,
 input{
   transition-duration:var(--transition-duration-default);
 }
 
 /* link */
 a{
-  color:var(--link-color-default);
-  transition-property:color;
+  color:var(--link-color);
+  transition-property:outline-color,color;
   transition-duration:var(--transition-duration-default);
 
   &:hover{color:var(--link-color-hover);}
   &:active{color:var(--link-color-active);}
+}
+
+::-webkit-scrollbar-thumb{
+  background-color:var(--scrollbar-color);
 }

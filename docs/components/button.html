@@ -5,7 +5,6 @@
 
 <div>
   <h2>Dependencies</h2>
-  <p>This component depends on the following components:</p>
   <ul>
     <li><a href="#icon">icon</a></li>
   </ul>
@@ -24,11 +23,13 @@
 
 <div>
   <h2>Attributes</h2>
-  <p>aria-label - static (required). Must be set manually for icon buttons.</p>
-  <p>disabled - reactive (optional). Controls the disabled state of the component.</p>
+  <p><strong>Container:</strong></p>
   <p>busy - reactive (optional). Controls the busy state of the component.</p>
   <p>shape - static (optional). Available options: pill, circle, square.</p>
   <p>size - static (optional). Available options: small, medium, large. Default: small</p>
+  <p><strong>Button:</strong></p>
+  <p>aria-label - static (required). Must be set manually for icon buttons.</p>
+  <p>disabled - reactive (optional). Controls the disabled state of the component.</p>
 </div>
 
 <section class="content">
@@ -91,6 +92,41 @@
     Button
     &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
   &lt;/button&gt;
+&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Colors:</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button>
+          <button>Button</button>
+        </ui-button>
+        <ui-button color="info">
+          <button>Button</button>
+        </ui-button>
+        <ui-button color="success">
+          <button>Button</button>
+        </ui-button>
+        <ui-button color="warning">
+          <button>Button</button>
+        </ui-button>
+        <ui-button color="danger">
+          <button>Button</button>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button color="info"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
 &lt;/ui-button&gt;
 </code></pre>
 
