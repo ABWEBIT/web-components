@@ -4,7 +4,7 @@ ui-textarea{
 
   --textarea-border-radius:var(--border-radius-default);
   --textarea-padding:10px 12px;
-  --textarea-border-color:var(--border-color);
+  --textarea-border-color:var(--control-border-color);
 
   width:var(--textarea-width);
 
@@ -15,7 +15,7 @@ ui-textarea{
     padding:var(--textarea-padding);
     resize:vertical;
     color:var(--textarea-font-color);
-    border-radius:inherit;
+    border-radius:var(--border-radius-default);
     border-width:1px;
     border-style:solid;
     border-color:var(--textarea-border-color);
@@ -23,6 +23,11 @@ ui-textarea{
   }
 
   /* shape */
-  &[shape="rounded"]{--textarea-border-radius:var(--border-radius-rounded);}
-  &[shape="square"]{--textarea-border-radius:var(--border-radius-square);}
+  &[shape="rounded"]{
+    --textarea-border-radius:var(--border-radius-rounded);
+  }
+
+  &[shape="square"]{
+    --textarea-border-radius:var(--border-radius-square);
+  }
 }

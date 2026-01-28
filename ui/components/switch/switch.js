@@ -1,7 +1,33 @@
 class UISwitch extends HTMLElement{
-  #listeners = null;
-  #checked = false;
-  #disabled = false;
+  #button = null;
+  #input = null;
+
+  constructor(){
+    super();
+    const isChecked = this.hasAttribute('checked');
+    const isDisabled = this.hasAttribute('disabled');
+    const fragment = document.createDocumentFragment();
+
+    this.#button = document.createElement('button');
+    this.#button.role = 'switch';
+
+    this.#input = document.createElement('input');
+    this.#input.type = 'checkbox';
+    this.#input.hidden = true;
+
+    if(isChecked){
+      this.#button.ariaChecked = true;
+      this.#input.checked = true;
+    }
+    if(isDisabled){
+      this.#input.disabled = true;
+    }
+
+    fragment.append(this.#button);
+    fragment.append(this.#input);
+
+    this.append(fragment);
+  }
 
   static get observedAttributes(){
     return ['checked','disabled'];
@@ -9,69 +35,46 @@ class UISwitch extends HTMLElement{
 
   attributeChangedCallback(attribute,oldValue,newValue){
     if(oldValue === newValue) return;
-    if(attribute === 'checked') this.checked = this.hasAttribute('checked');
-    if(attribute === 'disabled') this.disabled = this.hasAttribute('disabled');
+    if(attribute === 'disabled') this.disabled = newValue !== null;
+    if(attribute === 'checked') this.checked = newValue !== null;
   }
 
-  get checked(){return this.#checked;}
+  get checked(){return this.#input.checked;}
   set checked(value){
-    const newValue = Boolean(value);
-    if(this.#checked === newValue || this.#disabled) return;
-    this.#checked = newValue;
-    this.#checked ? this.setAttribute('checked','') : this.removeAttribute('checked');
-    this.ariaChecked = this.#checked ? true : null;
+    const isChecked = value === true;
+    if(this.#input.checked === isChecked || this.#button.disabled) return;
+    this.#input.checked = isChecked;
+    this.sync();
   }
 
-  get disabled(){return this.#disabled;}
+  get disabled(){return this.#button.disabled;}
   set disabled(value){
-    const newValue = Boolean(value);
-    if(this.#disabled === newValue) return;
-    this.#disabled = newValue;
-    this.#disabled ? this.setAttribute('disabled','') : this.removeAttribute('disabled');
-    this.ariaDisabled = this.#disabled ? true : null;
-    this.tabIndex = this.#disabled ? -1 : 0;
+    const isDisabled = value === true;
+    if(this.#button.disabled === isDisabled) return;
+    this.#button.disabled = isDisabled;
+    this.toggleAttribute('disabled',isDisabled);
   }
 
   connectedCallback(){
-    this.replaceChildren();
-    this.role = 'switch';
-    this.tabIndex = this.#disabled ? -1 : 0;
-
-    this.#listeners = new AbortController();
-    const signal = this.#listeners.signal;
-
-    this.addEventListener('click',this.#onClick,{signal});
-    this.addEventListener('keydown',this.#onKeyDown,{signal});
+    this.#button.addEventListener('click',() => {
+      this.#input.checked = !this.#input.checked;
+      this.sync();
+    });
   }
 
-  disconnectedCallback(){
-    this.#listeners?.abort();
-    this.#listeners = null;
-  }
+  sync(){
+    const isChecked = this.#input.checked;
+    const isDisabled = this.#button.disabled;
 
-  #onClick = (e) =>{
-    if(this.disabled) return;
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    this.#onAction(e);
-  }
+    this.#button.ariaChecked = isChecked ? true : null;
+    this.#button.disabled = isDisabled;
 
-  #onKeyDown = (e) =>{
-    if(this.#disabled) return;
-    if(e.key === 'Enter' || e.key === ' '){
-      e.preventDefault();
-      if(e.repeat) return;
-      this.#onAction(e);
-    }
-  }
+    this.#input.toggleAttribute('checked',isChecked);
+    this.#input.toggleAttribute('disabled',isDisabled);
+    this.#input.disabled = isDisabled;
 
-  #onAction = (e) =>{
-    this.checked = !this.#checked;
-    this.dispatchEvent(new CustomEvent('switch-action',{
-      detail:{originalEvent:e},
-      bubbles:true,
-      composed:true
-    }));
+    this.toggleAttribute('checked',isChecked);
+    this.toggleAttribute('disabled',isDisabled);
   }
 
 }

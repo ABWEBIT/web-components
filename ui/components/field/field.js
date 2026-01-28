@@ -33,7 +33,7 @@ class UIField extends HTMLElement{
     if(!label.id) label.id = idLabel;
     control.setAttribute('aria-labelledby',idLabel);
 
-    if(!label.hasAttribute('passive')){
+    if(!this.hasAttribute('passive')){
       label.addEventListener('click',() => {
         const tag = control.tagName.toLowerCase();
 

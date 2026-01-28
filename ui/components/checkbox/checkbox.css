@@ -3,9 +3,8 @@ ui-checkbox{
 
   --checkbox-height:24px;
   --checkbox-width:24px;
-  --checkbox-surface-color:var(--surface-color-default);
-  --checkbox-content-color:var(--color-white);
-  --checkbox-border-color:var(--color-neutral-500);
+  --checkbox-surface-color:var(--control-color-default);
+  --checkbox-border-color:var(--control-border-color);
   --checkbox-svg-surface-color:var(--color-blue-500);
 
   position:relative;
@@ -16,7 +15,8 @@ ui-checkbox{
   width:var(--checkbox-width);
   border-radius:var(--checkbox-border-radius);
   background-color:var(--checkbox-surface-color);
-  color:var(--checkbox-content-color);
+  color:var(--color-white);
+  transition-duration:var(--transition-duration-default);
   transition-property:outline-color;
 
   &[disabled]{
@@ -25,15 +25,6 @@ ui-checkbox{
     pointer-events:auto;
   }
 
-  &::before{
-    position:absolute;
-    content:'';
-    inset:0;
-    border-radius:inherit;
-    border-width:1px;
-    border-style:solid;
-    border-color:var(--checkbox-border-color);
-  }
 
   & > ui-icon{
     --icon-height:100%;
@@ -42,8 +33,9 @@ ui-checkbox{
     position:absolute;
     border-radius:inherit;
     opacity:0;
-    transition-property:opacity;
     background-color:var(--checkbox-svg-surface-color);
+    transition-duration:var(--transition-duration-default);
+    transition-property:opacity;
   }
 
   &[checked] > ui-icon{

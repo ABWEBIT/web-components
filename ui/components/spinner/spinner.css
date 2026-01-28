@@ -1,16 +1,12 @@
 ui-spinner{
-  --spinner-height:auto;
-  --spinner-width:auto;
   --spinner-svg-height:24px;
   --spinner-svg-width:24px;
-  --spinner-color:var(--content-color-default);
 
-  color:var(--spinner-color);
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  height:var(--spinner-height);
-  width:var(--spinner-width);
+  height:var(--spinner-height,auto);
+  width:var(--spinner-width,auto);
 
   & svg{
     height:var(--spinner-svg-height);

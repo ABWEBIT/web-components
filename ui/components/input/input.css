@@ -47,6 +47,7 @@ ui-input{
     padding-inline:var(--input-padding-inline);
     color:var(--input-font-color);
     background-color:transparent;
+    transition-duration:var(--transition-duration-default);
     transition-property:outline-color;
   }
 

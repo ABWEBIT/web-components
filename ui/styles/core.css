@@ -7,13 +7,13 @@
   --control-height-x-large:3.5rem;
   --control-height-default:var(--control-height-medium);
 
-  /* control padding inline */
-  --control-padding-inline-x-small:0.5rem;
-  --control-padding-inline-small:0.75rem;
-  --control-padding-inline-medium:1rem;
-  --control-padding-inline-large:1.25rem;
-  --control-padding-inline-x-large:1.5rem;
-  --control-padding-inline-default:var(--control-padding-inline-medium);
+  /* padding */
+  --padding-x-small:0.5rem;
+  --padding-small:0.75rem;
+  --padding-medium:1rem;
+  --padding-large:1.25rem;
+  --padding-x-large:1.5rem;
+  --padding-default:var(--padding-medium);
 
   /* control icon sizes */
   --control-icon-size-x-small:1rem;
@@ -51,7 +51,16 @@
   --outline-style:solid;
 }
 
-ui-switch[disabled],
+/* text direction */
+button,
+input,
+ui-checkbox,
+ui-switch,
+ui-tabs{
+  direction:inherit;
+}
+
+/* disabled state */
 button[disabled],
 textarea[disabled],
 input[disabled]{
@@ -60,29 +69,17 @@ input[disabled]{
   pointer-events:auto;
 }
 
-/* base */
-ui-button,
-ui-checkbox,
-ui-switch,
-ui-tabs,
-input{
-  direction:inherit;
-}
-
 /* no-select */
-ui-button,
+button,
 ui-checkbox,
-ui-switch,
 ui-tab{
   -webkit-user-select:none;
   user-select:none;
 }
 
-/* button-like */
+button,
 ui-checkbox,
-ui-switch,
-ui-tab,
-button{
+ui-tab{
   appearance:none;
   cursor:pointer;
   touch-action:manipulation;
@@ -90,15 +87,14 @@ button{
 
 /* outline */
 ui-checkbox,
-ui-switch,
 ui-tab,
 button,
 input,
 textarea,
 a{
-  outline-offset:2px;
-  outline-width:2px;
-  outline-style:solid;
+  outline-offset:var(--outline-offset);
+  outline-width:var(--outline-width);
+  outline-style:var(--outline-style);
   outline-color:transparent;
 
   &:focus-visible:not([disabled]){
@@ -106,23 +102,14 @@ a{
   }
 }
 
-/* transition */
-ui-checkbox,
-ui-checkbox > ui-icon,
-ui-switch,
-ui-tab,
-input{
-  transition-duration:var(--transition-duration-default);
-}
-
 /* link */
 a{
   color:var(--link-color);
-  transition-property:outline-color,color;
   transition-duration:var(--transition-duration-default);
+  transition-property:outline-color,color;
 
   &:hover{color:var(--link-color-hover);}
-  &:active{color:var(--link-color-active);}
+  &:active{color:var(--link-color);}
 }
 
 ::-webkit-scrollbar-thumb{

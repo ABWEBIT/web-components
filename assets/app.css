@@ -78,13 +78,13 @@ nav .menu-title{
   padding-bottom:6px;
 }
 
-nav .menu-item{
-  display:flex;
+nav ui-button.menu-item:active > button,
+nav ui-button.menu-item.active > button{
+  --button-color:var(--control-color-default);
 }
 
 nav .menu-item button{
   width:100%;
-  color:var(--link-color);
 }
 
 
@@ -106,7 +106,7 @@ main{
 
 
 .visual-block{
-  background-color:var(--surface-color-default);
+  background-color:var(--surface-bg);
 }
 
 

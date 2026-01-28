@@ -31,7 +31,7 @@ class UITextarea extends HTMLElement{
     this.#listeners = new AbortController();
     const signal = this.#listeners.signal;
 
-    this.#textarea.addEventListener('input',this.#onInput,{signal});
+    //this.#textarea.addEventListener('input',this.#onInput,{signal});
   }
 
   disconnectedCallback(){

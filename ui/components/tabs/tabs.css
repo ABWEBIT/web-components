@@ -46,6 +46,7 @@ ui-tabs{
     padding-block:var(--tabs-tab-padding-block);
     color:var(--tabs-tab-content-color-default);
     font-size:var(--font-size-large);
+    transition-duration:var(--transition-duration-default);
     transition-property:background-color,outline-color,color;
 
     &[disabled]{

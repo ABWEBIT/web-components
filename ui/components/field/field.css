@@ -2,10 +2,14 @@ ui-field{
   position:relative;
   display:flex;
   align-items:center;
+  column-gap:10px;
+
+  &:not([passive]) > label{
+    cursor:pointer;
+  }
 
   & > label{
-    padding-inline-end:10px;
-    cursor:pointer;
+    user-select:none;
 
     & > span{
       padding-inline-start:6px;

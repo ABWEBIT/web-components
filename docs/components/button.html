@@ -13,23 +13,17 @@
 <div>
   <h2>Info</h2>
   <p>The button can contain text, icons, or both - in any order.</p>
-  <p>This component dispatches a custom event "button-action" whenever it is activated via click or keyboard (Enter / Space). External scripts should listen to this event to handle button actions.</p>
-  <p><code>
-  button.addEventListener('button-action',() =>{<br>
-  &nbsp;console.log('Button clicked');<br>
-  });
-  </code></p>
 </div>
 
 <div>
   <h2>Attributes</h2>
   <p><strong>Container:</strong></p>
+  <p>disabled - reactive (optional). Controls the disabled state of the component.</p>
   <p>busy - reactive (optional). Controls the busy state of the component.</p>
   <p>shape - static (optional). Available options: pill, circle, square.</p>
   <p>size - static (optional). Available options: small, medium, large. Default: small</p>
   <p><strong>Button:</strong></p>
   <p>aria-label - static (required). Must be set manually for icon buttons.</p>
-  <p>disabled - reactive (optional). Controls the disabled state of the component.</p>
 </div>
 
 <section class="content">
@@ -100,22 +94,19 @@
   </div>
 
   <div class="content-item">
-    <div>Colors:</div>
+    <div>Colors: blue, green, yellow, red</div>
     <div class="example">
       <div class="preview">
-        <ui-button>
+        <ui-button color="blue">
           <button>Button</button>
         </ui-button>
-        <ui-button color="info">
+        <ui-button color="green">
           <button>Button</button>
         </ui-button>
-        <ui-button color="success">
+        <ui-button color="yellow">
           <button>Button</button>
         </ui-button>
-        <ui-button color="warning">
-          <button>Button</button>
-        </ui-button>
-        <ui-button color="danger">
+        <ui-button color="red">
           <button>Button</button>
         </ui-button>
       </div>
@@ -125,7 +116,19 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-button color="info"&gt;
+&lt;ui-button color="blue"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button color="green"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button color="yellow"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button color="red"&gt;
   &lt;button&gt;Button&lt;/button&gt;
 &lt;/ui-button&gt;
 </code></pre>
@@ -249,8 +252,8 @@
     <div>Disabled</div>
     <div class="example">
       <div class="preview">
-        <ui-button>
-          <button disabled>Button</button>
+        <ui-button disabled shape="pill">
+          <button>Button</button>
         </ui-button>
       </div>
       <div class="toolbar">
@@ -259,8 +262,8 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-button&gt;
-  &lt;button disabled&gt;Button&lt;/button&gt;
+&lt;ui-button disabled&gt;
+  &lt;button&gt;Button&lt;/button&gt;
 &lt;/ui-button&gt;
 </code></pre>
 
@@ -269,7 +272,7 @@
   </div>
 
   <div class="content-item">
-    <div>Busy state</div>
+    <div>Busy</div>
     <div class="example">
       <div class="preview">
         <ui-button busy>

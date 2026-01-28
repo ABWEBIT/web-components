@@ -102,9 +102,12 @@ async function loadPage(hash){
   }
 }
 
-function updateActiveMenuItem(currentLink) {
-  document.querySelectorAll('nav button[data-link]').forEach(button => {
-    button.classList.toggle('active', button.getAttribute('data-link') === currentLink);
+function updateActiveMenuItem(currentLink){
+  document.querySelectorAll('nav button[data-link]').forEach(button =>{
+    const parent = button.closest('ui-button');
+    if(parent){
+      parent.classList.toggle('active', button.getAttribute('data-link') === currentLink);
+    }
   });
 }
 

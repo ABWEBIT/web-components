@@ -7,7 +7,6 @@ ui-button{
   }
 
   & > button{
-    isolation:isolate;
     position:relative;
     display:inline-flex;
     align-items:center;
@@ -15,42 +14,24 @@ ui-button{
     vertical-align:middle;
     line-height:1;
     height:var(--button-height, var(--control-height-default));
-    padding-inline:var(
-      --button-padding-inline-shape,
-      var(--button-padding-inline, var(--control-padding-inline-default))
-    );
-    border-radius:var(
-      --button-border-radius-shape,
-      var(--button-border-radius, var(--border-radius-default))
-    );
+    padding-inline:var(--button-padding-inline, var(--padding-default));
+    border-radius:var(--button-border-radius, var(--border-radius-default));
     column-gap:var(--button-column-gap, 0.5rem);
     font-size:var(--button-font-size);
     color:var(--button-text-color);
     background-color:var(--button-color, var(--control-color-default));
     transition-duration:var(--transition-duration-default);
-    transition-property:outline-color;
-  }
-
-  & > button::before{
-    z-index:-1;
-    content:'';
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    border-radius:inherit;
-    background-color:var(--control-state);
-    transition-duration:var(--transition-duration-default);
-    transition-property:background-color;
+    transition-property:background-color,outline-color;
   }
 
   @media (hover: hover){
-    &:not([busy]) > button:not([disabled]):hover::before{
-      background-color:var(--control-state-hover);
+    &:not([busy]) > button:not([disabled]):hover{
+      background-color:var(--button-color-hover, var(--control-color-default-hover));
     }
   }
 
-  &:not([busy]) > button:not([disabled]):active::before{
-    background-color:var(--control-state-active);
+  &:not([busy]) > button:not([disabled]):active{
+    background-color:var(--button-color, var(--control-color-default));
   }
 
   & > button > ui-icon {
@@ -70,7 +51,7 @@ ui-button{
       --button-border-radius-shape,
       var(--button-border-radius, var(--border-radius-default))
     );
-    background-color:var(--button-color, var(--surface-color-default));
+    background-color:var(--button-color, var(--control-color-default));
   }
 
   & > ui-spinner > ui-icon {
@@ -79,14 +60,14 @@ ui-button{
   }
 
   /* shape */
-  &[shape="pill"],
-  &[shape="circle"]{
-    --button-border-radius-shape:var(--border-radius-full);
+  &[shape="pill"] > button,
+  &[shape="circle"] > button{
+    --button-border-radius:var(--border-radius-full);
   }
 
-  &[shape="circle"],
-  &[shape="square"]{
-    --button-padding-inline-shape:0;
+  &[shape="circle"] > button,
+  &[shape="square"] > button{
+    --button-padding-inline:0;
   }
 
   &[shape="circle"] > button,
@@ -98,9 +79,9 @@ ui-button{
   &[size="x-small"]{
     --button-height:var(--control-height-x-small);
     --button-font-size:var(--font-size-x-small);
-    --button-padding-inline:var(--control-padding-inline-x-small);
+    --button-padding-inline:var(--padding-x-small);
     --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:max(5px, 0.25rem);
+    --button-column-gap:calc(var(--button-height) / 4);
     --button-icon-height:var(--control-icon-size-x-small);
     --button-icon-width:var(--control-icon-size-x-small);
   }
@@ -108,9 +89,9 @@ ui-button{
   &[size="small"]{
     --button-height:var(--control-height-small);
     --button-font-size:var(--font-size-small);
-    --button-padding-inline:var(--control-padding-inline-small);
+    --button-padding-inline:var(--padding-small);
     --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:0.375rem;
+    --button-column-gap:calc(var(--button-height) / 4);
     --button-icon-height:var(--control-icon-size-small);
     --button-icon-width:var(--control-icon-size-small);
   }
@@ -118,9 +99,9 @@ ui-button{
   &[size="medium"]{
     --button-height:var(--control-height-medium);
     --button-font-size:var(--font-size-normal);
-    --button-padding-inline:var(--control-padding-inline-medium);
+    --button-padding-inline:var(--padding-medium);
     --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:0.5rem;
+    --button-column-gap:calc(var(--button-height) / 4);
     --button-icon-height:var(--control-icon-size-medium);
     --button-icon-width:var(--control-icon-size-medium);
   }
@@ -128,9 +109,9 @@ ui-button{
   &[size="large"]{
     --button-height:var(--control-height-large);
     --button-font-size:var(--font-size-large);
-    --button-padding-inline:var(--control-padding-inline-large);
+    --button-padding-inline:var(--padding-large);
     --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:0.625rem;
+    --button-column-gap:calc(var(--button-height) / 4);
     --button-icon-height:var(--control-icon-size-large);
     --button-icon-width:var(--control-icon-size-large);
   }
@@ -138,28 +119,32 @@ ui-button{
   &[size="x-large"]{
     --button-height:var(--control-height-x-large);
     --button-font-size:var(--font-size-x-large);
-    --button-padding-inline:var(--control-padding-inline-x-large);
+    --button-padding-inline:var(--padding-x-large);
     --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:0.75rem;
+    --button-column-gap:calc(var(--button-height) / 4);
     --button-icon-height:var(--control-icon-size-x-large);
     --button-icon-width:var(--control-icon-size-x-large);
   }
 
   /* color */
-  &[color="info"] > button{
-    --button-color:var(--control-color-info);
+  &[color="blue"]{
+    --button-color:var(--control-color-blue);
+    --button-color-hover:var(--control-color-blue-hover);
   }
 
-  &[color="success"] > button{
-    --button-color:var(--control-color-success);
+  &[color="green"]{
+    --button-color:var(--control-color-green);
+    --button-color-hover:var(--control-color-green-hover);
   }
 
-  &[color="warning"] > button{
-    --button-color:var(--control-color-warning);
+  &[color="yellow"]{
+    --button-color:var(--control-color-yellow);
+    --button-color-hover:var(--control-color-yellow-hover);
   }
 
-  &[color="danger"] > button{
-    --button-color:var(--control-color-danger);
+  &[color="red"]{
+    --button-color:var(--control-color-red);
+    --button-color-hover:var(--control-color-red-hover);
   }
 
   /* variant */
@@ -169,5 +154,9 @@ ui-button{
 
   &[justify="start"] > button{
     justify-content:flex-start;
+  }
+
+  &[justify="end"] > button{
+    justify-content:flex-end;
   }
 }

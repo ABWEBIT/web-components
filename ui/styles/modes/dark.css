@@ -1,36 +1,63 @@
 :root[data-mode='dark']{
   /* backgrounds */
-  --bg-base:oklch(15% 0 0);
+  --bg-base:var(--color-neutral-950);
 
   /* foregrounds */
-  --fg-base:var(--color-white);
-  --fg-muted:oklch(70% 0 0);
+  --fg-base:var(--color-neutral-50);
+  --fg-muted:var(--color-neutral-400);
 
   /* link */
-  --link-color:oklch(85% 0 0);
-  --link-color-hover:var(--color-white);
-  --link-color-active:oklch(80% 0 0);
+  --link-color:var(--color-blue-400);
+  --link-color-hover:color-mix(
+    in oklch,
+    var(--color-blue-400),
+    var(--color-blue-300) 50%
+  );
+  --link-color-active:var(--link-color);
 
   /* surface */
-  --surface-bg:var(--color-gray-10);
+  --surface-bg:var(--color-neutral-900);
 
   /* control */
-  --control-color-default:var(--color-gray-40);
-  --control-color-info:var(--color-blue-40);
-  --control-color-success:var(--color-green-40);
-  --control-color-warning:var(--color-yellow-40);
-  --control-color-danger:var(--color-red-40);
+  --control-color-default:var(--color-neutral-700);
+  --control-color-default-hover:color-mix(
+    in oklch,
+    var(--color-neutral-700),
+    var(--color-neutral-600) 40%
+  );
+  --control-color-blue:var(--color-blue-700);
+  --control-color-blue-hover:color-mix(
+    in oklch,
+    var(--color-blue-700),
+    var(--color-blue-600) 50%
+  );
+  --control-color-green:var(--color-green-700);
+  --control-color-green-hover:color-mix(
+    in oklch,
+    var(--color-green-700),
+    var(--color-green-600) 40%
+  );
+  --control-color-yellow:var(--color-yellow-700);
+  --control-color-yellow-hover:color-mix(
+    in oklch,
+    var(--color-yellow-700),
+    var(--color-yellow-600) 40%
+  );
+  --control-color-red:var(--color-red-700);
+  --control-color-red-hover:color-mix(
+    in oklch,
+    var(--color-red-700),
+    var(--color-red-600) 60%
+  );
 
-  --control-state:oklch(1 0 0 / 0);
-  --control-state-hover:oklch(1 0 0 / 0.08);
-  --control-state-active:oklch(0 0 0 / 0.12);
+  --control-border-color:var(--color-neutral-500);
 
   /* lines */
-  --line-color:oklch(30% 0 0);
+  --line-color:var(--color-neutral-800);
 
   /* outline */
-  --outline-color:oklch(60% 0.22 255);
+  --outline-color:var(--color-blue-500);
 
   /* scrollbar */
-  --scrollbar-color:oklch(30% 0 0);
+  --scrollbar-color:var(--color-neutral-700);
 }

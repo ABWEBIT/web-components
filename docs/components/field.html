@@ -5,8 +5,8 @@
 
 <div>
   <h2>Info</h2>
-  <p>Allows only one div and one form control inside.</p>
-  <p>Automatic association between the div and the form control by adding a unique UUID to the div's id attribute and assigning this UUID to the form control's aria-labelledby attribute. You can override the unique UUID by adding a custom id attribute to the div component.</p>
+  <p>Allows only one label and one form control inside.</p>
+  <p>Automatic association between the label and the form control by adding a unique UUID to the label's id attribute and assigning this UUID to the form control's aria-labelledby attribute. You can override the unique UUID by adding a custom id.</p>
 </div>
 
 <div>
@@ -25,6 +25,10 @@
           <label>Label</label>
           <ui-checkbox></ui-checkbox>
         </ui-field>
+        <ui-field>
+          <ui-checkbox></ui-checkbox>
+          <label>Label</label>
+        </ui-field>
       </div>
       <div class="toolbar">
         <span>HTML</span>
@@ -36,6 +40,11 @@
   &lt;label&gt;Label&lt;/label&gt;
   &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
 &lt;/ui-field&gt;
+
+&lt;ui-field&gt;
+  &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+  &lt;label&gt;Label&lt;/label&gt;
+&lt;/ui-field&gt;
 </code></pre>
 
       </div>
@@ -43,12 +52,16 @@
   </div>
 
   <div class="content-item">
-    <div>div-position="end"</div>
+    <div>Label pposition</div>
     <div class="example">
       <div class="preview">
-        <ui-field div-position="end">
+        <ui-field>
           <label>Label</label>
           <ui-switch></ui-switch>
+        </ui-field>
+        <ui-field>
+          <ui-switch></ui-switch>
+          <label>Label</label>
         </ui-field>
       </div>
       <div class="toolbar">
@@ -57,7 +70,7 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-field div-position="end"&gt;
+&lt;ui-field label-position="end"&gt;
   &lt;label&gt;Label&lt;/label&gt;
   &lt;ui-switch&gt;&lt;/ui-switch&gt;
 &lt;/ui-field&gt;
@@ -71,7 +84,7 @@
     <div>Passive, non-clickable div</div>
     <div class="example">
       <div class="preview">
-        <ui-field>
+        <ui-field passive>
           <label>Label</label>
           <ui-switch></ui-switch>
         </ui-field>
@@ -82,7 +95,7 @@
       <div class="code">
 
 <pre><code>
-&lt;ui-field&gt;
+&lt;ui-field passive&gt;
   &lt;label&gt;Label&lt;/label&gt;
   &lt;ui-switch&gt;&lt;/ui-switch&gt;
 &lt;/ui-field&gt;

@@ -1,32 +1,30 @@
 ui-switch{
-  --switch-track-background-color:var(--surface-color-default);
-
+  --switch-track-background-color:var(--control-color-default);
   --switch-border-radius:var(--border-radius-full);
-
   --switch-track-height:24px;
   --switch-track-width:40px;
-
   --switch-track-checked-background-color:var(--color-blue-500);
-
-
   --switch-thumb-height:16px;
   --switch-thumb-width:16px;
   --switch-thumb-position-start:4px;
   --switch-thumb-position-end:20px;
   --switch-thumb-background-color:var(--color-white);
 
-  position:relative;
-  display:inline-flex;
-  align-items:center;
-  vertical-align:middle;
-  height:var(--switch-track-height);
-  width:var(--switch-track-width);
-  padding-inline-start:var(--switch-thumb-position-start);
-  border-radius:var(--switch-border-radius);
-  background-color:var(--switch-track-background-color);
-  transition-property:background-color,outline-color,padding-inline-start;
+  & > button{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    vertical-align:middle;
+    height:var(--switch-track-height);
+    width:var(--switch-track-width);
+    padding-inline-start:var(--switch-thumb-position-start);
+    border-radius:var(--switch-border-radius);
+    background-color:var(--switch-track-background-color);
+    transition-duration:var(--transition-duration-default);
+    transition-property:background-color,outline-color,padding-inline-start;
+  }
 
-  &::before{
+  & > button::before{
     content:'';
     height:var(--switch-thumb-height);
     width:var(--switch-thumb-width);
@@ -34,7 +32,7 @@ ui-switch{
     background-color:var(--switch-thumb-background-color);
   }
 
-  &[checked]{
+  &[checked] > button{
     padding-inline-start:var(--switch-thumb-position-end);
     background-color:var(--switch-track-checked-background-color);
   }
