@@ -21,7 +21,7 @@ class UIButton extends HTMLElement{
     this.#busy = isBusy;
     this.toggleAttribute('busy',this.#busy);
     this.ariaBusy = this.#busy || null;
-    this.sync();
+    if(this.#button) this.#button.disabled = this.#disabled || this.#busy;
 
     if(this.#busy && !this.#spinner){
       this.#spinner = document.createElement('ui-spinner');
@@ -39,18 +39,13 @@ class UIButton extends HTMLElement{
     if(this.#disabled === isDisabled) return;
     this.#disabled = isDisabled;
     this.toggleAttribute('disabled',this.#disabled);
-    this.sync();
+    if(this.#button) this.#button.disabled = this.#disabled || this.#busy;
   }
 
   connectedCallback(){
     this.#button = this.querySelector('button');
     if(!this.#button) throw new Error('Not found <button>');
     if(this.#disabled || this.#busy) this.#button.disabled = true;
-  }
-
-  sync(){
-    if(!this.#button) return;
-    this.#button.disabled = this.#disabled || this.#busy;
   }
 }
 customElements.define('ui-button',UIButton);

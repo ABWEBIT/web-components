@@ -21,7 +21,8 @@
   <p>disabled - reactive (optional). Controls the disabled state of the component.</p>
   <p>busy - reactive (optional). Controls the busy state of the component.</p>
   <p>shape - static (optional). Available options: pill, circle, square.</p>
-  <p>size - static (optional). Available options: small, medium, large. Default: small</p>
+  <p>size - static (optional). Available options: x-small, small, medium, large, x-large. Default: medium</p>
+  <p>color - static (optional). Available options: blue, green, yellow, red.</p>
   <p><strong>Button:</strong></p>
   <p>aria-label - static (required). Must be set manually for icon buttons.</p>
 </div>
@@ -86,6 +87,29 @@
     Button
     &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
   &lt;/button&gt;
+&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Appearance: ghost</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button appearance="transparent" color="blue">
+          <button>Button</button>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button appearance="transparent"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
 &lt;/ui-button&gt;
 </code></pre>
 
@@ -276,7 +300,7 @@
     <div class="example">
       <div class="preview">
         <ui-button busy>
-          <button>Busy</button>
+          <button>Button</button>
         </ui-button>
       </div>
       <div class="toolbar">
@@ -286,7 +310,36 @@
 
 <pre><code>
 &lt;ui-button busy&gt;
-  &lt;button&gt;Busy&lt;/button&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Width 100%</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button justify="start" style="--button-width:140px;">
+          <button>Button</button>
+        </ui-button>
+        <ui-button style="--button-width:140px;">
+          <button>Button</button>
+        </ui-button>
+        <ui-button justify="end" style="--button-width:140px;">
+          <button>Button</button>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button style="--button-width:100%;"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
 &lt;/ui-button&gt;
 </code></pre>
 

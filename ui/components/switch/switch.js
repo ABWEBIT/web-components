@@ -20,6 +20,8 @@ class UISwitch extends HTMLElement{
       this.#input.checked = true;
     }
     if(isDisabled){
+      //this.#button.disabled = true;
+      this.#button.ariaDisabled = true;
       this.#input.disabled = true;
     }
 
@@ -61,12 +63,13 @@ class UISwitch extends HTMLElement{
       this.sync();
     });
   }
-
+ 
   sync(){
     const isChecked = this.#input.checked;
     const isDisabled = this.#button.disabled;
 
     this.#button.ariaChecked = isChecked ? true : null;
+    this.#button.ariaDisabled = isDisabled ? true : null;
     this.#button.disabled = isDisabled;
 
     this.#input.toggleAttribute('checked',isChecked);

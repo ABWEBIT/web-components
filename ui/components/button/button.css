@@ -1,6 +1,16 @@
 ui-button{
+  --button-height:var(--control-height-default);
+  --button-width:auto;
+  --button-column-gap:calc(var(--button-height) / 4);
+  --button-border-radius:calc(var(--button-height) / 4);
+  --button-justify-content:center;
+
+  direction:inherit;
   position:relative;
   line-height:0;
+  user-select:none;
+  width:var(--button-width);
+  border-radius:var(--button-border-radius);
 
   &[busy]{
     cursor:wait;
@@ -10,33 +20,56 @@ ui-button{
     position:relative;
     display:inline-flex;
     align-items:center;
-    justify-content:center;
     vertical-align:middle;
     line-height:1;
-    height:var(--button-height, var(--control-height-default));
+    appearance:none;
+    cursor:pointer;
+    touch-action:manipulation;
+    border-radius:inherit;
+
+    justify-content:var(--button-justify-content);
+    height:var(--button-height);
+    width:inherit;
     padding-inline:var(--button-padding-inline, var(--padding-default));
-    border-radius:var(--button-border-radius, var(--border-radius-default));
-    column-gap:var(--button-column-gap, 0.5rem);
+    column-gap:var(--button-column-gap);
+
+    font-family:var(--font-family-default);
     font-size:var(--button-font-size);
-    color:var(--button-text-color);
-    background-color:var(--button-color, var(--control-color-default));
+    color:var(--control-fg-default);
+    background-color:var(--button-bg, var(--control-bg-default));
+
     transition-duration:var(--transition-duration-default);
     transition-property:background-color,outline-color;
-  }
 
-  @media (hover: hover){
-    &:not([busy]) > button:not([disabled]):hover{
-      background-color:var(--button-color-hover, var(--control-color-default-hover));
+    outline-offset:var(--outline-offset);
+    outline-width:var(--outline-width);
+    outline-style:var(--outline-style);
+    outline-color:transparent;
+
+    &:focus-visible{
+      outline-color:var(--outline-color);
     }
   }
 
-  &:not([busy]) > button:not([disabled]):active{
-    background-color:var(--button-color, var(--control-color-default));
+  & > button[disabled]{
+    cursor:not-allowed;
+    opacity:0.5;
+    pointer-events:auto;
+  }
+
+  @media (hover: hover){
+    &:not([busy]) > button:not(:disabled):hover{
+      background-color:var(--button-bg-hover, var(--control-bg-default-hover));
+    }
+  }
+
+  &:not([busy]) > button:not(:disabled):active{
+    background-color:var(--button-bg, var(--control-bg-default));
   }
 
   & > button > ui-icon {
-    --icon-height: var(--button-icon-height, var(--control-icon-size-default));
-    --icon-width: var(--button-icon-width, var(--control-icon-size-default));
+    --icon-height:var(--button-icon-height, var(--icon-size-default));
+    --icon-width:var(--button-icon-width, var(--button-icon-height));
   }
 
   & > button > ui-icon{
@@ -47,21 +80,18 @@ ui-button{
   & > ui-spinner{
     position:absolute;
     inset:0;
-    border-radius:var(
-      --button-border-radius-shape,
-      var(--button-border-radius, var(--border-radius-default))
-    );
-    background-color:var(--button-color, var(--control-color-default));
+    border-radius:inherit;
+    background-color:var(--button-bg, var(--control-bg-default));
   }
 
   & > ui-spinner > ui-icon {
-    --icon-height:calc(var(--button-icon-height, var(--control-icon-size-default)) * 1.2);
-    --icon-width:calc(var(--button-icon-width, var(--control-icon-size-default)) * 1.2);
+    --icon-height:calc(var(--button-icon-height, var(--icon-size-default)) * 1.2);
+    --icon-width:calc(var(--button-icon-width, var(--icon-size-default)) * 1.2);
   }
 
   /* shape */
-  &[shape="pill"] > button,
-  &[shape="circle"] > button{
+  &[shape="pill"],
+  &[shape="circle"]{
     --button-border-radius:var(--border-radius-full);
   }
 
@@ -80,83 +110,70 @@ ui-button{
     --button-height:var(--control-height-x-small);
     --button-font-size:var(--font-size-x-small);
     --button-padding-inline:var(--padding-x-small);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:calc(var(--button-height) / 4);
-    --button-icon-height:var(--control-icon-size-x-small);
-    --button-icon-width:var(--control-icon-size-x-small);
+    --button-icon-height:var(--icon-size-x-small);
   }
 
   &[size="small"]{
     --button-height:var(--control-height-small);
     --button-font-size:var(--font-size-small);
     --button-padding-inline:var(--padding-small);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:calc(var(--button-height) / 4);
-    --button-icon-height:var(--control-icon-size-small);
-    --button-icon-width:var(--control-icon-size-small);
+    --button-icon-height:var(--icon-size-small);
   }
 
   &[size="medium"]{
     --button-height:var(--control-height-medium);
     --button-font-size:var(--font-size-normal);
     --button-padding-inline:var(--padding-medium);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:calc(var(--button-height) / 4);
-    --button-icon-height:var(--control-icon-size-medium);
-    --button-icon-width:var(--control-icon-size-medium);
+    --button-icon-height:var(--icon-size-medium);
   }
 
   &[size="large"]{
     --button-height:var(--control-height-large);
     --button-font-size:var(--font-size-large);
     --button-padding-inline:var(--padding-large);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:calc(var(--button-height) / 4);
-    --button-icon-height:var(--control-icon-size-large);
-    --button-icon-width:var(--control-icon-size-large);
+    --button-icon-height:var(--icon-size-large);
   }
 
   &[size="x-large"]{
     --button-height:var(--control-height-x-large);
     --button-font-size:var(--font-size-x-large);
     --button-padding-inline:var(--padding-x-large);
-    --button-border-radius:calc(var(--button-height) / 4);
-    --button-column-gap:calc(var(--button-height) / 4);
-    --button-icon-height:var(--control-icon-size-x-large);
-    --button-icon-width:var(--control-icon-size-x-large);
+    --button-icon-height:var(--icon-size-x-large);
   }
 
   /* color */
   &[color="blue"]{
-    --button-color:var(--control-color-blue);
-    --button-color-hover:var(--control-color-blue-hover);
+    --button-bg:var(--control-bg-blue);
+    --button-bg-hover:var(--control-bg-blue-hover);
   }
 
   &[color="green"]{
-    --button-color:var(--control-color-green);
-    --button-color-hover:var(--control-color-green-hover);
+    --button-bg:var(--control-bg-green);
+    --button-bg-hover:var(--control-bg-green-hover);
   }
 
   &[color="yellow"]{
-    --button-color:var(--control-color-yellow);
-    --button-color-hover:var(--control-color-yellow-hover);
+    --button-bg:var(--control-bg-yellow);
+    --button-bg-hover:var(--control-bg-yellow-hover);
   }
 
   &[color="red"]{
-    --button-color:var(--control-color-red);
-    --button-color-hover:var(--control-color-red-hover);
+    --button-bg:var(--control-bg-red);
+    --button-bg-hover:var(--control-bg-red-hover);
   }
 
-  /* variant */
-  &[variant="ghost"] > button{
-    --button-color:transparent;
+  /* appearance */
+  &[appearance="transparent"] > button{
+    --button-bg:transparent;
+    --button-bg-hover:transparent;
+    --button-bg-active:transparent;
   }
 
-  &[justify="start"] > button{
-    justify-content:flex-start;
+  &[justify="start"]{
+    --button-justify-content:flex-start;
   }
 
-  &[justify="end"] > button{
-    justify-content:flex-end;
+  &[justify="end"]{
+    --button-justify-content:flex-end;
   }
 }

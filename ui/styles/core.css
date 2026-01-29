@@ -15,28 +15,15 @@
   --padding-x-large:1.5rem;
   --padding-default:var(--padding-medium);
 
-  /* control icon sizes */
-  --control-icon-size-x-small:1rem;
-  --control-icon-size-small:1.125rem;
-  --control-icon-size-medium:1.25rem;
-  --control-icon-size-large:1.375rem;
-  --control-icon-size-x-large:1.5rem;
-  --control-icon-size-default:var(--control-icon-size-medium);
+  /* icon sizes */
+  --icon-size-x-small:1rem;
+  --icon-size-small:1.125rem;
+  --icon-size-medium:1.25rem;
+  --icon-size-large:1.375rem;
+  --icon-size-x-large:1.5rem;
+  --icon-size-default:var(--icon-size-medium);
 
-  /* spacing */
-  --spacing-none:0;
-  --spacing-base:1.25rem;
-  --spacing-default:var(--spacing-base);
-
-  --panel-padding-inline-base:1.25rem;
-  --panel-padding-block-base:1rem;
-
-  /* borders */
-  --border-style-solid:solid;
-  --border-style-dotted:dotted;
-  --border-width-default:1px;
-
-  --border-radius-none:0;
+  /* border radius */
   --border-radius-default:0.5rem;
   --border-radius-full:50vmax;
 
@@ -46,13 +33,13 @@
   --transition-duration-slow:0.25s;
   --transition-duration-default:var(--transition-duration-normal);
 
+  /* outline */
   --outline-offset:2px;
   --outline-width:2px;
   --outline-style:solid;
 }
 
 /* text direction */
-button,
 input,
 ui-checkbox,
 ui-switch,
@@ -61,7 +48,6 @@ ui-tabs{
 }
 
 /* disabled state */
-button[disabled],
 textarea[disabled],
 input[disabled]{
   cursor:not-allowed;
@@ -70,14 +56,11 @@ input[disabled]{
 }
 
 /* no-select */
-button,
 ui-checkbox,
 ui-tab{
-  -webkit-user-select:none;
   user-select:none;
 }
 
-button,
 ui-checkbox,
 ui-tab{
   appearance:none;
@@ -88,7 +71,6 @@ ui-tab{
 /* outline */
 ui-checkbox,
 ui-tab,
-button,
 input,
 textarea,
 a{

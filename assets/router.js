@@ -8,7 +8,6 @@ const components = [
   
   // Design Tokens
   {label: 'Typography', link: infoPageDir+'typography.html', category: 'tokens' },
-  {label: 'Borders', link: infoPageDir+'borders.html', category: 'tokens' },
 
   // Primitives
   {label: 'Icon', link: compPageDir+'icon.html', category: 'primitives' },
@@ -45,7 +44,7 @@ function generateNav(components){
     const wrapper = document.createElement('ui-button');
 
     wrapper.setAttribute('justify','start');
-    wrapper.setAttribute('variant','ghost');
+    wrapper.setAttribute('appearance','transparent');
     wrapper.className = 'menu-item';
 
     const button = document.createElement('button');

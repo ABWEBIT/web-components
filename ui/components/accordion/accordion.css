@@ -2,9 +2,8 @@ ui-accordion{
   --accordion-border-radius:var(--border-radius-default);
   --accordion-bg:var(--surface-bg);
 
-  --accordion-spacing:var(--spacing-default);
-  --accordion-padding-inline:var(--accordion-spacing);
-  --accordion-padding-block:calc(var(--accordion-spacing) * 0.75);
+  --accordion-padding-block:var(--padding-md);
+  --accordion-padding-inline:var(--padding-lg);
   --accordion-gap:0.5rem;
   
   display:flex;
@@ -58,8 +57,8 @@ ui-accordion{
     background-color:transparent;
     text-align:start;
 
-    padding-inline:var(--accordion-padding-inline);
     padding-block:var(--accordion-padding-block);
+    padding-inline:var(--accordion-padding-inline);
     font-size:inherit;
     color:inherit;
     transition-property:outline-color;
