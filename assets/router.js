@@ -44,7 +44,7 @@ function generateNav(components){
     const wrapper = document.createElement('ui-button');
 
     wrapper.setAttribute('justify','start');
-    wrapper.setAttribute('appearance','transparent');
+    wrapper.setAttribute('variant','ghost');
     wrapper.className = 'menu-item';
 
     const button = document.createElement('button');

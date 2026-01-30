@@ -30,36 +30,7 @@
 <section class="content">
 
   <div class="content-item">
-    <div>Appearance: transparent</div>
-    <div class="example">
-      <div class="preview">
-        <ui-button appearance="transparent" color="red">
-          <button><ui-icon name="settings"></ui-icon>Button</button>
-        </ui-button>
-        <ui-button appearance="outline">
-          <button><ui-icon name="settings"></ui-icon>Button</button>
-        </ui-button>
-        <ui-button appearance="outline" color="red">
-          <button><ui-icon name="settings"></ui-icon>Button</button>
-        </ui-button>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-
-<pre><code>
-&lt;ui-button appearance="transparent"&gt;
-  &lt;button&gt;Button&lt;/button&gt;
-&lt;/ui-button&gt;
-</code></pre>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Default, Text Only</div>
+    <div>Text only</div>
     <div class="example">
       <div class="preview">
         <ui-button>
@@ -123,7 +94,35 @@
     </div>
   </div>
 
+  <div class="content-item">
+    <div>Variant: ghost, outline</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button variant="ghost">
+          <button><ui-icon name="settings"></ui-icon>Button</button>
+        </ui-button>
+        <ui-button variant="outline">
+          <button><ui-icon name="settings"></ui-icon>Button</button>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
 
+<pre><code>
+&lt;ui-button variant="ghost"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button variant="outline"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
 
   <div class="content-item">
     <div>Colors: neutral, blue, green, yellow, red. Default: neutral</div>
@@ -337,13 +336,7 @@
     <div>Width 100%</div>
     <div class="example">
       <div class="preview">
-        <ui-button justify="start" style="--button-width:140px;">
-          <button>Button</button>
-        </ui-button>
-        <ui-button style="--button-width:140px;">
-          <button>Button</button>
-        </ui-button>
-        <ui-button justify="end" style="--button-width:140px;">
+        <ui-button style="--button-width:100%;">
           <button>Button</button>
         </ui-button>
       </div>

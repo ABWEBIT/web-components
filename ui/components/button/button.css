@@ -17,17 +17,6 @@ ui-button{
     cursor:wait;
   }
 
-  &::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    border-radius:inherit;
-    border-width:1px;
-    border-style:solid;
-    border-color:transparent;
-  }
-
   & > button{
     position:relative;
     display:inline-flex;
@@ -110,10 +99,6 @@ ui-button{
   &[shape="circle"] > button,
   &[shape="square"] > button{
     --button-padding-inline:0;
-  }
-
-  &[shape="circle"] > button,
-  &[shape="square"] > button{
     aspect-ratio:1;
   }
 
@@ -174,27 +159,45 @@ ui-button{
     --button-bg:var(--control-bg-red);
   }
 
-  /* appearance */
-  &[appearance="transparent"] > button{
-    --button-bg:transparent;
-  }
-
-  &[appearance="outline"]::after{
-    border-color:var(--button-bg, var(--control-bg-default));
-  }
-
-  &[appearance="outline"] > button{
-    background-color:oklch(from var(--button-bg) l c h / 0);
+  /* variant */
+  &[variant="ghost"] > button{
+    background-color:transparent;
   }
 
   @media (hover: hover){
-    &:not([busy])[appearance="outline"] > button:not(:disabled):hover{
+    &:not([busy])[variant="ghost"] > button:not(:disabled):hover{
       background-color:oklch(from var(--button-bg) calc(l + 0.04) c h / 0.2);
     }
   }
 
-  &:not([busy])[appearance="outline"] > button:not(:disabled):active{
-    background-color:oklch(from var(--button-bg) calc(l - 0.05) c h / 0.2);
+  &:not([busy])[variant="ghost"] > button:not(:disabled):active{
+    background-color:oklch(from var(--button-bg) calc(l - 0.03) c h / 0.2);
+  }
+
+  &[variant="outline"]::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    border-radius:inherit;
+    border-width:1px;
+    border-style:solid;
+    border-color:transparent;
+    border-color:var(--button-bg, var(--control-bg-default));
+  }
+
+  &[variant="outline"] > button{
+    background-color:transparent;
+  }
+
+  @media (hover: hover){
+    &:not([busy])[variant="outline"] > button:not(:disabled):hover{
+      background-color:oklch(from var(--button-bg) calc(l + 0.04) c h / 0.2);
+    }
+  }
+
+  &:not([busy])[variant="outline"] > button:not(:disabled):active{
+    background-color:oklch(from var(--button-bg) calc(l - 0.03) c h / 0.2);
   }
 
   &[justify="start"]{
