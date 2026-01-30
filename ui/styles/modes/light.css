@@ -8,12 +8,8 @@
 
   /* link */
   --link-color:var(--color-blue-700);
-  --link-color-hover:color-mix(
-    in oklch,
-    var(--color-blue-700),
-    var(--color-blue-500) 50%
-  );
-  --link-color-active:var(--link-color);
+  --link-color-hover:oklch(from var(--link-color) calc(l + 0.05) c h);
+  --link-color-active:oklch(from var(--link-color) calc(l - 0.05) c h);
 
   /* surface */
   --surface-bg:var(--color-neutral-200);
@@ -22,36 +18,13 @@
   --control-fg-default:var(--color-black);
 
   /* control backgrounds */
-  --control-bg-default:var(--color-neutral-300);
-  --control-bg-default-hover:color-mix(
-    in oklch,
-    var(--color-neutral-300),
-    var(--color-neutral-200) 40%
-  );
+  --control-bg-neutral:var(--color-neutral-300);
   --control-bg-blue:var(--color-blue-400);
-  --control-bg-blue-hover:color-mix(
-    in oklch,
-    var(--color-blue-400),
-    var(--color-blue-300) 50%
-  );
   --control-bg-green:var(--color-green-400);
-  --control-bg-green-hover:color-mix(
-    in oklch,
-    var(--color-green-400),
-    var(--color-green-300) 50%
-  );
   --control-bg-yellow:var(--color-yellow-400);
-  --control-bg-yellow-hover:color-mix(
-    in oklch,
-    var(--color-yellow-400),
-    var(--color-yellow-300) 50%
-  );
   --control-bg-red:var(--color-red-400);
-  --control-bg-red-hover:color-mix(
-    in oklch,
-    var(--color-red-400),
-    var(--color-red-300) 40%
-  );
+
+  --control-bg-default:var(--control-bg-neutral);
 
   /* control border */
   --control-border-color:var(--color-neutral-400);

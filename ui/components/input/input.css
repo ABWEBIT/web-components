@@ -45,6 +45,8 @@ ui-input{
     padding:0;
     height:100%;
     padding-inline:var(--input-padding-inline);
+    font-family:var(--font-family-default);
+    font-size:var(--font-size-default);
     color:var(--input-font-color);
     background-color:transparent;
     transition-duration:var(--transition-duration-default);

@@ -14,6 +14,8 @@ ui-textarea{
     width:100%;
     padding:var(--textarea-padding);
     resize:vertical;
+    font-family:var(--font-family-default);
+    font-size:var(--font-size-default);
     color:var(--textarea-font-color);
     border-radius:var(--border-radius-default);
     border-width:1px;

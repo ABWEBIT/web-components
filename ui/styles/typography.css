@@ -12,7 +12,7 @@
   --font-weight-semibold:600;
   --font-weight-bold:700;
 
-  /* body font sizes */
+  /* font sizes */
   --font-size-x-small:0.75rem;
   --font-size-small:0.875rem;
   --font-size-medium:1rem;
@@ -44,7 +44,7 @@ body{
 }
 
 /* form font */
-input,select,textarea{
+select{
   font-family:var(--font-family-default);
   font-size:var(--font-size-default);
 }

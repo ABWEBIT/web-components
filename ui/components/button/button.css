@@ -4,6 +4,7 @@ ui-button{
   --button-column-gap:calc(var(--button-height) / 4);
   --button-border-radius:calc(var(--button-height) / 4);
   --button-justify-content:center;
+  --button-bg:var(--control-bg-default);
 
   direction:inherit;
   position:relative;
@@ -14,6 +15,17 @@ ui-button{
 
   &[busy]{
     cursor:wait;
+  }
+
+  &::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    border-radius:inherit;
+    border-width:1px;
+    border-style:solid;
+    border-color:transparent;
   }
 
   & > button{
@@ -35,8 +47,8 @@ ui-button{
 
     font-family:var(--font-family-default);
     font-size:var(--button-font-size);
-    color:var(--control-fg-default);
-    background-color:var(--button-bg, var(--control-bg-default));
+    color:var(--button-fg, var(--control-fg-default));
+    background-color:var(--button-bg);
 
     transition-duration:var(--transition-duration-default);
     transition-property:background-color,outline-color;
@@ -59,12 +71,12 @@ ui-button{
 
   @media (hover: hover){
     &:not([busy]) > button:not(:disabled):hover{
-      background-color:var(--button-bg-hover, var(--control-bg-default-hover));
+      background-color:oklch(from var(--button-bg) calc(l + 0.04) c h);
     }
   }
 
   &:not([busy]) > button:not(:disabled):active{
-    background-color:var(--button-bg, var(--control-bg-default));
+    background-color:oklch(from var(--button-bg) calc(l - 0.05) c h);
   }
 
   & > button > ui-icon {
@@ -142,31 +154,47 @@ ui-button{
   }
 
   /* color */
+  &[color="neutral"]{
+    --button-bg:var(--control-bg-neutral);
+  }
+
   &[color="blue"]{
     --button-bg:var(--control-bg-blue);
-    --button-bg-hover:var(--control-bg-blue-hover);
   }
 
   &[color="green"]{
     --button-bg:var(--control-bg-green);
-    --button-bg-hover:var(--control-bg-green-hover);
   }
 
   &[color="yellow"]{
     --button-bg:var(--control-bg-yellow);
-    --button-bg-hover:var(--control-bg-yellow-hover);
   }
 
   &[color="red"]{
     --button-bg:var(--control-bg-red);
-    --button-bg-hover:var(--control-bg-red-hover);
   }
 
   /* appearance */
   &[appearance="transparent"] > button{
     --button-bg:transparent;
-    --button-bg-hover:transparent;
-    --button-bg-active:transparent;
+  }
+
+  &[appearance="outline"]::after{
+    border-color:var(--button-bg, var(--control-bg-default));
+  }
+
+  &[appearance="outline"] > button{
+    background-color:oklch(from var(--button-bg) l c h / 0);
+  }
+
+  @media (hover: hover){
+    &:not([busy])[appearance="outline"] > button:not(:disabled):hover{
+      background-color:oklch(from var(--button-bg) calc(l + 0.04) c h / 0.2);
+    }
+  }
+
+  &:not([busy])[appearance="outline"] > button:not(:disabled):active{
+    background-color:oklch(from var(--button-bg) calc(l - 0.05) c h / 0.2);
   }
 
   &[justify="start"]{

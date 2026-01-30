@@ -30,6 +30,35 @@
 <section class="content">
 
   <div class="content-item">
+    <div>Appearance: transparent</div>
+    <div class="example">
+      <div class="preview">
+        <ui-button appearance="transparent" color="red">
+          <button><ui-icon name="settings"></ui-icon>Button</button>
+        </ui-button>
+        <ui-button appearance="outline">
+          <button><ui-icon name="settings"></ui-icon>Button</button>
+        </ui-button>
+        <ui-button appearance="outline" color="red">
+          <button><ui-icon name="settings"></ui-icon>Button</button>
+        </ui-button>
+      </div>
+      <div class="toolbar">
+        <span>HTML</span>
+      </div>
+      <div class="code">
+
+<pre><code>
+&lt;ui-button appearance="transparent"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
     <div>Default, Text Only</div>
     <div class="example">
       <div class="preview">
@@ -94,33 +123,15 @@
     </div>
   </div>
 
+
+
   <div class="content-item">
-    <div>Appearance: ghost</div>
+    <div>Colors: neutral, blue, green, yellow, red. Default: neutral</div>
     <div class="example">
       <div class="preview">
-        <ui-button appearance="transparent" color="blue">
+        <ui-button color="neutral">
           <button>Button</button>
         </ui-button>
-      </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-
-<pre><code>
-&lt;ui-button appearance="transparent"&gt;
-  &lt;button&gt;Button&lt;/button&gt;
-&lt;/ui-button&gt;
-</code></pre>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="content-item">
-    <div>Colors: blue, green, yellow, red</div>
-    <div class="example">
-      <div class="preview">
         <ui-button color="blue">
           <button>Button</button>
         </ui-button>
@@ -140,6 +151,10 @@
       <div class="code">
 
 <pre><code>
+&lt;ui-button color="neutral"&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/ui-button&gt;
+
 &lt;ui-button color="blue"&gt;
   &lt;button&gt;Button&lt;/button&gt;
 &lt;/ui-button&gt;
