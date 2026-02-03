@@ -1,14 +1,16 @@
 ui-switch{
-  --switch-track-background-color:var(--control-color-default);
   --switch-border-radius:var(--border-radius-full);
+
+  --switch-track-bg:var(--surface-bg);
+
   --switch-track-height:24px;
   --switch-track-width:40px;
-  --switch-track-checked-background-color:var(--color-blue-500);
+  --switch-track-checked-bg-color:var(--color-blue-500);
   --switch-thumb-height:16px;
   --switch-thumb-width:16px;
   --switch-thumb-position-start:4px;
   --switch-thumb-position-end:20px;
-  --switch-thumb-background-color:var(--color-white);
+  --switch-thumb-bg:var(--color-white);
 
   & > button{
     position:relative;
@@ -19,7 +21,7 @@ ui-switch{
     width:var(--switch-track-width);
     padding-inline-start:var(--switch-thumb-position-start);
     border-radius:var(--switch-border-radius);
-    background-color:var(--switch-track-background-color);
+    background-color:var(--switch-track-bg);
     transition-duration:var(--transition-duration-default);
     transition-property:background-color,outline-color,padding-inline-start;
   }

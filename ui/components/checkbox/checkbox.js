@@ -1,7 +1,30 @@
 class UICheckbox extends HTMLElement{
   #listeners = null;
-  #checked = false;
+  #button = null;
   #disabled = false;
+  #checked = false;
+
+  constructor(){
+    super();
+    const isChecked = this.hasAttribute('checked');
+    const isDisabled = this.hasAttribute('disabled');
+    const fragment = document.createDocumentFragment();
+
+    this.#button = document.createElement('button');
+    this.#button.role = 'checkbox';
+
+    if(isChecked){
+      this.#button.ariaChecked = true;
+    }
+    if(isDisabled){
+      this.#button.disabled = true;
+      this.#button.ariaDisabled = true;
+    }
+
+    fragment.append(this.#button);
+
+    this.append(fragment);
+  }
 
   static get observedAttributes(){
     return ['checked','disabled'];

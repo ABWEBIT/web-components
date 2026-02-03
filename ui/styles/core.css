@@ -24,6 +24,7 @@
   --icon-size-default:var(--icon-size-medium);
 
   /* border radius */
+  --border-radius-none:0;
   --border-radius-default:0.5rem;
   --border-radius-full:50vmax;
 
@@ -41,27 +42,38 @@
 
 /* text direction */
 input,
+ui-button,
 ui-checkbox,
 ui-switch,
 ui-tabs{
   direction:inherit;
 }
 
-/* disabled state */
-textarea[disabled],
-input[disabled]{
+/* states */
+:disabled{
   cursor:not-allowed;
   opacity:0.5;
   pointer-events:auto;
 }
 
-/* no-select */
+[busy]{
+  cursor:wait;
+}
+
+/* disable text selection */
+button,
+ui-button,
 ui-checkbox,
+ui-switch,
 ui-tab{
   user-select:none;
 }
 
+/* button like */
+button,
+ui-button,
 ui-checkbox,
+ui-switch,
 ui-tab{
   appearance:none;
   cursor:pointer;
@@ -71,6 +83,7 @@ ui-tab{
 /* outline */
 ui-checkbox,
 ui-tab,
+button,
 input,
 textarea,
 a{
@@ -78,10 +91,10 @@ a{
   outline-width:var(--outline-width);
   outline-style:var(--outline-style);
   outline-color:transparent;
+}
 
-  &:focus-visible:not([disabled]){
-    outline-color:var(--outline-color);
-  }
+:focus-visible{
+  outline-color:var(--outline-color);
 }
 
 /* link */
@@ -96,4 +109,9 @@ a{
 
 ::-webkit-scrollbar-thumb{
   background-color:var(--scrollbar-color);
+}
+
+/* transition */
+ui-button{
+  transition-duration:var(--transition-duration-default);
 }
