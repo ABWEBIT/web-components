@@ -1,52 +1,52 @@
 ui-accordion{
+  display:flex;
+  flex-direction:column;
+  row-gap:0.5rem;
+  width:100%;
+}
+
+ui-accordion-item{
   --accordion-border-radius:var(--border-radius-default);
   --accordion-bg:var(--surface-bg);
 
-  --accordion-padding-block:var(--padding-md);
-  --accordion-padding-inline:var(--padding-lg);
-  --accordion-gap:0.5rem;
-  
-  display:flex;
-  flex-direction:column;
-  row-gap:var(--accordion-gap);
-  width:100%;
+  --accordion-padding-block:var(--padding-medium);
+  --accordion-padding-inline:var(--padding-large);
 
-  & > div{
-    position:relative;
-    display:grid;
+  position:relative;
+  display:grid;
+  transition-duration:inherit;
 
-    border-radius:var(--accordion-border-radius);
-    background-color:var(--accordion-bg);
-    transition-property:grid-template-rows;
-    transition-duration:var(--transition-duration-default);
-    transition-timing-function:ease-in-out;
-  }
+  border-radius:var(--accordion-border-radius);
+  background-color:var(--accordion-bg);
 
-  & > div[data-expanded="true"]{
+  transition-property:grid-template-rows;
+  transition-timing-function:ease-in-out;
+
+  &[expanded]{
     grid-template-rows:max-content 1fr;
   }
 
-  & > div[data-expanded="false"]{
+  &:not([expanded]){
     grid-template-rows:max-content 0fr;
   }
 
-  & > div > div[role="region"]{
+  & > div[role="region"]{
     overflow:hidden;
     padding-inline:var(--accordion-padding-inline);
   }
 
-  & > div > div[role="region"]::after{
+  & > div[role="region"]::after{
     content:'';
     position:relative;
     display:block;
     height:var(--accordion-padding-block);
   }
 
-  & > div > :is(h2,h3,h4,h5,h6):first-child{
+  & > :is(h2,h3,h4,h5,h6):first-child{
     font-size:var(--font-size-large);
   }
 
-  & > div > :is(h2,h3,h4,h5,h6):first-child > button{
+  & > :is(h2,h3,h4,h5,h6):first-child > button{
     position:relative;
     display:flex;
     align-items:center;
@@ -69,14 +69,16 @@ ui-accordion{
       }
     }
 
-    & > ui-icon[expand-icon]{
+    & > ui-icon:last-of-type{
       margin-inline-start:auto;
       margin-inline-end:-0.25rem;
       transition-duration:var(--transition-duration-default);
+      transform-origin:center;
       transition-property:transform;
     }
   }
 
-  & > div[data-expanded="false"] ui-icon[expand-icon]{transform:rotate(0deg);}
-  & > div[data-expanded="true"] ui-icon[expand-icon]{transform:rotate(180deg);}
+  &[expanded] ui-icon:last-of-type{
+    transform:rotateX(180deg);
+  }
 }

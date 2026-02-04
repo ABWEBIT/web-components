@@ -1,62 +1,28 @@
-import {uuid} from '../../utilities/index.js';
+import './accordion-item.js';
 
 class UIAccordion extends HTMLElement{
-  #items = null;
+  #single = false;
+  #items = [];
+
   connectedCallback(){
+    this.#single = this.hasAttribute('single');
+    this.#items = [...this.querySelectorAll(':scope > ui-accordion-item')];
 
-    this.#items = this.querySelectorAll(':scope > div');
+    this.addEventListener('accordion-item-toggle',(e) => {
+      const item = e.detail.item;
 
-    this.#items.forEach(item =>{
-      const id = uuid();
-      const idButton = `button-${id}`;
-      const idPanel = `panel-${id}`;
+      if(item.disabled) return;
 
-      const label = item.querySelector(':scope > :is(h2,h3,h4,h5,h6):first-child');
-      if(!label){
-        throw new Error('Accordion Label (h2-H6) not found');
+      if(this.#single){
+        this.#items.forEach(i => {
+          if(i.disabled) return;
+          i.expanded = i === item ? !i.expanded : false;
+        });
       }
-
-      const button = label.querySelector(':scope > button');
-      if(!button){
-        throw new Error('Accordion Button (button) not found');
+      else{
+        item.expanded = !item.expanded;
       }
-
-      const panel = item.querySelector(':scope > div');
-      if(!panel){
-        throw new Error('Accordion Panel (div) not found in item');
-      }
-      panel.role = 'region';
-
-      button.id ||= idButton;
-      panel.id ||= idPanel;
-
-      button.setAttribute('aria-controls',panel.id);
-      panel.setAttribute('aria-labelledby',button.id);
-
-      let expanded = String(item.dataset.expanded === 'true');
-
-      button.ariaExpanded = expanded;
-      panel.ariaHidden = String(expanded === 'false');
-      panel.inert = expanded === 'false';
-      item.dataset.expanded = String(expanded === 'true');
-
-      button.addEventListener('click',() => this.#onAction(item,button,panel));
-
-      const icon = document.createElement('ui-icon');
-      icon.setAttribute('name','arrow-down');
-      icon.setAttribute('expand-icon','');
-      button.append(icon);
     });
-
   }
-
-  #onAction = (item,button,panel) => {
-    const expanded = button.ariaExpanded === 'true';
-    item.dataset.expanded = String(!expanded);
-    button.ariaExpanded = String(!expanded);
-    panel.ariaHidden = String(expanded);
-    panel.inert = expanded;
-  }
-
 }
 customElements.define('ui-accordion',UIAccordion);

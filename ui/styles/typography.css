@@ -1,9 +1,8 @@
 :root{
   /* font family */
-  --font-family-body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  --font-family-heading:var(--font-family-body);
+  --font-family-default:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-family-heading:var(--font-family-default);
   --font-family-code:ui-monospace,Menlo,Consolas,monospace;
-  --font-family-default:var(--font-family-body);
 
   /* font weight */
   --font-weight-light:300;
@@ -34,7 +33,6 @@
   --line-height-expanded:2;
 }
 
-/* body */
 body{
   font-family:var(--font-family-default);
   font-size:var(--font-size-default);
@@ -43,38 +41,28 @@ body{
   -moz-osx-font-smoothing:grayscale;
 }
 
-/* form font */
-select{
+/* controls */
+button,input,textarea,select{
   font-family:var(--font-family-default);
   font-size:var(--font-size-default);
 }
 
-/* code font */
+/* pre, code */
 pre,code{
   font-family:var(--font-family-code)
 }
 
-/* reset pre spacing */
 pre{
   margin:0;
 }
 
-/* inline link styling */
-a{
-  text-decoration-line:underline;
-  text-decoration-style:dashed;
-  text-underline-offset:0.2rem;
-  text-decoration-thickness:1px;
-}
-
-/* normalize lists */
+/* lists, paragraph */
 ul,ol{
   margin-inline:0;
   padding:0;
   padding-inline-start:2rem;
 }
 
-/* remove trailing paragraph spacing */
 :is(ul,ol,p):last-child{
   margin-block-end:0;
 }
@@ -101,3 +89,11 @@ h3{font-size:var(--h3-font-size);}
 h4{font-size:var(--h4-font-size);}
 h5{font-size:var(--h5-font-size);}
 h6{font-size:var(--h6-font-size);}
+
+/* inline link */
+a{
+  text-decoration-line:underline;
+  text-decoration-style:dashed;
+  text-underline-offset:0.2rem;
+  text-decoration-thickness:1px;
+}

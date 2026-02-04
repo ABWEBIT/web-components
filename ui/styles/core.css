@@ -112,6 +112,7 @@ a{
 }
 
 /* transition */
-ui-button{
+ui-button,
+ui-accordion{
   transition-duration:var(--transition-duration-default);
 }

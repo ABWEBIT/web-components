@@ -18,7 +18,7 @@
   --control-fg-default:var(--color-black);
 
   /* control backgrounds */
-  --control-bg-neutral:var(--color-neutral-300);
+  --control-bg-neutral:var(--color-neutral-400);
   --control-bg-blue:var(--color-blue-400);
   --control-bg-green:var(--color-green-400);
   --control-bg-yellow:var(--color-yellow-400);

@@ -43,7 +43,7 @@ iframe{
 }
 
 /* disable default tap highlight on touch devices */
-a,button,input,select,textarea{
+a,button,input,textarea,select{
   -webkit-tap-highlight-color:transparent;
 }
 
