@@ -1,12 +1,10 @@
 ui-alert{
-  --alert-border-radius:var(--border-radius-default);
+  --alert-border-radius:var(--radius-base);
   --alert-background-color:var(--surface-bg);
 
-  --alert-max-width:100%;
   --alert-padding-block:16px;
   --alert-padding-inline:20px;
   --alert-title-font-size:16px;
-  --alert-content-font-size:14px;
   --alert-row-gap:8px;
   --alert-content-color:var(--color-gray-200);
 
@@ -15,12 +13,12 @@ ui-alert{
   grid-template-columns:auto 1fr;
   grid-template-rows:auto auto;
   width:100%;
+  max-width:100%;
   align-items:start;
   padding-block:var(--alert-padding-block);
   padding-inline:var(--alert-padding-inline);
   border-radius:var(--alert-border-radius);
   background-color:var(--alert-background-color);
-  max-width:var(--alert-max-width);
 
   /* icon */
   & > ui-icon{

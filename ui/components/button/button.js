@@ -4,6 +4,19 @@ class UIButton extends HTMLElement{
   #button = null;
   #spinner = null;
 
+  constructor(){
+    super();
+    this.#button = document.createElement('button');
+
+    this.#disabled = this.hasAttribute('disabled');
+    this.#busy = this.hasAttribute('busy');
+
+    this.#button.disabled = this.#disabled || this.#busy;
+
+    this.#button.replaceChildren(...this.childNodes);
+    this.append(this.#button);
+  }
+
   static get observedAttributes(){
     return ['busy','disabled'];
   }
@@ -43,9 +56,7 @@ class UIButton extends HTMLElement{
   }
 
   connectedCallback(){
-    this.#button = this.querySelector('button');
-    if(!this.#button) throw new Error('Not found <button>');
-    if(this.#disabled || this.#busy) this.#button.disabled = true;
+
   }
 }
 customElements.define('ui-button',UIButton);

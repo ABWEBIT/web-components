@@ -1,44 +1,72 @@
 ui-checkbox{
-  --checkbox-border-radius:var(--border-radius-default);
-
-  --checkbox-height:24px;
-  --checkbox-width:24px;
-  --checkbox-surface-color:var(--control-color-default);
-  --checkbox-border-color:var(--control-border-color);
-  --checkbox-svg-surface-color:var(--color-blue-500);
+  --checkbox-size:1.25rem;
+  --checkbox-border-radius:calc(var(--checkbox-size) / 4);
+  --checkbox-border-color:var(--border-color);
 
   position:relative;
-  display:inline-flex;
-  align-items:center;
-  vertical-align:middle;
-  height:var(--checkbox-height);
-  width:var(--checkbox-width);
+  user-select:none;
+  height:var(--checkbox-size);
+  width:var(--checkbox-size);
   border-radius:var(--checkbox-border-radius);
-  background-color:var(--checkbox-surface-color);
   color:var(--color-white);
-  transition-duration:var(--transition-duration-default);
-  transition-property:outline-color;
 
-  &[disabled]{
-    cursor:not-allowed;
-    opacity:0.5;
-    pointer-events:auto;
+  & > button::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    border-radius:inherit;
+    border-width:1px;
+    border-style:solid;
+    border-color:var(--checkbox-bg, var(--control-bg-default));
   }
 
+  & > input[type="checkbox"]{
+    position:relative;
+    width:inherit;
+    height:inherit;
+    border-radius:inherit;
+    border-width:1px;
+    border-style:solid;
+    border-color:var(--checkbox-bg, var(--control-bg-default));
+  }
 
-  & > ui-icon{
-    --icon-height:100%;
-    --icon-width:100%;
+  & > button{
+    position:relative;
+    display:flex;
+    align-items:center;
+    height:inherit;
+    width:inherit;
+    border-radius:inherit;
+    color:inherit;
+    background-color:var(--checkbox-bg, transparent);
+    transition-duration:var(--transition-duration-default);
+    transition-property:background-color,outline-color;
+  }
 
-    position:absolute;
+  & > button > ui-icon{
+    --icon-height:var(--checkbox-size);
+    --icon-width:var(--checkbox-size);
     border-radius:inherit;
     opacity:0;
-    background-color:var(--checkbox-svg-surface-color);
     transition-duration:var(--transition-duration-default);
     transition-property:opacity;
   }
 
-  &[checked] > ui-icon{
+  /* radius */
+  &[radius="full"]{--checkbox-radius:var(--radius-full);}
+  &[radius="none"]{--checkbox-radius:var(--radius-none);}
+
+  /* size */
+  &[size="small"]{--checkbox-size:1rem;}
+  &[size="medium"]{--checkbox-size:1.25rem;}
+  &[size="large"]{--checkbox-size:1.5rem;}
+
+  &:is([checked],[indeterminate]) > button{
+    --checkbox-bg:var(--color-blue-600);
+  }
+
+  &:is([checked],[indeterminate]) > button > ui-icon{
     opacity:1;
   }
 }

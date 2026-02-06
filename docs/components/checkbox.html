@@ -13,28 +13,37 @@
 <div>
   <h2>Attributes</h2>
   <p>aria-label - static (required). If used outside of the <a href="#field">ui-field</a> component, the aria-label must be set manually.</p>
-  <p>required - static (optional). Default: false. Indicates whether the component is required.</p>
-  <p>checked - reactive (optional). Default: false. Controls the checked state of the component.</p>
   <p>disabled - reactive (optional). Default: false. Controls the disabled state of the component.</p>
+  <p>checked - reactive (optional). Default: false. Controls the checked state of the component.</p>
+  <p>required - static (optional). Default: false. Indicates whether the component is required.</p>
 </div>
 
 <section class="content">
 
   <div class="content-item">
-    <h3>Default</h3>
+    <div>Default</div>
     <div class="example">
-      <div class="preview">
+      <div class="example-preview">
         <ui-checkbox></ui-checkbox>
       </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-
+      <div class="example-code">
 <pre><code>
 &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
 </code></pre>
+      </div>
+    </div>
+  </div>
 
+  <div class="content-item">
+    <div>Indeterminate</div>
+    <div class="example">
+      <div class="example-preview">
+        <ui-checkbox indeterminate></ui-checkbox>
+      </div>
+      <div class="example-code">
+<pre><code>
+&lt;ui-checkbox indeterminate&gt;&lt;/ui-checkbox&gt;
+</code></pre>
       </div>
     </div>
   </div>
@@ -42,18 +51,13 @@
   <div class="content-item">
     <div>Checked</div>
     <div class="example">
-      <div class="preview">
+      <div class="example-preview">
         <ui-checkbox checked></ui-checkbox>
       </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-
+      <div class="example-code">
 <pre><code>
 &lt;ui-checkbox checked&gt;&lt;/ui-checkbox&gt;
 </code></pre>
-
       </div>
     </div>
   </div>
@@ -61,19 +65,51 @@
   <div class="content-item">
     <div>Disabled</div>
     <div class="example">
-      <div class="preview">
-        <ui-checkbox disabled id="e"></ui-checkbox>
+      <div class="example-preview">
+        <ui-checkbox disabled></ui-checkbox>
       </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
-
+      <div class="example-code">
 <pre><code>
 &lt;ui-checkbox disabled&gt;&lt;/ui-checkbox&gt;
 </code></pre>
-
       </div>
     </div>
   </div>
+
+  <div class="content-item">
+    <div>Size: small | medium (default) | large</div>
+    <div class="example">
+      <div class="example-preview">
+        <ui-checkbox checked size="small"></ui-checkbox>
+        <ui-checkbox checked size="medium"></ui-checkbox>
+        <ui-checkbox checked size="large"></ui-checkbox>
+      </div>
+      <div class="example-code">
+<pre><code>
+&lt;ui-checkbox size="small"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox size="medium"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox size="large"&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Radius: full, none</div>
+    <div class="example">
+      <div class="example-preview">
+        <ui-checkbox checked radius="full"></ui-checkbox>
+        <ui-checkbox checked radius="none"></ui-checkbox>
+      </div>
+      <div class="example-code">
+<pre><code>
+&lt;ui-checkbox radius="full"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox radius="none"&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+      </div>
+    </div>
+  </div>
+
+
+
 </section>

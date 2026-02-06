@@ -5,11 +5,12 @@
   /* foregrounds */
   --fg-base:var(--color-neutral-50);
   --fg-muted:var(--color-neutral-400);
+  --fg-disabled:var(--color-neutral-400);
 
   /* link */
   --link-color:var(--color-blue-400);
-  --link-color-hover:oklch(from var(--link-color) calc(l + 0.05) c h);
-  --link-color-active:oklch(from var(--link-color) calc(l - 0.05) c h);
+  --link-color-hover:oklch(from var(--link-color) calc(l + 0.04) c h);
+  --link-color-active:oklch(from var(--link-color) calc(l - 0.01) c h);
 
   /* surface */
   --surface-bg:var(--color-neutral-900);
@@ -29,7 +30,10 @@
   /* control border */
   --control-border-color:var(--color-neutral-500);
 
-  /* lines */
+  /* border */
+  --border-color:var(--color-neutral-500);
+
+  /* line */
   --line-color:var(--color-neutral-800);
 
   /* outline */

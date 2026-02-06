@@ -19,7 +19,7 @@
   <h2>CSS Properties</h2>
   <p>--separator-thickness:1px;</p>
   <p>--separator-spacing:0;</p>
-  <p>--separator-color:var(--ui-surface-color-secondary);</p>
+  <p>--separator-color:var(--line-color);</p>
 </div>
 
 <section class="content">
@@ -27,13 +27,10 @@
   <div class="content-item">
     <div>Horizontal</div>
     <div class="example">
-      <div class="preview">
+      <div class="example-preview">
         <ui-separator></ui-separator>
       </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
+      <div class="example-code">
 
 <pre><code>
 &lt;ui-separator&gt;&lt;/ui-separator&gt;
@@ -46,15 +43,12 @@
   <div class="content-item">
     <div>Vertical (parent container: display: flex | grid)</div>
     <div class="example">
-      <div class="preview">
+      <div class="example-preview">
         <div class="visual-block" style="width:30px;height:60px;"></div>
         <ui-separator orientation="vertical"></ui-separator>
         <div class="visual-block" style="width:30px;height:30px;"></div>
       </div>
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
+      <div class="example-code">
 
 <pre><code>
 &lt;ui-separator orientation="vertical"&gt;&lt;/ui-separator&gt;

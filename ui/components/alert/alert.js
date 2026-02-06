@@ -1,25 +1,23 @@
 class UIAlert extends HTMLElement{
-
-  connectedCallback(){
+  constructor(){
+    super();
     this.role = 'alert';
 
-    if(!this.hasAttribute('non-closable')){
-      const _button = document.createElement('ui-button');
-      _button.setAttribute('shape','circle');
-      _button.setAttribute('size','small');
-      _button.setAttribute('variant','ghost');
-      const button = document.createElement('button');
+    const isClosable = this.hasAttribute('closable');
+    if(isClosable){
+      const button = document.createElement('ui-button');
+      button.setAttribute('shape','circle');
+      button.setAttribute('size','small');
+      button.setAttribute('variant','ghost');
 
       const icon = document.createElement('ui-icon');
       icon.setAttribute('name','close');
       button.append(icon);
-      _button.append(button);
+      this.append(button);
 
       button.addEventListener('button-action',() => this.remove());
-
-      this.append(_button);
     }
-    else this.removeAttribute('non-closable');
+    else this.removeAttribute('closable');
 
   }
 }

@@ -22,6 +22,7 @@ const components = [
   'focus/focus.js',
   'portal/portal.js',
   // template
+  'root/root.js',
   'app/app.js',
   'layout/layout.js',
 ];

@@ -42,6 +42,8 @@ class UIAccordionItem extends HTMLElement{
   }
 
   connectedCallback(){
+    customElements.whenDefined('ui-button').then(() => {
+
     const id = uuid();
     const idButton = `button-${id}`;
     const idPanel = `panel-${id}`;
@@ -49,7 +51,7 @@ class UIAccordionItem extends HTMLElement{
     this.#disabled = this.hasAttribute('disabled');
     this.#expanded = this.hasAttribute('expanded');
 
-    this.#button = this.querySelector(':scope > :first-child > button');
+    this.#button = this.querySelector(':scope > :first-child > ui-button > button');
     if(!this.#button){
       throw new Error('Accordion Button (button) not found');
     }
@@ -84,6 +86,8 @@ class UIAccordionItem extends HTMLElement{
     icon.setAttribute('name','arrow-down');
     icon.setAttribute('expand-icon','');
     this.#button.append(icon);
+
+    });
   }
 }
 customElements.define('ui-accordion-item',UIAccordionItem);

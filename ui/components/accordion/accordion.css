@@ -43,18 +43,21 @@ ui-accordion-item{
   }
 
   & > :is(h2,h3,h4,h5,h6):first-child{
+    position:relative;
     font-size:var(--font-size-large);
   }
 
-  & > :is(h2,h3,h4,h5,h6):first-child > button{
-    position:relative;
-    display:flex;
-    align-items:center;
+  & > :is(h2,h3,h4,h5,h6):first-child > ui-button{
+    --button-height:auto;
+    --button-width:100%;
+    --button-border-radius:var(--accordion-border-radius);
+    --button-padding-inline:var(--accordion-padding-inline);
+    --button-bg:transparent;
+  }
+
+  & > :is(h2,h3,h4,h5,h6):first-child > ui-button > button{
     column-gap:10px;
-    width:100%;
-    border:0;
-    border-radius:var(--accordion-border-radius);
-    background-color:transparent;
+
     text-align:start;
 
     padding-block:var(--accordion-padding-block);
@@ -64,14 +67,14 @@ ui-accordion-item{
     transition-property:outline-color;
 
     @media (hover: hover){
-      &:not([disabled]):hover{
+      &:not(:disabled,[disabled]):hover{
         text-decoration:underline;
       }
     }
 
     & > ui-icon:last-of-type{
       margin-inline-start:auto;
-      margin-inline-end:-0.25rem;
+      margin-inline-end:-0.4rem;
       transition-duration:var(--transition-duration-default);
       transform-origin:center;
       transition-property:transform;

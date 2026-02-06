@@ -6,10 +6,9 @@ ui-button{
   --button-justify-content:center;
   --button-bg:var(--control-bg-default);
 
-  direction:inherit;
   position:relative;
-  line-height:0;
   user-select:none;
+  line-height:0;
   width:var(--button-width);
   border-radius:var(--button-border-radius);
 
@@ -22,12 +21,8 @@ ui-button{
     display:inline-flex;
     align-items:center;
     vertical-align:middle;
-    line-height:1;
-    appearance:none;
-    cursor:pointer;
-    touch-action:manipulation;
     border-radius:inherit;
-
+    line-height:1;
     justify-content:var(--button-justify-content);
     height:var(--button-height);
     width:inherit;
@@ -38,24 +33,7 @@ ui-button{
     font-size:var(--button-font-size);
     color:var(--button-fg, var(--control-fg-default));
     background-color:var(--button-bg);
-
-    transition-duration:var(--transition-duration-default);
     transition-property:background-color,outline-color;
-
-    outline-offset:var(--outline-offset);
-    outline-width:var(--outline-width);
-    outline-style:var(--outline-style);
-    outline-color:transparent;
-
-    &:focus-visible{
-      outline-color:var(--outline-color);
-    }
-  }
-
-  & > button[disabled]{
-    cursor:not-allowed;
-    opacity:0.5;
-    pointer-events:auto;
   }
 
   @media (hover: hover){
@@ -182,7 +160,6 @@ ui-button{
     border-radius:inherit;
     border-width:1px;
     border-style:solid;
-    border-color:transparent;
     border-color:var(--button-bg, var(--control-bg-default));
   }
 

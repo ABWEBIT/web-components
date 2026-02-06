@@ -12,7 +12,7 @@
   --font-weight-bold:700;
 
   /* font sizes */
-  --font-size-x-small:max(13px, 0.75rem);
+  --font-size-x-small:max(12px, 0.75rem);
   --font-size-small:0.875rem;
   --font-size-medium:1rem;
   --font-size-large:1.125rem;
@@ -43,17 +43,23 @@ body{
 
 /* controls */
 button,input,textarea,select{
+  direction:inherit;
   font-family:var(--font-family-default);
   font-size:var(--font-size-default);
 }
 
 /* pre, code */
 pre,code{
-  font-family:var(--font-family-code)
+  font-family:var(--font-family-code);
 }
 
 pre{
   margin:0;
+}
+
+code{
+  white-space:pre-wrap;
+  word-break:break-word;
 }
 
 /* lists, paragraph */

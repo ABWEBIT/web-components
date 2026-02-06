@@ -3,6 +3,10 @@ body{
   color:var(--fg-base);
 }
 
+ui-root{
+  position:relative;
+}
+
 ui-layout{
   max-width:1920px;
   margin-inline:auto;
@@ -125,53 +129,25 @@ main{
   row-gap:10px;
 }
 
-.content-item > .example{
+.example{
   overflow:hidden;
   border:1px solid var(--line-color);
   border-radius:var(--border-radius-default);
-}
 
-.content-item > .example > .preview,
-.content-item > .example > .code,
-.content-item > .example > .toolbar{
-  position:relative;
-  max-width:100%;
-}
+  & > :is(.example-preview,.example-code){
+    position:relative;
+    max-width:100%;
+    padding:20px;
+  }
 
-.content-item > .example > .preview{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-  overflow-x:auto;
-}
-
-.content-item > .example > .preview,
-.content-item > .example > .code{
-  padding:20px;
-}
-
-.content-item > .example > .code code{
-  white-space:pre-wrap;
-  word-break:break-word;
-}
-
-.content-item > .example > .preview,
-.content-item > .example > .toolbar{
-  border-bottom:1px solid var(--line-color);
-}
-
-.content-item > .example > .toolbar{
-  display:flex;
-  align-items:center;
-  padding:10px 15px;
-  gap:10px;
-}
-
-.content-item > .example > .toolbar span{
-  line-height:1;
-  vertical-align:middle;
+  & > .example-preview{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:20px;
+    border-bottom:1px solid var(--line-color);
+    overflow-x:auto;
+  }
 }
 
 

@@ -5,7 +5,7 @@
 
 <div>
   <h2>Info</h2>
-  <p>Place right after the opening &lt;body&gt; tag.</p>
+  <p>Place right after the opening <code>&lt;ui-root&gt;</code> tag.</p>
   <p>Remains invisible and non-interactive to prevent unexpected focus jumps.</p>
 </div>
 
@@ -14,15 +14,15 @@
   <div class="content-item">
     <div>Placement</div>
     <div class="example">
-      <div class="toolbar">
-        <span>HTML</span>
-      </div>
-      <div class="code">
+      <div class="example-code">
 
 <pre><code>
 &lt;body&gt;
-  &lt;ui-focus&gt;&lt;/ui-focus&gt;
-  &lt;!-- Remaining code --&gt;
+  &lt;ui-root&gt;
+    &lt;ui-focus&gt;&lt;/ui-focus&gt;
+    &lt;ui-app&gt;&lt;/ui-app&gt;
+    &lt;ui-portal&gt;&lt;/ui-portal&gt;
+  &lt;/ui-root&gt;
 &lt;/body&gt;
 </code></pre>
 

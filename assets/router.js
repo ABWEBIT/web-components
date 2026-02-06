@@ -41,19 +41,16 @@ function generateNav(components){
 
     const pageId = link.match(/[\w-]+(?=\.html)/)?.[0];
 
-    const wrapper = document.createElement('ui-button');
+    const button = document.createElement('ui-button');
 
-    wrapper.setAttribute('justify','start');
-    wrapper.setAttribute('variant','ghost');
-    wrapper.className = 'menu-item';
-
-    const button = document.createElement('button');
+    button.setAttribute('justify','start');
+    button.setAttribute('variant','ghost');
+    button.className = 'menu-item';
     button.textContent = label;
     button.setAttribute('data-link',link);
     button.onclick = () => navigate(pageId);
 
-    wrapper.append(button);
-    container.append(wrapper);
+    container.append(button);
   });
 
   const containers = document.querySelectorAll('[data-nav-category]');
