@@ -17,6 +17,5 @@ ui-icon{
     fill:currentColor;
     stroke:currentColor;
     pointer-events:none;
-    shape-rendering:geometricPrecision;
   }
 }
