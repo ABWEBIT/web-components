@@ -1,6 +1,6 @@
 body{
-  background-color:var(--bg-base);
-  color:var(--fg-base);
+  background-color:var(--bg-primary);
+  color:var(--fg-primary);
 }
 
 ui-root{
@@ -29,12 +29,12 @@ header{
   right:0;
   z-index:1;
   padding-block:10px;
-  background-color:var(--bg-base);
+  background-color:var(--bg-primary);
   border-bottom:1px solid var(--line-color);
 }
 
 footer{
-  background-color:var(--bg-base);
+  background-color:var(--bg-primary);
 }
 
 /* nav */
@@ -82,14 +82,15 @@ nav .menu-title{
   padding-bottom:6px;
 }
 
-nav ui-button.menu-item:active > button,
-nav ui-button.menu-item.active > button{
-  --button-color:var(--control-color-default);
-}
-
-nav .menu-item button{
+nav button.menu-item{
   width:100%;
 }
+
+nav button.menu-item.active{
+  background-color:oklch(from var(--button-bg) calc(l + 0.04) c h / 0.2);
+}
+
+
 
 
 /* main */
@@ -103,14 +104,14 @@ main{
     padding-block:30px;
 
     & > :first-child > h1 + p{
-      color:var(--fg-muted);
+      color:var(--fg-secondary);
     }
   }
 }
 
 
 .visual-block{
-  background-color:var(--surface-bg);
+  background-color:var(--bg-tertiary);
 }
 
 
@@ -132,7 +133,7 @@ main{
 .example{
   overflow:hidden;
   border:1px solid var(--line-color);
-  border-radius:var(--border-radius-default);
+  border-radius:var(--rounded-base);
 
   & > :is(.example-preview,.example-code){
     position:relative;
@@ -167,12 +168,12 @@ main{
   row-gap:12px;
   padding:12px 10px 10px;
   align-items:center;
-  background-color:var(--surface-bg);
-  border-radius:var(--border-radius-default);
+  background-color:var(--bg-secondary);
+  border-radius:var(--rounded-base);
 
 
   & > :not(ui-icon){
     font-size:var(--font-size-small);
-    color:var(--fg-muted);
+    color:var(--fg-secondary);
   }
 }

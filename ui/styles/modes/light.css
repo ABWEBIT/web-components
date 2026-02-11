@@ -1,10 +1,11 @@
 :root[data-mode='light']{
   /* backgrounds */
-  --bg-base:var(--color-neutral-50);
+  --bg-primary:oklch(98% 0 0);
 
   /* foregrounds */
-  --fg-base:var(--color-neutral-950);
-  --fg-muted:var(--color-neutral-500);
+  --fg-primary:oklch(0% 0 0);
+  --fg-secondary:oklch(58% 0 0);
+  --fg-tertiary:oklch(68% 0 0);
 
   /* link */
   --link-color:var(--color-blue-700);

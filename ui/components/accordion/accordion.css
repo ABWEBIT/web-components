@@ -3,10 +3,11 @@ ui-accordion{
   flex-direction:column;
   row-gap:0.5rem;
   width:100%;
+  transition-duration:var(--transition-duration-default);
 }
 
 ui-accordion-item{
-  --accordion-border-radius:var(--border-radius-default);
+  --accordion-border-radius:var(--radius-base);
   --accordion-bg:var(--surface-bg);
 
   --accordion-padding-block:var(--padding-medium);
@@ -47,7 +48,7 @@ ui-accordion-item{
     font-size:var(--font-size-large);
   }
 
-  & > :is(h2,h3,h4,h5,h6):first-child > ui-button{
+  & > :is(h2,h3,h4,h5,h6):first-child > button{
     --button-height:auto;
     --button-width:100%;
     --button-border-radius:var(--accordion-border-radius);
@@ -55,11 +56,9 @@ ui-accordion-item{
     --button-bg:transparent;
   }
 
-  & > :is(h2,h3,h4,h5,h6):first-child > ui-button > button{
+  & > :is(h2,h3,h4,h5,h6):first-child > button{
     column-gap:10px;
-
     text-align:start;
-
     padding-block:var(--accordion-padding-block);
     padding-inline:var(--accordion-padding-inline);
     font-size:inherit;

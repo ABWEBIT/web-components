@@ -41,10 +41,10 @@ function generateNav(components){
 
     const pageId = link.match(/[\w-]+(?=\.html)/)?.[0];
 
-    const button = document.createElement('ui-button');
+    const button = document.createElement('button');
 
     button.setAttribute('justify','start');
-    button.setAttribute('variant','ghost');
+    button.setAttribute('data-variant','invisible');
     button.className = 'menu-item';
     button.textContent = label;
     button.setAttribute('data-link',link);
@@ -100,10 +100,7 @@ async function loadPage(hash){
 
 function updateActiveMenuItem(currentLink){
   document.querySelectorAll('nav button[data-link]').forEach(button =>{
-    const parent = button.closest('ui-button');
-    if(parent){
-      parent.classList.toggle('active', button.getAttribute('data-link') === currentLink);
-    }
+    button.classList.toggle('active', button.getAttribute('data-link') === currentLink);
   });
 }
 

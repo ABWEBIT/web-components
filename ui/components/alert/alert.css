@@ -56,7 +56,7 @@ ui-alert{
   }
 
   /* close button */
-  & > ui-button{
+  & > button{
     position:absolute;
     top:12px;
     inset-inline-end:12px;

@@ -26,8 +26,6 @@ class UISwitch extends HTMLElement{
     }
 
     fragment.append(this.#button);
-    fragment.append(this.#input);
-
     this.append(fragment);
   }
 

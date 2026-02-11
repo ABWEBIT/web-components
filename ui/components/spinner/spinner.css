@@ -8,7 +8,7 @@ ui-spinner{
   height:var(--spinner-height,auto);
   width:var(--spinner-width,auto);
 
-  & svg{
+  & > ui-icon > svg{
     height:var(--spinner-svg-height);
     width:var(--spinner-svg-width);
     animation:rotate360 0.8s linear infinite;

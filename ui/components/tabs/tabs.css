@@ -1,10 +1,10 @@
 ui-tabs{
-  --tabs-border-radius:var(--border-radius-default);
+  --tabs-border-radius:var(--radius-base);
   --tabs-gap:10px;
 
   --tabs-tab-padding-inline:20px;
   --tabs-tab-padding-block:12px;
-  --tabs-tab-surface-color-default:var(--surface-color-default);
+  --tabs-tab-bg:var(--surface-bg);
   --tabs-tab-surface-color-hover:var(--surface-color-hover);
   --tabs-tab-surface-color-active:var(--surface-color-active);
 
@@ -39,30 +39,20 @@ ui-tabs{
 
   /* tab */
   & > div[role="tablist"] > button[role="tab"]{
-    display:flex;
-    background-color:var(--tabs-tab-surface-color-default);
+    --button-bg:var(--tabs-tab-bg);
     border-radius:var(--tabs-border-radius);
     padding-inline:var(--tabs-tab-padding-inline);
     padding-block:var(--tabs-tab-padding-block);
     color:var(--tabs-tab-content-color-default);
     font-size:var(--font-size-large);
-    transition-duration:var(--transition-duration-default);
-    transition-property:background-color,outline-color,color;
-
-    &[disabled]{
-      cursor:not-allowed;
-      opacity:0.5;
-      pointer-events:auto;
-    }
 
     @media (hover: hover){
-      &:not([data-selected]):not([disabled]):hover{
+      &:not([data-selected],:disabled):hover{
         background-color:var(--tabs-tab-surface-color-hover);
       }
     }
 
-    &:not([data-selected]):not([disabled]):active,
-    &[data-selected]:not([disabled]){
+    &:not([data-selected],:disabled):active{
       background-color:var(--tabs-tab-surface-color-active);
     }
   }

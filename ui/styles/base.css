@@ -1,58 +1,50 @@
-/* document settings */
+*,::before,::after{box-sizing:border-box;}
+
 html{
   font-size:16px;
   tab-size:4;
 }
 
-/* reset spacing */
 html,body{
   margin:0;
   padding:0;
 }
 
-/* consistent box-sizing */
-*,*::before,*::after{box-sizing:border-box;}
+body{-webkit-font-smoothing:antialiased;}
 
-/* reset for controls */
-button,
-input:is([type="checkbox"],[type="radio"]){
+:where(a){text-decoration:none}
+
+:where(table){
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+:where(h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dt,dd,blockquote,figure,pre){
+  margin:0;
+  padding:0;
+}
+
+:where(button,input[type="checkbox"],input[type="radio"]){
   appearance:none;
-}
-
-button,a,
-input:is([type="checkbox"],[type="radio"]){
-  touch-action:manipulation;
-}
-
-button,select,
-input:is([type="checkbox"],[type="radio"]){
   margin:0;
   padding:0;
   background:none;
   border:none;
 }
 
-/* disable tap highlight */
-button,a,input,textarea,select{
+:where(button,a[href],label[for],summary,input[type="checkbox"],input[type="radio"]){
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent
+}
+
+:where(select,input[type="range"]){
   -webkit-tap-highlight-color:transparent;
 }
 
-/* normalize media */
-img,picture,video,iframe,embed,object{
+:where(img,picture,video,canvas,svg,iframe){
   max-width:100%;
   display:block;
-  border:none;
 }
 
-img,picture,video{height:auto;}
-iframe{width:100%;}
-
-/* normalize scrollbar (chromium) */
-::-webkit-scrollbar{
-  width:0.5rem;
-  height:0.5rem;
-}
-
-::-webkit-scrollbar-thumb{border-radius:calc(infinity * 1px);}
-::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-corner{display:none;}
+:where(img,picture,video){height:auto;}
+:where(iframe){width:100%;border:none;}

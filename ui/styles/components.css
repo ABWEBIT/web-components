@@ -1,6 +1,6 @@
+@import '../components/button/button.css';
 @import '../components/accordion/accordion.css';
 @import '../components/alert/alert.css';
-@import '../components/button/button.css';
 @import '../components/breadcrumb/breadcrumb.css';
 @import '../components/checkbox/checkbox.css';
 @import '../components/separator/separator.css';
@@ -14,3 +14,6 @@
 @import '../components/switch/switch.css';
 @import '../components/tabs/tabs.css';
 @import '../components/textarea/textarea.css';
+
+@import '../components/scrollbar/scrollbar.css';
+@import '../components/link/link.css';

@@ -1,7 +1,7 @@
 ui-switch{
-  --switch-border-radius:var(--border-radius-full);
+  --switch-border-radius:var(--radius-full);
 
-  --switch-track-bg:var(--surface-bg);
+  --switch-track-bg:var(--control-bg-default);
 
   --switch-track-height:24px;
   --switch-track-width:40px;
@@ -10,32 +10,42 @@ ui-switch{
   --switch-thumb-width:16px;
   --switch-thumb-position-start:4px;
   --switch-thumb-position-end:20px;
-  --switch-thumb-bg:var(--color-white);
+  --switch-thumb-bg:var(--control-fg-default);
+
+  border-radius:var(--switch-border-radius);
 
   & > button{
-    position:relative;
-    display:inline-flex;
-    align-items:center;
-    vertical-align:middle;
+    justify-content:start;
     height:var(--switch-track-height);
     width:var(--switch-track-width);
+
     padding-inline-start:var(--switch-thumb-position-start);
-    border-radius:var(--switch-border-radius);
+    border-radius:inherit;
     background-color:var(--switch-track-bg);
     transition-duration:var(--transition-duration-default);
     transition-property:background-color,outline-color,padding-inline-start;
+
+    @media (hover: hover){
+      &:not(:disabled):hover{
+        background-color:unset;
+      }
+    }
+
   }
 
+
+
   & > button::before{
+    position: absolute;
     content:'';
     height:var(--switch-thumb-height);
     width:var(--switch-thumb-width);
     border-radius:inherit;
-    background-color:var(--switch-thumb-background-color);
+    background-color:var(--switch-thumb-bg);
   }
 
   &[checked] > button{
     padding-inline-start:var(--switch-thumb-position-end);
-    background-color:var(--switch-track-checked-background-color);
+    background-color:var(--switch-track-checked-bg-color);
   }
 }

@@ -1,4 +1,4 @@
-const BASE_PATH = './components/';
+const BASE = './components/';
 
 const components = [
   // primitives
@@ -6,7 +6,6 @@ const components = [
   'separator/separator.js',
   'spinner/spinner.js',
   // forms
-  'button/button.js',
   'checkbox/checkbox.js',
   'field/field.js',
   'input/input.js',
@@ -28,7 +27,7 @@ const components = [
 ];
 
 components.forEach(path =>{
-  import(`${BASE_PATH}${path}`).catch(err => 
-    console.warn(`Failed to load component: ${BASE_PATH}${path}`,err)
+  import(`${BASE}${path}`).catch(err => 
+    console.warn(`Failed to load component: ${BASE}${path}`,err)
   );
 });

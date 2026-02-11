@@ -1,11 +1,11 @@
 :root[data-mode='dark']{
   /* backgrounds */
-  --bg-base:var(--color-neutral-950);
+  --bg-primary:oklch(14% 0 0);
 
   /* foregrounds */
-  --fg-base:var(--color-neutral-50);
-  --fg-muted:var(--color-neutral-400);
-  --fg-disabled:var(--color-neutral-400);
+  --fg-primary:oklch(98% 0 0);
+  --fg-secondary:oklch(78% 0 0);
+  --fg-tertiary:oklch(62% 0 0);
 
   /* link */
   --link-color:var(--color-blue-400);
@@ -13,22 +13,14 @@
   --link-color-active:oklch(from var(--link-color) calc(l - 0.01) c h);
 
   /* surface */
-  --surface-bg:var(--color-neutral-900);
+  --surface-bg-neutral:var(--color-neutral-700);
+  --surface-bg-blue:var(--color-blue-700);
+  --surface-bg-green:var(--color-green-700);
+  --surface-bg-yellow:var(--color-yellow-700);
+  --surface-bg-red:var(--color-red-700);
+  --surface-bg-default:var(--surface-bg-neutral);
 
-  /* control foregrounds */
-  --control-fg-default:var(--color-white);
-
-  /* control backgrounds */
-  --control-bg-neutral:var(--color-neutral-700);
-  --control-bg-blue:var(--color-blue-700);
-  --control-bg-green:var(--color-green-700);
-  --control-bg-yellow:var(--color-yellow-700);
-  --control-bg-red:var(--color-red-700);
-
-  --control-bg-default:var(--control-bg-neutral);
-
-  /* control border */
-  --control-border-color:var(--color-neutral-500);
+  --surface-fg-default:oklch(100% 0 0);
 
   /* border */
   --border-color:var(--color-neutral-500);
@@ -36,8 +28,8 @@
   /* line */
   --line-color:var(--color-neutral-800);
 
-  /* outline */
-  --outline-color:var(--color-blue-500);
+  /* outline focus */
+  --outline-focus-color:var(--color-blue-500);
 
   /* scrollbar */
   --scrollbar-color:var(--color-neutral-700);
