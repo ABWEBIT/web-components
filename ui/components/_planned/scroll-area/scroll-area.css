@@ -5,7 +5,7 @@
 
 ::-webkit-scrollbar-thumb{
   background-color:var(--scrollbar-color);
-  border-radius:var(--radius-full);
+  border-radius:var(--rounded-full);
 }
 
 ::-webkit-scrollbar-track{background:transparent;}

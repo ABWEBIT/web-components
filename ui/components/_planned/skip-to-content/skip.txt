@@ -1,0 +1,6 @@
+Skip to Content
+
+This is a utility link that allows users to skip the site navigation, header, and menu and go directly to the main content of the page.
+
+For keyboard users
+People who navigate the site using the Tab key can jump straight to the content without having to go through dozens of links in the menu each time.
