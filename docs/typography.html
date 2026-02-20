@@ -11,24 +11,52 @@
     </thead>
     <tbody>
       <tr>
-        <td><code>--font-family-default</code></td>
+        <td><code>--font-family-sans</code></td>
         <td><code>ui-sans-serif,system-ui,sans-serif</code></td>
-        <td><div style="font-family:var(--font-family-default)">Body font family</div></td>
+        <td><div style="font-family:var(--font-family-sans);">This is Sans Serif text</div></td>
       </tr>
       <tr>
-        <td><code>--font-family-heading</code></td>
-        <td><code>var(--font-family-default)</code></td>
-        <td><div style="font-family:var(--font-family-heading)">Heading font family</div></td>
+        <td><code>--font-family-serif</code></td>
+        <td><code>ui-serif,serif</code></td>
+        <td><div style="font-family:var(--font-family-serif);">This is Serif text</div></td>
       </tr>
       <tr>
-        <td><code>--font-family-code</code></td>
+        <td><code>--font-family-monospace</code></td>
         <td><code>ui-monospace,monospace</code></td>
-        <td><div style="font-family:var(--font-family-code)">&lt;span&gt;code&lt;/span&gt;</div></td>
+        <td><div style="font-family:var(--font-family-monospace);">&lt;span&gt;code&lt;/span&gt;</div></td>
       </tr>
       <tr>
         <td><code>--font-family-emoji</code></td>
         <td><code>'Apple Color Emoji','Segoe UI Emoji'</code></td>
-        <td><div style="font-family:var(--font-family-emoji)">❤️❤️❤️</div></td>
+        <td><div style="font-family:var(--font-family-emoji);">❤️❤️❤️</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--font-family-default</code></td>
+        <td><code>var(--font-family-sans)</code></td>
+      </tr>
+      <tr>
+        <td><code>--font-family-heading</code></td>
+        <td><code>var(--font-family-default)</code></td>
+      </tr>
+      <tr>
+        <td><code>--font-family-body</code></td>
+        <td><code>var(--font-family-default)</code></td>
+      </tr>
+      <tr>
+        <td><code>--font-family-longform</code></td>
+        <td><code>var(--font-family-serif)</code></td>
+      </tr>
+      <tr>
+        <td><code>--font-family-code</code></td>
+        <td><code>var(--font-family-monospace)</code></td>
       </tr>
     </tbody>
   </table>
@@ -44,27 +72,27 @@
     <tr>
       <td><code>--font-weight-light</code></td>
       <td><code>300</code></td>
-      <td><div style="font-weight:var(--font-weight-light)">AaBb</div></td>
+      <td><div style="font-weight:var(--font-weight-light);">AaBb</div></td>
     </tr>
     <tr>
       <td><code>--font-weight-normal</code></td>
       <td><code>400</code></td>
-      <td><div style="font-weight:var(--font-weight-normal)">AaBb</div></td>
+      <td><div style="font-weight:var(--font-weight-normal);">AaBb</div></td>
     </tr>
     <tr>
       <td><code>--font-weight-medium</code></td>
       <td><code>500</code></td>
-      <td><div style="font-weight:var(--font-weight-medium)">AaBb</div></td>
+      <td><div style="font-weight:var(--font-weight-medium);">AaBb</div></td>
     </tr>
     <tr>
       <td><code>--font-weight-semibold</code></td>
       <td><code>600</code></td>
-      <td><div style="font-weight:var(--font-weight-semibold)">AaBb</div></td>
+      <td><div style="font-weight:var(--font-weight-semibold);">AaBb</div></td>
     </tr>
     <tr>
       <td><code>--font-weight-bold</code></td>
       <td><code>700</code></td>
-      <td><div style="font-weight:var(--font-weight-bold)">AaBb</div></td>
+      <td><div style="font-weight:var(--font-weight-bold);">AaBb</div></td>
     </tr>
     </tbody>
   </table>
@@ -80,12 +108,12 @@
     <tr>
       <td><code>--font-style-normal</code></td>
       <td><code>normal</code></td>
-      <td><div style="font-style:var(--font-style-normal)">AaBb</div></td>
+      <td><div style="font-style:var(--font-style-normal);">AaBb</div></td>
     </tr>
     <tr>
       <td><code>--font-style-italic</code></td>
       <td><code>italic</code></td>
-      <td><div style="font-style:var(--font-style-italic)">AaBb</div></td>
+      <td><div style="font-style:var(--font-style-italic);">AaBb</div></td>
     </tr>
     </tbody>
   </table>
@@ -101,7 +129,7 @@
     <tr>
       <td><code>--font-size-default</code></td>
       <td><code>calc(1rem * var(--scaling))</code></td>
-      <td><div style="font-size:var(--font-size-default)">AaBb</div></td>
+      <td><div style="font-size:var(--font-size-default);">AaBb</div></td>
     </tr>
     </tbody>
   </table>
@@ -117,20 +145,8 @@
     <tr>
       <td><code>--line-height-default</code></td>
       <td><code>1.6</code></td>
-      <td><div style="line-height:var(--line-height-default)">AaBb</div></td>
+      <td><div style="line-height:var(--line-height-default);">AaBb</div></td>
     </tr>
     </tbody>
   </table>
-</div>
-
-<div>
-  <h3>Heading</h3>
-  <div>
-    <h1>Heading Text</h1>
-    <h2>Heading Text</h2>
-    <h3>Heading Text</h3>
-    <h4>Heading Text</h4>
-    <h5>Heading Text</h5>
-    <h6>Heading Text</h6>
-  </div>
 </div>

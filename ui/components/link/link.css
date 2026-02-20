@@ -1,8 +1,8 @@
 a{
-  text-decoration-line:underline;
-  text-decoration-style:dashed;
-  text-decoration-thickness:1px;
-  text-underline-offset:var(--text-underline-offset-default);
+  text-decoration-line:var(--decoration-line);
+  text-decoration-style:var(--decoration-style);
+  text-decoration-thickness:var(--decoration-thickness);
+  text-underline-offset:var(--underline-offset);
   cursor:var(--cursor-action);
   color:var(--link-color);
 

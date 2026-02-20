@@ -1,51 +1,52 @@
 ui-switch{
+  --switch-height:var(--control-choice-medium);
+  --switch-width:calc(var(--switch-height) * 2);
   --switch-border-radius:var(--rounded-full);
 
-  --switch-track-bg:var(--control-bg-default);
-
-  --switch-track-height:24px;
-  --switch-track-width:40px;
-  --switch-track-checked-bg-color:var(--color-blue-500);
-  --switch-thumb-height:16px;
-  --switch-thumb-width:16px;
-  --switch-thumb-position-start:4px;
-  --switch-thumb-position-end:20px;
-  --switch-thumb-bg:var(--control-fg-default);
-
+  position:relative;
+  display:inline-flex;
+  height:var(--switch-height);
+  width:var(--switch-width);
   border-radius:var(--switch-border-radius);
 
-  & > input{
-    justify-content:start;
-    height:var(--switch-track-height);
-    width:var(--switch-track-width);
-
-    padding-inline-start:var(--switch-thumb-position-start);
+  & > input[type="checkbox"],
+  & > ui-icon{
+    position:absolute;
+    width:inherit;
+    height:inherit;
     border-radius:inherit;
-    background-color:var(--switch-track-bg);
-    transition-duration:var(--transition-duration-default);
-    transition-property:background-color,outline-color,padding-inline-start;
-
-    @media (hover: hover){
-      &:not(:disabled):hover{
-        background-color:unset;
-      }
-    }
-
   }
 
+  & > ui-icon{
+    pointer-events:none;
+    background-color:transparent;
+    transition-duration:var(--duration-default);
+    transition-property:background-color;
+  }
 
+  &:has(> input[type="checkbox"]:checked) > ui-icon{
+    background-color:var(--control-choice-bg);
+  }
 
-  & > input::before{
-    position: absolute;
-    content:'';
-    height:var(--switch-thumb-height);
-    width:var(--switch-thumb-width);
+  & > ui-icon > svg{
+    pointer-events:none;
+    height:calc(var(--switch-height) / 2);
+    width:calc(var(--switch-height) / 2);
+
     border-radius:inherit;
-    background-color:var(--switch-thumb-bg);
+    background-color:var(--color-white);
+    margin-inline-start:calc(var(--switch-height) * -1);
+    transition-duration:var(--duration-default);
+    transition-property:margin-inline-start;
   }
 
-  &[checked] > input{
-    padding-inline-start:var(--switch-thumb-position-end);
-    background-color:var(--switch-track-checked-bg-color);
+  &:has(> input[type="checkbox"]:checked) > ui-icon > svg{
+    margin-inline-start:var(--switch-height);
   }
+
+  &[data-size="small"]{--switch-height:var(--control-choice-small);}
+  &[data-size="medium"]{--switch-height:var(--control-choice-medium);}
+  &[data-size="large"]{--switch-height:var(--control-choice-large);}
+
+  &[data-rounded="none"]{border-radius:var(--rounded-none);}
 }

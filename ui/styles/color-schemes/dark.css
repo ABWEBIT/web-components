@@ -15,8 +15,8 @@
   --link-color-active:oklch(from var(--link-color) calc(l - 0.01) c h);
 
   /* control choice */
-  --control-border-color:oklch(58% 0 0);
-  --control-choice-bg:var();
+  --control-border-color:oklch(34% 0 0);
+  --control-choice-bg:var(--color-blue-600);
   --control-choice-elements:var(--color-white);
 
   /* surface */

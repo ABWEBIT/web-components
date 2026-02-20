@@ -3,7 +3,7 @@ ui-accordion{
   flex-direction:column;
   row-gap:0.5rem;
   width:100%;
-  transition-duration:var(--transition-duration-default);
+  transition-duration:var(--duration-default);
 }
 
 ui-accordion-item{
@@ -74,7 +74,7 @@ ui-accordion-item{
     & > ui-icon:last-of-type{
       margin-inline-start:auto;
       margin-inline-end:-0.4rem;
-      transition-duration:var(--transition-duration-default);
+      transition-duration:var(--duration-default);
       transform-origin:center;
       transition-property:transform;
     }

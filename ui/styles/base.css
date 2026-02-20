@@ -4,10 +4,16 @@
   --scaling:1;
   --font-size-default:calc(1rem * var(--scaling));
 
-  --font-family-default:ui-sans-serif,system-ui,sans-serif;
-  --font-family-heading:var(--font-family-default);
-  --font-family-code:ui-monospace,monospace;
+  --font-family-sans:ui-sans-serif,system-ui,sans-serif;
+  --font-family-serif:ui-serif,serif;
+  --font-family-monospace:ui-monospace,monospace;
   --font-family-emoji:'Apple Color Emoji','Segoe UI Emoji';
+
+  --font-family-default:var(--font-family-sans);
+  --font-family-heading:var(--font-family-default);
+  --font-family-body:var(--font-family-default);
+  --font-family-longform:var(--font-family-serif);
+  --font-family-code:var(--font-family-monospace);
 
   --font-weight-light:300;
   --font-weight-normal:400;
@@ -21,6 +27,4 @@
   --line-height-default:1.6;
 
   --tab-size-default:4;
-
-  --text-underline-offset-default:0.2rem;
 }

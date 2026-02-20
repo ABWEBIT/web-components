@@ -1,34 +1,28 @@
-const BASE = './components/';
-const components = [
+/* template */
+import './components/root/root.js';
+import './components/app/app.js';
+import './components/layout/layout.js';
 
-  // primitives
-  'icon/icon.js',
-  'separator/separator.js',
-  'spinner/spinner.js',
-  'color-scheme/color-scheme.js',
-  // forms
-  'checkbox/checkbox.js',
-  'field/field.js',
-  'input/input.js',
-  'select/select.js',
-  'switch/switch.js',
-  'textarea/textarea.js',
-  // components
-  'accordion/accordion.js',
-  'alert/alert.js',
-  'breadcrumb/breadcrumb.js',
-  'tabs/tabs.js',
-  // utilities
-  'focus/focus.js',
-  'portal/portal.js',
-  // template
-  'root/root.js',
-  'app/app.js',
-  'layout/layout.js',
-];
+/* primitives */
+import './components/icon/icon.js';
+import './components/separator/separator.js';
+import './components/spinner/spinner.js';
+import './components/color-scheme/color-scheme.js';
 
-components.forEach(path =>{
-  import(`${BASE}${path}`).catch(err => 
-    console.warn(`Failed to load component: ${BASE}${path}`,err)
-  );
-});
+/* forms */
+import './components/checkbox/checkbox.js';
+import './components/switch/switch.js';
+import './components/select/select.js';
+import './components/input/input.js';
+import './components/textarea/textarea.js';
+import './components/field/field.js';
+
+/* components */
+import './components/accordion/accordion.js';
+import './components/alert/alert.js';
+import './components/breadcrumb/breadcrumb.js';
+import './components/tabs/tabs.js';
+
+/* utilities */
+import './components/focus/focus.js';
+import './components/portal/portal.js';

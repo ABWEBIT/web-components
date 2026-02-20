@@ -110,6 +110,9 @@ main{
   }
 }
 
+table :is(th,td){
+  padding-inline-end:30px;
+}
 
 .visual-block{
   background-color:var(--bg-secondary-color);
