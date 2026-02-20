@@ -1,66 +1,48 @@
-class UICheckbox extends HTMLElement{
-  #checkbox = null;
-  #icon = null;
-  #disabled = false;
-  #checked = false;
-  #indeterminate = false;
+import {LitElement,html,nothing} from '../../lit-core.min.js';
 
-  constructor(){
-    super();
-    this.#checkbox = document.createElement('input');
-    this.#checkbox.type = 'checkbox';
+export class UICheckbox extends LitElement{
+  static properties = {
+    disabled:     {type:Boolean, reflect:true},
+    required:     {type:Boolean, reflect:true},
+    checked:      {type:Boolean, reflect:true},
+    indeterminate:{type:Boolean, reflect:true},
+    name:         {type:String,  reflect:true},
+    value:        {type:String}
+  };
 
-    this.#icon = document.createElement('ui-icon');
+  createRenderRoot(){return this;}
 
-    this.append(this.#checkbox,this.#icon);
-
-    this.#checkbox.addEventListener('click', () => {
-      this.checked = !this.#checked;
-    });
+  willUpdate(changed){
+    if(changed.has('checked') && this.checked) this.indeterminate = false;
+    else if(changed.has('indeterminate') && this.indeterminate) this.checked = false;
   }
 
-  static get observedAttributes(){
-    return ['checked','indeterminate','disabled'];
+  #onChange(e){
+    const input = e.target;
+    this.checked = input.checked;
+    this.indeterminate = false;
+
+    this.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
   }
 
-  attributeChangedCallback(attribute,oldValue,newValue){
-    if(oldValue === newValue) return;
-    if(attribute === 'disabled') this.disabled = newValue !== null;
-    if(attribute === 'indeterminate') this.indeterminate = newValue !== null;
-    if(attribute === 'checked') this.checked = newValue !== null;
+  get #iconName(){
+    if(this.indeterminate) return 'check-indeterminate';
+    if(this.checked) return 'check';
+    return '';
   }
 
-  get disabled(){return this.#disabled;}
-  set disabled(value){
-    const isDisabled = value === true;
-    if(this.#disabled === isDisabled) return;
-    this.#disabled = isDisabled;
-    this.toggleAttribute('disabled',this.#disabled);
-    this.#checkbox.disabled = this.#disabled;
-  }
-
-  get indeterminate(){return this.#indeterminate;}
-  set indeterminate(value){
-    const isIndeterminate = value === true;
-    if(this.#indeterminate === isIndeterminate || this.#disabled) return;
-    this.#indeterminate = isIndeterminate;
-    this.toggleAttribute('checked',!this.#indeterminate);
-    this.#checkbox.checked = !this.#indeterminate;
-    this.toggleAttribute('indeterminate',this.#indeterminate);
-    this.#checkbox.indeterminate = this.#indeterminate;
-    this.#icon.setAttribute('name','check-indeterminate');
-  }
-
-  get checked(){return this.#checked;}
-  set checked(value){
-    const isChecked = value === true;
-    if(this.#checked === isChecked || this.#disabled) return;
-    this.#checked = isChecked;
-    this.toggleAttribute('indeterminate',false);
-    this.#checkbox.indeterminate = false;
-    this.toggleAttribute('checked',this.#checked);
-    this.#checkbox.checked = this.#checked;
-    this.#icon.setAttribute('name','check');
+  render(){
+    return html`
+    <input type="checkbox"
+      name=${this.name || nothing}
+      value=${this.value || nothing}
+      .checked=${this.checked}
+      .indeterminate=${this.indeterminate}
+      .disabled=${this.disabled}
+      .required=${this.required}
+      @change=${this.#onChange}
+    />
+    <ui-icon name="${this.#iconName}"></ui-icon>`;
   }
 }
 customElements.define('ui-checkbox',UICheckbox);

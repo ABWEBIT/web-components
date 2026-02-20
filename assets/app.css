@@ -1,7 +1,8 @@
 body{
-  background-color:var(--bg-primary);
-  color:var(--fg-primary);
+  background-color:var(--bg-primary-color);
+  color:var(--fg-primary-color);
 }
+
 
 ui-root{
   position:relative;
@@ -29,12 +30,12 @@ header{
   right:0;
   z-index:1;
   padding-block:10px;
-  background-color:var(--bg-primary);
+  background-color:var(--bg-primary-color);
   border-bottom:1px solid var(--line-color);
 }
 
 footer{
-  background-color:var(--bg-primary);
+  background-color:var(--bg-primary-color);
 }
 
 /* nav */
@@ -100,18 +101,18 @@ main{
   & > article{
     display:flex;
     flex-direction:column;
-    row-gap:50px;
+    row-gap:40px;
     padding-block:30px;
 
     & > :first-child > h1 + p{
-      color:var(--fg-secondary);
+      color:var(--fg-secondary-color);
     }
   }
 }
 
 
 .visual-block{
-  background-color:var(--bg-tertiary);
+  background-color:var(--bg-secondary-color);
 }
 
 
@@ -144,10 +145,13 @@ main{
   & > .example-preview{
     display:flex;
     flex-wrap:wrap;
-    align-items:center;
     gap:20px;
     border-bottom:1px solid var(--line-color);
     overflow-x:auto;
+
+    &.flex-column{
+      flex-direction:column;
+    }
   }
 }
 

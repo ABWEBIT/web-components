@@ -1,0 +1,46 @@
+:root[data-color-scheme='dark']{
+  /* backgrounds */
+  --bg-primary-color:oklch(14% 0 0);
+
+  /* foregrounds */
+  --fg-primary-color:oklch(95% 0 0);
+  --fg-secondary-color:oklch(82% 0 0);
+  --fg-tertiary-color:oklch(74% 0 0);
+
+  --heading-color:oklch(98% 0 0);
+
+  /* link */
+  --link-color:oklch(75% 0.14 240);
+  --link-color-hover:oklch(from var(--link-color) calc(l + 0.04) c h);
+  --link-color-active:oklch(from var(--link-color) calc(l - 0.01) c h);
+
+  /* control choice */
+  --control-border-color:oklch(58% 0 0);
+  --control-choice-bg:var();
+  --control-choice-elements:var(--color-white);
+
+  /* surface */
+  --surface-bg-neutral:var(--color-neutral-700);
+  --surface-bg-blue:var(--color-blue-800);
+  --surface-bg-green:var(--color-green-800);
+  --surface-bg-yellow:var(--color-yellow-800);
+  --surface-bg-red:var(--color-red-800);
+  --surface-bg-default:var(--surface-bg-neutral);
+
+  --surface-fg-default:oklch(100% 0 0);
+
+  /* border */
+  --border-color:var(--color-neutral-500);
+
+  /* line */
+  --line-color:var(--color-neutral-800);
+
+  /* outline focus */
+  --outline-focus-color:var(--color-blue-500);
+
+  /* scrollbar */
+  --scrollbar-color:var(--color-neutral-700);
+
+  /* selection */
+  --selection-color:oklch(100% 0 0 / 0.2);
+}

@@ -1,0 +1,31 @@
+a{
+  text-decoration-line:underline;
+  text-decoration-style:dashed;
+  text-decoration-thickness:1px;
+  text-underline-offset:var(--text-underline-offset-default);
+  cursor:var(--cursor-action);
+  color:var(--link-color);
+
+  outline-width:var(--outline-focus-width);
+  outline-style:var(--outline-focus-style);
+  outline-offset:var(--outline-focus-offset);
+  outline-color:transparent;
+
+  transition-duration:var(--duration-default);
+  transition-property:outline-color,color;
+
+  @media (hover: hover){
+    &:hover{color:var(--link-color-hover);}
+  }
+
+  &:active{color:var(--link-color-active);}
+
+  &:focus-visible{
+    outline-color:var(--outline-focus-color);
+  }
+
+  &[href]{
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+}

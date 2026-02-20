@@ -1,50 +1,26 @@
-*,::before,::after{box-sizing:border-box;}
-
-html{
+:root{
   font-size:16px;
-  tab-size:4;
+
+  --scaling:1;
+  --font-size-default:calc(1rem * var(--scaling));
+
+  --font-family-default:ui-sans-serif,system-ui,sans-serif;
+  --font-family-heading:var(--font-family-default);
+  --font-family-code:ui-monospace,monospace;
+  --font-family-emoji:'Apple Color Emoji','Segoe UI Emoji';
+
+  --font-weight-light:300;
+  --font-weight-normal:400;
+  --font-weight-medium:500;
+  --font-weight-semibold:600;
+  --font-weight-bold:700;
+
+  --font-style-normal:normal;
+  --font-style-italic:italic;
+
+  --line-height-default:1.6;
+
+  --tab-size-default:4;
+
+  --text-underline-offset-default:0.2rem;
 }
-
-html,body{
-  margin:0;
-  padding:0;
-}
-
-body{-webkit-font-smoothing:antialiased;}
-
-:where(a){text-decoration:none}
-
-:where(table){
-  border-collapse:collapse;
-  border-spacing:0;
-}
-
-:where(h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dt,dd,blockquote,figure,pre){
-  margin:0;
-  padding:0;
-}
-
-:where(button,input[type="checkbox"],input[type="radio"]){
-  appearance:none;
-  margin:0;
-  padding:0;
-  background:none;
-  border:none;
-}
-
-:where(button,a[href],label[for],summary,input[type="checkbox"],input[type="radio"]){
-  touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent
-}
-
-:where(select,input[type="range"]){
-  -webkit-tap-highlight-color:transparent;
-}
-
-:where(img,picture,video,canvas,svg,iframe){
-  display:block;
-  max-width:100%;
-}
-
-:where(img,picture,video){height:auto;}
-:where(iframe){width:100%;border:none;}

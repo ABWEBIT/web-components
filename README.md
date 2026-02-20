@@ -4,10 +4,11 @@ ECMAScript 2022 (ES13)
 CSS
 - Nesting
 - :has
+- round()
 
 Browser Support
-- Chrome 120+
-- Edge 120+
+- Chrome 125+
+- Edge 125+
 - Firefox 121+
 - Safari 17.2+
-- Opera 106+
+- Opera 111+

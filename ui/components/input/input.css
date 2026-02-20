@@ -1,6 +1,7 @@
 ui-input{
-  --input-border-radius:var(--border-radius-default);
   --input-height:var(--control-height-default);
+  --input-border-radius:var(--border-radius-default);
+
 
   --input-background-color:var(--surface-color-tertiary);
 
@@ -40,17 +41,30 @@ ui-input{
   }
 
   & > input{
-    border:none;
-    border-radius:inherit;
+    appearance:none;
+    margin:0;
     padding:0;
+    background:none;
+    border:none;
+
+    outline-width:var(--outline-focus-width);
+    outline-style:var(--outline-focus-style);
+    outline-offset:var(--outline-focus-offset);
+    outline-color:transparent;
+
+    border-radius:inherit;
     height:100%;
     padding-inline:var(--input-padding-inline);
     font-family:var(--font-family-default);
     font-size:var(--font-size-default);
     color:var(--input-font-color);
     background-color:transparent;
-    transition-duration:var(--transition-duration-default);
+    transition-duration:var(--duration-default);
     transition-property:outline-color;
+
+    &:focus-visible{
+      outline-color:var(--outline-focus-color);
+    }
   }
 
   & input::placeholder{

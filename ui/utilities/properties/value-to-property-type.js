@@ -1,7 +1,7 @@
 export function valueToPropertyType(value,type){
   switch(type){
     case Boolean:
-      return value !== null;
+      return value === true;
     case Number: 
       const n = Number(value);
       return Number.isFinite(n) ? n : undefined;

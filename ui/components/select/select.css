@@ -12,11 +12,16 @@ ui-select{
   --select-font-color:var(--color-white);
 
   appearance:none;
+  margin:0;
+  padding:0;
+  background:none;
+  border:none;
+
   cursor:pointer;
-  touch-action:manipulation;
-  outline-offset:var(--outline-offset);
-  outline-width:var(--outline-width);
-  outline-style:var(--outline-style);
+
+  outline-width:var(--outline-focus-width);
+  outline-style:var(--outline-focus-style);
+  outline-offset:var(--outline-focus-offset);
   outline-color:transparent;
 
   position:relative;
@@ -26,16 +31,12 @@ ui-select{
   width:200px;
   padding-inline-start:calc(var(--select-height) / 2)!important;
   padding-inline-end:calc(var(--select-height) / 4 + 2px)!important;
-  border:none;
   border-radius:var(--select-border-radius);
   color:var(--select-font-color);
   background-color:var(--select-surface-color);
   overflow:hidden;
-
-  &[ui]{
-    transition-duration:var(--transition-duration-default);
-    transition-property:background-color,outline-color,color;
-  }
+  transition-duration:var(--duration-default);
+  transition-property:background-color,outline-color;
 
   &[disabled]{
     cursor:not-allowed;
@@ -69,7 +70,7 @@ ui-select{
 
   & ui-icon{
     width:var(--select-icon-size);
-    transition-duration:var(--transition-duration-default);
+    transition-duration:var(--duration-default);
     transition-property:transform;
   }
 

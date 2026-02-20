@@ -1,10 +1,11 @@
 const BASE = './components/';
-
 const components = [
+
   // primitives
   'icon/icon.js',
   'separator/separator.js',
   'spinner/spinner.js',
+  'color-scheme/color-scheme.js',
   // forms
   'checkbox/checkbox.js',
   'field/field.js',

@@ -1,50 +1,63 @@
 ui-checkbox{
-  --checkbox-border-radius:calc(var(--checkbox-size) / 4);
-  --checkbox-border-color:var(--border-color);
+  --checkbox-height:var(--control-choice-medium);
+  --checkbox-width:var(--checkbox-height);
+  --checkbox-border-radius:calc(var(--checkbox-height) / 4);
+  --checkbox-border-color:var(--control-border-color);
 
   position:relative;
   display:inline-flex;
   vertical-align:middle;
   user-select:none;
   line-height:0;
-  height:var(--checkbox-size);
-  width:var(--checkbox-size);
+  height:var(--checkbox-height);
+  width:var(--checkbox-width);
   border-radius:var(--checkbox-border-radius);
   color:var(--color-white);
 
-  & > input[type="checkbox"]{
+  & > input[type="checkbox"],
+  & > ui-icon{
     position:absolute;
     width:inherit;
     height:inherit;
     border-radius:inherit;
+  }
+
+  & > input[type="checkbox"]{
+    appearance:none;
+    margin:0;
+    padding:0;
+    background:none;
+    border:none;
+    cursor:pointer;
+    user-select:none;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+
     border-width:1px;
     border-style:solid;
     border-color:var(--checkbox-bg, var(--surface-bg-default));
+
     transition-duration:var(--duration-default);
     transition-property:outline-color;
 
-    &:disabled{cursor:not-allowed;}
+    &:disabled{
+      cursor:not-allowed;
+    }
   }
 
-  & > input[type="checkbox"] + ui-icon{
-    position:absolute;
-    width:inherit;
-    height:inherit;
-    border-radius:inherit;
-    opacity:0;
+  & > ui-icon{
     pointer-events:none;
     background-color:var(--color-blue-600);
+    opacity:0;
     transition-duration:var(--duration-default);
     transition-property:opacity;
   }
 
-  & > input[type="checkbox"]:is(:checked,:indeterminate) + ui-icon{
+  &:has(> input[type="checkbox"]:is(:checked,:indeterminate)) > ui-icon{
     opacity:1;
   }
 
-  /* size */
-  &[data-size="small"]{--checkbox-size:1rem;}
-  &:not([data-size]),
-  &[data-size="medium"]{--checkbox-size:1.25rem;}
-  &[data-size="large"]{--checkbox-size:1.5rem;}
+  &[data-size="small"]{--checkbox-height:var(--control-choice-small);}
+  &[data-size="medium"]{--checkbox-height:var(--control-choice-medium);}
+  &[data-size="large"]{--checkbox-height:var(--control-choice-large);}
 }

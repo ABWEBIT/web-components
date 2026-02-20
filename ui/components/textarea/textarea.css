@@ -9,6 +9,17 @@ ui-textarea{
   width:var(--textarea-width);
 
   & > textarea{
+    appearance:none;
+    margin:0;
+    padding:0;
+    background:none;
+    border:none;
+
+    outline-width:var(--outline-focus-width);
+    outline-style:var(--outline-focus-style);
+    outline-offset:var(--outline-focus-offset);
+    outline-color:transparent;
+
     direction:inherit;
     min-height:2lh;
     width:100%;
@@ -22,6 +33,13 @@ ui-textarea{
     border-style:solid;
     border-color:var(--textarea-border-color);
     background-color:transparent;
+    transition-duration:var(--duration-default);
+    transition-property:outline-color;
+
+    &:focus-visible{
+      outline-color:var(--outline-focus-color);
+    }
+
   }
 
   /* shape */

@@ -11,7 +11,7 @@
 <div>
   <h2>Attributes</h2>
   <p>data-radius - Available options: full, none.</p>
-  <p>data-size - Available options: x-small, small, medium (default), large, x-large.</p>
+  <p>data-size - Available options: small, medium (default), large.</p>
   <p>data-color - Available options: blue, green, yellow, red.</p>
   <p>aria-label - Must be set manually for icon buttons.</p>
 </div>
@@ -143,13 +143,9 @@
   </div>
 
   <div class="content-item">
-    <div>Sizes: x-small, small, medium (default), large, x-large</div>
+    <div>Sizes: small, medium (default), large</div>
     <div class="example">
       <div class="example-preview">
-        <button data-size="x-small">
-          <ui-icon name="settings"></ui-icon>
-          Button
-        </button>
         <button data-size="small">
           <ui-icon name="settings"></ui-icon>
           Button
@@ -162,19 +158,10 @@
           <ui-icon name="settings"></ui-icon>
           Button
         </button>
-        <button data-size="x-large">
-          <ui-icon name="settings"></ui-icon>
-          Button
-        </button>
       </div>
       <div class="example-code">
 
 <pre><code>
-&lt;button data-size="x-small"&gt;
-  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
-  Button
-&lt;/button&gt;
-
 &lt;button data-size="small"&gt;
   &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
   Button
@@ -186,11 +173,6 @@
 &lt;/button&gt;
 
 &lt;button data-size="large"&gt;
-  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
-  Button
-&lt;/button&gt;
-
-&lt;button data-size="x-large"&gt;
   &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
   Button
 &lt;/button&gt;
@@ -218,11 +200,11 @@
     <div>Width 100%</div>
     <div class="example">
       <div class="example-preview">
-        <button style="--button-width:100%;">Button</button>
+        <button style="width:100%;">Button</button>
       </div>
       <div class="example-code">
 <pre><code>
-&lt;button style="--button-width:100%;"&gt;
+&lt;button style="width:100%;"&gt;
 Button
 &lt;/button&gt;
 </code></pre>

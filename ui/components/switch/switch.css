@@ -1,5 +1,5 @@
 ui-switch{
-  --switch-border-radius:var(--radius-full);
+  --switch-border-radius:var(--rounded-full);
 
   --switch-track-bg:var(--control-bg-default);
 
@@ -14,7 +14,7 @@ ui-switch{
 
   border-radius:var(--switch-border-radius);
 
-  & > button{
+  & > input{
     justify-content:start;
     height:var(--switch-track-height);
     width:var(--switch-track-width);
@@ -35,7 +35,7 @@ ui-switch{
 
 
 
-  & > button::before{
+  & > input::before{
     position: absolute;
     content:'';
     height:var(--switch-thumb-height);
@@ -44,7 +44,7 @@ ui-switch{
     background-color:var(--switch-thumb-bg);
   }
 
-  &[checked] > button{
+  &[checked] > input{
     padding-inline-start:var(--switch-thumb-position-end);
     background-color:var(--switch-track-checked-bg-color);
   }

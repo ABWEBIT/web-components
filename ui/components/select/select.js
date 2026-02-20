@@ -1,4 +1,4 @@
-import {uuid,setText} from '../../utilities/index.js';
+import {uuid} from '../../utilities/index.js';
 
 class UISelect extends HTMLElement{
   #data = null;
@@ -48,7 +48,7 @@ class UISelect extends HTMLElement{
     const valueNew = String(value || '');
     if(this.#text === valueNew) return;
     this.#text = valueNew;
-    setText(this,'[role="textbox"]',this.#text);
+    //setText(this,'[role="textbox"]',this.#text);
   }
 
   get disabled(){return this.#disabled;}

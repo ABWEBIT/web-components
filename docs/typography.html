@@ -4,42 +4,133 @@
 </div>
 
 <div>
-  <h2>Font Family</h2>
-  <p>--font-family-body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;</p>
-  <p>--font-family-heading:var(--font-family-body);</p>
-  <p>--font-family-code:ui-monospace,Menlo,Consolas,monospace;</p>
+  <h3>Font Family</h3>
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Value</th><th>Preview</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--font-family-default</code></td>
+        <td><code>ui-sans-serif,system-ui,sans-serif</code></td>
+        <td><div style="font-family:var(--font-family-default)">Body font family</div></td>
+      </tr>
+      <tr>
+        <td><code>--font-family-heading</code></td>
+        <td><code>var(--font-family-default)</code></td>
+        <td><div style="font-family:var(--font-family-heading)">Heading font family</div></td>
+      </tr>
+      <tr>
+        <td><code>--font-family-code</code></td>
+        <td><code>ui-monospace,monospace</code></td>
+        <td><div style="font-family:var(--font-family-code)">&lt;span&gt;code&lt;/span&gt;</div></td>
+      </tr>
+      <tr>
+        <td><code>--font-family-emoji</code></td>
+        <td><code>'Apple Color Emoji','Segoe UI Emoji'</code></td>
+        <td><div style="font-family:var(--font-family-emoji)">❤️❤️❤️</div></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <div>
-  <h2>Font Weight</h2>
-  <p>--font-weight-normal:400;</p>
-  <p>--font-weight-medium:500;</p>
-  <p>--font-weight-semibold:600;</p>
-  <p>--font-weight-bold:700;</p>
+  <h3>Font Weight</h3>
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Value</th><th>Preview</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><code>--font-weight-light</code></td>
+      <td><code>300</code></td>
+      <td><div style="font-weight:var(--font-weight-light)">AaBb</div></td>
+    </tr>
+    <tr>
+      <td><code>--font-weight-normal</code></td>
+      <td><code>400</code></td>
+      <td><div style="font-weight:var(--font-weight-normal)">AaBb</div></td>
+    </tr>
+    <tr>
+      <td><code>--font-weight-medium</code></td>
+      <td><code>500</code></td>
+      <td><div style="font-weight:var(--font-weight-medium)">AaBb</div></td>
+    </tr>
+    <tr>
+      <td><code>--font-weight-semibold</code></td>
+      <td><code>600</code></td>
+      <td><div style="font-weight:var(--font-weight-semibold)">AaBb</div></td>
+    </tr>
+    <tr>
+      <td><code>--font-weight-bold</code></td>
+      <td><code>700</code></td>
+      <td><div style="font-weight:var(--font-weight-bold)">AaBb</div></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 <div>
-  <h2>Font Size</h2>
-  <p>--font-size-x-small:0.75rem;</p>
-  <p>--font-size-small:0.875rem;</p>
-  <p>--font-size-normal:1rem;</p>
-  <p>--font-size-large:1.125rem;</p>
-  <p>--font-size-normal:1.25rem;</p>
+  <h3>Font Style</h3>
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Value</th><th>Preview</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><code>--font-style-normal</code></td>
+      <td><code>normal</code></td>
+      <td><div style="font-style:var(--font-style-normal)">AaBb</div></td>
+    </tr>
+    <tr>
+      <td><code>--font-style-italic</code></td>
+      <td><code>italic</code></td>
+      <td><div style="font-style:var(--font-style-italic)">AaBb</div></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 <div>
-  <h2>Heading Font Size</h2>
-  <p>--h6-font-size:1.25rem;</p>
-  <p>--h5-font-size:1.375rem;</p>
-  <p>--h4-font-size:1.5rem;</p>
-  <p>--h3-font-size:2rem;</p>
-  <p>--h2-font-size:2.5rem;</p>
-  <p>--h1-font-size:3rem;</p>
+  <h3>Font Size</h3>
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Value</th><th>Preview</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><code>--font-size-default</code></td>
+      <td><code>calc(1rem * var(--scaling))</code></td>
+      <td><div style="font-size:var(--font-size-default)">AaBb</div></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 <div>
-  <h2>Line Height</h2>
-  <p>--line-height-condensed:1.2;</p>
-  <p>--line-height-normal:1.5;</p>
-  <p>--line-height-expanded:2;</p>
+  <h3>Line Height</h3>
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Value</th><th>Preview</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><code>--line-height-default</code></td>
+      <td><code>1.6</code></td>
+      <td><div style="line-height:var(--line-height-default)">AaBb</div></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <h3>Heading</h3>
+  <div>
+    <h1>Heading Text</h1>
+    <h2>Heading Text</h2>
+    <h3>Heading Text</h3>
+    <h4>Heading Text</h4>
+    <h5>Heading Text</h5>
+    <h6>Heading Text</h6>
+  </div>
 </div>
