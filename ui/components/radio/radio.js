@@ -1,27 +1,32 @@
 import {LitElement,html,nothing} from '../../lit-core.min.js';
 
-class UITextarea extends LitElement{
+export class UIRadio extends LitElement{
   static properties = {
     disabled:{type:Boolean, reflect:true},
     required:{type:Boolean, reflect:true},
-    placeholder:{type:String, reflect:true},
-    ariaLabelledby:{type:String, reflect:true,attribute:'aria-labelledby'},
+    checked:{type:Boolean, reflect:true},
     name:{type:String, reflect:true},
     value:{type:String}
   };
 
   createRenderRoot(){return this;}
 
-  render(){
-    return html`
-    <textarea
-      name=${this.name || nothing}
-      value=${this.value || nothing}
-      placeholder=${this.placeholder || nothing}
-      aria-labelledby=${this.ariaLabelledby || nothing}
-      .disabled=${this.disabled}
-      .required=${this.required}></textarea>`;
+  #onChange(e){
+    const input = e.target;
+    this.checked = input.checked;
   }
 
+  render(){
+    return html`
+    <input type="radio"
+      name=${this.name || nothing}
+      value=${this.value || nothing}
+      .checked=${this.checked}
+      .disabled=${this.disabled}
+      .required=${this.required}
+      @change=${this.#onChange}
+    />
+    <ui-icon name="circle"></ui-icon>`;
+  }
 }
-customElements.define('ui-textarea',UITextarea);
+customElements.define('ui-radio',UIRadio);

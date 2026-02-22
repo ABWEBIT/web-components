@@ -3,7 +3,7 @@ a{
   text-decoration-style:var(--decoration-style);
   text-decoration-thickness:var(--decoration-thickness);
   text-underline-offset:var(--underline-offset);
-  cursor:var(--cursor-action);
+  cursor:var(--cursor-interactive);
   color:var(--link-color);
 
   outline-width:var(--outline-focus-width);

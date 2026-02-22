@@ -2,11 +2,12 @@ ui-textarea{
   --textarea-height:auto;
   --textarea-width:100%;
 
-  --textarea-border-radius:var(--border-radius-default);
-  --textarea-padding:10px 12px;
-  --textarea-border-color:var(--control-border-color);
+  --textarea-border-radius:var(--rounded-base);
+  --textarea-padding:0.5rem 0.75rem;
 
+  position:relative;
   width:var(--textarea-width);
+  border-radius:var(--textarea-border-radius);
 
   & > textarea{
     appearance:none;
@@ -15,39 +16,38 @@ ui-textarea{
     background:none;
     border:none;
 
+    width:inherit;
+    padding:var(--textarea-padding);
+    resize:vertical;
+    font-family:inherit;
+    font-size:inherit;
+    color:inherit;
+
+    border-radius:inherit;
+    border-width:1px;
+    border-style:solid;
+    border-color:var(--border-color);
+
+    background-color:transparent;
+
     outline-width:var(--outline-focus-width);
     outline-style:var(--outline-focus-style);
     outline-offset:var(--outline-focus-offset);
     outline-color:transparent;
 
-    direction:inherit;
-    min-height:2lh;
-    width:100%;
-    padding:var(--textarea-padding);
-    resize:vertical;
-    font-family:var(--font-family-default);
-    font-size:var(--font-size-default);
-    color:var(--textarea-font-color);
-    border-radius:var(--border-radius-default);
-    border-width:1px;
-    border-style:solid;
-    border-color:var(--textarea-border-color);
-    background-color:transparent;
     transition-duration:var(--duration-default);
     transition-property:outline-color;
+
+    &:disabled{
+      cursor:var(--cursor-disabled);
+    }
 
     &:focus-visible{
       outline-color:var(--outline-focus-color);
     }
-
   }
 
-  /* shape */
-  &[shape="rounded"]{
-    --textarea-border-radius:var(--border-radius-rounded);
-  }
-
-  &[shape="square"]{
-    --textarea-border-radius:var(--border-radius-square);
+  &[rounded="none"]{
+    --textarea-border-radius:var(--rounded-none);
   }
 }

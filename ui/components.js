@@ -12,6 +12,7 @@ import './components/color-scheme/color-scheme.js';
 /* forms */
 import './components/checkbox/checkbox.js';
 import './components/switch/switch.js';
+import './components/radio/radio.js';
 import './components/select/select.js';
 import './components/input/input.js';
 import './components/textarea/textarea.js';

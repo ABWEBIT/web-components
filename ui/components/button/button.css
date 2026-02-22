@@ -18,7 +18,7 @@ button{
   background:none;
   border:none;
 
-  cursor:pointer;
+  cursor:var(--cursor-interactive);
   user-select:none;
   touch-action:manipulation;
   -webkit-tap-highlight-color:transparent;
@@ -45,6 +45,10 @@ button{
   background-color:var(--button-bg);
   transition-duration:var(--duration-default);
   transition-property:background-color,outline-color;
+
+  &:disabled{
+    cursor:var(--cursor-disabled);
+  }
 
   &:focus-visible{
     outline-color:var(--outline-focus-color);
@@ -93,6 +97,11 @@ button{
   /* color */
   &[data-color="neutral"]{
     --button-bg:var(--surface-bg-neutral);
+  }
+
+  &[data-color="white"]{
+    --button-bg:var(--surface-bg-white);
+    --button-fg:oklch(14% 0 0);
   }
 
   &[data-color="blue"]{

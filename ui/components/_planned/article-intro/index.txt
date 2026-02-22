@@ -1,0 +1,22 @@
+<ui-article-intro>
+  <div class="ui-article-intro__meta">
+    <span class="category">Design</span>
+    <span class="date">21 Feb 2026</span>
+    <span class="reading-time">5 min read</span>
+  </div>
+
+  <h1 class="ui-article-intro__title">Building scalable UI systems</h1>
+
+  <p class="ui-article-intro__subtitle">
+    How to design reusable components without overengineering
+  </p>
+
+  <div class="ui-article-intro__author">
+    <img src="https://i.pravatar.cc/32" alt="John Doe" />
+    <span>John Doe</span>
+  </div>
+
+  <figure class="ui-article-intro__cover">
+    <img src="https://via.placeholder.com/600x300" alt="Cover Image" />
+  </figure>
+</ui-article-intro>

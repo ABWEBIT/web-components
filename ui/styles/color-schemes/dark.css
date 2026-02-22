@@ -10,17 +10,18 @@
   --heading-color:oklch(98% 0 0);
 
   /* link */
-  --link-color:oklch(75% 0.14 240);
+  --link-color:oklch(70% 0.16 255);
   --link-color-hover:oklch(from var(--link-color) calc(l + 0.04) c h);
   --link-color-active:oklch(from var(--link-color) calc(l - 0.01) c h);
 
   /* control choice */
   --control-border-color:oklch(34% 0 0);
-  --control-choice-bg:var(--color-blue-600);
+  --control-choice-bg:oklch(60% 0.18 255);
   --control-choice-elements:var(--color-white);
 
   /* surface */
   --surface-bg-neutral:var(--color-neutral-700);
+  --surface-bg-white:oklch(100% 0 0);
   --surface-bg-blue:var(--color-blue-800);
   --surface-bg-green:var(--color-green-800);
   --surface-bg-yellow:var(--color-yellow-800);
@@ -36,7 +37,7 @@
   --line-color:var(--color-neutral-800);
 
   /* outline focus */
-  --outline-focus-color:var(--color-blue-500);
+  --outline-focus-color:oklch(70% 0.16 255);
 
   /* scrollbar */
   --scrollbar-color:var(--color-neutral-700);
