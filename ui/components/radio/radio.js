@@ -4,12 +4,19 @@ export class UIRadio extends LitElement{
   static properties = {
     disabled:{type:Boolean, reflect:true},
     required:{type:Boolean, reflect:true},
-    checked:{type:Boolean, reflect:true},
+    checked:{type:Boolean},
     name:{type:String, reflect:true},
     value:{type:String}
   };
 
   createRenderRoot(){return this;}
+
+  updated(changed){
+    if(changed.has('checked')){
+      const input = this.querySelector('input');
+      if(input) input.checked = this.checked;
+    }
+  }
 
   #onChange(e){
     const input = e.target;
@@ -25,7 +32,7 @@ export class UIRadio extends LitElement{
       .disabled=${this.disabled}
       .required=${this.required}
       @change=${this.#onChange}
-    />
+    ></input>
     <ui-icon name="circle"></ui-icon>`;
   }
 }

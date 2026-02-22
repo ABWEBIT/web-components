@@ -38,23 +38,72 @@
   </div>
 
   <div class="content-item">
-    <div>Groups</div>
+    <div>With Label</div>
     <div class="example">
       <div class="example-preview">
-        <ui-radio name="items"></ui-radio>
-        <ui-radio name="items"></ui-radio>
-        <ui-radio name="items"></ui-radio>
-        Group Items
-        <ui-separator></ui-separator>
-        <ui-radio name="books"></ui-radio>
-        <ui-radio name="books"></ui-radio>
-        <ui-radio name="books"></ui-radio>
-        Group Books
+        <label>Label<ui-radio name="label"></ui-radio></label>
       </div>
       <div class="example-code">
 
 <pre><code>
-&lt;ui-radio&gt;&lt;/ui-radio&gt;
+&lt;label&gt;
+  Label
+  &lt;ui-radio&gt;&lt;/ui-radio&gt;
+&lt;/label&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Groups</div>
+    <div class="example">
+      <div class="example-preview">
+        Group Items
+        <ui-radio name="items"></ui-radio>
+        <ui-radio name="items"></ui-radio>
+        <ui-radio name="items"></ui-radio>
+      </div>
+      <div class="example-code">
+
+<pre><code>
+Group Items
+&lt;ui-radio name="items"&gt;&lt;/ui-radio&gt;
+&lt;ui-radio name="items"&gt;&lt;/ui-radio&gt;
+&lt;ui-radio name="items"&gt;&lt;/ui-radio&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Checked</div>
+    <div class="example">
+      <div class="example-preview">
+        <ui-radio name="checked" checked></ui-radio>
+      </div>
+      <div class="example-code">
+
+<pre><code>
+&lt;ui-radio checked&gt;&lt;/ui-radio&gt;
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <div>Disabled</div>
+    <div class="example">
+      <div class="example-preview">
+        <ui-radio name="disabled" disabled></ui-radio>
+      </div>
+      <div class="example-code">
+
+<pre><code>
+&lt;ui-radio disabled&gt;&lt;/ui-radio&gt;
 </code></pre>
 
       </div>

@@ -10,6 +10,41 @@ ui-radio{
   border-radius:var(--rounded-full);
   color:var(--color-white);
 
+  & > input[type="radio"]{
+    appearance:none;
+    margin:0;
+    padding:0;
+    background:none;
+    border:none;
+
+    cursor:var(--cursor-interactive);
+    position:relative;
+    user-select:none;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+
+    border-radius:inherit;
+    border-width:1px;
+    border-style:solid;
+    border-color:var(--border-color);
+
+    outline-width:var(--outline-focus-width);
+    outline-style:var(--outline-focus-style);
+    outline-offset:var(--outline-focus-offset);
+    outline-color:transparent;
+
+    transition-duration:var(--duration-default);
+    transition-property:outline-color;
+
+    &:disabled{
+      cursor:var(--cursor-disabled);
+    }
+
+    &:focus-visible{
+      outline-color:var(--outline-focus-color);
+    }
+  }
+
   & > input[type="radio"],
   & > ui-icon{
     position:absolute;
@@ -20,8 +55,8 @@ ui-radio{
 
   & > ui-icon{
     pointer-events:none;
-    background-color:var(--control-choice-bg);
     opacity:0;
+    background-color:var(--control-choice-bg);
     transition-duration:var(--duration-default);
     transition-property:opacity;
   }
@@ -29,8 +64,6 @@ ui-radio{
   & > ui-icon > svg{
     height:calc(var(--radio-size) * 0.5);
     width:calc(var(--radio-width) * 0.5);
-    transition-duration:var(--duration-default);
-    transition-property:opacity;
   }
 
   &:has(> input[type="radio"]:checked) > ui-icon{
