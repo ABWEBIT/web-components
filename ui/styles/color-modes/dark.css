@@ -1,4 +1,4 @@
-:root[data-color-scheme='dark']{
+:root[data-color-mode='dark']{
   /* backgrounds */
   --bg-primary-color:oklch(14% 0 0);
 
@@ -14,10 +14,13 @@
   --link-color-hover:oklch(from var(--link-color) calc(l + 0.04) c h);
   --link-color-active:oklch(from var(--link-color) calc(l - 0.01) c h);
 
-  /* control choice */
-  --control-border-color:oklch(34% 0 0);
-  --control-choice-bg:oklch(60% 0.18 255);
-  --control-choice-elements:var(--color-white);
+  /* controls */
+  --control-border-color:oklch(38% 0 0);
+
+  /* checkbox | switch | radio */
+  --control-choice-bg:oklch(17% 0 0);
+  --control-choice-indicator-bg:oklch(60% 0.18 255);
+  --control-choice-indicator-fg:oklch(100% 0 0);
 
   /* surface */
   --surface-bg-neutral:var(--color-neutral-700);

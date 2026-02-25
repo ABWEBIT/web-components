@@ -1,4 +1,4 @@
-:root[data-color-scheme='light']{
+:root[data-color-mode='light']{
   /* backgrounds */
   --bg-primary-color:oklch(97% 0 0);
 

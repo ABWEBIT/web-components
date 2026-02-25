@@ -1,5 +1,7 @@
 ui-radio{
   --radio-size:var(--control-choice-medium);
+  --radio-indicator-bg:var(--control-choice-indicator-bg);
+  --radio-indicator-fg:var(--control-choice-indicator-fg);
 
   position:relative;
   display:inline-flex;
@@ -8,7 +10,6 @@ ui-radio{
   height:var(--radio-size);
   width:var(--radio-size);
   border-radius:var(--rounded-full);
-  color:var(--color-white);
 
   & > input[type="radio"]{
     appearance:none;
@@ -18,15 +19,15 @@ ui-radio{
     border:none;
 
     cursor:var(--cursor-interactive);
-    position:relative;
     user-select:none;
     touch-action:manipulation;
     -webkit-tap-highlight-color:transparent;
 
-    border-radius:inherit;
-    border-width:1px;
-    border-style:solid;
-    border-color:var(--border-color);
+    background-color:var(--control-choice-bg);
+
+    border-width:var(--control-border-width);
+    border-style:var(--control-border-style);
+    border-color:var(--control-border-color);
 
     outline-width:var(--outline-focus-width);
     outline-style:var(--outline-focus-style);
@@ -56,7 +57,9 @@ ui-radio{
   & > ui-icon{
     pointer-events:none;
     opacity:0;
-    background-color:var(--control-choice-bg);
+    color:var(--radio-indicator-fg);
+    background-color:var(--radio-indicator-bg);
+
     transition-duration:var(--duration-default);
     transition-property:opacity;
   }
@@ -73,7 +76,4 @@ ui-radio{
   &[data-size="small"]{--radio-size:var(--control-choice-small);}
   &[data-size="medium"]{--radio-size:var(--control-choice-medium);}
   &[data-size="large"]{--radio-size:var(--control-choice-large);}
-
-  &[data-rounded="full"]{border-radius:var(--rounded-full);}
-  &[data-rounded="none"]{border-radius:var(--rounded-none);}
 }

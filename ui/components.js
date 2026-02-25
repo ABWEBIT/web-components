@@ -7,7 +7,7 @@ import './components/layout/layout.js';
 import './components/icon/icon.js';
 import './components/separator/separator.js';
 import './components/spinner/spinner.js';
-import './components/color-scheme/color-scheme.js';
+import './components/color-mode/color-mode.js';
 
 /* forms */
 import './components/checkbox/checkbox.js';

@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width">
 <script>
 (()=>{
-  let scheme = localStorage.getItem('data-color-scheme');
-  if(scheme !== 'dark' && scheme !== 'light'){
-    scheme = 'dark';
-    localStorage.setItem('data-color-scheme',scheme);
+  let mode = localStorage.getItem('data-color-mode');
+  if(mode !== 'dark' && mode !== 'light'){
+    mode = 'dark';
+    localStorage.setItem('data-color-mode',mode);
   }
-  document.documentElement.setAttribute('data-color-scheme',scheme);
+  document.documentElement.setAttribute('data-color-mode',mode);
 })();
 </script>
 <link rel="stylesheet" href="./ui/styles/base.css">
 <link rel="stylesheet" href="./ui/styles/colors.css">
-<link rel="stylesheet" href="./ui/styles/color-schemes/dark.css">
-<link rel="stylesheet" href="./ui/styles/color-schemes/light.css">
+<link rel="stylesheet" href="./ui/styles/color-modes/dark.css">
+<link rel="stylesheet" href="./ui/styles/color-modes/light.css">
 <link rel="stylesheet" href="./ui/styles/core.css">
 <link rel="stylesheet" href="./ui/styles/layouts/columns.css">
 <link rel="stylesheet" href="./assets/app.css">
@@ -77,7 +77,7 @@
 
       <ui-main>
         <header>
-          <ui-color-scheme></ui-color-scheme>
+          <ui-color-mode></ui-color-mode>
         </header>
         <main>
           <article></article>
