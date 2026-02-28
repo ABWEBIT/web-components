@@ -1,11 +1,6 @@
 <h1>Radio</h1>
 <p>Allows the user to select only one option from a set of choices.</p>
 
-<h2>Dependencies</h2>
-<ul>
-  <li><a href="#icon">ui-icon</a></li>
-</ul>
-
 <h2>Attributes</h2>
 <p>aria-label - static (required). Must be set manually.</p>
 <p>name - static (required). Must be set manually.</p>
@@ -13,113 +8,87 @@
 <p>disabled - reactive (optional). Controls the disabled state of the component.</p>
 <p>required - static (optional). Indicates whether the component is required.</p>
 
-<section class="content">
-
-  <div class="content-item">
-    <h4>Default</h4>
-    <div class="example">
-      <div class="example-preview">
-        <ui-radio name="radio"></ui-radio>
-      </div>
-      <div class="example-code">
-
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-radio name="radio"></ui-radio>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-radio&gt;&lt;/ui-radio&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>With Label</div>
-    <div class="example">
-      <div class="example-preview">
-        <label>Label<ui-radio name="label"></ui-radio></label>
-      </div>
-      <div class="example-code">
-
+<h3>Label</h3>
+<div class="example">
+  <div class="example-preview">
+    <label>Label<ui-radio name="label"></ui-radio></label>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;label&gt;
   Label
   &lt;ui-radio&gt;&lt;/ui-radio&gt;
 &lt;/label&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Sizes: small, medium (default), large</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-radio data-size="small"></ui-radio>
-        <ui-radio data-size="medium"></ui-radio>
-        <ui-radio data-size="large"></ui-radio>
-      </div>
-      <div class="example-code">
+<h3>Sizes: small, medium (default), large</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-radio data-size="small"></ui-radio>
+    <ui-radio data-size="medium"></ui-radio>
+    <ui-radio data-size="large"></ui-radio>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-radio data-size="small"&gt;&lt;/ui-radio&gt;
 &lt;ui-radio data-size="medium"&gt;&lt;/ui-radio&gt;
 &lt;ui-radio data-size="large"&gt;&lt;/ui-radio&gt;
 </code></pre>
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Groups</div>
-    <div class="example">
-      <div class="example-preview">
-        Group Items
-        <ui-radio name="items"></ui-radio>
-        <ui-radio name="items"></ui-radio>
-        <ui-radio name="items"></ui-radio>
-      </div>
-      <div class="example-code">
-
+<h3>Group</h3>
+<div class="example">
+  <div class="example-preview">
+    Group Items
+    <ui-radio name="items"></ui-radio>
+    <ui-radio name="items"></ui-radio>
+    <ui-radio name="items"></ui-radio>
+  </div>
+  <div class="example-code">
 <pre><code>
 Group Items
 &lt;ui-radio name="items"&gt;&lt;/ui-radio&gt;
 &lt;ui-radio name="items"&gt;&lt;/ui-radio&gt;
 &lt;ui-radio name="items"&gt;&lt;/ui-radio&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Checked</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-radio name="checked" checked></ui-radio>
-      </div>
-      <div class="example-code">
-
+<h3>Checked</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-radio name="checked" checked></ui-radio>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-radio checked&gt;&lt;/ui-radio&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Disabled</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-radio name="disabled" disabled></ui-radio>
-      </div>
-      <div class="example-code">
-
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-radio name="disabled" disabled></ui-radio>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-radio disabled&gt;&lt;/ui-radio&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
-
-</section>
+</div>

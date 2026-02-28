@@ -1,15 +1,19 @@
 ui-switch{
-  --switch-height:var(--control-choice-medium);
-  --switch-width:calc(var(--switch-height) * 2);
+  --switch-size:var(--control-choice-medium);
   --switch-border-radius:var(--rounded-full);
+  --switch-indicator-bg:var(--control-choice-indicator-bg);
+  --switch-indicator-fg:var(--control-choice-indicator-fg);
 
   position:relative;
   display:inline-flex;
-  height:var(--switch-height);
-  width:var(--switch-width);
+  vertical-align:middle;
+  user-select:none;
+
+  height:var(--switch-size);
+  width:calc(var(--switch-size) * 2);
   border-radius:var(--switch-border-radius);
 
-  input:is([type="checkbox"]){
+  & > input:is([type="checkbox"]){
     appearance:none;
     margin:0;
     padding:0;
@@ -20,7 +24,6 @@ ui-switch{
     touch-action:manipulation;
     -webkit-tap-highlight-color:transparent;
 
-    position:relative;
     background-color:var(--control-choice-bg);
 
     border-width:var(--control-border-width);
@@ -45,43 +48,49 @@ ui-switch{
   }
 
   & > input[type="checkbox"],
-  & > ui-icon{
+  & > span{
     position:absolute;
     width:inherit;
     height:inherit;
     border-radius:inherit;
   }
 
-  & > ui-icon{
+  & > span{
     pointer-events:none;
+    display:flex;
+    align-items:center;
     background-color:transparent;
+
     transition-duration:var(--duration-default);
     transition-property:background-color;
   }
 
-  &:has(> input[type="checkbox"]:checked) > ui-icon{
-    background-color:var(--control-choice-bg);
+  &:has(> input[type="checkbox"]:checked) > span{
+    background-color:var(--control-choice-indicator-bg);
   }
 
-  & > ui-icon > svg{
-    pointer-events:none;
-    height:calc(var(--switch-height) / 2);
-    width:calc(var(--switch-height) / 2);
-
+  & > span::before{
+    content:'';
+    position:absolute;
     border-radius:inherit;
-    background-color:var(--color-white);
-    margin-inline-start:calc(var(--switch-height) * -1);
+
+    height:calc(var(--switch-size) * 0.5);
+    width:calc(var(--switch-size) * 0.5);
+
+    background-color:var(--control-choice-indicator-fg);
+    margin-inline-start:calc(var(--switch-size) * 0.25);
+
     transition-duration:var(--duration-default);
     transition-property:margin-inline-start;
   }
 
-  &:has(> input[type="checkbox"]:checked) > ui-icon > svg{
-    margin-inline-start:var(--switch-height);
+  &:has(> input[type="checkbox"]:checked) > span::before{
+    margin-inline-start:calc(var(--switch-size) * 2 - var(--switch-size) * 0.5 - var(--switch-size) * 0.25);
   }
 
-  &[data-size="small"]{--switch-height:var(--control-choice-small);}
-  &[data-size="medium"]{--switch-height:var(--control-choice-medium);}
-  &[data-size="large"]{--switch-height:var(--control-choice-large);}
+  &[data-size="small"]{--switch-size:var(--control-choice-small);}
+  &[data-size="medium"]{--switch-size:var(--control-choice-medium);}
+  &[data-size="large"]{--switch-size:var(--control-choice-large);}
 
   &[data-rounded="none"]{border-radius:var(--rounded-none);}
 }

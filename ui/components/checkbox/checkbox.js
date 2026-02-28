@@ -2,10 +2,10 @@ import {LitElement,html,nothing} from '../../lit-core.min.js';
 
 export class UICheckbox extends LitElement{
   static properties = {
-    disabled:{type:Boolean, reflect:true},
-    required:{type:Boolean, reflect:true},
     checked:{type:Boolean, reflect:true},
     indeterminate:{type:Boolean, reflect:true},
+    required:{type:Boolean, reflect:true},
+    disabled:{type:Boolean, reflect:true},
     name:{type:String, reflect:true},
     value:{type:String}
   };

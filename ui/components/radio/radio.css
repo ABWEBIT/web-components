@@ -48,30 +48,39 @@ ui-radio{
   }
 
   & > input[type="radio"],
-  & > ui-icon{
+  & > span{
     position:absolute;
     width:inherit;
     height:inherit;
-    border-radius:var(--radio-border-radius);
+    border-radius:inherit;
   }
 
-  & > ui-icon{
+  & > span{
     pointer-events:none;
-    opacity:0;
-    color:var(--control-choice-indicator-fg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
     background-color:var(--control-choice-indicator-bg);
+
+    opacity:0;
 
     transition-duration:var(--duration-default);
     transition-property:opacity;
   }
 
-  & > ui-icon > svg{
-    height:calc(var(--radio-size) * 0.5);
-    width:calc(var(--radio-width) * 0.5);
+  &:has(> input[type="radio"]:checked) > span{
+    opacity:1;
   }
 
-  &:has(> input[type="radio"]:checked) > ui-icon{
-    opacity:1;
+  & > span::before{
+    content:'';
+    position:absolute;
+    border-radius:inherit;
+
+    background-color:var(--control-choice-indicator-fg);
+
+    height:round(calc(var(--radio-size) * 0.5 - var(--radio-size) * 0.1),1px);
+    width:round(calc(var(--radio-size) * 0.5 - var(--radio-size) * 0.1),1px);
   }
 
   &[data-size="small"]{--radio-size:var(--control-choice-small);}

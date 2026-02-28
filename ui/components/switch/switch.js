@@ -3,8 +3,8 @@ import {LitElement,html,nothing} from '../../lit-core.min.js';
 class UISwitch extends LitElement{
   static properties = {
     checked:{type:Boolean, reflect:true},
-    disabled:{type:Boolean, reflect:true},
     required:{type:Boolean, reflect:true},
+    disabled:{type:Boolean, reflect:true},
     name:{type:String, reflect:true},
     value:{type:String}
   };
@@ -26,7 +26,7 @@ class UISwitch extends LitElement{
       .required=${this.required}
       @change=${this.#onChange}
     />
-    <ui-icon name="circle"></ui-icon>`;
+    <span></span>`;
   }
 }
 customElements.define('ui-switch',UISwitch);

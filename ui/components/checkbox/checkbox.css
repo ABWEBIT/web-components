@@ -72,7 +72,4 @@ ui-checkbox{
   &[data-size="small"]{--checkbox-size:var(--control-choice-small);}
   &[data-size="medium"]{--checkbox-size:var(--control-choice-medium);}
   &[data-size="large"]{--checkbox-size:var(--control-choice-large);}
-
-  &[data-rounded="full"]{--checkbox-border-radius:var(--rounded-full);}
-  &[data-rounded="none"]{--checkbox-border-radius:var(--rounded-none);}
 }

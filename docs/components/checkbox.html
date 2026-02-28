@@ -8,10 +8,10 @@
 
 <h2>Attributes</h2>
 <p>aria-label - static (required). If used outside of the <a href="#field">ui-field</a> component, the aria-label must be set manually.</p>
-<p>disabled - reactive (optional). Default: false. Controls the disabled state of the component.</p>
 <p>checked - reactive (optional). Default: false.</p>
 <p>indeterminate - reactive (optional). Default: false.</p>
 <p>required - static (optional). Default: false.</p>
+<p>disabled - reactive (optional). Default: false. Controls the disabled state of the component.</p>
 
 <h2>Examples</h2>
 
@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<h3>With Label</h3>
+<h3>Label</h3>
 <div class="example">
   <div class="example-preview">
     <label>Label<ui-checkbox name="label"></ui-checkbox></label>
@@ -59,17 +59,14 @@ Label
   </div>
 </div>
 
-<h3>Rounded</h3>
-<div>full | none</div>
+<h3>Checked</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-checkbox checked data-rounded="full"></ui-checkbox>
-    <ui-checkbox checked data-rounded="none"></ui-checkbox>
+    <ui-checkbox checked></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-checkbox data-rounded="full"&gt;&lt;/ui-checkbox&gt;
-&lt;ui-checkbox data-rounded="none"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox checked&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>
@@ -82,18 +79,6 @@ Label
   <div class="example-code">
 <pre><code>
 &lt;ui-checkbox indeterminate&gt;&lt;/ui-checkbox&gt;
-</code></pre>
-  </div>
-</div>
-
-<h3>Checked</h3>
-<div class="example">
-  <div class="example-preview">
-    <ui-checkbox checked></ui-checkbox>
-  </div>
-  <div class="example-code">
-<pre><code>
-&lt;ui-checkbox checked&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>

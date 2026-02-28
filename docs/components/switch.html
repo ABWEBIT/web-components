@@ -1,97 +1,87 @@
 <h1>Switch</h1>
 <p>Switches provide a simple and user-friendly way to toggle between two states.</p>
 
-<h2>Dependencies</h2>
-<ul>
-  <li><a href="#icon">ui-icon</a></li>
-</ul>
-
 <h2>Attributes</h2>
 <p>aria-label - static (required). Must be set manually.</p>
 <p>checked - reactive (required). Default: false. Controls the checked state of the component.</p>
 <p>disabled - reactive (optional). Controls the disabled state of the component.</p>
 <p>required - static (optional). Indicates whether the component is required.</p>
 
-<section class="content">
-
-  <div class="content-item">
-    <div>Default</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-switch id="a"></ui-switch>
-      </div>
-      <div class="example-code">
-
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch></ui-switch>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-switch&gt;&lt;/ui-switch&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Checked</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-switch checked></ui-switch>
-      </div>
-      <div class="example-code">
-
+<h3>Label</h3>
+<div class="example">
+  <div class="example-preview">
+    <label>Label<ui-switch></ui-switch></label>
+  </div>
+  <div class="example-code">
 <pre><code>
-&lt;ui-switch checked&gt;&lt;/ui-switch&gt;
+&lt;label&gt;
+  Label
+  &lt;ui-switch&gt;&lt;/ui-switch&gt;
+&lt;/label&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Disabled</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-switch disabled></ui-switch>
-      </div>
-      <div class="example-code">
-
-<pre><code>
-&lt;ui-switch disabled&gt;&lt;/ui-switch&gt;
-</code></pre>
-
-      </div>
-    </div>
+<h3>Size: small | medium (default) | large</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch checked data-size="small"></ui-switch>
+    <ui-switch checked data-size="medium"></ui-switch>
+    <ui-switch checked data-size="large"></ui-switch>
   </div>
-
-  <div class="content-item">
-    <div>Size: small | medium (default) | large</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-switch checked data-size="small"></ui-switch>
-        <ui-switch checked data-size="medium"></ui-switch>
-        <ui-switch checked data-size="large"></ui-switch>
-      </div>
-      <div class="example-code">
+  <div class="example-code">
 <pre><code>
 &lt;ui-switch data-size="small"&gt;&lt;/ui-switch&gt;
 &lt;ui-switch data-size="medium"&gt;&lt;/ui-switch&gt;
 &lt;ui-switch data-size="large"&gt;&lt;/ui-switch&gt;
 </code></pre>
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Rounded: none</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-switch checked data-rounded="none"></ui-switch>
-      </div>
-      <div class="example-code">
+<h3>Rounded: none</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch checked data-rounded="none"></ui-switch>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-switch data-rounded="none"&gt;&lt;/ui-switch&gt;
 </code></pre>
-      </div>
-    </div>
   </div>
+</div>
 
-</section>
+<h3>Checked</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch checked></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch checked&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch disabled></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch disabled&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>

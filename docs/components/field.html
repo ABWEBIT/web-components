@@ -9,23 +9,18 @@
 <p>vertical - static (optional). Sets the orientation to vertical.</p>
 <p>required - static (optional). Adds the required attribute to all child elements.</p>
 
-<section class="content">
-
-  <div class="content-item">
-    <div>Default</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-field>
-          <label>Label</label>
-          <ui-checkbox></ui-checkbox>
-        </ui-field>
-        <ui-field>
-          <ui-checkbox></ui-checkbox>
-          <label>Label</label>
-        </ui-field>
-      </div>
-      <div class="example-code">
-
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-field>
+      <label>Label<ui-checkbox></ui-checkbox></label>
+    </ui-field>
+    <ui-field>
+      <ui-checkbox></ui-checkbox>
+      <label>Label</label>
+    </ui-field>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-field&gt;
   &lt;label&gt;Label&lt;/label&gt;
@@ -37,79 +32,63 @@
   &lt;label&gt;Label&lt;/label&gt;
 &lt;/ui-field&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Label pposition</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-field>
-          <label>Label</label>
-          <ui-switch></ui-switch>
-        </ui-field>
-        <ui-field>
-          <ui-switch></ui-switch>
-          <label>Label</label>
-        </ui-field>
-      </div>
-      <div class="example-code">
-
+<h3>Label pposition</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-field>
+      <label>Label</label>
+      <ui-switch></ui-switch>
+    </ui-field>
+    <ui-field>
+      <ui-switch></ui-switch>
+      <label>Label</label>
+    </ui-field>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-field label-position="end"&gt;
   &lt;label&gt;Label&lt;/label&gt;
   &lt;ui-switch&gt;&lt;/ui-switch&gt;
 &lt;/ui-field&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Passive, non-clickable div</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-field passive>
-          <label>Label</label>
-          <ui-switch></ui-switch>
-        </ui-field>
-      </div>
-      <div class="example-code">
-
+<h3>Passive, non-clickable div</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-field passive>
+      <label>Label</label>
+      <ui-switch></ui-switch>
+    </ui-field>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-field passive&gt;
   &lt;label&gt;Label&lt;/label&gt;
   &lt;ui-switch&gt;&lt;/ui-switch&gt;
 &lt;/ui-field&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Required, vertical</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-field required vertical>
-          <label>Label</label>
-          <ui-textarea height="200"></ui-textarea>
-        </ui-field>
-      </div>
-      <div class="example-code">
-
+<h3>Required, vertical</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-field required vertical>
+      <label>Label</label>
+      <ui-textarea height="200"></ui-textarea>
+    </ui-field>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-field required vertical&gt;
   &lt;div&gt;Label&lt;/div&gt;
   &lt;ui-textarea&gt;&lt;/ui-textarea&gt;
 &lt;/ui-field&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
-
-</section>
+</div>
