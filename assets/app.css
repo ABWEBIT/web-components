@@ -3,7 +3,6 @@ body{
   color:var(--fg-primary-color);
 }
 
-
 ui-root{
   position:relative;
 }
@@ -99,16 +98,55 @@ main{
   position:relative;
 
   & > article{
-    display:flex;
-    flex-direction:column;
-    row-gap:40px;
+    position:relative;
     padding-block:30px;
-
-    & > :first-child > h1 + p{
-      color:var(--fg-secondary-color);
-    }
   }
 }
+
+article{
+  & > :is(h1,h2,h3){margin-block-end:0.75rem;}
+  & > :is(h4,h5,h6){margin-block-end:0.5rem;}
+
+  & > h1:first-of-type{
+    margin-block-start:0;
+  }
+
+  & > h1:first-of-type + *{
+    color:var(--fg-secondary-color);
+  }
+}
+
+
+  .example{
+    border-width:1px;
+    border-style:solid;
+    border-color:var(--line-color);
+    border-radius:var(--rounded-base);
+
+    & > :is(.example-preview,.example-code){
+      position:relative;
+      max-width:100%;
+      padding:20px;
+    }
+
+    & > .example-preview{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:20px;
+      border-bottom-width:1px;
+      border-bottom-style:solid;
+      border-bottom-color:var(--line-color);
+      overflow-x:auto;
+
+      &.flex-column{
+        flex-direction:column;
+      }
+    }
+  }
+
+
+
 
 table :is(th,td){
   padding-inline-end:30px;
@@ -118,57 +156,15 @@ table :is(th,td){
   background-color:var(--bg-secondary-color);
 }
 
-
-/* content */
-.content,
-.content > .content-item{
-  display:flex;
-  flex-direction:column;
-}
-
-.content{
-  row-gap:50px;
-}
-
-.content > .content-item{
-  row-gap:10px;
-}
-
-.example{
-  overflow:hidden;
-  border:1px solid var(--line-color);
-  border-radius:var(--rounded-base);
-
-  & > :is(.example-preview,.example-code){
-    position:relative;
-    max-width:100%;
-    padding:20px;
-  }
-
-  & > .example-preview{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:20px;
-    border-bottom:1px solid var(--line-color);
-    overflow-x:auto;
-
-    &.flex-column{
-      flex-direction:column;
-    }
-  }
-}
-
-
 /* icons */
-.content-item > .icons{
+.icons{
   display:inline-flex;
   gap:20px;
   flex-wrap:wrap;
   padding:0;
 }
 
-.content-item > .icons > .icon-card{
+.icons > .icon-card{
   display:flex;
   flex-direction:column;
   line-height:1;
@@ -176,7 +172,7 @@ table :is(th,td){
   row-gap:12px;
   padding:12px 10px 10px;
   align-items:center;
-  background-color:var(--bg-secondary);
+  background-color:oklch(from var(--bg-primary-color) calc(l + 0.04) c h);
   border-radius:var(--rounded-base);
 
 

@@ -1,133 +1,111 @@
-<div>
-  <h1>Checkbox</h1>
-  <p>Checkboxes are used to toggle an option on or off.</p>
-</div>
+<h1>Checkbox</h1>
+<p>Checkboxes are used to toggle an option on or off.</p>
 
-<div>
-  <h2>Dependencies</h2>
-  <ul>
-    <li><a href="#icon">ui-icon</a></li>
-  </ul>
-</div>
+<h2>Dependencies</h2>
+<ul>
+  <li><a href="#icon">ui-icon</a></li>
+</ul>
 
-<div>
-  <h2>Attributes</h2>
-  <p>aria-label - static (required). If used outside of the <a href="#field">ui-field</a> component, the aria-label must be set manually.</p>
-  <p>disabled - reactive (optional). Default: false. Controls the disabled state of the component.</p>
-  <p>checked - reactive (optional). Default: false.</p>
-  <p>indeterminate - reactive (optional). Default: false.</p>
-  <p>required - static (optional). Default: false.</p>
-</div>
+<h2>Attributes</h2>
+<p>aria-label - static (required). If used outside of the <a href="#field">ui-field</a> component, the aria-label must be set manually.</p>
+<p>disabled - reactive (optional). Default: false. Controls the disabled state of the component.</p>
+<p>checked - reactive (optional). Default: false.</p>
+<p>indeterminate - reactive (optional). Default: false.</p>
+<p>required - static (optional). Default: false.</p>
 
-<section class="content">
+<h2>Examples</h2>
 
-  <div class="content-item">
-    <div>Default</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-checkbox></ui-checkbox>
-      </div>
-      <div class="example-code">
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox></ui-checkbox>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
 </code></pre>
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>With Label</div>
-    <div class="example">
-      <div class="example-preview">
-        <label>Label<ui-checkbox name="label"></ui-checkbox></label>
-      </div>
-      <div class="example-code">
-
+<h3>With Label</h3>
+<div class="example">
+  <div class="example-preview">
+    <label>Label<ui-checkbox name="label"></ui-checkbox></label>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;label&gt;
-  Label
-  &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+Label
+&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
 &lt;/label&gt;
 </code></pre>
-
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Sizes: small, medium (default), large</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-checkbox checked data-size="small"></ui-checkbox>
-        <ui-checkbox checked data-size="medium"></ui-checkbox>
-        <ui-checkbox checked data-size="large"></ui-checkbox>
-      </div>
-      <div class="example-code">
+<h3>Sizes</h3>
+<div>small | medium (default) | large</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox checked data-size="small"></ui-checkbox>
+    <ui-checkbox checked data-size="medium"></ui-checkbox>
+    <ui-checkbox checked data-size="large"></ui-checkbox>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-checkbox data-size="small"&gt;&lt;/ui-checkbox&gt;
 &lt;ui-checkbox data-size="medium"&gt;&lt;/ui-checkbox&gt;
 &lt;ui-checkbox data-size="large"&gt;&lt;/ui-checkbox&gt;
 </code></pre>
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Rounded: full, none</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-checkbox checked data-rounded="full"></ui-checkbox>
-        <ui-checkbox checked data-rounded="none"></ui-checkbox>
-      </div>
-      <div class="example-code">
+<h3>Rounded</h3>
+<div>full | none</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox checked data-rounded="full"></ui-checkbox>
+    <ui-checkbox checked data-rounded="none"></ui-checkbox>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-checkbox data-rounded="full"&gt;&lt;/ui-checkbox&gt;
 &lt;ui-checkbox data-rounded="none"&gt;&lt;/ui-checkbox&gt;
 </code></pre>
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Indeterminate</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-checkbox indeterminate></ui-checkbox>
-      </div>
-      <div class="example-code">
+<h3>Indeterminate</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox indeterminate></ui-checkbox>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-checkbox indeterminate&gt;&lt;/ui-checkbox&gt;
 </code></pre>
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Checked</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-checkbox checked></ui-checkbox>
-      </div>
-      <div class="example-code">
+<h3>Checked</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox checked></ui-checkbox>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-checkbox checked&gt;&lt;/ui-checkbox&gt;
 </code></pre>
-      </div>
-    </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Disabled</div>
-    <div class="example">
-      <div class="example-preview">
-        <ui-checkbox disabled></ui-checkbox>
-      </div>
-      <div class="example-code">
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox disabled></ui-checkbox>
+  </div>
+  <div class="example-code">
 <pre><code>
 &lt;ui-checkbox disabled&gt;&lt;/ui-checkbox&gt;
 </code></pre>
-      </div>
-    </div>
   </div>
-
-</section>
+</div>

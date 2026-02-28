@@ -97,12 +97,12 @@ h1,h2,h3{font-weight:var(--font-weight-semibold);}
 h4,h5,h6{font-weight:var(--font-weight-medium);}
 
 h1{
-  font-size:calc(2.25rem * var(--scaling));
+  font-size:calc(2.5rem * var(--scaling));
   line-height:1.1;
 }
 
 h2{
-  font-size:calc(1.75rem * var(--scaling));
+  font-size:calc(2rem * var(--scaling));
   line-height:1.15;
 }
 
@@ -247,45 +247,4 @@ label{
 
 select{
   cursor:var(--cursor-interactive);
-}
-
-input:is([type="checkbox"]){
-  appearance:none;
-  margin:0;
-  padding:0;
-  background:none;
-  border:none;
-
-  cursor:var(--cursor-interactive);
-  position:relative;
-  user-select:none;
-  touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent;
-
-  outline-width:var(--outline-focus-width);
-  outline-style:var(--outline-focus-style);
-  outline-offset:var(--outline-focus-offset);
-  outline-color:transparent;
-
-  transition-duration:var(--duration-default);
-  transition-property:outline-color;
-
-  &:disabled{
-    cursor:var(--cursor-disabled);
-  }
-
-  &:focus-visible{
-    outline-color:var(--outline-focus-color);
-  }
-
-  &::before{
-    pointer-events:none;
-    content:'';
-    position:absolute;
-    inset:0;
-    border-radius:inherit;
-    border-width:1px;
-    border-style:solid;
-    border-color:var(--border-color);
-  }
 }

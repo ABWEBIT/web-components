@@ -1,15 +1,17 @@
 ui-radio{
   --radio-size:var(--control-choice-medium);
+  --radio-border-radius:var(--rounded-full);
   --radio-indicator-bg:var(--control-choice-indicator-bg);
   --radio-indicator-fg:var(--control-choice-indicator-fg);
 
   position:relative;
   display:inline-flex;
   vertical-align:middle;
+  user-select:none;
 
   height:var(--radio-size);
   width:var(--radio-size);
-  border-radius:var(--rounded-full);
+  border-radius:var(--radio-border-radius);
 
   & > input[type="radio"]{
     appearance:none;
@@ -19,7 +21,6 @@ ui-radio{
     border:none;
 
     cursor:var(--cursor-interactive);
-    user-select:none;
     touch-action:manipulation;
     -webkit-tap-highlight-color:transparent;
 
@@ -51,14 +52,14 @@ ui-radio{
     position:absolute;
     width:inherit;
     height:inherit;
-    border-radius:inherit;
+    border-radius:var(--radio-border-radius);
   }
 
   & > ui-icon{
     pointer-events:none;
     opacity:0;
-    color:var(--radio-indicator-fg);
-    background-color:var(--radio-indicator-bg);
+    color:var(--control-choice-indicator-fg);
+    background-color:var(--control-choice-indicator-bg);
 
     transition-duration:var(--duration-default);
     transition-property:opacity;

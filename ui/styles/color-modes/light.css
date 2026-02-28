@@ -7,34 +7,40 @@
   --fg-secondary-color:oklch(36% 0 0);
   --fg-tertiary-color:oklch(46% 0 0);
 
+  --heading-color:oklch(10% 0 0);
+
   /* link */
   --link-color:oklch(45% 0.15 245);
   --link-color-hover:oklch(from var(--link-color) calc(l + 0.05) c h);
   --link-color-active:oklch(from var(--link-color) calc(l - 0.03) c h);
 
+  /* controls */
+  --control-border-color:oklch(38% 0 0);
+
+  /* checkbox | switch | radio */
+  --control-choice-bg:oklch(94% 0 0);
+  --control-choice-indicator-bg:oklch(60% 0.18 255);
+  --control-choice-indicator-fg:oklch(100% 0 0);
+
   /* surface */
-  --surface-bg:var(--color-neutral-200);
+  --surface-bg-neutral:oklch(87% 0 0);
+  --surface-bg-white:oklch(100% 0 0);
+  --surface-bg-blue:var(--color-blue-800);
+  --surface-bg-green:var(--color-green-800);
+  --surface-bg-yellow:var(--color-yellow-800);
+  --surface-bg-red:var(--color-red-800);
+  --surface-bg-default:var(--surface-bg-neutral);
 
-  /* control foregrounds */
-  --control-fg-default:var(--color-black);
+  --surface-fg-default:var(--control-bg-neutral);
 
-  /* control backgrounds */
-  --control-bg-neutral:var(--color-neutral-400);
-  --control-bg-blue:var(--color-blue-400);
-  --control-bg-green:var(--color-green-400);
-  --control-bg-yellow:var(--color-yellow-400);
-  --control-bg-red:var(--color-red-400);
-
-  --control-bg-default:var(--control-bg-neutral);
-
-  /* control border */
-  --control-border-color:var(--color-neutral-400);
+  /* border */
+  --border-color:var(--color-neutral-500);
 
   /* lines */
   --line-color:var(--color-neutral-300);
 
   /* outline */
-  --outline-color:var(--color-blue-400);
+  --outline-focus-color:oklch(70% 0.16 255);
 
   /* scrollbar */
   --scrollbar-color:var(--color-neutral-300);

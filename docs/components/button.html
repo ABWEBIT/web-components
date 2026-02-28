@@ -1,117 +1,109 @@
-<div>
-  <h1>Button</h1>
-  <p>Buttons are used to perform actions or submit forms.</p>
-</div>
+<h1>Button</h1>
+<p>Buttons are used to perform actions or submit forms.</p>
 
-<div>
-  <h2>Info</h2>
-  <p>The button can contain text, icons, or both - in any order.</p>
-</div>
+<h2>Info</h2>
+<p>The button can contain text, icons, or both - in any order.</p>
 
-<div>
-  <h2>Attributes</h2>
-  <p>data-radius - Available options: full, none.</p>
-  <p>data-size - Available options: small, medium (default), large.</p>
-  <p>data-color - Available options: blue, green, yellow, red.</p>
-  <p>aria-label - Must be set manually for icon buttons.</p>
-</div>
+<h2>Attributes</h2>
+<p>data-radius - Available options: full, none.</p>
+<p>data-size - Available options: small, medium (default), large.</p>
+<p>data-color - Available options: blue, green, yellow, red.</p>
+<p>aria-label - Must be set manually for icon buttons.</p>
 
-<section class="content">
-
-  <div class="content-item">
-    <div>Text only</div>
-    <div class="example">
-      <div class="example-preview">
-        <button>Button</button>
-      </div>
-      <div class="example-code">
+<div class="example">
+  <div class="example-title">Text only</div>
+  <div class="example-frame">
+    <div class="example-preview">
+      <button>Button</button>
+    </div>
+    <div class="example-code">
 
 <pre><code>
 &lt;button&gt;Button&lt;/button&gt;
 </code></pre>
 
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Text with Icon</div>
-    <div class="example">
-      <div class="example-preview">
-        <button>
-          <ui-icon name="settings"></ui-icon>
-          Button
-        </button>
-        <button>
-          <ui-icon name="settings"></ui-icon>
-          Button
-          <ui-icon name="settings"></ui-icon>
-        </button>
-        <button>
-          Button
-          <ui-icon name="settings"></ui-icon>
-        </button>
-      </div>
-      <div class="example-code">
+<div class="example">
+  <div class="example-title">Text with Icon</div>
+  <div class="example-frame">
+    <div class="example-preview">
+      <button>
+        <ui-icon name="settings"></ui-icon>
+        Button
+      </button>
+      <button>
+        <ui-icon name="settings"></ui-icon>
+        Button
+        <ui-icon name="settings"></ui-icon>
+      </button>
+      <button>
+        Button
+        <ui-icon name="settings"></ui-icon>
+      </button>
+    </div>
+    <div class="example-code">
 
 <pre><code>
 &lt;button&gt;
-  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
-  Button
+&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+Button
 &lt;/button&gt;
 
 &lt;button&gt;
-  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
-  Button
-  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+Button
+&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
 &lt;/button&gt;
 
 &lt;button&gt;
-  Button
-  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+Button
+&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
 &lt;/button&gt;
 </code></pre>
 
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Variant: invisible, outline</div>
-    <div class="example">
-      <div class="example-preview">
-        <button data-variant="invisible">
-          <ui-icon name="settings"></ui-icon>
-          Button
-        </button>
-        <button data-variant="outline">
-          <ui-icon name="settings"></ui-icon>
-          Button
-        </button>
-      </div>
-      <div class="example-code">
+<div class="example">
+  <div class="example-title">Variant: invisible, outline</div>
+  <div class="example-frame">
+    <div class="example-preview">
+      <button data-variant="invisible">
+        <ui-icon name="settings"></ui-icon>
+        Button
+      </button>
+      <button data-variant="outline">
+        <ui-icon name="settings"></ui-icon>
+        Button
+      </button>
+    </div>
+    <div class="example-code">
 
 <pre><code>
 &lt;button data-variant="invisible"&gt;Button&lt;/button&gt;
 &lt;button data-variant="outline"&gt;Button&lt;/button&gt;
 </code></pre>
 
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Colors: neutral (default), white, blue, green, yellow, red.</div>
-    <div class="example">
-      <div class="example-preview">
-        <button data-color="neutral">Button</button>
-        <button data-color="white">Button</button>
-        <button data-color="blue">Button</button>
-        <button data-color="green">Button</button>
-        <button data-color="yellow">Button</button>
-        <button data-color="red">Button</button>
-      </div>
-      <div class="example-code">
+<div class="example">
+  <div class="example-title">Colors: neutral (default), white, blue, green, yellow, red.</div>
+  <div class="example-frame">
+    <div class="example-preview">
+      <button data-color="neutral">Button</button>
+      <button data-color="white">Button</button>
+      <button data-color="blue">Button</button>
+      <button data-color="green">Button</button>
+      <button data-color="yellow">Button</button>
+      <button data-color="red">Button</button>
+    </div>
+    <div class="example-code">
 
 <pre><code>
 &lt;button data-color="neutral"&gt;Button&lt;/button&gt;
@@ -121,96 +113,94 @@
 &lt;button data-color="red"&gt;Button&lt;/button&gt;
 </code></pre>
 
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Rounded: full, none</div>
-    <div class="example">
-      <div class="example-preview">
-        <button data-rounded="full">Button</button>
-        <button data-rounded="none">Button</button>
-      </div>
-      <div class="example-code">
+<div class="example">
+  <div class="example-title">Rounded: full, none</div>
+  <div class="example-frame">
+    <div class="example-preview">
+      <button data-rounded="full">Button</button>
+      <button data-rounded="none">Button</button>
+    </div>
+    <div class="example-code">
 
 <pre><code>
 &lt;button data-rounded="full"&gt;Button&lt;/button&gt;
 &lt;button data-rounded="none"&gt;Button&lt;/button&gt;
 </code></pre>
 
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Sizes: small, medium (default), large</div>
-    <div class="example">
-      <div class="example-preview">
-        <button data-size="small">
-          <ui-icon name="settings"></ui-icon>
-          Button
-        </button>
-        <button data-size="medium">
-          <ui-icon name="settings"></ui-icon>
-          Button
-        </button>
-        <button data-size="large">
-          <ui-icon name="settings"></ui-icon>
-          Button
-        </button>
-      </div>
-      <div class="example-code">
+<div class="example">
+  <div class="example-title">Sizes: small, medium (default), large</div>
+  <div class="example-frame">
+    <div class="example-preview">
+      <button data-size="small">
+        <ui-icon name="settings"></ui-icon>
+        Button
+      </button>
+      <button data-size="medium">
+        <ui-icon name="settings"></ui-icon>
+        Button
+      </button>
+      <button data-size="large">
+        <ui-icon name="settings"></ui-icon>
+        Button
+      </button>
+    </div>
+    <div class="example-code">
 
 <pre><code>
 &lt;button data-size="small"&gt;
-  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
-  Button
+&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+Button
 &lt;/button&gt;
 
 &lt;button data-size="medium"&gt;
-  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
-  Button
+&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+Button
 &lt;/button&gt;
 
 &lt;button data-size="large"&gt;
-  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
-  Button
+&lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+Button
 &lt;/button&gt;
 </code></pre>
 
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Disabled</div>
-    <div class="example">
-      <div class="example-preview">
-        <button disabled>Button</button>
-      </div>
-      <div class="example-code">
+<div class="example">
+  <div class="example-title">Disabled</div>
+  <div class="example-frame">
+    <div class="example-preview">
+      <button disabled>Button</button>
+    </div>
+    <div class="example-code">
 <pre><code>
 &lt;button disabled&gt;Button&lt;/button&gt;
 </code></pre>
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="content-item">
-    <div>Width 100%</div>
-    <div class="example">
-      <div class="example-preview">
-        <button style="width:100%;">Button</button>
-      </div>
-      <div class="example-code">
+<div class="example">
+  <div class="example-title">Width 100%</div>
+  <div class="example-frame">
+    <div class="example-preview">
+      <button style="width:100%;">Button</button>
+    </div>
+    <div class="example-code">
 <pre><code>
 &lt;button style="width:100%;"&gt;
 Button
 &lt;/button&gt;
 </code></pre>
-      </div>
     </div>
   </div>
-
-</section>
+</div>

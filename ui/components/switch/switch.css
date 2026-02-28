@@ -9,6 +9,41 @@ ui-switch{
   width:var(--switch-width);
   border-radius:var(--switch-border-radius);
 
+  input:is([type="checkbox"]){
+    appearance:none;
+    margin:0;
+    padding:0;
+    background:none;
+    border:none;
+
+    cursor:var(--cursor-interactive);
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+
+    position:relative;
+    background-color:var(--control-choice-bg);
+
+    border-width:var(--control-border-width);
+    border-style:var(--control-border-style);
+    border-color:var(--control-border-color);
+
+    outline-width:var(--outline-focus-width);
+    outline-style:var(--outline-focus-style);
+    outline-offset:var(--outline-focus-offset);
+    outline-color:transparent;
+
+    transition-duration:var(--duration-default);
+    transition-property:outline-color;
+
+    &:disabled{
+      cursor:var(--cursor-disabled);
+    }
+
+    &:focus-visible{
+      outline-color:var(--outline-focus-color);
+    }
+  }
+
   & > input[type="checkbox"],
   & > ui-icon{
     position:absolute;
