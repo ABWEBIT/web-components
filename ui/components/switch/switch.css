@@ -91,6 +91,4 @@ ui-switch{
   &[data-size="small"]{--switch-size:var(--control-choice-small);}
   &[data-size="medium"]{--switch-size:var(--control-choice-medium);}
   &[data-size="large"]{--switch-size:var(--control-choice-large);}
-
-  &[data-rounded="none"]{border-radius:var(--rounded-none);}
 }
