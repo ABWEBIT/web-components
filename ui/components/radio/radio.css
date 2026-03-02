@@ -68,7 +68,7 @@ ui-radio{
     transition-property:opacity;
   }
 
-  &:has(> input[type="radio"]:checked) > span{
+  & > input[type="radio"]:checked + span{
     opacity:1;
   }
 

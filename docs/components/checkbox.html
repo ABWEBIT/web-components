@@ -1,26 +1,24 @@
 <h1>Checkbox</h1>
 <p>Checkboxes are used to toggle an option on or off.</p>
 
-<h2>Dependencies</h2>
-<ul>
-  <li><a href="#icon">ui-icon</a></li>
-</ul>
-
 <h2>Attributes</h2>
-<p>aria-label - static (required). If used outside of the <a href="#field">ui-field</a> component, the aria-label must be set manually.</p>
+<p>options - static (optional). Additional <code>&lt;input&gt;</code> attributes (id, name, value, class).
+<br>
+options='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'
+</p>
 <p>checked - reactive (optional). Default: false.</p>
 <p>indeterminate - reactive (optional). Default: false.</p>
-<p>required - static (optional). Default: false.</p>
-<p>disabled - reactive (optional). Default: false. Controls the disabled state of the component.</p>
+<p>required - reactive (optional). Default: false.</p>
+<p>disabled - reactive (optional). Default: false.</p>
 
 <h3>Default</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-checkbox></ui-checkbox>
+    <ui-checkbox options='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox options='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>
@@ -28,14 +26,18 @@
 <h3>Label</h3>
 <div class="example">
   <div class="example-preview">
-    <label>Label<ui-checkbox name="label"></ui-checkbox></label>
+    <label>Label<ui-checkbox></ui-checkbox></label>
+    <label for="input">Label</label>
+    <ui-checkbox options='{"id":"input"}'></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
 &lt;label&gt;
-Label
-&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+  Label&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
 &lt;/label&gt;
+
+&lt;label for="input"&gt;Label&lt;/label&gt;
+&lt;ui-checkbox options='{"id":"input"}'&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>
@@ -52,6 +54,18 @@ Label
 &lt;ui-checkbox data-size="small"&gt;&lt;/ui-checkbox&gt;
 &lt;ui-checkbox data-size="medium"&gt;&lt;/ui-checkbox&gt;
 &lt;ui-checkbox data-size="large"&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Rounded</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox checked data-rounded="none"></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox checked data-rounded="none"&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>

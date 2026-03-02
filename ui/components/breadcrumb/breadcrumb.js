@@ -1,4 +1,4 @@
-class UIBreadcrumb extends LitElement{
+class UIBreadcrumb extends HTMLElement{
   #items = [];
 
   connectedCallback(){

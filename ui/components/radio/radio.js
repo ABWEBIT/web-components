@@ -11,16 +11,8 @@ export class UIRadio extends LitElement{
 
   createRenderRoot(){return this;}
 
-  updated(changed){
-    if(changed.has('checked')){
-      const input = this.querySelector('input');
-      if(input) input.checked = this.checked;
-    }
-  }
-
   #onChange(e){
-    const input = e.target;
-    this.checked = input.checked;
+    this.checked = e.target.checked;
   }
 
   render(){

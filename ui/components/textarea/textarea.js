@@ -16,12 +16,10 @@ class UITextarea extends LitElement{
     return html`
     <textarea
       name=${this.name || nothing}
-      value=${this.value || nothing}
       placeholder=${this.placeholder || nothing}
       aria-labelledby=${this.ariaLabelledby || nothing}
       .disabled=${this.disabled}
-      .required=${this.required}></textarea>`;
+      .required=${this.required}>${this.value || nothing}</textarea>`;
   }
-
 }
 customElements.define('ui-textarea',UITextarea);

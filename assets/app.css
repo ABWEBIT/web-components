@@ -122,7 +122,7 @@ article{
     display:flex;
     flex-wrap:wrap;
     align-items:center;
-    gap:20px;
+    gap:1rem;
     border-bottom-width:1px;
     border-bottom-style:solid;
     border-bottom-color:var(--line-color);

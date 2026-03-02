@@ -65,7 +65,7 @@ ui-switch{
     transition-property:background-color;
   }
 
-  &:has(> input[type="checkbox"]:checked) > span{
+  & > input[type="checkbox"]:checked + span{
     background-color:var(--control-choice-indicator-bg);
   }
 
@@ -84,11 +84,13 @@ ui-switch{
     transition-property:margin-inline-start;
   }
 
-  &:has(> input[type="checkbox"]:checked) > span::before{
+  & > input[type="checkbox"]:checked + span::before{
     margin-inline-start:calc(var(--switch-size) * 2 - var(--switch-size) * 0.5 - var(--switch-size) * 0.25);
   }
 
   &[data-size="small"]{--switch-size:var(--control-choice-small);}
   &[data-size="medium"]{--switch-size:var(--control-choice-medium);}
   &[data-size="large"]{--switch-size:var(--control-choice-large);}
+
+  &[data-rounded="none"]{--switch-border-radius:var(--rounded-none);}
 }

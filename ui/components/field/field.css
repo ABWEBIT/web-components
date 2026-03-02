@@ -2,7 +2,7 @@ ui-field{
   position:relative;
   display:flex;
   align-items:center;
-  column-gap:10px;
+  gap:1rem;
 
   &:not([passive]) > label{
     cursor:pointer;

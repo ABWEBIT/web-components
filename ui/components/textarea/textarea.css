@@ -23,12 +23,12 @@ ui-textarea{
     font-size:inherit;
     color:inherit;
 
+    background-color:transparent;
+
     border-radius:inherit;
     border-width:1px;
     border-style:solid;
     border-color:var(--border-color);
-
-    background-color:transparent;
 
     outline-width:var(--outline-focus-width);
     outline-style:var(--outline-focus-style);

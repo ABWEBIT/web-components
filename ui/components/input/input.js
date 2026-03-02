@@ -1,84 +1,28 @@
-import {inputTypes} from '../../utilities/index.js';
+import {LitElement,html,nothing} from '../../lit-core.min.js';
 
-class UIInput extends HTMLElement{
-  #listeners = null;
-  #input = null;
-  #clear = null;
-  #iconInput = 'cross';
-  #required = false;
-  #disabled = false;
-  #clearable = false;
-
+class UIInput extends LitElement{
   static properties = {
-    required:{attribute:'required',type:Boolean,reflect:true},
-    disabled:{attribute:'disabled',type:Boolean,reflect:true}
+    disabled:{type:Boolean, reflect:true},
+    required:{type:Boolean, reflect:true},
+    placeholder:{type:String, reflect:true},
+    ariaLabelledby:{type:String, reflect:true,attribute:'aria-labelledby'},
+    clearable:{type:Boolean},
+    name:{type:String, reflect:true},
+    value:{type:String}
   };
 
-  static get observedAttributes(){
-    return ['required','disabled'];
-  }
+  createRenderRoot(){return this;}
 
-  get value(){return this.#input?.value ?? '';}
-  set value(value){
-    if(!this.#input) return;
-    this.#input.value = String(value ?? '');
-  }
-
-  get required(){return this.#required;}
-  set required(value){
-    this.#required = value === true;
-    if(this.#input) this.#input.required = this.#required;
-  }
-
-  get disabled(){return this.#disabled;}
-  set disabled(value){
-    if(this.#disabled === (value === true)) return;
-    this.#disabled = value === true;
-    if(this.#input) this.#input.disabled = this.#disabled;
-  }
-
-  connectedCallback(){
-    const fragment = document.createDocumentFragment();
-
-    this.#input = this.querySelector('input');
-    if(!this.#input.hasAttribute('type')){
-      this.#input.setAttribute('type','text');
-    }
-
-    this.#clearable = this.hasAttribute('clearable');
-    if(this.#clearable){
-      this.#clear = document.createElement('ui-icon');
-      this.#clear.setAttribute('icon',this.#iconInput);
-      fragment.appendChild(this.#clear);
-    }
-
-    this.appendChild(fragment);
-
-    this.#listeners = new AbortController();
-    const signal = this.#listeners.signal;
-
-    if(this.#clear) this.#clear.addEventListener('click',this.#onClear,{signal});
-    if(this.#input) this.#input.addEventListener('input',this.#onInput,{signal});
-  }
-
-  disconnectedCallback(){
-    this.#listeners?.abort();
-    this.#listeners = null;
-  }
-
-  #onInput = (e) =>{
-    if(this.#disabled) return;
-    this.#onAction(e);
-  }
-
-  #onClear = (e) =>{
-    if(!this.#input) return;
-    this.#input.value = '';
-    //this.#input.focus();
-  }
-
-  #onAction = (e) =>{
-    console.log(e.type);
+  render(){
+    return html`
+    <input
+      type=${this.name || 'text'}
+      name=${this.name || nothing}
+      value=${this.value || nothing}
+      placeholder=${this.placeholder || nothing}
+      aria-labelledby=${this.ariaLabelledby || nothing}
+      .disabled=${this.disabled}
+      .required=${this.required}></textarea>`;
   }
 }
 customElements.define('ui-input',UIInput);
