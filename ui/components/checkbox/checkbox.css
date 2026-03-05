@@ -87,8 +87,8 @@ ui-checkbox{
     width:round(calc(var(--checkbox-size) * 0.3),1px);
     height:round(calc(var(--checkbox-size) * 0.6),1px);
     border:0;
-    border-right-width:calc(var(--checkbox-size) * 0.1);
-    border-bottom-width:calc(var(--checkbox-size) * 0.1);
+    border-right-width:round(calc(var(--checkbox-size) * 0.1),1px);
+    border-bottom-width:round(calc(var(--checkbox-size) * 0.1),1px);
     border-style:solid;
     border-color:var(--control-choice-indicator-fg);
     top:round(calc((var(--checkbox-size) * 0.25) * 0.6),1px);
