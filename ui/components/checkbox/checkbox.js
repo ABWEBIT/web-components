@@ -9,7 +9,7 @@ export class UICheckbox extends LitElement{
     options:{type:Object}
   };
 
-  static list = ['id','name','value','class'];
+  static list = ['id','class','name','value'];
 
   createRenderRoot(){return this;}
 
