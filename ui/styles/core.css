@@ -10,6 +10,8 @@
   --size-2x-large:4rem;
   --size-3x-large:4.5rem;
 
+
+
   /* control borders */
   --control-border-width:1px;
   --control-border-style:solid;
@@ -53,10 +55,10 @@
   --duration-slow:0.25s;
   --duration-default:var(--duration-normal);
 
-  /* outline focus */
-  --outline-focus-width:2px;
-  --outline-focus-style:solid;
-  --outline-focus-offset:2px;
+  /* focus ring */
+  --focus-ring-width:2px;
+  --focus-ring-style:solid;
+  --focus-ring-offset:2px;
 
   /* cursor */
   --cursor-default:default;

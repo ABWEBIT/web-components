@@ -23,9 +23,9 @@ button{
   touch-action:manipulation;
   -webkit-tap-highlight-color:transparent;
 
-  outline-width:var(--outline-focus-width);
-  outline-style:var(--outline-focus-style);
-  outline-offset:var(--outline-focus-offset);
+  outline-width:var(--focus-ring-width);
+  outline-style:var(--focus-ring-style);
+  outline-offset:var(--focus-ring-offset);
   outline-color:transparent;
 
   position:relative;
@@ -51,7 +51,7 @@ button{
   }
 
   &:focus-visible{
-    outline-color:var(--outline-focus-color);
+    outline-color:var(--focus-ring-color);
   }
 
   @media (hover: hover){

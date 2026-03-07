@@ -7,10 +7,11 @@
   --fg-secondary-color:oklch(80% 0 0);
   --fg-tertiary-color:oklch(70% 0 0);
 
+  /* heading */
   --heading-color:oklch(98% 0 0);
 
   /* link */
-  --link-color:oklch(70% 0.16 255);
+  --link-color:oklch(70% 0.18 255);
   --link-color-hover:oklch(from var(--link-color) calc(l + 0.04) c h);
   --link-color-active:oklch(from var(--link-color) calc(l - 0.01) c h);
 
@@ -39,8 +40,8 @@
   /* line */
   --line-color:var(--color-neutral-800);
 
-  /* outline focus */
-  --outline-focus-color:oklch(70% 0.16 255);
+  /* focus-ring */
+  --focus-ring-color:oklch(70% 0.18 255);
 
   /* scrollbar */
   --scrollbar-color:var(--color-neutral-700);
