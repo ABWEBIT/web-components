@@ -57,9 +57,7 @@ ui-checkbox{
 
   & > span{
     pointer-events:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display:block;
     opacity:0;
     background-color:var(--control-choice-indicator-bg);
 
@@ -77,28 +75,30 @@ ui-checkbox{
     content:'';
     display:block;
     position:absolute;
+    top:50%;
+    left:50%;
     opacity:0;
 
     transition-duration:var(--duration-default);
     transition-property:opacity;
   }
 
-  & > span::before {
-    width:round(calc(var(--checkbox-size) * 0.3),1px);
-    height:round(calc(var(--checkbox-size) * 0.6),1px);
+  & > span::before{
+    height:calc(var(--checkbox-size) * 0.5);
+    width:calc(var(--checkbox-size) * 0.35);
     border:0;
-    border-right-width:round(calc(var(--checkbox-size) * 0.1),1px);
-    border-bottom-width:round(calc(var(--checkbox-size) * 0.1),1px);
     border-style:solid;
     border-color:var(--control-choice-indicator-fg);
-    top:round(calc((var(--checkbox-size) * 0.25) * 0.6),1px);
-    transform:rotate(45deg);
+    border-right-width:max(calc(var(--checkbox-size) * 0.15),2px);
+    border-bottom-width:max(calc(var(--checkbox-size) * 0.15),2px);
+    transform:translate(-48%,-60%) rotate(45deg);
   }
 
   & > span::after{
+    height:round(calc(var(--checkbox-size) * 0.15),1px);
     width:calc(var(--checkbox-size) * 0.5);
-    height:round(calc(var(--checkbox-size) * 0.1),1px);
     background-color:var(--control-choice-indicator-fg);
+    transform:translate(-50%,-50%);
   }
 
   & > input[type="checkbox"]:checked + span::before,
@@ -106,10 +106,10 @@ ui-checkbox{
     opacity:1;
   }
 
-  &[data-size="small"]{--checkbox-size:var(--control-choice-small);}
-  &[data-size="medium"]{--checkbox-size:var(--control-choice-medium);}
-  &[data-size="large"]{--checkbox-size:var(--control-choice-large);}
+  &[size="small"]{--checkbox-size:var(--control-choice-small);}
+  &[size="medium"]{--checkbox-size:var(--control-choice-medium);}
+  &[size="large"]{--checkbox-size:var(--control-choice-large);}
 
-  &[data-rounded="full"]{--checkbox-border-radius:var(--rounded-full);}
-  &[data-rounded="none"]{--checkbox-border-radius:var(--rounded-none);}
+  &[rounded="full"]{--checkbox-border-radius:var(--rounded-full);}
+  &[rounded="none"]{--checkbox-border-radius:var(--rounded-none);}
 }

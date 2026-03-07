@@ -2,10 +2,7 @@
 <p>Checkboxes are used to toggle an option on or off.</p>
 
 <h2>Attributes</h2>
-<p>options - static (optional). Additional <code>&lt;input&gt;</code> attributes (id, name, value, class).
-<br>
-options='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'
-</p>
+<p>options - static (optional). Additional <code>&lt;input&gt;</code> attributes (id, name, value, class).</p>
 <p>checked - reactive (optional). Default: false.</p>
 <p>indeterminate - reactive (optional). Default: false.</p>
 <p>required - reactive (optional). Default: false.</p>
@@ -14,16 +11,37 @@ options='{"id":"unique-id","class":"utility-class","name":"product-id","value":"
 <h3>Default</h3>
 <div class="example">
   <div class="example-preview">
+    <ui-checkbox></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Options</h3>
+<div>Each property inside the options JSON string must be enclosed in double quotes. This applies both to the property names and their values.</div>
+<div class="example">
+  <div class="example-preview">
     <ui-checkbox options='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-checkbox options='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox
+  options='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "name":"product-id",
+    "value":"on"
+  }'&gt;
+&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>
 
 <h3>Label</h3>
+<div>There are two ways to add a label to a <code>&lt;ui-checkbox&gt;</code>: either by wrapping the checkbox inside a <code>&lt;label&gt;</code>, or by linking a separate <code>&lt;label&gt;</code> to the checkbox using the <code>for</code> attribute with the checkbox's <code>id</code>.</div>
 <div class="example">
   <div class="example-preview">
     <label>Label<ui-checkbox></ui-checkbox></label>
@@ -42,31 +60,58 @@ options='{"id":"unique-id","class":"utility-class","name":"product-id","value":"
   </div>
 </div>
 
-<h3>Sizes</h3>
+<h3>Check All</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-checkbox checked data-size="small"></ui-checkbox>
-    <ui-checkbox checked data-size="medium"></ui-checkbox>
-    <ui-checkbox checked data-size="large"></ui-checkbox>
+    <label>
+      Check all
+      <ui-checkbox parent="example"></ui-checkbox>
+    </label>
+    <ui-separator orientation="vertical"></ui-separator>
+    <ui-checkbox child="example"></ui-checkbox>
+    <ui-checkbox child="example" checked></ui-checkbox>
+    <ui-checkbox child="example" indeterminate></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-checkbox data-size="small"&gt;&lt;/ui-checkbox&gt;
-&lt;ui-checkbox data-size="medium"&gt;&lt;/ui-checkbox&gt;
-&lt;ui-checkbox data-size="large"&gt;&lt;/ui-checkbox&gt;
+&lt;label&gt;
+  Check All &lt;ui-checkbox parent="example"&gt;&lt;/ui-checkbox&gt;
+&lt;/label&gt;
+
+&lt;ui-separator orientation="vertical"&gt;&lt;/ui-separator&gt;
+
+&lt;ui-checkbox child="example"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox child="example"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox child="example"&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>
 
-<h3>Rounded</h3>
+<h3>Sizes</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-checkbox checked data-rounded="full"></ui-checkbox>
-    <ui-checkbox checked data-rounded="none"></ui-checkbox>
+    <ui-checkbox checked size="small"></ui-checkbox>
+    <ui-checkbox checked size="medium"></ui-checkbox>
+    <ui-checkbox checked size="large"></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-checkbox checked data-rounded="none"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox size="small"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox size="medium"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox size="large"&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Corners</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox checked rounded="full"></ui-checkbox>
+    <ui-checkbox checked rounded="none"></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox checked rounded="none"&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>
