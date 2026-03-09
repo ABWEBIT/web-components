@@ -1,18 +1,15 @@
 ui-button{
-  --button-size:var(--control-md);
-  --button-border-radius:calc(var(--button-size) * 0.25);
+  --button-size:var(--control-action-md);
+  --button-border-radius:var(--radius-md);
+  --button-padding-inline:var(--control-padding-md);
+  --button-font-size:var(--control-font-md);
+  --button-icon-size:var(--icon-md);
 
-  --button-font-size:max(calc(var(--button-size) * 0.5 - 4px),0.875rem);
-
-  --button-bg:var(--surface-bg-neutral);
-  --button-fg:var(--control-fg);
   --button-column-gap:calc(var(--button-size) * 0.25);
 
-  --button-padding-inline:calc(var(--button-size) * 0.4);
 
-
-  --button-icon-height:round(calc(var(--button-font-size) * 1.25), 2px);
-  --button-icon-width:auto;
+  --button-bg:var(--surface-bg-gray);
+  --button-fg:var(--control-fg);
 
   position:relative;
   display:inline-flex;
@@ -29,9 +26,31 @@ ui-button{
     --button-fg:var(--control-fg-disabled);
   }
 
+  &[size="small"]{
+    --button-size:var(--control-action-sm);
+    --button-border-radius:var(--radius-sm);
+    --button-padding-inline:var(--control-padding-sm);
+    --button-font-size:var(--control-font-sm);
+    --button-icon-size:var(--icon-sm);
+  }
+  &[size="medium"]{
+    --button-size:var(--control-action-md);
+    --button-border-radius:var(--radius-md);
+    --button-padding-inline:var(--control-padding-md);
+    --button-font-size:var(--control-font-md);
+    --button-icon-size:var(--icon-md);
+  }
+  &[size="large"]{
+    --button-size:var(--control-action-lg);
+    --button-border-radius:var(--radius-lg);
+    --button-padding-inline:var(--control-padding-lg);
+    --button-font-size:var(--control-font-lg);
+    --button-icon-size:var(--icon-lg);
+  }
+
   &[icon]{
     --button-padding-inline:0;
-    aspect-ratio:1;
+    width:var(--button-size);
   }
 
   & > button{
@@ -43,6 +62,7 @@ ui-button{
 
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
 
     outline-width:var(--focus-ring-width);
     outline-style:var(--focus-ring-style);
@@ -64,7 +84,6 @@ ui-button{
 
     font-family:var(--font-family-default);
     font-size:var(--button-font-size);
-    font-weight:var(--font-weight-medium);
     color:var(--button-fg);
     background-color:var(--button-bg);
 
@@ -91,25 +110,14 @@ ui-button{
   }
 
   & > button > ui-icon{
-    --icon-height:var(--button-icon-height);
-    --icon-width:var(--button-icon-width, var(--button-icon-height));
+    --icon-height:var(--button-icon-size);
+    --icon-width:var(--button-icon-width, var(--button-icon-size));
     margin-inline:-2px;
   }
 
-
-
-  &[size="small"]{--button-size:var(--control-sm);}
-  &[size="medium"]{--button-size:var(--control-md);}
-  &[size="large"]{--button-size:var(--control-lg);}
-
   /* color */
-  &[color="neutral"]{
-    --button-bg:var(--surface-bg-neutral);
-  }
-
-  &[color="white"]{
-    --button-bg:var(--surface-bg-white);
-    --button-fg:oklch(14% 0 0);
+  &[color="gray"]{
+    --button-bg:var(--surface-bg-gray);
   }
 
   &[color="blue"]{
@@ -164,6 +172,6 @@ ui-button{
   &[justify="start"]{--button-justify-content:flex-start;}
   &[justify="end"]{--button-justify-content:flex-end;}
 
-  &[rounded="full"]{--button-border-radius:var(--rounded-full);}
-  &[rounded="none"]{--button-border-radius:var(--rounded-none);}
+  &[radius="full"]{--button-border-radius:var(--radius-full);}
+  &[radius="none"]{--button-border-radius:var(--radius-none);}
 }

@@ -25,7 +25,7 @@ ui-main{
   display:flex;
   flex-direction:column;
   width:100%;
-  padding-inline:20px;
+  padding-inline:40px;
 }
 
 header{
@@ -118,7 +118,7 @@ article{
   border-width:1px;
   border-style:solid;
   border-color:var(--line-color);
-  border-radius:var(--rounded-base);
+  border-radius:var(--radius-lg);
 
   & > :is(.example-preview,.example-code){
     position:relative;
@@ -170,7 +170,7 @@ table :is(th,td){
   padding:12px 10px 10px;
   align-items:center;
   background-color:var(--surface-bg-secondary);
-  border-radius:var(--rounded-base);
+  border-radius:var(--radius-lg);
 
 
   & > :not(ui-icon){

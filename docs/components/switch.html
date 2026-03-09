@@ -2,10 +2,13 @@
 <p>Switches provide a simple and user-friendly way to toggle between two states.</p>
 
 <h2>Attributes</h2>
-<p>config - static (optional). Additional <code>&lt;input&gt;</code> attributes (id, name, value, class).</p>
+<p>config - static (optional). Additional attributes: id, name, value, class.</p>
 <p>checked - reactive (optional). Default: false.</p>
 <p>required - reactive (optional). Default: false.</p>
 <p>disabled - reactive (optional). Default: false.</p>
+
+<p>radius - static (optional). Controls how rounded the corners are. Available options: none.</p>
+<p>size - static (optional). Controls the overall size of the element. Available options: small, medium (default), large.</p>
 
 <h3>Default</h3>
 <div class="example">
@@ -57,11 +60,11 @@
 <h3>Corners</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-switch checked rounded="none"></ui-switch>
+    <ui-switch checked radius="none"></ui-switch>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-switch rounded="none"&gt;&lt;/ui-switch&gt;
+&lt;ui-switch radius="none"&gt;&lt;/ui-switch&gt;
 </code></pre>
   </div>
 </div>

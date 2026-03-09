@@ -2,18 +2,21 @@
 <p>Buttons are used to perform actions or submit forms.</p>
 
 <h2>Attributes</h2>
-<p>radius - Available options: full, none.</p>
-<p>size - Available options: small, medium (default), large.</p>
-<p>color - Available options: blue, green, yellow, red.</p>
+<p>radius - static (optional). Controls how rounded the corners are. Available options: full, none.</p>
+<p>size - static (optional). Controls the overall size of the element. Available options: small, medium (default), large.</p>
+<p>color - static (optional). Controls the color style of the element. Available options: gray, blue, green, yellow, red.</p>
 
 <h3>Sizes</h3>
 <div class="example">
   <div class="example-preview">
+    <ui-button size="small" disabled>Button</ui-button>
     <ui-button size="small">Button</ui-button>
+    <ui-button size="medium" disabled>Button</ui-button>
     <ui-button size="medium">Button</ui-button>
-    <ui-button size="large" color="red">Button</ui-button>
-    <ui-button size="large" color="red" disabled>Button</ui-button>
-
+    <ui-button size="large" disabled>Button</ui-button>
+    <ui-button size="large">Button</ui-button>
+  </div>
+  <div class="example-preview">
     <ui-button size="small">
       <ui-icon name="settings"></ui-icon>
       Button
@@ -26,16 +29,24 @@
       <ui-icon name="settings"></ui-icon>
       Button
     </ui-button>
-
-    <ui-button size="small" icon>
+  </div>
+  <div class="example-preview">
+    <ui-button size="small" radius="full" icon>
       <ui-icon name="settings"></ui-icon>
     </ui-button>
-    <ui-button size="medium" icon>
+    <ui-button size="medium" radius="full" icon>
       <ui-icon name="settings"></ui-icon>
     </ui-button>
-    <ui-button size="large" icon>
+    <ui-button size="large" radius="full" icon>
       <ui-icon name="settings"></ui-icon>
     </ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button color="gray">Button</ui-button>
+    <ui-button color="blue">Button</ui-button>
+    <ui-button color="green">Button</ui-button>
+    <ui-button color="yellow">Button</ui-button>
+    <ui-button color="red">Button</ui-button>
   </div>
   <div class="example-code">
 <pre><code>
@@ -69,7 +80,7 @@
   </div>
 </div>
 
-<h3>With Icon</h3>
+<h3>With Icons</h3>
 <div class="example">
   <div class="example-preview">
     <ui-button>
@@ -131,8 +142,7 @@
 <h3>Colors</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-button color="neutral">Button</ui-button>
-    <ui-button color="white">Button</ui-button>
+    <ui-button color="gray">Button</ui-button>
     <ui-button color="blue">Button</ui-button>
     <ui-button color="green">Button</ui-button>
     <ui-button color="yellow">Button</ui-button>
@@ -140,7 +150,7 @@
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-button color="neutral"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button color="gray"&gt;Button&lt;/ui-button&gt;
 &lt;ui-button color="blue"&gt;Button&lt;/ui-button&gt;
 &lt;ui-button color="green"&gt;Button&lt;/ui-button&gt;
 &lt;ui-button color="yellow"&gt;Button&lt;/ui-button&gt;
@@ -168,13 +178,13 @@
 <h3>Corners</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-button rounded="full">Button</ui-button>
-    <ui-button rounded="none">Button</ui-button>
+    <ui-button radius="full">Button</ui-button>
+    <ui-button radius="none">Button</ui-button>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-button rounded="full"&gt;Button&lt;/ui-button&gt;
-&lt;ui-button rounded="none"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button radius="full"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button radius="none"&gt;Button&lt;/ui-button&gt;
 </code></pre>
   </div>
 </div>

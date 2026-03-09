@@ -38,14 +38,13 @@ export class UIButton extends LitElement{
   }
 
   firstUpdated(){
-    const button = this.querySelector(':scope > button');
+    const button = this.getElementsByTagName('button')[0];
     const fragment = document.createDocumentFragment();
 
     for(let i = this.childNodes.length - 1; i >= 0; i--){
       const node = this.childNodes[i];
       if(node !== button) fragment.prepend(node);
     }
-
     button.append(fragment);
   }
 

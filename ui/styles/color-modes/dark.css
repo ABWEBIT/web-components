@@ -15,33 +15,33 @@
   --link-color-hover:oklch(from var(--link-color) calc(l + 0.04) c h);
   --link-color-active:oklch(from var(--link-color) calc(l - 0.03) c h);
 
+  /* surface */
+  --surface-bg-gray:oklch(42% 0.02 255);
+  --surface-bg-blue:oklch(42% 0.2 265);
+  --surface-bg-green:oklch(45% 0.12 151);
+  --surface-bg-yellow:oklch(46% 0.16 62);
+  --surface-bg-red:oklch(44% 0.18 27);
+
   /* control borders */
   --control-border-color:oklch(40% 0 0);
   --control-border-color-hover:oklch(50% 0 0);
 
-  /* button | input */
-  --control-bg:oklch(60% 0 0);
-
+  /* control foregrounds */
   --control-fg:oklch(100% 0 0);
   --control-fg-disabled:oklch(from var(--control-fg) l c h / 0.6);
 
+  /* control background */
+  --control-bg-disabled:oklch(27% 0 0);
+
+  /* button | input */
+  --control-action-bg:var(--surface-bg-gray);
+
   /* checkbox | switch | radio */
-  --choice-bg:oklch(17% 0 0);
-  --choice-bg-checked:oklch(55% 0.2 255);
-  --choice-fg:oklch(100% 0 0);
+  --control-choice-bg:oklch(18% 0 0);
+  --control-choice-bg-disabled:oklch(27% 0 0);
 
-  --choice-bg-disabled:oklch(27% 0 0);
-  --choice-bg-checked-disabled:oklch(55% 0 0);
-  --choice-fg-disabled:oklch(80% 0 0);
-
-
-  /* surface */
-  --surface-bg-neutral:oklch(37% 0 0);
-  --surface-bg-white:oklch(100% 0 0);
-  --surface-bg-blue:oklch(42% 0.2 265);
-  --surface-bg-green:oklch(45% 0.12 151);
-  --surface-bg-yellow:oklch(48% 0.11 62);
-  --surface-bg-red:oklch(44% 0.18 27);
+  --control-choice-bg-checked:oklch(55% 0.2 255);
+  --control-choice-bg-checked-disabled:oklch(50% 0 0);
 
   /* line */
   --line-color:oklch(28% 0 0);
@@ -50,7 +50,7 @@
   --focus-ring-color:oklch(70% 0.2 255);
 
   /* scrollbar */
-  --scrollbar-color:oklch(40% 0 0);
+  --scrollbar-color:oklch(from var(--surface-bg-gray) calc(l - 0.15) c h);
 
   /* selection */
   --selection-color:oklch(100% 0 0 / 0.15);

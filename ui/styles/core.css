@@ -1,54 +1,46 @@
 :root{
   /* sm = small | md = medium | lg = large */
 
+  /* icon sizes */
+  --icon-sm:round(calc(1rem * var(--scaling)),1px);
+  --icon-md:round(calc(1.25rem * var(--scaling)),1px);
+  --icon-lg:round(calc(1.375rem * var(--scaling)),1px);
+
   /* control borders */
   --control-border-width:1px;
   --control-border-style:solid;
 
+  /* control paddings */
+  --control-padding-sm:round(calc(0.5rem * var(--scaling)),2px);
+  --control-padding-md:round(calc(0.75rem * var(--scaling)),2px);
+  --control-padding-lg:round(calc(1rem * var(--scaling)),2px);
+
   /* checkbox | switch | radio */
-  --choice-sm:round(calc(1rem * var(--scaling)),2px);
-  --choice-md:round(calc(1.25rem * var(--scaling)),2px);
-  --choice-lg:round(calc(1.5rem * var(--scaling)),2px);
+  --control-choice-sm:round(calc(1rem * var(--scaling)),2px);
+  --control-choice-md:round(calc(1.25rem * var(--scaling)),2px);
+  --control-choice-lg:round(calc(1.5rem * var(--scaling)),2px);
 
-  /* button | input */
-  --control-sm:round(calc(2rem * var(--scaling)),2px);
-  --control-md:round(calc(2.5rem * var(--scaling)),2px);
-  --control-lg:round(calc(3rem * var(--scaling)),2px);
+  /* button | input | textarea */
+  --control-action-sm:round(calc(1.5rem * var(--scaling)),2px);
+  --control-action-md:round(calc(2rem * var(--scaling)),2px);
+  --control-action-lg:round(calc(2.5rem * var(--scaling)),2px);
 
-
-
-
-  /* button | input - font size */
-  --control-font-sm:0.875rem;
-  --control-font-md:1rem;
-  --control-font-lg:1.125rem;
-
-
-
-  /* padding */
-  --padding-x-small:0.5rem;
-  --padding-small:0.75rem;
-  --padding-medium:1rem;
-  --padding-large:1.25rem;
-  --padding-x-large:1.5rem;
-
-  /* icon sizes */
-  --icon-x-small:1rem;
-  --icon-small:1.125rem;
-  --icon-medium:1.25rem;
-  --icon-large:1.375rem;
-  --icon-x-large:1.5rem;
+  /* button | input | textarea */
+  --control-font-sm:round(calc(0.875rem * var(--scaling)),2px);
+  --control-font-md:round(calc(1rem * var(--scaling)),2px);
+  --control-font-lg:round(calc(1.125rem * var(--scaling)),2px);
 
   /* corners */
-  --rounded-base:0.5rem;
-  --rounded-full:calc(infinity * 1px);
-  --rounded-none:0;
+  --radius-sm:round(calc(0.375rem * var(--scaling)),2px);
+  --radius-md:round(calc(0.5rem * var(--scaling)),2px);
+  --radius-lg:round(calc(0.625rem * var(--scaling)),2px);
+  --radius-full:calc(infinity * 1px);
+  --radius-none:0;
 
   /* duration */
-  --duration-fast:0.075s;
-  --duration-normal:0.15s;
+  --duration-fast:0.1s;
+  --duration-default:0.15s;
   --duration-slow:0.25s;
-  --duration-default:var(--duration-normal);
 
   /* focus ring */
   --focus-ring-width:2px;
@@ -138,7 +130,7 @@ summary{
 ::-webkit-scrollbar-thumb{
   cursor:var(--cursor-default);
   background-color:var(--scrollbar-color);
-  border-radius:var(--rounded-full);
+  border-radius:var(--radius-full);
 }
 
 ::-webkit-scrollbar-track{background:transparent;}

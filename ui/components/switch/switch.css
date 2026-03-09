@@ -1,9 +1,9 @@
 ui-switch{
-  --switch-size:var(--choice-md);
-  --switch-border-radius:var(--rounded-full);
-  --switch-bg:var(--choice-bg);
-  --switch-bg-checked:var(--choice-bg-checked);
-  --switch-fg:var(--choice-fg);
+  --switch-size:var(--control-choice-md);
+  --switch-border-radius:var(--radius-full);
+  --switch-bg:var(--control-choice-bg);
+  --switch-bg-checked:var(--control-choice-bg-checked);
+  --switch-fg:var(--control-fg);
 
   position:relative;
   display:inline-flex;
@@ -15,10 +15,16 @@ ui-switch{
   width:calc(var(--switch-size) * 2);
   border-radius:var(--switch-border-radius);
 
+  &[size="small"]{--switch-size:var(--control-choice-sm);}
+  &[size="medium"]{--switch-size:var(--control-choice-md);}
+  &[size="large"]{--switch-size:var(--control-choice-lg);}
+
+  &[radius="none"]{--switch-border-radius:var(--radius-none);}
+
   &[disabled]{
-    --switch-bg:var(--choice-bg-disabled);
-    --switch-bg-checked:var(--choice-bg-checked-disabled);
-    --switch-fg:var(--choice-fg-disabled);
+    --switch-bg:var(--control-choice-bg-disabled);
+    --switch-bg-checked:var(--control-choice-bg-checked-disabled);
+    --switch-fg:var(--control-fg-disabled);
   }
 
   & > input[type="checkbox"]{
@@ -30,6 +36,7 @@ ui-switch{
 
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
 
     background-color:var(--switch-bg);
 
@@ -104,10 +111,4 @@ ui-switch{
   & > input[type="checkbox"]:checked + span::before{
     margin-inline-start:calc(var(--switch-size) * 2 - var(--switch-size) * 0.5 - var(--switch-size) * 0.25);
   }
-
-  &[size="small"]{--switch-size:var(--choice-sm);}
-  &[size="medium"]{--switch-size:var(--choice-md);}
-  &[size="large"]{--switch-size:var(--choice-lg);}
-
-  &[rounded="none"]{--switch-border-radius:var(--rounded-none);}
 }

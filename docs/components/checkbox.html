@@ -2,30 +2,14 @@
 <p>Checkboxes are used to toggle an option on or off.</p>
 
 <h2>Attributes</h2>
-<p>config - static (optional). Additional <code>&lt;input&gt;</code> attributes (id, name, value, class).</p>
+<p>config - static (optional). Additional attributes: id, name, value, class.</p>
 <p>checked - reactive (optional). Default: false.</p>
 <p>indeterminate - reactive (optional). Default: false.</p>
 <p>required - reactive (optional). Default: false.</p>
 <p>disabled - reactive (optional). Default: false.</p>
 
-<h3>Disabled</h3>
-<div class="example">
-  <div class="example-preview">
-    <ui-checkbox disabled></ui-checkbox>
-    <ui-checkbox disabled indeterminate></ui-checkbox>
-    <ui-checkbox disabled checked></ui-checkbox>
-    <ui-checkbox ></ui-checkbox>
-    <ui-checkbox  indeterminate></ui-checkbox>
-    <ui-checkbox  checked></ui-checkbox>
-  </div>
-  <div class="example-code">
-<pre><code>
-&lt;ui-checkbox disabled&gt;&lt;/ui-checkbox&gt;
-&lt;ui-checkbox disabled indeterminate&gt;&lt;/ui-checkbox&gt;
-&lt;ui-checkbox disabled checked&gt;&lt;/ui-checkbox&gt;
-</code></pre>
-  </div>
-</div>
+<p>radius - static (optional). Controls how rounded the corners are. Available options: full, none.</p>
+<p>size - static (optional). Controls the overall size of the element. Available options: small, medium (default), large.</p>
 
 <h3>Default</h3>
 <div class="example">
@@ -125,12 +109,13 @@
 <h3>Corners</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-checkbox checked rounded="full"></ui-checkbox>
-    <ui-checkbox checked rounded="none"></ui-checkbox>
+    <ui-checkbox checked radius="full"></ui-checkbox>
+    <ui-checkbox checked radius="none"></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-checkbox checked rounded="none"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox checked radius="full"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox checked radius="none"&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>

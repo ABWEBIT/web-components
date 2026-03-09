@@ -2,10 +2,12 @@
 <p>Allows the user to select only one option from a set of choices.</p>
 
 <h2>Attributes</h2>
-<p>config - static (optional). Additional <code>&lt;input&gt;</code> attributes (id, name, value, class).</p>
+<p>config - static (optional). Additional attributes: id, name, value, class.</p>
 <p>checked - reactive (optional). Default: false.</p>
 <p>required - reactive (optional). Default: false.</p>
 <p>disabled - reactive (optional). Default: false.</p>
+
+<p>size - static (optional). Controls the overall size of the element. Available options: small, medium (default), large.</p>
 
 <h3>Default</h3>
 <div class="example">
@@ -78,14 +80,12 @@ Label&lt;ui-radio config='{"id":"input"}'&gt;&lt;/ui-radio&gt;
 <h3>Group</h3>
 <div class="example">
   <div class="example-preview">
-    Group Items
     <ui-radio config='{"name":"items"}'></ui-radio>
     <ui-radio config='{"name":"items"}'></ui-radio>
     <ui-radio config='{"name":"items"}'></ui-radio>
   </div>
   <div class="example-code">
 <pre><code>
-Group Items
 &lt;ui-radio config='{"name":"items"}'&gt;&lt;/ui-radio&gt;
 &lt;ui-radio config='{"name":"items"}'&gt;&lt;/ui-radio&gt;
 &lt;ui-radio config='{"name":"items"}'&gt;&lt;/ui-radio&gt;

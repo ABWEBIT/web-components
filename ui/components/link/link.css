@@ -6,6 +6,10 @@ a{
   cursor:var(--cursor-interactive);
   color:var(--link-color);
 
+  cursor:var(--cursor-interactive);
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+
   outline-width:var(--focus-ring-width);
   outline-style:var(--focus-ring-style);
   outline-offset:var(--focus-ring-offset);
@@ -22,10 +26,5 @@ a{
 
   &:focus-visible{
     outline-color:var(--focus-ring-color);
-  }
-
-  &[href]{
-    touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
   }
 }
