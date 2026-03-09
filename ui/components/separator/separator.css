@@ -2,6 +2,7 @@ ui-separator{
   --separator-thickness:1px;
   --separator-spacing:0;
   --separator-color:var(--line-color);
+
   display:block;
   background-color:var(--separator-color);
 

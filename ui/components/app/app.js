@@ -1,2 +1,2 @@
-class UIApp extends HTMLElement{}
+export class UIApp extends HTMLElement{}
 customElements.define('ui-app',UIApp);

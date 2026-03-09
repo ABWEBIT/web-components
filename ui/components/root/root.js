@@ -1,2 +1,2 @@
-class UIRoot extends HTMLElement{}
+export class UIRoot extends HTMLElement{}
 customElements.define('ui-root',UIRoot);

@@ -1,6 +1,6 @@
 import {LRUCache} from '../../utilities/index.js';
 
-class UIIcon extends HTMLElement{
+export class UIIcon extends HTMLElement{
   #name = 'undefined';
 
   static #iconCache = new LRUCache(100);

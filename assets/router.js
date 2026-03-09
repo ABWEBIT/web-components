@@ -42,10 +42,10 @@ function generateNav(components){
 
     const pageId = link.match(/[\w-]+(?=\.html)/)?.[0];
 
-    const button = document.createElement('button');
+    const button = document.createElement('ui-button');
 
     button.setAttribute('justify','start');
-    button.setAttribute('data-variant','invisible');
+    button.setAttribute('variant','invisible');
     button.className = 'menu-item';
     button.textContent = label;
     button.setAttribute('data-link',link);

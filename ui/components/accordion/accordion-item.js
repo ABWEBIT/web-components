@@ -1,6 +1,6 @@
 import {uuid} from '../../utilities/index.js';
 
-class UIAccordionItem extends HTMLElement{
+export class UIAccordionItem extends HTMLElement{
   #disabled = false;
   #expanded = false;
   #button = null;

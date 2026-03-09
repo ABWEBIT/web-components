@@ -1,5 +1,6 @@
-/* native */
-@import '../components/link/link.css';
+/* app */
+@import '../components/root/root.css';
+@import '../components/app/app.css';
 
 /* primitives */
 @import '../components/icon/icon.css';
@@ -25,3 +26,6 @@
 /* utilities */
 @import '../components/focus/focus.css';
 @import '../components/portal/portal.css';
+
+/* native */
+@import '../components/link/link.css';

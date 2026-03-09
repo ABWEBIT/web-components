@@ -1,4 +1,4 @@
-class UIButton extends HTMLElement{
+export class UIButton extends HTMLElement{
   #disabled = false;
   #busy = false;
   #button = null;

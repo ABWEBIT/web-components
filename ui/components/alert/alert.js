@@ -1,4 +1,4 @@
-class UIAlert extends HTMLElement{
+export class UIAlert extends HTMLElement{
   constructor(){
     super();
     this.role = 'alert';

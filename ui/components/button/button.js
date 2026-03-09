@@ -1,62 +1,73 @@
-class UIButton extends HTMLElement{
-  #disabled = false;
-  #busy = false;
-  #button = null;
-  #spinner = null;
+import {LitElement,html,nothing,render} from '../../lit-core.min.js';
 
-  constructor(){
-    super();
-    this.#button = document.createElement('button');
+export class UIButton extends LitElement{
+  static properties = {
+    disabled:{type:Boolean, reflect:true},
+    autofocus:{type:Boolean, reflect:true},
+    busy:{type:Boolean, reflect:true},
+    config:{type:Object}
+  };
 
-    this.#disabled = this.hasAttribute('disabled');
-    this.#busy = this.hasAttribute('busy');
+  static list = ['id','class','aria-label'];
 
-    this.#button.disabled = this.#disabled || this.#busy;
-
-    this.#button.replaceChildren(...this.childNodes);
-    this.append(this.#button);
-  }
-
-  static get observedAttributes(){
-    return ['busy','disabled'];
-  }
-
-  attributeChangedCallback(attribute,oldValue,newValue){
-    if(oldValue === newValue) return;
-    if(attribute === 'disabled') this.disabled = newValue !== null;
-    if(attribute === 'busy') this.busy = newValue !== null;
-  }
-
-  get busy(){return this.#busy;}
-  set busy(value){
-    const isBusy = value === true;
-    if(this.#busy === isBusy) return;
-    this.#busy = isBusy;
-    this.toggleAttribute('busy',this.#busy);
-    this.ariaBusy = this.#busy || null;
-    if(this.#button) this.#button.disabled = this.#disabled || this.#busy;
-
-    if(this.#busy && !this.#spinner){
-      this.#spinner = document.createElement('ui-spinner');
-      this.append(this.#spinner);
-    }
-    else{
-      this.#spinner?.remove();
-      this.#spinner = null;
-    }
-  }
-
-  get disabled(){return this.#disabled;}
-  set disabled(value){
-    const isDisabled = value === true;
-    if(this.#disabled === isDisabled) return;
-    this.#disabled = isDisabled;
-    this.toggleAttribute('disabled',this.#disabled);
-    if(this.#button) this.#button.disabled = this.#disabled || this.#busy;
-  }
+  createRenderRoot(){return this;}
 
   connectedCallback(){
+    super.connectedCallback();
 
+    const config = this.getAttribute('config');
+    if(!config){
+      this.config = {};
+      return;
+    }
+    try{
+      const parsed = JSON.parse(config);
+      const allowed = new Set(this.constructor.list);
+      const filtered = {};
+
+      for(const key in parsed){
+        if(allowed.has(key)) filtered[key] = parsed[key];
+      }
+
+      this.config = filtered;
+    }
+    catch(e){
+      console.warn(`${this.constructor.name}: invalid JSON in config.`,e);
+      this.config = {};
+    }
+  }
+
+  firstUpdated(){
+    const button = this.querySelector(':scope > button');
+    const fragment = document.createDocumentFragment();
+
+    for(let i = this.childNodes.length - 1; i >= 0; i--){
+      const node = this.childNodes[i];
+      if(node !== button) fragment.prepend(node);
+    }
+
+    button.append(fragment);
+  }
+
+  #onClick(e){
+
+  }
+
+  render(){
+    const config = this.config;
+
+    return html`
+    <button type="button"
+      id=${config.id || nothing}
+      class=${config.class || nothing}
+      name=${config.name || nothing}
+      value=${config.value || nothing}
+
+      .busy=${this.busy}
+      .autofocus=${this.autofocus}
+      .disabled=${this.disabled}
+      @click=${this.#onClick}
+    ></button>`;
   }
 }
 customElements.define('ui-button',UIButton);

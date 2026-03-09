@@ -2,12 +2,10 @@
 <p>Allows the user to select only one option from a set of choices.</p>
 
 <h2>Attributes</h2>
-<p>aria-label - static (required). Must be set manually.</p>
-<p>name - reactive (required). Must be set manually.</p>
-<p>value - reactive (optional). Must be set manually.</p>
-<p>checked - reactive (required). Default: false. Controls the checked state of the component.</p>
-<p>required - static (optional). Default: false. Indicates whether the component is required.</p>
-<p>disabled - reactive (optional). Default: false. Controls the disabled state of the component.</p>
+<p>config - static (optional). Additional <code>&lt;input&gt;</code> attributes (id, name, value, class).</p>
+<p>checked - reactive (optional). Default: false.</p>
+<p>required - reactive (optional). Default: false.</p>
+<p>disabled - reactive (optional). Default: false.</p>
 
 <h3>Default</h3>
 <div class="example">
@@ -21,17 +19,42 @@
   </div>
 </div>
 
-<h3>Label</h3>
+<h3>Config</h3>
+<div>Each property inside the config JSON string must be enclosed in double quotes. This applies both to the property names and their values.</div>
 <div class="example">
   <div class="example-preview">
-    <label>Label<ui-radio name="label"></ui-radio></label>
+    <ui-radio config='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'></ui-radio>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-radio
+  config='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "name":"product-id",
+    "value":"on"
+  }'&gt;
+&lt;/ui-radio&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Label</h3>
+<div>There are two ways to add a label to a component: either by wrapping the component inside a <code>&lt;label&gt;</code>, or by linking a separate <code>&lt;label&gt;</code> to the component using the <code>for</code> attribute with the component's <code>id</code>.</div>
+<div class="example">
+  <div class="example-preview">
+    <label>Label<ui-radio></ui-radio></label>
+    <label for="input">Label</label>
+    <ui-radio config='{"id":"input"}'></ui-radio>
   </div>
   <div class="example-code">
 <pre><code>
 &lt;label&gt;
-  Label
-  &lt;ui-radio&gt;&lt;/ui-radio&gt;
+  Label&lt;ui-radio&gt;&lt;/ui-radio&gt;
 &lt;/label&gt;
+
+&lt;label for="input"&gt;&lt;/label&gt;
+Label&lt;ui-radio config='{"id":"input"}'&gt;&lt;/ui-radio&gt;
 </code></pre>
   </div>
 </div>
@@ -39,15 +62,15 @@
 <h3>Sizes</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-radio data-size="small"></ui-radio>
-    <ui-radio data-size="medium"></ui-radio>
-    <ui-radio data-size="large"></ui-radio>
+    <ui-radio size="small"></ui-radio>
+    <ui-radio size="medium"></ui-radio>
+    <ui-radio size="large"></ui-radio>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-radio data-size="small"&gt;&lt;/ui-radio&gt;
-&lt;ui-radio data-size="medium"&gt;&lt;/ui-radio&gt;
-&lt;ui-radio data-size="large"&gt;&lt;/ui-radio&gt;
+&lt;ui-radio size="small"&gt;&lt;/ui-radio&gt;
+&lt;ui-radio size="medium"&gt;&lt;/ui-radio&gt;
+&lt;ui-radio size="large"&gt;&lt;/ui-radio&gt;
 </code></pre>
   </div>
 </div>
@@ -56,16 +79,16 @@
 <div class="example">
   <div class="example-preview">
     Group Items
-    <ui-radio name="items"></ui-radio>
-    <ui-radio name="items"></ui-radio>
-    <ui-radio name="items"></ui-radio>
+    <ui-radio config='{"name":"items"}'></ui-radio>
+    <ui-radio config='{"name":"items"}'></ui-radio>
+    <ui-radio config='{"name":"items"}'></ui-radio>
   </div>
   <div class="example-code">
 <pre><code>
 Group Items
-&lt;ui-radio name="items"&gt;&lt;/ui-radio&gt;
-&lt;ui-radio name="items"&gt;&lt;/ui-radio&gt;
-&lt;ui-radio name="items"&gt;&lt;/ui-radio&gt;
+&lt;ui-radio config='{"name":"items"}'&gt;&lt;/ui-radio&gt;
+&lt;ui-radio config='{"name":"items"}'&gt;&lt;/ui-radio&gt;
+&lt;ui-radio config='{"name":"items"}'&gt;&lt;/ui-radio&gt;
 </code></pre>
   </div>
 </div>
@@ -73,7 +96,7 @@ Group Items
 <h3>Checked</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-radio name="checked" checked></ui-radio>
+    <ui-radio checked></ui-radio>
   </div>
   <div class="example-code">
 <pre><code>
@@ -85,11 +108,13 @@ Group Items
 <h3>Disabled</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-radio name="disabled" disabled></ui-radio>
+    <ui-radio disabled></ui-radio>
+    <ui-radio disabled checked></ui-radio>
   </div>
   <div class="example-code">
 <pre><code>
 &lt;ui-radio disabled&gt;&lt;/ui-radio&gt;
+&lt;ui-radio disabled checked&gt;&lt;/ui-radio&gt;
 </code></pre>
   </div>
 </div>

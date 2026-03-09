@@ -1,4 +1,4 @@
-class UISpinner extends HTMLElement{
+export class UISpinner extends HTMLElement{
   connectedCallback(){
     const svg = document.createElement('ui-icon');
     svg.setAttribute('name','progress-activity');

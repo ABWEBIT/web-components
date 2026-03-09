@@ -27,7 +27,7 @@ export class UIColorMode extends LitElement{
 
   render(){
     return html`
-    <button @click=${this.#onClick}>
+    <button type="button" @click=${this.#onClick}>
       <ui-icon name="${this.#iconName}"></ui-icon>
     </button>`;
   }

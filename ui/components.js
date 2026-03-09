@@ -1,7 +1,6 @@
-/* template */
+/* app */
 import './components/root/root.js';
 import './components/app/app.js';
-import './components/layout/layout.js';
 
 /* primitives */
 import './components/icon/icon.js';
@@ -10,6 +9,7 @@ import './components/spinner/spinner.js';
 import './components/color-mode/color-mode.js';
 
 /* forms */
+import './components/button/button.js';
 import './components/checkbox/checkbox.js';
 import './components/switch/switch.js';
 import './components/radio/radio.js';

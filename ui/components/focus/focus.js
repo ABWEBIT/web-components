@@ -1,4 +1,4 @@
-class UIFocus extends HTMLElement{
+export class UIFocus extends HTMLElement{
   connectedCallback(){
     this.tabIndex = '0';
     this.ariaHidden = 'true';

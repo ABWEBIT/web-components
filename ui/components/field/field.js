@@ -1,6 +1,6 @@
 import {uuid} from '../../utilities/index.js';
 
-class UIField extends HTMLElement{
+export class UIField extends HTMLElement{
   #requiredIndicator = '*';
 
   static elements = [

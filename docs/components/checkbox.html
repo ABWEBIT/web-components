@@ -2,11 +2,30 @@
 <p>Checkboxes are used to toggle an option on or off.</p>
 
 <h2>Attributes</h2>
-<p>options - static (optional). Additional <code>&lt;input&gt;</code> attributes (id, name, value, class).</p>
+<p>config - static (optional). Additional <code>&lt;input&gt;</code> attributes (id, name, value, class).</p>
 <p>checked - reactive (optional). Default: false.</p>
 <p>indeterminate - reactive (optional). Default: false.</p>
 <p>required - reactive (optional). Default: false.</p>
 <p>disabled - reactive (optional). Default: false.</p>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox disabled></ui-checkbox>
+    <ui-checkbox disabled indeterminate></ui-checkbox>
+    <ui-checkbox disabled checked></ui-checkbox>
+    <ui-checkbox ></ui-checkbox>
+    <ui-checkbox  indeterminate></ui-checkbox>
+    <ui-checkbox  checked></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox disabled&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox disabled indeterminate&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox disabled checked&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
 
 <h3>Default</h3>
 <div class="example">
@@ -20,16 +39,16 @@
   </div>
 </div>
 
-<h3>Options</h3>
-<div>Each property inside the options JSON string must be enclosed in double quotes. This applies both to the property names and their values.</div>
+<h3>Config</h3>
+<div>Each property inside the config JSON string must be enclosed in double quotes. This applies both to the property names and their values.</div>
 <div class="example">
   <div class="example-preview">
-    <ui-checkbox options='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'></ui-checkbox>
+    <ui-checkbox config='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
 &lt;ui-checkbox
-  options='{
+  config='{
     "id":"unique-id",
     "class":"utility-class",
     "name":"product-id",
@@ -41,21 +60,21 @@
 </div>
 
 <h3>Label</h3>
-<div>There are two ways to add a label to a <code>&lt;ui-checkbox&gt;</code>: either by wrapping the checkbox inside a <code>&lt;label&gt;</code>, or by linking a separate <code>&lt;label&gt;</code> to the checkbox using the <code>for</code> attribute with the checkbox's <code>id</code>.</div>
+<div>There are two ways to add a label to a component: either by wrapping the component inside a <code>&lt;label&gt;</code>, or by linking a separate <code>&lt;label&gt;</code> to the component using the <code>for</code> attribute with the component's <code>id</code>.</div>
 <div class="example">
   <div class="example-preview">
     <label>Label<ui-checkbox></ui-checkbox></label>
     <label for="input">Label</label>
-    <ui-checkbox options='{"id":"input"}'></ui-checkbox>
+    <ui-checkbox config='{"id":"input"}'></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
 &lt;label&gt;
-  Label&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+  Label &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
 &lt;/label&gt;
 
 &lt;label for="input"&gt;Label&lt;/label&gt;
-&lt;ui-checkbox options='{"id":"input"}'&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox config='{"id":"input"}'&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>
@@ -144,10 +163,14 @@
 <div class="example">
   <div class="example-preview">
     <ui-checkbox disabled></ui-checkbox>
+    <ui-checkbox disabled indeterminate></ui-checkbox>
+    <ui-checkbox disabled checked></ui-checkbox>
   </div>
   <div class="example-code">
 <pre><code>
 &lt;ui-checkbox disabled&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox disabled indeterminate&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox disabled checked&gt;&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>

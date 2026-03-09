@@ -1,19 +1,27 @@
 ui-switch{
-  --switch-size:var(--control-choice-medium);
+  --switch-size:var(--choice-md);
   --switch-border-radius:var(--rounded-full);
-  --switch-indicator-bg:var(--control-choice-indicator-bg);
-  --switch-indicator-fg:var(--control-choice-indicator-fg);
+  --switch-bg:var(--choice-bg);
+  --switch-bg-checked:var(--choice-bg-checked);
+  --switch-fg:var(--choice-fg);
 
   position:relative;
   display:inline-flex;
   vertical-align:middle;
   user-select:none;
+  -webkit-user-select:none;
 
   height:var(--switch-size);
   width:calc(var(--switch-size) * 2);
   border-radius:var(--switch-border-radius);
 
-  & > input:is([type="checkbox"]){
+  &[disabled]{
+    --switch-bg:var(--choice-bg-disabled);
+    --switch-bg-checked:var(--choice-bg-checked-disabled);
+    --switch-fg:var(--choice-fg-disabled);
+  }
+
+  & > input[type="checkbox"]{
     appearance:none;
     margin:0;
     padding:0;
@@ -22,9 +30,8 @@ ui-switch{
 
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
 
-    background-color:var(--control-choice-bg);
+    background-color:var(--switch-bg);
 
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
@@ -36,7 +43,7 @@ ui-switch{
     outline-color:transparent;
 
     transition-duration:var(--duration-default);
-    transition-property:outline-color;
+    transition-property:outline-color,border-color;
 
     &:disabled{
       cursor:var(--cursor-disabled);
@@ -44,6 +51,16 @@ ui-switch{
 
     &:focus-visible{
       outline-color:var(--focus-ring-color);
+    }
+
+    &:checked{
+      border-color:transparent;
+    }
+
+    @media (hover: hover){
+      &:not(:disabled,:checked):hover{
+        border-color:var(--control-border-color-hover);
+      }
     }
   }
 
@@ -66,7 +83,7 @@ ui-switch{
   }
 
   & > input[type="checkbox"]:checked + span{
-    background-color:var(--control-choice-indicator-bg);
+    background-color:var(--switch-bg-checked);
   }
 
   & > span::before{
@@ -77,7 +94,7 @@ ui-switch{
     height:calc(var(--switch-size) * 0.5);
     width:calc(var(--switch-size) * 0.5);
 
-    background-color:var(--control-choice-indicator-fg);
+    background-color:var(--switch-fg);
     margin-inline-start:calc(var(--switch-size) * 0.25);
 
     transition-duration:var(--duration-default);
@@ -88,9 +105,9 @@ ui-switch{
     margin-inline-start:calc(var(--switch-size) * 2 - var(--switch-size) * 0.5 - var(--switch-size) * 0.25);
   }
 
-  &[data-size="small"]{--switch-size:var(--control-choice-small);}
-  &[data-size="medium"]{--switch-size:var(--control-choice-medium);}
-  &[data-size="large"]{--switch-size:var(--control-choice-large);}
+  &[size="small"]{--switch-size:var(--choice-sm);}
+  &[size="medium"]{--switch-size:var(--choice-md);}
+  &[size="large"]{--switch-size:var(--choice-lg);}
 
-  &[data-rounded="none"]{--switch-border-radius:var(--rounded-none);}
+  &[rounded="none"]{--switch-border-radius:var(--rounded-none);}
 }

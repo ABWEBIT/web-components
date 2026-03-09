@@ -1,6 +1,6 @@
 import {uuid} from '../../utilities/index.js';
 
-class UISelect extends HTMLElement{
+export class UISelect extends HTMLElement{
   #data = null;
   #text = '';
   #iconExpand = 'arrow-down';

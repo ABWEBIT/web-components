@@ -1,6 +1,6 @@
 import {LitElement,html,nothing} from '../../lit-core.min.js';
 
-class UIInput extends LitElement{
+export class UIInput extends LitElement{
   static properties = {
     disabled:{type:Boolean, reflect:true},
     required:{type:Boolean, reflect:true},

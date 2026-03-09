@@ -1,6 +1,6 @@
 import {uuid} from '../../utilities/index.js';
 
-class UITabs extends HTMLElement{
+export class UITabs extends HTMLElement{
   #tabs = [];
   #panels = [];
   #activeIndex = 0;

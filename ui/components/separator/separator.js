@@ -1,4 +1,4 @@
-class UISeparator extends HTMLElement{
+export class UISeparator extends HTMLElement{
   connectedCallback(){
     const orientation = this.getAttribute('orientation') || 'horizontal';
     this.setAttribute('orientation',orientation);

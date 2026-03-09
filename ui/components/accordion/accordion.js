@@ -1,6 +1,6 @@
 import './accordion-item.js';
 
-class UIAccordion extends HTMLElement{
+export class UIAccordion extends HTMLElement{
   #single = false;
   #items = [];
 

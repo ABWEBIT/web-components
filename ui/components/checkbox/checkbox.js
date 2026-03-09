@@ -10,7 +10,7 @@ export class UICheckbox extends LitElement{
     indeterminate:{type:Boolean, reflect:true},
     required:{type:Boolean, reflect:true},
     disabled:{type:Boolean, reflect:true},
-    options:{type:Object}
+    config:{type:Object}
   };
 
   static list = ['id','class','name','value'];
@@ -26,13 +26,13 @@ export class UICheckbox extends LitElement{
       console.warn('ui-checkbox cannot have both "parent" and "child" attributes',this);
     }
 
-    const options = this.getAttribute('options');
-    if(!options){
-      this.options = {};
+    const config = this.getAttribute('config');
+    if(!config){
+      this.config = {};
       return;
     }
     try{
-      const parsed = JSON.parse(options);
+      const parsed = JSON.parse(config);
       const allowed = new Set(this.constructor.list);
       const filtered = {};
 
@@ -40,11 +40,11 @@ export class UICheckbox extends LitElement{
         if(allowed.has(key)) filtered[key] = parsed[key];
       }
 
-      this.options = filtered;
+      this.config = filtered;
     }
     catch(e){
-      console.warn('UICheckbox: invalid JSON in options', e);
-      this.options = {};
+      console.warn(`${this.constructor.name}: invalid JSON in config.`,e);
+      this.config = {};
     }
   }
 
@@ -104,14 +104,14 @@ export class UICheckbox extends LitElement{
   }
 
   render(){
-    const options = this.options;
+    const config = this.config;
 
     return html`
     <input type="checkbox"
-      id=${options.id || nothing}
-      class=${options.class || nothing}
-      name=${options.name || nothing}
-      value=${options.value || nothing}
+      id=${config.id || nothing}
+      class=${config.class || nothing}
+      name=${config.name || nothing}
+      value=${config.value || nothing}
 
       .checked=${this.checked}
       .indeterminate=${this.indeterminate}
