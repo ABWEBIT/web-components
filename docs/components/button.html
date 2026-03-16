@@ -6,6 +6,53 @@
 <p>size - static (optional). Controls the overall size of the element. Available options: small, medium (default), large.</p>
 <p>color - static (optional). Controls the color style of the element. Available options: gray, blue, green, yellow, red.</p>
 
+<h3>Variants</h3>
+<div>solid | soft | outline | text</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-button variant="solid" color="gray" disabled>Solid</ui-button>
+    <ui-button variant="soft" color="gray" disabled>Soft</ui-button>
+    <ui-button variant="outline" color="gray" disabled>Outline</ui-button>
+    <ui-button variant="text" color="gray" disabled>Text</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="gray">Solid</ui-button>
+    <ui-button variant="soft" color="gray">Soft</ui-button>
+    <ui-button variant="outline" color="gray">Outline</ui-button>
+    <ui-button variant="text" color="gray">Text</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="blue">Solid</ui-button>
+    <ui-button variant="soft" color="blue">Soft</ui-button>
+    <ui-button variant="outline" color="blue">Outline</ui-button>
+    <ui-button variant="text" color="blue">Text</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="green">Solid</ui-button>
+    <ui-button variant="soft" color="green">Soft</ui-button>
+    <ui-button variant="outline" color="green">Outline</ui-button>
+    <ui-button variant="text" color="green">Text</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="yellow">Solid</ui-button>
+    <ui-button variant="soft" color="yellow">Soft</ui-button>
+    <ui-button variant="outline" color="yellow">Outline</ui-button>
+    <ui-button variant="text" color="yellow">Text</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="red">Solid</ui-button>
+    <ui-button variant="soft" color="red">Soft</ui-button>
+    <ui-button variant="outline" color="red">Outline</ui-button>
+    <ui-button variant="text" color="red">Text</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button variant="invisible"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button variant="outline"&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
 <h3>Sizes</h3>
 <div class="example">
   <div class="example-preview">
@@ -31,13 +78,13 @@
     </ui-button>
   </div>
   <div class="example-preview">
-    <ui-button size="small" radius="full" icon>
+    <ui-button size="small" radius="full" icon-only>
       <ui-icon name="settings"></ui-icon>
     </ui-button>
-    <ui-button size="medium" radius="full" icon>
+    <ui-button size="medium" radius="full" icon-only>
       <ui-icon name="settings"></ui-icon>
     </ui-button>
-    <ui-button size="large" radius="full" icon>
+    <ui-button size="large" radius="full" icon-only>
       <ui-icon name="settings"></ui-icon>
     </ui-button>
   </div>
@@ -118,32 +165,11 @@
   </div>
 </div>
 
-
-<h3>Variants</h3>
-<div class="example">
-  <div class="example-preview">
-    <ui-button variant="invisible">
-      <ui-icon name="settings"></ui-icon>
-      Button
-    </ui-button>
-    <ui-button variant="outline">
-      <ui-icon name="settings"></ui-icon>
-      Button
-    </ui-button>
-  </div>
-  <div class="example-code">
-<pre><code>
-&lt;ui-button variant="invisible"&gt;Button&lt;/ui-button&gt;
-&lt;ui-button variant="outline"&gt;Button&lt;/ui-button&gt;
-</code></pre>
-  </div>
-</div>
-
 <h3>Colors</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-button color="gray">Button</ui-button>
     <ui-button color="blue">Button</ui-button>
+    <ui-button color="gray">Button</ui-button>
     <ui-button color="green">Button</ui-button>
     <ui-button color="yellow">Button</ui-button>
     <ui-button color="red">Button</ui-button>

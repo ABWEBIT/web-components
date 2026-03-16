@@ -58,6 +58,10 @@
   --decoration-thickness:1px;
 }
 
+html{
+  -webkit-tap-highlight-color:transparent;
+}
+
 h1{
   line-height:1.1;
   font-size:calc(2.5rem * var(--scaling));
@@ -156,17 +160,4 @@ label{
 /* change the cursor for interactive elements */
 select{
   cursor:var(--cursor-interactive);
-}
-
-/* disable tap highlight */
-button,
-label,
-select,
-summary,
-input:is(
-[type="checkbox"],
-[type="radio"],
-[type="range"],
-[type="file"]){
-  -webkit-tap-highlight-color:transparent;
 }

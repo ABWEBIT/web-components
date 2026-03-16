@@ -4,12 +4,12 @@ ui-button{
   --button-padding-inline:var(--control-padding-md);
   --button-font-size:var(--control-font-md);
   --button-icon-size:var(--icon-md);
-
   --button-column-gap:calc(var(--button-size) * 0.25);
 
-
-  --button-bg:var(--surface-bg-gray);
-  --button-fg:var(--control-fg);
+  --button-fg:var(--variant-fg);
+  --button-bg:var(--variant-bg);
+  --button-bg-hover:var(--variant-bg-hover);
+  --button-bg-active:var(--variant-bg-active);
 
   position:relative;
   display:inline-flex;
@@ -20,11 +20,6 @@ ui-button{
   height:var(--button-size);
   width:auto;
   border-radius:var(--button-border-radius);
-
-  &[disabled]{
-    --button-bg:var(--control-bg-disabled);
-    --button-fg:var(--control-fg-disabled);
-  }
 
   &[size="small"]{
     --button-size:var(--control-action-sm);
@@ -48,10 +43,18 @@ ui-button{
     --button-icon-size:var(--icon-lg);
   }
 
-  &[icon]{
+  &[icon-only]{
     --button-padding-inline:0;
     width:var(--button-size);
   }
+
+  &:not([justify]),
+  &[justify="center"]{--button-justify-content:center;}
+  &[justify="start"]{--button-justify-content:flex-start;}
+  &[justify="end"]{--button-justify-content:flex-end;}
+
+  &[radius="full"]{--button-border-radius:var(--radius-full);}
+  &[radius="none"]{--button-border-radius:var(--radius-none);}
 
   & > button{
     appearance:none;
@@ -60,9 +63,9 @@ ui-button{
     background:none;
     border:none;
 
+    letter-spacing:0.02em;
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
 
     outline-width:var(--focus-ring-width);
     outline-style:var(--focus-ring-style);
@@ -76,19 +79,19 @@ ui-button{
     height:inherit;
     width:inherit;
     border-radius:inherit;
-    line-height:1;
+    line-height:0;
 
     column-gap:var(--button-column-gap);
-    justify-content:var(--button-justify-content,center);
+    justify-content:var(--button-justify-content);
     padding-inline:var(--button-padding-inline);
-
     font-family:var(--font-family-default);
     font-size:var(--button-font-size);
+
     color:var(--button-fg);
     background-color:var(--button-bg);
 
     transition-duration:var(--duration-default);
-    transition-property:background-color,outline-color;
+    transition-property:background-color,outline-color,border-color;
 
     &:disabled{
       cursor:var(--cursor-disabled);
@@ -100,12 +103,12 @@ ui-button{
 
     @media (hover: hover){
       &:not(:disabled):hover{
-        background-color:oklch(from var(--button-bg) calc(l - 0.02) c h);
+        --button-bg:var(--button-bg-hover);
       }
     }
 
     &:not(:disabled):active{
-      background-color:oklch(from var(--button-bg) calc(l - 0.05) c h);
+      --button-bg:var(--button-bg-active);
     }
   }
 
@@ -114,64 +117,4 @@ ui-button{
     --icon-width:var(--button-icon-width, var(--button-icon-size));
     margin-inline:-2px;
   }
-
-  /* color */
-  &[color="gray"]{
-    --button-bg:var(--surface-bg-gray);
-  }
-
-  &[color="blue"]{
-    --button-bg:var(--surface-bg-blue);
-  }
-
-  &[color="green"]{
-    --button-bg:var(--surface-bg-green);
-  }
-
-  &[color="yellow"]{
-    --button-bg:var(--surface-bg-yellow);
-  }
-
-  &[color="red"]{
-    --button-bg:var(--surface-bg-red);
-  }
-
-  /* variant */
-  &[variant="invisible"] > button{
-    background-color:transparent;
-  }
-
-  @media (hover: hover){
-    &[variant="invisible"]:not(:disabled):hover{
-      background-color:oklch(from var(--button-bg) calc(l + 0.04) c h / 0.2);
-    }
-  }
-
-  &[variant="invisible"]:not(:disabled):active{
-    background-color:oklch(from var(--button-bg) calc(l - 0.03) c h / 0.2);
-  }
-
-  &[variant="outline"] > button{
-    background-color:transparent;
-    border-radius:inherit;
-    border-width:1px;
-    border-style:solid;
-    border-color:var(--button-bg, var(--surface-bg-neutral));
-  }
-
-  @media (hover: hover){
-    &[variant="outline"]:not(:disabled):hover{
-      background-color:oklch(from var(--button-bg) calc(l + 0.04) c h / 0.2);
-    }
-  }
-
-  &[variant="outline"]:not(:disabled):active{
-    background-color:oklch(from var(--button-bg) calc(l - 0.03) c h / 0.2);
-  }
-
-  &[justify="start"]{--button-justify-content:flex-start;}
-  &[justify="end"]{--button-justify-content:flex-end;}
-
-  &[radius="full"]{--button-border-radius:var(--radius-full);}
-  &[radius="none"]{--button-border-radius:var(--radius-none);}
 }

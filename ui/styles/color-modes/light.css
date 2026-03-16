@@ -1,50 +1,171 @@
 :root[data-color-mode='light']{
+  /* bg = background | fg = foreground */
+
   /* backgrounds */
-  --bg-primary-color:oklch(97% 0 0);
+  --bg-default:oklch(97% 0 0);
 
   /* foregrounds */
-  --fg-primary-color:oklch(14% 0 0);
-  --fg-secondary-color:oklch(36% 0 0);
-  --fg-tertiary-color:oklch(46% 0 0);
+  --fg-intense:oklch(10% 0 0);
+  --fg-default:oklch(14% 0 0);
+  --fg-muted:oklch(36% 0 0);
+  --fg-subtle:oklch(46% 0 0);
 
-  --heading-color:oklch(10% 0 0);
+  /*=== variant: solid ===*/
+
+  /* color: gray */
+  --variant-solid-fg-gray:var(--color-white);
+  --variant-solid-bg-gray:var(--color-gray-20);
+
+  /* color: blue */
+  --variant-solid-fg-blue:var(--color-white);
+  --variant-solid-bg-blue:var(--color-blue-40);
+
+  /* color: green */
+  --variant-solid-fg-green:var(--color-white);
+  --variant-solid-bg-green:var(--color-green-40);
+
+  /* color: yellow */
+  --variant-solid-fg-yellow:var(--color-white);
+  --variant-solid-bg-yellow:var(--color-yellow-40);
+
+  /* color: red */
+  --variant-solid-fg-red:var(--color-white);
+  --variant-solid-bg-red:var(--color-red-40);
+
+  /*=== variant: soft ===*/
+
+  /* color: gray */
+  --variant-soft-fg-gray:var(--color-gray-20);
+  --variant-soft-bg-gray:oklch(from var(--color-gray-80) calc(l - 0.04) c h);
+
+  /* color: blue */
+  --variant-soft-fg-blue:var(--color-blue-20);
+  --variant-soft-bg-blue:oklch(from var(--color-blue-80) calc(l + 0.04) c h);
+
+  /* color: green */
+  --variant-soft-fg-green:var(--color-green-20);
+  --variant-soft-bg-green:oklch(from var(--color-green-80) calc(l + 0.02) c h);
+
+  /* color: yellow */
+  --variant-soft-fg-yellow:var(--color-yellow-20);
+  --variant-soft-bg-yellow:oklch(from var(--color-yellow-80) calc(l + 0.02) c h);
+
+  /* color: red */
+  --variant-soft-fg-red:oklch(from var(--color-red-20) calc(l + 0.05) c h);
+  --variant-soft-bg-red:oklch(from var(--color-red-80) l c h);
+
+  /*=== variant: outline ===*/
+
+  /* color: gray */
+  --variant-outline-fg-gray:var(--variant-soft-fg-gray);
+  --variant-outline-bg-gray-hover:var(--variant-soft-bg-gray);
+  --variant-outline-bg-gray-active:var(--variant-soft-bg-gray-active);
+  --variant-outline-border-gray:var(--variant-soft-fg-gray);
+
+  /* color: blue */
+  --variant-outline-fg-blue:var(--variant-soft-fg-blue);
+  --variant-outline-bg-blue-hover:var(--variant-soft-bg-blue);
+  --variant-outline-bg-blue-active:var(--variant-soft-bg-blue-active);
+  --variant-outline-border-blue:var(--variant-soft-fg-blue);
+
+  /* color: green */
+  --variant-outline-fg-green:var(--variant-soft-fg-green);
+  --variant-outline-bg-green-hover:var(--variant-soft-bg-green);
+  --variant-outline-bg-green-active:var(--variant-soft-bg-green-active);
+  --variant-outline-border-green:var(--variant-soft-fg-green);
+
+  /* color: yellow */
+  --variant-outline-fg-yellow:var(--variant-soft-fg-yellow);
+  --variant-outline-bg-yellow-hover:var(--variant-soft-bg-yellow);
+  --variant-outline-bg-yellow-active:var(--variant-soft-bg-yellow-active);
+  --variant-outline-border-yellow:var(--variant-soft-fg-yellow);
+
+  /* color: red */
+  --variant-outline-fg-red:var(--variant-soft-fg-red);
+  --variant-outline-bg-red-hover:var(--variant-soft-bg-red);
+  --variant-outline-bg-red-active:var(--variant-soft-bg-red-active);
+  --variant-outline-border-red:var(--variant-soft-fg-red);
+
+  /*=== variant: text ===*/
+
+  /* color: gray */
+  --variant-text-fg-gray:var(--variant-soft-fg-gray);
+  --variant-text-bg-gray-hover:var(--variant-soft-bg-gray);
+  --variant-text-bg-gray-active:var(--variant-soft-bg-gray-active);
+
+  /* color: blue */
+  --variant-text-fg-blue:var(--variant-soft-fg-blue);
+  --variant-text-bg-blue-hover:var(--variant-soft-bg-blue);
+  --variant-text-bg-blue-active:var(--variant-soft-bg-blue-active);
+
+  /* color: green */
+  --variant-text-fg-green:var(--variant-soft-fg-green);
+  --variant-text-bg-green-hover:var(--variant-soft-bg-green);
+  --variant-text-bg-green-active:var(--variant-soft-bg-green-active);
+
+  /* color: yellow */
+  --variant-text-fg-yellow:var(--variant-soft-fg-yellow);
+  --variant-text-bg-yellow-hover:var(--variant-soft-bg-yellow);
+  --variant-text-bg-yellow-active:var(--variant-soft-bg-yellow-active);
+
+  /* color: red */
+  --variant-text-fg-red:var(--variant-soft-fg-red);
+  --variant-text-bg-red-hover:var(--variant-soft-bg-red);
+  --variant-text-bg-red-active:var(--variant-soft-bg-red-active);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* control foregrounds */
+  --control-fg:var(--color-white);
+  --control-fg-disabled:oklch(from var(--color-black) l c h / 0.52);
+
+  /* control background */
+  --control-bg:var(--color-solid-gray);
+  --control-bg-disabled:oklch(from var(--color-black) l c h / 0.12);
+
+  /* control borders */
+  --control-border-color:var(--color-solid-gray);
+  --control-border-color-hover:oklch(from var(--control-border-color) calc(l + 0.04) c h);
+  --control-border-color-disabled:var(--control-fg-disabled);
+
+
+
+  /* checkbox | switch | radio */
+  --control-choice-bg:oklch(17% 0 0);
+  --control-choice-bg-disabled:oklch(27% 0 0);
+
+  --control-choice-bg-checked:var(--variant-solid-bg-blue);
+  --control-choice-bg-checked-disabled:oklch(40% 0 0);
+
+
 
   /* link */
   --link-color:oklch(45% 0.15 245);
   --link-color-hover:oklch(from var(--link-color) calc(l + 0.05) c h);
   --link-color-active:oklch(from var(--link-color) calc(l - 0.03) c h);
 
-  /* controls */
-  --control-border-color:oklch(38% 0 0);
-
-  /* checkbox | switch | radio */
-  --control-choice-bg:oklch(94% 0 0);
-  --control-choice-indicator-bg:oklch(60% 0.18 255);
-  --control-choice-indicator-fg:oklch(100% 0 0);
-
-  /* surface */
-  --surface-bg-neutral:oklch(87% 0 0);
-  --surface-bg-white:oklch(100% 0 0);
-  --surface-bg-blue:var(--color-blue-800);
-  --surface-bg-green:var(--color-green-800);
-  --surface-bg-yellow:var(--color-yellow-800);
-  --surface-bg-red:var(--color-red-800);
-  --surface-bg-default:var(--surface-bg-neutral);
-
-  --surface-fg-default:var(--control-bg-neutral);
-
-  /* border */
-  --border-color:var(--color-neutral-500);
-
   /* lines */
-  --line-color:var(--color-neutral-300);
+  --line-color:oklch(75% 0 0);
 
-  /* outline */
-  --outline-focus-color:oklch(70% 0.16 255);
+  /* focus-ring */
+  --focus-ring-color:oklch(70% 0.16 255);
 
   /* scrollbar */
-  --scrollbar-color:var(--color-neutral-300);
+  --scrollbar-color:oklch(27% 0 0);
 
   /* selection */
-  --selection-color:oklch(0% 0 0 / 0.1);
+  --selection-color:oklch(0 0 0 / 0.1);
 }

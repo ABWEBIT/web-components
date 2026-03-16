@@ -1,0 +1,101 @@
+/* Button | Badge / Chip | Alert | Card | Input | Tabs | MenuItem */
+
+/*=== solid ===*/
+[variant="solid"]{
+  --variant-fg:var(--variant-solid-fg);
+  --variant-bg:var(--variant-solid-bg);
+}
+
+[variant="solid"][disabled]{
+  --variant-fg:var(--control-fg-disabled);
+  --variant-bg:var(--control-bg-disabled);
+}
+
+@media (hover: hover){
+  [variant="solid"]:has( > :is(button):not(:disabled):hover){
+    --variant-bg-hover:var(--variant-solid-bg-hover);
+  }
+}
+
+[variant="solid"]:has( > :is(button):not(:disabled):active){
+  --variant-bg-active:var(--variant-solid-bg-active);
+}
+
+/*=== soft ===*/
+[variant="soft"]{
+  --variant-fg:var(--variant-soft-fg);
+  --variant-bg:var(--variant-soft-bg);
+}
+
+[variant="soft"][disabled]{
+  --variant-fg:var(--control-fg-disabled);
+  --variant-bg:var(--control-bg-disabled);
+}
+
+@media (hover: hover){
+  [variant="soft"]:has( > button:not(:disabled):hover){
+    --variant-bg-hover:oklch(from var(--variant-soft-bg) calc(l + 0.05) c h);
+  }
+}
+
+[variant="soft"]:has( > button:not(:disabled):active){
+  --variant-bg-active:oklch(from var(--variant-soft-bg) calc(l - 0.02) c h);
+}
+
+/*=== outline ===*/
+[variant="outline"]{
+  --variant-fg:var(--variant-outline-fg);
+  --variant-bg:transparent;
+}
+
+[variant="outline"][disabled]{
+  --variant-fg:var(--control-fg-disabled);
+  --variant-bg:transparent;
+}
+
+[variant="outline"]:after{
+  pointer-events:none;
+  position:absolute;
+  content:'';
+  inset:0;
+  border-radius:inherit;
+  border-width:var(--control-border-width);
+  border-style:var(--control-border-style);
+  border-color:var(--variant-outline-fg);
+}
+
+[variant="outline"][disabled]:after{
+  border-color:var(--control-border-color-disabled);
+}
+
+@media (hover: hover){
+  [variant="outline"]:has( > :is(button):not(:disabled):hover){
+    --variant-bg-hover:var(--variant-outline-bg-hover);
+  }
+}
+
+[variant="outline"]:has( > :is(button):not(:disabled):active){
+  --variant-bg-active:var(--variant-outline-bg-active);
+}
+
+/*=== text ===*/
+[variant="text"]{
+  --variant-fg:var(--variant-text-fg);
+  --variant-bg:transparent;
+}
+
+[variant="text"][disabled]{
+  --variant-fg:var(--control-fg-disabled);
+  --variant-bg:transparent;
+}
+
+@media (hover: hover){
+  [variant="text"]:has( > :is(button):not(:disabled):hover){
+    --variant-bg-hover:oklch(from var(--variant-soft-bg) calc(l + 0.05) c h);
+  }
+}
+
+[variant="text"]:has( > :is(button):not(:disabled):active){
+  --variant-bg-active:oklch(from var(--variant-soft-bg) calc(l - 0.02) c h);
+}
+

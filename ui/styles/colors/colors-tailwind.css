@@ -1,6 +1,6 @@
 :root{
-  --color-white:oklch(100% 0 0);
-  --color-black:oklch(0% 0 0);
+  --color-white:oklch(1 0 0);
+  --color-black:oklch(0 0 0);
 
   --color-red-50: oklch(0.971 0.013 17.38);
   --color-red-100: oklch(0.936 0.032 17.717);

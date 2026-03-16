@@ -34,7 +34,6 @@ ui-radio{
 
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
 
     background-color:var(--radio-bg);
 

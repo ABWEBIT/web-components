@@ -37,7 +37,6 @@ ui-checkbox{
 
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
 
     background-color:var(--checkbox-bg);
 
@@ -61,7 +60,7 @@ ui-checkbox{
       outline-color:var(--focus-ring-color);
     }
 
-    &:is(:checked,:indeterminate){
+    &:is(:checked,:indeterminate):not(:disabled){
       border-color:transparent;
     }
 

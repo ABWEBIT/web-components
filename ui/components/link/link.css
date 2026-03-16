@@ -8,7 +8,6 @@ a{
 
   cursor:var(--cursor-interactive);
   touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent;
 
   outline-width:var(--focus-ring-width);
   outline-style:var(--focus-ring-style);
