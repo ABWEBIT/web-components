@@ -5,24 +5,16 @@ ui-field{
   gap:1rem;
 
   &:not([passive]) > label{
-    cursor:pointer;
+    cursor:var(--cursor-interactive);
   }
 
   & > label{
     user-select:none;
-
-    & > span{
-      padding-inline-start:6px;
-      color:var(--color-red-500);
-    }
+    -webkit-user-select:none;
   }
 
   &[vertical]{
     align-items:flex-start;
     flex-direction:column;
-  }
-
-  &[vertical] > label:first-child{
-    padding-block-end:10px;
   }
 }

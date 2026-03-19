@@ -1,15 +1,48 @@
 ui-input{
-  --input-size:var(--control-action-medium);
-  --input-width:100%;
+  --input-size:var(--control-action-md);
+  --input-border-radius:var(--radius-md);
+  --input-padding-inline:var(--control-padding-md);
+  --input-font-size:var(--control-font-md);
 
-  --input-border-radius:calc(var(--input-size) / 4);
-  --input-padding-inline:calc(var(--input-size) / 4);
-
-  --input-font-size:var(--control-action-font-size-medium);
+  --input-fg:var(--variant-fg);
+  --input-bg:var(--variant-bg);
+  --input-border-color:var(--control-border-color);
 
   position:relative;
+  display:inline-flex;
+  vertical-align:middle;
+
   height:var(--input-size);
+  width:auto;
   border-radius:var(--input-border-radius);
+
+  &[size="small"]{
+    --input-size:var(--control-action-sm);
+    --input-border-radius:var(--radius-sm);
+    --input-padding-inline:var(--control-padding-sm);
+    --input-font-size:var(--control-font-sm);
+    --input-icon-size:var(--icon-sm);
+  }
+  &[size="medium"]{
+    --input-size:var(--control-action-md);
+    --input-border-radius:var(--radius-md);
+    --input-padding-inline:var(--control-padding-md);
+    --input-font-size:var(--control-font-md);
+    --input-icon-size:var(--icon-md);
+  }
+  &[size="large"]{
+    --input-size:var(--control-action-lg);
+    --input-border-radius:var(--radius-lg);
+    --input-padding-inline:var(--control-padding-lg);
+    --input-font-size:var(--control-font-lg);
+    --input-icon-size:var(--icon-lg);
+  }
+
+  &[disabled]{
+    --input-fg:var(--control-fg-disabled);
+    --input-bg:var(--control-bg-disabled);
+    --input-border-color:var(--control-border-color-disabled);
+  }
 
   & > input{
     appearance:none;
@@ -22,13 +55,13 @@ ui-input{
     padding-inline:var(--input-padding-inline);
     font-family:var(--font-family-default);
     font-size:var(--input-font-size);
-    color:var(--input-font-color);
-    background-color:transparent;
+    color:var(--input-fg);
+    background-color:var(--input-bg);
 
     border-radius:inherit;
-    border-width:1px;
-    border-style:solid;
-    border-color:var(--border-color);
+    border-width:var(--control-border-width);
+    border-style:var(--control-border-style);
+    border-color:var(--input-border-color);
 
     outline-width:var(--focus-ring-width);
     outline-style:var(--focus-ring-style);
@@ -36,63 +69,37 @@ ui-input{
     outline-color:transparent;
 
     transition-duration:var(--duration-default);
-    transition-property:outline-color;
+    transition-property:outline-color,border-color;
+
+    &:disabled{
+      cursor:var(--cursor-disabled);
+    }
+
+    &::placeholder{
+      color:var(--control-fg-placeholder);
+    }
 
     &:focus-visible{
       outline-color:var(--focus-ring-color);
     }
-  }
 
-  & input::placeholder{
-    color:var(--text-color-secondary);
-  }
-
-  & input[disabled],
-  & input[disabled]::placeholder{
-    color:var(--input-disabled-color);
+    @media (hover: hover){
+      &:not(:disabled):hover{
+        --input-border-color:var(--control-border-color-hover);
+      }
+    }
   }
 
   &[clearable] > input{
-    padding-inline-end:0;
+    padding-inline-end:var(--input-size);
   }
 
-  & > ui-icon{
-    height:100%;
-    width:var(--input-icon-size);
-    color:var(--input-svg-color);
-    padding:var(--input-icon-padding);
-    cursor:pointer;
-    pointer-events:all!important;
-  }
+  & > ui-button{
+    position:absolute;
+    inset-block-start:calc(var(--input-size) * 0.125);
+    inset-inline-end:calc(var(--input-size) * 0.125);
 
-
-  @media (hover:hover){
-    &:hover:not([disabled]){
-      outline-color:var(--input-outline-color);
-    }
-
-    & > ui-icon:hover{
-      color:var(--color-input-icons-active);
-    }
-  }
-
-  &:focus-within:not([disabled]){
-    outline-color:var(--input-outline-color);
-  }
-
-  /* size */
-  &[data-size="small"]{
-    --input-size:var(--control-action-small);
-    --input-font-size:var(--control-action-font-size-small);
-  }
-
-  &[data-size="medium"]{
-    --input-size:var(--control-action-medium);
-    --input-font-size:var(--control-action-font-size-medium);
-  }
-
-  &[data-size="large"]{
-    --input-size:var(--control-action-large);
-    --input-font-size:var(--control-action-font-size-large);
+    height:calc(var(--input-size) - var(--input-size) * 0.25);
+    width:calc(var(--input-size) - var(--input-size)  * 0.25);
   }
 }

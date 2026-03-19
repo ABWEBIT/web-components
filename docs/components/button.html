@@ -10,6 +10,10 @@
 <div>solid | soft | outline | text</div>
 <div class="example">
   <div class="example-preview">
+    <ui-button variant="soft" color="gray">Cancel</ui-button>
+    <ui-button variant="solid" color="gray">Upload</ui-button>
+  </div>
+  <div class="example-preview">
     <ui-button variant="solid" color="gray" disabled>Solid</ui-button>
     <ui-button variant="soft" color="gray" disabled>Soft</ui-button>
     <ui-button variant="outline" color="gray" disabled>Outline</ui-button>
@@ -127,6 +131,25 @@
   </div>
 </div>
 
+<h3>Config</h3>
+<div>Each property inside the config JSON string must be enclosed in double quotes. This applies both to the property names and their values.</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-button config='{"id":"unique-id","class":"utility-class","type":"submit"}'>Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button
+  config='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "type":"submit"
+  }'&gt;
+&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
 <h3>With Icons</h3>
 <div class="example">
   <div class="example-preview">
@@ -211,6 +234,18 @@
 <pre><code>
 &lt;ui-button radius="full"&gt;Button&lt;/ui-button&gt;
 &lt;ui-button radius="none"&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Busy</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-button busy id="a">Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button busy&gt;Button&lt;/ui-button&gt;
 </code></pre>
   </div>
 </div>

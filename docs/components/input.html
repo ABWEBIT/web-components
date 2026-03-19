@@ -7,9 +7,7 @@
 </ul>
 
 <h2>Attributes</h2>
-<p>aria-label - static (required). Must be set manually.</p>
-<p>name - reactive (required). Must be set manually.</p>
-<p>value - reactive (optional). Must be set manually.</p>
+<p>config - static (optional). Additional attributes: id, class, type, name, value, placeholder.</p>
 <p>clearable - static (optional). Adds a clear button to the component.</p>
 <p>required - static (optional). Default: false.</p>
 <p>disabled - reactive (optional). Default: false.</p>
@@ -26,18 +24,40 @@
   </div>
 </div>
 
-<h3>Sizes</h3>
+<h3>Config</h3>
+<div>Each property inside the config JSON string must be enclosed in double quotes. This applies both to the property names and their values.</div>
 <div class="example">
   <div class="example-preview">
-    <ui-input data-size="small"></ui-input>
-    <ui-input data-size="medium"></ui-input>
-    <ui-input data-size="large"></ui-input>
+    <ui-input config='{"id":"unique-id","class":"utility-class","type":"text","name":"product-id","value":"value","placeholder":"Enter value"}'></ui-input>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-input data-size="small"&gt;&lt;/ui-input&gt;
-&lt;ui-input data-size="medium"&gt;&lt;/ui-input&gt;
-&lt;ui-input data-size="large"&gt;&lt;/ui-input&gt;
+&lt;ui-input
+  config='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "type":"text",
+    "name":"product-id",
+    "value":"value",
+    "placeholder":"Enter value"
+  }'&gt;
+&lt;/ui-input&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Sizes</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-input clearable size="small" config='{"placeholder":"Enter value"}'></ui-input>
+    <ui-input clearable size="medium" config='{"placeholder":"Enter value"}'></ui-input>
+    <ui-input clearable size="large" config='{"placeholder":"Enter value"}'></ui-input>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-input size="small" config='{"placeholder":"Enter value"}'&gt;&lt;/ui-input&gt;
+&lt;ui-input size="medium" config='{"placeholder":"Enter value"}'&gt;&lt;/ui-input&gt;
+&lt;ui-input size="large" config='{"placeholder":"Enter value"}'&gt;&lt;/ui-input&gt;
 </code></pre>
   </div>
 </div>
@@ -45,23 +65,11 @@
 <h3>Clear button</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-input clearable></ui-input>
+    <ui-input clearable config='{"placeholder":"Enter value"}'></ui-input>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-input clearable&gt;&lt;/ui-input&gt;
-</code></pre>
-  </div>
-</div>
-
-<h3>Required</h3>
-<div class="example">
-  <div class="example-preview">
-    <ui-input required></ui-input>
-  </div>
-  <div class="example-code">
-<pre><code>
-&lt;ui-input required&gt;&lt;/ui-input&gt;
+&lt;ui-input clearable config='{"placeholder":"Enter value"}'&gt;&lt;/ui-input&gt;
 </code></pre>
   </div>
 </div>
@@ -69,23 +77,35 @@
 <h3>Placeholder</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-input placeholder="Placeholder"></ui-input>
+    <ui-input config='{"placeholder":"Enter value"}'></ui-input>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-input placeholder="Placeholder"&gt;&lt;/ui-input&gt;
+&lt;ui-input config='{"placeholder":"Enter value"}'&gt;&lt;/ui-input&gt;
 </code></pre>
   </div>
 </div>
 
-<h3>Disabled + Placeholder</h3>
+<h3>Required</h3>
 <div class="example">
   <div class="example-preview">
-    <ui-input placeholder="Disabled" disabled></ui-input>
+    <ui-input required config='{"placeholder":"Enter value"}'></ui-input>
   </div>
   <div class="example-code">
 <pre><code>
-&lt;ui-input placeholder="Disabled" disabled&gt;&lt;/ui-input&gt;
+&lt;ui-input required config='{"placeholder":"Enter value"}'&gt;&lt;/ui-input&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-input disabled config='{"placeholder":"Enter value"}'></ui-input>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-input disabled config='{"placeholder":"Enter value"}'&gt;&lt;/ui-input&gt;
 </code></pre>
   </div>
 </div>

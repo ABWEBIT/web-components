@@ -55,8 +55,7 @@ export class UIRadio extends LitElement{
       .disabled=${this.disabled}
       .required=${this.required}
       @change=${this.#onChange}
-    ></input>
-    <span></span>`;
+    ><span></span>`;
   }
 }
 customElements.define('ui-radio',UIRadio);

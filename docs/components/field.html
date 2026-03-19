@@ -3,7 +3,7 @@
 
 <h2>Info</h2>
 <p>Allows only one label and one form control inside.</p>
-<p>Automatic association between the label and the form control by adding a unique UUID to the label's id attribute and assigning this UUID to the form control's aria-labelledby attribute. You can override the unique UUID by adding a custom id.</p>
+<p>Automatic association between the label and the form control by adding a unique UUID.</p>
 
 <h2>Attributes</h2>
 <p>vertical - static (optional). Sets the orientation to vertical.</p>
@@ -16,9 +16,15 @@
       <label>Label</label>
       <ui-checkbox></ui-checkbox>
     </ui-field>
+    <ui-separator orientation="vertical"></ui-separator>
     <ui-field>
-      <ui-checkbox></ui-checkbox>
       <label>Label</label>
+      <ui-radio></ui-radio>
+    </ui-field>
+    <ui-separator orientation="vertical"></ui-separator>
+    <ui-field>
+      <label>Label</label>
+      <ui-switch></ui-switch>
     </ui-field>
   </div>
   <div class="example-code">
@@ -29,28 +35,11 @@
 &lt;/ui-field&gt;
 
 &lt;ui-field&gt;
-  &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
   &lt;label&gt;Label&lt;/label&gt;
+  &lt;ui-radio&gt;&lt;/ui-radio&gt;
 &lt;/ui-field&gt;
-</code></pre>
-  </div>
-</div>
 
-<h3>Label pposition</h3>
-<div class="example">
-  <div class="example-preview">
-    <ui-field>
-      <label>Label</label>
-      <ui-switch></ui-switch>
-    </ui-field>
-    <ui-field>
-      <ui-switch></ui-switch>
-      <label>Label</label>
-    </ui-field>
-  </div>
-  <div class="example-code">
-<pre><code>
-&lt;ui-field label-position="end"&gt;
+&lt;ui-field passive&gt;
   &lt;label&gt;Label&lt;/label&gt;
   &lt;ui-switch&gt;&lt;/ui-switch&gt;
 &lt;/ui-field&gt;
@@ -58,19 +47,19 @@
   </div>
 </div>
 
-<h3>Passive, non-clickable div</h3>
+<h3>Passive Label</h3>
 <div class="example">
   <div class="example-preview">
     <ui-field passive>
       <label>Label</label>
-      <ui-switch></ui-switch>
+      <ui-checkbox></ui-checkbox>
     </ui-field>
   </div>
   <div class="example-code">
 <pre><code>
 &lt;ui-field passive&gt;
   &lt;label&gt;Label&lt;/label&gt;
-  &lt;ui-switch&gt;&lt;/ui-switch&gt;
+  &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
 &lt;/ui-field&gt;
 </code></pre>
   </div>

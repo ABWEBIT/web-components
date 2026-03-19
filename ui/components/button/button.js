@@ -1,6 +1,9 @@
-import {LitElement,html,nothing,render} from '../../lit-core.min.js';
+import {LitElement,html,nothing} from '../../lit-core.min.js';
 
 export class UIButton extends LitElement{
+  #spinner = null;
+  #button = null;
+
   static properties = {
     disabled:{type:Boolean, reflect:true},
     autofocus:{type:Boolean, reflect:true},
@@ -8,12 +11,14 @@ export class UIButton extends LitElement{
     config:{type:Object}
   };
 
-  static list = ['id','class','aria-label'];
+  static list = ['id','class','type'];
 
   createRenderRoot(){return this;}
 
   connectedCallback(){
     super.connectedCallback();
+
+    this.busy = this.hasAttribute('busy');
 
     const config = this.getAttribute('config');
     if(!config){
@@ -37,35 +42,53 @@ export class UIButton extends LitElement{
     }
   }
 
+  updated(changed){
+    if(changed.has('busy')){
+      this.busyState(this.busy);
+    }
+  }
+
+  busyState(isBusy){
+    if(!this.#button) return;
+
+    this.disabled = this.disabled || isBusy;
+
+    if(isBusy){
+      this.#spinner = document.createElement('ui-spinner');
+      this.append(this.#spinner);
+    }
+    else{
+      if(this.#spinner){
+        this.#spinner.remove();
+        this.#spinner = null;
+      }
+    }
+  }
+
   firstUpdated(){
-    const button = this.getElementsByTagName('button')[0];
+    this.#button = this.getElementsByTagName('button')[0];
     const fragment = document.createDocumentFragment();
 
     for(let i = this.childNodes.length - 1; i >= 0; i--){
       const node = this.childNodes[i];
-      if(node !== button) fragment.prepend(node);
+      if(node !== this.#button) fragment.prepend(node);
     }
-    button.append(fragment);
-  }
-
-  #onClick(e){
-
+    this.#button.append(fragment);
   }
 
   render(){
     const config = this.config;
 
     return html`
-    <button type="button"
+    <button
+      type=${config.type || "button"}
       id=${config.id || nothing}
       class=${config.class || nothing}
       name=${config.name || nothing}
       value=${config.value || nothing}
 
-      .busy=${this.busy}
       .autofocus=${this.autofocus}
       .disabled=${this.disabled}
-      @click=${this.#onClick}
     ></button>`;
   }
 }

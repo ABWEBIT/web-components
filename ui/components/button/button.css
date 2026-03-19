@@ -9,7 +9,7 @@ ui-button{
   --button-fg:var(--variant-fg);
   --button-bg:var(--variant-bg);
   --button-bg-hover:var(--variant-bg-hover);
-  --button-bg-active:var(--variant-bg-active);
+  --button-bg-pressed:var(--variant-bg-pressed);
 
   position:relative;
   display:inline-flex;
@@ -108,7 +108,7 @@ ui-button{
     }
 
     &:not(:disabled):active{
-      --button-bg:var(--button-bg-active);
+      --button-bg:var(--button-bg-pressed);
     }
   }
 
@@ -116,5 +116,11 @@ ui-button{
     --icon-height:var(--button-icon-size);
     --icon-width:var(--button-icon-width, var(--button-icon-size));
     margin-inline:-2px;
+  }
+
+  & > ui-spinner{
+    --spinner-icon-size:var(--button-icon-size);
+    --spinner-bg:var(--button-bg);
+    --spinner-border-radius:var(--button-border-radius);
   }
 }

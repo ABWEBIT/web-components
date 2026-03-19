@@ -4,20 +4,49 @@ export class UITextarea extends LitElement{
   static properties = {
     disabled:{type:Boolean, reflect:true},
     required:{type:Boolean, reflect:true},
-    placeholder:{type:String, reflect:true},
-    ariaLabelledby:{type:String, reflect:true,attribute:'aria-labelledby'},
-    name:{type:String, reflect:true},
-    value:{type:String}
+    config:{type:Object}
   };
+
+  static list = ['id','class','name','value','placeholder'];
 
   createRenderRoot(){return this;}
 
+  connectedCallback(){
+    super.connectedCallback();
+
+    const config = this.getAttribute('config');
+    if(!config){
+      this.config = {};
+      return;
+    }
+    try{
+      const parsed = JSON.parse(config);
+      const allowed = new Set(this.constructor.list);
+      const filtered = {};
+
+      for(const key in parsed){
+        if(allowed.has(key)) filtered[key] = parsed[key];
+      }
+
+      this.config = filtered;
+    }
+    catch(e){
+      console.warn(`${this.constructor.name}: invalid JSON in config.`,e);
+      this.config = {};
+    }
+  }
+
   render(){
+    const config = this.config;
+
     return html`
     <textarea
-      name=${this.name || nothing}
-      placeholder=${this.placeholder || nothing}
-      aria-labelledby=${this.ariaLabelledby || nothing}
+      id=${config.id || nothing}
+      class=${config.class || nothing}
+      name=${config.name || nothing}
+      value=${config.value || nothing}
+      placeholder=${config.placeholder || nothing}
+
       .disabled=${this.disabled}
       .required=${this.required}>${this.value || nothing}</textarea>`;
   }

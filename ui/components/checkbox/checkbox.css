@@ -23,9 +23,9 @@ ui-checkbox{
   &[radius="none"]{--checkbox-border-radius:var(--radius-none);}
 
   &[disabled]{
+    --checkbox-fg:var(--control-fg-disabled);
     --checkbox-bg:var(--control-choice-bg-disabled);
     --checkbox-bg-checked:var(--control-choice-bg-checked-disabled);
-    --checkbox-fg:var(--control-fg-disabled);
   }
 
   & > input[type="checkbox"]{

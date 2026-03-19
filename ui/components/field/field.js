@@ -1,13 +1,13 @@
+import {LitElement} from '../../lit-core.min.js';
 import {uuid} from '../../utilities/index.js';
 
-export class UIField extends HTMLElement{
-  #requiredIndicator = '*';
-
+export class UIField extends LitElement{
   static elements = [
     'ui-checkbox',
+    'ui-switch',
+    'ui-radio',
     'ui-input',
     'ui-select',
-    'ui-switch',
     'ui-textarea',
   ];
 
@@ -15,8 +15,6 @@ export class UIField extends HTMLElement{
     const id = uuid();
     const idLabel = `label-${id}`;
     const idControl = `control-${id}`;
-
-    if(this.hasAttribute('required')) this.#addRequired();
 
     const label = this.querySelector('label');
 
@@ -30,34 +28,13 @@ export class UIField extends HTMLElement{
       return;
     }
 
-    if(!label.id) label.id = idLabel;
-    control.setAttribute('aria-labelledby',idLabel);
-
     if(!this.hasAttribute('passive')){
-      label.addEventListener('click',() => {
-        const tag = control.tagName.toLowerCase();
-
-        if(['ui-checkbox','ui-switch','ui-select'].includes(tag)){
-          control.click?.();
-        }
-        else if(['ui-input','ui-textarea'].includes(tag)){
-          control.focus?.();
-        }
-      });
+      if(!label.hasAttribute('for')) label.setAttribute('for',idControl);
     }
 
-    if(label.hasAttribute('required')){
-      const indicator = document.createElement('span');
-      indicator.textContent = this.getAttribute('indicator') ?? this.#requiredIndicator;
-      this.append(indicator);
+    if(!control.hasAttribute('id')){
+      control.setAttribute('config',`{"id":"${idControl}"}`);
     }
   }
-
-  #addRequired(){
-    UIField.elements.forEach(tag => {
-      this.querySelectorAll(tag).forEach(element => element.setAttribute('required',''));
-    });
-  }
-
 }
 customElements.define('ui-field',UIField);

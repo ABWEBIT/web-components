@@ -56,8 +56,7 @@ export class UISwitch extends LitElement{
       .disabled=${this.disabled}
       .required=${this.required}
       @change=${this.#onChange}
-    />
-    <span></span>`;
+    ><span></span>`;
   }
 }
 customElements.define('ui-switch',UISwitch);
