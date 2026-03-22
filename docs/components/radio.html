@@ -22,7 +22,7 @@
 </div>
 
 <h3>Config</h3>
-<div>Each property inside the config JSON string must be enclosed in double quotes. This applies both to the property names and their values.</div>
+<div>Each property in the JSON config must be enclosed in double quotes, both property names and their values, except for the boolean values true and false.</div>
 <div class="example">
   <div class="example-preview">
     <ui-radio config='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'></ui-radio>
@@ -55,8 +55,8 @@
   Label&lt;ui-radio&gt;&lt;/ui-radio&gt;
 &lt;/label&gt;
 
-&lt;label for="input"&gt;&lt;/label&gt;
-Label&lt;ui-radio config='{"id":"input"}'&gt;&lt;/ui-radio&gt;
+&lt;label for="input"&gt;Label&lt;/label&gt;
+&lt;ui-radio config='{"id":"input"}'&gt;&lt;/ui-radio&gt;
 </code></pre>
   </div>
 </div>

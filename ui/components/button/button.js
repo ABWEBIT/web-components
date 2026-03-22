@@ -11,7 +11,16 @@ export class UIButton extends LitElement{
     config:{type:Object}
   };
 
-  static list = ['id','class','type'];
+  static list = [
+    'id',
+    'class',
+    'type',
+    'role',
+    'name',
+    'value',
+    'accesskey',
+    'aria-label'
+  ];
 
   createRenderRoot(){return this;}
 

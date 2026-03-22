@@ -14,13 +14,35 @@
 <div class="example">
   <div class="example-preview">
     <ui-switch></ui-switch>
-    <ui-switch disabled></ui-switch>
-    <ui-switch checked></ui-switch>
-    <ui-switch disabled checked></ui-switch>
   </div>
   <div class="example-code">
 <pre><code>
 &lt;ui-switch&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Config</h3>
+<div>Each property in the JSON config must be enclosed in double quotes, both property names and their values, except for the boolean values true and false.</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch config='{
+      "id":"unique-id",
+      "class":"utility-class",
+      "name":"product-id",
+      "value":"on"
+    }'></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox
+  config='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "name":"product-id",
+    "value":"on"
+  }'&gt;
+&lt;/ui-checkbox&gt;
 </code></pre>
   </div>
 </div>

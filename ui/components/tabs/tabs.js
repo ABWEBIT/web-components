@@ -16,7 +16,7 @@ export class UITabs extends HTMLElement{
     }
     tablist.role = 'tablist';
 
-    this.#tabs = tablist.querySelectorAll('button');
+    this.#tabs = [...tablist.getElementsByTagName('button')];
     this.#panels = this.querySelectorAll(':scope > div + div');
 
     if(this.#tabs.length !== this.#panels.length){

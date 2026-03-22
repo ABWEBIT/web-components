@@ -14,7 +14,6 @@ ui-spinner{
   height:var(--spinner-height);
   width:var(--spinner-width);
   background-color:var(--spinner-bg);
-  cursor:var(--cursor-busy);
 
   &::before,
   &::after{

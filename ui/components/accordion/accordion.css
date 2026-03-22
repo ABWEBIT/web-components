@@ -15,11 +15,11 @@ ui-accordion-item{
 
   position:relative;
   display:grid;
-  transition-duration:inherit;
 
   border-radius:var(--accordion-border-radius);
   background-color:var(--accordion-bg);
 
+  transition-duration:inherit;
   transition-property:grid-template-rows;
   transition-timing-function:ease-in-out;
 
@@ -57,6 +57,7 @@ ui-accordion-item{
   }
 
   & > :is(h2,h3,h4,h5,h6):first-child > button{
+    display:flex;
     column-gap:10px;
     text-align:start;
     padding-block:var(--accordion-padding-block);

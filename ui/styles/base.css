@@ -4,7 +4,7 @@
   --scaling:1;
   --font-size-default:calc(1rem * var(--scaling));
 
-  --font-family-sans:ui-sans-serif,"Segoe UI",system-ui,sans-serif;
+  --font-family-sans:ui-sans-serif,system-ui,sans-serif;
   --font-family-serif:ui-serif,serif;
   --font-family-monospace:ui-monospace,monospace;
   --font-family-emoji:'Apple Color Emoji','Segoe UI Emoji';
@@ -90,5 +90,14 @@ img,picture,video,canvas{
 
 iframe{
   width:100%;
+  border:none;
+}
+
+/* */
+button{
+  appearance:none;
+  margin:0;
+  padding:0;
+  background:none;
   border:none;
 }

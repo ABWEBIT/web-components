@@ -21,6 +21,7 @@
 @import '../components/accordion/accordion.css';
 @import '../components/alert/alert.css';
 @import '../components/breadcrumb/breadcrumb.css';
+@import '../components/disclosure/disclosure.css';
 @import '../components/tabs/tabs.css';
 
 /* utilities */

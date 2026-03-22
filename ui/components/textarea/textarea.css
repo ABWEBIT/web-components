@@ -45,6 +45,10 @@ ui-textarea{
       cursor:var(--cursor-disabled);
     }
 
+    &::placeholder{
+      color:var(--control-fg-placeholder);
+    }
+
     &:focus-visible{
       outline-color:var(--focus-ring-color);
     }

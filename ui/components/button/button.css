@@ -6,10 +6,10 @@ ui-button{
   --button-icon-size:var(--icon-md);
   --button-column-gap:calc(var(--button-size) * 0.25);
 
-  --button-fg:var(--variant-fg);
-  --button-bg:var(--variant-bg);
-  --button-bg-hover:var(--variant-bg-hover);
-  --button-bg-pressed:var(--variant-bg-pressed);
+  --button-fg:var(--variant-fg,var(--variant-solid-fg,var(--variant-soft-fg-gray)));
+  --button-bg:var(--variant-bg,var(--variant-solid-bg,var(--variant-soft-bg-gray)));
+  --button-bg-hover:var(--variant-bg-hover,var(--variant-solid-bg-hover,var(--variant-soft-bg-gray-hover)));
+  --button-bg-pressed:var(--variant-bg-pressed,var(--variant-solid-bg-pressed,var(--variant-soft-bg-gray-pressed)));
 
   position:relative;
   display:inline-flex;
@@ -20,6 +20,14 @@ ui-button{
   height:var(--button-size);
   width:auto;
   border-radius:var(--button-border-radius);
+
+  transition-duration:var(--duration-default);
+  transition-property:transform;
+
+  &[disabled]{
+    --variant-fg:var(--control-fg-disabled);
+    --variant-bg:var(--control-bg-disabled);
+  }
 
   &[size="small"]{
     --button-size:var(--control-action-sm);
@@ -48,8 +56,6 @@ ui-button{
     width:var(--button-size);
   }
 
-  &:not([justify]),
-  &[justify="center"]{--button-justify-content:center;}
   &[justify="start"]{--button-justify-content:flex-start;}
   &[justify="end"]{--button-justify-content:flex-end;}
 
@@ -57,12 +63,6 @@ ui-button{
   &[radius="none"]{--button-border-radius:var(--radius-none);}
 
   & > button{
-    appearance:none;
-    margin:0;
-    padding:0;
-    background:none;
-    border:none;
-
     letter-spacing:0.02em;
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
@@ -82,10 +82,12 @@ ui-button{
     line-height:0;
 
     column-gap:var(--button-column-gap);
-    justify-content:var(--button-justify-content);
+    justify-content:var(--button-justify-content,center);
     padding-inline:var(--button-padding-inline);
     font-family:var(--font-family-default);
     font-size:var(--button-font-size);
+    /*font-weight:var(--font-weight-medium);*/
+
 
     color:var(--button-fg);
     background-color:var(--button-bg);
@@ -120,7 +122,7 @@ ui-button{
 
   & > ui-spinner{
     --spinner-icon-size:var(--button-icon-size);
-    --spinner-bg:var(--button-bg);
+    --spinner-bg:var(--control-bg-disabled);
     --spinner-border-radius:var(--button-border-radius);
   }
 }

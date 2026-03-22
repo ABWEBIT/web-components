@@ -22,6 +22,7 @@ import './components/field/field.js';
 import './components/accordion/accordion.js';
 import './components/alert/alert.js';
 import './components/breadcrumb/breadcrumb.js';
+import './components/disclosure/disclosure.js';
 import './components/tabs/tabs.js';
 
 /* utilities */

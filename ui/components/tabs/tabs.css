@@ -1,5 +1,5 @@
 ui-tabs{
-  --tabs-border-radius:var(--radius-base);
+  --tabs-border-radius:var(--radius-md);
   --tabs-gap:10px;
 
   --tabs-tab-padding-inline:20px;
@@ -8,14 +8,14 @@ ui-tabs{
   --tabs-tab-surface-color-hover:var(--surface-color-hover);
   --tabs-tab-surface-color-active:var(--surface-color-active);
 
-  --tabs-tab-fg:var(--content-color-default);
-
   --tabs-tabpanel-padding-inline:20px;
   --tabs-tabpanel-padding-block:16px;
 
+  --tabs-tab-fg:var(--content-color-default);
   --tabs-tabpanel-bg:var(--surface-bg);
   --tabs-tabpanel-fg:var(--content-color-default);
 
+  position:relative;
   display:flex;
   flex-direction:column;
   width:100%;
@@ -26,25 +26,26 @@ ui-tabs{
   }
 
   /* tablist */
-  & > div[role="tablist"]{
+  & > [role="tablist"]{
     display:flex;
     flex-wrap:wrap;
     gap:var(--tabs-gap);
   }
 
-  &[orientation="vertical"] > div[role="tablist"]{
+  &[orientation="vertical"] > [role="tablist"]{
     flex-direction:column;
     flex-shrink:0;
   }
 
   /* tab */
-  & > div[role="tablist"] > button[role="tab"]{
+  & > [role="tablist"] > button[role="tab"]{
     --button-bg:var(--tabs-tab-bg);
     border-radius:var(--tabs-border-radius);
     padding-inline:var(--tabs-tab-padding-inline);
     padding-block:var(--tabs-tab-padding-block);
     color:var(--tabs-tab-content-color-default);
-    font-size:var(--font-size-large);
+    font-family:var(--font-family-default);
+    font-size:var(--button-font-size);
 
     @media (hover: hover){
       &:not([data-selected],:disabled):hover{
@@ -58,7 +59,7 @@ ui-tabs{
   }
 
   /* tabpanel */
-  & > div[role="tabpanel"]{
+  & > [role="tabpanel"]{
     height:fit-content;
     border-radius:var(--tabs-border-radius);
     padding-inline:var(--tabs-tabpanel-padding-inline);
@@ -71,7 +72,7 @@ ui-tabs{
     & > :is(ul,ol){padding-inline-start:20px;}
   }
 
-  &[orientation="vertical"] > div[role="tabpanel"]{
+  &[orientation="vertical"] > [role="tabpanel"]{
     flex-grow:1;
   }
 }

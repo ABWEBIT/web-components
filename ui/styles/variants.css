@@ -6,11 +6,6 @@
   --variant-bg:var(--variant-solid-bg);
 }
 
-[variant="solid"][disabled]{
-  --variant-fg:var(--control-fg-disabled);
-  --variant-bg:var(--control-bg-disabled);
-}
-
 @media (hover: hover){
   [variant="solid"]:has( > :is(button):not(:disabled):hover){
     --variant-bg-hover:var(--variant-solid-bg-hover);
@@ -25,26 +20,6 @@
 [variant="soft"]{
   --variant-fg:var(--variant-soft-fg);
   --variant-bg:var(--variant-soft-bg);
-}
-
-[variant="soft"][disabled]{
-  --variant-fg:var(--control-fg-disabled);
-  --variant-bg:var(--control-bg-disabled);
-}
-
-[variant="soft"]:after{
-  pointer-events:none;
-  position:absolute;
-  content:'';
-  inset:0;
-  border-radius:inherit;
-  border-width:var(--control-border-width);
-  border-style:var(--control-border-style);
-  border-color:var(--variant-outline-border-color);
-}
-
-[variant="soft"][disabled]:after{
-  border-color:var(--control-border-color-disabled);
 }
 
 @media (hover: hover){
@@ -64,7 +39,6 @@
 }
 
 [variant="outline"][disabled]{
-  --variant-fg:var(--control-fg-disabled);
   --variant-bg:transparent;
 }
 
@@ -100,7 +74,6 @@
 }
 
 [variant="text"][disabled]{
-  --variant-fg:var(--control-fg-disabled);
   --variant-bg:transparent;
 }
 
@@ -113,4 +86,3 @@
 [variant="text"]:has( > :is(button):not(:disabled):active){
   --variant-bg-pressed:var(--variant-text-bg-pressed);
 }
-
