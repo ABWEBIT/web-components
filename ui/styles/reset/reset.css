@@ -1,0 +1,46 @@
+*,::before,::after{
+  box-sizing:border-box;
+}
+
+html{
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body,
+p,
+ul,ol,
+dl,dt,dd,
+pre,code,
+figure,figcaption,
+blockquote,
+h1,h2,h3,h4,h5,h6{
+  margin:0;
+  padding:0;
+}
+
+img,picture,
+video,
+canvas,svg,
+iframe{
+  display:block;
+  max-width:100%;
+}
+
+img,picture,
+video,
+canvas{
+  height:auto;
+}
+
+iframe{
+  width:100%;
+  border:none;
+}
+
+button{
+  appearance:none;
+  margin:0;
+  padding:0;
+  background:none;
+  border:none;
+}

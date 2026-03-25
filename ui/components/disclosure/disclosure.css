@@ -1,15 +1,20 @@
 ui-disclosure{
-  --disclosure-border-radius:var(--radius-base);
-  --disclosure-bg:var(--surface-bg);
+  --disclosure-border-radius:var(--radius-default);
 
-  --disclosure-padding-block:var(--padding-medium);
-  --disclosure-padding-inline:var(--padding-large);
+  --disclosure-padding-inline:0;
+  --disclosure-padding-block:1.25rem;
+  --disclosure-spacing:1.25rem;
+
+  --disclosure-fg:var(--fg-default);
+  --disclosure-bg:transparent;
 
   position:relative;
   display:grid;
+  grid-template-rows:max-content 0fr;
   width:100%;
 
   border-radius:var(--disclosure-border-radius);
+
   background-color:var(--disclosure-bg);
 
   transition-duration:var(--duration-default);
@@ -20,28 +25,43 @@ ui-disclosure{
     grid-template-rows:max-content 1fr;
   }
 
-  &:not([expanded]){
-    grid-template-rows:max-content 0fr;
+  &:is([variant="soft"],[variant="outline"],[variant="soft-outline"]){
+    --disclosure-padding-inline:1.5rem;
   }
 
-  & > ui-button{
-    --button-height:auto;
-    --button-width:100%;
-    --button-border-radius:var(--disclosure-border-radius);
-    --button-padding-inline:var(--disclosure-padding-inline);
-    --button-bg:transparent;
+  &:is([variant="soft"],[variant="soft-outline"]){
+    --disclosure-bg:var(--bg-surface);
+  }
 
-    column-gap:10px;
-    text-align:start;
+  &:is([variant="outline"],[variant="soft-outline"]){
+    border-color:red;
+  }
+
+  &[variant] > button{
     padding-block:var(--disclosure-padding-block);
-    font-size:inherit;
-    color:inherit;
-    transition-property:outline-color;
+  }
 
-    @media (hover: hover){
-      &:not(:disabled,[disabled]):hover{
-        text-decoration:underline;
-      }
+  &[variant] > :is(button,button + *){
+    padding-inline:var(--disclosure-padding-inline);
+  }
+
+  & > button{
+    position:relative;
+    display:flex;
+    align-items:center;
+    column-gap:calc(0.5rem * var(--scaling));
+    width:100%;
+    border-radius:var(--disclosure-border-radius);
+
+    font-size:calc(var(--font-size-default) * 1.125);
+
+    color:var(--fg-default);
+
+    transition-duration:var(--duration-default);
+    transition-property:background-color,outline-color;
+
+    &:disabled{
+      color:var(--control-fg-disabled);
     }
 
     & > ui-icon:last-of-type{
@@ -53,9 +73,22 @@ ui-disclosure{
     }
   }
 
-  & > div{
+  & > button + *{
     overflow:hidden;
-    padding-inline:var(--disclosure-padding-inline);
+  }
+
+  &:not([variant]) > button + *::before{
+    display:block;
+    content:'';
+    width:100%;
+    height:var(--disclosure-spacing);
+  }
+
+  &[variant] > button + *::after{
+    display:block;
+    content:'';
+    width:100%;
+    height:var(--disclosure-spacing);
   }
 
 

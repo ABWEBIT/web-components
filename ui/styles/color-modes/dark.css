@@ -80,157 +80,28 @@
   /* bg = background | fg = foreground */
 
   /* backgrounds */
-  --bg-default:oklch(14% 0 255);
+  --bg-default:oklch(0.14 0 0);
+  --bg-surface:oklch(0.22 0 0);
 
   /* foregrounds */
-  --fg-intense:oklch(98% 0 0);
-  --fg-default:oklch(95% 0 0);
-  --fg-muted:oklch(80% 0 0);
-  --fg-subtle:oklch(70% 0 0);
-
-  /*=== variant: solid ===*/
-
-  /* color: gray */
-  --variant-solid-fg-gray:var(--color-black);
-  --variant-solid-bg-gray:var(--color-gray-12);
-  --variant-solid-bg-gray-hover:oklch(from var(--variant-solid-bg-gray) calc(l + 0.05) c h);
-  --variant-solid-bg-gray-pressed:oklch(from var(--variant-solid-bg-gray) calc(l - 0.03) c h);
-
-  /* color: blue */
-  --variant-solid-fg-blue:var(--color-white);
-  --variant-solid-bg-blue:var(--color-blue-8);
-  --variant-solid-bg-blue-hover:oklch(from var(--variant-solid-bg-blue) calc(l + 0.05) c h);
-  --variant-solid-bg-blue-pressed:oklch(from var(--variant-solid-bg-blue) calc(l - 0.03) c h);
-
-  /* color: green */
-  --variant-solid-fg-green:var(--color-white);
-  --variant-solid-bg-green:var(--color-green-8);
-  --variant-solid-bg-green-hover:oklch(from var(--variant-solid-bg-green) calc(l + 0.05) c h);
-  --variant-solid-bg-green-pressed:oklch(from var(--variant-solid-bg-green) calc(l - 0.03) c h);
-
-  /* color: yellow */
-  --variant-solid-fg-yellow:var(--color-white);
-  --variant-solid-bg-yellow:var(--color-yellow-8);
-  --variant-solid-bg-yellow-hover:oklch(from var(--variant-solid-bg-yellow) calc(l + 0.05) c h);
-  --variant-solid-bg-yellow-pressed:oklch(from var(--variant-solid-bg-yellow) calc(l - 0.03) c h);
-
-  /* color: red */
-  --variant-solid-fg-red:var(--color-white);
-  --variant-solid-bg-red:var(--color-red-8);
-  --variant-solid-bg-red-hover:oklch(from var(--variant-solid-bg-red) calc(l + 0.05) c h);
-  --variant-solid-bg-red-pressed:oklch(from var(--variant-solid-bg-red) calc(l - 0.03) c h);
-
-  /*=== variant: soft ===*/
-
-  /* color: gray */
-  --variant-soft-fg-gray:var(--color-gray-12);
-  --variant-soft-bg-gray:var(--color-gray-4);
-  --variant-soft-bg-gray-hover:oklch(from var(--variant-soft-bg-gray) calc(l + 0.03) c h);
-  --variant-soft-bg-gray-pressed:oklch(from var(--variant-soft-bg-gray) calc(l - 0.02) c h);
-
-  /* color: blue */
-  --variant-soft-fg-blue:var(--color-blue-10);
-  --variant-soft-bg-blue:var(--color-blue-3);
-  --variant-soft-bg-blue-hover:oklch(from var(--variant-soft-bg-blue) calc(l + 0.03) c h);
-  --variant-soft-bg-blue-pressed:oklch(from var(--variant-soft-bg-blue) calc(l - 0.02) c h);
-
-  /* color: green */
-  --variant-soft-fg-green:var(--color-green-10);
-  --variant-soft-bg-green:var(--color-green-3);
-  --variant-soft-bg-green-hover:oklch(from var(--variant-soft-bg-green) calc(l + 0.03) c h);
-  --variant-soft-bg-green-pressed:oklch(from var(--variant-soft-bg-green) calc(l - 0.02) c h);
-
-  /* color: yellow */
-  --variant-soft-fg-yellow:oklch(from var(--color-yellow-10) calc(l - 0.2) c h);
-  --variant-soft-bg-yellow:var(--color-yellow-3);
-  --variant-soft-bg-yellow-hover:oklch(from var(--variant-soft-bg-yellow) calc(l + 0.03) c h);
-  --variant-soft-bg-yellow-pressed:oklch(from var(--variant-soft-bg-yellow) calc(l - 0.02) c h);
-
-  /* color: red */
-  --variant-soft-fg-red:oklch(from var(--color-red-10) calc(l + 0.02) c h);
-  --variant-soft-bg-red:var(--color-red-3);
-  --variant-soft-bg-red-hover:oklch(from var(--variant-soft-bg-red) calc(l + 0.03) c h);
-  --variant-soft-bg-red-pressed:oklch(from var(--variant-soft-bg-red) calc(l - 0.02) c h);
-
-  /*=== variant: outline ===*/
-
-  /* color: gray */
-  --variant-outline-fg-gray:var(--variant-soft-fg-gray);
-  --variant-outline-bg-gray-hover:var(--color-gray-3);
-  --variant-outline-bg-gray-pressed:var(--color-gray-2);
-  --variant-outline-border-gray:var(--color-gray-10);
-
-  /* color: blue */
-  --variant-outline-fg-blue:var(--variant-soft-fg-blue);
-  --variant-outline-bg-blue-hover:var(--color-blue-3);
-  --variant-outline-bg-blue-pressed:var(--color-blue-2);
-  --variant-outline-border-blue:var(--color-blue-7);
-
-  /* color: green */
-  --variant-outline-fg-green:var(--variant-soft-fg-green);
-  --variant-outline-bg-green-hover:var(--color-green-3);
-  --variant-outline-bg-green-pressed:var(--color-green-2);
-  --variant-outline-border-green:var(--color-green-7);
-
-  /* color: yellow */
-  --variant-outline-fg-yellow:var(--variant-soft-fg-yellow);
-  --variant-outline-bg-yellow-hover:var(--color-yellow-3);
-  --variant-outline-bg-yellow-pressed:var(--color-yellow-2);
-  --variant-outline-border-yellow:var(--color-yellow-7);
-
-  /* color: red */
-  --variant-outline-fg-red:var(--variant-soft-fg-red);
-  --variant-outline-bg-red-hover:var(--color-red-3);
-  --variant-outline-bg-red-pressed:var(--color-red-2);
-  --variant-outline-border-red:var(--color-red-7);
-
-  /*=== variant: text ===*/
-
-  /* color: gray */
-  --variant-text-fg-gray:var(--variant-soft-fg-gray);
-  --variant-text-bg-gray-hover:var(--color-gray-4);
-  --variant-text-bg-gray-pressed:var(--color-gray-3);
-
-  /* color: blue */
-  --variant-text-fg-blue:var(--variant-soft-fg-blue);
-  --variant-text-bg-blue-hover:var(--color-blue-3);
-  --variant-text-bg-blue-pressed:var(--color-blue-2);
-
-  /* color: green */
-  --variant-text-fg-green:var(--variant-soft-fg-green);
-  --variant-text-bg-green-hover:var(--color-green-3);
-  --variant-text-bg-green-pressed:var(--color-green-2);
-
-  /* color: yellow */
-  --variant-text-fg-yellow:var(--variant-soft-fg-yellow);
-  --variant-text-bg-yellow-hover:var(--color-yellow-3);
-  --variant-text-bg-yellow-pressed:var(--color-yellow-2);
-
-  /* color: red */
-  --variant-text-fg-red:var(--variant-soft-fg-red);
-  --variant-text-bg-red-hover:var(--color-red-3);
-  --variant-text-bg-red-pressed:var(--color-red-2);
-
-
-
-
-
-
-
+  --fg-emphasis:oklch(0.98 0 0);
+  --fg-default:oklch(0.95 0 0);
+  --fg-muted:oklch(0.83 0 0);
+  --fg-subtle:oklch(0.71 0 0);
 
   /* control foregrounds */
   --control-fg:var(--color-white);
-  --control-fg-disabled:var(--color-gray-9);
-  --control-fg-placeholder:var(--color-gray-8);
+  --control-fg-disabled:oklch(0.56 0 0);
+  --control-fg-placeholder:oklch(0.68 0 0);
 
-  /* control background */
-  --control-bg:var(--color-solid-gray);
-  --control-bg-disabled:var(--color-gray-2);
+  /* control backgrounds */
+  --control-bg:oklch(0.32 0 0);
+  --control-bg-disabled:oklch(0.19 0 0);
 
   /* control borders */
-  --control-border-color:var(--color-gray-4);
-  --control-border-color-hover:var(--color-gray-5);
-  --control-border-color-disabled:var(--color-gray-3);
+  --control-border-color:oklch(0.29 0 0);
+  --control-border-color-hover:oklch(0.31 0 0);
+  --control-border-color-disabled:oklch(0.25 0 0);
 
 
 
@@ -246,7 +117,7 @@
   --spinner-thumb-color:oklch(from var(--color-blue-10) calc(l + 0.1) c h);
 
   /* link */
-  --link-color:oklch(70% 0.2 255);
+  --link-color:oklch(0.72 0.2 255);
   --link-color-hover:oklch(from var(--link-color) calc(l + 0.04) c h);
   --link-color-pressed:oklch(from var(--link-color) calc(l - 0.03) c h);
 
@@ -254,11 +125,147 @@
   --line-color:oklch(27% 0 0);
 
   /* focus-ring */
-  --focus-ring-color:oklch(70% 0.2 255);
+  --focus-ring-color:oklch(0.72 0.2 255);
 
   /* scrollbar */
-  --scrollbar-color:oklch(27% 0 0);
+  --scrollbar-color:oklch(0.27 0 0);
 
   /* selection */
   --selection-color:oklch(1 0 0 / 0.15);
+
+
+
+  /*=== variant: solid ===*/
+  /* color: dark-gray */
+  --solid-dark-gray-fg:var(--color-white);
+  --solid-dark-gray-bg:oklch(0.32 0 0);
+  --solid-dark-gray-bg-hover:oklch(0.37 0 0);
+  --solid-dark-gray-bg-pressed:oklch(0.29 0 0);
+
+  /* color: gray */
+  --solid-gray-fg:var(--color-black);
+  --solid-gray-bg:oklch(0.98 0 0);
+  --solid-gray-bg-hover:oklch(0.91 0 0);
+  --solid-gray-bg-pressed:oklch(0.81 0 0);
+
+  /* color: blue */
+  --solid-blue-fg:var(--color-white);
+  --solid-blue-bg:var(--color-blue-8);
+  --solid-blue-bg-hover:oklch(from var(--solid-blue-bg) calc(l + 0.05) c h);
+  --solid-blue-bg-pressed:oklch(from var(--solid-blue-bg) calc(l - 0.03) c h);
+
+  /* color: green */
+  --solid-green-fg:var(--color-white);
+  --solid-green-bg:var(--color-green-8);
+  --solid-green-bg-hover:oklch(from var(--solid-green-bg) calc(l + 0.05) c h);
+  --solid-green-bg-pressed:oklch(from var(--solid-green-bg) calc(l - 0.03) c h);
+
+  /* color: yellow */
+  --solid-yellow-fg:var(--color-white);
+  --solid-yellow-bg:var(--color-yellow-8);
+  --solid-yellow-bg-hover:oklch(from var(--solid-yellow-bg) calc(l + 0.05) c h);
+  --solid-yellow-bg-pressed:oklch(from var(--solid-yellow-bg) calc(l - 0.03) c h);
+
+  /* color: red */
+  --solid-red-fg:var(--color-white);
+  --solid-red-bg:var(--color-red-8);
+  --solid-red-bg-hover:oklch(from var(--solid-red-bg) calc(l + 0.05) c h);
+  --solid-red-bg-pressed:oklch(from var(--solid-red-bg) calc(l - 0.03) c h);
+
+  /*=== variant: soft ===*/
+  /* color: gray */
+  --soft-gray-fg:var(--color-white);
+  --soft-gray-bg:var(--color-gray-3);
+  --soft-gray-bg-hover:oklch(from var(--soft-gray-bg) calc(l + 0.03) c h);
+  --soft-gray-bg-pressed:oklch(from var(--soft-gray-bg) calc(l - 0.02) c h);
+
+  /* color: blue */
+  --soft-blue-fg:var(--color-blue-10);
+  --soft-blue-bg:var(--color-blue-3);
+  --soft-blue-bg-hover:oklch(from var(--soft-blue-bg) calc(l + 0.03) c h);
+  --soft-blue-bg-pressed:oklch(from var(--soft-blue-bg) calc(l - 0.02) c h);
+
+  /* color: green */
+  --soft-green-fg:var(--color-green-10);
+  --soft-green-bg:var(--color-green-3);
+  --soft-green-bg-hover:oklch(from var(--soft-green-bg) calc(l + 0.03) c h);
+  --soft-green-bg-pressed:oklch(from var(--soft-green-bg) calc(l - 0.02) c h);
+
+  /* color: yellow */
+  --soft-yellow-fg:oklch(from var(--color-yellow-10) calc(l - 0.2) c h);
+  --soft-yellow-bg:var(--color-yellow-3);
+  --soft-yellow-bg-hover:oklch(from var(--soft-yellow-bg) calc(l + 0.03) c h);
+  --soft-yellow-bg-pressed:oklch(from var(--soft-yellow-bg) calc(l - 0.02) c h);
+
+  /* color: red */
+  --soft-red-fg:oklch(from var(--color-red-10) calc(l + 0.02) c h);
+  --soft-red-bg:var(--color-red-3);
+  --soft-red-bg-hover:oklch(from var(--soft-red-bg) calc(l + 0.03) c h);
+  --soft-red-bg-pressed:oklch(from var(--soft-red-bg) calc(l - 0.02) c h);
+
+  /*=== variant: outline ===*/
+  /* color: gray */
+  --outline-dark-gray-fg:var(--color-gray-11);
+  --outline-dark-gray-bg-hover:var(--color-gray-4);
+  --outline-dark-gray-bg-pressed:var(--color-gray-2);
+  --outline-dark-gray-border:var(--outline-dark-gray-fg);
+
+  --outline-gray-fg:var(--color-white);
+  --outline-gray-bg-hover:var(--color-gray-4);
+  --outline-gray-bg-pressed:var(--color-gray-2);
+  --outline-gray-border:var(--outline-gray-fg);
+
+  /* color: blue */
+  --outline-blue-fg:var(--color-blue-11);
+  --outline-blue-bg-hover:var(--color-blue-3);
+  --outline-blue-bg-pressed:var(--color-blue-2);
+  --outline-blue-border:var(--color-blue-7);
+
+  /* color: green */
+  --outline-green-fg:var(--color-green-11);
+  --outline-green-bg-hover:var(--color-green-3);
+  --outline-green-bg-pressed:var(--color-green-2);
+  --outline-green-border:var(--color-green-7);
+
+  /* color: yellow */
+  --outline-yellow-fg:var(--color-yellow-11);
+  --outline-yellow-bg-hover:var(--color-yellow-3);
+  --outline-yellow-bg-pressed:var(--color-yellow-2);
+  --outline-yellow-border:var(--color-yellow-7);
+
+  /* color: red */
+  --outline-red-fg:var(--color-red-11);
+  --outline-red-bg-hover:var(--color-red-3);
+  --outline-red-bg-pressed:var(--color-red-2);
+  --outline-red-border:var(--color-red-7);
+
+  /*=== variant: ghost ===*/
+  /* color: gray */
+  --ghost-dark-gray-fg:var(--outline-dark-gray-fg);
+  --ghost-dark-gray-bg-hover:var(--color-gray-4);
+  --ghost-dark-gray-bg-pressed:var(--color-gray-2);
+
+  --ghost-gray-fg:var(--color-white);
+  --ghost-gray-bg-hover:var(--color-gray-4);
+  --ghost-gray-bg-pressed:var(--color-gray-2);
+
+  /* color: blue */
+  --ghost-blue-fg:var(--color-blue-11);
+  --ghost-blue-bg-hover:var(--color-blue-3);
+  --ghost-blue-bg-pressed:var(--color-blue-2);
+
+  /* color: green */
+  --ghost-green-fg:var(--color-green-11);
+  --ghost-green-bg-hover:var(--color-green-3);
+  --ghost-green-bg-pressed:var(--color-green-2);
+
+  /* color: yellow */
+  --ghost-yellow-fg:var(--color-yellow-11);
+  --ghost-yellow-bg-hover:var(--color-yellow-3);
+  --ghost-yellow-bg-pressed:var(--color-yellow-2);
+
+  /* color: red */
+  --ghost-red-fg:var(--color-red-11);
+  --ghost-red-bg-hover:var(--color-red-3);
+  --ghost-red-bg-pressed:var(--color-red-2);
 }

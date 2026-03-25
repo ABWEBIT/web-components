@@ -46,7 +46,7 @@ function generateNav(components){
     const button = document.createElement('ui-button');
 
     button.setAttribute('justify','start');
-    button.setAttribute('variant','text');
+    button.setAttribute('variant','ghost');
     button.className = 'menu-item';
     button.textContent = label;
     button.setAttribute('data-link',link);

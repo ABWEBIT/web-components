@@ -1,40 +1,38 @@
-/* Button | Badge / Chip | Alert | Card | Input | Tabs | MenuItem */
-
 /*=== solid ===*/
 [variant="solid"]{
-  --variant-fg:var(--variant-solid-fg);
-  --variant-bg:var(--variant-solid-bg);
+  --variant-fg:var(--solid-fg);
+  --variant-bg:var(--solid-bg);
 }
 
 @media (hover: hover){
   [variant="solid"]:has( > :is(button):not(:disabled):hover){
-    --variant-bg-hover:var(--variant-solid-bg-hover);
+    --variant-bg-hover:var(--solid-bg-hover);
   }
 }
 
 [variant="solid"]:has( > :is(button):not(:disabled):active){
-  --variant-bg-pressed:var(--variant-solid-bg-pressed);
+  --variant-bg-pressed:var(--solid-bg-pressed);
 }
 
 /*=== soft ===*/
 [variant="soft"]{
-  --variant-fg:var(--variant-soft-fg);
-  --variant-bg:var(--variant-soft-bg);
+  --variant-fg:var(--soft-fg);
+  --variant-bg:var(--soft-bg);
 }
 
 @media (hover: hover){
   [variant="soft"]:has( > button:not(:disabled):hover){
-    --variant-bg-hover:var(--variant-soft-bg-hover);
+    --variant-bg-hover:var(--soft-bg-hover);
   }
 }
 
 [variant="soft"]:has( > button:not(:disabled):active){
-  --variant-bg-pressed:var(--variant-soft-bg-pressed);
+  --variant-bg-pressed:var(--soft-bg-pressed);
 }
 
 /*=== outline ===*/
 [variant="outline"]{
-  --variant-fg:var(--variant-outline-fg);
+  --variant-fg:var(--outline-fg);
   --variant-bg:transparent;
 }
 
@@ -42,7 +40,7 @@
   --variant-bg:transparent;
 }
 
-[variant="outline"]:after{
+[variant="outline"]::after{
   pointer-events:none;
   position:absolute;
   content:'';
@@ -50,39 +48,39 @@
   border-radius:inherit;
   border-width:var(--control-border-width);
   border-style:var(--control-border-style);
-  border-color:var(--variant-outline-border-color);
+  border-color:var(--outline-border-color);
 }
 
-[variant="outline"][disabled]:after{
+[variant="outline"][disabled]::after{
   border-color:var(--control-border-color-disabled);
 }
 
 @media (hover: hover){
   [variant="outline"]:has( > :is(button):not(:disabled):hover){
-    --variant-bg-hover:var(--variant-outline-bg-hover);
+    --variant-bg-hover:var(--outline-bg-hover);
   }
 }
 
 [variant="outline"]:has( > :is(button):not(:disabled):active){
-  --variant-bg-pressed:var(--variant-outline-bg-pressed);
+  --variant-bg-pressed:var(--outline-bg-pressed);
 }
 
-/*=== text ===*/
-[variant="text"]{
-  --variant-fg:var(--variant-text-fg);
+/*=== ghost ===*/
+[variant="ghost"]{
+  --variant-fg:var(--ghost-fg);
   --variant-bg:transparent;
 }
 
-[variant="text"][disabled]{
+[variant="ghost"][disabled]{
   --variant-bg:transparent;
 }
 
 @media (hover: hover){
-  [variant="text"]:has( > :is(button):not(:disabled):hover){
-    --variant-bg-hover:var(--variant-text-bg-hover);
+  [variant="ghost"]:has( > :is(button):not(:disabled):hover){
+    --variant-bg-hover:var(--ghost-bg-hover);
   }
 }
 
-[variant="text"]:has( > :is(button):not(:disabled):active){
-  --variant-bg-pressed:var(--variant-text-bg-pressed);
+[variant="ghost"]:has( > :is(button):not(:disabled):active){
+  --variant-bg-pressed:var(--ghost-bg-pressed);
 }

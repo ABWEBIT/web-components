@@ -1,6 +1,6 @@
 a{
-  text-decoration-line:var(--decoration-line);
-  text-decoration-style:var(--decoration-style);
+  text-decoration-line:var(--decoration-type-underline);
+  text-decoration-style:var(--decoration-style-dashed);
   text-decoration-thickness:var(--decoration-thickness);
   text-underline-offset:var(--underline-offset);
   cursor:var(--cursor-interactive);

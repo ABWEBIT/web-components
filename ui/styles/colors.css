@@ -3,112 +3,108 @@
   --color-black:oklch(0 0 0);
 }
 
+ui-button:not([color]),
 [color="gray"]{
-  --variant-solid-fg:var(--variant-solid-fg-gray);
-  --variant-solid-bg:var(--variant-solid-bg-gray);
-  --variant-solid-bg-hover:var(--variant-solid-bg-gray-hover);
-  --variant-solid-bg-pressed:var(--variant-solid-bg-gray-pressed);
+  --solid-fg:var(--solid-gray-fg);
+  --solid-bg:var(--solid-gray-bg);
+  --solid-bg-hover:var(--solid-gray-bg-hover);
+  --solid-bg-pressed:var(--solid-gray-bg-pressed);
 
-  --variant-soft-fg:var(--variant-soft-fg-gray);
-  --variant-soft-bg:var(--variant-soft-bg-gray);
-  --variant-soft-bg-hover:var(--variant-soft-bg-gray-hover);
-  --variant-soft-bg-pressed:var(--variant-soft-bg-gray-pressed);
-  --variant-soft-border-color:var(--variant-soft-border-gray);
+  --soft-fg:var(--soft-gray-fg);
+  --soft-bg:var(--soft-gray-bg);
+  --soft-bg-hover:var(--soft-gray-bg-hover);
+  --soft-bg-pressed:var(--soft-gray-bg-pressed);
 
-  --variant-outline-fg:var(--variant-outline-fg-gray);
-  --variant-outline-bg-hover:var(--variant-outline-bg-gray-hover);
-  --variant-outline-bg-pressed:var(--variant-outline-bg-gray-pressed);
-  --variant-outline-border-color:var(--variant-outline-border-gray);
+  --outline-fg:var(--outline-gray-fg);
+  --outline-bg-hover:var(--outline-gray-bg-hover);
+  --outline-bg-pressed:var(--outline-gray-bg-pressed);
+  --outline-border-color:var(--outline-gray-border);
 
-  --variant-text-fg:var(--variant-text-fg-gray);
-  --variant-text-bg-hover:var(--variant-text-bg-gray-hover);
-  --variant-text-bg-pressed:var(--variant-text-bg-gray-pressed);
+  --ghost-fg:var(--ghost-gray-fg);
+  --ghost-bg-hover:var(--ghost-gray-bg-hover);
+  --ghost-bg-pressed:var(--ghost-gray-bg-pressed);
 }
 
 [color="blue"]{
-  --variant-solid-fg:var(--variant-solid-fg-blue);
-  --variant-solid-bg:var(--variant-solid-bg-blue);
-  --variant-solid-bg-hover:var(--variant-solid-bg-blue-hover);
-  --variant-solid-bg-pressed:var(--variant-solid-bg-blue-pressed);
+  --solid-fg:var(--solid-blue-fg);
+  --solid-bg:var(--solid-blue-bg);
+  --solid-bg-hover:var(--solid-blue-bg-hover);
+  --solid-bg-pressed:var(--solid-blue-bg-pressed);
 
-  --variant-soft-fg:var(--variant-soft-fg-blue);
-  --variant-soft-bg:var(--variant-soft-bg-blue);
-  --variant-soft-bg-hover:var(--variant-soft-bg-blue-hover);
-  --variant-soft-bg-pressed:var(--variant-soft-bg-blue-pressed);
-  --variant-soft-border-color:var(--variant-soft-border-blue);
+  --soft-fg:var(--soft-blue-fg);
+  --soft-bg:var(--soft-blue-bg);
+  --soft-bg-hover:var(--soft-blue-bg-hover);
+  --soft-bg-pressed:var(--soft-blue-bg-pressed);
 
-  --variant-outline-fg:var(--variant-outline-fg-blue);
-  --variant-outline-bg-hover:var(--variant-outline-bg-blue-hover);
-  --variant-outline-bg-pressed:var(--variant-outline-bg-blue-pressed);
-  --variant-outline-border-color:var(--variant-outline-border-blue);
+  --outline-fg:var(--outline-blue-fg);
+  --outline-bg-hover:var(--outline-blue-bg-hover);
+  --outline-bg-pressed:var(--outline-blue-bg-pressed);
+  --outline-border-color:var(--outline-blue-border);
 
-  --variant-text-fg:var(--variant-text-fg-blue);
-  --variant-text-bg-hover:var(--variant-text-bg-blue-hover);
-  --variant-text-bg-pressed:var(--variant-text-bg-blue-pressed);
+  --ghost-fg:var(--ghost-blue-fg);
+  --ghost-bg-hover:var(--ghost-blue-bg-hover);
+  --ghost-bg-pressed:var(--ghost-blue-bg-pressed);
 }
 
 [color="green"]{
-  --variant-solid-fg:var(--variant-solid-fg-green);
-  --variant-solid-bg:var(--variant-solid-bg-green);
-  --variant-solid-bg-hover:var(--variant-solid-bg-green-hover);
-  --variant-solid-bg-pressed:var(--variant-solid-bg-green-pressed);
+  --solid-fg:var(--solid-green-fg);
+  --solid-bg:var(--solid-green-bg);
+  --solid-bg-hover:var(--solid-green-bg-hover);
+  --solid-bg-pressed:var(--solid-green-bg-pressed);
 
-  --variant-soft-fg:var(--variant-soft-fg-green);
-  --variant-soft-bg:var(--variant-soft-bg-green);
-  --variant-soft-bg-hover:var(--variant-soft-bg-green-hover);
-  --variant-soft-bg-pressed:var(--variant-soft-bg-green-pressed);
-  --variant-soft-border-color:var(--variant-soft-border-green);
+  --soft-fg:var(--soft-green-fg);
+  --soft-bg:var(--soft-green-bg);
+  --soft-bg-hover:var(--soft-green-bg-hover);
+  --soft-bg-pressed:var(--soft-green-bg-pressed);
 
-  --variant-outline-fg:var(--variant-outline-fg-green);
-  --variant-outline-bg-hover:var(--variant-outline-bg-green-hover);
-  --variant-outline-bg-pressed:var(--variant-outline-bg-green-pressed);
-  --variant-outline-border-color:var(--variant-outline-border-green);
+  --outline-fg:var(--outline-green-fg);
+  --outline-bg-hover:var(--outline-green-bg-hover);
+  --outline-bg-pressed:var(--outline-green-bg-pressed);
+  --outline-border-color:var(--outline-green-border);
 
-  --variant-text-fg:var(--variant-text-fg-green);
-  --variant-text-bg-hover:var(--variant-text-bg-green-hover);
-  --variant-text-bg-pressed:var(--variant-text-bg-green-pressed);
+  --ghost-fg:var(--ghost-green-fg);
+  --ghost-bg-hover:var(--ghost-green-bg-hover);
+  --ghost-bg-pressed:var(--ghost-green-bg-pressed);
 }
 
 [color="yellow"]{
-  --variant-solid-fg:var(--variant-solid-fg-yellow);
-  --variant-solid-bg:var(--variant-solid-bg-yellow);
-  --variant-solid-bg-hover:var(--variant-solid-bg-yellow-hover);
-  --variant-solid-bg-pressed:var(--variant-solid-bg-yellow-pressed);
+  --solid-fg:var(--solid-yellow-fg);
+  --solid-bg:var(--solid-yellow-bg);
+  --solid-bg-hover:var(--solid-yellow-bg-hover);
+  --solid-bg-pressed:var(--solid-yellow-bg-pressed);
 
-  --variant-soft-fg:var(--variant-soft-fg-yellow);
-  --variant-soft-bg:var(--variant-soft-bg-yellow);
-  --variant-soft-bg-hover:var(--variant-soft-bg-yellow-hover);
-  --variant-soft-bg-pressed:var(--variant-soft-bg-yellow-pressed);
-  --variant-soft-border-color:var(--variant-soft-border-yellow);
+  --soft-fg:var(--soft-yellow-fg);
+  --soft-bg:var(--soft-yellow-bg);
+  --soft-bg-hover:var(--soft-yellow-bg-hover);
+  --soft-bg-pressed:var(--soft-yellow-bg-pressed);
 
-  --variant-outline-fg:var(--variant-outline-fg-yellow);
-  --variant-outline-bg-hover:var(--variant-outline-bg-yellow-hover);
-  --variant-outline-bg-pressed:var(--variant-outline-bg-yellow-pressed);
-  --variant-outline-border-color:var(--variant-outline-border-yellow);
+  --outline-fg:var(--outline-yellow-fg);
+  --outline-bg-hover:var(--outline-yellow-bg-hover);
+  --outline-bg-pressed:var(--outline-yellow-bg-pressed);
+  --outline-border-color:var(--outline-yellow-border);
 
-  --variant-text-fg:var(--variant-text-fg-yellow);
-  --variant-text-bg-hover:var(--variant-text-bg-yellow-hover);
-  --variant-text-bg-pressed:var(--variant-text-bg-yellow-pressed);
+  --ghost-fg:var(--ghost-yellow-fg);
+  --ghost-bg-hover:var(--ghost-yellow-bg-hover);
+  --ghost-bg-pressed:var(--ghost-yellow-bg-pressed);
 }
 
 [color="red"]{
-  --variant-solid-fg:var(--variant-solid-fg-red);
-  --variant-solid-bg:var(--variant-solid-bg-red);
-  --variant-solid-bg-hover:var(--variant-solid-bg-red-hover);
-  --variant-solid-bg-pressed:var(--variant-solid-bg-red-pressed);
+  --solid-fg:var(--solid-red-fg);
+  --solid-bg:var(--solid-red-bg);
+  --solid-bg-hover:var(--solid-red-bg-hover);
+  --solid-bg-pressed:var(--solid-red-bg-pressed);
 
-  --variant-soft-fg:var(--variant-soft-fg-red);
-  --variant-soft-bg:var(--variant-soft-bg-red);
-  --variant-soft-bg-hover:var(--variant-soft-bg-red-hover);
-  --variant-soft-bg-pressed:var(--variant-soft-bg-red-pressed);
-  --variant-soft-border-color:var(--variant-soft-border-red);
+  --soft-fg:var(--soft-red-fg);
+  --soft-bg:var(--soft-red-bg);
+  --soft-bg-hover:var(--soft-red-bg-hover);
+  --soft-bg-pressed:var(--soft-red-bg-pressed);
 
-  --variant-outline-fg:var(--variant-outline-fg-red);
-  --variant-outline-bg-hover:var(--variant-outline-bg-red-hover);
-  --variant-outline-bg-pressed:var(--variant-outline-bg-red-pressed);
-  --variant-outline-border-color:var(--variant-outline-border-red);
+  --outline-fg:var(--outline-red-fg);
+  --outline-bg-hover:var(--outline-red-bg-hover);
+  --outline-bg-pressed:var(--outline-red-bg-pressed);
+  --outline-border-color:var(--outline-red-border);
 
-  --variant-text-fg:var(--variant-text-fg-red);
-  --variant-text-bg-hover:var(--variant-text-bg-red-hover);
-  --variant-text-bg-pressed:var(--variant-text-bg-red-pressed);
+  --ghost-fg:var(--ghost-red-fg);
+  --ghost-bg-hover:var(--ghost-red-bg-hover);
+  --ghost-bg-pressed:var(--ghost-red-bg-pressed);
 }
