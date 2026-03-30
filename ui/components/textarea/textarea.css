@@ -5,7 +5,7 @@ ui-textarea{
   --textarea-padding:0.5rem 0.75rem;
 
   --textarea-fg:var(--variant-fg);
-  --textarea-bg:var(--variant-bg);
+  --textarea-bg:var(--variant-bg,var(--control-surface-inset));
   --textarea-border-color:var(--control-border-color);
 
   position:relative;
@@ -13,11 +13,10 @@ ui-textarea{
   border-radius:var(--textarea-border-radius);
 
   & > textarea{
-    appearance:none;
     margin:0;
     padding:0;
-    background:none;
     border:none;
+    background:none;
 
     width:inherit;
     padding-block:var(--textarea-padding);
@@ -26,7 +25,7 @@ ui-textarea{
     font-family:var(--font-family-default);
     font-size:var(--textarea-font-size);
     color:var(--textarea-fg);
-    background-color:transparent;
+    background-color:var(--textarea-bg);
 
     border-radius:inherit;
     border-width:var(--control-border-width);

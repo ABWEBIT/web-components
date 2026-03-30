@@ -1,6 +1,6 @@
 body{
-  background-color:var(--bg-default);
-  color:var(--fg-default);
+  background-color:var(--surface-default);
+  color:var(--on-surface-default);
 }
 
 ui-app{
@@ -12,9 +12,6 @@ ui-app{
   margin-inline:auto;
 }
 
-:is(h1,h2,h3,h4,h5,h6){
-  color:var(--fg-emphasis);
-}
 
 :is(h1,h2,h3,h4,h5,h6) ~ :is(h2,h3,h4,h5,h6){
   margin-block-start:calc(2.5rem * var(--scaling));
@@ -37,12 +34,12 @@ header{
   right:0;
   z-index:1;
   padding-block:10px;
-  background-color:var(--bg-default);
+  background-color:var(--surface-subtle);
   border-bottom:1px solid var(--line-color);
 }
 
 footer{
-  background-color:var(--bg-default);
+  background-color:var(--surface-subtle);
 }
 
 /* nav */
@@ -150,7 +147,7 @@ table :is(th,td){
 }
 
 .visual-block{
-  background-color:var(--surface-bg-secondary);
+  background-color:var(--color-surface-subtle);
 }
 
 /* icons */
@@ -169,11 +166,11 @@ table :is(th,td){
   row-gap:12px;
   padding:12px 10px 10px;
   align-items:center;
-  background-color:var(--surface-bg-secondary);
+  background-color:var(--color-surface-elevated);
   border-radius:var(--radius-lg);
 
 
   & > :not(ui-icon){
-    color:var(--fg-muted);
+    color:var(--on-surface-muted);
   }
 }

@@ -1,9 +1,10 @@
 ui-checkbox{
   --checkbox-size:var(--control-choice-md);
   --checkbox-border-radius:calc(var(--checkbox-size) * 0.25);
-  --checkbox-bg:var(--control-choice-bg);
-  --checkbox-bg-checked:var(--control-choice-bg-checked);
-  --checkbox-fg:var(--control-fg);
+
+  --checkbox-indicator:var(--control-indicator);
+  --checkbox-surface:var(--control-surface-inset);
+  --checkbox-surface-checked:var(--control-choice-bg-checked);
 
   position:relative;
   display:inline-flex;
@@ -23,22 +24,23 @@ ui-checkbox{
   &[radius="none"]{--checkbox-border-radius:var(--radius-none);}
 
   &[disabled]{
-    --checkbox-fg:var(--control-fg-disabled);
-    --checkbox-bg:var(--control-choice-bg-disabled);
-    --checkbox-bg-checked:var(--control-choice-bg-checked-disabled);
+    --checkbox-indicator:var(--control-on-surface-disabled);
+    --checkbox-surface:var(--control-surface-disabled);
+    --checkbox-surface-checked:transparent;
   }
 
   & > input[type="checkbox"]{
     appearance:none;
     margin:0;
     padding:0;
-    background:none;
     border:none;
+    background:none;
 
+    isolation:isolate;
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
 
-    background-color:var(--checkbox-bg);
+    background-color:var(--checkbox-surface);
 
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
@@ -83,7 +85,7 @@ ui-checkbox{
     pointer-events:none;
     display:block;
     opacity:0;
-    background-color:var(--checkbox-bg-checked);
+    background-color:var(--checkbox-surface-checked);
 
     transition-duration:var(--duration-default);
     transition-property:opacity;
@@ -112,7 +114,7 @@ ui-checkbox{
     width:calc(var(--checkbox-size) * 0.35);
     border:0;
     border-style:solid;
-    border-color:var(--checkbox-fg);
+    border-color:var(--checkbox-indicator);
     border-right-width:max(calc(var(--checkbox-size) * 0.15),2px);
     border-bottom-width:max(calc(var(--checkbox-size) * 0.15),2px);
     transform:translate(-48%,-60%) rotate(45deg);
@@ -121,7 +123,7 @@ ui-checkbox{
   & > span::after{
     height:round(calc(var(--checkbox-size) * 0.15),1px);
     width:calc(var(--checkbox-size) * 0.5);
-    background-color:var(--checkbox-fg);
+    background-color:var(--checkbox-indicator);
     transform:translate(-50%,-50%);
   }
 

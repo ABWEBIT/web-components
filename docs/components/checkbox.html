@@ -11,6 +11,22 @@
 <p>radius - static (optional). Controls how rounded the corners are. Available options: full, none.</p>
 <p>size - static (optional). Controls the overall size of the element. Available options: small, medium (default), large.</p>
 
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox disabled></ui-checkbox>
+    <ui-checkbox disabled indeterminate></ui-checkbox>
+    <ui-checkbox disabled checked></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox disabled&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox disabled indeterminate&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox disabled checked&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
 <h3>Default</h3>
 <div class="example">
   <div class="example-preview">
@@ -63,11 +79,11 @@
   </div>
 </div>
 
-<h3>Select All</h3>
+<h3>Check All</h3>
 <div class="example">
   <div class="example-preview">
     <label>
-      Select All
+      Check All
       <ui-checkbox parent="example"></ui-checkbox>
     </label>
     <ui-separator orientation="vertical"></ui-separator>
@@ -106,7 +122,7 @@
   </div>
 </div>
 
-<h3>Corners</h3>
+<h3>Radius</h3>
 <div class="example">
   <div class="example-preview">
     <ui-checkbox checked radius="full"></ui-checkbox>

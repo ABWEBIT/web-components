@@ -1,9 +1,10 @@
 ui-radio{
   --radio-size:var(--control-choice-md);
   --radio-border-radius:var(--radius-full);
-  --radio-bg:var(--control-choice-bg);
-  --radio-bg-checked:var(--control-choice-bg-checked);
-  --radio-fg:var(--control-fg);
+
+  --radio-indicator:var(--control-indicator);
+  --radio-surface:var(--control-surface-inset);
+  --radio-surface-checked:var(--control-choice-bg-checked);
 
   position:relative;
   display:inline-flex;
@@ -20,22 +21,23 @@ ui-radio{
   &[size="large"]{--radio-size:var(--control-choice-lg);}
 
   &[disabled]{
-    --radio-bg:var(--control-choice-bg-disabled);
-    --radio-bg-checked:var(--control-choice-bg-checked-disabled);
-    --radio-fg:var(--control-fg-disabled);
+    --radio-indicator:var(--on-surface-disabled);
+    --radio-surface:var(--control-surface-disabled);
+    --radio-surface-checked:var(--control-surface-disabled);
   }
 
   & > input[type="radio"]{
     appearance:none;
     margin:0;
     padding:0;
-    background:none;
     border:none;
+    background:none;
 
+    isolation:isolate;
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
 
-    background-color:var(--radio-bg);
+    background-color:var(--radio-surface);
 
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
@@ -81,7 +83,7 @@ ui-radio{
     display:flex;
     align-items:center;
     justify-content:center;
-    background-color:var(--radio-bg-checked);
+    background-color:var(--radio-surface-checked);
 
     opacity:0;
 
@@ -98,7 +100,7 @@ ui-radio{
     position:absolute;
     border-radius:inherit;
 
-    background-color:var(--radio-fg);
+    background-color:var(--radio-indicator);
 
     height:round(calc(var(--radio-size) * 0.5 - var(--radio-size) * 0.1),1px);
     width:round(calc(var(--radio-size) * 0.5 - var(--radio-size) * 0.1),1px);

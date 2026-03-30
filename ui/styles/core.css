@@ -11,9 +11,9 @@
   --control-border-style:solid;
 
   /* control paddings */
-  --control-padding-sm:round(calc(0.5rem * var(--scaling)),2px);
-  --control-padding-md:round(calc(0.75rem * var(--scaling)),2px);
-  --control-padding-lg:round(calc(1rem * var(--scaling)),2px);
+  --control-padding-sm:round(calc(0.75rem * var(--scaling)),2px);
+  --control-padding-md:round(calc(1rem * var(--scaling)),2px);
+  --control-padding-lg:round(calc(1.25rem * var(--scaling)),2px);
 
   /* checkbox | switch | radio */
   --control-choice-sm:round(calc(1rem * var(--scaling)),2px);
@@ -21,9 +21,9 @@
   --control-choice-lg:round(calc(1.5rem * var(--scaling)),2px);
 
   /* button | input | textarea */
-  --control-action-sm:round(calc(1.5rem * var(--scaling)),2px);
-  --control-action-md:round(calc(2rem * var(--scaling)),2px);
-  --control-action-lg:round(calc(2.5rem * var(--scaling)),2px);
+  --control-action-sm:round(calc(2rem * var(--scaling)),2px);
+  --control-action-md:round(calc(2.5rem * var(--scaling)),2px);
+  --control-action-lg:round(calc(3rem * var(--scaling)),2px);
 
   /* button | input | textarea */
   --control-font-sm:round(calc(0.875rem * var(--scaling)),2px);
@@ -106,7 +106,6 @@ summary{
   background-color:var(--selection-color);
 }
 
-/* forms */
 label{
   display:flex;
   align-items:center;
@@ -119,12 +118,14 @@ label{
   touch-action:manipulation;
 }
 
-/* change the cursor for interactive elements */
-select{
-  cursor:var(--cursor-interactive);
-}
-
 button{
+  appearance:none;
+  margin:0;
+  padding:0;
+  border:none;
+  background:none;
+
+  isolation:isolate;
   cursor:var(--cursor-interactive);
   touch-action:manipulation;
 
@@ -145,10 +146,4 @@ button{
   &:disabled{
     cursor:var(--cursor-disabled);
   }
-}
-
-/* animation */
-@keyframes spin{
-  0% {transform:rotate(0deg);}
-  100% {transform:rotate(360deg);}
 }

@@ -44,12 +44,12 @@ h6{
   font-size:calc(1rem * var(--scaling));
 }
 
-strong{
+strong,b{
   font-weight:var(--font-weight-bold);
   font-style:inherit;
 }
 
-em{
+em,i{
   font-style:var(--font-style-italic);
 }
 
@@ -65,8 +65,9 @@ blockquote{
 
 u{
   text-decoration-line:var(--decoration-type-underline);
-  text-decoration-style:var(--decoration-style-dashed);
+  text-decoration-style:var(--decoration-style-solid);
   text-decoration-thickness:var(--decoration-thickness);
+  text-underline-offset:var(--underline-offset);
 }
 
 pre,code{

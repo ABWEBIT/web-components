@@ -5,7 +5,7 @@ ui-input{
   --input-font-size:var(--control-font-md);
 
   --input-fg:var(--variant-fg);
-  --input-bg:var(--variant-bg);
+  --input-bg:var(var(--control-surface-inset));
   --input-border-color:var(--control-border-color);
 
   position:relative;
@@ -76,7 +76,7 @@ ui-input{
     }
 
     &::placeholder{
-      color:var(--control-fg-placeholder);
+      color:var(--control-placeholder);
     }
 
     &:focus-visible{

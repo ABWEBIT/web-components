@@ -54,7 +54,7 @@ export class UIInput extends LitElement{
 
     return html`
     <input
-      type=${config.name || 'text'}
+      type=${config.type || 'text'}
       id=${config.id || nothing}
       class=${config.class || nothing}
       name=${config.name || nothing}
@@ -62,7 +62,8 @@ export class UIInput extends LitElement{
       placeholder=${config.placeholder || nothing}
 
       .disabled=${this.disabled}
-      .required=${this.required} />
+      .required=${this.required}
+    >
 
       ${this.clearable ?
       html`

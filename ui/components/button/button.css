@@ -7,9 +7,7 @@ ui-button{
   --button-column-gap:calc(var(--button-size) * 0.25);
 
   --button-fg:var(--variant-fg,var(--solid-fg));
-  --button-bg:var(--variant-bg,var(--solid-bg));
-  --button-bg-hover:var(--variant-bg-hover,var(--solid-bg-hover));
-  --button-bg-pressed:var(--variant-bg-pressed,var(--solid-bg-pressed));
+  --button-bg:var(--variant-bg,var(--control-surface-default));
 
   position:relative;
   display:inline-flex;
@@ -25,13 +23,12 @@ ui-button{
   transition-property:transform;
 
   &[disabled]{
-    --button-fg:var(--control-fg-disabled);
+    --button-fg:var(--on-surface-disabled);
 
     &:not([variant="outline"],[variant="ghost"]){
-      --button-bg:var(--control-bg-disabled);
+      --button-bg:var(--control-surface-disabled);
     }
   }
-
 
   &[size="small"]{
     --button-size:var(--control-action-sm);
@@ -66,9 +63,14 @@ ui-button{
   &[radius="full"]{--button-border-radius:var(--radius-full);}
   &[radius="none"]{--button-border-radius:var(--radius-none);}
 
-
-
   & > button{
+    appearance:none;
+    margin:0;
+    padding:0;
+    border:none;
+    background:none;
+
+    isolation:isolate;
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
 
@@ -78,7 +80,7 @@ ui-button{
     vertical-align:top;
     height:inherit;
     width:inherit;
-    border-radius:inherit;
+    border-radius:var(--button-border-radius);
     line-height:1;
 
     column-gap:var(--button-column-gap);
@@ -107,15 +109,7 @@ ui-button{
       outline-color:var(--focus-ring-color);
     }
 
-    @media (hover: hover){
-      &:not(:disabled):hover{
-        --button-bg:var(--button-bg-hover);
-      }
-    }
 
-    &:not(:disabled):active{
-      --button-bg:var(--button-bg-pressed);
-    }
   }
 
   & > button > ui-icon{
@@ -130,27 +124,47 @@ ui-button{
     --spinner-border-radius:var(--button-border-radius);
   }
 
+
+
+
   /*=== variant ===*/
   /* solid */
   &[variant="solid"]{
-    --variant-fg:var(--solid-fg);
-    --variant-bg:var(--solid-bg);
+    --variant-fg:var(--color-on-surface);
+    --variant-bg:var(--color-surface);
+  }
+
+  &[variant="solid"] > button:not(:disabled)::before{
+    pointer-events:none;
+    position:absolute;
+    content:'';
+    inset:0;
+    z-index:-1;
+    border-radius:var(--button-border-radius);
+    transition-duration:var(--duration-default);
+    transition-property:background-color;
   }
 
   @media (hover: hover){
-    &[variant="solid"]:has( > :is(button):not(:disabled):hover){
-      --variant-bg-hover:var(--solid-bg-hover);
+    &[variant="solid"] > button:not(:disabled):hover::before{
+      background-color:oklch(from var(--color-on-surface) l c h / calc(
+        var(--state-hover-opacity) * var(--state-intensity)
+      ));
     }
   }
 
-  &[variant="solid"]:has( > :is(button):not(:disabled):active){
-    --variant-bg-pressed:var(--solid-bg-pressed);
+  &[variant="solid"] > button:not(:disabled):active::before{
+    background-color:oklch(from oklch(0 0 0) l c h / calc(
+      var(--state-pressed-opacity) * var(--state-intensity)
+    ));
   }
+
+
 
   /* soft */
   &[variant="soft"]{
-    --variant-fg:var(--soft-fg);
-    --variant-bg:var(--soft-bg);
+    --variant-fg:var(--color-soft);
+    --variant-bg:var(--color-surface-soft);
   }
 
   @media (hover: hover){
@@ -165,7 +179,7 @@ ui-button{
 
   /* outline */
   &[variant="outline"]{
-    --variant-fg:var(--soft-fg);
+    --variant-fg:var(--color-soft);
     --variant-bg:transparent;
   }
 
@@ -178,10 +192,10 @@ ui-button{
     position:absolute;
     content:'';
     inset:0;
-    border-radius:inherit;
+    border-radius:var(--button-border-radius);
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
-    border-color:var(--outline-border-color);
+    border-color:var(--color-soft);
   }
 
   &[variant="outline"][disabled]::after{
@@ -190,7 +204,7 @@ ui-button{
 
   @media (hover: hover){
     &[variant="outline"]:has( > :is(button):not(:disabled):hover){
-      --variant-bg-hover:var(--outline-bg-hover);
+      --variant-bg-hover:var(--color-surface-soft);
     }
   }
 
@@ -198,40 +212,9 @@ ui-button{
     --variant-bg-pressed:var(--outline-bg-pressed);
   }
 
-  /* soft-outline */
-  &[variant="soft-outline"]{
-    --variant-fg:var(--soft-fg);
-    --variant-bg:var(--soft-bg);
-  }
-
-  &[variant="soft-outline"]::after{
-    pointer-events:none;
-    position:absolute;
-    content:'';
-    inset:0;
-    border-radius:inherit;
-    border-width:var(--control-border-width);
-    border-style:var(--control-border-style);
-    border-color:var(--outline-border-color);
-  }
-
-  &[variant="soft-outline"][disabled]::after{
-    border-color:var(--control-border-color-disabled);
-  }
-
-  @media (hover: hover){
-    &[variant="soft-outline"]:has( > :is(button):not(:disabled):hover){
-      --variant-bg-hover:var(--soft-bg-hover);
-    }
-  }
-
-  &[variant="soft-outline"]:has( > :is(button):not(:disabled):active){
-    --variant-bg-pressed:var(--soft-bg-pressed);
-  }
-
   /* ghost */
   &[variant="ghost"]{
-    --variant-fg:var(--ghost-fg);
+    --variant-fg:var(--color-soft);
     --variant-bg:transparent;
   }
 
@@ -241,11 +224,16 @@ ui-button{
 
   @media (hover: hover){
     &[variant="ghost"]:has( > :is(button):not(:disabled):hover){
-      --variant-bg-hover:var(--ghost-bg-hover);
+      --variant-bg-hover:var(--color-surface-soft);
     }
   }
 
   &[variant="ghost"]:has( > :is(button):not(:disabled):active){
     --variant-bg-pressed:var(--ghost-bg-pressed);
+  }
+
+  &[variant="inverted"]{
+    --variant-fg:var(--color-soft);
+    --variant-bg:transparent;
   }
 }

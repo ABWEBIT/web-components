@@ -14,10 +14,11 @@ ui-select{
   appearance:none;
   margin:0;
   padding:0;
-  background:none;
+  background-color:transparent;
   border:none;
+  border-radius:0;
 
-  cursor:pointer;
+  cursor:var(--cursor-interactive);
 
   outline-width:var(--focus-ring-width);
   outline-style:var(--focus-ring-style);
@@ -38,13 +39,11 @@ ui-select{
   transition-duration:var(--duration-default);
   transition-property:background-color,outline-color;
 
-  &[disabled]{
-    cursor:not-allowed;
-    opacity:0.5;
-    pointer-events:auto;
+  &:disabled{
+    cursor:var(--cursor-disabled);
   }
 
-  &:focus-visible:not([disabled]){
+  &:focus-visible{
     outline-color:var(--focus-ring-color);
   }
 
