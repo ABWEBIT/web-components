@@ -26,9 +26,9 @@
   --control-action-lg:round(calc(3rem * var(--scaling)),2px);
 
   /* button | input | textarea */
-  --control-font-sm:round(calc(0.875rem * var(--scaling)),2px);
-  --control-font-md:round(calc(1rem * var(--scaling)),2px);
-  --control-font-lg:round(calc(1.125rem * var(--scaling)),2px);
+  --control-font-sm:calc(0.875rem * var(--scaling));
+  --control-font-md:calc(1rem * var(--scaling));
+  --control-font-lg:calc(1.125rem * var(--scaling));
 
   /* duration */
   --duration-fast:0.1s;

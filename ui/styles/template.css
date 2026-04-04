@@ -1,6 +1,6 @@
 body{
-  background-color:var(--surface-default);
-  color:var(--on-surface-default);
+  background-color:var(--bg-default);
+  color:var(--fg-default);
 }
 
 ui-app{
@@ -34,12 +34,12 @@ header{
   right:0;
   z-index:1;
   padding-block:10px;
-  background-color:var(--surface-subtle);
+  background-color:var(--bg-subtle);
   border-bottom:1px solid var(--line-color);
 }
 
 footer{
-  background-color:var(--surface-subtle);
+  background-color:var(--bg-subtle);
 }
 
 /* nav */
@@ -147,7 +147,7 @@ table :is(th,td){
 }
 
 .visual-block{
-  background-color:var(--color-surface-subtle);
+  background-color:var(--bg-subtle);
 }
 
 /* icons */
@@ -166,11 +166,11 @@ table :is(th,td){
   row-gap:12px;
   padding:12px 10px 10px;
   align-items:center;
-  background-color:var(--color-surface-elevated);
+  background-color:var(--bg-elevated);
   border-radius:var(--radius-lg);
-
+  font-size:var();
 
   & > :not(ui-icon){
-    color:var(--on-surface-muted);
+    color:var(--fg-muted);
   }
 }

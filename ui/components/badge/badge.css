@@ -1,0 +1,38 @@
+ui-badge{
+  --badge-size:round(calc(1.5rem * var(--scaling)),2px);
+  --badge-radius:calc(var(--badge-size) * 0.25);
+  --badge-padding-inline:round(calc(0.5rem * var(--scaling)),2px);
+  --badge-font-size:var(--control-font-sm);
+  --badge-column-gap:calc(var(--badge-size) * 0.25);
+
+  --badge-bg:var(--variant-bg,var(--color-bg-solid,var(--control-bg-default)));
+  --badge-fg:var(--variant-fg,var(--color-fg-solid,var(--control-fg-default)));
+
+  isolation:isolate;
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  vertical-align:middle;
+  justify-content:center;
+  white-space:nowrap;
+  line-height:1;
+
+  height:var(--badge-size);
+  min-width:var(--badge-size);
+  border-radius:var(--badge-radius);
+
+  column-gap:var(--badge-column-gap);
+  padding-inline:var(--badge-padding-inline);
+  font-family:var(--font-family-default);
+  font-size:var(--badge-font-size);
+
+  color:var(--badge-fg);
+  background-color:var(--badge-bg);
+
+  transition-duration:var(--duration-default);
+  transition-property:background-color,outline-color,border-color;
+
+
+  &[radius="full"]{--badge-radius:var(--radius-full);}
+  &[radius="none"]{--badge-radius:var(--radius-none);}
+}

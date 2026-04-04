@@ -1,29 +1,29 @@
 ui-radio{
   --radio-size:var(--control-choice-md);
-  --radio-border-radius:var(--radius-full);
+  --radio-radius:var(--radius-full);
 
-  --radio-indicator:var(--control-indicator);
-  --radio-surface:var(--control-surface-inset);
-  --radio-surface-checked:var(--control-choice-bg-checked);
+  --radio-indicator-color:var(--control-indicator-color);
+  --radio-bg:var(--control-choice-bg-inset);
+  --radio-bg-checked:var(--control-choice-bg-checked);
 
   position:relative;
-  display:inline-flex;
+  display:inline-block;
   vertical-align:middle;
   user-select:none;
   -webkit-user-select:none;
 
   height:var(--radio-size);
   width:var(--radio-size);
-  border-radius:var(--radio-border-radius);
+  border-radius:var(--radio-radius);
 
   &[size="small"]{--radio-size:var(--control-choice-sm);}
   &[size="medium"]{--radio-size:var(--control-choice-md);}
   &[size="large"]{--radio-size:var(--control-choice-lg);}
 
   &[disabled]{
-    --radio-indicator:var(--on-surface-disabled);
-    --radio-surface:var(--control-surface-disabled);
-    --radio-surface-checked:var(--control-surface-disabled);
+    --radio-indicator-color:var(--control-on-surface-disabled);
+    --radio-bg:var(--control-surface-disabled);
+    --radio-bg-checked:var(--control-surface-disabled);
   }
 
   & > input[type="radio"]{
@@ -37,7 +37,7 @@ ui-radio{
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
 
-    background-color:var(--radio-surface);
+    background-color:var(--radio-bg);
 
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
@@ -83,7 +83,7 @@ ui-radio{
     display:flex;
     align-items:center;
     justify-content:center;
-    background-color:var(--radio-surface-checked);
+    background-color:var(--radio-bg-checked);
 
     opacity:0;
 
@@ -100,7 +100,7 @@ ui-radio{
     position:absolute;
     border-radius:inherit;
 
-    background-color:var(--radio-indicator);
+    background-color:var(--radio-indicator-color);
 
     height:round(calc(var(--radio-size) * 0.5 - var(--radio-size) * 0.1),1px);
     width:round(calc(var(--radio-size) * 0.5 - var(--radio-size) * 0.1),1px);

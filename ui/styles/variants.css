@@ -1,29 +1,44 @@
-/*=== solid ===*/
+/* solid */
 [variant="solid"]{
-  --variant-fg:var(--color-on-surface);
-  --variant-bg:var(--color-surface);
+  --variant-fg:var(--color-fg-solid);
+  --variant-bg:var(--color-bg-solid);
 }
 
 [variant="solid"] > button:not(:disabled)::before{
+  content:'';
   pointer-events:none;
   position:absolute;
-  content:'';
   inset:0;
   z-index:-1;
-  border-radius:var(--button-border-radius);
   transition-duration:var(--duration-default);
   transition-property:background-color;
 }
 
 @media (hover: hover){
   [variant="solid"] > button:not(:disabled):hover::before{
-    background-color:oklch(from var(--color-on-surface) l c h / calc(
+    background-color:oklch(from var(--color-fg-solid) l c h / var(--state-hover-opacity));
+  }
+}
+
+[variant="solid"] > button:not(:disabled):active::before{
+  background-color:oklch(from oklch(0 0 0) l c h / var(--state-pressed-opacity));
+}
+
+/* soft */
+[variant="soft"]{
+  --variant-fg:var(--color-fg-soft);
+  --variant-bg:var(--color-bg-soft);
+}
+
+@media (hover: hover){
+  [variant="soft"] > button:not(:disabled):hover::before{
+    background-color:oklch(from oklch(1 0 0) l c h / calc(
       var(--state-hover-opacity) * var(--state-intensity)
     ));
   }
 }
 
-[variant="solid"] > button:not(:disabled):active::before{
+[variant="soft"] > button:not(:disabled):active::before{
   background-color:oklch(from oklch(0 0 0) l c h / calc(
     var(--state-pressed-opacity) * var(--state-intensity)
   ));
@@ -31,30 +46,9 @@
 
 
 
-
-/*=== soft ===*/
-[variant="soft"]{
-  --variant-fg:var(--soft-fg);
-  --variant-bg:var(--soft-bg);
-}
-
-@media (hover: hover){
-  [variant="soft"]:has( > button:not(:disabled):hover){
-    --variant-bg-hover:var(--soft-bg-hover);
-  }
-}
-
-[variant="soft"]:has( > button:not(:disabled):active){
-  --variant-bg-pressed:var(--soft-bg-pressed);
-}
-
-/*=== outline ===*/
+/* outline */
 [variant="outline"]{
-  --variant-fg:var(--outline-fg);
-  --variant-bg:transparent;
-}
-
-[variant="outline"][disabled]{
+  --variant-fg:var(--color-bg-outline);
   --variant-bg:transparent;
 }
 
@@ -66,16 +60,12 @@
   border-radius:inherit;
   border-width:var(--control-border-width);
   border-style:var(--control-border-style);
-  border-color:var(--outline-border-color);
-}
-
-[variant="outline"][disabled]::after{
-  border-color:var(--control-border-color-disabled);
+  border-color:var(--color-bg-outline);
 }
 
 @media (hover: hover){
   [variant="outline"]:has( > :is(button):not(:disabled):hover){
-    --variant-bg-hover:var(--outline-bg-hover);
+    --variant-bg:var(--color-bg-soft);
   }
 }
 
@@ -83,9 +73,11 @@
   --variant-bg-pressed:var(--outline-bg-pressed);
 }
 
-/*=== ghost ===*/
+
+
+/* ghost */
 [variant="ghost"]{
-  --variant-fg:var(--ghost-fg);
+  --variant-fg:var(--color-fg-soft);
   --variant-bg:transparent;
 }
 
@@ -95,7 +87,7 @@
 
 @media (hover: hover){
   [variant="ghost"]:has( > :is(button):not(:disabled):hover){
-    --variant-bg-hover:var(--ghost-bg-hover);
+    --variant-bg:var(--color-bg-soft);
   }
 }
 

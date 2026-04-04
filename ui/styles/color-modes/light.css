@@ -1,53 +1,58 @@
 :root[data-color-mode='light']{
-  --color-white:oklch(1 0 0);
-  --color-black:oklch(0 0 0);
+  --bg-default: oklch(0.97 0 0);
+  --bg-subtle:  oklch(0.93 0 0);
+  --bg-elevated:oklch(0.87 0 0);
+  --bg-overlay: oklch(0.73 0 0);
 
-  --surface-inset:   oklch(0.08 0 0);
-  --surface-default: oklch(0.97 0 0);
-  --surface-subtle:  oklch(0.93 0 0);
-  --surface-elevated:oklch(0.87 0 0);
-  --surface-overlay: oklch(0.73 0 0);
-
-  --on-surface-emphasis:oklch(10% 0 0);
-  --on-surface-default:oklch(14% 0 0);
-  --on-surface-muted:oklch(36% 0 0);
-  --on-surface-subtle:oklch(46% 0 0);
+  --fg-default:oklch(0.14 0 0);
+  --fg-muted:  oklch(0.36 0 0);
+  --fg-subtle: oklch(0.46 0 0);
 
   --state-intensity:1;
   --state-hover-opacity:0.08;
   --state-pressed-opacity:0.12;
 
 
-  /* control foregrounds */
-  --control-fg:var(--color-white);
-  --control-fg-disabled:oklch(from var(--color-black) l c h / 0.52);
+  /* checkbox | switch | radio | input | textarea */
+  --control-choice-bg-inset:oklch(0.92 0 0);
+  --control-choice-bg-checked:oklch(0.56 0.2 255);
 
-  /* control background */
-  --control-bg:var(--color-solid-gray);
-  --control-bg-disabled:oklch(from var(--color-black) l c h / 0.12);
+  --control-bg-inset:oklch(0.06 0 0);
+  --control-bg-default:oklch(0 0 0);
+  --control-bg-disabled:oklch(0.85 0 0);
 
-  /* control borders */
-  --control-border-color:var(--color-solid-gray);
-  --control-border-color-hover:oklch(from var(--control-border-color) calc(l + 0.04) c h);
-  --control-border-color-disabled:var(--control-fg-disabled);
+  --control-fg:oklch(1 0 0);
+  --control-fg-disabled:oklch(0.56 0 0);
 
 
 
-  /* checkbox | switch | radio */
-  --control-choice-bg:oklch(17% 0 0);
-  --control-choice-bg-disabled:oklch(27% 0 0);
-
-  --control-choice-bg-checked:var(--variant-solid-bg-blue);
-  --control-choice-bg-checked-disabled:oklch(40% 0 0);
+  --bg-soft:oklch(from oklch(0.69 0.01 240) l c h / 0.2);
+  --fg-soft:oklch(0 0 0);
 
 
 
-  /* link */
-  --link-color:oklch(45% 0.15 245);
-  --link-color-hover:oklch(from var(--link-color) calc(l + 0.05) c h);
-  --link-color-active:oklch(from var(--link-color) calc(l - 0.03) c h);
+  --control-border-color:oklch(0.29 0 0);
+  --control-border-color-disabled:oklch(0.35 0 0);
 
-  /* lines */
+
+
+  --control-indicator:oklch(1 0 0);
+  --control-indicator-disabled:oklch(0.56 0 0);
+
+  --control-thumb:oklch(1 0 0);
+  --control-track:oklch(0.08 0 0);
+
+  --control-placeholder:oklch(0.68 0 0);
+
+
+
+  --control-choice-bg-checked:oklch(0.56 0.2 255);
+
+
+
+
+
+  /* line */
   --line-color:oklch(75% 0 0);
 
   /* focus-ring */
@@ -58,4 +63,16 @@
 
   /* selection */
   --selection-color:oklch(0 0 0 / 0.1);
+
+  /* separator */
+  --separator-color:oklch(75% 0 0);
+
+  /* link */
+  --link-color:oklch(45% 0.15 245);
+  --link-color-hover:oklch(from var(--link-color) calc(l + 0.05) c h);
+  --link-color-active:oklch(from var(--link-color) calc(l - 0.03) c h);
+
+  /* spinner */
+  --spinner-track-color:oklch(0.72 0.2 255);
+  --spinner-thumb-color:oklch(0.88 0.1 255);
 }

@@ -30,6 +30,7 @@ const components = [
   {label: 'Breadcrumb', link: compPageDir+'breadcrumb.html', category: 'components' },
   {label: 'Disclosure', link: compPageDir+'disclosure.html', category: 'components' },
   {label: 'Tabs', link: compPageDir+'tabs.html', category: 'components' },
+  {label: 'Badge', link: compPageDir+'badge.html', category: 'components' },
 
   // Utilities
   {label: 'Focus', link: compPageDir+'focus.html', category: 'utilities' },

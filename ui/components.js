@@ -24,6 +24,7 @@ import './components/alert/alert.js';
 import './components/breadcrumb/breadcrumb.js';
 import './components/disclosure/disclosure.js';
 import './components/tabs/tabs.js';
+import './components/badge/badge.js';
 
 /* utilities */
 import './components/focus/focus.js';

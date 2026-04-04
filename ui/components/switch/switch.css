@@ -2,7 +2,7 @@ ui-switch{
   --switch-size:var(--control-choice-md);
   --switch-border-radius:var(--radius-full);
 
-  --switch-indicator:var(--control-indicator);
+  --switch-indicator-color:var(--control-indicator-color);
   --switch-surface:var(--control-surface-inset);
   --switch-surface-checked:var(--control-choice-bg-checked);
 
@@ -16,14 +16,14 @@ ui-switch{
   width:calc(var(--switch-size) * 2);
   border-radius:var(--switch-border-radius);
 
-  &[size="small"]{--switch-size:var(--control-choice-sm);}
-  &[size="medium"]{--switch-size:var(--control-choice-md);}
-  &[size="large"]{--switch-size:var(--control-choice-lg);}
+  &[size="sm"]{--switch-size:var(--control-choice-sm);}
+  &[size="md"]{--switch-size:var(--control-choice-md);}
+  &[size="lg"]{--switch-size:var(--control-choice-lg);}
 
   &[radius="none"]{--switch-border-radius:var(--radius-none);}
 
   &[disabled]{
-    --switch-indicator:var(--on-surface-disabled);
+    --switch-indicator-color:var(--on-surface-disabled);
     --switch-surface:var(--control-surface-disabled);
     --switch-surface-checked:var(--control-surface-disabled);
   }
@@ -101,7 +101,7 @@ ui-switch{
     height:calc(var(--switch-size) * 0.5);
     width:calc(var(--switch-size) * 0.5);
 
-    background-color:var(--switch-indicator);
+    background-color:var(--switch-indicator-color);
     margin-inline-start:calc(var(--switch-size) * 0.25);
 
     transition-duration:var(--duration-default);
