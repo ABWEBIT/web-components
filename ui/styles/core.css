@@ -1,6 +1,18 @@
 :root{
   /* sm = small | md = medium | lg = large */
 
+  /* checkbox | switch | radio */
+  --control-choice-sm:round(calc(1rem * var(--scaling)),2px);
+  --control-choice-md:round(calc(1.25rem * var(--scaling)),2px);
+  --control-choice-lg:round(calc(1.5rem * var(--scaling)),2px);
+
+  /* button | input | textarea */
+  --control-action-sm:round(calc(2rem * var(--scaling)),2px);
+  --control-action-md:round(calc(2.5rem * var(--scaling)),2px);
+  --control-action-lg:round(calc(3rem * var(--scaling)),2px);
+
+
+
   /* icon sizes */
   --icon-sm:round(calc(1rem * var(--scaling)),1px);
   --icon-md:round(calc(1.25rem * var(--scaling)),1px);
@@ -14,16 +26,6 @@
   --control-padding-sm:round(calc(0.75rem * var(--scaling)),2px);
   --control-padding-md:round(calc(1rem * var(--scaling)),2px);
   --control-padding-lg:round(calc(1.25rem * var(--scaling)),2px);
-
-  /* checkbox | switch | radio */
-  --control-choice-sm:round(calc(1rem * var(--scaling)),2px);
-  --control-choice-md:round(calc(1.25rem * var(--scaling)),2px);
-  --control-choice-lg:round(calc(1.5rem * var(--scaling)),2px);
-
-  /* button | input | textarea */
-  --control-action-sm:round(calc(2rem * var(--scaling)),2px);
-  --control-action-md:round(calc(2.5rem * var(--scaling)),2px);
-  --control-action-lg:round(calc(3rem * var(--scaling)),2px);
 
   /* button | input | textarea */
   --control-font-sm:calc(0.875rem * var(--scaling));
@@ -125,10 +127,10 @@ button{
   border:none;
   background:none;
 
-  isolation:isolate;
   cursor:var(--cursor-interactive);
   touch-action:manipulation;
 
+  isolation:isolate;
   color:inherit;
 
   font-family:var(--font-family-default);

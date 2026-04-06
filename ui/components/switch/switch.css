@@ -1,10 +1,10 @@
 ui-switch{
   --switch-size:var(--control-choice-md);
-  --switch-border-radius:var(--radius-full);
+  --switch-radius:var(--radius-full);
 
   --switch-indicator-color:var(--control-indicator-color);
-  --switch-surface:var(--control-surface-inset);
-  --switch-surface-checked:var(--control-choice-bg-checked);
+  --switch-bg:var(--control-choice-bg-inset);
+  --switch-bg-checked:var(--control-choice-bg-checked);
 
   position:relative;
   display:inline-flex;
@@ -14,18 +14,18 @@ ui-switch{
 
   height:var(--switch-size);
   width:calc(var(--switch-size) * 2);
-  border-radius:var(--switch-border-radius);
+  border-radius:var(--switch-radius);
 
   &[size="sm"]{--switch-size:var(--control-choice-sm);}
   &[size="md"]{--switch-size:var(--control-choice-md);}
   &[size="lg"]{--switch-size:var(--control-choice-lg);}
 
-  &[radius="none"]{--switch-border-radius:var(--radius-none);}
+  &[radius="none"]{--switch-radius:var(--radius-none);}
 
   &[disabled]{
     --switch-indicator-color:var(--on-surface-disabled);
-    --switch-surface:var(--control-surface-disabled);
-    --switch-surface-checked:var(--control-surface-disabled);
+    --switch-bg:var(--control-surface-disabled);
+    --switch-bg-checked:var(--control-surface-disabled);
   }
 
   & > input[type="checkbox"]{
@@ -38,7 +38,7 @@ ui-switch{
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
 
-    background-color:var(--switch-surface);
+    background-color:var(--switch-bg);
 
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
@@ -66,7 +66,7 @@ ui-switch{
 
     @media (hover: hover){
       &:not(:disabled,:checked):hover{
-        border-color:var(--control-border-color-hover);
+        /*border-color:var(--control-border-color-hover);*/
       }
     }
   }
@@ -90,7 +90,7 @@ ui-switch{
   }
 
   & > input[type="checkbox"]:checked + span{
-    background-color:var(--switch-surface-checked);
+    background-color:var(--switch-bg-checked);
   }
 
   & > span::before{

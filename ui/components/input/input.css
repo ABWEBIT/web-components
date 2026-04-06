@@ -1,38 +1,40 @@
 ui-input{
   --input-size:var(--control-action-md);
-  --input-border-radius:var(--radius-md);
+  --input-radius:var(--radius-md);
+
   --input-padding-inline:var(--control-padding-md);
   --input-font-size:var(--control-font-md);
 
   --input-fg:var(--variant-fg);
-  --input-bg:var(var(--control-surface-inset));
+  --input-bg:var(--control-choice-bg-inset);
   --input-border-color:var(--control-border-color);
 
   position:relative;
-  display:inline-flex;
+  display:inline-block;
   vertical-align:middle;
 
+  isolation:isolate;
   height:var(--input-size);
   width:auto;
-  border-radius:var(--input-border-radius);
+  border-radius:var(--input-radius);
 
-  &[size="small"]{
+  &[size="sm"]{
     --input-size:var(--control-action-sm);
-    --input-border-radius:var(--radius-sm);
+    --input-radius:var(--radius-sm);
     --input-padding-inline:var(--control-padding-sm);
     --input-font-size:var(--control-font-sm);
     --input-icon-size:var(--icon-sm);
   }
-  &[size="medium"]{
+  &[size="md"]{
     --input-size:var(--control-action-md);
-    --input-border-radius:var(--radius-md);
+    --input-radius:var(--radius-md);
     --input-padding-inline:var(--control-padding-md);
     --input-font-size:var(--control-font-md);
     --input-icon-size:var(--icon-md);
   }
-  &[size="large"]{
+  &[size="lg"]{
     --input-size:var(--control-action-lg);
-    --input-border-radius:var(--radius-lg);
+    --input-radius:var(--radius-lg);
     --input-padding-inline:var(--control-padding-lg);
     --input-font-size:var(--control-font-lg);
     --input-icon-size:var(--icon-lg);
@@ -48,17 +50,17 @@ ui-input{
     appearance:none;
     margin:0;
     padding:0;
-    background:none;
     border:none;
+    background:none;
 
-    height:inherit;
+    height:var(--input-size);
     padding-inline:var(--input-padding-inline);
     font-family:var(--font-family-default);
     font-size:var(--input-font-size);
     color:var(--input-fg);
     background-color:var(--input-bg);
 
-    border-radius:inherit;
+    border-radius:var(--input-radius);
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
     border-color:var(--input-border-color);

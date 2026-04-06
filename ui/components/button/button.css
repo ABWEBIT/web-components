@@ -72,10 +72,10 @@ ui-button{
     inset:0;
     z-index:-1;
     opacity:0;
+    pointer-events:none;
 
     background-color:currentColor;
     border-radius:var(--button-radius);
-    pointer-events:none;
 
     transition-duration:var(--duration-default);
     transition-property:background-color,opacity;
@@ -96,10 +96,10 @@ ui-button{
     display:inline-flex;
     align-items:center;
     vertical-align:top;
-    height:inherit;
-    width:inherit;
-    border-radius:var(--button-radius);
     line-height:1;
+    width:100%;
+    height:var(--button-size);
+    border-radius:var(--button-radius);
 
     column-gap:var(--button-column-gap);
     justify-content:var(--button-justify-content,center);
@@ -151,6 +151,7 @@ ui-button{
       opacity:var(--state-hover-opacity);
     }
   }
+
 
   &[variant="solid"] > button:not(:disabled):active::before{
     background-color:oklch(0 0 0);

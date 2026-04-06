@@ -16,9 +16,9 @@ ui-radio{
   width:var(--radio-size);
   border-radius:var(--radio-radius);
 
-  &[size="small"]{--radio-size:var(--control-choice-sm);}
-  &[size="medium"]{--radio-size:var(--control-choice-md);}
-  &[size="large"]{--radio-size:var(--control-choice-lg);}
+  &[size="sm"]{--radio-size:var(--control-choice-sm);}
+  &[size="md"]{--radio-size:var(--control-choice-md);}
+  &[size="lg"]{--radio-size:var(--control-choice-lg);}
 
   &[disabled]{
     --radio-indicator-color:var(--control-on-surface-disabled);
@@ -65,7 +65,7 @@ ui-radio{
 
     @media (hover: hover){
       &:not(:disabled,:checked):hover{
-        border-color:var(--control-border-color-hover);
+        /*border-color:var(--control-border-color-hover);*/
       }
     }
   }

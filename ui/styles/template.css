@@ -55,8 +55,14 @@ ui-sidebar{
   overscroll-behavior:contain;
   height:100svh;
   width:260px;
-  padding-block:20px;
-  padding-inline:20px;
+}
+
+ui-sidebar .static{
+  display:flex;
+  align-items:center;
+  height:3rem;
+  min-height:3rem;
+  padding-inline:1rem;
 }
 
 nav{
@@ -64,35 +70,37 @@ nav{
   display:flex;
   flex-direction:column;
   flex-grow:1;
+  padding-inline:1rem;
 }
 
-nav > ul{
+nav ul{
   position:relative;
   display:flex;
   flex-direction:column;
   list-style:none;
   margin:0;
   padding:0;
-  row-gap:20px;
+  padding-block-end:1.5rem;
 }
 
-nav .static{
-  display:flex;
-  align-items:center;
-  height:60px;
-  min-height:60px;
-}
+
+
 
 nav .menu-title{
-  padding-bottom:6px;
+  padding-block-end:0.5rem;
 }
 
-nav ui-button.menu-item{
+
+nav a.menu-item{
+  display:block;
   width:100%;
+  padding-block:0.25rem;
+  padding-inline:1rem;
+  text-decoration:none;
 }
 
-nav ui-button.menu-item.active{
-  background-color:oklch(from var(--button-bg) calc(l + 0.04) c h / 0.2);
+nav a.menu-item:hover{
+  background-color:oklch(from oklch(1 0 0) calc(l + 0.04) c h / 0.1);
 }
 
 /* main */

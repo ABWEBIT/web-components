@@ -4,12 +4,14 @@
   --variant-bg:var(--color-bg-solid);
 }
 
-[variant="solid"] > button:not(:disabled)::before{
+[variant="solid"] > button::before{
   content:'';
-  pointer-events:none;
   position:absolute;
   inset:0;
   z-index:-1;
+  pointer-events:none;
+
+  background-color:transparent;
   transition-duration:var(--duration-default);
   transition-property:background-color;
 }

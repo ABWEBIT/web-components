@@ -11,8 +11,3 @@ function changeIconName(){
 
   icon.setAttribute(attribute, next);
 }
-
-function buttonBusy(button){
-  console.log(button);
-  button.busy = true;
-}
