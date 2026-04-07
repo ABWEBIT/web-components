@@ -59,8 +59,6 @@ function generateSidebar(components) {
 
   const currentPath = getPageName(window.location.pathname);
 
-  console.log(currentPath);
-
   for (const category of categoryOrder) {
     const items = grouped[category];
     if (!items || items.length === 0) continue;

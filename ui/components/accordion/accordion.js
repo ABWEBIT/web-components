@@ -15,6 +15,9 @@ export class UIAccordion extends LitElement{
       const button = node.firstElementChild.firstElementChild
       const panel = node.lastElementChild;
 
+      console.log(button);
+      console.log(panel);
+
       if(!button) throw new Error(`${this.constructor.name}: button not found`);
       if(!panel) throw new Error(`${this.constructor.name}: panel not found`);
 
