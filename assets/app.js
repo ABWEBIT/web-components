@@ -1,6 +1,6 @@
 /* nav */
-const infoPageDir = '/docs/';
-const compPageDir = '/docs/components/';
+const infoPageDir = '/web-components/docs/';
+const compPageDir = '/web-components/docs/components/';
 
 const components = [
   { label: 'Foundation', link: infoPageDir+'foundation.html', category: 'essentials' },
