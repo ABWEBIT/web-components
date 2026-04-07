@@ -1,6 +1,8 @@
 /* nav */
-const infoPageDir = '/docs/';
-const compPageDir = '/docs/components/';
+const BASE = location.hostname.includes('github.io') ? '/web-components/' : '/';
+
+const infoPageDir = BASE+'docs/';
+const compPageDir = BASE+'docs/components/';
 
 const components = [
   { label: 'Foundation', link: infoPageDir+'foundation.html', category: 'essentials' },
