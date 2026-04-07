@@ -1,6 +1,6 @@
 /* nav */
-const infoPageDir = '/web-components/docs/';
-const compPageDir = '/web-components/docs/components/';
+const infoPageDir = '/docs/';
+const compPageDir = '/docs/components/';
 
 const components = [
   { label: 'Foundation', link: infoPageDir+'foundation.html', category: 'essentials' },
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* version */
-const pkg = await fetch('../package.json').then(r => r.json());
+const pkg = await fetch('/package.json').then(r => r.json());
 
 document.querySelectorAll('.version').forEach(el => {
   el.textContent = pkg.version;
