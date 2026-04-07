@@ -13,11 +13,11 @@
   document.documentElement.setAttribute('data-color-mode',mode);
 })();
 </script>
-<link rel="stylesheet" href="./site/assets/styles.css">
-<script type="module" src="./ui/lit-core.min.js"></script>
+<link rel="stylesheet" href="../assets/styles.css">
+<script type="module" src="../../ui/lit-core.min.js"></script>
 
 <link rel="icon" href="data:,">
-<title>Web Components</title>
+<title>Foundation</title>
 </head>
 <body>
 <ui-root>
@@ -37,6 +37,28 @@
       <main>
         <article>
 
+<h1>Portal</h1>
+<p>A root-level DOM node for modals, overlays, and dialogs.</p>
+
+<h2>Info</h2>
+<p>Place just before the closing <code>&lt;/body&gt;</code> tag.</p>
+<p>Avoids z-index conflicts, and guarantees that modals, overlays, and dialogs render above all other content.</p>
+
+<h3>Placement</h3>
+<div class="example">
+  <div class="example-code">
+<pre><code>
+&lt;body&gt;
+  &lt;ui-root&gt;
+    &lt;ui-focus&gt;&lt;/ui-focus&gt;
+    &lt;ui-app&gt;&lt;/ui-app&gt;
+    &lt;ui-portal&gt;&lt;/ui-portal&gt;
+  &lt;/ui-root&gt;
+&lt;/body&gt;
+</code></pre>
+  </div>
+</div>
+
         </article>
       </main>
       <footer></footer>
@@ -44,7 +66,7 @@
   </ui-app>
   <ui-portal></ui-portal>
 </ui-root>
-<script type="module" src="./site/assets/app.js"></script>
-<script type="module" src="./ui/components.js"></script>
+<script type="module" src="../assets/app.js"></script>
+<script type="module" src="../../ui/components.js"></script>
 </body>
 </html>

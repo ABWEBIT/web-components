@@ -1,3 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script>
+(()=>{
+  let mode = localStorage.getItem('data-color-mode');
+  if(mode !== 'dark' && mode !== 'light'){
+    mode = 'dark';
+    localStorage.setItem('data-color-mode',mode);
+  }
+  document.documentElement.setAttribute('data-color-mode',mode);
+})();
+</script>
+<link rel="stylesheet" href="../assets/styles.css">
+<script type="module" src="../../ui/lit-core.min.js"></script>
+
+<link rel="icon" href="data:,">
+<title>Foundation</title>
+</head>
+<body>
+<ui-root>
+  <ui-focus></ui-focus>
+  <ui-app>
+    <div class="sidebar">
+      <div class="static">
+        <span class="version"></span>
+      </div>
+      <nav></nav>
+    </div>
+
+    <ui-main>
+      <header>
+        <ui-color-mode></ui-color-mode>
+      </header>
+      <main>
+        <article>
+
 <h1>Checkbox</h1>
 <p>Checkboxes are used to toggle an option on or off.</p>
 
@@ -159,3 +198,15 @@
 </code></pre>
   </div>
 </div>
+
+        </article>
+      </main>
+      <footer></footer>
+    </ui-main>
+  </ui-app>
+  <ui-portal></ui-portal>
+</ui-root>
+<script type="module" src="../assets/app.js"></script>
+<script type="module" src="../../ui/components.js"></script>
+</body>
+</html>

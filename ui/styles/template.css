@@ -44,7 +44,7 @@ footer{
 }
 
 /* nav */
-ui-sidebar{
+.sidebar{
   position:sticky;
   display:flex;
   flex-direction:column;
@@ -58,7 +58,7 @@ ui-sidebar{
   width:260px;
 }
 
-ui-sidebar .static{
+.sidebar .static{
   display:flex;
   align-items:center;
   height:3rem;
@@ -84,13 +84,9 @@ nav ul{
   padding-block-end:1.5rem;
 }
 
-
-
-
 nav .menu-title{
   padding-block-end:0.5rem;
 }
-
 
 nav a.menu-item{
   display:block;
@@ -100,6 +96,7 @@ nav a.menu-item{
   text-decoration:none;
 }
 
+nav a.menu-item.active,
 nav a.menu-item:hover{
   background-color:oklch(from oklch(1 0 0) calc(l + 0.04) c h / 0.1);
 }

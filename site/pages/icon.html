@@ -13,11 +13,11 @@
   document.documentElement.setAttribute('data-color-mode',mode);
 })();
 </script>
-<link rel="stylesheet" href="./site/assets/styles.css">
-<script type="module" src="./ui/lit-core.min.js"></script>
+<link rel="stylesheet" href="../assets/styles.css">
+<script type="module" src="../../ui/lit-core.min.js"></script>
 
 <link rel="icon" href="data:,">
-<title>Web Components</title>
+<title>Foundation</title>
 </head>
 <body>
 <ui-root>
@@ -37,6 +37,29 @@
       <main>
         <article>
 
+<h1>Icon</h1>
+<p>A component for displaying an icon.</p>
+
+<h2>Info</h2>
+<p>The SVG uses currentColor.</p>
+
+<h2>Attributes</h2>
+<p>name - reactive (required). Specifies the name of the icon to display.</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-icon name="home" id="example-icon"></ui-icon>
+    <ui-button size="sm" onclick="changeIconName()">Reactivity</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-icon name="home"&gt;&lt;/ui-icon&gt;
+</code></pre>
+  </div>
+</div>
+<script src="../code/icon.js"></script>
+
         </article>
       </main>
       <footer></footer>
@@ -44,7 +67,7 @@
   </ui-app>
   <ui-portal></ui-portal>
 </ui-root>
-<script type="module" src="./site/assets/app.js"></script>
-<script type="module" src="./ui/components.js"></script>
+<script type="module" src="../assets/app.js"></script>
+<script type="module" src="../../ui/components.js"></script>
 </body>
 </html>
