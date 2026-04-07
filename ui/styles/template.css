@@ -33,7 +33,8 @@ header{
   left:0;
   right:0;
   z-index:1;
-  padding-block:10px;
+  height:3rem;
+  min-height:3rem;
   background-color:var(--bg-subtle);
   border-bottom:1px solid var(--line-color);
 }

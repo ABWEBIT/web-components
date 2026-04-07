@@ -1,5 +1,6 @@
-const infoPageDir = './docs/';
-const compPageDir = './docs/components/';
+/* nav */
+const infoPageDir = '/docs/';
+const compPageDir = '/docs/components/';
 
 const components = [
   { label: 'Foundation', link: infoPageDir+'foundation.html', category: 'essentials' },
@@ -62,19 +63,16 @@ function generateSidebar(components) {
       a.label.localeCompare(b.label, undefined, { sensitivity: 'base' })
     );
 
-    // CATEGORY WRAPPER LI
     const categoryLi = document.createElement('li');
     categoryLi.className = 'nav-category';
     categoryLi.dataset.navCategory = category;
 
-    // TITLE (inside same LI)
     const title = document.createElement('div');
     title.className = 'menu-title';
     title.textContent = category.charAt(0).toUpperCase() + category.slice(1);
 
     categoryLi.appendChild(title);
 
-    // SUBMENU UL
     const subUl = document.createElement('ul');
 
     for (const item of items) {
@@ -97,3 +95,11 @@ function generateSidebar(components) {
 document.addEventListener('DOMContentLoaded', () => {
   generateSidebar(components);
 });
+
+/* version */
+const pkg = await fetch('../package.json').then(r => r.json());
+
+document.querySelectorAll('.version').forEach(el => {
+  el.textContent = pkg.version;
+});
+document.documentElement.dataset.version = pkg.version;
