@@ -1,14 +1,14 @@
 ui-button{
   --button-size:var(--control-action-md);
-  --button-radius:var(--radius-md);
+  --button-radius:calc(var(--button-size) * 0.25);
 
   --button-padding-inline:var(--control-padding-md);
   --button-font-size:var(--control-font-md);
   --button-icon-size:var(--icon-md);
   --button-column-gap:calc(var(--button-size) * 0.25);
 
-  --button-fg:var(--state-fg-disabled,var(--variant-fg));
-  --button-bg:var(--state-bg-disabled,var(--variant-bg));
+  --button-bg:var(--state-bg-disabled,var(--variant-bg,var(--color-bg-solid)));
+  --button-fg:var(--state-fg-disabled,var(--variant-fg,var(--color-fg-solid)));
   --button-border-color:var(--state-bg-disabled,var(--variant-bg));
 
   position:relative;
@@ -18,7 +18,6 @@ ui-button{
   -webkit-user-select:none;
 
   height:var(--button-size);
-  width:auto;
   border-radius:var(--button-radius);
 
   &[radius="full"]{--button-radius:var(--radius-full);}
@@ -38,21 +37,18 @@ ui-button{
 
   &[size="sm"]{
     --button-size:var(--control-action-sm);
-    --button-radius:var(--radius-sm);
     --button-padding-inline:var(--control-padding-sm);
     --button-font-size:var(--control-font-sm);
     --button-icon-size:var(--icon-sm);
   }
   &[size="md"]{
     --button-size:var(--control-action-md);
-    --button-radius:var(--radius-md);
     --button-padding-inline:var(--control-padding-md);
     --button-font-size:var(--control-font-md);
     --button-icon-size:var(--icon-md);
   }
   &[size="lg"]{
     --button-size:var(--control-action-lg);
-    --button-radius:var(--radius-lg);
     --button-padding-inline:var(--control-padding-lg);
     --button-font-size:var(--control-font-lg);
     --button-icon-size:var(--icon-lg);
@@ -140,6 +136,7 @@ ui-button{
     --spinner-border-radius:var(--button-radius);
   }
 
+
   /* solid */
   &[variant="solid"]{
     --variant-fg:var(--color-fg-solid);
@@ -152,11 +149,16 @@ ui-button{
     }
   }
 
-
   &[variant="solid"] > button:not(:disabled):active::before{
     background-color:oklch(0 0 0);
     opacity:var(--state-pressed-opacity);
   }
+
+
+
+
+
+
 
 
 

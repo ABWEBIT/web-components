@@ -6,7 +6,7 @@ ui-input{
   --input-font-size:var(--control-font-md);
 
   --input-fg:var(--variant-fg);
-  --input-bg:var(--control-choice-bg-inset);
+  --input-bg:var(--variant-bg,var(--control-bg-color-inset));
   --input-border-color:var(--control-border-color);
 
   position:relative;
@@ -41,8 +41,8 @@ ui-input{
   }
 
   &[disabled]{
-    --input-fg:var(--control-fg-disabled);
-    --input-bg:var(--control-bg-disabled);
+    --input-fg:var(--control-fg-color-disabled);
+    --input-bg:var(--control-bg-color-disabled);
     --input-border-color:var(--control-border-color-disabled);
   }
 
@@ -78,7 +78,7 @@ ui-input{
     }
 
     &::placeholder{
-      color:var(--control-placeholder);
+      color:var(--control-placeholder-color);
     }
 
     &:focus-visible{
@@ -87,7 +87,7 @@ ui-input{
 
     @media (hover: hover){
       &:not(:disabled):hover{
-        --input-border-color:var(--control-border-color-hover);
+
       }
     }
   }
@@ -96,7 +96,7 @@ ui-input{
     padding-inline-end:var(--input-size);
   }
 
-  & > ui-button{
+  & > button{
     position:absolute;
     inset-block-start:calc(var(--input-size) * 0.125);
     inset-inline-end:calc(var(--input-size) * 0.125);

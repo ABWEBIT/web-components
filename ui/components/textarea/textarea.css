@@ -5,7 +5,7 @@ ui-textarea{
   --textarea-padding:0.5rem 0.75rem;
 
   --textarea-fg:var(--variant-fg);
-  --textarea-bg:var(--variant-bg,var(--control-choice-bg-inset));
+  --textarea-bg:var(--variant-bg,var(--control-bg-color-inset));
   --textarea-border-color:var(--control-border-color);
 
   position:relative;
@@ -26,6 +26,7 @@ ui-textarea{
 
     resize:vertical;
 
+    min-height:4rem;
     width:var(--textarea-width);
     padding-block:var(--textarea-padding);
     padding-inline:var(--textarea-padding);
@@ -62,12 +63,10 @@ ui-textarea{
 
     @media (hover: hover){
       &:not(:disabled):hover{
-        --textarea-border-color:var(--control-border-color-hover);
+
       }
     }
   }
 
-  &[radius="none"]{
-    --textarea-radius:var(--radius-none);
-  }
+  &[radius="none"]{--textarea-radius:var(--radius-none);}
 }

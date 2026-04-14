@@ -67,7 +67,7 @@ export class UIInput extends LitElement{
 
       ${this.clearable ?
       html`
-        <ui-button
+        <button
           config='{"type":"button"}'
           variant="text"
           color="gray"
@@ -75,7 +75,7 @@ export class UIInput extends LitElement{
           @click=${this.onClear}
         >
         <ui-icon name="close"></ui-icon>
-        </ui-button>` : nothing}
+        </button>` : nothing}
       `;
   }
 }

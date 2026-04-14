@@ -2,6 +2,18 @@
   font-size:16px;
 
   --scaling:1;
+
+  --font-size-xs:calc(0.75rem * var(--scaling));
+  --font-size-sm:calc(0.875rem * var(--scaling));
+  --font-size-md:calc(1rem * var(--scaling));
+
+  --font-size-lg:calc(1.125rem * var(--scaling));
+  --font-size-xl:calc(1.25rem * var(--scaling));
+  --font-size-2xl:calc(1.5rem * var(--scaling));
+  --font-size-3xl:calc(1.75rem * var(--scaling));
+  --font-size-4xl:calc(2rem * var(--scaling));
+  --font-size-5xl:calc(2.25rem * var(--scaling));
+
   --font-size-default:calc(1rem * var(--scaling));
 
   --font-family-sans:ui-sans-serif,system-ui,sans-serif;

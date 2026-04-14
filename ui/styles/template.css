@@ -1,6 +1,6 @@
 body{
-  background-color:var(--bg-default);
-  color:var(--fg-default);
+  background-color:var(--bg-color-default);
+  color:var(--fg-color-default);
 }
 
 ui-app{
@@ -35,12 +35,12 @@ header{
   z-index:1;
   height:3rem;
   min-height:3rem;
-  background-color:var(--bg-subtle);
+  background-color:var(--bg-color-muted);
   border-bottom:1px solid var(--line-color);
 }
 
 footer{
-  background-color:var(--bg-subtle);
+  background-color:var(--bg-color-muted);
 }
 
 /* nav */
@@ -113,7 +113,7 @@ main{
 
 article{
   & > h1:first-of-type + *{
-    color:var(--fg-muted);
+    color:var(--fg-color-muted);
   }
 }
 
@@ -122,6 +122,7 @@ article{
   border-style:solid;
   border-color:var(--line-color);
   border-radius:var(--radius-lg);
+
 
   & > :is(.example-preview,.example-code){
     position:relative;
@@ -153,7 +154,7 @@ table :is(th,td){
 }
 
 .visual-block{
-  background-color:var(--bg-subtle);
+  background-color:var(--bg-color-muted);
 }
 
 /* icons */
@@ -172,11 +173,11 @@ table :is(th,td){
   row-gap:12px;
   padding:12px 10px 10px;
   align-items:center;
-  background-color:var(--bg-elevated);
+  background-color:var(--bg-color-disabled);
   border-radius:var(--radius-lg);
   font-size:var();
 
   & > :not(ui-icon){
-    color:var(--fg-muted);
+    color:var(--fg-color-muted);
   }
 }
