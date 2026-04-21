@@ -1,0 +1,36 @@
+ui-spinner{
+  --spinner-height:auto;
+  --spinner-width:auto;
+  --spinner-border-radius:inherit;
+  --spinner-bg:transparent;
+  --spinner-icon-size:calc(1.25rem * var(--scaling));
+
+  position:absolute;
+  inset:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:var(--spinner-border-radius);
+  height:var(--spinner-height);
+  width:var(--spinner-width);
+  background-color:var(--spinner-bg);
+
+  &::before,
+  &::after{
+    content:'';
+    position:absolute;
+    height:var(--spinner-icon-size);
+    aspect-ratio:1;
+    border-radius:50%;
+    border:calc(0.25rem * var(--scaling)) solid transparent;
+  }
+
+  &::before{
+    border-color:var(--spinner-track-color);
+  }
+
+  &::after{
+    border-top-color:var(--spinner-thumb-color);
+    animation:spin 0.9s linear infinite;
+  }
+}

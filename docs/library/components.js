@@ -1,0 +1,31 @@
+/* app */
+import './components/root/root.js';
+import './components/app/app.js';
+
+/* primitives */
+import './components/icon/icon.js';
+import './components/separator/separator.js';
+import './components/spinner/spinner.js';
+import './components/color-mode/color-mode.js';
+
+/* forms */
+import './components/button/button.js';
+import './components/checkbox/checkbox.js';
+import './components/switch/switch.js';
+import './components/radio/radio.js';
+import './components/select/select.js';
+import './components/input/input.js';
+import './components/textarea/textarea.js';
+import './components/field/field.js';
+
+/* components */
+import './components/accordion/accordion.js';
+import './components/alert/alert.js';
+import './components/breadcrumb/breadcrumb.js';
+import './components/disclosure/disclosure.js';
+import './components/tabs/tabs.js';
+import './components/badge/badge.js';
+
+/* utilities */
+import './components/focus/focus.js';
+import './components/portal/portal.js';

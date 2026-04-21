@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script>
+    (()=>{
+      let mode = localStorage.getItem('data-color-mode');
+      if(mode !== 'dark' && mode !== 'light'){
+        mode = 'dark';
+        localStorage.setItem('data-color-mode',mode);
+      }
+      document.documentElement.setAttribute('data-color-mode',mode);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/library/styles/reset/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
+
+  <script type="module" src="/library/lit-core.min.js"></script>
+  <link rel="icon" href="data:,">
+
+  <title>Alert</title>
+</head>
+
+<body>
+  <ui-root>
+    <ui-focus></ui-focus>
+    <ui-app>
+      <div class="sidebar">
+        <div class="static">
+          <span class="version"></span>
+            
+        </div>
+        <nav></nav>
+      </div>
+
+      <ui-main>
+        <header>
+          <ui-color-mode></ui-color-mode>
+        </header>
+        <main>
+          <article>
+            
+<h1>Alert</h1>
+<p>Displays a message that draws the user's attention.</p>
+
+<h2>Dependencies</h2>
+<ul>
+  <li><a href="#icon">ui-icon</a></li>
+</ul>
+
+<h2>Info</h2>
+<p>The structure must be strictly followed.</p>
+<p>A heading or text is required to display a meaningful message.</p>
+<p>The heading can be any element from h2 to h6; h3 is recommended.</p>
+
+<h2>Attributes</h2>
+<p>non-closable - static (optional). Hides the close button.</p>
+
+<h3>Alert with description (no close button)</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-alert>
+      <div>Your settings have been successfully saved.</div>
+    </ui-alert>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-alert&gt;
+  &lt;div&gt;Your settings have been successfully saved.&lt;/div&gt;
+&lt;/ui-alert&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Alert with label and description</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-alert>
+      <h3>Update Complete</h3>
+      <div>Your settings have been successfully saved.</div>
+    </ui-alert>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-alert&gt;
+  &lt;h3&gt;Update Complete&lt;/h3&gt;
+  &lt;div&gt;Your settings have been successfully saved.&lt;/div&gt;
+&lt;/ui-alert&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Alert with label, description, and icon</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-alert>
+      <ui-icon name="info"></ui-icon>
+      <h3>Update Complete</h3>
+      <div>Your settings have been successfully saved.</div>
+    </ui-alert>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-alert&gt;
+  &lt;ui-icon name="info"&gt;&lt;/ui-icon&gt;
+  &lt;h3&gt;Update Complete&lt;/h3&gt;
+  &lt;div&gt;Your settings have been successfully saved.&lt;/div&gt;
+&lt;/ui-alert&gt;
+</code></pre>
+  </div>
+</div>
+          </article>
+        </main>
+        <footer></footer>
+      </ui-main>
+    </ui-app>
+    <ui-portal></ui-portal>
+  </ui-root>
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
+</body>
+
+</html>

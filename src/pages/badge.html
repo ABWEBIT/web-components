@@ -1,0 +1,121 @@
+---
+title: Badge
+layout: layouts/default.html
+permalink: /docs/badge/
+---
+
+<h1>Badge</h1>
+<p>Badges draw attention and display statuses or counts.</p>
+
+<h2>Attributes</h2>
+<p>radius - static (optional). Controls how rounded the corners are. Available options: full, none.</p>
+<p>color - static (optional). Controls the color style of the element. Available options: gray, blue, green, yellow, red.</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-badge color="red" radius="full">Error</ui-badge>
+    <ui-badge color="green" radius="full">Success</ui-badge>
+    <ui-badge color="blue" radius="full">New</ui-badge>
+    <ui-badge color="yellow" radius="full">Warning</ui-badge>
+  </div>
+  <div class="example-preview">
+    <ui-badge color="red" variant="soft" radius="full">Error</ui-badge>
+    <ui-badge color="green" variant="soft" radius="full">Success</ui-badge>
+    <ui-badge color="blue" variant="soft" radius="full">New</ui-badge>
+    <ui-badge color="yellow" variant="soft" radius="full">Warning</ui-badge>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-badge&gt;Badge&lt;/ui-badge&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Variants</h3>
+<div>solid | soft | outlined | ghost</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-badge variant="solid" color="gray">Solid</ui-badge>
+    <ui-badge variant="soft" color="gray">Soft</ui-badge>
+    <ui-badge variant="outline" color="gray">Outline</ui-badge>
+    <ui-badge variant="ghost" color="gray">Ghost</ui-badge>
+  </div>
+  <div class="example-preview">
+    <ui-badge variant="solid" color="red">Solid</ui-badge>
+    <ui-badge variant="soft" color="red">Soft</ui-badge>
+    <ui-badge variant="outline" color="red">Outline</ui-badge>
+    <ui-badge variant="ghost" color="red">Ghost</ui-badge>
+  </div>
+  <div class="example-preview">
+    <ui-badge variant="solid" color="green">Solid</ui-badge>
+    <ui-badge variant="soft" color="green">Soft</ui-badge>
+    <ui-badge variant="outline" color="green">Outline</ui-badge>
+    <ui-badge variant="ghost" color="green">Ghost</ui-badge>
+  </div>
+  <div class="example-preview">
+    <ui-badge variant="solid" color="blue">Solid</ui-badge>
+    <ui-badge variant="soft" color="blue">Soft</ui-badge>
+    <ui-badge variant="outline" color="blue">Outline</ui-badge>
+    <ui-badge variant="ghost" color="blue">Ghost</ui-badge>
+  </div>
+  <div class="example-preview">
+    <ui-badge variant="solid" color="amber">Solid</ui-badge>
+    <ui-badge variant="soft" color="amber">Soft</ui-badge>
+    <ui-badge variant="outline" color="amber">Outline</ui-badge>
+    <ui-badge variant="ghost" color="amber">Ghost</ui-badge>
+  </div>
+
+  <div class="example-code">
+<pre><code>
+&lt;ui-badge variant="solid"&gt;Badge&lt;/ui-badge&gt;
+&lt;ui-badge variant="outlined"&gt;Badge&lt;/ui-badge&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Colors</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-badge color="gray">Badge</ui-badge>
+    <ui-badge color="red">Badge</ui-badge>
+    <ui-badge color="green">Badge</ui-badge>
+    <ui-badge color="blue">Badge</ui-badge>
+    <ui-badge color="amber">Badge</ui-badge>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-badge color="gray"&gt;Badge&lt;/ui-badge&gt;
+&lt;ui-badge color="red"&gt;Badge&lt;/ui-badge&gt;
+&lt;ui-badge color="green"&gt;Badge&lt;/ui-badge&gt;
+&lt;ui-badge color="blue"&gt;Badge&lt;/ui-badge&gt;
+&lt;ui-badge color="amber"&gt;Badge&lt;/ui-badge&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Radius</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-badge radius="full">Badge</ui-badge>
+    <ui-badge radius="none">Badge</ui-badge>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-badge radius="full"&gt;Badge&lt;/ui-badge&gt;
+&lt;ui-badge radius="none"&gt;Badge&lt;/ui-badge&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-badge disabled>Badge</ui-badge>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-badge disabled&gt;Badge&lt;/ui-badge&gt;
+</code></pre>
+  </div>
+</div>

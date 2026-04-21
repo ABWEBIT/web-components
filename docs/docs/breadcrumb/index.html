@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script>
+    (()=>{
+      let mode = localStorage.getItem('data-color-mode');
+      if(mode !== 'dark' && mode !== 'light'){
+        mode = 'dark';
+        localStorage.setItem('data-color-mode',mode);
+      }
+      document.documentElement.setAttribute('data-color-mode',mode);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/library/styles/reset/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
+
+  <script type="module" src="/library/lit-core.min.js"></script>
+  <link rel="icon" href="data:,">
+
+  <title>Breadcrumb</title>
+</head>
+
+<body>
+  <ui-root>
+    <ui-focus></ui-focus>
+    <ui-app>
+      <div class="sidebar">
+        <div class="static">
+          <span class="version"></span>
+            
+        </div>
+        <nav></nav>
+      </div>
+
+      <ui-main>
+        <header>
+          <ui-color-mode></ui-color-mode>
+        </header>
+        <main>
+          <article>
+            
+<h1>Breadcrumb</h1>
+<p>Breadcrumbs show the current page's location within a navigational hierarchy.</p>
+
+<h2>Attributes</h2>
+<p>aria-label - static (required). Must be set manually.</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-breadcrumb>
+      <ol>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Notifications</a></li>
+        <li>Article</li>
+      </ol>
+    </ui-breadcrumb>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-breadcrumb&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Notifications&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Article&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/ui-breadcrumb&gt;
+</code></pre>
+  </div>
+</div>
+          </article>
+        </main>
+        <footer></footer>
+      </ui-main>
+    </ui-app>
+    <ui-portal></ui-portal>
+  </ui-root>
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
+</body>
+
+</html>

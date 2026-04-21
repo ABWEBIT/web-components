@@ -1,0 +1,29 @@
+a{
+  text-decoration-line:var(--decoration-type-underline);
+  text-decoration-style:var(--decoration-style-dashed);
+  text-decoration-thickness:var(--decoration-thickness);
+  text-underline-offset:var(--underline-offset);
+  cursor:var(--cursor-interactive);
+  color:var(--link-color);
+
+  cursor:var(--cursor-interactive);
+  touch-action:manipulation;
+
+  outline-width:var(--focus-ring-width);
+  outline-style:var(--focus-ring-style);
+  outline-offset:var(--focus-ring-offset);
+  outline-color:transparent;
+
+  transition-duration:var(--duration-default);
+  transition-property:outline-color,color;
+
+  @media (hover: hover){
+    &:hover{color:var(--link-color-hover);}
+  }
+
+  &:active{color:var(--link-color-pressed);}
+
+  &:focus-visible{
+    outline-color:var(--focus-ring-color);
+  }
+}

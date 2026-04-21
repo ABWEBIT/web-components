@@ -1,0 +1,98 @@
+/* solid */
+[variant="solid"]{
+  --variant-fg:var(--color-fg-solid);
+  --variant-bg:var(--color-bg-solid);
+}
+
+[variant="solid"] > button::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+
+  background-color:transparent;
+  transition-duration:var(--duration-default);
+  transition-property:background-color;
+}
+
+@media (hover: hover){
+  [variant="solid"] > button:not(:disabled):hover::before{
+    background-color:oklch(from var(--color-fg-solid) l c h / var(--state-hover-opacity));
+  }
+}
+
+[variant="solid"] > button:not(:disabled):active::before{
+  background-color:oklch(from oklch(0 0 0) l c h / var(--state-pressed-opacity));
+}
+
+/* soft */
+[variant="soft"]{
+  --variant-fg:var(--color-fg-soft);
+  --variant-bg:var(--color-bg-soft);
+}
+
+@media (hover: hover){
+  [variant="soft"] > button:not(:disabled):hover::before{
+    background-color:oklch(from oklch(1 0 0) l c h / calc(
+      var(--state-hover-opacity) * var(--state-intensity)
+    ));
+  }
+}
+
+[variant="soft"] > button:not(:disabled):active::before{
+  background-color:oklch(from oklch(0 0 0) l c h / calc(
+    var(--state-pressed-opacity) * var(--state-intensity)
+  ));
+}
+
+
+
+/* outline */
+[variant="outline"]{
+  --variant-fg:var(--color-bg-outline);
+  --variant-bg:transparent;
+}
+
+[variant="outline"]::after{
+  pointer-events:none;
+  position:absolute;
+  content:'';
+  inset:0;
+  border-radius:inherit;
+  border-width:var(--control-border-width);
+  border-style:var(--control-border-style);
+  border-color:var(--color-bg-outline);
+}
+
+@media (hover: hover){
+  [variant="outline"]:has( > :is(button):not(:disabled):hover){
+    --variant-bg:var(--color-bg-soft);
+  }
+}
+
+[variant="outline"]:has( > :is(button):not(:disabled):active){
+  --variant-bg-pressed:var(--outline-bg-pressed);
+}
+
+
+
+/* ghost */
+[variant="ghost"]{
+  --variant-fg:var(--color-fg-soft);
+  --variant-bg:transparent;
+}
+
+[variant="ghost"][disabled]{
+  --variant-bg:transparent;
+}
+
+@media (hover: hover){
+  [variant="ghost"]:has( > :is(button):not(:disabled):hover){
+    --variant-bg:var(--color-bg-soft);
+  }
+}
+
+[variant="ghost"]:has( > :is(button):not(:disabled):active){
+  --variant-bg-pressed:var(--ghost-bg-pressed);
+}

@@ -1,0 +1,20 @@
+ui-field{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+
+  &:not([passive]) > label{
+    cursor:var(--cursor-interactive);
+  }
+
+  & > label{
+    user-select:none;
+    -webkit-user-select:none;
+  }
+
+  &[vertical]{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}

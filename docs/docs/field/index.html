@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script>
+    (()=>{
+      let mode = localStorage.getItem('data-color-mode');
+      if(mode !== 'dark' && mode !== 'light'){
+        mode = 'dark';
+        localStorage.setItem('data-color-mode',mode);
+      }
+      document.documentElement.setAttribute('data-color-mode',mode);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/library/styles/reset/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
+
+  <script type="module" src="/library/lit-core.min.js"></script>
+  <link rel="icon" href="data:,">
+
+  <title>Field</title>
+</head>
+
+<body>
+  <ui-root>
+    <ui-focus></ui-focus>
+    <ui-app>
+      <div class="sidebar">
+        <div class="static">
+          <span class="version"></span>
+            
+        </div>
+        <nav></nav>
+      </div>
+
+      <ui-main>
+        <header>
+          <ui-color-mode></ui-color-mode>
+        </header>
+        <main>
+          <article>
+            
+<h1>Field</h1>
+<p>The Field component groups a div with a form control.</p>
+
+<h2>Info</h2>
+<p>Allows only one label and one form control inside.</p>
+<p>Automatic association between the label and the form control by adding a unique UUID.</p>
+
+<h2>Attributes</h2>
+<p>vertical - static (optional). Sets the orientation to vertical.</p>
+<p>required - static (optional). Adds the required attribute to all child elements.</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-field>
+      <label>Label</label>
+      <ui-checkbox></ui-checkbox>
+    </ui-field>
+    <ui-separator orientation="vertical"></ui-separator>
+    <ui-field>
+      <label>Label</label>
+      <ui-radio></ui-radio>
+    </ui-field>
+    <ui-separator orientation="vertical"></ui-separator>
+    <ui-field>
+      <label>Label</label>
+      <ui-switch></ui-switch>
+    </ui-field>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-field&gt;
+  &lt;label&gt;Label&lt;/label&gt;
+  &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+&lt;/ui-field&gt;
+
+&lt;ui-field&gt;
+  &lt;label&gt;Label&lt;/label&gt;
+  &lt;ui-radio&gt;&lt;/ui-radio&gt;
+&lt;/ui-field&gt;
+
+&lt;ui-field passive&gt;
+  &lt;label&gt;Label&lt;/label&gt;
+  &lt;ui-switch&gt;&lt;/ui-switch&gt;
+&lt;/ui-field&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Passive Label</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-field passive>
+      <label>Label</label>
+      <ui-checkbox></ui-checkbox>
+    </ui-field>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-field passive&gt;
+  &lt;label&gt;Label&lt;/label&gt;
+  &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+&lt;/ui-field&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Required, vertical</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-field required vertical>
+      <label>Label</label>
+      <ui-textarea height="200"></ui-textarea>
+    </ui-field>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-field required vertical&gt;
+  &lt;div&gt;Label&lt;/div&gt;
+  &lt;ui-textarea&gt;&lt;/ui-textarea&gt;
+&lt;/ui-field&gt;
+</code></pre>
+  </div>
+</div>
+          </article>
+        </main>
+        <footer></footer>
+      </ui-main>
+    </ui-app>
+    <ui-portal></ui-portal>
+  </ui-root>
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
+</body>
+
+</html>

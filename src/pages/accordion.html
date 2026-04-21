@@ -1,0 +1,191 @@
+---
+title: Accordion
+layout: layouts/default.html
+permalink: /docs/accordion/
+---
+
+<h1>Accordion</h1>
+<p>Accordion organizes content into collapsible sections.</p>
+
+<h2>Dependencies</h2>
+<ul>
+  <li><a href="#icon">ui-icon</a></li>
+</ul>
+
+<h2>Info</h2>
+<p>The structure must be strictly followed.</p>
+<p>By default, the accordion allows multiple items to be expanded, but it can be set to single-item mode.</p>
+<p>The heading can be any HTML heading element from h2 to h6; h3 is recommended.</p>
+<p>The accordion does not support dynamically adding or removing items.</p>
+
+<h2>Attributes</h2>
+<p><strong>Accordion:</strong></p>
+<p>single - static (optional). Allows only one expanded item at a time.</p>
+<p><strong>Item:</strong></p>
+<p>disabled - reactive (optional). Determines if the item is disabled.</p>
+<p>expanded - reactive (optional). The associated panel is expanded.</p>
+
+<h3>Default (multiplie)</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-accordion>
+
+      <div expanded>
+        <h3>
+          <button>What is Lorem? (expanded)</button>
+        </h3>
+
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </div>
+      </div>
+
+      <div>
+        <h3>
+          <button>What is Lorem?</button>
+        </h3>
+
+        <div>
+          Lorem ipsum dolor sit amet...
+        </div>
+      </div>
+
+      <div>
+        <h3>
+          <button>
+            What is Lorem?
+          </button>
+        </h3>
+
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+      </div>
+
+    </ui-accordion>
+  </div>
+  <div class="example-code">
+
+<pre><code>
+&lt;ui-accordion&gt;
+  &lt;div expanded&gt;
+    &lt;h3&gt;
+      &lt;button&gt;What is Lorem?&lt;/button&gt;
+    &lt;/h3&gt;
+
+    &lt;div&gt;
+      Lorem Ipsum is simply dummy text.
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;h3&gt;
+      &lt;button&gt;What is Lorem?&lt;/button&gt;
+    &lt;/h3&gt;
+
+    &lt;div&gt;
+      Lorem Ipsum is simply dummy text.
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;h3&gt;
+      &lt;button&gt;
+        &lt;ui-icon name="light-mode"&gt;&lt;/ui-icon&gt;
+        What is Lorem?
+      &lt;/button&gt;
+    &lt;/h3&gt;
+
+    &lt;div&gt;
+      Lorem Ipsum is simply dummy text.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ui-accordion&gt;
+</code></pre>
+
+  </div>
+</div>
+
+
+
+<h3>Single mode with a disabled item</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-accordion single>
+
+      <div expanded>
+        <h3>
+          <button>What is Lorem? (expanded)</button>
+        </h3>
+
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </div>
+      </div>
+
+      <div disabled>
+        <h3>
+          <button>What is Lorem? (disabled)</button>
+        </h3>
+
+        <div>
+          Lorem ipsum dolor sit amet...
+        </div>
+      </div>
+
+      <div>
+        <h3>
+          <button>
+            <ui-icon name="light-mode"></ui-icon>
+            What is Lorem?
+          </button>
+        </h3>
+
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </div>
+      </div>
+
+    </ui-accordion>
+  </div>
+  <div class="example-code">
+
+<pre><code>
+&lt;ui-accordion single&gt;
+&lt;div expanded&gt;
+  &lt;h3&gt;
+    &lt;button&gt;What is Lorem?&lt;/button&gt;
+  &lt;/h3&gt;
+
+  &lt;div&gt;
+    Lorem Ipsum is simply dummy text.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div disabled&gt;
+  &lt;h3&gt;
+    &lt;button&gt;What is Lorem? (disabled)&lt;/button&gt;
+  &lt;/h3&gt;
+
+  &lt;div&gt;
+    Lorem Ipsum is simply dummy text.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;h3&gt;
+    &lt;button&gt;
+      &lt;ui-icon name="light-mode"&gt;&lt;/ui-icon&gt;
+      What is Lorem?
+    &lt;/button&gt;
+  &lt;/h3&gt;
+
+  &lt;div&gt;
+    Lorem Ipsum is simply dummy text.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/ui-accordion&gt;
+</code></pre>
+
+  </div>
+</div>

@@ -1,0 +1,110 @@
+---
+title: Textarea
+layout: layouts/default.html
+permalink: /docs/textarea/
+---
+
+<h1>Textarea</h1>
+<p>Textarea allows users to enter and edit multiline text.</p>
+
+<h2>Attributes</h2>
+<p>config - static (optional). Additional attributes.</p>
+<p>required - reactive (optional). Defines whether the component is required.</p>
+<p>disabled - reactive (optional). Controls the disabled state of the component.</p>
+<p>readonly - reactive (optional). Controls the readonly state of the component.</p>
+<p>value - reactive (optional). Sets or binds the content of the <code>&lt;textarea&gt;</code></p>
+<p>radius - static (optional). Default: rounded. Available options: none. Sets the corner style.</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-textarea></ui-textarea>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-textarea&gt;&lt;/ui-textarea&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Config</h3>
+<div>Each property in the JSON config must be enclosed in double quotes, both property names and their values, except for the boolean values true and false.</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-textarea config='{
+      "id":"unique-id",
+      "class":"utility-class",
+      "name":"product-id",
+      "placeholder":"Enter text",
+      "rows":"3",
+      "cols":"10",
+      "maxlength":"50",
+      "minlength":"3",
+      "wrap":"soft",
+      "autocomplete":"off",
+      "inputmode":"soft",
+      "spellcheck":"false",
+      "autofocus":true}'></ui-textarea>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-input
+  config='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "name":"product-id",
+    "placeholder":"Enter text",
+    "rows":"3",
+    "cols":"10",
+    "maxlength":"50",
+    "minlength":"3",
+    "wrap":"soft",
+    "autocomplete":"off",
+    "inputmode":"soft",
+    "spellcheck":"false",
+    "autofocus":true
+  }'&gt;
+&lt;/ui-input&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Radius</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-textarea radius="none" config='{"placeholder":"Enter text"}'></ui-textarea>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-textarea radius="none" config='{"placeholder":"Enter text"}'&gt;&lt;/ui-textarea&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Required</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-textarea required config='{"placeholder":"Enter text"}'></ui-textarea>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-textarea required config='{"placeholder":"Enter text"}'&gt;&lt;/ui-textarea&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-textarea config='{"placeholder":"Enter text"}' disabled></ui-textarea>
+  </div>
+  <div class="example-preview">
+    <ui-textarea disabled config='{"value":"Text"}'></ui-textarea>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-textarea config='{"placeholder":"Enter text"}' disabled&gt;&lt;/ui-textarea&gt;
+&lt;ui-textarea disabled&gt;&lt;/ui-textarea&gt;
+</code></pre>
+  </div>
+</div>

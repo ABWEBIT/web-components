@@ -1,0 +1,20 @@
+ui-separator{
+  --separator-thickness:1px;
+  --separator-spacing:0;
+  --separator-color:var(--line-color);
+
+  display:block;
+  background-color:var(--separator-color);
+
+  &[orientation='horizontal']{
+    width:100%;
+    height:var(--separator-thickness);
+    margin-block:var(--separator-spacing);
+  }
+
+  &[orientation='vertical']{
+    align-self:stretch;
+    width:var(--separator-thickness);
+    margin-inline:var(--separator-spacing);
+  }
+}

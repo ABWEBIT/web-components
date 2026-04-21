@@ -1,0 +1,127 @@
+---
+title: Switch
+layout: layouts/default.html
+permalink: /docs/switch/
+---
+
+<h1>Switch</h1>
+<p>Switches provide a simple and user-friendly way to toggle between two states.</p>
+
+<h2>Attributes</h2>
+<p>config - static (optional). Additional attributes: id, name, value, class.</p>
+<p>checked - reactive (optional). Default: false.</p>
+<p>required - reactive (optional). Default: false.</p>
+<p>disabled - reactive (optional). Default: false.</p>
+
+<p>radius - static (optional). Controls how rounded the corners are. Available options: none.</p>
+<p>size - static (optional). Controls the overall size of the element. Available options: sm, md (default), lg.</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Config</h3>
+<div>Each property in the JSON config must be enclosed in double quotes, both property names and their values, except for the boolean values true and false.</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch config='{
+      "id":"unique-id",
+      "class":"utility-class",
+      "name":"product-id",
+      "value":"on"
+    }'></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox
+  config='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "name":"product-id",
+    "value":"on"
+  }'&gt;
+&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Label</h3>
+<div class="example">
+  <div class="example-preview">
+    <label>Label<ui-switch></ui-switch></label>
+    <label for="input">Label</label>
+    <ui-switch config='{"id":"input"}'></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;label&gt;
+  Label &lt;ui-switch&gt;&lt;/ui-switch&gt;
+&lt;/label&gt;
+
+&lt;label for="input"&gt;Label&lt;/label&gt;
+&lt;ui-switch config='{"id":"input"}'&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Sizes</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch checked size="sm"></ui-switch>
+    <ui-switch checked size="md"></ui-switch>
+    <ui-switch checked size="lg"></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch size="sm"&gt;&lt;/ui-switch&gt;
+&lt;ui-switch size="md"&gt;&lt;/ui-switch&gt;
+&lt;ui-switch size="lg"&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Radius</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch checked radius="none"></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch radius="none"&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Checked</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch checked></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch checked&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch disabled></ui-switch>
+    <ui-switch disabled checked></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch disabled&gt;&lt;/ui-switch&gt;
+&lt;ui-switch disabled checked&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>

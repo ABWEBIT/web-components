@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script>
+    (()=>{
+      let mode = localStorage.getItem('data-color-mode');
+      if(mode !== 'dark' && mode !== 'light'){
+        mode = 'dark';
+        localStorage.setItem('data-color-mode',mode);
+      }
+      document.documentElement.setAttribute('data-color-mode',mode);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/library/styles/reset/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
+
+  <script type="module" src="/library/lit-core.min.js"></script>
+  <link rel="icon" href="data:,">
+
+  <title>Disclosure</title>
+</head>
+
+<body>
+  <ui-root>
+    <ui-focus></ui-focus>
+    <ui-app>
+      <div class="sidebar">
+        <div class="static">
+          <span class="version"></span>
+            
+        </div>
+        <nav></nav>
+      </div>
+
+      <ui-main>
+        <header>
+          <ui-color-mode></ui-color-mode>
+        </header>
+        <main>
+          <article>
+            
+<h1>Disclosure</h1>
+<p>Disclosure toggles a collapsible content section.</p>
+
+<h2>Attributes</h2>
+<p>disabled - reactive (optional). Determines if the item is disabled.</p>
+<p>expanded - reactive (optional). The associated panel is expanded.</p>
+
+<h3>Variant</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-disclosure variant="solid" expanded>
+      <button>What is Lorem?</button>
+
+      <div>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      </div>
+    </ui-disclosure>
+  </div>
+
+  <div class="example-preview">
+    <ui-disclosure variant="soft" expanded>
+      <button>What is Lorem?</button>
+
+      <div>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      </div>
+    </ui-disclosure>
+  </div>
+
+  <div class="example-preview">
+    <ui-disclosure variant="outline" expanded>
+      <button>What is Lorem?</button>
+
+      <div>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      </div>
+    </ui-disclosure>
+  </div>
+  <div class="example-code">
+
+<pre><code>
+&lt;ui-disclosure&gt;
+  &lt;button&gt;What is Lorem?&lt;/button&gt;
+  &lt;div&gt;
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  &lt;/div&gt;
+&lt;/ui-disclosure&gt;
+</code></pre>
+
+  </div>
+</div>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-disclosure>
+      <button>What is Lorem?</button>
+
+      <div>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </div>
+    </ui-disclosure>
+  </div>
+  <div class="example-code">
+
+<pre><code>
+&lt;ui-disclosure&gt;
+  &lt;button&gt;What is Lorem?&lt;/button&gt;
+  &lt;div&gt;
+    Lorem Ipsum is simply dummy text.
+  &lt;/div&gt;
+&lt;/ui-disclosure&gt;
+</code></pre>
+
+  </div>
+</div>
+
+<h3>Expanded</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-disclosure expanded>
+      <button>What is Lorem?</button>
+
+      <div>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </div>
+    </ui-disclosure>
+  </div>
+  <div class="example-code">
+
+<pre><code>
+&lt;ui-disclosure&gt;
+  &lt;button&gt;What is Lorem?&lt;/button&gt;
+  &lt;div&gt;
+    Lorem Ipsum is simply dummy text.
+  &lt;/div&gt;
+&lt;/ui-disclosure&gt;
+</code></pre>
+
+  </div>
+</div>
+          </article>
+        </main>
+        <footer></footer>
+      </ui-main>
+    </ui-app>
+    <ui-portal></ui-portal>
+  </ui-root>
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
+</body>
+
+</html>

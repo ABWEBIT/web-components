@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script>
+    (()=>{
+      let mode = localStorage.getItem('data-color-mode');
+      if(mode !== 'dark' && mode !== 'light'){
+        mode = 'dark';
+        localStorage.setItem('data-color-mode',mode);
+      }
+      document.documentElement.setAttribute('data-color-mode',mode);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/library/styles/reset/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
+
+  <script type="module" src="/library/lit-core.min.js"></script>
+  <link rel="icon" href="data:,">
+
+  <title>Foundation</title>
+</head>
+
+<body>
+  <ui-root>
+    <ui-focus></ui-focus>
+    <ui-app>
+      <div class="sidebar">
+        <div class="static">
+          <span class="version"></span>
+            
+        </div>
+        <nav></nav>
+      </div>
+
+      <ui-main>
+        <header>
+          <ui-color-mode></ui-color-mode>
+        </header>
+        <main>
+          <article>
+            
+<h1>Foundation</h1>
+<p>Key fundamental capabilities of the UI library.</p>
+
+<h2>Architecture</h2>
+<p>The library follows a native-first architecture.</p>
+<p>The library does not use Shadow DOM.</p>
+<p>The library does not rely on CSS classes.</p>
+
+<h2>Styling</h2>
+<p>All components are customizable via CSS.</p>
+<p>Components fully support both LTR and RTL directions.</p>
+
+<h2>ARIA</h2>
+<p>Most ARIA attributes are set automatically to reflect correct roles and component states.</p>
+<p>In some cases, <code>aria-label</code> will need to be set manually.</p>
+
+<h2>Accessibility</h2>
+<p>Interactive elements support keyboard navigation: Tab to move forward, Shift + Tab to move backward, Enter or Space to trigger actions, and arrow keys where contextually relevant (e.g., in tabs).</p>
+          </article>
+        </main>
+        <footer></footer>
+      </ui-main>
+    </ui-app>
+    <ui-portal></ui-portal>
+  </ui-root>
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
+</body>
+
+</html>

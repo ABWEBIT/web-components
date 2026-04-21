@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script>
+    (()=>{
+      let mode = localStorage.getItem('data-color-mode');
+      if(mode !== 'dark' && mode !== 'light'){
+        mode = 'dark';
+        localStorage.setItem('data-color-mode',mode);
+      }
+      document.documentElement.setAttribute('data-color-mode',mode);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/library/styles/reset/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
+
+  <script type="module" src="/library/lit-core.min.js"></script>
+  <link rel="icon" href="data:,">
+
+  <title>Separator</title>
+</head>
+
+<body>
+  <ui-root>
+    <ui-focus></ui-focus>
+    <ui-app>
+      <div class="sidebar">
+        <div class="static">
+          <span class="version"></span>
+            
+        </div>
+        <nav></nav>
+      </div>
+
+      <ui-main>
+        <header>
+          <ui-color-mode></ui-color-mode>
+        </header>
+        <main>
+          <article>
+            
+<h1>Separator</h1>
+<p>A component for visually separating content with a line.</p>
+
+<h2>Info</h2>
+<p>A vertical separator needs to be placed inside a container with display: flex or grid.</p>
+<p>The separator stretches along its axis according to the size of its parent element.</p>
+<p>Once the <a href="https://www.w3.org/TR/css-gaps-1/" target="_blank">CSS Gaps Decorations Module Level 1</a> is fully implemented, this component can be partially replaced with a standard CSS property.</p>
+
+<h2>Attributes</h2>
+<p>orientation - static (optional). Sets the separator orientation. Available options: horizontal, vertical. Default: horizontal</p>
+
+<h2>CSS Properties</h2>
+<p>--separator-thickness:1px;</p>
+<p>--separator-spacing:0;</p>
+<p>--separator-color:var(--line-color);</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    A vertical separator needs to be placed inside a container with display: flex or grid.
+    <ui-separator></ui-separator>
+    The separator stretches along its axis according to the size of its parent element.
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-separator&gt;&lt;/ui-separator&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Orientation</h3>
+<div class="example">
+  <div class="example-preview">
+    Flex<ui-separator orientation="vertical"></ui-separator>Grid
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-separator orientation="vertical"&gt;&lt;/ui-separator&gt;
+</code></pre>
+  </div>
+</div>
+          </article>
+        </main>
+        <footer></footer>
+      </ui-main>
+    </ui-app>
+    <ui-portal></ui-portal>
+  </ui-root>
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
+</body>
+
+</html>

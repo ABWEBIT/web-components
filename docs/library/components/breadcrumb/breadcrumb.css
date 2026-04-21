@@ -1,0 +1,24 @@
+ui-breadcrumb{
+  & > ol{
+    display:flex;
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+
+  & > ol > li{
+    display:flex;
+    align-items:center;
+    white-space:nowrap;
+  
+    &:not(:last-of-type)::after{
+      content:'/';
+      line-height:1;
+      margin-inline:0.6rem;
+    }
+
+    & > a{
+      text-decoration:none;
+    }
+  }
+}

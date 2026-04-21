@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script>
+    (()=>{
+      let mode = localStorage.getItem('data-color-mode');
+      if(mode !== 'dark' && mode !== 'light'){
+        mode = 'dark';
+        localStorage.setItem('data-color-mode',mode);
+      }
+      document.documentElement.setAttribute('data-color-mode',mode);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/library/styles/reset/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
+
+  <script type="module" src="/library/lit-core.min.js"></script>
+  <link rel="icon" href="data:,">
+
+  <title>Switch</title>
+</head>
+
+<body>
+  <ui-root>
+    <ui-focus></ui-focus>
+    <ui-app>
+      <div class="sidebar">
+        <div class="static">
+          <span class="version"></span>
+            
+        </div>
+        <nav></nav>
+      </div>
+
+      <ui-main>
+        <header>
+          <ui-color-mode></ui-color-mode>
+        </header>
+        <main>
+          <article>
+            
+<h1>Switch</h1>
+<p>Switches provide a simple and user-friendly way to toggle between two states.</p>
+
+<h2>Attributes</h2>
+<p>config - static (optional). Additional attributes: id, name, value, class.</p>
+<p>checked - reactive (optional). Default: false.</p>
+<p>required - reactive (optional). Default: false.</p>
+<p>disabled - reactive (optional). Default: false.</p>
+
+<p>radius - static (optional). Controls how rounded the corners are. Available options: none.</p>
+<p>size - static (optional). Controls the overall size of the element. Available options: sm, md (default), lg.</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Config</h3>
+<div>Each property in the JSON config must be enclosed in double quotes, both property names and their values, except for the boolean values true and false.</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch config='{
+      "id":"unique-id",
+      "class":"utility-class",
+      "name":"product-id",
+      "value":"on"
+    }'></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox
+  config='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "name":"product-id",
+    "value":"on"
+  }'&gt;
+&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Label</h3>
+<div class="example">
+  <div class="example-preview">
+    <label>Label<ui-switch></ui-switch></label>
+    <label for="input">Label</label>
+    <ui-switch config='{"id":"input"}'></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;label&gt;
+  Label &lt;ui-switch&gt;&lt;/ui-switch&gt;
+&lt;/label&gt;
+
+&lt;label for="input"&gt;Label&lt;/label&gt;
+&lt;ui-switch config='{"id":"input"}'&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Sizes</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch checked size="sm"></ui-switch>
+    <ui-switch checked size="md"></ui-switch>
+    <ui-switch checked size="lg"></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch size="sm"&gt;&lt;/ui-switch&gt;
+&lt;ui-switch size="md"&gt;&lt;/ui-switch&gt;
+&lt;ui-switch size="lg"&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Radius</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch checked radius="none"></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch radius="none"&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Checked</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch checked></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch checked&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-switch disabled></ui-switch>
+    <ui-switch disabled checked></ui-switch>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-switch disabled&gt;&lt;/ui-switch&gt;
+&lt;ui-switch disabled checked&gt;&lt;/ui-switch&gt;
+</code></pre>
+  </div>
+</div>
+          </article>
+        </main>
+        <footer></footer>
+      </ui-main>
+    </ui-app>
+    <ui-portal></ui-portal>
+  </ui-root>
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
+</body>
+
+</html>

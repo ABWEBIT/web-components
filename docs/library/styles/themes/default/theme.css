@@ -1,0 +1,27 @@
+:root{
+
+}
+
+[color="red"]{
+  --bg-color-accent-emphasis:var(--red-bg-color-emphasis);
+  --bg-color-accent-muted:var(--red-bg-color-muted);
+  --fg-color-accent:var(--red-fg-color);
+}
+
+[color="green"]{
+  --bg-color-accent-emphasis:var(--green-bg-color-emphasis);
+  --bg-color-accent-muted:var(--green-bg-color-muted);
+  --fg-color-accent:var(--green-fg-color);
+}
+
+[color="blue"]{
+  --bg-color-accent-emphasis:var(--blue-bg-color-emphasis);
+  --bg-color-accent-muted:var(--blue-bg-color-muted);
+  --fg-color-accent:var(--blue-fg-color);
+}
+
+[color="yellow"]{
+  --bg-color-accent-emphasis:var(--yellow-bg-color-emphasis);
+  --bg-color-accent-muted:var(--yellow-bg-color-muted);
+  --fg-color-accent:var(--yellow-fg-color);
+}

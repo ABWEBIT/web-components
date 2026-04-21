@@ -1,0 +1,167 @@
+---
+title: Checkbox
+layout: layouts/default.html
+permalink: /docs/checkbox/
+---
+
+<h1>Checkbox</h1>
+<p>Checkboxes are used to toggle an option on or off.</p>
+
+<h2>Attributes</h2>
+<p>config - static (optional). Additional attributes: id, name, value, class.</p>
+<p>checked - reactive (optional). Default: false.</p>
+<p>indeterminate - reactive (optional). Default: false.</p>
+<p>required - reactive (optional). Default: false.</p>
+<p>disabled - reactive (optional). Default: false.</p>
+
+<p>radius - static (optional). Controls how rounded the corners are. Available options: full, none.</p>
+<p>size - static (optional). Controls the overall size of the element. Available options: sm, md (default), lg.</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Config</h3>
+<div>Each property in the JSON config must be enclosed in double quotes, both property names and their values, except for the boolean values true and false.</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox config='{"id":"unique-id","class":"utility-class","name":"product-id","value":"on"}'></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox
+  config='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "name":"product-id",
+    "value":"on"
+  }'&gt;
+&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Label</h3>
+<div>There are two ways to add a label to a component: either by wrapping the component inside a <code>&lt;label&gt;</code>, or by linking a separate <code>&lt;label&gt;</code> to the component using the <code>for</code> attribute with the component's <code>id</code>.</div>
+<div class="example">
+  <div class="example-preview">
+    <label>Label<ui-checkbox></ui-checkbox></label>
+    <label for="input">Label</label>
+    <ui-checkbox config='{"id":"input"}'></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;label&gt;
+  Label &lt;ui-checkbox&gt;&lt;/ui-checkbox&gt;
+&lt;/label&gt;
+
+&lt;label for="input"&gt;Label&lt;/label&gt;
+&lt;ui-checkbox config='{"id":"input"}'&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Check All</h3>
+<div class="example">
+  <div class="example-preview">
+    <label>
+      Check All
+      <ui-checkbox parent="example"></ui-checkbox>
+    </label>
+    <ui-separator orientation="vertical"></ui-separator>
+    <ui-checkbox child="example"></ui-checkbox>
+    <ui-checkbox child="example" checked></ui-checkbox>
+    <ui-checkbox child="example" indeterminate></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;label&gt;
+  Check All &lt;ui-checkbox parent="example"&gt;&lt;/ui-checkbox&gt;
+&lt;/label&gt;
+
+&lt;ui-separator orientation="vertical"&gt;&lt;/ui-separator&gt;
+
+&lt;ui-checkbox child="example"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox child="example"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox child="example"&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Sizes</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox checked size="sm"></ui-checkbox>
+    <ui-checkbox checked size="md"></ui-checkbox>
+    <ui-checkbox checked size="lg"></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox size="sm"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox size="md"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox size="lg"&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Radius</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox checked radius="full"></ui-checkbox>
+    <ui-checkbox checked radius="none"></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox checked radius="full"&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox checked radius="none"&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Checked</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox checked></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox checked&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Indeterminate</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox indeterminate></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox indeterminate&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-checkbox disabled></ui-checkbox>
+    <ui-checkbox disabled indeterminate></ui-checkbox>
+    <ui-checkbox disabled checked></ui-checkbox>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-checkbox disabled&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox disabled indeterminate&gt;&lt;/ui-checkbox&gt;
+&lt;ui-checkbox disabled checked&gt;&lt;/ui-checkbox&gt;
+</code></pre>
+  </div>
+</div>

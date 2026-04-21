@@ -1,0 +1,21 @@
+ui-icon{
+  --icon-height:1.5rem;
+  --icon-width:1.5rem;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  vertical-align:middle;
+  flex-shrink:0;
+  height:var(--icon-height);
+  width:var(--icon-width);
+
+  & > svg{
+    display:block;
+    height:100%;
+    width:100%;
+    fill:currentColor;
+    stroke:currentColor;
+    pointer-events:none;
+  }
+}

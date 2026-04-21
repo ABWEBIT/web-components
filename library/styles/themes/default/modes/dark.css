@@ -1,0 +1,156 @@
+:root[data-color-mode='dark']{
+  --red-0: oklch(0.236 0.082 11.478);
+  --red-1: oklch(0.3 0.109 16.138);
+  --red-2: oklch(0.371 0.14 19.275);
+  --red-3: oklch(0.438 0.168 21.715);
+  --red-4: oklch(0.521 0.202 23.899);
+  --red-5: oklch(0.616 0.218 22.722);
+  --red-6: oklch(0.693 0.194 20.108); /* oklch(0.723 0.144 18.108) */
+  --red-7: oklch(0.74 0.168 20.359); /*  oklch(0.75 0.128 19.359) */
+  --red-8: oklch(0.817 0.127 20.872);
+  --red-9: oklch(0.86 0.075 22.036);
+
+  --red-bg-color-emphasis:oklch(0.586 0.201 26.778);
+  --red-bg-color-muted:oklch(0.665 0.204 26.943 / 0.102);
+  --red-bg-color-muted:var(--red-0);
+  --red-fg-color:oklch(0.665 0.204 26.943);
+
+  --green-0: oklch(0.23 0.028 154.42);
+  --green-1: oklch(0.281 0.042 152.714);
+  --green-2: oklch(0.355 0.064 149.401);
+  --green-3: oklch(0.415 0.084 147.481);
+  --green-4: oklch(0.485 0.109 146.099);
+  --green-5: oklch(0.578 0.143 144.829);
+  --green-6: oklch(0.681 0.183 143.761);
+  --green-7: oklch(0.717 0.198 142.94);
+  --green-8: oklch(0.785 0.163 142.637);
+  --green-9: oklch(0.84 0.13 141.694);
+
+  --green-bg-color-emphasis:oklch(0.546 0.147 146.278);
+  --green-bg-color-muted:oklch(0.622 0.166 146.241 / 0.149);
+  --green-bg-color-muted:var(--green-0);
+  --green-fg-color:oklch(0.695 0.18 145.642);
+
+  --blue-0: oklch(0.232 0.091 259.202);
+  --blue-1: oklch(0.294 0.119 259.81);
+  --blue-2: oklch(0.364 0.148 259.935);
+  --blue-3: oklch(0.424 0.169 259.612);
+  --blue-4: oklch(0.503 0.197 259.195);
+  --blue-5: oklch(0.595 0.222 258.417);
+  --blue-6: oklch(0.698 0.162 253.689);
+  --blue-7: oklch(0.734 0.142 251.895);
+  --blue-8: oklch(0.796 0.108 249.313);
+  --blue-9: oklch(0.849 0.08 246.552);
+
+  --blue-bg-color-emphasis:oklch(0.568 0.202 259.684);
+  --blue-bg-color-muted:oklch(0.645 0.187 257.462 / 0.102);
+  --blue-bg-color-muted:var(--blue-0);
+  --blue-fg-color:oklch(0.663 0.169 255.935);
+
+  --yellow-0: oklch(0.239 0.051 70.858);
+  --yellow-1: oklch(0.286 0.061 70.143);
+  --yellow-2: oklch(0.37 0.079 69.746);
+  --yellow-3: oklch(0.424 0.09 70.197);
+  --yellow-4: oklch(0.505 0.106 72.255);
+  --yellow-5: oklch(0.594 0.124 73.462);
+  --yellow-6: oklch(0.705 0.146 75.869);
+  --yellow-7: oklch(0.743 0.152 78.458);
+  --yellow-8: oklch(0.802 0.151 83.118);
+  --yellow-9: oklch(0.853 0.123 88.073);
+
+  --yellow-bg-color-emphasis:oklch(0.565 0.118 74.925);
+  --yellow-bg-color-muted:oklch(0.643 0.133 75.903 / 0.15);
+  --yellow-bg-color-muted:var(--yellow-0);
+  --yellow-fg-color:oklch(0.719 0.14 79.914);
+}
+
+:root[data-color-mode='dark']{
+  --bg-color-default:oklch(0.12 0 0);
+  --bg-color-emphasis:oklch(0.30 0 0);
+  --bg-color-muted:oklch(0.18 0 0);
+  --bg-color-disabled:oklch(0.24 0 0);
+
+  --fg-color-default:oklch(0.97 0.01 248.179);
+  --fg-color-muted:oklch(0.676 0.015 254.732);
+  --fg-color-disabled:oklch(0.528 0.018 257.289);
+
+  --fg-color-neutral:oklch(0.676 0.015 254.732);
+
+
+
+  --border-color-default:oklch(0.27 0 0);
+  --border-color-disabled:oklch(0.35 0 0);
+
+
+  /* control */
+  --control-checked-bg-color-active:oklch(0.625 0.182 257.65);
+  --control-checked-bg-color-hover:oklch(0.596 0.192 258.655);
+
+
+  /* button | radio | checkbox | switch | input | textarea */
+  --button-bg-color-default:oklch(1 0 0);
+  --button-fg-color-default:oklch(1 0 0);
+
+  --input-bg-color-default:var(--bg-inset);
+  --input-fg-color-default:var(--fg-color-default);
+
+  --textarea-bg-color-default:var(--bg-inset);
+  --textarea-fg-color-default:var(--fg-color-default);
+
+
+
+
+  --control-choice-bg-inset:oklch(0.06 0 0);
+  --control-choice-bg-checked:oklch(0.56 0.2 255);
+
+  --control-border-color:oklch(0.29 0 0);
+  --control-border-color-disabled:oklch(0.35 0 0);
+
+  --control-indicator-color:oklch(1 0 0);
+  --control-indicator-color-disabled:oklch(0.56 0 0);
+
+  --control-thumb-color:oklch(1 0 0);
+  --control-track-color:oklch(0.06 0 0);
+
+  --control-placeholder-color:oklch(0.68 0 0);
+
+
+
+  --state-hover-opacity:0.08;
+  --state-pressed-opacity:0.16;
+
+
+
+  /* line */
+  --line-color:oklch(0.27 0 0);
+
+  /* focus-ring */
+  --focus-ring-color:oklch(0.72 0.2 255);
+
+  /* scrollbar */
+  --scrollbar-color:oklch(0.27 0 0);
+
+  /* selection */
+  --selection-color:oklch(1 0 0 / 0.1);
+
+  /* separator */
+  --separator-color:oklch(0.27 0 0);
+
+  /* link */
+  --link-color:var(--fg-color-accent);
+  --link-color-hover:oklch(from var(--link-color) calc(l + 0.05) c h);
+  --link-color-pressed:oklch(from var(--link-color) calc(l - 0.05) c h);
+
+  /* spinner */
+  --spinner-track-color:oklch(0.27 0 0);
+  --spinner-thumb-color:var(--fg-color-accent);
+
+
+}
+
+
+[color="neutral"]{
+  --bg-color-accent-emphasis:var(--neutral-bg-color-emphasis);
+  --bg-color-accent-muted:var(--neutral-bg-color-muted);
+  --fg-color-accent:var(--neutral-fg-color);
+}

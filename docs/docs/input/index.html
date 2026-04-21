@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script>
+    (()=>{
+      let mode = localStorage.getItem('data-color-mode');
+      if(mode !== 'dark' && mode !== 'light'){
+        mode = 'dark';
+        localStorage.setItem('data-color-mode',mode);
+      }
+      document.documentElement.setAttribute('data-color-mode',mode);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/library/styles/reset/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
+
+  <script type="module" src="/library/lit-core.min.js"></script>
+  <link rel="icon" href="data:,">
+
+  <title>Input</title>
+</head>
+
+<body>
+  <ui-root>
+    <ui-focus></ui-focus>
+    <ui-app>
+      <div class="sidebar">
+        <div class="static">
+          <span class="version"></span>
+            
+        </div>
+        <nav></nav>
+      </div>
+
+      <ui-main>
+        <header>
+          <ui-color-mode></ui-color-mode>
+        </header>
+        <main>
+          <article>
+            
+<h1>Input</h1>
+<p>Input allows users to enter and edit text.</p>
+
+<h2>Dependencies</h2>
+<ul>
+  <li><a href="#icon">ui-icon</a></li>
+</ul>
+
+<h2>Attributes</h2>
+<p>config - static (optional). Additional attributes: id, class, type, name, value, placeholder.</p>
+<p>clearable - static (optional). Adds a clear button to the component.</p>
+<p>required - static (optional). Default: false.</p>
+<p>disabled - reactive (optional). Default: false.</p>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-input></ui-input>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-input&gt;&lt;/ui-input&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Config</h3>
+<div>Each property in the JSON config must be enclosed in double quotes, both property names and their values, except for the boolean values true and false.</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-input config='{"id":"unique-id","class":"utility-class","type":"text","name":"product-id","value":"value","placeholder":"Enter text"}'></ui-input>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-input
+  config='{
+    id:"unique-id",
+    class:"utility-class",
+    type:"text",
+    name:"product-id",
+    value:"value",
+    placeholder:"Enter text"
+  }'&gt;
+&lt;/ui-input&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Sizes</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-input clearable size="sm" config='{"placeholder":"Enter text"}'></ui-input>
+    <ui-input clearable size="md" config='{"placeholder":"Enter text"}'></ui-input>
+    <ui-input clearable size="lg" config='{"placeholder":"Enter text"}'></ui-input>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-input size="sm" config='{"placeholder":"Enter text"}'&gt;&lt;/ui-input&gt;
+&lt;ui-input size="md" config='{"placeholder":"Enter text"}'&gt;&lt;/ui-input&gt;
+&lt;ui-input size="lg" config='{"placeholder":"Enter text"}'&gt;&lt;/ui-input&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Clear button</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-input clearable config='{"placeholder":"Enter text"}'></ui-input>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-input clearable config='{"placeholder":"Enter text"}'&gt;&lt;/ui-input&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Required</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-input required config='{"placeholder":"Enter text"}'></ui-input>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-input required config='{"placeholder":"Enter text"}'&gt;&lt;/ui-input&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-input disabled config='{"placeholder":"Enter text"}'></ui-input>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-input disabled config='{"placeholder":"Enter text"}'&gt;&lt;/ui-input&gt;
+</code></pre>
+  </div>
+</div>
+          </article>
+        </main>
+        <footer></footer>
+      </ui-main>
+    </ui-app>
+    <ui-portal></ui-portal>
+  </ui-root>
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
+</body>
+
+</html>

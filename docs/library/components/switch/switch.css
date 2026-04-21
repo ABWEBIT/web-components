@@ -1,0 +1,114 @@
+ui-switch{
+  --switch-size:var(--control-choice-md);
+  --switch-radius:var(--radius-full);
+
+  --switch-indicator-color:var(--control-indicator-color);
+  --switch-bg:var(--control-choice-bg-inset);
+  --switch-bg-checked:var(--control-choice-bg-checked);
+
+  position:relative;
+  display:inline-flex;
+  vertical-align:middle;
+  user-select:none;
+  -webkit-user-select:none;
+
+  height:var(--switch-size);
+  width:calc(var(--switch-size) * 2);
+  border-radius:var(--switch-radius);
+
+  &[size="sm"]{--switch-size:var(--control-choice-sm);}
+  &[size="md"]{--switch-size:var(--control-choice-md);}
+  &[size="lg"]{--switch-size:var(--control-choice-lg);}
+
+  &[radius="none"]{--switch-radius:var(--radius-none);}
+
+  &[disabled]{
+    --switch-indicator-color:var(--on-surface-disabled);
+    --switch-bg:var(--control-surface-disabled);
+    --switch-bg-checked:var(--control-surface-disabled);
+  }
+
+  & > input[type="checkbox"]{
+    appearance:none;
+    margin:0;
+    padding:0;
+    background:none;
+    border:none;
+
+    cursor:var(--cursor-interactive);
+    touch-action:manipulation;
+
+    background-color:var(--switch-bg);
+
+    border-width:var(--control-border-width);
+    border-style:var(--control-border-style);
+    border-color:var(--control-border-color);
+
+    outline-width:var(--focus-ring-width);
+    outline-style:var(--focus-ring-style);
+    outline-offset:var(--focus-ring-offset);
+    outline-color:transparent;
+
+    transition-duration:var(--duration-default);
+    transition-property:outline-color,border-color;
+
+    &:disabled{
+      cursor:var(--cursor-disabled);
+    }
+
+    &:focus-visible{
+      outline-color:var(--focus-ring-color);
+    }
+
+    &:checked{
+      border-color:transparent;
+    }
+
+    @media (hover: hover){
+      &:not(:disabled,:checked):hover{
+        /*border-color:var(--control-border-color-hover);*/
+      }
+    }
+  }
+
+  & > input[type="checkbox"],
+  & > span{
+    position:absolute;
+    width:inherit;
+    height:inherit;
+    border-radius:inherit;
+  }
+
+  & > span{
+    pointer-events:none;
+    display:flex;
+    align-items:center;
+    background-color:transparent;
+
+    transition-duration:var(--duration-default);
+    transition-property:background-color;
+  }
+
+  & > input[type="checkbox"]:checked + span{
+    background-color:var(--switch-bg-checked);
+  }
+
+  & > span::before{
+    content:'';
+    position:absolute;
+    border-radius:inherit;
+
+    height:calc(var(--switch-size) * 0.5);
+    width:calc(var(--switch-size) * 0.5);
+
+    background-color:var(--switch-indicator-color);
+    margin-inline-start:calc(var(--switch-size) * 0.25);
+
+    transition-duration:var(--duration-default);
+    transition-property:margin-inline-start;
+  }
+
+  & > input[type="checkbox"]:checked + span::before{
+    margin-inline-start:calc(var(--switch-size) * 2 - var(--switch-size) * 0.5 - var(--switch-size) * 0.25);
+  }
+}

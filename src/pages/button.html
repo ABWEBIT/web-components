@@ -1,0 +1,228 @@
+---
+title: Button
+layout: layouts/default.html
+permalink: /docs/button/
+---
+
+<h1>Button</h1>
+<p>Buttons are used to perform actions or submit forms.</p>
+
+<h2>Attributes</h2>
+<p>radius - static (optional). Controls how rounded the corners are. Available options: full, none.</p>
+<p>size - static (optional). Controls the overall size of the element. Available options: sm, md (default), lg.</p>
+<p>color - static (optional). Controls the color style of the element. Available options: gray, red, green, blue, yellow.</p>
+
+<h3>Variants</h3>
+<div>solid | soft | outline | ghost</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-button>Cancel</ui-button>
+    <ui-button>Upload</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" disabled>Solid</ui-button>
+    <ui-button variant="soft" disabled>Soft</ui-button>
+    <ui-button variant="outline" disabled>Outline</ui-button>
+    <ui-button variant="ghost" disabled>Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid">Solid</ui-button>
+    <ui-button variant="soft">Soft</ui-button>
+    <ui-button variant="outline">Outline</ui-button>
+    <ui-button variant="ghost">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="neutral">Solid</ui-button>
+    <ui-button variant="soft" color="neutral">Soft</ui-button>
+    <ui-button variant="outline" color="neutral">Outline</ui-button>
+    <ui-button variant="ghost" color="neutral">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="red">Solid</ui-button>
+    <ui-button variant="soft" color="red">Soft</ui-button>
+    <ui-button variant="outline" color="red">Outline</ui-button>
+    <ui-button variant="ghost" color="red">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="green">Solid</ui-button>
+    <ui-button variant="soft" color="green">Soft</ui-button>
+    <ui-button variant="outline" color="green">Outline</ui-button>
+    <ui-button variant="ghost" color="green">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="blue">Solid</ui-button>
+    <ui-button variant="soft" color="blue">Soft</ui-button>
+    <ui-button variant="outline" color="blue">Outline</ui-button>
+    <ui-button variant="ghost" color="blue">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="yellow">Solid</ui-button>
+    <ui-button variant="soft" color="yellow">Soft</ui-button>
+    <ui-button variant="outline" color="yellow">Outline</ui-button>
+    <ui-button variant="ghost" color="yellow">Ghost</ui-button>
+  </div>
+
+  <div class="example-code">
+<pre><code>
+&lt;ui-button variant="invisible"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button variant="outline"&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Default</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-button>Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Config</h3>
+<div>Each property inside the config JSON string must be enclosed in double quotes. This applies both to the property names and their values.</div>
+<div class="example">
+  <div class="example-preview">
+    <ui-button config='{"id":"unique-id","class":"utility-class","type":"submit"}'>Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button
+  config='{
+    "id":"unique-id",
+    "class":"utility-class",
+    "type":"submit"
+  }'&gt;
+&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>With Icons</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-button>
+      <ui-icon name="settings"></ui-icon>
+      Button
+    </ui-button>
+    <ui-button>
+      <ui-icon name="settings"></ui-icon>
+      Button
+      <ui-icon name="settings"></ui-icon>
+    </ui-button>
+    <ui-button>
+      Button
+      <ui-icon name="settings"></ui-icon>
+    </ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button&gt;
+  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+  Button
+&lt;/ui-button&gt;
+
+&lt;ui-button&gt;
+  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+  Button
+  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+&lt;/ui-button&gt;
+
+&lt;ui-button&gt;
+  Button
+  &lt;ui-icon name="name"&gt;&lt;/ui-icon&gt;
+&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Colors</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-button>Button</ui-button>
+    <ui-button color="gray">Button</ui-button>
+    <ui-button color="red">Button</ui-button>
+    <ui-button color="green">Button</ui-button>
+    <ui-button color="blue">Button</ui-button>
+    <ui-button color="yellow">Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button&gt;Button&lt;/ui-button&gt;
+&lt;ui-button color="gray"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button color="red"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button color="green"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button color="blue"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button color="yellow"&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Sizes</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-button size="sm"><ui-icon name="settings"></ui-icon>Button</ui-button>
+    <ui-button size="md"><ui-icon name="settings"></ui-icon>Button</ui-button>
+    <ui-button size="lg"><ui-icon name="settings"></ui-icon>Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button size="sm"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button size="md"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button size="lg"&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Radius</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-button radius="none">Button</ui-button>
+    <ui-button radius="full">Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button radius="full"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button radius="none"&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Busy</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-button busy id="a">Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button busy&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Disabled</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-button disabled>Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button disabled&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Width 100%</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-button style="width:100%;">Button</ui-button>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button style="width:100%;"&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>

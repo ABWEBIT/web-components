@@ -1,0 +1,108 @@
+ui-radio{
+  --radio-size:var(--control-choice-md);
+  --radio-radius:var(--radius-full);
+
+  --radio-indicator-color:var(--control-indicator-color);
+  --radio-bg:var(--control-choice-bg-inset);
+  --radio-bg-checked:var(--control-choice-bg-checked);
+
+  position:relative;
+  display:inline-block;
+  vertical-align:middle;
+  user-select:none;
+  -webkit-user-select:none;
+
+  height:var(--radio-size);
+  width:var(--radio-size);
+  border-radius:var(--radio-radius);
+
+  &[size="sm"]{--radio-size:var(--control-choice-sm);}
+  &[size="md"]{--radio-size:var(--control-choice-md);}
+  &[size="lg"]{--radio-size:var(--control-choice-lg);}
+
+  &[disabled]{
+    --radio-indicator-color:var(--control-on-surface-disabled);
+    --radio-bg:var(--control-surface-disabled);
+    --radio-bg-checked:var(--control-surface-disabled);
+  }
+
+  & > input[type="radio"]{
+    appearance:none;
+    margin:0;
+    padding:0;
+    border:none;
+    background:none;
+
+    isolation:isolate;
+    cursor:var(--cursor-interactive);
+    touch-action:manipulation;
+
+    background-color:var(--radio-bg);
+
+    border-width:var(--control-border-width);
+    border-style:var(--control-border-style);
+    border-color:var(--control-border-color);
+
+    outline-width:var(--focus-ring-width);
+    outline-style:var(--focus-ring-style);
+    outline-offset:var(--focus-ring-offset);
+    outline-color:transparent;
+
+    transition-duration:var(--duration-default);
+    transition-property:outline-color,border-color;
+
+    &:disabled{
+      cursor:var(--cursor-disabled);
+    }
+
+    &:focus-visible{
+      outline-color:var(--focus-ring-color);
+    }
+
+    &:checked{
+      border-color:transparent;
+    }
+
+    @media (hover: hover){
+      &:not(:disabled,:checked):hover{
+        /*border-color:var(--control-border-color-hover);*/
+      }
+    }
+  }
+
+  & > input[type="radio"],
+  & > span{
+    position:absolute;
+    width:inherit;
+    height:inherit;
+    border-radius:inherit;
+  }
+
+  & > span{
+    pointer-events:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:var(--radio-bg-checked);
+
+    opacity:0;
+
+    transition-duration:var(--duration-default);
+    transition-property:opacity;
+  }
+
+  & > input[type="radio"]:checked + span{
+    opacity:1;
+  }
+
+  & > span::before{
+    content:'';
+    position:absolute;
+    border-radius:inherit;
+
+    background-color:var(--radio-indicator-color);
+
+    height:round(calc(var(--radio-size) * 0.5 - var(--radio-size) * 0.1),1px);
+    width:round(calc(var(--radio-size) * 0.5 - var(--radio-size) * 0.1),1px);
+  }
+}
