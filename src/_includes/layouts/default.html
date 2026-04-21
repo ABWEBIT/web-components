@@ -14,16 +14,16 @@
     })();
   </script>
 
-  <link rel="stylesheet" href="/library/styles/reset/reset.css">
-  <link rel="stylesheet" href="/library/styles/tokens/index.css">
-  <link rel="stylesheet" href="/library/styles/core/index.css">
-  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
-  <link rel="stylesheet" href="/library/styles/core.css">
-  <link rel="stylesheet" href="/library/styles/template.css">
-<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
-  <link rel="stylesheet" href="/library/styles/components.css">
+  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/reset/reset.css">
+  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/tokens/index.css">
+  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/core/index.css">
+  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/core.css">
+  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/template.css">
+<!--<link rel="stylesheet" href="{{ site.baseUrl }}library/styles/variants.css">-->
+  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/components.css">
 
-  <script type="module" src="/library/lit-core.min.js"></script>
+  <script type="module" src="{{ site.baseUrl }}library/lit-core.min.js"></script>
   <link rel="icon" href="data:,">
 
   <title>{{ title }}</title>
@@ -55,8 +55,8 @@
     </ui-app>
     <ui-portal></ui-portal>
   </ui-root>
-  <script type="module" src="/assets/scripts/script.js"></script>
-  <script type="module" src="/library/components.js"></script>
+  <script type="module" src="{{ site.baseUrl }}assets/scripts/script.js"></script>
+  <script type="module" src="{{ site.baseUrl }}library/components.js"></script>
 </body>
 
 </html>
