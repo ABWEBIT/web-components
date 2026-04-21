@@ -1,5 +1,6 @@
 export default function (eleventyConfig){
-  const baseUrl = process.env.BASE_URL || "/";
+  const isBuild = process.env.ELEVENTY_RUN_MODE === "build";
+  const baseUrl = isBuild ? "/web-components/" : "/";
 
   eleventyConfig.addGlobalData("site",{
     baseUrl
