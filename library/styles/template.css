@@ -36,7 +36,7 @@ header{
   height:3rem;
   min-height:3rem;
   background-color:var(--bg-color-muted);
-  border-bottom:1px solid var(--line-color);
+  border-bottom:1px solid var(--neutral-border-color-muted);
 }
 
 footer{
@@ -74,6 +74,10 @@ nav{
   padding-inline:1rem;
 }
 
+nav > ul{
+  row-gap:1rem;
+}
+
 nav ul{
   position:relative;
   display:flex;
@@ -81,7 +85,19 @@ nav ul{
   list-style:none;
   margin:0;
   padding:0;
-  padding-block-end:1.5rem;
+}
+
+nav ul li{
+  position:relative;
+}
+
+nav ul ul::before{
+  content:'';
+  position:absolute;
+  pointer-events:none;
+  inset:0 auto 0 0;
+  width:var(--control-border-width);
+  background-color:var(--neutral-border-color-muted);
 }
 
 nav .menu-title{
@@ -96,9 +112,26 @@ nav a.menu-item{
   text-decoration:none;
 }
 
+nav a{
+  --link-color:var(--fg-color-muted);
+  --link-color-hover:var(--fg-color-emphasis);
+}
+
+nav ul ul li:has(a.menu-item.active)::before{
+  content:'';
+  position:absolute;
+  pointer-events:none;
+  inset:0 auto 0 0;
+  width:var(--control-border-width);
+  background-color:var(--accent-bg-color-emphasis);
+}
+
 nav a.menu-item.active,
 nav a.menu-item:hover{
-  background-color:oklch(from oklch(1 0 0) calc(l + 0.04) c h / 0.1);
+  --link-color:currentColor;
+  --link-color-hover:currentColor;
+  --link-color-pressed:currentColor;
+
 }
 
 /* main */
@@ -113,14 +146,12 @@ main{
 
 article{
   & > h1:first-of-type + *{
-    color:var(--fg-color-muted);
+    color:var(--neutral-fg-color-on-muted);
   }
 }
 
 .example{
-  border-width:1px;
-  border-style:solid;
-  border-color:var(--line-color);
+  border:1px solid var(--neutral-border-color-muted);
   border-radius:var(--radius-lg);
 
 
@@ -135,10 +166,8 @@ article{
     flex-wrap:wrap;
     align-items:center;
     gap:1rem;
-    border-bottom-width:1px;
-    border-bottom-style:solid;
-    border-bottom-color:var(--line-color);
     overflow-x:auto;
+    border-bottom:1px solid var(--neutral-border-color-muted);
 
     &.flex-column{
       flex-direction:column;
@@ -173,9 +202,10 @@ table :is(th,td){
   row-gap:12px;
   padding:12px 10px 10px;
   align-items:center;
-  background-color:var(--bg-color-disabled);
+  background-color:var(--neutral-bg-color-muted);
   border-radius:var(--radius-lg);
-  font-size:var();
+  border:1px solid var(--neutral-border-color-muted);
+  font-size:calc(0.875rem * var(--scaling));
 
   & > :not(ui-icon){
     color:var(--fg-color-muted);

@@ -2,6 +2,8 @@ import {LitElement,html,nothing} from '../../lit-core.min.js';
 
 export class UITextarea extends LitElement{
   #textarea = null;
+  #adjuster = null;
+  #resize = "";
 
   static properties = {
     disabled:{type:Boolean, reflect:true},
@@ -56,6 +58,27 @@ export class UITextarea extends LitElement{
 
   firstUpdated(){
     this.#textarea = this.getElementsByTagName('textarea')[0];
+    this.#resize = this.getAttribute('resize');
+    this.adjuster = this.#createAdjuster();
+    this.appendChild(this.adjuster);
+  }
+
+  #createAdjuster() {
+    const el = document.createElement('div');
+    el.className = 'adjuster';
+    el.setAttribute('part', 'adjuster');
+    el.setAttribute('aria-hidden', 'true');
+    el.inert = true;
+    return el;
+  }
+
+  #onInput(e){
+    const value = e.target.value;
+    this.value = value;
+
+    if(this.#resize === "auto"){
+      this.adjuster.textContent = value + "\n";
+    };
   }
 
   render(){
@@ -78,10 +101,12 @@ export class UITextarea extends LitElement{
       spellcheck=${config.spellcheck || nothing}
       ?autofocus=${config.autofocus ?? nothing}
 
-      value=${config.value || nothing}
+      .value=${this.value ?? nothing}
       ?disabled=${this.disabled}
       ?required=${this.required}
       ?readonly=${this.readonly}
+
+      @input=${this.#onInput}
     >${this.value || nothing}</textarea>`;
   }
 }

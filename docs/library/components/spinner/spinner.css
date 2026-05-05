@@ -1,8 +1,10 @@
 ui-spinner{
+  --spinner-track-color:var(--bg-color-emphasis);
+  --spinner-thumb-color:var(--accent-bg-color-emphasis);
   --spinner-height:auto;
   --spinner-width:auto;
   --spinner-border-radius:inherit;
-  --spinner-bg:transparent;
+  --spinner-bg-color:transparent;
   --spinner-icon-size:calc(1.25rem * var(--scaling));
 
   position:absolute;
@@ -13,7 +15,7 @@ ui-spinner{
   border-radius:var(--spinner-border-radius);
   height:var(--spinner-height);
   width:var(--spinner-width);
-  background-color:var(--spinner-bg);
+  background-color:var(--spinner-bg-color);
 
   &::before,
   &::after{

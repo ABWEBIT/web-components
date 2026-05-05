@@ -1,27 +1,138 @@
 :root{
+  --indicator-color:var(--fg-color-emphasis);
+  --indicator-color-disabled:var(--fg-color-disabled);
 
+  /* radio | checkbox | switch */
+  --choice-bg-color:var(--neutral-bg-color-muted);
+  --choice-bg-color-checked:var(--accent-bg-color-emphasis);
+
+  /* input | textarea */
+  --field-bg-color:var(--bg-color-muted);
+  --field-fg-color:var(--fg-color-default);
+  --placeholder-color:var(--fg-color-muted);
+
+  --selection-color:oklch(from var(--fg-color-default) l c h / 0.1);
+  --focus-ring-color:var(--accent-bg-color-emphasis);
+  --scrollbar-color:var(--bg-color-emphasis);
 }
 
-[color="red"]{
-  --bg-color-accent-emphasis:var(--red-bg-color-emphasis);
-  --bg-color-accent-muted:var(--red-bg-color-muted);
-  --fg-color-accent:var(--red-fg-color);
+
+
+/* accent */
+:where(
+  :root:not([data-accent-color]),
+  :root[data-accent-color="blue"],
+  [color="blue"]
+){
+  --accent-0:var(--blue-0);
+  --accent-1:var(--blue-1);
+  --accent-2:var(--blue-2);
+  --accent-3:var(--blue-3);
+  --accent-4:var(--blue-4);
+  --accent-5:var(--blue-5);
+  --accent-6:var(--blue-6);
+  --accent-7:var(--blue-7);
+  --accent-8:var(--blue-8);
+  --accent-9:var(--blue-9);
+
+  --accent-bg-color-emphasis:var(--blue-bg-color-emphasis);
+  --accent-bg-color-muted:var(--blue-bg-color-muted);
+  --accent-fg-color:var(--blue-fg-color);
+  --accent-border-color-emphasis:var(--blue-border-color-emphasis);
+  --accent-border-color-muted:var(--blue-border-color-muted);
 }
 
-[color="green"]{
-  --bg-color-accent-emphasis:var(--green-bg-color-emphasis);
-  --bg-color-accent-muted:var(--green-bg-color-muted);
-  --fg-color-accent:var(--green-fg-color);
+:where(
+  :root[data-accent-color="green"],
+  [color="green"]
+){
+  --accent-0:var(--green-0);
+  --accent-1:var(--green-1);
+  --accent-2:var(--green-2);
+  --accent-3:var(--green-3);
+  --accent-4:var(--green-4);
+  --accent-5:var(--green-5);
+  --accent-6:var(--green-6);
+  --accent-7:var(--green-7);
+  --accent-8:var(--green-8);
+  --accent-9:var(--green-9);
+
+  --accent-bg-color-emphasis:var(--green-bg-color-emphasis);
+  --accent-bg-color-muted:var(--green-bg-color-muted);
+  --accent-fg-color:var(--green-fg-color);
+  --accent-border-color-emphasis:var(--green-border-color-emphasis);
+  --accent-border-color-muted:var(--green-border-color-muted);
 }
 
-[color="blue"]{
-  --bg-color-accent-emphasis:var(--blue-bg-color-emphasis);
-  --bg-color-accent-muted:var(--blue-bg-color-muted);
-  --fg-color-accent:var(--blue-fg-color);
+:where(
+  :root[data-accent-color="red"],
+  [color="red"]
+){
+  --accent-0:var(--red-0);
+  --accent-1:var(--red-1);
+  --accent-2:var(--red-2);
+  --accent-3:var(--red-3);
+  --accent-4:var(--red-4);
+  --accent-5:var(--red-5);
+  --accent-6:var(--red-6);
+  --accent-7:var(--red-7);
+  --accent-8:var(--red-8);
+  --accent-9:var(--red-9);
+
+  --accent-bg-color-emphasis:var(--red-bg-color-emphasis);
+  --accent-bg-color-muted:var(--red-bg-color-muted);
+  --accent-fg-color:var(--red-fg-color);
+  --accent-border-color-emphasis:var(--red-border-color-emphasis);
+  --accent-border-color-muted:var(--red-border-color-muted);
 }
 
-[color="yellow"]{
-  --bg-color-accent-emphasis:var(--yellow-bg-color-emphasis);
-  --bg-color-accent-muted:var(--yellow-bg-color-muted);
-  --fg-color-accent:var(--yellow-fg-color);
+:where(
+  :root[data-accent-color="yellow"],
+  [color="yellow"]
+){
+  --accent-0:var(--yellow-0);
+  --accent-1:var(--yellow-1);
+  --accent-2:var(--yellow-2);
+  --accent-3:var(--yellow-3);
+  --accent-4:var(--yellow-4);
+  --accent-5:var(--yellow-5);
+  --accent-6:var(--yellow-6);
+  --accent-7:var(--yellow-7);
+  --accent-8:var(--yellow-8);
+  --accent-9:var(--yellow-9);
+
+  --accent-bg-color-emphasis:var(--yellow-bg-color-emphasis);
+  --accent-bg-color-muted:var(--yellow-bg-color-muted);
+  --accent-fg-color:var(--yellow-fg-color);
+  --accent-border-color-emphasis:var(--yellow-border-color-emphasis);
+  --accent-border-color-muted:var(--yellow-border-color-muted);
+}
+
+
+
+/* neutral */
+:where(
+  :root:not([data-neutral-color]),
+  :root[data-neutral-color="gray"],
+  [color="gray"]
+){
+  --neutral-0:var(--gray-0);
+  --neutral-1:var(--gray-1);
+  --neutral-2:var(--gray-2);
+  --neutral-3:var(--gray-3);
+  --neutral-4:var(--gray-4);
+  --neutral-5:var(--gray-5);
+  --neutral-6:var(--gray-6);
+  --neutral-7:var(--gray-7);
+  --neutral-8:var(--gray-8);
+  --neutral-9:var(--gray-9);
+
+  --neutral-bg-color-emphasis:var(--gray-bg-color-emphasis);
+  --neutral-bg-color-muted:var(--gray-bg-color-muted);
+  --neutral-fg-color-on-emphasis:var(--gray-fg-color-on-emphasis);
+  --neutral-fg-color-on-muted:var(--gray-fg-color-on-muted);
+  --neutral-border-color-emphasis:var(--gray-border-color-emphasis);
+  --neutral-border-color-muted:var(--gray-border-color-muted);
+
+  --neutral-fg-color:var(--gray-fg-color);
 }

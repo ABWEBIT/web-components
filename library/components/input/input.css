@@ -5,8 +5,8 @@ ui-input{
   --input-padding-inline:var(--control-padding-md);
   --input-font-size:var(--control-font-md);
 
-  --input-fg:var(--variant-fg);
-  --input-bg:var(--variant-bg,var(--control-bg-color-inset));
+  --input-bg-color:var(--variant-bg-color,var(--field-bg-color));
+  --input-fg-color:var(--variant-fg-color,var(--field-fg-color));
   --input-border-color:var(--control-border-color);
 
   position:relative;
@@ -41,9 +41,9 @@ ui-input{
   }
 
   &[disabled]{
-    --input-fg:var(--control-fg-color-disabled);
-    --input-bg:var(--control-bg-color-disabled);
-    --input-border-color:var(--control-border-color-disabled);
+    --input-bg-color:var(--bg-color-disabled);
+    --input-fg-color:var(--fg-color-disabled);
+    --input-border-color:var(--border-color-disabled);
   }
 
   & > input{
@@ -57,8 +57,8 @@ ui-input{
     padding-inline:var(--input-padding-inline);
     font-family:var(--font-family-default);
     font-size:var(--input-font-size);
-    color:var(--input-fg);
-    background-color:var(--input-bg);
+    color:var(--input-fg-color);
+    background-color:var(--input-bg-color);
 
     border-radius:var(--input-radius);
     border-width:var(--control-border-width);
@@ -78,7 +78,7 @@ ui-input{
     }
 
     &::placeholder{
-      color:var(--control-placeholder-color);
+      color:var(--placeholder-color);
     }
 
     &:focus-visible{

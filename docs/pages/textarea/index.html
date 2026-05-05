@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-version="0.8.05-alpha">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -35,10 +35,11 @@
     <ui-app>
       <div class="sidebar">
         <div class="static">
-          <span class="version"></span>
+          <span class="version">0.8.05-alpha</span>
             
         </div>
         <nav></nav>
+        <div class="static"></div>
       </div>
 
       <ui-main>
@@ -50,6 +51,9 @@
             
 <h1>Textarea</h1>
 <p>Textarea allows users to enter and edit multiline text.</p>
+
+<h2>Attributes</h2>
+<p>https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/field-sizing</p>
 
 <h2>Attributes</h2>
 <p>config - static (optional). Additional attributes.</p>
@@ -133,6 +137,18 @@
   <div class="example-code">
 <pre><code>
 &lt;ui-textarea required config='{"placeholder":"Enter text"}'&gt;&lt;/ui-textarea&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Auto Resize</h3>
+<div class="example">
+  <div class="example-preview">
+    <ui-textarea resize="auto" config='{"placeholder":"Enter text"}'></ui-textarea>
+  </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-textarea config='{"placeholder":"Enter text"}'&gt;&lt;/ui-textarea&gt;
 </code></pre>
   </div>
 </div>

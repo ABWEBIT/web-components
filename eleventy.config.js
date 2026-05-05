@@ -1,9 +1,12 @@
+import pkg from "./package.json" with {type:"json"};
+
 export default function (eleventyConfig){
   const isBuild = process.env.ELEVENTY_RUN_MODE === "build";
   const baseUrl = isBuild ? "/web-components/" : "/";
 
   eleventyConfig.addGlobalData("site",{
-    baseUrl
+    baseUrl,
+    version: pkg.version
   });
 
   eleventyConfig.addPassthroughCopy({

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-version="0.8.05-alpha">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -35,10 +35,11 @@
     <ui-app>
       <div class="sidebar">
         <div class="static">
-          <span class="version"></span>
+          <span class="version">0.8.05-alpha</span>
             
         </div>
         <nav></nav>
+        <div class="static"></div>
       </div>
 
       <ui-main>
@@ -56,14 +57,32 @@
 <p>size - static (optional). Controls the overall size of the element. Available options: sm, md (default), lg.</p>
 <p>color - static (optional). Controls the color style of the element. Available options: gray, red, green, blue, yellow.</p>
 
-<h3>Variants</h3>
+<h3>Variant</h3>
 <div>solid | soft | outline | ghost</div>
 <div class="example">
   <div class="example-preview">
     <ui-button>Cancel</ui-button>
-    <ui-button>Upload</ui-button>
+    <ui-button color="blue">Upload</ui-button>
   </div>
   <div class="example-preview">
+    <ui-button variant="solid" disabled>Solid</ui-button>
+    <ui-button variant="soft" disabled>Soft</ui-button>
+    <ui-button variant="outline" disabled>Outline</ui-button>
+    <ui-button variant="ghost" disabled>Ghost</ui-button>
+  </div>
+  <div class="example-preview" style="background-color:var(--surface-color-low);">
+    <ui-button variant="solid" disabled>Solid</ui-button>
+    <ui-button variant="soft" disabled>Soft</ui-button>
+    <ui-button variant="outline" disabled>Outline</ui-button>
+    <ui-button variant="ghost" disabled>Ghost</ui-button>
+  </div>
+  <div class="example-preview" style="background-color:var(--surface-color);">
+    <ui-button variant="solid" disabled>Solid</ui-button>
+    <ui-button variant="soft" disabled>Soft</ui-button>
+    <ui-button variant="outline" disabled>Outline</ui-button>
+    <ui-button variant="ghost" disabled>Ghost</ui-button>
+  </div>
+  <div class="example-preview" style="background-color:var(--surface-color-high);">
     <ui-button variant="solid" disabled>Solid</ui-button>
     <ui-button variant="soft" disabled>Soft</ui-button>
     <ui-button variant="outline" disabled>Outline</ui-button>
@@ -76,10 +95,10 @@
     <ui-button variant="ghost">Ghost</ui-button>
   </div>
   <div class="example-preview">
-    <ui-button variant="solid" color="neutral">Solid</ui-button>
-    <ui-button variant="soft" color="neutral">Soft</ui-button>
-    <ui-button variant="outline" color="neutral">Outline</ui-button>
-    <ui-button variant="ghost" color="neutral">Ghost</ui-button>
+    <ui-button variant="solid" color="gray">Solid</ui-button>
+    <ui-button variant="soft" color="gray">Soft</ui-button>
+    <ui-button variant="outline" color="gray">Outline</ui-button>
+    <ui-button variant="ghost" color="gray">Ghost</ui-button>
   </div>
   <div class="example-preview">
     <ui-button variant="solid" color="red">Solid</ui-button>
@@ -183,7 +202,7 @@
   </div>
 </div>
 
-<h3>Colors</h3>
+<h3>Color</h3>
 <div class="example">
   <div class="example-preview">
     <ui-button>Button</ui-button>
@@ -205,7 +224,7 @@
   </div>
 </div>
 
-<h3>Sizes</h3>
+<h3>Size</h3>
 <div class="example">
   <div class="example-preview">
     <ui-button size="sm"><ui-icon name="settings"></ui-icon>Button</ui-button>

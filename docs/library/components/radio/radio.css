@@ -2,9 +2,9 @@ ui-radio{
   --radio-size:var(--control-choice-md);
   --radio-radius:var(--radius-full);
 
-  --radio-indicator-color:var(--control-indicator-color);
-  --radio-bg:var(--control-choice-bg-inset);
-  --radio-bg-checked:var(--control-choice-bg-checked);
+  --radio-indicator-color:var(--indicator-color);
+  --radio-bg-color:var(--choice-bg-color);
+  --radio-bg-color-checked:var(--choice-bg-color-checked);
 
   position:relative;
   display:inline-block;
@@ -21,9 +21,9 @@ ui-radio{
   &[size="lg"]{--radio-size:var(--control-choice-lg);}
 
   &[disabled]{
-    --radio-indicator-color:var(--control-on-surface-disabled);
-    --radio-bg:var(--control-surface-disabled);
-    --radio-bg-checked:var(--control-surface-disabled);
+    --radio-indicator-color:var(--indicator-color-disabled);
+    --radio-bg-color:var(--bg-color-disabled);
+    --radio-bg-color-checked:transparent;
   }
 
   & > input[type="radio"]{
@@ -33,11 +33,10 @@ ui-radio{
     border:none;
     background:none;
 
-    isolation:isolate;
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
 
-    background-color:var(--radio-bg);
+    background-color:var(--radio-bg-color);
 
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
@@ -59,7 +58,7 @@ ui-radio{
       outline-color:var(--focus-ring-color);
     }
 
-    &:checked{
+    &:where(:checked):not(:disabled){
       border-color:transparent;
     }
 
@@ -83,7 +82,7 @@ ui-radio{
     display:flex;
     align-items:center;
     justify-content:center;
-    background-color:var(--radio-bg-checked);
+    background-color:var(--radio-bg-color-checked);
 
     opacity:0;
 

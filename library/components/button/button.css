@@ -7,10 +7,6 @@ ui-button{
   --button-icon-size:var(--icon-md);
   --button-column-gap:calc(var(--button-size) * 0.25);
 
-  --button-bg-color:var(--state-bg-disabled,var(--variant-bg,var(--button-bg-color-default)));
-  --button-fg-color:var(--state-fg-disabled,var(--variant-fg,var(--button-fg-color-default)));
-  --button-border-color:var(--state-bg-disabled,var(--variant-bg));
-
   position:relative;
   display:inline-block;
   vertical-align:middle;
@@ -20,20 +16,28 @@ ui-button{
   height:var(--button-size);
   border-radius:var(--button-radius);
 
-  &[radius="full"]{--button-radius:var(--radius-full);}
-  &[radius="none"]{--button-radius:var(--radius-none);}
+  --button-bg-color:var(--button-bg-color-disabled,var(--variant-bg-color));
+  --button-fg-color:var(--button-fg-color-disabled,var(--variant-fg-color));
+  --button-border-color:var(--button-border-color-disabled,var(--variant-border-color));
 
-  &:has(> button:disabled){
-    --state-fg-disabled:var(--control-fg-color-disabled);
+  &[disabled]{
+    --button-fg-color-disabled:var(--fg-color-disabled);
 
-    &:not([variant="outline"],[variant="ghost"]){
-      --state-bg-disabled:var(--control-bg-color-disabled);
+    &:is(
+      :not([variant]),
+      [variant="solid"],
+      [variant="soft"]
+    ){
+      --button-bg-color-disabled:var(--bg-color-disabled);
     }
 
-    &[variant="outline"][disabled]::after{
-      border-color:var(--control-border-color-disabled);
+    &[variant="outline"]{
+      --button-border-color-disabled:var(--border-color-disabled);
     }
   }
+
+
+
 
   &[size="sm"]{
     --button-size:var(--control-action-sm);
@@ -53,6 +57,9 @@ ui-button{
     --button-font-size:var(--control-font-lg);
     --button-icon-size:var(--icon-lg);
   }
+
+  &[radius="full"]{--button-radius:var(--radius-full);}
+  &[radius="none"]{--button-radius:var(--radius-none);}
 
   &[icon-only]{
     --button-padding-inline:0;
@@ -102,7 +109,7 @@ ui-button{
     padding-inline:var(--button-padding-inline);
     font-family:var(--font-family-default);
     font-size:var(--button-font-size);
-    font-weight:var(--font-weight-medium);
+    /*font-weight:var(--font-weight-medium);*/
 
     color:var(--button-fg-color);
     background-color:var(--button-bg-color);
@@ -141,8 +148,8 @@ ui-button{
 
   /* solid */
   &[variant="solid"]{
-    --variant-bg:var(--bg-color-accent-emphasis);
-    --variant-fg:var(--color-fg-solid);
+    --variant-bg-color:var(--accent-bg-color-emphasis);
+    --variant-fg-color:var(--fg-color-emphasis);
   }
 
   @media (hover: hover){
@@ -166,8 +173,8 @@ ui-button{
 
   /* soft */
   &[variant="soft"]{
-    --variant-bg:var(--bg-color-accent-muted);
-    --variant-fg:var(--fg-color-accent);
+    --variant-bg-color:var(--accent-bg-color-muted);
+    --variant-fg-color:var(--accent-fg-color);
   }
 
   @media (hover: hover){
@@ -183,8 +190,9 @@ ui-button{
 
   /* outline */
   &[variant="outline"]{
-    --variant-bg:transparent;
-    --variant-fg:var(--fg-color-accent);
+    --variant-bg-color:transparent;
+    --variant-fg-color:var(--accent-fg-color);
+    --variant-border-color:var(--accent-border-color-emphasis);
   }
 
   &[variant="outline"]::after{
@@ -192,35 +200,35 @@ ui-button{
     position:absolute;
     content:'';
     inset:0;
-    border-radius:inherit;
+    border-radius:var(--button-radius);
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
-    border-color:var(--fg-color-accent);
+    border-color:var(--button-border-color);
   }
 
   @media (hover: hover){
     &[variant="outline"]:has( > :is(button):not(:disabled):hover){
-      --variant-bg:var(--bg-color-accent-muted);
+      --variant-bg-color:var(--accent-bg-color-muted);
     }
   }
 
   &[variant="outline"]:has( > :is(button):not(:disabled):active){
-    --variant-bg-pressed:var(--outline-bg-pressed);
+    --variant-bg-color:var(--accent-bg-color-muted);
   }
 
   /* ghost */
   &[variant="ghost"]{
-    --variant-bg:transparent;
-    --variant-fg:var(--fg-color-accent);
+    --variant-bg-color:transparent;
+    --variant-fg-color:var(--accent-fg-color);
   }
 
   @media (hover: hover){
     &[variant="ghost"]:has( > :is(button):not(:disabled):hover){
-      --variant-bg:var(--bg-color-accent-muted);
+      --variant-bg-color:var(--accent-bg-color-muted);
     }
   }
 
   &[variant="ghost"]:has( > :is(button):not(:disabled):active){
-    --variant-bg-pressed:var(--bg-color-accent-muted);
+    --variant-bg-color-pressed:var(--accent-bg-color-muted);
   }
 }

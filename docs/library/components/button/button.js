@@ -11,7 +11,7 @@ export class UIButton extends LitElement{
     config:{type:Object}
   };
 
-  static list = [
+  static allowed = Object.freeze([
     'id',
     'class',
     'type',
@@ -20,7 +20,7 @@ export class UIButton extends LitElement{
     'value',
     'accesskey',
     'aria-label'
-  ];
+  ]);
 
   createRenderRoot(){return this;}
 
@@ -36,7 +36,7 @@ export class UIButton extends LitElement{
     }
     try{
       const parsed = JSON.parse(config);
-      const allowed = new Set(this.constructor.list);
+      const allowed = new Set(this.constructor.allowed);
       const filtered = {};
 
       for(const key in parsed){

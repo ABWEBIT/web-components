@@ -4,33 +4,33 @@ const BASE = location.hostname.includes('github.io') ? '/web-components/' : '/';
 const pageDir = BASE+'pages/';
 
 const components = [
-  { label: 'Foundation', link: pageDir+'foundation', category: 'essentials' },
-  { label: 'Icons', link: pageDir+'icons', category: 'theme' },
+  { label: 'Foundation', link: pageDir+'foundation', category: 'Essentials' },
+  { label: 'Icons', link: pageDir+'icons', category: 'Theme' },
 
-  { label: 'Typography', link: pageDir+'typography', category: 'tokens' },
+  { label: 'Typography', link: pageDir+'typography', category: 'Tokens' },
 
-  { label: 'Icon', link: pageDir+'icon', category: 'primitives' },
-  { label: 'Separator', link: pageDir+'separator', category: 'primitives' },
-  { label: 'Spinner', link: pageDir+'spinner', category: 'primitives' },
+  { label: 'Icon', link: pageDir+'icon', category: 'Primitives' },
+  { label: 'Separator', link: pageDir+'separator', category: 'Primitives' },
+  { label: 'Spinner', link: pageDir+'spinner', category: 'Primitives' },
 
-  { label: 'Button', link: pageDir+'button', category: 'forms' },
-  { label: 'Checkbox', link: pageDir+'checkbox', category: 'forms' },
-  { label: 'Radio', link: pageDir+'radio', category: 'forms' },
-  { label: 'Input', link: pageDir+'input', category: 'forms' },
-  { label: 'Switch', link: pageDir+'switch', category: 'forms' },
-  { label: 'Textarea', link: pageDir+'textarea', category: 'forms' },
-  { label: 'Field', link: pageDir+'field', category: 'forms' },
-  { label: 'Select', link: pageDir+'select', category: 'forms' },
+  { label: 'Button', link: pageDir+'button', category: 'Form Controls' },
+  { label: 'Checkbox', link: pageDir+'checkbox', category: 'Form Controls' },
+  { label: 'Radio', link: pageDir+'radio', category: 'Form Controls' },
+  { label: 'Input', link: pageDir+'input', category: 'Form Controls' },
+  { label: 'Switch', link: pageDir+'switch', category: 'Form Controls' },
+  { label: 'Textarea', link: pageDir+'textarea', category: 'Form Controls' },
+  { label: 'Field', link: pageDir+'field', category: 'Form Controls' },
+  { label: 'Select', link: pageDir+'select', category: 'Form Controls' },
 
-  { label: 'Accordion', link: pageDir+'accordion', category: 'components' },
-  { label: 'Alert', link: pageDir+'alert', category: 'components' },
-  { label: 'Breadcrumb', link: pageDir+'breadcrumb', category: 'components' },
-  { label: 'Disclosure', link: pageDir+'disclosure', category: 'components' },
-  { label: 'Tabs', link: pageDir+'tabs', category: 'components' },
-  { label: 'Badge', link: pageDir+'badge', category: 'components' },
+  { label: 'Accordion', link: pageDir+'accordion', category: 'Components' },
+  { label: 'Alert', link: pageDir+'alert', category: 'Components' },
+  { label: 'Breadcrumb', link: pageDir+'breadcrumb', category: 'Components' },
+  { label: 'Disclosure', link: pageDir+'disclosure', category: 'Components' },
+  { label: 'Tabs', link: pageDir+'tabs', category: 'Components' },
+  { label: 'Badge', link: pageDir+'badge', category: 'Components' },
 
-  { label: 'Focus', link: pageDir+'focus', category: 'utilities' },
-  { label: 'Portal', link: pageDir+'portal', category: 'utilities' },
+  { label: 'Focus', link: pageDir+'focus', category: 'Utilities' },
+  { label: 'Portal', link: pageDir+'portal', category: 'Utilities' },
 ];
 
 function generateSidebar(components) {
@@ -47,14 +47,14 @@ function generateSidebar(components) {
   }, {});
 
   const categoryOrder = [
-    'essentials',
-    'tokens',
-    'theme',
-    'layout',
-    'primitives',
-    'forms',
-    'components',
-    'utilities'
+    'Essentials',
+    'Tokens',
+    'Theme',
+    'Layout',
+    'Primitives',
+    'Form Controls',
+    'Components',
+    'Utilities'
   ];
 
   const currentPath = getPageName(window.location.pathname);
@@ -73,7 +73,7 @@ function generateSidebar(components) {
 
     const title = document.createElement('div');
     title.className = 'menu-title';
-    title.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    title.textContent = category;
 
     categoryLi.appendChild(title);
 
@@ -112,12 +112,3 @@ function getPageName(path) {
     .filter(Boolean)
     .pop() || 'index';
 }
-
-/* version
-const pkg = await fetch(BASE + 'package.json').then(r => r.json());
-
-document.querySelectorAll('.version').forEach(el => {
-  el.textContent = pkg.version;
-});
-document.documentElement.dataset.version = pkg.version;
-*/

@@ -2,9 +2,9 @@ ui-checkbox{
   --checkbox-size:var(--control-choice-md);
   --checkbox-radius:calc(var(--checkbox-size) * 0.25);
 
-  --checkbox-indicator-color:var(--control-indicator-color);
-  --checkbox-bg:var(--control-choice-bg-inset);
-  --checkbox-bg-checked:var(--control-choice-bg-checked);
+  --checkbox-indicator-color:var(--indicator-color);
+  --checkbox-bg-color:var(--choice-bg-color);
+  --checkbox-bg-color-checked:var(--choice-bg-color-checked);
 
   position:relative;
   display:inline-block;
@@ -24,9 +24,9 @@ ui-checkbox{
   &[radius="none"]{--checkbox-radius:var(--radius-none);}
 
   &[disabled]{
-    --checkbox-indicator-color:var(--control-on-surface-disabled);
-    --checkbox-bg:var(--control-surface-disabled);
-    --checkbox-bg-checked:transparent;
+    --checkbox-indicator-color:var(--indicator-color-disabled);
+    --checkbox-bg-color:var(--bg-color-disabled);
+    --checkbox-bg-color-checked:transparent;
   }
 
   & > input[type="checkbox"]{
@@ -36,11 +36,10 @@ ui-checkbox{
     border:none;
     background:none;
 
-    isolation:isolate;
     cursor:var(--cursor-interactive);
     touch-action:manipulation;
 
-    background-color:var(--checkbox-bg);
+    background-color:var(--checkbox-bg-color);
 
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
@@ -85,7 +84,7 @@ ui-checkbox{
     pointer-events:none;
     display:block;
     opacity:0;
-    background-color:var(--checkbox-bg-checked);
+    background-color:var(--checkbox-bg-color-checked);
 
     transition-duration:var(--duration-default);
     transition-property:opacity;

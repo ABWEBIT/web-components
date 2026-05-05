@@ -1,13 +1,17 @@
 a{
+  --link-color:var(--accent-fg-color);
+  --link-color-hover:oklch(from var(--link-color) calc(l + 0.05) c h);
+  --link-color-pressed:oklch(from var(--link-color) calc(l - 0.05) c h);
+
+  cursor:var(--cursor-interactive);
+  touch-action:manipulation;
+
+  color:var(--link-color);
+
   text-decoration-line:var(--decoration-type-underline);
   text-decoration-style:var(--decoration-style-dashed);
   text-decoration-thickness:var(--decoration-thickness);
   text-underline-offset:var(--underline-offset);
-  cursor:var(--cursor-interactive);
-  color:var(--link-color);
-
-  cursor:var(--cursor-interactive);
-  touch-action:manipulation;
 
   outline-width:var(--focus-ring-width);
   outline-style:var(--focus-ring-style);

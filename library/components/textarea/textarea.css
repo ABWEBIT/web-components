@@ -4,18 +4,72 @@ ui-textarea{
   --textarea-radius:var(--radius-md);
   --textarea-padding:0.5rem 0.75rem;
 
-  --textarea-fg:var(--variant-fg);
-  --textarea-bg:var(--variant-bg,var(--control-bg-color-inset));
-  --textarea-border-color:var(--control-border-color);
+  --textarea-bg-color:var(--variant-bg-color,var(--field-bg-color));
+  --textarea-fg-color:var(--variant-fg-color,var(--field-fg-color));
+  --textarea-border-color:var(--variant-border-color,var(--border-color-emphasis));
 
   position:relative;
   width:var(--textarea-width);
   border-radius:var(--textarea-radius);
 
   &[disabled]{
-    --textarea-fg:var(--control-fg-disabled);
-    --textarea-bg:var(--control-bg-disabled);
-    --textarea-border-color:var(--control-border-color-disabled);
+    --textarea-bg-color:var(--bg-color-disabled);
+    --textarea-fg-color:var(--fg-color-disabled);
+    --textarea-border-color:var(--border-color-disabled);
+  }
+
+
+  :host([resize='none']) textarea {
+    resize: none;
+  }
+
+  textarea,
+  :host([resize='vertical']) textarea {
+    resize: vertical;
+  }
+
+
+
+  :host([resize='both']) textarea {
+    resize: both;
+  }
+
+  :host([resize='auto']) textarea {
+    grid-area: 1 / 1;
+    height: 100%;
+    resize: none;
+    overflow-y: hidden;
+  }
+
+
+
+  &[resize="auto"]{
+    display:grid;
+  }
+
+  &[resize="auto"] .adjuster{
+    display:block;
+    grid-area:1 / 1;
+
+    visibility:hidden;
+    white-space:pre-wrap;
+    word-break:break-word;
+
+    pointer-events:none;
+  }
+
+  &[resize="auto"] textarea{
+    resize:none;
+    overflow-y:hidden;
+    height:100%;
+  }
+
+  &[resize="vertical"] textarea{
+    resize:vertical;
+  }
+
+  &[resize='horizontal'] textarea{
+    resize:horizontal;
   }
 
   & > textarea{
@@ -24,8 +78,6 @@ ui-textarea{
     border:none;
     background:none;
 
-    resize:vertical;
-
     min-height:4rem;
     width:var(--textarea-width);
     padding-block:var(--textarea-padding);
@@ -33,8 +85,8 @@ ui-textarea{
 
     font-family:var(--font-family-default);
     font-size:var(--textarea-font-size);
-    color:var(--textarea-fg);
-    background-color:var(--textarea-bg);
+    color:var(--textarea-fg-color);
+    background-color:var(--textarea-bg-color);
 
     border-radius:var(--textarea-radius);
     border-width:var(--control-border-width);
@@ -54,7 +106,7 @@ ui-textarea{
     }
 
     &::placeholder{
-      color:var(--control-fg-placeholder);
+      color:var(--placeholder-color);
     }
 
     &:focus-visible{
