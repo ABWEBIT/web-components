@@ -4,33 +4,34 @@ const BASE = location.hostname.includes('github.io') ? '/web-components/' : '/';
 const pageDir = BASE+'pages/';
 
 const components = [
-  { label: 'Foundation', link: pageDir+'foundation', category: 'Essentials' },
-  { label: 'Icons', link: pageDir+'icons', category: 'Theme' },
+  { label: 'Foundation', slug: 'foundation', category: 'Essentials' },
+  { label: 'Icons', slug: 'icons', category: 'Theme' },
 
-  { label: 'Typography', link: pageDir+'typography', category: 'Tokens' },
+  { label: 'Typography', slug: 'typography', category: 'Tokens' },
+  { label: 'Color Palettes', slug: 'color-palettes', category: 'Tokens' },
 
-  { label: 'Icon', link: pageDir+'icon', category: 'Primitives' },
-  { label: 'Separator', link: pageDir+'separator', category: 'Primitives' },
-  { label: 'Spinner', link: pageDir+'spinner', category: 'Primitives' },
+  { label: 'Icon', slug: 'icon', category: 'Primitives' },
+  { label: 'Separator', slug: 'separator', category: 'Primitives' },
+  { label: 'Spinner', slug: 'spinner', category: 'Primitives' },
 
-  { label: 'Button', link: pageDir+'button', category: 'Form Controls' },
-  { label: 'Checkbox', link: pageDir+'checkbox', category: 'Form Controls' },
-  { label: 'Radio', link: pageDir+'radio', category: 'Form Controls' },
-  { label: 'Input', link: pageDir+'input', category: 'Form Controls' },
-  { label: 'Switch', link: pageDir+'switch', category: 'Form Controls' },
-  { label: 'Textarea', link: pageDir+'textarea', category: 'Form Controls' },
-  { label: 'Field', link: pageDir+'field', category: 'Form Controls' },
-  { label: 'Select', link: pageDir+'select', category: 'Form Controls' },
+  { label: 'Button', slug: 'button', category: 'Form Controls' },
+  { label: 'Checkbox', slug: 'checkbox', category: 'Form Controls' },
+  { label: 'Radio', slug: 'radio', category: 'Form Controls' },
+  { label: 'Input', slug: 'input', category: 'Form Controls' },
+  { label: 'Switch', slug: 'switch', category: 'Form Controls' },
+  { label: 'Textarea', slug: 'textarea', category: 'Form Controls' },
+  { label: 'Field', slug: 'field', category: 'Form Controls' },
+  { label: 'Select', slug: 'select', category: 'Form Controls' },
 
-  { label: 'Accordion', link: pageDir+'accordion', category: 'Components' },
-  { label: 'Alert', link: pageDir+'alert', category: 'Components' },
-  { label: 'Breadcrumb', link: pageDir+'breadcrumb', category: 'Components' },
-  { label: 'Disclosure', link: pageDir+'disclosure', category: 'Components' },
-  { label: 'Tabs', link: pageDir+'tabs', category: 'Components' },
-  { label: 'Badge', link: pageDir+'badge', category: 'Components' },
+  { label: 'Accordion', slug: 'accordion', category: 'Components' },
+  { label: 'Alert', slug: 'alert', category: 'Components' },
+  { label: 'Breadcrumb', slug: 'breadcrumb', category: 'Components' },
+  { label: 'Disclosure', slug: 'disclosure', category: 'Components' },
+  { label: 'Tabs', slug: 'tabs', category: 'Components' },
+  { label: 'Badge', slug: 'badge', category: 'Components' },
 
-  { label: 'Focus', link: pageDir+'focus', category: 'Utilities' },
-  { label: 'Portal', link: pageDir+'portal', category: 'Utilities' },
+  { label: 'Focus', slug: 'focus', category: 'Utilities' },
+  { label: 'Portal', slug: 'portal', category: 'Utilities' },
 ];
 
 function generateSidebar(components) {
@@ -85,9 +86,11 @@ function generateSidebar(components) {
       const a = document.createElement('a');
       a.className = 'menu-item';
       a.textContent = item.label;
-      a.href = item.link;
+      a.href = pageDir+item.slug;
 
-      if(item.label.toLowerCase() === currentPath){
+      console.log(currentPath);
+
+      if(item.slug === currentPath){
         a.classList.add('active');
       }
 

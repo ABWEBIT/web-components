@@ -83,9 +83,6 @@ export class UIButton extends LitElement{
       if(node !== this.#button) fragment.prepend(node);
     }
     this.#button.append(fragment);
-
-    //if(!this.hasAttribute('variant')) this.setAttribute('variant','solid');
-    //if(!this.hasAttribute('color') && !this.disabled) this.setAttribute('color','gray');
   }
 
   render(){

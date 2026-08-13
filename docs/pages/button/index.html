@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-version="0.8.05-alpha">
+<html lang="en" data-version="0.8.06-alpha" data-theme="default" data-neutral-color="gray">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -14,16 +14,17 @@
     })();
   </script>
 
-  <link rel="stylesheet" href="/web-components/library/styles/reset/reset.css">
-  <link rel="stylesheet" href="/web-components/library/styles/tokens/index.css">
-  <link rel="stylesheet" href="/web-components/library/styles/core/index.css">
-  <link rel="stylesheet" href="/web-components/library/styles/themes/default/index.css">
-  <link rel="stylesheet" href="/web-components/library/styles/core.css">
-  <link rel="stylesheet" href="/web-components/library/styles/template.css">
-<!--<link rel="stylesheet" href="/web-components/library/styles/variants.css">-->
-  <link rel="stylesheet" href="/web-components/library/styles/components.css">
+  <link rel="stylesheet" href="/library/styles/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/color/palettes/default.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
 
-  <script type="module" src="/web-components/library/lit-core.min.js"></script>
+  <script type="module" src="/library/lit-core.min.js"></script>
   <link rel="icon" href="data:,">
 
   <title>Button</title>
@@ -33,19 +34,90 @@
   <ui-root>
     <ui-focus></ui-focus>
     <ui-app>
+
       <div class="sidebar">
         <div class="static">
-          <span class="version">0.8.05-alpha</span>
-            
+          <span class="version">0.8.06-alpha</span>
+            <!--<div class="sidebar">
+  <div class="static">
+    <span class="version">0.8.06-alpha</span>
+  </div>
+
+  <nav>
+    <ul>
+      <li class="nav-category" data-nav-category="Essentials"><div class="menu-title">Essentials</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/foundation">Foundation</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Tokens">
+        <div class="menu-title">Tokens</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/typography">Typography</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Theme">
+        <div class="menu-title">Theme</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/icons">Icons</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Primitives">
+        <div class="menu-title">Primitives</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/icon">Icon</a></li>
+          <li><a class="menu-item" href="/pages/separator">Separator</a></li>
+          <li><a class="menu-item" href="/pages/spinner">Spinner</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Form Controls">
+        <div class="menu-title">Form Controls</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/button">Button</a></li>
+          <li><a class="menu-item" href="/pages/checkbox">Checkbox</a></li>
+          <li><a class="menu-item" href="/pages/field">Field</a></li>
+          <li><a class="menu-item" href="/pages/input">Input</a></li>
+          <li><a class="menu-item" href="/pages/radio">Radio</a></li>
+          <li><a class="menu-item" href="/pages/select">Select</a></li>
+          <li><a class="menu-item" href="/pages/switch">Switch</a></li>
+          <li><a class="menu-item" href="/pages/textarea">Textarea</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Components">
+        <div class="menu-title">Components</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/accordion">Accordion</a></li>
+          <li><a class="menu-item" href="/pages/alert">Alert</a></li>
+          <li><a class="menu-item" href="/pages/badge">Badge</a></li>
+          <li><a class="menu-item" href="/pages/breadcrumb">Breadcrumb</a></li>
+          <li><a class="menu-item" href="/pages/disclosure">Disclosure</a></li>
+          <li><a class="menu-item" href="/pages/tabs">Tabs</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Utilities">
+        <div class="menu-title">Utilities</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/focus">Focus</a></li>
+          <li><a class="menu-item" href="/pages/portal">Portal</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="static"></div>
+</div>
+-->
         </div>
         <nav></nav>
         <div class="static"></div>
       </div>
 
       <ui-main>
-        <header>
-          <ui-color-mode></ui-color-mode>
-        </header>
+      <ui-header>
+  <header>
+    <ui-color-mode></ui-color-mode>
+  </header>
+</ui-header>
         <main>
           <article>
             
@@ -53,40 +125,95 @@
 <p>Buttons are used to perform actions or submit forms.</p>
 
 <h2>Attributes</h2>
-<p>radius - static (optional). Controls how rounded the corners are. Available options: full, none.</p>
-<p>size - static (optional). Controls the overall size of the element. Available options: sm, md (default), lg.</p>
-<p>color - static (optional). Controls the color style of the element. Available options: gray, red, green, blue, yellow.</p>
+<table class="table-component">
+  <thead>
+    <tr>
+      <th class="table-column-name">Name</th>
+      <th class="table-column-description">Description</th>
+      <th class="table-column-default">Default</th>
+      <th class="table-column-reactive">Reactive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>radius</td>
+      <td>Controls how rounded the corners are. 
+        <br>Allowed values: full | none</td>
+      <td>-</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>Controls the overall size of the element.
+        <br>Allowed values: sm | md | lg</td>
+      <td>md</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>color</td>
+      <td>Controls the color style of the element.
+        <br>Allowed values: red | green | blue | yellow</td>
+      <td>-</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>Disables the button.</td>
+      <td>false</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>busy</td>
+      <td>Controls the button's loading state.</td>
+      <td>false</td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3>Variant</h3>
 <div>solid | soft | outline | ghost</div>
 <div class="example">
   <div class="example-preview">
-    <ui-button>Cancel</ui-button>
-    <ui-button color="blue">Upload</ui-button>
+    <ui-button variant="solid">Solid</ui-button>
+    <ui-button variant="soft">Soft</ui-button>
+    <ui-button variant="outline">Outline</ui-button>
+    <ui-button variant="ghost">Ghost</ui-button>
   </div>
+  <div class="example-code">
+<pre><code>
+&lt;ui-button variant="solid"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button variant="soft"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button variant="outline"&gt;Button&lt;/ui-button&gt;
+&lt;ui-button variant="ghost"&gt;Button&lt;/ui-button&gt;
+</code></pre>
+  </div>
+</div>
+
+<h3>Variant</h3>
+<div>solid | soft | outline | ghost</div>
+<div class="example">
   <div class="example-preview">
     <ui-button variant="solid" disabled>Solid</ui-button>
     <ui-button variant="soft" disabled>Soft</ui-button>
     <ui-button variant="outline" disabled>Outline</ui-button>
     <ui-button variant="ghost" disabled>Ghost</ui-button>
   </div>
-  <div class="example-preview" style="background-color:var(--surface-color-low);">
+  <div class="example-preview" style="background-color:var(--bg-color-subtle);">
     <ui-button variant="solid" disabled>Solid</ui-button>
     <ui-button variant="soft" disabled>Soft</ui-button>
     <ui-button variant="outline" disabled>Outline</ui-button>
     <ui-button variant="ghost" disabled>Ghost</ui-button>
   </div>
-  <div class="example-preview" style="background-color:var(--surface-color);">
+  <div class="example-preview" style="background-color:var(--surface-color-subtle);">
     <ui-button variant="solid" disabled>Solid</ui-button>
     <ui-button variant="soft" disabled>Soft</ui-button>
     <ui-button variant="outline" disabled>Outline</ui-button>
     <ui-button variant="ghost" disabled>Ghost</ui-button>
   </div>
-  <div class="example-preview" style="background-color:var(--surface-color-high);">
-    <ui-button variant="solid" disabled>Solid</ui-button>
-    <ui-button variant="soft" disabled>Soft</ui-button>
-    <ui-button variant="outline" disabled>Outline</ui-button>
-    <ui-button variant="ghost" disabled>Ghost</ui-button>
+  <div class="example-preview">
+    <ui-button>Cancel</ui-button>
+    <ui-button variant="soft">Upload</ui-button>
   </div>
   <div class="example-preview">
     <ui-button variant="solid">Solid</ui-button>
@@ -101,10 +228,16 @@
     <ui-button variant="ghost" color="gray">Ghost</ui-button>
   </div>
   <div class="example-preview">
-    <ui-button variant="solid" color="red">Solid</ui-button>
-    <ui-button variant="soft" color="red">Soft</ui-button>
-    <ui-button variant="outline" color="red">Outline</ui-button>
-    <ui-button variant="ghost" color="red">Ghost</ui-button>
+    <ui-button variant="solid" color="blue">Solid</ui-button>
+    <ui-button variant="soft" color="blue">Soft</ui-button>
+    <ui-button variant="outline" color="blue">Outline</ui-button>
+    <ui-button variant="ghost" color="blue">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="cyan">Solid</ui-button>
+    <ui-button variant="soft" color="cyan">Soft</ui-button>
+    <ui-button variant="outline" color="cyan">Outline</ui-button>
+    <ui-button variant="ghost" color="cyan">Ghost</ui-button>
   </div>
   <div class="example-preview">
     <ui-button variant="solid" color="green">Solid</ui-button>
@@ -113,10 +246,40 @@
     <ui-button variant="ghost" color="green">Ghost</ui-button>
   </div>
   <div class="example-preview">
-    <ui-button variant="solid" color="blue">Solid</ui-button>
-    <ui-button variant="soft" color="blue">Soft</ui-button>
-    <ui-button variant="outline" color="blue">Outline</ui-button>
-    <ui-button variant="ghost" color="blue">Ghost</ui-button>
+    <ui-button variant="solid" color="indigo">Solid</ui-button>
+    <ui-button variant="soft" color="indigo">Soft</ui-button>
+    <ui-button variant="outline" color="indigo">Outline</ui-button>
+    <ui-button variant="ghost" color="indigo">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="orange">Solid</ui-button>
+    <ui-button variant="soft" color="orange">Soft</ui-button>
+    <ui-button variant="outline" color="orange">Outline</ui-button>
+    <ui-button variant="ghost" color="orange">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="pink">Solid</ui-button>
+    <ui-button variant="soft" color="pink">Soft</ui-button>
+    <ui-button variant="outline" color="pink">Outline</ui-button>
+    <ui-button variant="ghost" color="pink">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="purple">Solid</ui-button>
+    <ui-button variant="soft" color="purple">Soft</ui-button>
+    <ui-button variant="outline" color="purple">Outline</ui-button>
+    <ui-button variant="ghost" color="purple">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="red">Solid</ui-button>
+    <ui-button variant="soft" color="red">Soft</ui-button>
+    <ui-button variant="outline" color="red">Outline</ui-button>
+    <ui-button variant="ghost" color="red">Ghost</ui-button>
+  </div>
+  <div class="example-preview">
+    <ui-button variant="solid" color="teal">Solid</ui-button>
+    <ui-button variant="soft" color="teal">Soft</ui-button>
+    <ui-button variant="outline" color="teal">Outline</ui-button>
+    <ui-button variant="ghost" color="teal">Ghost</ui-button>
   </div>
   <div class="example-preview">
     <ui-button variant="solid" color="yellow">Solid</ui-button>
@@ -124,7 +287,6 @@
     <ui-button variant="outline" color="yellow">Outline</ui-button>
     <ui-button variant="ghost" color="yellow">Ghost</ui-button>
   </div>
-
   <div class="example-code">
 <pre><code>
 &lt;ui-button variant="invisible"&gt;Button&lt;/ui-button&gt;
@@ -296,8 +458,9 @@
     </ui-app>
     <ui-portal></ui-portal>
   </ui-root>
-  <script type="module" src="/web-components/assets/scripts/script.js"></script>
-  <script type="module" src="/web-components/library/components.js"></script>
+
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
 </body>
 
 </html>

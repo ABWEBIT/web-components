@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-version="0.8.05-alpha">
+<html lang="en" data-version="0.8.06-alpha" data-theme="default" data-neutral-color="gray">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -14,16 +14,17 @@
     })();
   </script>
 
-  <link rel="stylesheet" href="/web-components/library/styles/reset/reset.css">
-  <link rel="stylesheet" href="/web-components/library/styles/tokens/index.css">
-  <link rel="stylesheet" href="/web-components/library/styles/core/index.css">
-  <link rel="stylesheet" href="/web-components/library/styles/themes/default/index.css">
-  <link rel="stylesheet" href="/web-components/library/styles/core.css">
-  <link rel="stylesheet" href="/web-components/library/styles/template.css">
-<!--<link rel="stylesheet" href="/web-components/library/styles/variants.css">-->
-  <link rel="stylesheet" href="/web-components/library/styles/components.css">
+  <link rel="stylesheet" href="/library/styles/reset.css">
+  <link rel="stylesheet" href="/library/styles/tokens/index.css">
+  <link rel="stylesheet" href="/library/styles/color/palettes/default.css">
+  <link rel="stylesheet" href="/library/styles/core/index.css">
+  <link rel="stylesheet" href="/library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="/library/styles/core.css">
+  <link rel="stylesheet" href="/library/styles/template.css">
+<!--<link rel="stylesheet" href="/library/styles/variants.css">-->
+  <link rel="stylesheet" href="/library/styles/components.css">
 
-  <script type="module" src="/web-components/library/lit-core.min.js"></script>
+  <script type="module" src="/library/lit-core.min.js"></script>
   <link rel="icon" href="data:,">
 
   <title>Foundation</title>
@@ -33,19 +34,90 @@
   <ui-root>
     <ui-focus></ui-focus>
     <ui-app>
+
       <div class="sidebar">
         <div class="static">
-          <span class="version">0.8.05-alpha</span>
-            
+          <span class="version">0.8.06-alpha</span>
+            <!--<div class="sidebar">
+  <div class="static">
+    <span class="version">0.8.06-alpha</span>
+  </div>
+
+  <nav>
+    <ul>
+      <li class="nav-category" data-nav-category="Essentials"><div class="menu-title">Essentials</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/foundation">Foundation</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Tokens">
+        <div class="menu-title">Tokens</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/typography">Typography</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Theme">
+        <div class="menu-title">Theme</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/icons">Icons</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Primitives">
+        <div class="menu-title">Primitives</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/icon">Icon</a></li>
+          <li><a class="menu-item" href="/pages/separator">Separator</a></li>
+          <li><a class="menu-item" href="/pages/spinner">Spinner</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Form Controls">
+        <div class="menu-title">Form Controls</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/button">Button</a></li>
+          <li><a class="menu-item" href="/pages/checkbox">Checkbox</a></li>
+          <li><a class="menu-item" href="/pages/field">Field</a></li>
+          <li><a class="menu-item" href="/pages/input">Input</a></li>
+          <li><a class="menu-item" href="/pages/radio">Radio</a></li>
+          <li><a class="menu-item" href="/pages/select">Select</a></li>
+          <li><a class="menu-item" href="/pages/switch">Switch</a></li>
+          <li><a class="menu-item" href="/pages/textarea">Textarea</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Components">
+        <div class="menu-title">Components</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/accordion">Accordion</a></li>
+          <li><a class="menu-item" href="/pages/alert">Alert</a></li>
+          <li><a class="menu-item" href="/pages/badge">Badge</a></li>
+          <li><a class="menu-item" href="/pages/breadcrumb">Breadcrumb</a></li>
+          <li><a class="menu-item" href="/pages/disclosure">Disclosure</a></li>
+          <li><a class="menu-item" href="/pages/tabs">Tabs</a></li>
+        </ul>
+      </li>
+      <li class="nav-category" data-nav-category="Utilities">
+        <div class="menu-title">Utilities</div>
+        <ul>
+          <li><a class="menu-item" href="/pages/focus">Focus</a></li>
+          <li><a class="menu-item" href="/pages/portal">Portal</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="static"></div>
+</div>
+-->
         </div>
         <nav></nav>
         <div class="static"></div>
       </div>
 
       <ui-main>
-        <header>
-          <ui-color-mode></ui-color-mode>
-        </header>
+      <ui-header>
+  <header>
+    <ui-color-mode></ui-color-mode>
+  </header>
+</ui-header>
         <main>
           <article>
             
@@ -74,8 +146,9 @@
     </ui-app>
     <ui-portal></ui-portal>
   </ui-root>
-  <script type="module" src="/web-components/assets/scripts/script.js"></script>
-  <script type="module" src="/web-components/library/components.js"></script>
+
+  <script type="module" src="/assets/scripts/script.js"></script>
+  <script type="module" src="/library/components.js"></script>
 </body>
 
 </html>

@@ -5,6 +5,7 @@ ui-checkbox{
   --checkbox-indicator-color:var(--indicator-color);
   --checkbox-bg-color:var(--choice-bg-color);
   --checkbox-bg-color-checked:var(--choice-bg-color-checked);
+  --checkbox-border-color:var(--control-border-color);
 
   position:relative;
   display:inline-block;
@@ -24,9 +25,10 @@ ui-checkbox{
   &[radius="none"]{--checkbox-radius:var(--radius-none);}
 
   &[disabled]{
-    --checkbox-indicator-color:var(--indicator-color-disabled);
+    --checkbox-indicator-color:var(--fg-color-disabled);
     --checkbox-bg-color:var(--bg-color-disabled);
     --checkbox-bg-color-checked:transparent;
+    --checkbox-border-color:var(--border-color-disabled);
   }
 
   & > input[type="checkbox"]{
@@ -43,7 +45,7 @@ ui-checkbox{
 
     border-width:var(--control-border-width);
     border-style:var(--control-border-style);
-    border-color:var(--control-border-color);
+    border-color:var(--checkbox-border-color);
 
     outline-width:var(--focus-ring-width);
     outline-style:var(--focus-ring-style);

@@ -1,6 +1,6 @@
 {
   "name": "web-components",
-  "version": "0.8.05-alpha",
+  "version": "0.8.06-alpha",
   "description": "https://abwebit.github.io/web-components/",
   "main": "ui/components.js",
   "directories": {
@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/ABWEBIT/web-components#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.5"
+    "@11ty/eleventy": "^3.1.6"
   }
 }

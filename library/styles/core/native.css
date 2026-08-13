@@ -1,0 +1,10 @@
+table{
+  width:100%;
+  border:none;
+  border-collapse:collapse;
+
+  & :where(th,td){
+    text-align:start;
+    vertical-align:top;
+  }
+}

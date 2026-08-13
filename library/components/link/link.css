@@ -25,7 +25,9 @@ a{
     &:hover{color:var(--link-color-hover);}
   }
 
-  &:active{color:var(--link-color-pressed);}
+  &:active{
+    color:var(--link-color-pressed);
+  }
 
   &:focus-visible{
     outline-color:var(--focus-ring-color);

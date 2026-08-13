@@ -1,12 +1,8 @@
 ui-badge{
   --badge-size:round(calc(1.5rem * var(--scaling)),2px);
-  --badge-radius:calc(var(--badge-size) * 0.25);
   --badge-padding-inline:round(calc(0.5rem * var(--scaling)),2px);
   --badge-font-size:round(calc(0.875rem * var(--scaling)),1px);
   --badge-column-gap:calc(var(--badge-size) * 0.25);
-
-  --badge-fg:var(--variant-fg,var(--color-fg-solid,var(--control-fg-default)));
-  --badge-bg:var(--variant-bg,var(--color-bg-solid,var(--control-bg-default)));
 
   isolation:isolate;
   position:relative;
@@ -27,12 +23,66 @@ ui-badge{
   font-family:var(--font-family-default);
   font-size:var(--badge-font-size);
 
-  color:var(--badge-fg);
-  background-color:var(--badge-bg);
+  background-color:var(--badge-bg-color);
+  color:var(--badge-fg-color);
 
   transition-duration:var(--duration-default);
   transition-property:background-color,outline-color,border-color;
 
   &[radius="full"]{--badge-radius:var(--radius-full);}
   &[radius="none"]{--badge-radius:var(--radius-none);}
+
+  /* solid */
+  &[variant="solid"]{
+    --badge-bg-color:var(--bg-color-emphasis);
+    --badge-fg-color:var(--fg-color-on-emphasis);
+  }
+
+  @media (hover: hover){
+    &[variant="solid"] > button:not(:disabled):hover{
+      --badge-bg-color:var(--accent-7);
+    }
+
+  }
+
+  &[variant="solid"] > button:not(:disabled):active{
+    --badge-bg-color:var(--accent-5);
+  }
+
+
+
+
+  /* soft */
+  &[variant="soft"]{
+    --badge-bg-color:var(--accent-3);
+    --badge-fg-color:var(--accent-9);
+  }
+
+  @media (hover: hover){
+    &[variant="soft"] > button:not(:disabled):hover::before{
+      background-color:oklch(from oklch(1 0 0) l c h / var(--state-hover-opacity));
+    }
+  }
+
+  &[variant="soft"] > button:not(:disabled):active::before{
+    background-color:oklch(from oklch(0 0 0) l c h / var(--state-pressed-opacity));
+  }
+
+  /* outline */
+  &[variant="outline"]{
+    --badge-bg-color:var(--accent-3);
+    --badge-fg-color:var(--accent-9);
+    --badge-border-color:var(--accent-8);
+  }
+
+  &[variant="outline"]::after{
+    pointer-events:none;
+    position:absolute;
+    content:'';
+    inset:0;
+    border-radius:var(--badge-radius);
+    border-width:var(--control-border-width);
+    border-style:var(--control-border-style);
+    border-color:var(--state-button-border-color,var(--badge-border-color));
+  }
 }

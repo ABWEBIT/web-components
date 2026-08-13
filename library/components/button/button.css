@@ -1,6 +1,7 @@
 ui-button{
   --button-size:var(--control-action-md);
   --button-radius:calc(var(--button-size) * 0.25);
+  --button-border-color:transparent;
 
   --button-padding-inline:var(--control-padding-md);
   --button-font-size:var(--control-font-md);
@@ -16,28 +17,21 @@ ui-button{
   height:var(--button-size);
   border-radius:var(--button-radius);
 
-  --button-bg-color:var(--button-bg-color-disabled,var(--variant-bg-color));
-  --button-fg-color:var(--button-fg-color-disabled,var(--variant-fg-color));
-  --button-border-color:var(--button-border-color-disabled,var(--variant-border-color));
-
   &[disabled]{
-    --button-fg-color-disabled:var(--fg-color-disabled);
+    --state-button-fg-color:var(--fg-color-disabled);
 
     &:is(
       :not([variant]),
       [variant="solid"],
       [variant="soft"]
     ){
-      --button-bg-color-disabled:var(--bg-color-disabled);
+      --state-button-bg-color:var(--bg-color-disabled);
     }
 
     &[variant="outline"]{
-      --button-border-color-disabled:var(--border-color-disabled);
+      --state-button-border-color:var(--border-color-disabled);
     }
   }
-
-
-
 
   &[size="sm"]{
     --button-size:var(--control-action-sm);
@@ -102,17 +96,22 @@ ui-button{
     line-height:1;
     width:100%;
     height:var(--button-size);
-    border-radius:var(--button-radius);
 
+    border-radius:var(--button-radius);
+    border-width:var(--control-border-width);
+    border-style:var(--control-border-style);
+    border-color:var(--state-button-border-color,var(--button-border-color));
+  
     column-gap:var(--button-column-gap);
     justify-content:var(--button-justify-content,center);
     padding-inline:var(--button-padding-inline);
+  
     font-family:var(--font-family-default);
     font-size:var(--button-font-size);
     /*font-weight:var(--font-weight-medium);*/
 
-    color:var(--button-fg-color);
-    background-color:var(--button-bg-color);
+    background-color:var(--state-button-bg-color,var(--button-bg-color));
+    color:var(--state-button-fg-color,var(--button-fg-color,inherit));
 
     outline-width:var(--focus-ring-width);
     outline-style:var(--focus-ring-style);
@@ -143,92 +142,168 @@ ui-button{
     --spinner-border-radius:var(--button-radius);
   }
 
+  /* default */
+  &:not([variant]){
+    &[color]{
+      --button-bg-color:var(--accent-bg-color-default);
+      --button-fg-color:var(--accent-fg-color-default);
 
+      @media (hover: hover){
+        & > button:not(:disabled):hover{
+          --button-bg-color:var(--accent-bg-color-default-hover);
+        }
+      }
 
+      & > button:not(:disabled):active{
+        --button-bg-color:var(--accent-bg-color-default-active);
+      }
+    }
+    &:not([color]){
+      --button-bg-color:var(--neutral-bg-color-default);
+      --button-fg-color:var(--neutral-fg-color-default);
 
-  /* solid */
-  &[variant="solid"]{
-    --variant-bg-color:var(--accent-bg-color-emphasis);
-    --variant-fg-color:var(--fg-color-emphasis);
-  }
+      @media (hover: hover){
+        & > button:not(:disabled):hover{
+          --button-bg-color:var(--neutral-bg-color-default-hover);
+        }
+      }
 
-  @media (hover: hover){
-    &[variant="solid"] > button:not(:disabled):hover::before{
-      opacity:var(--state-hover-opacity);
+      & > button:not(:disabled):active{
+        --button-bg-color:var(--neutral-bg-color-default-active);
+      }
     }
   }
 
-  &[variant="solid"] > button:not(:disabled):active::before{
-    background-color:oklch(0 0 0);
-    opacity:var(--state-pressed-opacity);
+  /* solid */
+  &[variant="solid"]{
+    &[color]{
+      --button-bg-color:var(--accent-bg-color-default);
+      --button-fg-color:var(--accent-fg-color-default);
+
+      @media (hover: hover){
+        & > button:not(:disabled):hover{
+          --button-bg-color:var(--accent-bg-color-default-hover);
+        }
+      }
+
+      & > button:not(:disabled):active{
+        --button-bg-color:var(--accent-bg-color-default-active);
+      }
+    }
+    &:not([color]){
+      --button-bg-color:var(--neutral-bg-color-default);
+      --button-fg-color:var(--neutral-fg-color-default);
+
+      @media (hover: hover){
+        & > button:not(:disabled):hover{
+          --button-bg-color:var(--neutral-bg-color-default-hover);
+        }
+      }
+
+      & > button:not(:disabled):active{
+        --button-bg-color:var(--neutral-bg-color-default-active);
+      }
+    }
   }
-
-
-
-
-
-
-
 
 
   /* soft */
   &[variant="soft"]{
-    --variant-bg-color:var(--accent-bg-color-muted);
-    --variant-fg-color:var(--accent-fg-color);
-  }
+    &[color]{
+      --button-bg-color:var(--accent-bg-color-subtle);
+      --button-fg-color:var(--accent-fg-color-subtle);
 
-  @media (hover: hover){
-    &[variant="soft"] > button:not(:disabled):hover::before{
-      background-color:oklch(from oklch(1 0 0) l c h / var(--state-hover-opacity));
+      @media (hover: hover){
+        & > button:not(:disabled):hover{
+          --button-bg-color:var(--accent-bg-color-subtle-hover);
+        }
+      }
+      & > button:not(:disabled):active{
+        --button-bg-color:var(--accent-bg-color-subtle-active);
+      }
+    }
+    &:not([color]){
+      --button-bg-color:var(--neutral-bg-color-subtle);
+      --button-fg-color:var(--control-fg-color-subtle);
+
+      @media (hover: hover){
+        & > button:not(:disabled):hover{
+          --button-bg-color:var(--neutral-bg-color-subtle-hover);
+        }
+      }
+
+      & > button:not(:disabled):active{
+        --button-bg-color:var(--neutral-bg-color-subtle-active);
+      }
     }
   }
-
-  &[variant="soft"] > button:not(:disabled):active::before{
-    background-color:oklch(from oklch(0 0 0) l c h / var(--state-pressed-opacity));
-  }
-
 
   /* outline */
   &[variant="outline"]{
-    --variant-bg-color:transparent;
-    --variant-fg-color:var(--accent-fg-color);
-    --variant-border-color:var(--accent-border-color-emphasis);
-  }
+    &[color]{
+      --button-bg-color:transparent;
+      --button-fg-color:var(--accent-fg-color-subtle);
+      --button-border-color:var(--accent-border-color-subtle);
 
-  &[variant="outline"]::after{
-    pointer-events:none;
-    position:absolute;
-    content:'';
-    inset:0;
-    border-radius:var(--button-radius);
-    border-width:var(--control-border-width);
-    border-style:var(--control-border-style);
-    border-color:var(--button-border-color);
-  }
+      @media (hover: hover){
+        &:has( > :is(button):not(:disabled):hover){
+          --button-bg-color:var(--accent-bg-color-subtle);
+        }
+      }
 
-  @media (hover: hover){
-    &[variant="outline"]:has( > :is(button):not(:disabled):hover){
-      --variant-bg-color:var(--accent-bg-color-muted);
+      &:has( > :is(button):not(:disabled):active){
+        --button-bg-color:transparent;
+      }
     }
-  }
+    &:not([color]){
+      --button-bg-color:transparent;
+      --button-fg-color:var(--neutral-fg-color-subtle);
+      --button-border-color:var(--neutral-border-color-subtle);
 
-  &[variant="outline"]:has( > :is(button):not(:disabled):active){
-    --variant-bg-color:var(--accent-bg-color-muted);
+      @media (hover: hover){
+        &:has( > :is(button):not(:disabled):hover){
+          --button-bg-color:var(--neutral-bg-color-subtle);
+        }
+      }
+
+      &:has( > :is(button):not(:disabled):active){
+        --button-bg-color:var(--neutral-bg-color-subtle-active);
+      }
+    }
   }
 
   /* ghost */
   &[variant="ghost"]{
-    --variant-bg-color:transparent;
-    --variant-fg-color:var(--accent-fg-color);
-  }
+    &[color]{
+      --button-bg-color:transparent;
+      --button-fg-color:var(--accent-fg-color-subtle);
 
-  @media (hover: hover){
-    &[variant="ghost"]:has( > :is(button):not(:disabled):hover){
-      --variant-bg-color:var(--accent-bg-color-muted);
+      @media (hover: hover){
+        & > button:not(:disabled):hover{
+          --button-bg-color:var(--accent-bg-color-subtle);
+        }
+      }
+
+      & > button:not(:disabled):active{
+        --button-bg-color:var(--accent-bg-color-subtle-active);
+      }
+    }
+    &:not([color]){
+      --button-bg-color:transparent;
+      --button-fg-color:var(--neutral-fg-color-subtle);
+
+      @media (hover: hover){
+        & > button:not(:disabled):hover{
+          --button-bg-color:var(--neutral-bg-color-subtle);
+        }
+      }
+
+      & > button:not(:disabled):active{
+        --button-bg-color:var(--neutral-bg-color-subtle-active);
+      }
     }
   }
 
-  &[variant="ghost"]:has( > :is(button):not(:disabled):active){
-    --variant-bg-color-pressed:var(--accent-bg-color-muted);
-  }
+
+
 }

@@ -8,13 +8,63 @@ permalink: /pages/switch/
 <p>Switches provide a simple and user-friendly way to toggle between two states.</p>
 
 <h2>Attributes</h2>
-<p>config - static (optional). Additional attributes: id, name, value, class.</p>
-<p>checked - reactive (optional). Default: false.</p>
-<p>required - reactive (optional). Default: false.</p>
-<p>disabled - reactive (optional). Default: false.</p>
-
-<p>radius - static (optional). Controls how rounded the corners are. Available options: none.</p>
-<p>size - static (optional). Controls the overall size of the element. Available options: sm, md (default), lg.</p>
+<table class="table-component">
+  <thead>
+    <tr>
+      <th class="table-column-name">Name</th>
+      <th class="table-column-description">Description</th>
+      <th class="table-column-default">Default</th>
+      <th class="table-column-reactive">Reactive</th>
+      <th class="table-column-required">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>radius</td>
+      <td>Controls how rounded the corners are. 
+        <br>Allowed values: full | none</td>
+      <td>-</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>Controls the overall size of the element.
+        <br>Allowed values: sm | md | lg</td>
+      <td>md</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>config</td>
+      <td>Additional attributes: id, name, value, class.</td>
+      <td>-</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>checked</td>
+      <td></td>
+      <td>false</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td></td>
+      <td>false</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td></td>
+      <td>false</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3>Default</h3>
 <div class="example">

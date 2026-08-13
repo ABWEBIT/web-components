@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-version="{{site.version}}">
+<html lang="en" data-version="{{site.version}}" data-theme="default" data-neutral-color="gray">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -14,41 +14,41 @@
     })();
   </script>
 
-  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/reset/reset.css">
-  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/tokens/index.css">
-  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/core/index.css">
-  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/themes/default/index.css">
-  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/core.css">
-  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/template.css">
+  <link rel="stylesheet" href="{{site.baseUrl}}library/styles/reset.css">
+  <link rel="stylesheet" href="{{site.baseUrl}}library/styles/tokens/index.css">
+  <link rel="stylesheet" href="{{site.baseUrl}}library/styles/color/palettes/default.css">
+  <link rel="stylesheet" href="{{site.baseUrl}}library/styles/core/index.css">
+  <link rel="stylesheet" href="{{site.baseUrl}}library/styles/themes/default/index.css">
+  <link rel="stylesheet" href="{{site.baseUrl}}library/styles/core.css">
+  <link rel="stylesheet" href="{{site.baseUrl}}library/styles/template.css">
 <!--<link rel="stylesheet" href="{{ site.baseUrl }}library/styles/variants.css">-->
-  <link rel="stylesheet" href="{{ site.baseUrl }}library/styles/components.css">
+  <link rel="stylesheet" href="{{site.baseUrl}}library/styles/components.css">
 
-  <script type="module" src="{{ site.baseUrl }}library/lit-core.min.js"></script>
+  <script type="module" src="{{site.baseUrl}}library/lit-core.min.js"></script>
   <link rel="icon" href="data:,">
 
-  <title>{{ title }}</title>
+  <title>{{title}}</title>
 </head>
 
 <body>
   <ui-root>
     <ui-focus></ui-focus>
     <ui-app>
+
       <div class="sidebar">
         <div class="static">
           <span class="version">{{site.version}}</span>
-            {% include "parts/sidebar.html" %}
+            {% include "partials/sidebar.html" %}
         </div>
         <nav></nav>
         <div class="static"></div>
       </div>
 
       <ui-main>
-        <header>
-          <ui-color-mode></ui-color-mode>
-        </header>
+      {% include "partials/header.html" %}
         <main>
           <article>
-            {{ content }}
+            {{content}}
           </article>
         </main>
         <footer></footer>
@@ -56,8 +56,9 @@
     </ui-app>
     <ui-portal></ui-portal>
   </ui-root>
-  <script type="module" src="{{ site.baseUrl }}assets/scripts/script.js"></script>
-  <script type="module" src="{{ site.baseUrl }}library/components.js"></script>
+
+  <script type="module" src="{{site.baseUrl}}assets/scripts/script.js"></script>
+  <script type="module" src="{{site.baseUrl}}library/components.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,61 @@
+---
+title: Color Palettes
+layout: layouts/default.html
+permalink: /pages/color-palettes/
+---
+
+<h1>Color Palettes</h1>
+<p>Default colors.</p>
+
+<h2>Palettes</h2>
+
+<h3>Default</h3>
+<div class="color-palettes"></div>
+
+<script>
+const palettesContainer = document.querySelector('.color-palettes');
+
+const palettes = [
+  'gray',
+  'blue',
+  'cyan',
+  'green',
+  'indigo',
+  'orange',
+  'pink',
+  'purple',
+  'red',
+  'teal',
+  'yellow'
+];
+
+const fragment = document.createDocumentFragment();
+
+palettes.forEach(name => {
+  // palette
+  const palette = document.createElement('div');
+  palette.className = 'palette';
+
+  // label
+  const label = document.createElement('div');
+  label.className = 'palette-label';
+  label.textContent = name;
+
+  // swatches
+  const swatches = document.createElement('div');
+  swatches.className = 'palette-swatches';
+
+  for (let i = 1; i <= 12; i++) {
+    const swatch = document.createElement('button');
+    swatch.className = 'palette-swatch';
+    swatch.style.backgroundColor = `var(--${name}-${i})`;
+
+    swatches.appendChild(swatch);
+  }
+
+  palette.append(label, swatches);
+  fragment.appendChild(palette);
+});
+
+palettesContainer.appendChild(fragment);
+</script>
